@@ -2,7 +2,7 @@
 
 //This code is part of QuanticVortex for latest information, see http://www.quanticvortex.org
 //
-//Copyright (c) 2009 QuanticMinds Software Ltda.
+//Copyright (c) 2009-2010 QuanticMinds Software Ltda.
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -24,10 +24,9 @@
 
 **************************************************************************************************/
 
-#ifndef __ISTATEMACHINE_H_
-#define __ISTATEMACHINE_H_
+#ifndef __ISTATE_MACHINE_H_
+#define __ISTATE_MACHINE_H_
 
-#include "qvPrerequisites.h"
 #include "qvIState.h"
 
 
@@ -35,7 +34,7 @@ namespace qv
 {
     namespace gaming
     {
-		class IStateMachine: public irr::IReferenceCounted
+		class IStateMachine: public IReferenceCounted
         {
         public:
 

@@ -429,66 +429,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\include\qvIIntroductionGameState.h"
-					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\include\qvILoadingGameState.h"
-					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\include\qvIMainMenuState.h"
-					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\include\qvIOptionsGameState.h"
-					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\include\qvIRunningGameState.h"
-					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
 					RelativePath="..\..\include\qvIState.h"
 					>
 				</File>
@@ -590,26 +530,6 @@
 			<Filter
 				Name="extern"
 				>
-				<Filter
-					Name="IrrINI"
-					>
-					<File
-						RelativePath="..\..\include\IrrINI\IrrIni.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\include\IrrINI\SValue.h"
-						>
-					</File>
-				</Filter>
-				<Filter
-					Name="getopt"
-					>
-					<File
-						RelativePath="..\..\include\getopt\getopt.h"
-						>
-					</File>
-				</Filter>
 				<Filter
 					Name="types"
 					>

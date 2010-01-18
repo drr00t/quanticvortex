@@ -2,7 +2,7 @@
 
 //This code is part of QuanticVortex for latest information, see http://www.quanticvortex.org
 //
-//Copyright (c) 2009 QuanticMinds Software Ltda.
+//Copyright (c) 2009-2010 QuanticMinds Software Ltda.
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -25,8 +25,8 @@
 **************************************************************************************************/
 
 
-#ifndef __ICOMMAND_EVENT_H_
-#define __ICOMMAND_EVENT_H_
+#ifndef __I_COMMAND_EVENT_H_
+#define __I_COMMAND_EVENT_H_
 
 #include "qvICommand.h"
 #include "qvEventTypes.h"
