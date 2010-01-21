@@ -43,7 +43,7 @@ namespace qv
 
 		static const s32 QueueEventsLenght = 2;
 		
-		typedef map< s32, ET_EVENT_TYPE> EventTypeMap;
+		typedef array<ET_EVENT_TYPE*> EventTypeArray;
         typedef list<IEventArgs*> EventList;
         typedef list<ICommandEvent*> CommandEventList;
         typedef map<s32, CommandEventList> EventToCommandEventMap;
@@ -67,7 +67,7 @@ namespace qv
         virtual bool validateType(const ET_EVENT_TYPE& type);
     
     private:
-        EventTypeMap mRegistredEvents;
+        EventTypeArray mValidEvents;
         EventToCommandEventMap mRegistredCommandsMap;
 		EventList mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
 		ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
