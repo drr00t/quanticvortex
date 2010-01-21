@@ -50,8 +50,8 @@ namespace qv
     }
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager(const SGameParams& params):_helpRequested(false), 
-        mDevice3d(0), mVideoDriver(0), mSceneManager(0), mInputReceiver(0),
-        mHasPopup(false), mEventManager(0), mFileSystem(0), mGameLogic(0)
+        mDevice3d(0), mVideoDriver(0), mSceneManager(0), mInputReceiver(0), mQuit(false),
+        mHasPopup(false), mEventManager(0), mFileSystem(0), mGameLogic(0),mWindowHandle(0)
         //mInputManager(0)
     {
 
@@ -112,13 +112,13 @@ namespace qv
 
     }
     //-----------------------------------------------------------------------------
-    void EngineManager::registerGameLogicFactory(IGameLogicFactory *factory)
+	void EngineManager::registerGameLogicFactory(gaming::IGameLogicFactory *factory)
     {
         factory->grab();
         mGameLogicFactories.push_back(factory);
     }
     //-----------------------------------------------------------------------------
-    IGameLogic* EngineManager::addGameLogic(const GLT_GAME_LOGIC_TYPE& type)
+	gaming::IGameLogic* EngineManager::addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE& type)
     {
         for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
 		{
@@ -157,7 +157,7 @@ namespace qv
 
         mDevice3d = createDeviceEx(parameters);
         
-		IGameLogicFactory* factory = new GameLogicFactory(this);
+		gaming::IGameLogicFactory* factory = new gaming::GameLogicFactory(this);
         registerGameLogicFactory(factory);
         factory->drop();
 
@@ -214,7 +214,7 @@ namespace qv
             // how long it was since the last frame
             u32 lastTimeMs = mDevice3d->getTimer()->getTime();
 
-	        while(mDevice3d->run())
+	        while(mDevice3d->run() && !mQuit)
             {
                 // Work out a frame delta time.
                 const u32 curentTimeMs = mDevice3d->getTimer()->getTime();

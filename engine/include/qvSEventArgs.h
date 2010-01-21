@@ -35,40 +35,38 @@
 
 namespace qv
 {
-    namespace gaming
-    {        
-		struct SEventArgs: IReferenceCounted
+      
+	struct SEventArgs: IReferenceCounted
+	{
+		SEventArgs(const ET_EVENT_TYPE& type)
+			:Type(type)
+		{}
+
+		SEventArgs( const SEventArgs& other)
 		{
-			SEventArgs(const ET_EVENT_TYPE& type)
-				:Type(type)
-			{}
+			*this = other;
+		}
+	    
+		//operators
+		SEventArgs& operator= (const SEventArgs& other)
+	    {
+			Type = other.Type;
 
-			SEventArgs( const SEventArgs& other)
-			{
-				*this = other;
-			}
-		    
-			//operators
-			SEventArgs& operator= (const SEventArgs& other)
-		    {
-				Type = other.Type;
+		    return *this;
+	    }
+		
+		bool operator!=(const SEventArgs &other) const
+		{
+			return (Type != other.Type);
+		}
 
-			    return *this;
-		    }
-			
-			bool operator!=(const SEventArgs &other) const
-			{
-				return (Type != other.Type);
-			}
+		bool operator==(const SEventArgs &other) const 
+		{
+			return (Type == other.Type);
+		}
 
-			bool operator==(const SEventArgs &other) const 
-			{
-				return (Type == other.Type);
-			}
-
-			ET_EVENT_TYPE Type;
-		};
-    }
+		ET_EVENT_TYPE Type;
+	};
 }
 
 #endif

@@ -55,7 +55,7 @@ namespace input
 			setDebugName("IrrEventHandler");
 #endif
 				
-				//for (s32 i = 0; i < KEY_KEY_CODES_COUNT; ++i) mKeyState[i] = EKS_RELEASED;
+				for (s32 i = 0; i < KEY_KEY_CODES_COUNT; ++i) mKeyState[i] = EKS_RELEASED;
 
 				mMouse.X = 0;
 				mMouse.Y = 0;

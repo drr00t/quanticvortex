@@ -25,8 +25,8 @@
 **************************************************************************************************/
 
 
-#ifndef __ICOMMAND_H_
-#define __ICOMMAND_H_
+#ifndef __I_INPUT_COMMAND_H_
+#define __I_INPUT_COMMAND_H_
 
 #include "qvPrerequisites.h"
 #include "qvEventTypes.h"
@@ -36,18 +36,21 @@ namespace qv
 {
     namespace gaming
     {
+		struct SEventArgs;
         class IEventArgs;
 
         typedef UniqueID CT_COMMAND_TYPE;
         typedef UniqueID CI_COMMAND_ID;
 
-		class ICommand: public IReferenceCounted
+		class IInputCommand: public IReferenceCounted
         {
         public:
             virtual const CI_COMMAND_ID& getID() const =0;
             virtual const CT_COMMAND_TYPE& getType() const =0;
             virtual const array<ET_EVENT_TYPE*>& listenEventTypes() const =0;
-            virtual void execute(const IEventArgs* args) =0;
+            //virtual void execute(const IEventArgs* args) =0;
+			virtual void execute(const SEventArgs& args) =0;
+			
 
         };
 

@@ -33,18 +33,13 @@
 
 
 namespace qv
-{
-    namespace gaming
+{        
+	class ICommandEvent: public ICommand
     {
-        class IEventArgs;
-
-		class ICommandEvent: public ICommand
-        {
-        public:
-            virtual const array<ET_EVENT_TYPE>& listenEventTypes() const =0;
-            virtual void executeCommand(const IEventArgs* args) =0;
-        };
-    }
+    public:
+        virtual const array<ET_EVENT_TYPE>& listenEventTypes() const =0;
+        //virtual void executeCommand(const IEventArgs* args) =0;
+    };
 }
 #endif
 

@@ -35,39 +35,39 @@
 
 namespace qv
 {
-    namespace gaming
-    {        
-		struct SEventArgs: IReferenceCounted
-		{
-			SEventArgs(const ET_EVENT_TYPE& type)
-				:Type(type)
-			{}
+    //namespace gaming
+    //{        
+		//struct SEventArgs: IReferenceCounted
+		//{
+		//	SEventArgs(const ET_EVENT_TYPE& type)
+		//		:Type(type)
+		//	{}
 
-			SEventArgs( const SEventArgs& other)
-			{
-				*this = other;
-			}
-		    
-			//operators
-			SEventArgs& operator= (const SEventArgs& other)
-		    {
-				Type = other.Type;
+		//	SEventArgs( const SEventArgs& other)
+		//	{
+		//		*this = other;
+		//	}
+		//    
+		//	//operators
+		//	SEventArgs& operator= (const SEventArgs& other)
+		//    {
+		//		Type = other.Type;
 
-			    return *this;
-		    }
-			
-			bool operator!=(const SEventArgs &other) const
-			{
-				return (Type != other.Type);
-			}
+		//	    return *this;
+		//    }
+		//	
+		//	bool operator!=(const SEventArgs &other) const
+		//	{
+		//		return (Type != other.Type);
+		//	}
 
-			bool operator==(const SEventArgs &other) const 
-			{
-				return (Type == other.Type);
-			}
+		//	bool operator==(const SEventArgs &other) const 
+		//	{
+		//		return (Type == other.Type);
+		//	}
 
-			ET_EVENT_TYPE Type;
-		};
+		//	ET_EVENT_TYPE Type;
+		//};
 
 		class IEventArgs: public io::IAttributeExchangingObject
         {
@@ -86,7 +86,7 @@ namespace qv
 
 	        //virtual IEventData copy() const = 0;
         };
-    }
+    //}
 }
 
 #endif

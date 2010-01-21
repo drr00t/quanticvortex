@@ -61,7 +61,7 @@ namespace qv
 
         virtual IrrlichtDevice* getDevice()=0;
 		
-        virtual gaming::IEventManager* getEventManager()=0;
+        virtual IEventManager* getEventManager()=0;
 		
 		virtual input::IInputReceiver* getInputReceiver()=0;
 		
@@ -78,6 +78,8 @@ namespace qv
         virtual IVideoDriver* getVideoDriver()=0;
         
         virtual size_t getWindowHandle()=0;
+
+		virtual void setQuit(bool quit)=0;
     };
 }
 

@@ -25,62 +25,54 @@
 **************************************************************************************************/
 
 
-#ifndef __EVENTMANAGER_H_
-#define __EVENTMANAGER_H_
+#ifndef __EVENT_MANAGER_H_
+#define __EVENT_MANAGER_H_
 
-#include "qvPrerequisites.h"
-#include "qvIEventArgs.h"
-
-//#include "qvEngineEvents.h"
 #include "qvIEventManager.h"
-//#include "qvIEventListener.h"
 
 #include "tbb/concurrent_queue.h"
 
 
 namespace qv
 {
-    namespace gaming
+    class ICommandEvent;
+
+	class EventManager: public IEventManager
     {
-        class ICommandEvent;
+    private:
 
-		class EventManager: public IEventManager
-        {
-        private:
-
-			static const s32 QueueEventsLenght = 2;
-			
-			typedef map< s32, ET_EVENT_TYPE> EventTypeMap;
-            typedef list<IEventArgs*> EventList;
-            typedef list<ICommandEvent*> CommandEventList;
-            typedef map<s32, CommandEventList> EventToCommandEventMap;
-			typedef tbb::concurrent_bounded_queue<IEventArgs*> ConcurrentEventList;
+		static const s32 QueueEventsLenght = 2;
+		
+		typedef map< s32, ET_EVENT_TYPE> EventTypeMap;
+        typedef list<IEventArgs*> EventList;
+        typedef list<ICommandEvent*> CommandEventList;
+        typedef map<s32, CommandEventList> EventToCommandEventMap;
+		typedef tbb::concurrent_bounded_queue<IEventArgs*> ConcurrentEventList;
+    
+    public:
+    	EventManager();
+        virtual ~EventManager();
         
-        public:
-        	EventManager();
-            virtual ~EventManager();
-            
-            virtual bool registerCommandEvent ( ICommandEvent* command);
-            virtual bool unregisterCommandEvent ( ICommandEvent* command);
-            //virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType);
+        virtual bool registerCommandEvent ( ICommandEvent* command);
+        virtual bool unregisterCommandEvent ( ICommandEvent* command);
+        //virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType);
 
-            virtual void registerEventType(const ET_EVENT_TYPE& type);
-            virtual void unregisterEventType(const ET_EVENT_TYPE& type);
+        virtual void registerEventType(const ET_EVENT_TYPE& type);
+        virtual void unregisterEventType(const ET_EVENT_TYPE& type);
 
-            virtual bool abortEvent ( const ET_EVENT_TYPE& type, bool all = false );
-            virtual bool enqueueEvent (IEventArgs* args);
-            virtual bool process ( f32 processingTime);
-            virtual bool trigger ( IEventArgs *args );
-            virtual bool validateType(const ET_EVENT_TYPE& type);
-        
-        private:
-            EventTypeMap mRegistredEvents;
-            EventToCommandEventMap mRegistredCommandsMap;
-			EventList mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
-			ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
-            s32 mActiveReadyEventList;
-        };
-    }
+        virtual bool abortEvent ( const ET_EVENT_TYPE& type, bool all = false );
+        virtual bool enqueueEvent (IEventArgs* args);
+        virtual bool process ( f32 processingTime);
+        virtual bool trigger ( IEventArgs *args );
+        virtual bool validateType(const ET_EVENT_TYPE& type);
+    
+    private:
+        EventTypeMap mRegistredEvents;
+        EventToCommandEventMap mRegistredCommandsMap;
+		EventList mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
+		ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
+        s32 mActiveReadyEventList;
+    };
 }
 #endif
 

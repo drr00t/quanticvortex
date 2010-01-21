@@ -30,14 +30,12 @@
 #define _I_INPUT_TRANSLATOR_H_
 
 #include "qvPrerequisites.h"
-#include "qvIEventManager.h"
-//#include "qvIrrEventHandler.h"
+//#include "qvIEventManager.h"
 #include "qvSUniqueID.h"
-
-using namespace qv::gaming;
 
 namespace qv
 {
+	class IEventManager;
 
 	namespace input
 	{

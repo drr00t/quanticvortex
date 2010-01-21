@@ -43,6 +43,7 @@ namespace qv
     private:
         bool _helpRequested;
         bool mHasPopup;
+		bool mQuit;
 
     protected:
 		SGameParams mGameParams;
@@ -50,7 +51,7 @@ namespace qv
 		array<gaming::IGameLogicFactory*> mGameLogicFactories;
 
         gaming::IGameLogic* mGameLogic;
-		gaming::IEventManager* mEventManager;
+		IEventManager* mEventManager;
 		input::IInputReceiver* mInputReceiver;
         
         IrrlichtDevice* mDevice3d;
@@ -82,7 +83,7 @@ namespace qv
         virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory);
         virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE& type);
 
-        virtual gaming::IEventManager* getEventManager()
+        virtual IEventManager* getEventManager()
         {
             return mEventManager;
         }
@@ -134,6 +135,11 @@ namespace qv
         {
             return mWindowHandle;
         }		
+
+		virtual void setQuit(bool quit)
+		{
+			mQuit = quit;
+		}
     };
 }
 

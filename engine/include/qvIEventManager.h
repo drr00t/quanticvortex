@@ -29,32 +29,28 @@
 #define __IEVENTMANAGER_H_
 
 #include "qvPrerequisites.h"
-#include "qvIEventArgs.h"
 #include "qvICommandEvent.h"
+#include "qvIEventArgs.h"
 
 
 namespace qv
 {
-    namespace gaming
+    class IEventManager: public IReferenceCounted
     {
+    public:
+        virtual bool registerCommandEvent ( ICommandEvent* command)=0;
+        virtual bool unregisterCommandEvent ( ICommandEvent* command)=0;
+        //virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType)=0;
 
-        class IEventManager: public IReferenceCounted
-        {
-        public:
-            virtual bool registerCommandEvent ( ICommandEvent* command)=0;
-            virtual bool unregisterCommandEvent ( ICommandEvent* command)=0;
-            //virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType)=0;
+        virtual void registerEventType(const ET_EVENT_TYPE& type)=0;
+        virtual void unregisterEventType(const ET_EVENT_TYPE& type)=0;
 
-            virtual void registerEventType(const ET_EVENT_TYPE& type)=0;
-            virtual void unregisterEventType(const ET_EVENT_TYPE& type)=0;
-
-            virtual bool abortEvent ( const ET_EVENT_TYPE& type, bool all = false )=0;
-            virtual bool enqueueEvent (IEventArgs* args)=0;
-            virtual bool process ( f32 processingTime)=0;
-            virtual bool trigger ( IEventArgs *args )=0;
-            virtual bool validateType(const ET_EVENT_TYPE& type)=0;
-        };
-    }
+        virtual bool abortEvent ( const ET_EVENT_TYPE& type, bool all = false )=0;
+        virtual bool enqueueEvent (IEventArgs* args)=0;
+        virtual bool process ( f32 processingTime)=0;
+        virtual bool trigger ( IEventArgs *args )=0;
+        virtual bool validateType(const ET_EVENT_TYPE& type)=0;
+    };
 }
 #endif
 

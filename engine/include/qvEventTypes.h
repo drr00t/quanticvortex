@@ -34,8 +34,8 @@
 
 namespace qv
 {
-    namespace gaming
-    {        
+/*    namespace gaming
+    {   */     
 		typedef UniqueID ET_EVENT_TYPE;
         
         //engine sertvices events
@@ -101,7 +101,7 @@ namespace qv
   //      mEventManager->registerEventType(NewActorEventArgs::mEventType);
   //      mEventManager->registerEventType(DestroyActorEventArgs::mEventType);
 		//mEventManager->registerEventType(MoveActorEventArgs::mEventType);
-    }
+    //}
 }
 
 #endif

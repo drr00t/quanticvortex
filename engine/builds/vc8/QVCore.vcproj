@@ -162,7 +162,7 @@
 		<Configuration
 			Name="DebugDLL|Win32"
 			OutputDirectory="..\..\lib\debug"
-			IntermediateDirectory="..\obj\debug"
+			IntermediateDirectory="..\..\obj\debug"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="2"
@@ -248,7 +248,7 @@
 		<Configuration
 			Name="ReleaseDLL|Win32"
 			OutputDirectory="..\..\lib\release"
-			IntermediateDirectory="..\obj\release"
+			IntermediateDirectory="..\..\obj\release"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			CharacterSet="2"
@@ -338,6 +338,10 @@
 			Name="include"
 			>
 			<File
+				RelativePath="..\..\include\qvCommandTypes.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\include\qvCompileConfig.h"
 				>
 			</File>
@@ -346,7 +350,34 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\include\qvEventTypes.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\include\qvICommand.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\include\qvICommandEvent.h"
+				>
+				<FileConfiguration
+					Name="DebugDLL|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath="..\..\include\qvIEngineManager.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\include\qvIEventArgs.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\include\qvIEventManager.h"
 				>
 			</File>
 			<File
@@ -359,6 +390,10 @@
 			</File>
 			<File
 				RelativePath="..\..\include\qvQuanticVortex.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\include\qvSEventArgs.h"
 				>
 			</File>
 			<File
@@ -385,36 +420,20 @@
 				Name="gaming"
 				>
 				<File
-					RelativePath="..\..\include\qvCommandTypes.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\qvEventTypes.h"
-					>
-				</File>
-				<File
 					RelativePath="..\..\include\qvIActor.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\qvICommand.h"
 					>
 				</File>
 				<File
 					RelativePath="..\..\include\qvICommandArgs.h"
 					>
-				</File>
-				<File
-					RelativePath="..\..\include\qvICommandEvent.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\qvIEventArgs.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\qvIEventManager.h"
-					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIGameLogic.h"
@@ -446,10 +465,6 @@
 				</File>
 				<File
 					RelativePath="..\..\include\qvSActorParams.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\include\qvSEventArgs.h"
 					>
 				</File>
 				<File
@@ -691,45 +706,40 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\source\quanticvortex\qvEventManager.cpp"
+					>
+					<FileConfiguration
+						Name="ReleaseDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvEventManager.h"
+					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="ReleaseDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath="..\..\source\quanticvortex\qvQuanticVortex.cpp"
 					>
 				</File>
-				<Filter
-					Name="extern"
-					>
-					<Filter
-						Name="IrrINI"
-						>
-						<File
-							RelativePath="..\..\source\quanticvortex\extern\IrrINI\CIrrIniIrr.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\..\source\quanticvortex\extern\IrrINI\CIrrIniIrr.h"
-							>
-						</File>
-						<File
-							RelativePath="..\..\source\quanticvortex\extern\IrrINI\CIrrIniStub.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\..\source\quanticvortex\extern\IrrINI\CIrrIniStub.h"
-							>
-						</File>
-						<File
-							RelativePath="..\..\source\quanticvortex\extern\IrrINI\IrrINI.cpp"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="getopt"
-						>
-						<File
-							RelativePath="..\..\source\quanticvortex\extern\getopt\getopt.cpp"
-							>
-						</File>
-					</Filter>
-				</Filter>
 			</Filter>
 			<Filter
 				Name="views Impl"
@@ -1088,37 +1098,6 @@
 					<FileConfiguration
 						Name="DebugDLL|Win32"
 						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="ReleaseDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\source\quanticvortex\qvEventManager.cpp"
-					>
-					<FileConfiguration
-						Name="ReleaseDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\source\quanticvortex\qvEventManager.h"
-					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
