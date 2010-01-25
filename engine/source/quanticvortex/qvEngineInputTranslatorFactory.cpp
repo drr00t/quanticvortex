@@ -26,17 +26,23 @@
 
 
 #include "qvEngineInputTranslatorFactory.h"
-//#include "qvGameLogic.h"
 
- 
+//translators
+#include "qvAnyKeyInputTranslator.h"
+#include "qvSingleKeyInputTranslator.h"
+
+
 namespace qv
 {
     namespace input
     {
         //-----------------------------------------------------------------------------------------
-		EngineInputTranslatorFactory::EngineInputTranslatorFactory()
+		EngineInputTranslatorFactory::EngineInputTranslatorFactory( IEventManager* eventManager, 
+																	IInputReceiver* inputReceiver): 
+		mEventManager(eventManager), mInputReceiver(inputReceiver)
         {
-            //mSupportedEngineInputTranslatorTypes.push_back(GLT_GAME_LOGIC_DEFAULT.ID);
+			mSupportedEngineInputTranslatorTypes.push_back(ITT_ANY_KEY_TYPE->HashedText);
+			mSupportedEngineInputTranslatorTypes.push_back(ITT_SINGLE_KEY_TYPE->HashedText);
 			//quit translator
 			//pause translator
 			//menu translator
@@ -47,11 +53,15 @@ namespace qv
         {
         }
 		//-----------------------------------------------------------------------------------------------
-		IInputTranslator* EngineInputTranslatorFactory::addInputTranslator (const IT_INPUT_TRANSLATOR_ID& id, EKEY_CODE keyCode)
+		IInputTranslator* EngineInputTranslatorFactory::addInputTranslator (const IT_INPUT_TRANSLATOR_ID* id, const IT_INPUT_TRANSLATOR_TYPE* type, IEventArgs* args, bool realTime)
 		{
 			IInputTranslator* translator = 0;
-			//if(getCreateableInputTranslator(id))
-			//	translator = new GameLogic(mEngine);
+			if(getCreateableInputTranslator(type))
+			{
+				//key and key state will be set after by user
+				//if(ITT_SINGLE_KEY_TYPE->HashedText == type->HashedText)
+				//	translator = new SingleKeyInputTranslator(mEventManager, realTime, args, ID);
+			}
 			return translator;
 		}
         //-----------------------------------------------------------------------------------------
@@ -60,10 +70,10 @@ namespace qv
             return mSupportedEngineInputTranslatorTypes.size();
         }
         //-----------------------------------------------------------------------------------------
-		bool EngineInputTranslatorFactory::getCreateableInputTranslator(const IT_INPUT_TRANSLATOR_ID& id)
+		bool EngineInputTranslatorFactory::getCreateableInputTranslator(const IT_INPUT_TRANSLATOR_TYPE* type)
         {
 	        for (u32 i=0; i<mSupportedEngineInputTranslatorTypes.size(); ++i)
-                if (mSupportedEngineInputTranslatorTypes[i] == id.ID)
+				if (mSupportedEngineInputTranslatorTypes[i] == type->HashedText)
 			        return true;
 
             return false;

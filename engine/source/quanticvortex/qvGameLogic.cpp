@@ -37,18 +37,19 @@
 //#include "qvAIView.h"
 //#include "qvRecorderView.h"
 
-using namespace qv::views;
  
 namespace qv
 {
     namespace gaming
     {
         //-----------------------------------------------------------------------------------------
-        GameLogic::GameLogic(IEngineManager* engineManager, const GLT_GAME_LOGIC_TYPE& type)
+        GameLogic::GameLogic(IEngineManager* engineManager, const GLT_GAME_LOGIC_TYPE* type)
             :mEngineManager(engineManager),mType(type)
         {
-			setDebugName("GameLogic");
-			DefaultGameViewFactory* factory = new DefaultGameViewFactory(engineManager);
+#ifdef _DEBUG
+			setDebugName("DefaultGameLogic");
+#endif
+			views::DefaultGameViewFactory* factory = new views::DefaultGameViewFactory(engineManager);
 			registerGameViewFactory(factory);
 			factory->drop();
         }
@@ -93,11 +94,13 @@ namespace qv
 			return true;
 		}
         //-----------------------------------------------------------------------------------------
-        void GameLogic::addActor( const AI_ACTOR_ID& actorID, const SActorParams& params)
+		void GameLogic::addActor( const AI_ACTOR_ID* actorID, const SActorArgs& args)
         {
 			IActor* actor = 0;
 
-            if(!mActors.find(actorID.ID))
+			//ask to an actor factory if it possible create an actor with this args
+			//if there is no other actor with this ID
+			if(!mActors.find(actorID->HashedText))
 			{
 				//if(args.getNodeType().equals_ignore_case("mesh"))
 				//{
@@ -195,28 +198,28 @@ namespace qv
         }
 
         //-----------------------------------------------------------------------------------------
-		void GameLogic::changeState(const S_STATE_TYPE& newState)
+		void GameLogic::changeState(const S_STATE_TYPE* newState)
         {
             mState = newState;
         }
         //-----------------------------------------------------------------------------------------
-        void GameLogic::addView(IGameView* gameView, const AI_ACTOR_ID& actorID)
+		void GameLogic::addView(views::IGameView* gameView, const AI_ACTOR_ID* actorID)
         {
             gameView->grab();
             mGameViews.push_back(gameView);
             gameView->attach(gameView->getID(), actorID);
-            mPlayerScore.AttachedViewType = gameView->getType();
+            //mPlayerScore.AttachedViewType = gameView->getType();
 
-            mPlayerScore.Actor = actorID;
+            //mPlayerScore.Actor = actorID;
 
             
             //i need restart view here, on book it use restore method
             //view->restore();                
         } 
         //-----------------------------------------------------------------------------------------
-        IGameView* GameLogic::addView( const c8* viewID, const GVT_GAME_VIEW_TYPE& viewType, const AI_ACTOR_ID& actorID)
+        views::IGameView* GameLogic::addView( const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, const AI_ACTOR_ID* actorID)
         {
-            IGameView* gameView(0);
+            views::IGameView* gameView(0);
 
             for(u32 i = 0; i < mGameViewFactories.size(); ++i)
             {
@@ -235,11 +238,11 @@ namespace qv
             //view->restore();                
         } 
         //-----------------------------------------------------------------------------------------
-        IHumanView* GameLogic::addHumanView(const irr::c8 *viewID, const AI_ACTOR_ID& actorID)
+        views::IHumanView* GameLogic::addHumanView(const irr::c8 *viewID, const AI_ACTOR_ID* actorID)
         {
-            IHumanView* gameView(0);
+            views::IHumanView* gameView(0);
 
-            gameView = new HumanView(viewID, mEngineManager);
+            gameView = new views::HumanView(viewID, mEngineManager);
             mGameViews.push_back(gameView);
             gameView->attach(gameView->getID(), actorID);
 
@@ -247,14 +250,14 @@ namespace qv
         }
         //virtual IHumanView* addHumanView(const c8* viewID, ActorID* actorID=0);
         //-----------------------------------------------------------------------------------------
-        void GameLogic::removeView(IGameView* gameView)
+        void GameLogic::removeView(views::IGameView* gameView)
         {
             s32 idx = mGameViews.binary_search(gameView);
             mGameViews[idx]->drop();
             mGameViews.erase(idx);
         }
         //-----------------------------------------------------------------------------------------
-        void GameLogic::registerGameViewFactory(IGameViewFactory *factoryToAdd)
+        void GameLogic::registerGameViewFactory(views::IGameViewFactory *factoryToAdd)
         {
 			factoryToAdd->grab();
             mGameViewFactories.push_back(factoryToAdd);

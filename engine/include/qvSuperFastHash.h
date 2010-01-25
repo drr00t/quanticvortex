@@ -2,7 +2,7 @@
 
 //This code is part of QuanticVortex for latest information, see http://www.quanticvortex.org
 //
-//Copyright (c) 2009 QuanticMinds Software Ltda.
+//Copyright (c) 2009-2010 QuanticMinds Software Ltda.
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -25,14 +25,22 @@
 **************************************************************************************************/
 
 
-#ifndef __SUPERFASTHASH_H_
-#define __SUPERFASTHASH_H_
+#ifndef __SUPER_FAST_HASH_H_
+#define __SUPER_FAST_HASH_H_
 
+#include "qvCompileConfig.h"
 #include "qvPrerequisites.h"
+
+
 
 namespace qv
 {
-   u32 SuperFastHash (const char * data, int len);
+	struct SHashedString;
+
+	#define GET_16_BITS(d) (*((const u16 *) (d)))
+
+	_QUANTICVORTEX_API_ u32 QUANTICVORTEX_CALLCONV createSuperFastHash (const stringc& text);
+
 }
 #endif
 

@@ -28,23 +28,26 @@
 #ifndef __I_COMMAND_H_
 #define __I_COMMAND_H_
 
-#include "qvPrerequisites.h"
+//#include "qvPrerequisites.h"
 #include "qvCommandTypes.h"
 
 
 namespace qv
 {
-	struct SEventArgs;
-	class IEventArgs;
+	namespace events
+	{
+		class IEventArgs;
+	}
 
 	class ICommand: public IReferenceCounted
     {
 
     public:
-        virtual const CI_COMMAND_ID& getID() const =0;
-        virtual const CT_COMMAND_TYPE& getType() const =0;
-		virtual void executeCommand(const IEventArgs* args) =0;
-        virtual void executeCommand(const SEventArgs& args) =0;
+        virtual const CI_COMMAND_ID& getCommandID() const =0;
+		virtual u32 getID() const =0;
+        virtual const stringc& getName() const =0;
+		virtual void executeCommand(const events::IEventArgs* args) =0;
+        //virtual void executeCommand(const SEventArgs& args) =0;
     };
 }
 #endif

@@ -340,6 +340,14 @@
 			<File
 				RelativePath="..\..\include\qvCommandTypes.h"
 				>
+				<FileConfiguration
+					Name="DebugDLL|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\..\include\qvCompileConfig.h"
@@ -350,15 +358,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\qvEventTypes.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\qvICommand.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\qvICommandEvent.h"
 				>
 				<FileConfiguration
 					Name="DebugDLL|Win32"
@@ -373,15 +373,19 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\qvIEventArgs.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\qvIEventManager.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\qvIGame.h"
+				>
+				<FileConfiguration
+					Name="DebugDLL|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\include\qvITimer.h"
 				>
 			</File>
 			<File
@@ -391,37 +395,86 @@
 			<File
 				RelativePath="..\..\include\qvQuanticVortex.h"
 				>
-			</File>
-			<File
-				RelativePath="..\..\include\qvSEventArgs.h"
-				>
+				<FileConfiguration
+					Name="DebugDLL|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\..\include\qvSGameArgs.h"
 				>
+				<FileConfiguration
+					Name="DebugDLL|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\..\include\qvSGameLogicParams.h"
 				>
+				<FileConfiguration
+					Name="DebugDLL|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\..\include\qvSGameParams.h"
+				>
+				<FileConfiguration
+					Name="DebugDLL|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\include\qvSHashedString.h"
 				>
 			</File>
 			<File
 				RelativePath="..\..\include\qvSingletonHolder.h"
 				>
+				<FileConfiguration
+					Name="DebugDLL|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\include\qvSUniqueID.h"
+				RelativePath="..\..\include\qvSuperFastHash.h"
 				>
 			</File>
 			<Filter
 				Name="gaming"
 				>
 				<File
+					RelativePath="..\..\include\qvActorTypes.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\include\qvIActor.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvICommandArgs.h"
@@ -438,18 +491,47 @@
 				<File
 					RelativePath="..\..\include\qvIGameLogic.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIGameLogicFactory.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIGameState.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIState.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIStateMachine.h"
@@ -466,13 +548,40 @@
 				<File
 					RelativePath="..\..\include\qvSActorParams.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvSGameData.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvSPlayerScore.h"
+					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\include\qvStateTypes.h"
 					>
 				</File>
 			</Filter>
@@ -512,10 +621,26 @@
 				<File
 					RelativePath="..\..\include\qvIPhysicsActor.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIPhysicsManager.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 			</Filter>
 			<Filter
@@ -526,19 +651,60 @@
 				Name="input"
 				>
 				<File
+					RelativePath="..\..\include\qvIAnyKeyInputTranslator.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\include\qvICommandInput.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIInputReceiver.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIInputTranslator.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIInputTranslatorFactory.h"
+					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\include\qvISingleKeyInputTranslator.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\qvKeyTypes.h"
 					>
 				</File>
 			</Filter>
@@ -690,6 +856,70 @@
 					>
 				</Filter>
 			</Filter>
+			<Filter
+				Name="events"
+				>
+				<File
+					RelativePath="..\..\include\qvEventTypes.h"
+					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\include\qvICommandEvent.h"
+					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\include\qvIEventArgs.h"
+					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\include\qvIEventArgsFactory.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\qvIEventManager.h"
+					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\include\qvSEventArgs.h"
+					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="source"
@@ -706,38 +936,11 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\source\quanticvortex\qvEventManager.cpp"
-					>
-					<FileConfiguration
-						Name="ReleaseDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\source\quanticvortex\qvEventManager.h"
-					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="ReleaseDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
 					RelativePath="..\..\source\quanticvortex\qvQuanticVortex.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvSuperFastHash.cpp"
 					>
 				</File>
 			</Filter>
@@ -751,6 +954,13 @@
 				<File
 					RelativePath="..\..\source\quanticvortex\qvDefaultElementViewFactory.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvDefaultGameViewFactory.cpp"
@@ -759,6 +969,13 @@
 				<File
 					RelativePath="..\..\source\quanticvortex\qvDefaultGameViewFactory.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvHumanView.cpp"
@@ -785,6 +1002,13 @@
 					<File
 						RelativePath="..\..\source\quanticvortex\qvSceneView.h"
 						>
+						<FileConfiguration
+							Name="DebugDLL|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 				</Filter>
 				<Filter
@@ -916,28 +1140,74 @@
 				Name="input impl"
 				>
 				<File
+					RelativePath="..\..\source\quanticvortex\qvAnyKeyInputTranslator.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvAnyKeyInputTranslator.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.cpp"
 					>
 				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvInputReceiver.cpp"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvInputReceiver.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvIrrEventHandler.h"
 					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvSingleKeyInputTranslator.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvSingleKeyInputTranslator.h"
+					>
 				</File>
 			</Filter>
 			<Filter
-				Name="core impl"
+				Name="gaming impl"
 				>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvActor.cpp"
@@ -1195,6 +1465,41 @@
 					>
 					<FileConfiguration
 						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+			</Filter>
+			<Filter
+				Name="events impl"
+				>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvEventManager.cpp"
+					>
+					<FileConfiguration
+						Name="ReleaseDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvEventManager.h"
+					>
+					<FileConfiguration
+						Name="DebugDLL|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="ReleaseDLL|Win32"
 						ExcludedFromBuild="true"
 						>
 						<Tool

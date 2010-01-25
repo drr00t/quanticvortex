@@ -45,12 +45,14 @@ namespace qv
 
         protected:
             IEngineManager*     mEngine;
-            GVT_GAME_VIEW_TYPE  mType;
-            GVI_GAME_VIEW_ID	mViewID;
-			gaming::AI_ACTOR_ID         mActorID;
+            const GVT_GAME_VIEW_TYPE*  mType;
+            const GVI_GAME_VIEW_ID*	mViewID;
+			const gaming::AI_ACTOR_ID*         mActorID;
 			list<IElementView*> mElementViews;
 
             array<IElementViewFactory*> mElementViewFactories;
+
+			//I need to put aITimer here, to allow private timer to player view
 
             //IGUIFont* mFont;
 
@@ -69,23 +71,25 @@ namespace qv
 
 
         public:
-            HumanView( const c8* viewID, IEngineManager* engine, const GVT_GAME_VIEW_TYPE& viewType = GVT_GAME_VIEW_HUMAN);
+            HumanView( const c8* viewID = 0, IEngineManager* engine = 0, const GVT_GAME_VIEW_TYPE* viewType = GVT_GAME_VIEW_HUMAN);
             virtual ~HumanView();
 
-            virtual const GVT_GAME_VIEW_TYPE& getType()
+            virtual const GVT_GAME_VIEW_TYPE* getType()
 			{
 				return mType;
 			}
 
-            virtual const GVI_GAME_VIEW_ID& getID() const
+            virtual const GVI_GAME_VIEW_ID* getID() const
 			{
 				return mViewID;
 			}
 		
-            virtual void attach(const GVI_GAME_VIEW_ID& viewID, const gaming::AI_ACTOR_ID& actorID=gaming::AI_ACTOR_EMPTY)
+            virtual void attach(const GVI_GAME_VIEW_ID* viewID, const gaming::AI_ACTOR_ID* actorID = 0)
 			{
 				mViewID = viewID;
-				mActorID = actorID;
+
+				if(actorID)
+					mActorID = actorID;
 			}
 			
 			virtual void lostDevice();
@@ -95,11 +99,11 @@ namespace qv
 	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs); //time in miliseconds
 
 	        //// Virtual methods to control the layering of interface elements
-            virtual IElementView* addElementView(const c8* name, const EVT_ELEMENT_VIEW_TYPE& type);
+            virtual IElementView* addElementView(const c8* name, const EVT_ELEMENT_VIEW_TYPE* type);
 
-            virtual void pushElement(IElementView* element);
+   //         virtual void pushElement(IElementView* element);
 
-			virtual void popElement(IElementView* element);
+			//virtual void popElement(IElementView* element);
 
             virtual void registerElementViewFactory(IElementViewFactory* factoryToAdd);
 

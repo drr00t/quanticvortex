@@ -25,68 +25,39 @@
 **************************************************************************************************/
 
 
-#ifndef __IEVENTARGS_H_
-#define __IEVENTARGS_H_
+#ifndef __I_EVENT_ARGS_H_
+#define __I_EVENT_ARGS_H_
 
-#include "qvPrerequisites.h"
+//#include "qvPrerequisites.h"
 #include "qvEventTypes.h"
 
 
 
 namespace qv
 {
-    //namespace gaming
-    //{        
-		//struct SEventArgs: IReferenceCounted
-		//{
-		//	SEventArgs(const ET_EVENT_TYPE& type)
-		//		:Type(type)
-		//	{}
+    namespace events
+    {        
 
-		//	SEventArgs( const SEventArgs& other)
-		//	{
-		//		*this = other;
-		//	}
-		//    
-		//	//operators
-		//	SEventArgs& operator= (const SEventArgs& other)
-		//    {
-		//		Type = other.Type;
-
-		//	    return *this;
-		//    }
-		//	
-		//	bool operator!=(const SEventArgs &other) const
-		//	{
-		//		return (Type != other.Type);
-		//	}
-
-		//	bool operator==(const SEventArgs &other) const 
-		//	{
-		//		return (Type == other.Type);
-		//	}
-
-		//	ET_EVENT_TYPE Type;
-		//};
-
-		class IEventArgs: public io::IAttributeExchangingObject
+		class IEventArgs : public io::IAttributeExchangingObject
         {
         public:
-            virtual const ET_EVENT_TYPE& getEventType( void ) const = 0;
+            virtual const ET_EVENT_TYPE* getEventType( void ) const = 0;
+            virtual u32 getTypeID( void ) const = 0;
+			virtual const stringc& getTypeName( void ) const = 0;
 
 	        //! Writes attributes of the object.
 	        /** Implement this to expose the attributes of your scene node animator for
 	        scripting languages, editors, debuggers or xml serialization purposes. */
-	        virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const=0;
+			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
 
 	        //! Reads attributes of the object.
 	        /** Implement this to set the attributes of your scene node animator for
 	        scripting languages, editors, debuggers or xml deserialization purposes. */
-	        virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0)=0;
+			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
 
 	        //virtual IEventData copy() const = 0;
         };
-    //}
+    }
 }
 
 #endif

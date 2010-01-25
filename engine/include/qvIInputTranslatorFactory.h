@@ -30,15 +30,9 @@
 
 #include "qvIInputTranslator.h"
 
-//using namespace qv::input;
-
-
 namespace qv
 {
-    //namespace views
-    //{
-    //    class IHumanView;
-    //}
+	class IEventArgs;
 
     namespace input
     {
@@ -46,11 +40,11 @@ namespace qv
 		{
 		public:
 
-			virtual IInputTranslator* addInputTranslator (const IT_INPUT_TRANSLATOR_ID& id, EKEY_CODE keyCode) = 0;
+			virtual IInputTranslator* addInputTranslator (const IT_INPUT_TRANSLATOR_ID* id, const IT_INPUT_TRANSLATOR_TYPE* type, IEventArgs* args, bool realTime = false) = 0;
 
 			virtual u32 getCreatableInputTranslatorCount() const = 0;
 
-			virtual bool getCreateableInputTranslator(const IT_INPUT_TRANSLATOR_ID& id) = 0;
+			virtual bool getCreateableInputTranslator(const IT_INPUT_TRANSLATOR_ID* ID) = 0;
 		};
     }
 }

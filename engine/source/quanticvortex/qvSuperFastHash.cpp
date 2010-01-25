@@ -25,29 +25,58 @@
 **************************************************************************************************/
 
 
-#ifndef __I_ELEMENT_VIEW_FACTORY_H_
-#define __I_ELEMENT_VIEW_FACTORY_H_
+#include "qvSuperFastHash.h"
 
-#include "qvIElementView.h"
+#include "qvSHashedString.h"
 
 namespace qv
 {
-    class IEngineManager;
+	_QUANTICVORTEX_API_ u32 QUANTICVORTEX_CALLCONV createSuperFastHash (const stringc& text)
+	{
+		const c8* data = text.c_str();
+		u32 len = text.size();
+		u32 hash = len;
+		u32	tmp;
+		int rem;
 
-    namespace views
-    {
+		if (len <= 0 || data == NULL) return 0;
 
-		class IElementViewFactory : public IReferenceCounted
-		{
-		public:
+		rem = len & 3;
+		len >>= 2;
 
-            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type) = 0;
+		/* Main loop */
+		for (;len > 0; len--) {
+			hash  += GET_16_BITS (data);
+			tmp    = (GET_16_BITS (data+2) << 11) ^ hash;
+			hash   = (hash << 16) ^ tmp;
+			data  += 2*sizeof (u16);
+			hash  += hash >> 11;
+		}
 
-			virtual u32 getCreatableElementViewTypeCount() const = 0;
+		/* Handle end cases */
+		switch (rem) {
+			case 3: hash += GET_16_BITS (data);
+					hash ^= hash << 16;
+					hash ^= data[sizeof (u16)] << 18;
+					hash += hash >> 11;
+					break;
+			case 2: hash += GET_16_BITS (data);
+					hash ^= hash << 11;
+					hash += hash >> 17;
+					break;
+			case 1: hash += *data;
+					hash ^= hash << 10;
+					hash += hash >> 1;
+		}
 
-			virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type) = 0;
-		};
-    }
+		/* Force "avalanching" of final 127 bits */
+		hash ^= hash << 3;
+		hash += hash >> 5;
+		hash ^= hash << 4;
+		hash += hash >> 17;
+		hash ^= hash << 25;
+		hash += hash >> 6;
+
+		return hash;
+	}
 }
-#endif
-

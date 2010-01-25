@@ -37,15 +37,15 @@ namespace qv
         DefaultElementViewFactory::DefaultElementViewFactory(IEngineManager* engine)
             :mEngine(engine)
         {
-            mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_SCENE.ID);
-            mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_GUI.ID);
+			mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_SCENE->HashedText);
+			mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_GUI->HashedText);
         }
         //-----------------------------------------------------------------------------------------
         DefaultElementViewFactory::~DefaultElementViewFactory()
         {
         }
 		//-----------------------------------------------------------------------------------------------
-        IElementView* DefaultElementViewFactory::addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE& type)
+        IElementView* DefaultElementViewFactory::addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type)
 		{
             IElementView* elementView = 0;
 
@@ -63,10 +63,10 @@ namespace qv
             return mSupportedElementViewTypes.size();
         }
         //-----------------------------------------------------------------------------------------
-        bool DefaultElementViewFactory::getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE& type)
+        bool DefaultElementViewFactory::getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type)
         {
 	        for (u32 i=0; i<mSupportedElementViewTypes.size(); ++i)
-				if (mSupportedElementViewTypes[i] == type.ID)
+				if (mSupportedElementViewTypes[i] == type->HashedText)
 			        return true;
 
             return false;

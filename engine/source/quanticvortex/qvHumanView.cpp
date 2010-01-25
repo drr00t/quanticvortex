@@ -38,15 +38,18 @@ namespace qv
     {
         //-----------------------------------------------------------------------------------------
         HumanView::HumanView( const c8* viewID, IEngineManager* engine, 
-            const GVT_GAME_VIEW_TYPE& viewType)
-			:mViewID(viewID), mType(viewType), mLastUpdateTime(0.0f), mEngine(engine),
+            const GVT_GAME_VIEW_TYPE* viewType)
+			:mViewID(0), mType(viewType), mLastUpdateTime(0.0f), mEngine(engine),
 			mCurrentTime(0.0f), mAccumulatorTime(0)
 			/*mProcessManager(0),mInputController(0),*/ 
         {
+			
 
 #ifdef _DEBUG
 			setDebugName("HumanView");
 #endif
+
+			mViewID = new GVI_GAME_VIEW_ID(viewID);
 
             DefaultElementViewFactory* factory = new DefaultElementViewFactory(mEngine);
             registerElementViewFactory(factory);
@@ -100,7 +103,7 @@ namespace qv
             //{
                 list<IElementView*>::Iterator itr;
 
-				mEngine->getVideoDriver()->beginScene(true, true, 0);
+				mEngine->beginRender(true, true); //call some beginRender from engine
 
                 for(itr = mElementViews.begin();itr!= mElementViews.end();++itr)
                     if((*itr)->getVisible())
@@ -110,14 +113,11 @@ namespace qv
 				
 				//mEngineManager->getGuiManager()->drawAll();
 
-				mEngine->getVideoDriver()->endScene();
+                mEngine->endRender(); //call some endRender from engine
 
                 //register last render call time
                 mLastUpdateTime = mCurrentTime;
-				//mAccumulatorTime -= elapsedTimeMs;
-
-                //mEngine->getVideoDriver()->endScene();
-				
+				//mAccumulatorTime -= elapsedTimeMs;				
             //}
             
         }
@@ -144,7 +144,7 @@ namespace qv
 			//mEngineManager->getEventManager()->trigger(&tickEvent);
         }
         //-----------------------------------------------------------------------------------------
-        IElementView* HumanView::addElementView(const c8* name, const EVT_ELEMENT_VIEW_TYPE& type)
+        IElementView* HumanView::addElementView(const c8* name, const EVT_ELEMENT_VIEW_TYPE* type)
         {
             IElementView* elementView(0);
             for(u32 i = 0; i < mElementViewFactories.size(); ++i)
@@ -156,25 +156,25 @@ namespace qv
 
             return elementView;
         }
-        //-----------------------------------------------------------------------------------------
-		void HumanView::pushElement(IElementView* element)
-        {
-            //mElementViews.push_front(element);
-        }
-        //-----------------------------------------------------------------------------------------
-		void HumanView::popElement(IElementView* element)
-        {
-			list<IElementView*>::Iterator itr = mElementViews.begin();
-			while(itr != mElementViews.end())
-			{
-				if((*itr)->getID() == element->getID())
-				{
-					mElementViews.erase (itr);
-					break;
-				}
-				++itr;
-			}
-        }
+  //      //-----------------------------------------------------------------------------------------
+		//void HumanView::pushElement(IElementView* element)
+  //      {
+  //          //mElementViews.push_front(element);
+  //      }
+  //      //-----------------------------------------------------------------------------------------
+		//void HumanView::popElement(IElementView* element)
+  //      {
+		//	list<IElementView*>::Iterator itr = mElementViews.begin();
+		//	while(itr != mElementViews.end())
+		//	{
+		//		if((*itr)->getID() == element->getID())
+		//		{
+		//			mElementViews.erase (itr);
+		//			break;
+		//		}
+		//		++itr;
+		//	}
+  //      }
         //-----------------------------------------------------------------------------------------
         void HumanView::registerElementViewFactory(IElementViewFactory *factoryToAdd)
         {

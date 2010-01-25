@@ -1,5 +1,5 @@
 /**************************************************************************************************
-
+//
 //This code is part of QuanticVortex for latest information, see http://www.quanticvortex.org
 //
 //Copyright (c) 2009-2010 QuanticMinds Software Ltda.
@@ -21,33 +21,24 @@
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
-
+//
 **************************************************************************************************/
 
 
-#ifndef __I_ELEMENT_VIEW_FACTORY_H_
-#define __I_ELEMENT_VIEW_FACTORY_H_
 
-#include "qvIElementView.h"
+#ifndef __KEY_TYPES_H_
+#define __KEY_TYPES_H_
+
+#include "Keycodes.h"
 
 namespace qv
 {
-    class IEngineManager;
+	namespace input
+	{
+		// Enumeration for UP, DOWN, PRESSED and RELEASED key states. Also used for mouse button states.
+		enum EKEY_STATE {EKS_UP, EKS_DOWN, EKS_PRESSED, EKS_RELEASED};
 
-    namespace views
-    {
-
-		class IElementViewFactory : public IReferenceCounted
-		{
-		public:
-
-            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type) = 0;
-
-			virtual u32 getCreatableElementViewTypeCount() const = 0;
-
-			virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type) = 0;
-		};
-    }
+	}
 }
-#endif
 
+#endif

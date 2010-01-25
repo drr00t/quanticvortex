@@ -25,10 +25,9 @@
 **************************************************************************************************/
 
 
-#ifndef __IGAMELOGIC_FACTORY_H_
-#define __IGAMELOGIC_FACTORY_H_
+#ifndef __I_GAME_LOGIC_FACTORY_H_
+#define __I_GAME_LOGIC_FACTORY_H_
 
-#include "qvPrerequisites.h"
 #include "qvIGameLogic.h"
 
 namespace qv
@@ -42,11 +41,11 @@ namespace qv
 		{
 		public:
 
-            virtual IGameLogic* addGameLogic(const GLT_GAME_LOGIC_TYPE& type) = 0;
+            virtual IGameLogic* addGameLogic(const GLT_GAME_LOGIC_TYPE* type) = 0;
 
 			virtual u32 getCreateableGameLogicTypeCount() const = 0;
 
-			virtual bool getCreateableGameLogicType(const GLT_GAME_LOGIC_TYPE& type) = 0;
+			virtual bool getCreateableGameLogicType(const GLT_GAME_LOGIC_TYPE* type) = 0;
 		};
     }
 }

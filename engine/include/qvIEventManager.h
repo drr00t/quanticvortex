@@ -25,32 +25,48 @@
 **************************************************************************************************/
 
 
-#ifndef __IEVENTMANAGER_H_
-#define __IEVENTMANAGER_H_
+#ifndef __I_EVENT_MANAGER_H_
+#define __I_EVENT_MANAGER_H_
 
-#include "qvPrerequisites.h"
-#include "qvICommandEvent.h"
-#include "qvIEventArgs.h"
+//#include "qvPrerequisites.h"
+//#include "qvICommandEvent.h"
+//#include "qvIEventArgs.h"
+#include "qvEventTypes.h"
 
 
 namespace qv
 {
-    class IEventManager: public IReferenceCounted
-    {
-    public:
-        virtual bool registerCommandEvent ( ICommandEvent* command)=0;
-        virtual bool unregisterCommandEvent ( ICommandEvent* command)=0;
-        //virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType)=0;
+    namespace events
+    {   
+		class ICommandEvent;
+		class IEventArgs;
+		class IEventArgsFactory;
 
-        virtual void registerEventType(const ET_EVENT_TYPE& type)=0;
-        virtual void unregisterEventType(const ET_EVENT_TYPE& type)=0;
+		class IEventManager: public IReferenceCounted
+		{
 
-        virtual bool abortEvent ( const ET_EVENT_TYPE& type, bool all = false )=0;
-        virtual bool enqueueEvent (IEventArgs* args)=0;
-        virtual bool process ( f32 processingTime)=0;
-        virtual bool trigger ( IEventArgs *args )=0;
-        virtual bool validateType(const ET_EVENT_TYPE& type)=0;
-    };
+		public:
+
+			virtual bool registerCommandEvent ( ICommandEvent* command)=0;
+			virtual bool unregisterCommandEvent ( ICommandEvent* command)=0;
+			//virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType)=0;
+
+			//event args
+			virtual IEventArgs* getEventArgs(const ET_EVENT_TYPE* type)=0;
+			virtual void registerEventArgsFactory(IEventArgsFactory* factory)=0;
+
+			virtual void registerEventType(const ET_EVENT_TYPE* type)=0;
+			virtual void unregisterEventType(const ET_EVENT_TYPE* type)=0;
+
+			virtual bool abortEvent ( const ET_EVENT_TYPE* type, bool all = false )=0;
+			virtual bool enqueueEvent (IEventArgs* args)=0;
+			virtual bool process ( f32 processingTime)=0;
+			virtual bool trigger ( IEventArgs *args )=0;
+			virtual bool validateType(const ET_EVENT_TYPE* type)=0;
+
+			//default event args
+		};
+	}
 }
 #endif
 

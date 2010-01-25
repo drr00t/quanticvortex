@@ -35,7 +35,7 @@ namespace qv
     {
         class IGameLogic;
 
-		static const S_STATE_TYPE S_GAME_STATE("S_GAME_STATE");
+		static const S_STATE_TYPE *S_GAME_STATE = createSuperFastHash("S_GAME_STATE",13);
 
         class IGameState: public IState
         {
@@ -44,7 +44,7 @@ namespace qv
 
         public:
 
-            IGameState(IGameLogic* gameLogic, const S_STATE_TYPE& type = S_GAME_STATE)
+            IGameState(IGameLogic* gameLogic, const S_STATE_TYPE* type = S_GAME_STATE)
                 :IState(type), 
                 mGameLogic(gameLogic)
             {

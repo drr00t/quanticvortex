@@ -40,18 +40,18 @@ namespace qv
         class DefaultElementViewFactory : public IElementViewFactory
 		{
         private:
-            array<s32> mSupportedElementViewTypes;
+            array<u32> mSupportedElementViewTypes;
             IEngineManager* mEngine;
 
 		public:
             DefaultElementViewFactory(IEngineManager* engine);
             virtual ~DefaultElementViewFactory();
 
-            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE& type);
+            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type);
 
 			virtual u32 getCreatableElementViewTypeCount() const;
 
-            virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE& type);
+            virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type);
 		};
     }
 }

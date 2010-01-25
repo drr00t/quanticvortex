@@ -32,13 +32,13 @@
 
 //! QuanticVortex SDK Version
 #define QUANTICVORTEX_VERSION_MAJOR 0
-#define QUANTICVORTEX_VERSION_MINOR 1
+#define QUANTICVORTEX_VERSION_MINOR 2
 #define QUANTICVORTEX_VERSION_REVISION 0
 
 // This flag will be defined only in Mercurial, the official release code will have
 // it undefined
 //#define QUANTICVORTEX_VERSION_MERCURIAL
-#define QUANTICVORTEX_SDK_VERSION "0.1"
+#define QUANTICVORTEX_SDK_VERSION "0.2"
 
 //! WIN32 for Windows32
 //! WIN64 for Windows64

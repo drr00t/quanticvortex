@@ -36,18 +36,18 @@ namespace qv
         DefaultGameViewFactory::DefaultGameViewFactory(IEngineManager* engine)
             :mEngine(engine)
         {
-            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_HUMAN.ID);
-            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_AI.ID);
-            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_RECORDER.ID);
-            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_NETWORK.ID);
-            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_PHYSICS.ID);
+			mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_HUMAN->HashedText);
+			mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_AI->HashedText);
+            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_RECORDER->HashedText);
+            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_NETWORK->HashedText);
+            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_PHYSICS->HashedText);
         }
         //-----------------------------------------------------------------------------------------
         DefaultGameViewFactory::~DefaultGameViewFactory()
         {
         }
 		//-----------------------------------------------------------------------------------------------
-        IGameView* DefaultGameViewFactory::addGameView(const c8* viewID, const GVT_GAME_VIEW_TYPE& type)
+        IGameView* DefaultGameViewFactory::addGameView(const c8* viewID, const GVT_GAME_VIEW_TYPE* type)
 		{
             IGameView* gameView = 0;
 
@@ -77,10 +77,10 @@ namespace qv
             return mSupportedGameViewTypes.size();
         }
         //-----------------------------------------------------------------------------------------
-        bool DefaultGameViewFactory::getCreateableGameViewType(const GVT_GAME_VIEW_TYPE& type)
+        bool DefaultGameViewFactory::getCreateableGameViewType(const GVT_GAME_VIEW_TYPE* type)
         {
 	        for (u32 i=0; i<mSupportedGameViewTypes.size(); ++i)
-                if (mSupportedGameViewTypes[i] == type.ID)
+                if (mSupportedGameViewTypes[i] == type->HashedText)
 			        return true;
 
             return false;

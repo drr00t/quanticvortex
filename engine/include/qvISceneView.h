@@ -24,12 +24,12 @@
 
 **************************************************************************************************/
 
-#ifndef __ISCENEVIEW_H_
-#define __ISCENEVIEW_H_
+#ifndef __I_SCENE_VIEW_H_
+#define __I_SCENE_VIEW_H_
 
 #include "qvIElementView.h"
 #include "qvIActor.h"
-#include "qvSActorParams.h"
+//#include "qvSActorParams.h"
 //#include "qvEventManager.h"
 
 using namespace irr::scene;
@@ -42,7 +42,7 @@ namespace qv
 
     namespace views
     {
-        static const EVT_ELEMENT_VIEW_TYPE EVT_ELEMENT_VIEW_SCENE("EVT_ELEMENT_VIEW_SCENE");
+        static const EVT_ELEMENT_VIEW_TYPE *EVT_ELEMENT_VIEW_SCENE = new EVT_ELEMENT_VIEW_TYPE("EVT_ELEMENT_VIEW_SCENE");
 
 		class ISceneView: public IElementView, public ISceneUserDataSerializer
         {
@@ -58,8 +58,8 @@ namespace qv
 
 			virtual void loadScene(const c8* sceneName)=0;
 
-			virtual void addSceneNode(const gaming::SActorParams& params, const gaming::AI_ACTOR_ID& actorID = gaming::AI_ACTOR_EMPTY)=0;
-			virtual ISceneNode* findSceneNode(const gaming::AI_ACTOR_ID& actorID)=0;
+			virtual void addSceneNode(const gaming::SActorArgs& args, const gaming::AI_ACTOR_ID* actorID = 0)=0;
+			virtual ISceneNode* findSceneNode(const gaming::AI_ACTOR_ID* actorID)=0;
 
 			//virtual void OnCreateNode(ISceneNode* node)=0;
 			//virtual void OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData)=0;

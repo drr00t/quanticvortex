@@ -25,18 +25,14 @@
 **************************************************************************************************/
 
 
-#ifndef __IGAMELOGIC_H_
-#define __IGAMELOGIC_H_
+#ifndef __I_GAME_LOGIC_H_
+#define __I_GAME_LOGIC_H_
 
-#include "qvPrerequisites.h"
+#include "qvSHashedString.h"
 #include "qvIActor.h"
 #include "qvIHumanView.h"
 #include "qvIProcess.h"
 #include "qvIState.h"
-#include "qvSUniqueID.h"
-
-
-using namespace qv::runtime;
 
 
 namespace qv
@@ -49,11 +45,11 @@ namespace qv
 	namespace gaming
     {
 
-        struct SActorParams;
+		struct SActorArgs;
 
-        typedef UniqueID GLT_GAME_LOGIC_TYPE;
+        typedef SHashedString GLT_GAME_LOGIC_TYPE;
 
-        static const GLT_GAME_LOGIC_TYPE GLT_GAME_LOGIC_DEFAULT("GLT_GAME_LOGIC_DEFAULT");
+		static const GLT_GAME_LOGIC_TYPE *GLT_GAME_LOGIC_DEFAULT = new GLT_GAME_LOGIC_TYPE("GLT_GAME_LOGIC_DEFAULT");
 
 
 		class IGameLogic: public IReferenceCounted
@@ -62,39 +58,44 @@ namespace qv
 
 			virtual bool initialize()=0;
 
-            virtual const GLT_GAME_LOGIC_TYPE& getType() const=0;
+            virtual const GLT_GAME_LOGIC_TYPE* getType() const=0;
 
-            virtual IActor* getActor(const AI_ACTOR_ID& actorID)=0;
+            virtual IActor* getActor(const AI_ACTOR_ID* actorID)=0;
 
-            virtual void addActor( const AI_ACTOR_ID& actorID, const SActorParams& params)=0;
+			virtual void addActor( const AI_ACTOR_ID* actorID, const SActorArgs& args)=0;
 
-			virtual void moveActor( const AI_ACTOR_ID& actorID, const matrix4& transformation)=0;
-			
-			virtual void removeActor(const AI_ACTOR_ID& actorID)=0;
+			virtual void moveActor( const AI_ACTOR_ID* actorID, const matrix4& transformation)=0;
+						
+			virtual void removeActor(const AI_ACTOR_ID* actorID)=0;
+
+			//TODO: implement this method
+			//virtual void registerActorFactory(views::IActorFactory* factoryToAdd)=0;
 
 
 			virtual const array<views::IGameView*>& getGameViews() const=0;
 
-            virtual views::IGameView*  addView(const c8* viewID, const views::GVT_GAME_VIEW_TYPE& viewType, const AI_ACTOR_ID& actorID=AI_ACTOR_EMPTY)=0;
-            virtual views::IHumanView* addHumanView(const c8* viewID, const AI_ACTOR_ID& actorID=AI_ACTOR_EMPTY)=0;
+            virtual void addView(views::IGameView* gameView, const AI_ACTOR_ID* actorID = 0)=0;           
+			 
+			virtual views::IGameView* addView(const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, const AI_ACTOR_ID* actorID = 0)=0;
+
+			virtual views::IHumanView* addHumanView(const c8* viewID, const AI_ACTOR_ID* actorID=0)=0;
             //virtual core::IRecorderView* addRecorderView(const c8* viewID, ActorID* actorID=0) = 0;
             //virtual core::IAIView* addAIView(const c8* viewID, ActorID* actorID=0) = 0;
             //virtual core::INetworkView* addNetworkView(const c8* viewID, ActorID* actorID=0) = 0;
             //virtual core::IPhysicsView* addPhysicsView(const c8* viewID, ActorID* actorID=0) = 0;
 
 
-            virtual void addView(views::IGameView* gameView, const AI_ACTOR_ID& actorID=AI_ACTOR_EMPTY)=0;
+
 
 			virtual void removeView(views::IGameView* gameView)=0;
 
 			virtual void registerGameViewFactory(views::IGameViewFactory* factoryToAdd)=0;
 
-
 			virtual bool loadGame(const stringw& gameName)=0;
 
             virtual void update( u32 currentTimeMs, u32 elapsedTimeMs)=0;
 
-            virtual void changeState( const S_STATE_TYPE& newState)=0;
+            virtual void changeState( const S_STATE_TYPE* newState)=0;
 
         };
     }

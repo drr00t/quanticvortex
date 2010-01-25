@@ -24,25 +24,24 @@
 
 **************************************************************************************************/
 
-#ifndef __IELEMENTVIEW_H_
-#define __IELEMENTVIEW_H_
+#ifndef __I_ELEMENT_VIEW_H_
+#define __I_ELEMENT_VIEW_H_
 
-#include "qvPrerequisites.h"
-#include "qvSUniqueID.h"
+#include "qvSHashedString.h"
 
 namespace qv
 {
     namespace views
     {
-		typedef UniqueID EVI_ELEMENT_VIEW_ID;
-        typedef UniqueID EVT_ELEMENT_VIEW_TYPE;
+		typedef SHashedString EVI_ELEMENT_VIEW_ID;
+        typedef SHashedString EVT_ELEMENT_VIEW_TYPE;
 
 		class IElementView: public irr::IReferenceCounted
         {
         public:
 
-            virtual const EVI_ELEMENT_VIEW_ID& getID()=0;
-            virtual const EVT_ELEMENT_VIEW_TYPE& getType() =0;
+            virtual const EVI_ELEMENT_VIEW_ID* getID()=0;
+            virtual const EVT_ELEMENT_VIEW_TYPE* getType() =0;
 	        virtual bool getVisible()=0;
 			virtual void setVisible(bool visible)=0;
 	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs)=0;

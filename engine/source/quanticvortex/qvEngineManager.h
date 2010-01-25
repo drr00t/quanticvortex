@@ -25,18 +25,18 @@
 **************************************************************************************************/
 
 
-#ifndef __ENGINEMANAGER_H_
-#define __ENGINEMANAGER_H_
+#ifndef __ENGINE_MANAGER_H_
+#define __ENGINE_MANAGER_H_
 
 #include "qvIEngineManager.h" 
 
+//#include "IrrlichtDevice.h"
+//#include "IVideoDriver.h"
+//#include "ITimer.h"
+
 namespace qv
 {    
-	namespace input
-	{ 
-		class IInputReceiver;
-	}
-
+	
 	class EngineManager : public IEngineManager
     {
 
@@ -51,15 +51,14 @@ namespace qv
 		array<gaming::IGameLogicFactory*> mGameLogicFactories;
 
         gaming::IGameLogic* mGameLogic;
-		IEventManager* mEventManager;
+		events::IEventManager* mEventManager;
 		input::IInputReceiver* mInputReceiver;
         
-        IrrlichtDevice* mDevice3d;
-        IVideoDriver* mVideoDriver;
-        ISceneManager* mSceneManager;
-        IFileSystem* mFileSystem;
-        size_t mWindowHandle;
-		//IrrEventHandler* mInputReceiver;
+		irr::IrrlichtDevice* mDevice3d;
+		//irr::video::IVideoDriver* mVideoDriver;
+		//irr::scene::ISceneManager* mSceneManager;
+		//irr::io::IFileSystem* mFileSystem;
+  //      size_t mWindowHandle;
 
         virtual void loadConfiguration();
  	            
@@ -76,14 +75,26 @@ namespace qv
 		EngineManager(const SGameParams& params );
         virtual ~EngineManager();
         
-		virtual bool initialize();
+        virtual bool initialize();
+		
+		virtual void finalize();
 
  	    virtual s32 run();
-	       
-        virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory);
-        virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE& type);
 
-        virtual IEventManager* getEventManager()
+		virtual void beginRender(bool backBuffer, bool zBuffer);
+
+		virtual void endRender();
+
+		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory);
+        
+		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type);
+		
+		virtual gaming::IGameLogic* getGameLogic()
+        {
+            return mGameLogic;
+        }
+   
+		virtual events::IEventManager* getEventManager()
         {
             return mEventManager;
         }
@@ -93,48 +104,40 @@ namespace qv
             return mInputReceiver;
         }
 
-
-		virtual gaming::IGameLogic* getGameLogic()
-        {
-            return mGameLogic;
-        }
-
         virtual SGameParams& getGameParameters()
         {
             return mGameParams;
         }
 
-		//inline IInputManager* getInputManager(){return mInputManager;}
+		//virtual irr::IrrlichtDevice* getDevice()
+  //      {
+  //          return mDevice3d;
+  //      }        
 
-        virtual IrrlichtDevice* getDevice()
-        {
-            return mDevice3d;
-        }        
+		//virtual irr::io::IFileSystem* getFileSystem()
+  //      {
+  //          return mFileSystem;
+  //      }
 
-        virtual IFileSystem* getFileSystem()
-        {
-            return mFileSystem;
-        }
+		//virtual irr::gui::IGUIEnvironment* getGuiManager()
+  //      {
+  //          return mDevice3d->getGUIEnvironment();
+  //      }
 
-        virtual IGUIEnvironment* getGuiManager()
-        {
-            return mDevice3d->getGUIEnvironment();
-        }
+		//virtual irr::scene::ISceneManager* getSceneManager()
+  //      {
+  //          return mSceneManager;
+  //      }
 
-        virtual ISceneManager* getSceneManager()
-        {
-            return mSceneManager;
-        }
+		//virtual irr::video::IVideoDriver* getVideoDriver()
+  //      {
+  //          return mVideoDriver;
+  //      }
 
-        virtual IVideoDriver* getVideoDriver()
-        {
-            return mVideoDriver;
-        }
-
-        virtual size_t getWindowHandle()
-        {
-            return mWindowHandle;
-        }		
+  //      virtual size_t getWindowHandle()
+  //      {
+  //          return mWindowHandle;
+  //      }		
 
 		virtual void setQuit(bool quit)
 		{

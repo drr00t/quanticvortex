@@ -25,20 +25,13 @@
 **************************************************************************************************/
 
 
-#ifndef __IENGINEMANAGER_H_
-#define __IENGINEMANAGER_H_
+#ifndef __I_ENGINE_MANAGER_H_
+#define __I_ENGINE_MANAGER_H_
 
-#include "qvPrerequisites.h" 
-#include "qvIEventManager.h"
+//#include "qvIEventManager.h"
 #include "qvIGameLogicFactory.h"
-#include "qvIInputReceiver.h"
+//#include "qvIInputReceiver.h"
 #include "qvSGameParams.h"
-
-
-using namespace irr::gui;
-using namespace irr::io;
-using namespace irr::video;
-using namespace irr::scene;
 
 
 namespace qv
@@ -46,38 +39,55 @@ namespace qv
 
 	struct SGameParams;
 
+    namespace events
+    {   
+		class IEventManager;
+	}
+
+	namespace input
+	{
+		class IInputReceiver;
+	}
+
 	class IEngineManager : public IReferenceCounted
     {
 
 	public:
-
-		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory)=0;
-        
-		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE& type)=0;
-		
         virtual bool initialize()=0;
+
+		virtual void finalize()=0;
 
  	    virtual s32 run()=0;
 
-        virtual IrrlichtDevice* getDevice()=0;
+		virtual void beginRender(bool backBuffer, bool zBuffer)=0;
+
+		virtual void endRender()=0;
+
+		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory)=0;
+        
+		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type)=0;
 		
-        virtual IEventManager* getEventManager()=0;
+		virtual gaming::IGameLogic* getGameLogic()=0;
+
+        //virtual IrrlichtDevice* getDevice()=0;
+		
+		virtual events::IEventManager* getEventManager()=0;
 		
 		virtual input::IInputReceiver* getInputReceiver()=0;
 		
-        virtual gaming::IGameLogic* getGameLogic()=0;
+        
         
         virtual SGameParams& getGameParameters()=0;
         
-        virtual IGUIEnvironment* getGuiManager()=0;
+        //virtual IGUIEnvironment* getGuiManager()=0;
         
-        virtual IFileSystem* getFileSystem()=0;
+        //virtual IFileSystem* getFileSystem()=0;
         
-        virtual ISceneManager* getSceneManager()=0;
+        //virtual ISceneManager* getSceneManager()=0;
         
-        virtual IVideoDriver* getVideoDriver()=0;
+        //virtual IVideoDriver* getVideoDriver()=0;
         
-        virtual size_t getWindowHandle()=0;
+        //virtual size_t getWindowHandle()=0;
 
 		virtual void setQuit(bool quit)=0;
     };

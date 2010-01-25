@@ -4,7 +4,7 @@
 #define _ACTORFACTORY_H_
 
 #include "qvPrerequisites.h"
-#include "qvUniqueID.h"
+#include "qvSHashedString.h"
 #include "qvActor.h"
 
 using namespace qv::gaming;

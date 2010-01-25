@@ -29,63 +29,45 @@
 #ifndef _I_INPUT_TRANSLATOR_H_
 #define _I_INPUT_TRANSLATOR_H_
 
-#include "qvPrerequisites.h"
-//#include "qvIEventManager.h"
-#include "qvSUniqueID.h"
+#include "qvSHashedString.h"
+#include "qvKeyTypes.h"
 
 namespace qv
 {
-	class IEventManager;
+	namespace events
+	{	
+		class IEventManager;
+	}
 
 	namespace input
 	{
 		class IInputReceiver;
 
-        typedef UniqueID IT_INPUT_TRANSLATOR_ID;
+        typedef SHashedString IT_INPUT_TRANSLATOR_ID;
+		typedef SHashedString IT_INPUT_TRANSLATOR_TYPE;
 
 		class IInputTranslator : public IReferenceCounted
 		{
 		protected:
-			IT_INPUT_TRANSLATOR_ID mID;
-			bool mIsActive;
-			IInputTranslator* mNextTranslator;
-			IEventManager* mEventManager;
+			const IT_INPUT_TRANSLATOR_ID* mID;
+			const IT_INPUT_TRANSLATOR_TYPE* mType;
+			events::IEventManager* mEventManager;
+			bool mRealTime;
 
 		public:
-			IInputTranslator(IEventManager* eventManager, const IT_INPUT_TRANSLATOR_ID& ID, bool active = true)
-				:mIsActive(active), mID(ID),mNextTranslator(0), mEventManager(eventManager)
+			IInputTranslator(events::IEventManager* eventManager, const IT_INPUT_TRANSLATOR_ID* ID, const IT_INPUT_TRANSLATOR_TYPE* type, bool realTime)
+				: mID(ID), mType(type), mEventManager(eventManager)
 			{
 			}
 
 			virtual ~IInputTranslator (){}
-			
-			virtual const IT_INPUT_TRANSLATOR_ID& getID()
+
+			virtual const IT_INPUT_TRANSLATOR_ID* getID()
 			{
 				return mID;
 			}
 
-			virtual void setIsActive(bool active)
-			{
-				mIsActive = active;
-			}
-			
-            virtual bool getIsActive()
-			{
-				return mIsActive;
-			}
-			
-			virtual void setNextTranslator(IInputTranslator* nextTranslator)
-			{
-				mNextTranslator = nextTranslator;
-			}
-
-			virtual bool translate(IInputReceiver *inputState)
-			{
-				if(mNextTranslator)
-					return mNextTranslator->translate(inputState);
-
-				return false;
-			}
+			virtual bool translate(IInputReceiver *context) = 0;
 		};
 	}
 }

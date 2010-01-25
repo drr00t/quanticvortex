@@ -41,12 +41,12 @@ namespace qv
         {
         public:
 
-            virtual const GVT_GAME_VIEW_TYPE& getType()=0;
-            virtual const GVI_GAME_VIEW_ID& getID() const=0;
+            virtual const GVT_GAME_VIEW_TYPE* getType()=0;
+            virtual const GVI_GAME_VIEW_ID* getID() const=0;
             //virtual const u8 getOrder() const=0;  //order to update view
 	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs)=0; //time in miliseconds
 	        virtual void lostDevice()=0;
-			virtual void attach(const GVI_GAME_VIEW_ID& viewID, const gaming::AI_ACTOR_ID& actorID = gaming::AI_ACTOR_EMPTY)=0;
+			virtual void attach(const GVI_GAME_VIEW_ID* viewID, const gaming::AI_ACTOR_ID* actorID = 0)=0;
 	        virtual void update(u32 elapsedTimeMs)=0;
         };
 

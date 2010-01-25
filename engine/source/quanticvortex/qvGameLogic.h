@@ -25,34 +25,40 @@
 **************************************************************************************************/
 
 
-#ifndef __GAME_LOGIC_H_
-#define __GAME_LOGIC_H_
+#ifndef __DEFAULT_GAME_LOGIC_H_
+#define __DEFAULT_GAME_LOGIC_H_
 
-#include "qvIActor.h"
+//#include "qvIActor.h"
 #include "qvIGameLogic.h"
-#include "qvIGameState.h"
-#include "qvIGameView.h"
+//#include "qvIGameState.h"
+//#include "qvIGameView.h"
 //#include "qvIGameViewFactory.h"
 #include "qvIProcessManager.h"
 
 //#include "core/qvActor.h"
-#include "qvSActorParams.h"
-#include "qvSPlayerScore.h"
+//#include "qvSActorParams.h"
+//#include "qvSPlayerScore.h"
 
 //#include "qvIEventListener.h"
 //#include "qvIPhysicsManager.h"
 
 //using namespace qv::events;
 //using namespace qv::physics;
-using namespace qv::runtime;
+//using namespace qv::runtime;
 
 
 namespace qv
 {
     class IEngineManager;
 
+	namespace views
+	{
+		IGameViewFactory;
+	}
+
     namespace gaming
     {
+
 		class GameLogic : public IGameLogic
         {
 
@@ -60,9 +66,9 @@ namespace qv
             
             array<views::IGameViewFactory*> mGameViewFactories;
 
-			GLT_GAME_LOGIC_TYPE mType;
+			const GLT_GAME_LOGIC_TYPE* mType;
 
-            S_STATE_TYPE mState;
+            const S_STATE_TYPE* mState;
 
             map<u32, IActor*> mActors;
             
@@ -70,7 +76,7 @@ namespace qv
             
             IEngineManager* mEngineManager;
 
-            SPlayerScore mPlayerScore;
+            //SPlayerScore mPlayerScore;
             //ActorID mHumanPlayerAttached;
 	        //list<ActorID*> mAIPlayersAttached;
 
@@ -82,44 +88,44 @@ namespace qv
 			//IEventListener* mEventListener;
 
         public:
-            GameLogic(IEngineManager* engineManager, const GLT_GAME_LOGIC_TYPE& type=GLT_GAME_LOGIC_DEFAULT);
+            GameLogic(IEngineManager* engineManager, const GLT_GAME_LOGIC_TYPE* type=GLT_GAME_LOGIC_DEFAULT);
             virtual ~GameLogic();
 
 			virtual bool initialize();
 
-            virtual const GLT_GAME_LOGIC_TYPE& getType() const
+            virtual const GLT_GAME_LOGIC_TYPE* getType() const
             {
                 return mType;
             }
 
-            virtual IActor* getActor(const AI_ACTOR_ID& actorID)
+            virtual IActor* getActor(const AI_ACTOR_ID* actorID)
 			{
-				map<u32,IActor*>::Node* actor = mActors.find(actorID.ID);
+				map<u32,IActor*>::Node* actor = mActors.find(actorID->HashedText);
 				IActor* actorFounded = 0;
 				if(actor)
 					actorFounded = actor->getValue();
 				return actorFounded;
 			}
 
-			virtual void addActor( const AI_ACTOR_ID& actorID, const SActorParams& params);
+			virtual void addActor( const AI_ACTOR_ID* actorID, const SActorArgs& args);
 
 
-			virtual void moveActor( const AI_ACTOR_ID& actorID, const matrix4& transformation)
+			virtual void moveActor( const AI_ACTOR_ID* actorID, const matrix4& transformation)
 			{
-				map<u32,IActor*>::Node* node = mActors.find(actorID.ID);
+				IActor* actor = getActor(actorID);
 
-				if(node)
-					node->getValue()->setTransformation(transformation);
+				if(actor)
+					actor->setTransformation(transformation);
 			}
             
-			void removeActor(const AI_ACTOR_ID& actorID)
+			void removeActor(const AI_ACTOR_ID* actorID)
 			{
-                ActorMap::Node* node = mActors.find(actorID.ID);
+				IActor* actor = getActor(actorID);
 
-                if(node)
+                if(actor)
                 {
-                    node->getValue()->drop();
-                    mActors.remove(actorID.ID);
+					actor->drop();
+					mActors.delink(actorID->HashedText);
                 }
 			}
 
@@ -129,11 +135,11 @@ namespace qv
 				return mGameViews;
 			}
 			
-            virtual void addView(views::IGameView* gameView, const AI_ACTOR_ID& actorID=AI_ACTOR_EMPTY);
+            virtual void addView(views::IGameView* gameView, const AI_ACTOR_ID* actorID = 0);
             
-			virtual views::IGameView* addView(const c8* viewID, const views::GVT_GAME_VIEW_TYPE& viewType, const AI_ACTOR_ID& actorID=AI_ACTOR_EMPTY);
+			virtual views::IGameView* addView(const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, const AI_ACTOR_ID* actorID = 0);
 
-            virtual views::IHumanView* addHumanView(const c8* viewID, const AI_ACTOR_ID& actorID=AI_ACTOR_EMPTY);
+            virtual views::IHumanView* addHumanView(const c8* viewID, const AI_ACTOR_ID* actorID = 0);
 			
             virtual void removeView(views::IGameView* gameView);
 			
@@ -144,7 +150,7 @@ namespace qv
 
             virtual void update( u32 currentTimeMs, u32 elapsedTimeMs);
 
-            virtual void changeState( const S_STATE_TYPE& newState);
+            virtual void changeState( const S_STATE_TYPE* newState);
 
 
 			//IPhysicsManager* getPhysicsManager(){return mPhysicsManager;}

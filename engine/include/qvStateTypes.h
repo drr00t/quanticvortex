@@ -24,30 +24,24 @@
 
 **************************************************************************************************/
 
+#ifndef __STATE_TYPES_H_
+#define __STATE_TYPES_H_
 
-#ifndef __I_ELEMENT_VIEW_FACTORY_H_
-#define __I_ELEMENT_VIEW_FACTORY_H_
-
-#include "qvIElementView.h"
+#include "qvSHashedString.h"
 
 namespace qv
 {
-    class IEngineManager;
-
-    namespace views
+    namespace gaming
     {
+		typedef SHashedString S_STATE_TYPE;
 
-		class IElementViewFactory : public IReferenceCounted
-		{
-		public:
-
-            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type) = 0;
-
-			virtual u32 getCreatableElementViewTypeCount() const = 0;
-
-			virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type) = 0;
-		};
+		static const S_STATE_TYPE *S_INITIALIZATING_STATE = new S_STATE_TYPE("S_INITIALIZATING_STATE");
+		static const S_STATE_TYPE *S_LOADING_STATE = new S_STATE_TYPE("S_LOADING_STATE");
+		static const S_STATE_TYPE *S_RUNNING_STATE = new S_STATE_TYPE("S_RUNNING_STATE");
+		static const S_STATE_TYPE *S_WAITING_PLAYER_STATE = new S_STATE_TYPE("S_WAITING_PLAYER_STATE");
+		static const S_STATE_TYPE *S_MENU_STATE = new S_STATE_TYPE("S_MENU_STATE");
     }
 }
+
 #endif
 

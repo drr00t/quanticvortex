@@ -25,29 +25,39 @@
 **************************************************************************************************/
 
 
-#ifndef __I_ELEMENT_VIEW_FACTORY_H_
-#define __I_ELEMENT_VIEW_FACTORY_H_
+#ifndef _ANY_KEY_INPUT_TRANSLATOR_H_
+#define _ANY_KEY_INPUT_TRANSLATOR_H_
 
-#include "qvIElementView.h"
+#include "qvIAnyKeyInputTranslator.h"
+
 
 namespace qv
 {
-    class IEngineManager;
-
-    namespace views
-    {
-
-		class IElementViewFactory : public IReferenceCounted
+	namespace events
+	{
+		class IEventManager;
+		class IEventArgs;
+	}
+	
+	namespace input
+	{
+		class IInputReceiver;
+		
+		class AnyKeyInputTranslator : public IAnyKeyInputTranslator
 		{
+
 		public:
 
-            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type) = 0;
+			AnyKeyInputTranslator(events::IEventManager* eventManager, 
+									bool realTime,
+									events::IEventArgs* args,
+									const IT_INPUT_TRANSLATOR_ID* ID);
 
-			virtual u32 getCreatableElementViewTypeCount() const = 0;
+			virtual ~AnyKeyInputTranslator();
 
-			virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type) = 0;
+			virtual bool translate(IInputReceiver *context);
 		};
-    }
+	}
 }
-#endif
 
+#endif

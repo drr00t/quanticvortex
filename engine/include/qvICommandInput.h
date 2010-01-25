@@ -39,8 +39,8 @@ namespace qv
 		struct SEventArgs;
         class IEventArgs;
 
-        typedef UniqueID CT_COMMAND_TYPE;
-        typedef UniqueID CI_COMMAND_ID;
+        typedef SHashedString CT_COMMAND_TYPE;
+        typedef SHashedString CI_COMMAND_ID;
 
 		class IInputCommand: public IReferenceCounted
         {

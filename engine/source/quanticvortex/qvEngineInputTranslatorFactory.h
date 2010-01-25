@@ -32,23 +32,32 @@
 
 namespace qv
 {    
+	class IEventManager;
+
+	namespace input
+	{
+		class IInputReceiver;
+	}
+
     namespace input
     {
 		class EngineInputTranslatorFactory : public IInputTranslatorFactory
 		{
 		protected:
 			array<u32> mSupportedEngineInputTranslatorTypes;
+			IEventManager* mEventManager;
+			IInputReceiver* mInputReceiver;
 
 		public:
-			EngineInputTranslatorFactory();
+			EngineInputTranslatorFactory( IEventManager* eventManager, IInputReceiver* inputReceiver);
 			
 			virtual ~EngineInputTranslatorFactory();
 
-			virtual IInputTranslator* addInputTranslator (const IT_INPUT_TRANSLATOR_ID& id, EKEY_CODE keyCode);
+			virtual IInputTranslator* addInputTranslator (const IT_INPUT_TRANSLATOR_ID* id, const IT_INPUT_TRANSLATOR_TYPE* type, IEventArgs* args, bool realTime = true);
 
 			virtual u32 getCreatableInputTranslatorCount() const;
 
-			virtual bool getCreateableInputTranslator(const IT_INPUT_TRANSLATOR_ID& id);
+			virtual bool getCreateableInputTranslator(const IT_INPUT_TRANSLATOR_ID* ID);
 		};
     }
 }

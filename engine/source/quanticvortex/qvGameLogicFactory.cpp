@@ -37,14 +37,14 @@ namespace qv
 		GameLogicFactory::GameLogicFactory(IEngineManager* engine)
 			:mEngine(engine)
         {
-            mSupportedGameLogicTypes.push_back(GLT_GAME_LOGIC_DEFAULT.ID);
+			mSupportedGameLogicTypes.push_back(GLT_GAME_LOGIC_DEFAULT->HashedText);
         }
         //-----------------------------------------------------------------------------------------
         GameLogicFactory::~GameLogicFactory()
         {
         }
 		//-----------------------------------------------------------------------------------------------
-        IGameLogic* GameLogicFactory::addGameLogic(const GLT_GAME_LOGIC_TYPE& type)
+        IGameLogic* GameLogicFactory::addGameLogic(const GLT_GAME_LOGIC_TYPE* type)
 		{
             IGameLogic* gameLogic = 0;
 			if(getCreateableGameLogicType(type))
@@ -57,10 +57,10 @@ namespace qv
             return mSupportedGameLogicTypes.size();
         }
         //-----------------------------------------------------------------------------------------
-        bool GameLogicFactory::getCreateableGameLogicType(const GLT_GAME_LOGIC_TYPE& type)
+        bool GameLogicFactory::getCreateableGameLogicType(const GLT_GAME_LOGIC_TYPE* type)
         {
 	        for (u32 i=0; i<mSupportedGameLogicTypes.size(); ++i)
-                if (mSupportedGameLogicTypes[i] == type.ID)
+				if (mSupportedGameLogicTypes[i] == type->HashedText)
 			        return true;
 
             return false;

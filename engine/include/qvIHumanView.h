@@ -25,16 +25,14 @@
 **************************************************************************************************/
 
 
-#ifndef __IHUMANVIEW_H_
-#define __IHUMANVIEW_H_
+#ifndef __I_HUMAN_VIEW_H_
+#define __I_HUMAN_VIEW_H_
 
 //#include "qvEngineManager.h"
 #include "qvIGameView.h"
 #include "qvIElementView.h"
 //#include "input/qvInputController.h"
 //#include "runtime/qvProcessManager.h"
-
-//using namespace qv::core;
 
 
 namespace qv
@@ -54,9 +52,9 @@ namespace qv
         {
 
         public:
-            virtual IElementView* addElementView(const c8* name, const EVT_ELEMENT_VIEW_TYPE& type)=0;
-            virtual void pushElement(IElementView* element)=0;
-			virtual void popElement(IElementView* element)=0;
+            virtual IElementView* addElementView(const c8* name, const EVT_ELEMENT_VIEW_TYPE* type)=0;
+   //         virtual void pushElement(IElementView* element)=0;
+			//virtual void popElement(IElementView* element)=0;
             virtual void registerElementViewFactory(IElementViewFactory* factoryToAdd)=0;
 			//void attachProcess(Process* process){mProcessManager->attach(process);}
         };

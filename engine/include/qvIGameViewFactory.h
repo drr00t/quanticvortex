@@ -41,11 +41,11 @@ namespace qv
 		{
 		public:
 
-            virtual IGameView* addGameView(const c8* viewID, const GVT_GAME_VIEW_TYPE& type) = 0;
+            virtual IGameView* addGameView(const c8* viewID, const GVT_GAME_VIEW_TYPE* type) = 0;
 
 			virtual u32 getCreatableGameViewTypeCount() const = 0;
 
-			virtual bool getCreateableGameViewType(const GVT_GAME_VIEW_TYPE& type) = 0;
+			virtual bool getCreateableGameViewType(const GVT_GAME_VIEW_TYPE* type) = 0;
 		};
     }
 }

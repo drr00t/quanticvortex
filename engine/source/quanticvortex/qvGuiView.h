@@ -20,19 +20,19 @@ namespace qv
             IGUIElement* mElement;
             IGUIEnvironment* mGuiManager;
 			bool mVisible;
-            EVT_ELEMENT_VIEW_TYPE mType;
-            EVI_ELEMENT_VIEW_ID mID;
+            const EVT_ELEMENT_VIEW_TYPE* mType;
+            const EVI_ELEMENT_VIEW_ID* mID;
 
         public:
-            GuiView(const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE& type = EVT_ELEMENT_VIEW_GUI);
+            GuiView(const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type = EVT_ELEMENT_VIEW_GUI);
             virtual ~GuiView();
 			
-            virtual const EVT_ELEMENT_VIEW_TYPE& getType()
+            virtual const EVT_ELEMENT_VIEW_TYPE* getType()
             {
                 return mType;
             }
             
-            virtual const EVI_ELEMENT_VIEW_ID& getID()
+            virtual const EVI_ELEMENT_VIEW_ID* getID()
             {
                 return mID;
             }

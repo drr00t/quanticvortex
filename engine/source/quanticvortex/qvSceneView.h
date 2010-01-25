@@ -24,10 +24,10 @@
 
 **************************************************************************************************/
 
-#ifndef __SCENEVIEW_H_
-#define __SCENEVIEW_H_
+#ifndef __SCENE_VIEW_H_
+#define __SCENE_VIEW_H_
 
-#include "qvPrerequisites.h"
+//#include "qvPrerequisites.h"
 #include "qvISceneView.h"
 //#include "qvIActor.h"
 //#include "qvSActorParams.h"
@@ -51,21 +51,21 @@ namespace qv
 			ISceneManager* mSceneManager;
 			ICameraSceneNode* mDefaultCamera;
             map<s32,ISceneNode*> mActorSceneNodeMap;
-            EVT_ELEMENT_VIEW_TYPE mType;
-            EVI_ELEMENT_VIEW_ID mID;
+            const EVT_ELEMENT_VIEW_TYPE* mType;
+            const EVI_ELEMENT_VIEW_ID* mID;
 
             bool mVisible;
 
         public:
-            SceneView( const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE& type = EVT_ELEMENT_VIEW_SCENE);
+            SceneView( const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type = EVT_ELEMENT_VIEW_SCENE);
 			virtual ~SceneView();
 
-            virtual const EVT_ELEMENT_VIEW_TYPE& getType()
+            virtual const EVT_ELEMENT_VIEW_TYPE* getType()
             {
                 return mType;
             }
 
-            virtual const EVI_ELEMENT_VIEW_ID& getID()
+            virtual const EVI_ELEMENT_VIEW_ID* getID()
             {
                 return mID;
             }
@@ -99,8 +99,8 @@ namespace qv
 
 
 			virtual void loadScene(const c8* sceneName);
-            virtual void addSceneNode(const gaming::SActorParams& params, const gaming::AI_ACTOR_ID& actorID= gaming::AI_ACTOR_EMPTY);
-			virtual ISceneNode* findSceneNode(const gaming::AI_ACTOR_ID& actorID);
+			virtual void addSceneNode(const gaming::SActorArgs& args, const gaming::AI_ACTOR_ID* actorID = 0);
+			virtual ISceneNode* findSceneNode(const gaming::AI_ACTOR_ID* actorID);
 
 			virtual void OnCreateNode(ISceneNode* node);
 			virtual void OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData);

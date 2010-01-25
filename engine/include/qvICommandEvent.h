@@ -33,13 +33,16 @@
 
 
 namespace qv
-{        
-	class ICommandEvent: public ICommand
-    {
-    public:
-        virtual const array<ET_EVENT_TYPE>& listenEventTypes() const =0;
-        //virtual void executeCommand(const IEventArgs* args) =0;
-    };
+{     
+    namespace events
+    {   
+		class ICommandEvent: public ICommand
+		{
+		public:
+			virtual const array<ET_EVENT_TYPE*>& listenEventTypes() const =0;
+			//virtual void executeCommand(const IEventArgs* args) =0;
+		};
+	}
 }
 #endif
 

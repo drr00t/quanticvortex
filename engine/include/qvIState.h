@@ -24,30 +24,27 @@
 
 **************************************************************************************************/
 
-#ifndef __ISTATE_H_
-#define __ISTATE_H_
+#ifndef __I_STATE_H_
+#define __I_STATE_H_
 
-#include "qvPrerequisites.h"
-#include "qvSUniqueID.h"
+#include "qvStateTypes.h"
 
 namespace qv
 {
     namespace gaming
     {
-		typedef UniqueID S_STATE_TYPE;
-
 		class IState: public irr::IReferenceCounted
         {
         protected:
-            S_STATE_TYPE mType;
+            const S_STATE_TYPE* mType;
 
         public:
-            IState(const S_STATE_TYPE& type)
-                :mType(type)
+            IState(const S_STATE_TYPE* type)
+				:mType(type)
             {
             }
 
-            virtual const S_STATE_TYPE& getType(){ return mType;}
+            virtual const S_STATE_TYPE* getType(){ return mType;}
 
             //virtual void addState(IState* state) = 0;
             virtual void enter() = 0;

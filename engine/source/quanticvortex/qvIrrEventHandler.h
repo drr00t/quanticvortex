@@ -4,17 +4,26 @@
 #define __IRR_EVENT_HANDLER_H_
 
 #include "qvIInputReceiver.h"
-//#include "qvInputContext.h"
+//#include "qvIEventManager.h"
+
+#include "qvSingleKeyInputTranslator.h"
+#include "qvAnyKeyInputTranslator.h"
 
 namespace qv
 {
+    namespace events
+    {   
+		class IEventManager;
+	}
+
 namespace input
 {
-	// Enumeration for UP, DOWN, PRESSED and RELEASED key states. Also used for mouse button states.
-	enum EKEY_STATE {EKS_UP, EKS_DOWN, EKS_PRESSED, EKS_RELEASED};
+
+	//class ISingleKeyInputTranslator;
+	//class IAnyKeyInputTranslator;
 
 	// Keyboard key states.
-	EKEY_STATE mKeyState[KEY_KEY_CODES_COUNT];
+	//EKEY_STATE mKeyState[KEY_KEY_CODES_COUNT];
 
 	//base implementation released by Seven on Irrlicht forums: 
 	//http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=34052&highlight=irreventhandler
@@ -24,8 +33,11 @@ namespace input
 		private:
 			//i need see which collection will work bether here
 			array<IInputTranslator*> mInputTranslators;
+			array<IInputTranslatorFactory*> mInputTranslatorsFactories;
 
 			EKEY_STATE mKeyState[KEY_KEY_CODES_COUNT];
+
+			events::IEventManager* mEventManager;
 
 		public:
 
@@ -48,7 +60,8 @@ namespace input
 			f32 mouseWheel()      { return mMouse.Wheel;         }
 			f32 mouseWheelDelta()   { return mMouse.WheelDelta;   }
 
-			IrrEventHandler(void)         
+			IrrEventHandler(events::IEventManager* eventManager)         
+				:mEventManager(eventManager)
 			{
 
 #ifdef _DEBUG
@@ -68,12 +81,13 @@ namespace input
 
 			virtual ~IrrEventHandler(void)   {}
 
-			virtual IInputTranslator* getInputTranslator( const IT_INPUT_TRANSLATOR_ID& translatorID)
+			virtual IInputTranslator* getInputTranslator( const IT_INPUT_TRANSLATOR_ID* translatorID)
 			{
 				IInputTranslator* inputTranslator = 0;
+
 				for(u32 i = 0; i < mInputTranslators.size(); ++i)
 				{
-					if(mInputTranslators[i]->getID().ID == translatorID.ID)
+					if(mInputTranslators[i]->getID()->HashedText == translatorID->HashedText)
 					{					
 						inputTranslator = mInputTranslators[i];
 						break;
@@ -82,18 +96,34 @@ namespace input
 
 				return inputTranslator;				
 			}
+			
+			//translators
+			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, events::IEventArgs* args, bool realTime = false)
+			{
+				ISingleKeyInputTranslator* translator = new SingleKeyInputTranslator( mEventManager, keyCode, checkState, realTime, args, ID);
+				mInputTranslators.push_back(translator);
+
+				return translator;
+			}
+
+			virtual IAnyKeyInputTranslator* addAnyKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, events::IEventArgs* args, bool realTime = false)
+			{
+				IAnyKeyInputTranslator* translator = new AnyKeyInputTranslator( mEventManager, realTime, args, ID);
+				mInputTranslators.push_back(translator);
+
+				return translator;
+			}
+
 
 			virtual void registerInputTranslator( IInputTranslator* translator)
 			{
 				IInputTranslator* inputTranslator = getInputTranslator(translator->getID());
 
-				if(inputTranslator) //override translation
-					inputTranslator->setNextTranslator(translator);
-				else
+				if(!inputTranslator)
 					mInputTranslators.push_back(translator);
 			}
 
-			virtual void unregisterInputTranslator( const IT_INPUT_TRANSLATOR_ID& translatorID)
+			virtual void unregisterInputTranslator( const IT_INPUT_TRANSLATOR_ID* translatorID)
 			{
 
 			}
@@ -103,6 +133,13 @@ namespace input
 
 			}
 
+			virtual void registerInputTranslatorFactory( IInputTranslatorFactory* factory)
+			{
+				factory->grab();
+				mInputTranslatorsFactories.push_back(factory);
+			}
+
+			//context
 			virtual bool keyPressed(EKEY_CODE keycode)         {   return (mKeyState[keycode] == EKS_PRESSED);                        };
 			virtual bool keyDown(EKEY_CODE keycode)         {   return (mKeyState[keycode] == EKS_DOWN || mKeyState[keycode] == EKS_PRESSED); };
 			virtual bool keyUp(EKEY_CODE keycode)            {   return (mKeyState[keycode] == EKS_UP || mKeyState[keycode] == EKS_RELEASED);   };
@@ -116,8 +153,7 @@ namespace input
 
 			   //command for keyboard event registred by InputTranslators can executed here
 				for(u32 i = 0; i < mInputTranslators.size(); ++i)
-					if(mInputTranslators[i]->getIsActive())
-						return mInputTranslators[i]->translate(this);
+					return mInputTranslators[i]->translate(this);
 			   return false;                                          
 			}
 

@@ -34,14 +34,14 @@ namespace qv
     namespace views
     {
         //-----------------------------------------------------------------------------------------
-        SceneView::SceneView( const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE& type)
-            :mID(name), mVisible(true), mDefaultCamera(0), mSceneManager(engine->getSceneManager())
+        SceneView::SceneView( const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type)
+            :mVisible(true), mDefaultCamera(0), mSceneManager(0)
         {
 
 #ifdef _DEBUG
 			setDebugName("SceneView");
 #endif
-
+			mID = new EVI_ELEMENT_VIEW_ID(name);
         }
         //-----------------------------------------------------------------------------------------
         SceneView::~SceneView()
@@ -53,9 +53,9 @@ namespace qv
 				mActorSceneNodeMap.delink(itrActor->getKey());
         }
         //-----------------------------------------------------------------------------------------
-		ISceneNode* SceneView::findSceneNode(const gaming::AI_ACTOR_ID& actorID)
+		ISceneNode* SceneView::findSceneNode(const gaming::AI_ACTOR_ID* actorID)
         {
-			map<s32,ISceneNode*>::Node* node = mActorSceneNodeMap.find(actorID.ID);
+			map<s32,ISceneNode*>::Node* node = mActorSceneNodeMap.find(actorID->HashedText);
 
 			if(node)
 				return node->getValue();
@@ -63,7 +63,7 @@ namespace qv
 			return 0;
         }
 		//-----------------------------------------------------------------------------------------
-        void SceneView::addSceneNode(const gaming::SActorParams& params, const gaming::AI_ACTOR_ID& actorID)
+		void SceneView::addSceneNode(const gaming::SActorArgs& args, const gaming::AI_ACTOR_ID* actorID)
 		{
 
 		}

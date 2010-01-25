@@ -29,17 +29,17 @@
 #define __COMMAND_TYPES_H_
 
 #include "qvPrerequisites.h"
-#include "qvSUniqueID.h"
+#include "qvSHashedString.h"
 
 
 namespace qv
 {
-    typedef UniqueID CT_COMMAND_TYPE;
-    typedef UniqueID CI_COMMAND_ID;
+    typedef SHashedString CT_COMMAND_TYPE;
+    typedef SHashedString CI_COMMAND_ID;
     
     //engine command types by subsystem
-    static const CT_COMMAND_TYPE CT_COMMAND_EVENT("CT_COMMAND_EVENT");
-    static const CT_COMMAND_TYPE CT_COMMAND_INPUT("CT_COMMAND_INPUT");
+    static const CT_COMMAND_TYPE *CT_COMMAND_EVENT = new CT_COMMAND_TYPE("CT_COMMAND_EVENT");
+    static const CT_COMMAND_TYPE *CT_COMMAND_INPUT = new CT_COMMAND_TYPE("CT_COMMAND_INPUT");
 }
 
 #endif

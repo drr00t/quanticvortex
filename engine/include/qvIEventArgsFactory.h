@@ -25,27 +25,27 @@
 **************************************************************************************************/
 
 
-#ifndef __I_ELEMENT_VIEW_FACTORY_H_
-#define __I_ELEMENT_VIEW_FACTORY_H_
+#ifndef __I_EVENT_ARGS_FACTORY_H_
+#define __I_EVENT_ARGS_FACTORY_H_
 
-#include "qvIElementView.h"
+#include "qvEventTypes.h"
 
 namespace qv
 {
-    class IEngineManager;
+    //class IEngineManager;
 
-    namespace views
+    namespace events
     {
 
-		class IElementViewFactory : public IReferenceCounted
+		class IEventArgsFactory : public IReferenceCounted
 		{
 		public:
 
-            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type) = 0;
+			virtual IEventArgs* addEventArgs( const ET_EVENT_TYPE* type) = 0;
 
-			virtual u32 getCreatableElementViewTypeCount() const = 0;
+			virtual u32 getCreatableEventArgsCount() const = 0;
 
-			virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type) = 0;
+			virtual bool getCreateableEventArgs(const ET_EVENT_TYPE* type) = 0;
 		};
     }
 }

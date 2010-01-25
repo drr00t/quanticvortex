@@ -25,66 +25,59 @@
 **************************************************************************************************/
 
 
-#ifndef __IACTOR_H_
-#define __IACTOR_H_
+#ifndef __I_ACTOR_H_
+#define __I_ACTOR_H_
 
-#include "qvPrerequisites.h"
-#include "qvSUniqueID.h"
+#include "qvActorTypes.h"
 
 
 namespace qv
 {
     namespace gaming
     {
-		struct SActorParams;
-
-        typedef UniqueID AI_ACTOR_ID;
-		typedef UniqueID AT_ACTOR_TYPE;
-
-        static const AI_ACTOR_ID AI_ACTOR_EMPTY("AI_ACTOR_EMPTY");
-
+		struct SActorArgs;
 
 		class IActor: public IReferenceCounted
         {
 
         protected:
-			AI_ACTOR_ID mActorID;
-            AT_ACTOR_TYPE mActorType;
+			const AI_ACTOR_ID* mActorID;
+            const AT_ACTOR_TYPE* mActorType;
 			bool mPhysics;
             matrix4 mTransformation;
-            SActorParams* mActorParams;
+            //SActorArgs mActorParams;
 
         public:
 
-			IActor( const SActorParams& params)
-            {
-            }
+			//IActor( const SActorArgs& args)
+			//	:mActorID(0), mActorType(0)
+   //         {
+   //         }
 
-            IActor(const AI_ACTOR_ID& actorID, const AT_ACTOR_TYPE& actorType)
+			IActor(const AI_ACTOR_ID* actorID, const AT_ACTOR_TYPE* actorType)
+				:mActorID(actorID),mActorType(actorType)
             {
-            
             }
 
             virtual ~IActor();
 
-            virtual const AI_ACTOR_ID& getActorID() const 
+			virtual u32 getID() const 
             {
-                return mActorID;
+				return mActorID->HashedText;
+            } 
+			virtual const stringc& getName() const 
+            {
+				return mActorID->Text;
             } 
 
-            virtual void setActorID(const AI_ACTOR_ID& actorID)
+            virtual u32 getTypeID() const 
             {
-                mActorID = actorID;
-            } 
-
-            virtual const AT_ACTOR_TYPE& getType() const 
-            {
-                return mActorType;
+				return mActorType->HashedText;
             }
-
-			virtual void setType(const AT_ACTOR_TYPE& actorType)
+			
+			virtual const c8* getTypeName() const 
             {
-                mActorType = actorType;
+				return mActorType->Text.c_str();
             } 
 
 			virtual bool isPhysical()
@@ -102,8 +95,8 @@ namespace qv
                 mTransformation = transformation;
             }
 			
-			virtual SActorParams* getParams() = 0;
-			virtual void setParams(SActorParams* params)=0;
+			//virtual const SActorArgs& getParams() = 0;
+			//virtual void setParams(const SActorArgs& args)=0;
 
             virtual void update( u32 elapsedTimeMs)=0;
         };

@@ -47,15 +47,20 @@
 #endif
 
 #include "irrlicht.h"
-//#include "os.h"
+//#include "IReferenceCounted.h"
+//#include "irrArray.h"
+//#include "irrList.h"
+//#include "irrMap.h"
+//#include "irrMath.h"
+//#include "irrString.h"
+//#include "irrTypes.h"
 
 using namespace irr;
 using namespace irr::core;
 
 #pragma warning( disable : 4244 ) // possible loss of data in converversion - small number of places
 
-//#include <list>
-//#include <map>
+#include "qvSuperFastHash.h"
 
 namespace qv
 {

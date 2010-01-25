@@ -26,8 +26,10 @@
 
 //managers
 #include "qvEngineManager.h"
+
 #include "qvEventManager.h"
-//#include "qvInputReceiver.h"
+
+//Irrlicht input receiver implementation
 #include "qvIrrEventHandler.h"
 
 //factories
@@ -50,9 +52,8 @@ namespace qv
     }
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager(const SGameParams& params):_helpRequested(false), 
-        mDevice3d(0), mVideoDriver(0), mSceneManager(0), mInputReceiver(0), mQuit(false),
-        mHasPopup(false), mEventManager(0), mFileSystem(0), mGameLogic(0),mWindowHandle(0)
-        //mInputManager(0)
+        /*mDevice3d(0), mVideoDriver(0), mSceneManager(0), */ mInputReceiver(0), mQuit(false),
+        mEventManager(0)/*mHasPopup(false), mFileSystem(0), mGameLogic(0),mWindowHandle(0)*/
     {
 
 #ifdef _DEBUG
@@ -64,9 +65,10 @@ namespace qv
     //----------------------------------------------------------------------------- 	
     EngineManager::~EngineManager()
     {
-        mGameLogic->drop();
+		mInputReceiver->drop();
+		mGameLogic->drop();
         //mEventManager->drop();
-        mDevice3d->drop();
+        //mDevice3d->drop();
 
         for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
             mGameLogicFactories[i]->drop();
@@ -75,40 +77,40 @@ namespace qv
     //-----------------------------------------------------------------------------
     void EngineManager::registerGameEvents()
     {
-    	if (!mEventManager )
-    		return;
+    	//if (!mEventManager )
+    	//	return;
 
 		//game application events...
-        mEventManager->registerEventType(ET_GRAPHICS_STARTED);
-        mEventManager->registerEventType(ET_GRAPHICS_STOPPED);
-        
-        mEventManager->registerEventType(ET_EVENT_SYSTEM_STARTED);
-        mEventManager->registerEventType(ET_EVENT_SYSTEM_STOPPED);
-        
-        mEventManager->registerEventType(ET_HUMAN_VIEW_ATTACHED);
-        mEventManager->registerEventType(ET_HUMAN_VIEW_DETACHED);
-        
-        mEventManager->registerEventType(ET_GAME_LOGIC_STARTED);
-        mEventManager->registerEventType(ET_GAME_LOGIC_STOPPED);
-        mEventManager->registerEventType(ET_GAME_LOGIC_TICK_UPDATE);
-        
-        mEventManager->registerEventType(ET_GAME_LOAD);
-        mEventManager->registerEventType(ET_GAME_NEW);
-        
-        mEventManager->registerEventType(ET_PHYSICS_STARTED);
-        mEventManager->registerEventType(ET_PHYSICS_STOPPED);
+        //mEventManager->registerEventType(ET_GRAPHICS_STARTED);
+        //mEventManager->registerEventType(&ET_GRAPHICS_STOPPED);
+        //
+        //mEventManager->registerEventType(&ET_EVENT_SYSTEM_STARTED);
+        //mEventManager->registerEventType(&ET_EVENT_SYSTEM_STOPPED);
+        //
+        //mEventManager->registerEventType(&ET_HUMAN_VIEW_ATTACHED);
+        //mEventManager->registerEventType(&ET_HUMAN_VIEW_DETACHED);
+        //
+        //mEventManager->registerEventType(&ET_GAME_LOGIC_STARTED);
+        //mEventManager->registerEventType(&ET_GAME_LOGIC_STOPPED);
+        //mEventManager->registerEventType(&ET_GAME_LOGIC_TICK_UPDATE);
+        //
+        //mEventManager->registerEventType(&ET_GAME_LOAD);
+        //mEventManager->registerEventType(&ET_GAME_NEW);
+        //
+        //mEventManager->registerEventType(&ET_PHYSICS_STARTED);
+        //mEventManager->registerEventType(&ET_PHYSICS_STOPPED);
 
-        mEventManager->registerEventType(ET_ACTOR_CREATED);
-        mEventManager->registerEventType(ET_ACTOR_DESTROYED);
-        mEventManager->registerEventType(ET_ACTOR_MOVE);
-        mEventManager->registerEventType(ET_ACTOR_COLLIDE);
-        
-        mEventManager->registerEventType(ET_ACTOR_PLAYER_DIE);
-        mEventManager->registerEventType(ET_ACTOR_PLAYER_JUMP);
-        mEventManager->registerEventType(ET_ACTOR_PLAYER_MOVE);
-        mEventManager->registerEventType(ET_ACTOR_PLAYER_NEW);
-        mEventManager->registerEventType(ET_ACTOR_PLAYER_TURN);
-        mEventManager->registerEventType(ET_ACTOR_PLAYER_COLLIDE);
+        //mEventManager->registerEventType(&ET_ACTOR_CREATED);
+        //mEventManager->registerEventType(&ET_ACTOR_DESTROYED);
+        //mEventManager->registerEventType(&ET_ACTOR_MOVE);
+        //mEventManager->registerEventType(&ET_ACTOR_COLLIDE);
+        //
+        //mEventManager->registerEventType(&ET_ACTOR_PLAYER_DIE);
+        //mEventManager->registerEventType(&ET_ACTOR_PLAYER_JUMP);
+        //mEventManager->registerEventType(&ET_ACTOR_PLAYER_MOVE);
+        //mEventManager->registerEventType(&ET_ACTOR_PLAYER_NEW);
+        //mEventManager->registerEventType(&ET_ACTOR_PLAYER_TURN);
+        //mEventManager->registerEventType(&ET_ACTOR_PLAYER_COLLIDE);
 
     }
     //-----------------------------------------------------------------------------
@@ -118,7 +120,7 @@ namespace qv
         mGameLogicFactories.push_back(factory);
     }
     //-----------------------------------------------------------------------------
-	gaming::IGameLogic* EngineManager::addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE& type)
+	gaming::IGameLogic* EngineManager::addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type)
     {
         for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
 		{
@@ -149,11 +151,10 @@ namespace qv
         SIrrlichtCreationParameters parameters;
 
         parameters.Bits = mGameParams.Bits;
-		parameters.DriverType = EDT_OPENGL;
+		parameters.DriverType = irr::video::EDT_OPENGL;
 		parameters.Stencilbuffer = true;
         parameters.WindowSize = mGameParams.WindowSize;
         parameters.Fullscreen = mGameParams.Fullscreen;
-		//parameters.EventReceiver = mInputReceiver;
 
         mDevice3d = createDeviceEx(parameters);
         
@@ -161,33 +162,42 @@ namespace qv
         registerGameLogicFactory(factory);
         factory->drop();
 
-        mEventManager = new EventManager();
+		mEventManager = new events::EventManager();
 		
 		registerGameEvents();
 
-        mVideoDriver = mDevice3d->getVideoDriver();
+  //      mVideoDriver = mDevice3d->getVideoDriver();
 
-		mInputReceiver = new input::IrrEventHandler();
+		mInputReceiver = new input::IrrEventHandler(mEventManager);
         mDevice3d->setEventReceiver(mInputReceiver);
 
-        if(parameters.DriverType == EDT_OPENGL)
-            mWindowHandle = (size_t)mVideoDriver->getExposedVideoData().OpenGLWin32.HWnd;
+        //if(parameters.DriverType == EDT_OPENGL)
+        //    mWindowHandle = (size_t)mVideoDriver->getExposedVideoData().OpenGLWin32.HWnd;
 
-        else if(parameters.DriverType == EDT_DIRECT3D9)
-            mWindowHandle = (size_t)mVideoDriver->getExposedVideoData().D3D9.HWnd;
+        //else if(parameters.DriverType == EDT_DIRECT3D9)
+        //    mWindowHandle = (size_t)mVideoDriver->getExposedVideoData().D3D9.HWnd;
 
-        mSceneManager = mDevice3d->getSceneManager();
-        
-        mFileSystem = mDevice3d->getFileSystem();
+        //mSceneManager = mDevice3d->getSceneManager();
+        //
+        //mFileSystem = mDevice3d->getFileSystem();
 
         return true;
     }
 	//-----------------------------------------------------------------------------
+	void EngineManager::finalize()
+    {
+		mInputReceiver->drop();
+		mGameLogic->drop();
+        mEventManager->drop();
+        
+        for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
+            mGameLogicFactories[i]->drop();
+
+		mDevice3d->drop();
+	}
+	//-----------------------------------------------------------------------------
     void EngineManager::update( u32 currentTimeMs, u32 elapsedTimeMs)
     {
-        if (mHasPopup)
-		    return;
-
         if (mGameLogic)
 	    {
             mEventManager->process(GF_GAME_LOGIC_FRAMERATE);
@@ -200,6 +210,16 @@ namespace qv
     {
         for(u32 i = 0; i < mGameLogic->getGameViews().size(); ++i)
             mGameLogic->getGameViews()[i]->render(currentTimeMs, elapsedTimeMs);
+    }
+	//-----------------------------------------------------------------------------
+    void EngineManager::beginRender(bool backBuffer, bool zBuffer)
+    {
+		mDevice3d->getVideoDriver()->beginScene(backBuffer, zBuffer);
+    }
+	//-----------------------------------------------------------------------------
+    void EngineManager::endRender()
+    {
+		mDevice3d->getVideoDriver()->endScene();
     }
     //-----------------------------------------------------------------------------
     s32 EngineManager::run()
@@ -235,16 +255,16 @@ namespace qv
 					
 					lastTimeMs = curentTimeMs;
 
-					s32 fps = mVideoDriver->getFPS();
+					s32 fps = mDevice3d->getVideoDriver()->getFPS();
 
 		            if (lastFPS != fps)
 		            {
                         stringw str = mGameParams.Title + L" - QuanticVortex Engine [";
-			            str += mVideoDriver->getName();
+			            str += mDevice3d->getVideoDriver()->getName();
 			            str += "] FPS:";
 			            str += fps;
 			            str += " Triangles:";
-						str += mVideoDriver->getPrimitiveCountDrawn();
+						str += mDevice3d->getVideoDriver()->getPrimitiveCountDrawn();
 
                         mDevice3d->setWindowCaption(str.c_str());
 			            lastFPS = fps;

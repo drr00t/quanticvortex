@@ -8,7 +8,7 @@ namespace qv
 {
     namespace views
     {
-        static const EVT_ELEMENT_VIEW_TYPE EVT_ELEMENT_VIEW_GUI("EVT_ELEMENT_VIEW_GUI");
+        static const EVT_ELEMENT_VIEW_TYPE* EVT_ELEMENT_VIEW_GUI = new EVT_ELEMENT_VIEW_TYPE("EVT_ELEMENT_VIEW_GUI");
 
         class IGuiView: public IElementView
         {

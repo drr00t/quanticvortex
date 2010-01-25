@@ -29,26 +29,47 @@
 #ifndef __I_INPUT_RECEIVER_H_
 #define __I_INPUT_RECEIVER_H_
 
-#include "qvPrerequisites.h"
 #include "qvIInputTranslator.h"
+#include "qvIInputTranslatorFactory.h"
 
+#include "qvKeyTypes.h"
+
+#include "IEventReceiver.h"
 
 namespace qv
 {
+	namespace events
+	{
+		class IEventArgs;
+	}
+
 	namespace input
 	{
+		class IAnyKeyInputTranslator;
+		class ISingleKeyInputTranslator;
+		class IInputTranslatorFactory;
+
         class IInputReceiver :  public IEventReceiver,
                                 public IReferenceCounted
 		{
 		public:
 
-			virtual IInputTranslator* getInputTranslator( const IT_INPUT_TRANSLATOR_ID& translatorID) = 0;
+			virtual IInputTranslator* getInputTranslator( const IT_INPUT_TRANSLATOR_ID* translatorID) = 0;
 
             virtual void registerInputTranslator( IInputTranslator* translator) = 0;
 
-            virtual void unregisterInputTranslator( const IT_INPUT_TRANSLATOR_ID& translatorID) = 0;
+            virtual void unregisterInputTranslator( const IT_INPUT_TRANSLATOR_ID* translatorID) = 0;
 
             virtual void unregisterInputTranslator( IInputTranslator* translator) = 0;
+
+			virtual void registerInputTranslatorFactory( IInputTranslatorFactory* factory) = 0;
+
+			//translators
+			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, events::IEventArgs* args, bool realTime = false)=0;
+			virtual IAnyKeyInputTranslator* addAnyKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, events::IEventArgs* args, bool realTime = false)=0;
+			
+			
+			//current context
 
 			virtual bool keyPressed(EKEY_CODE keycode)=0;
 
@@ -57,6 +78,8 @@ namespace qv
 			virtual bool keyUp(EKEY_CODE keycode)=0;
 
 			virtual bool keyReleased(EKEY_CODE keycode)=0;
+
+
 		};
 	}
 }

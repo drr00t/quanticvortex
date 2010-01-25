@@ -25,28 +25,19 @@
 **************************************************************************************************/
 
 
-#ifndef __I_ELEMENT_VIEW_FACTORY_H_
-#define __I_ELEMENT_VIEW_FACTORY_H_
+#ifndef __ACTOR_TYPES_H_
+#define __ACTOR_TYPES_H_
 
-#include "qvIElementView.h"
+#include "qvSHashedString.h"
+
 
 namespace qv
 {
-    class IEngineManager;
-
-    namespace views
+    namespace gaming
     {
+        typedef SHashedString AI_ACTOR_ID;
 
-		class IElementViewFactory : public IReferenceCounted
-		{
-		public:
-
-            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type) = 0;
-
-			virtual u32 getCreatableElementViewTypeCount() const = 0;
-
-			virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type) = 0;
-		};
+		typedef SHashedString AT_ACTOR_TYPE;
     }
 }
 #endif
