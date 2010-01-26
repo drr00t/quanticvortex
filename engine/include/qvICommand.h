@@ -43,11 +43,10 @@ namespace qv
     {
 
     public:
-        virtual const CI_COMMAND_ID& getCommandID() const =0;
+        virtual const CI_COMMAND_ID* getCommandID() const =0;
 		virtual u32 getID() const =0;
         virtual const stringc& getName() const =0;
 		virtual void executeCommand(const events::IEventArgs* args) =0;
-        //virtual void executeCommand(const SEventArgs& args) =0;
     };
 }
 #endif

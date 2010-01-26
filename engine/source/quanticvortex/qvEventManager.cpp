@@ -44,7 +44,7 @@ namespace qv
 			setDebugName("EventManager");
 
 			DefaultEventArgsFactory* factory = new DefaultEventArgsFactory();
-			mEventArgsFactories.push_back(factory);
+			registerEventArgsFactory(factory);
 			factory->drop();
 		}
 		//-----------------------------------------------------------------------------------------
@@ -95,7 +95,7 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		bool EventManager::registerCommandEvent(ICommandEvent* command)
 		{
-			const array<ET_EVENT_TYPE*>& commandEvents = command->listenEventTypes();
+			const array<const ET_EVENT_TYPE*>& commandEvents = command->listenEventTypes();
 
 			//add listner in all event that it desire listen
 			for(u32 i = 0; i < commandEvents.size(); ++i)
@@ -136,7 +136,7 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		bool EventManager::unregisterCommandEvent(ICommandEvent* command)
 		{
-			const array<ET_EVENT_TYPE*>& events = command->listenEventTypes();
+			const array<const ET_EVENT_TYPE*> events = command->listenEventTypes();
 
 			for(u32 i = 0; i < events.size(); ++i)
 			{
@@ -233,12 +233,12 @@ namespace qv
 				return false;
 	        
 			bool eventHandled = false; 
+			
+			CommandEventList& commands = nodeListenerMap->getValue();
 
-			for(CommandEventList::Iterator itrListener = nodeListenerMap->getValue().begin();
-				itrListener != nodeListenerMap->getValue().end(); 
-				++itrListener)
+			for(CommandEventList::Iterator itr = commands.begin();itr != commands.end(); ++itr)
 			{
-				(*itrListener)->executeCommand(args);
+				(*itr)->executeCommand(args);
 				eventHandled = true;
 			}
 	        

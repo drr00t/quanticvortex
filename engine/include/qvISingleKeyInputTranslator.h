@@ -49,7 +49,6 @@ namespace qv
 		{
 
         protected:
-			events::IEventManager* mEventManager;
 			EKEY_CODE mKeyCode;
 			EKEY_STATE mCheckKeyState;
 			events::IEventArgs* mArgs;

@@ -50,7 +50,7 @@ namespace qv
         static const ET_EVENT_TYPE *ET_GAME_NEW = new ET_EVENT_TYPE("ET_GAME_NEW");
         static const ET_EVENT_TYPE *ET_GAME_OPTIONS = new ET_EVENT_TYPE("ET_GAME_OPTIONS");
         static const ET_EVENT_TYPE *ET_GAME_PAUSE = new ET_EVENT_TYPE("ET_GAME_PAUSE");
-        static const ET_EVENT_TYPE *ET_GAME_QUIT = new ET_EVENT_TYPE("ET_GAME_SAVE");
+        static const ET_EVENT_TYPE *ET_GAME_QUIT = new ET_EVENT_TYPE("ET_GAME_QUIT");
         static const ET_EVENT_TYPE *ET_GAME_SAVE = new ET_EVENT_TYPE("ET_GAME_SAVE");
         static const ET_EVENT_TYPE *ET_GAME_STATE_CHANGE = new ET_EVENT_TYPE("ET_GAME_STATE_CHANGE");
         static const ET_EVENT_TYPE *ET_GAME_UNPAUSE = new ET_EVENT_TYPE("ET_GAME_PAUSE");

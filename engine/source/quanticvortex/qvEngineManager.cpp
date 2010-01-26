@@ -52,7 +52,7 @@ namespace qv
     }
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager(const SGameParams& params):_helpRequested(false), 
-        /*mDevice3d(0), mVideoDriver(0), mSceneManager(0), */ mInputReceiver(0), mQuit(false),
+        mDevice3d(0), /*mVideoDriver(0), mSceneManager(0), */ mInputReceiver(0), mQuit(false),
         mEventManager(0)/*mHasPopup(false), mFileSystem(0), mGameLogic(0),mWindowHandle(0)*/
     {
 
@@ -65,14 +65,7 @@ namespace qv
     //----------------------------------------------------------------------------- 	
     EngineManager::~EngineManager()
     {
-		mInputReceiver->drop();
-		mGameLogic->drop();
-        //mEventManager->drop();
-        //mDevice3d->drop();
-
-        for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
-            mGameLogicFactories[i]->drop();
-
+		finalize();
     }
     //-----------------------------------------------------------------------------
     void EngineManager::registerGameEvents()
@@ -94,8 +87,11 @@ namespace qv
         //mEventManager->registerEventType(&ET_GAME_LOGIC_STOPPED);
         //mEventManager->registerEventType(&ET_GAME_LOGIC_TICK_UPDATE);
         //
-        //mEventManager->registerEventType(&ET_GAME_LOAD);
-        //mEventManager->registerEventType(&ET_GAME_NEW);
+		mEventManager->registerEventType(qv::events::ET_GAME_QUIT);
+		mEventManager->registerEventType(qv::events::ET_GAME_SAVE);
+		mEventManager->registerEventType(qv::events::ET_GAME_OPTIONS);
+		mEventManager->registerEventType(qv::events::ET_GAME_LOAD);
+        mEventManager->registerEventType(qv::events::ET_GAME_NEW);
         //
         //mEventManager->registerEventType(&ET_PHYSICS_STARTED);
         //mEventManager->registerEventType(&ET_PHYSICS_STOPPED);
@@ -186,13 +182,14 @@ namespace qv
 	//-----------------------------------------------------------------------------
 	void EngineManager::finalize()
     {
-		mInputReceiver->drop();
-		mGameLogic->drop();
-        mEventManager->drop();
-        
         for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
             mGameLogicFactories[i]->drop();
 
+		mInputReceiver->drop();
+		mGameLogic->drop();
+
+        mEventManager->drop();
+        
 		mDevice3d->drop();
 	}
 	//-----------------------------------------------------------------------------

@@ -69,7 +69,7 @@ namespace qv
 		
 		virtual gaming::IGameLogic* getGameLogic()=0;
 
-        //virtual IrrlichtDevice* getDevice()=0;
+        virtual IrrlichtDevice* getDevice()=0;
 		
 		virtual events::IEventManager* getEventManager()=0;
 		

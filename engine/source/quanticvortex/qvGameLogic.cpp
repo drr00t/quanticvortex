@@ -93,6 +93,11 @@ namespace qv
 	        //safeAddListener(m_pAiEventListener, EvtData_AiSteer::sk_EventType);
 			return true;
 		}
+		//-----------------------------------------------------------------------------------------
+		bool GameLogic::finalize()
+		{
+			return true;
+		}
         //-----------------------------------------------------------------------------------------
 		void GameLogic::addActor( const AI_ACTOR_ID* actorID, const SActorArgs& args)
         {

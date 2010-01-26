@@ -93,6 +93,8 @@ namespace qv
 
 			virtual bool initialize();
 
+			virtual bool finalize();
+
             virtual const GLT_GAME_LOGIC_TYPE* getType() const
             {
                 return mType;

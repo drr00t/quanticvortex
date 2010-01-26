@@ -515,7 +515,6 @@
 					>
 					<FileConfiguration
 						Name="DebugDLL|Win32"
-						ExcludedFromBuild="true"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -869,6 +868,10 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\include\qvIChangeStateEventArgs.h"
+					>
 				</File>
 				<File
 					RelativePath="..\..\include\qvICommandEvent.h"
@@ -1476,6 +1479,14 @@
 			<Filter
 				Name="events impl"
 				>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvChangeStateEventArgs.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvChangeStateEventArgs.h"
+					>
+				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvDefaultEventArgsFactory.cpp"
 					>

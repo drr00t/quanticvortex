@@ -109,10 +109,10 @@ namespace qv
             return mGameParams;
         }
 
-		//virtual irr::IrrlichtDevice* getDevice()
-  //      {
-  //          return mDevice3d;
-  //      }        
+		virtual irr::IrrlichtDevice* getDevice()
+        {
+            return mDevice3d;
+        }        
 
 		//virtual irr::io::IFileSystem* getFileSystem()
   //      {

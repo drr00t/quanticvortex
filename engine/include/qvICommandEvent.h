@@ -39,7 +39,7 @@ namespace qv
 		class ICommandEvent: public ICommand
 		{
 		public:
-			virtual const array<ET_EVENT_TYPE*>& listenEventTypes() const =0;
+			virtual const array<const ET_EVENT_TYPE*>& listenEventTypes() const =0;
 			//virtual void executeCommand(const IEventArgs* args) =0;
 		};
 	}

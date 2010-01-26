@@ -24,35 +24,56 @@
 
 **************************************************************************************************/
 
-#ifndef __I_STATE_H_
-#define __I_STATE_H_
 
-#include "qvStateTypes.h"
+#ifndef __CHANGE_STATE_EVENT_ARGS_H_
+#define __CHANGE_STATE_EVENT_ARGS_H_
+
+#include "qvIChangeStateEventArgs.h"
 
 namespace qv
 {
-    namespace gaming
+    namespace events
     {
-		class IState: public irr::IReferenceCounted
+        class ChangeStateEventArgs: public IChangeStateEventArgs
         {
-   //     protected:
-   //         const S_STATE_TYPE* mType;
-			//const S_STATE_TYPE* mNexStateType;
+		private:
+			const ET_EVENT_TYPE* mEventType;
+			const gaming::S_STATE_TYPE* mStateType;
 
         public:
-    //        IState(const S_STATE_TYPE* state, const S_STATE_TYPE* nextState)
-				//:mType(type), mNexStateType(nextState)
-    //        {
-    //        }
+            ChangeStateEventArgs(const ET_EVENT_TYPE* eventType, const gaming::S_STATE_TYPE* state );
+			virtual ~ChangeStateEventArgs();
 
-            virtual const S_STATE_TYPE* getType() = 0; //{ return mType;}
+            virtual const ET_EVENT_TYPE* getEventType( void ) const
+			{
+				return mEventType;
+			}
 
-			virtual const S_STATE_TYPE* getNextState() = 0; //{ return mNexStateType;}
+			virtual u32 getTypeID( void ) const
+			{
+				return mEventType->HashedText;
+			}
 
-            //virtual void addState(IState* state) = 0;
-            virtual void enter() = 0;
-            virtual void leave() = 0;
-            virtual void update(u32 elapsedTimeMs) = 0;
+			virtual const stringc& getTypeName( void ) const
+			{
+				return mEventType->Text;
+			}
+            
+			virtual const gaming::S_STATE_TYPE* getState( void ) const
+			{
+				return mStateType;
+			}
+
+	        //! Writes attributes of the object.
+	        /** Implement this to expose the attributes of your scene node animator for
+	        scripting languages, editors, debuggers or xml serialization purposes. */
+			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
+
+	        //! Reads attributes of the object.
+	        /** Implement this to set the attributes of your scene node animator for
+	        scripting languages, editors, debuggers or xml deserialization purposes. */
+			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
+
         };
     }
 }

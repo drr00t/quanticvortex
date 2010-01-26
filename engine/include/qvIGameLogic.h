@@ -57,6 +57,7 @@ namespace qv
             public:
 
 			virtual bool initialize()=0;
+			virtual bool finalize()=0;
 
             virtual const GLT_GAME_LOGIC_TYPE* getType() const=0;
 

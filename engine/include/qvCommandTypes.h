@@ -28,7 +28,6 @@
 #ifndef __COMMAND_TYPES_H_
 #define __COMMAND_TYPES_H_
 
-#include "qvPrerequisites.h"
 #include "qvSHashedString.h"
 
 

@@ -45,6 +45,17 @@ namespace qv
 		
 		class SingleKeyInputTranslator : public ISingleKeyInputTranslator
 		{
+
+		//private:
+		//	const IT_INPUT_TRANSLATOR_ID* mID;
+		//	const IT_INPUT_TRANSLATOR_TYPE* mType;
+		//	bool mRealTime;
+		//	events::IEventManager* mEventManager;
+
+		//	EKEY_CODE mKeyCode;
+		//	EKEY_STATE mCheckKeyState;
+		//	events::IEventArgs* mArgs;
+
 		public:
 
 			SingleKeyInputTranslator(events::IEventManager* eventManager, 

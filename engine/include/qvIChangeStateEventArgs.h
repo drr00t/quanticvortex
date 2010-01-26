@@ -24,38 +24,28 @@
 
 **************************************************************************************************/
 
-#ifndef __I_STATE_H_
-#define __I_STATE_H_
 
+#ifndef __I_CHANGE_STATE_EVENT_ARGS_H_
+#define __I_CHANGE_STATE_EVENT_ARGS_H_
+
+#include "qvIEventArgs.h"
 #include "qvStateTypes.h"
 
 namespace qv
 {
-    namespace gaming
-    {
-		class IState: public irr::IReferenceCounted
+    namespace events
+    {        
+		
+		class IChangeStateEventArgs : public IEventArgs
         {
-   //     protected:
-   //         const S_STATE_TYPE* mType;
-			//const S_STATE_TYPE* mNexStateType;
 
-        public:
-    //        IState(const S_STATE_TYPE* state, const S_STATE_TYPE* nextState)
-				//:mType(type), mNexStateType(nextState)
-    //        {
-    //        }
+		public:
+			virtual const gaming::S_STATE_TYPE* getState( void ) const = 0;
 
-            virtual const S_STATE_TYPE* getType() = 0; //{ return mType;}
-
-			virtual const S_STATE_TYPE* getNextState() = 0; //{ return mNexStateType;}
-
-            //virtual void addState(IState* state) = 0;
-            virtual void enter() = 0;
-            virtual void leave() = 0;
-            virtual void update(u32 elapsedTimeMs) = 0;
         };
     }
 }
 
 #endif
+
 
