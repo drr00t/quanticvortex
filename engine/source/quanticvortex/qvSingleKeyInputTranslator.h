@@ -54,6 +54,13 @@ namespace qv
 									events::IEventArgs* args,
 									const IT_INPUT_TRANSLATOR_ID* ID);
 
+			SingleKeyInputTranslator(events::IEventManager* eventManager, 
+									EKEY_CODE keyCode, 
+									EKEY_STATE checkKeyState,
+									bool realTime,
+									const events::ET_EVENT_TYPE* type,
+									const IT_INPUT_TRANSLATOR_ID* ID);
+
 			virtual ~SingleKeyInputTranslator();
 
 			virtual bool translate(IInputReceiver *context);

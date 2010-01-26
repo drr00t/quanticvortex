@@ -32,20 +32,21 @@
 
 namespace qv
 {
-    //class IEngineManager;
+
 
     namespace events
     {
+		class IEventArgs;
 
 		class IEventArgsFactory : public IReferenceCounted
 		{
 		public:
 
-			virtual IEventArgs* addEventArgs( const ET_EVENT_TYPE* type) = 0;
+			virtual IEventArgs* addEmptyEventArgs( const ET_EVENT_TYPE* type) = 0;
 
-			virtual u32 getCreatableEventArgsCount() const = 0;
+			virtual u32 getCreatableEventArgsTypeCount() const = 0;
 
-			virtual bool getCreateableEventArgs(const ET_EVENT_TYPE* type) = 0;
+			virtual bool getCreateableEventArgsType(const ET_EVENT_TYPE* type) = 0;
 		};
     }
 }

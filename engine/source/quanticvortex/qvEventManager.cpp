@@ -28,8 +28,10 @@
 #include "qvEventManager.h"
 
 #include "qvIEventArgs.h"
-#include "qvIEventArgsFactory.h"
 #include "qvICommandEvent.h"
+
+//default event args factories
+#include "qvDefaultEventArgsFactory.h"
 
 namespace qv
 {
@@ -40,6 +42,10 @@ namespace qv
 			:mActiveReadyEventList(0)
 		{
 			setDebugName("EventManager");
+
+			DefaultEventArgsFactory* factory = new DefaultEventArgsFactory();
+			mEventArgsFactories.push_back(factory);
+			factory->drop();
 		}
 		//-----------------------------------------------------------------------------------------
 		EventManager::~EventManager()
@@ -72,9 +78,9 @@ namespace qv
 			IEventArgs* args = 0;
 			for(; itr != mEventArgsFactories.end(); ++itr)
 			{
-				if((*itr)->getCreateableEventArgs(type))
+				if((*itr)->getCreateableEventArgsType(type))
 				{
-					args = (*itr)->addEventArgs(type);
+					args = (*itr)->addEmptyEventArgs(type);
 					break;
 				}
 			}

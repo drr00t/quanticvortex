@@ -28,16 +28,14 @@
 #ifndef __I_EVENT_ARGS_H_
 #define __I_EVENT_ARGS_H_
 
-//#include "qvPrerequisites.h"
 #include "qvEventTypes.h"
-
 
 
 namespace qv
 {
     namespace events
     {        
-
+		
 		class IEventArgs : public io::IAttributeExchangingObject
         {
         public:
@@ -48,12 +46,12 @@ namespace qv
 	        //! Writes attributes of the object.
 	        /** Implement this to expose the attributes of your scene node animator for
 	        scripting languages, editors, debuggers or xml serialization purposes. */
-			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
+			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const = 0;
 
 	        //! Reads attributes of the object.
 	        /** Implement this to set the attributes of your scene node animator for
 	        scripting languages, editors, debuggers or xml deserialization purposes. */
-			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
+			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0) = 0;
 
 	        //virtual IEventData copy() const = 0;
         };

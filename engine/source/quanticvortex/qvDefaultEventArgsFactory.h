@@ -25,62 +25,37 @@
 **************************************************************************************************/
 
 
-#ifndef _I_SINGLE_KEY_INPUT_TRANSLATOR_H_
-#define _I_SINGLE_KEY_INPUT_TRANSLATOR_H_
+#ifndef __DEFAULT_EVENT_ARGS_FACTORY_H_
+#define __DEFAULT_EVENT_ARGS_FACTORY_H_
 
-#include "qvIInputTranslator.h"
-#include "qvIEventManager.h"
+#include "qvIEventArgsFactory.h"
 
 namespace qv
-{
-	namespace events
-	{
-		class IEventManager;
-		class IEventArgs;
-	}
-	
-	namespace input
-	{
-		class IInputReceiver;
-		
-		static const IT_INPUT_TRANSLATOR_TYPE* ITT_SINGLE_KEY_TYPE = new IT_INPUT_TRANSLATOR_TYPE("ITT_SINGLE_KEY_TYPE");
-		
-		class ISingleKeyInputTranslator : public IInputTranslator
-		{
+{    
 
-        protected:
-			events::IEventManager* mEventManager;
-			EKEY_CODE mKeyCode;
-			EKEY_STATE mCheckKeyState;
-			events::IEventArgs* mArgs;
+	
+    namespace events
+    {   
+		//class IEventManager;
+
+		class DefaultEventArgsFactory : public IEventArgsFactory
+		{
+        private:
+            array<u32> mSupportedEventArgsTypes;
+			//IEventManager* mEventManager;
 
 		public:
+			DefaultEventArgsFactory();
+			//DefaultEventArgsFactory(IEventManager* eventManager);
+            virtual ~DefaultEventArgsFactory();
 
-			ISingleKeyInputTranslator(events::IEventManager* eventManager, 
-									EKEY_CODE keyCode, 
-									EKEY_STATE checkKeyState,
-									bool realTime,
-									events::IEventArgs* args,
-									const IT_INPUT_TRANSLATOR_ID* ID)
-									:IInputTranslator(eventManager,ID,ITT_SINGLE_KEY_TYPE,realTime),
-									mKeyCode(keyCode), mCheckKeyState(checkKeyState), mArgs(args)
-			{
+			virtual IEventArgs* addEmptyEventArgs( const ET_EVENT_TYPE* type);
 
-			}
+			virtual u32 getCreatableEventArgsTypeCount() const;
 
-			ISingleKeyInputTranslator(events::IEventManager* eventManager, 
-									EKEY_CODE keyCode, 
-									EKEY_STATE checkKeyState,
-									bool realTime,
-									const events::ET_EVENT_TYPE* type,
-									const IT_INPUT_TRANSLATOR_ID* ID)
-									:IInputTranslator(eventManager,ID,ITT_SINGLE_KEY_TYPE,realTime),
-									mKeyCode(keyCode), mCheckKeyState(checkKeyState), mArgs(0)
-			{
-				mArgs = mEventManager->getEventArgs(type);
-			}
+			virtual bool getCreateableEventArgsType(const ET_EVENT_TYPE* type);
 		};
-	}
+    }
 }
-
 #endif
+

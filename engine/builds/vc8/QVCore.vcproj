@@ -1477,6 +1477,22 @@
 				Name="events impl"
 				>
 				<File
+					RelativePath="..\..\source\quanticvortex\qvDefaultEventArgsFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvDefaultEventArgsFactory.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvEventArgs.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvEventArgs.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\source\quanticvortex\qvEventManager.cpp"
 					>
 					<FileConfiguration

@@ -30,6 +30,7 @@
 #define _I_INPUT_TRANSLATOR_H_
 
 #include "qvSHashedString.h"
+#include "qvEventTypes.h"
 #include "qvKeyTypes.h"
 
 namespace qv

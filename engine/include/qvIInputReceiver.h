@@ -32,7 +32,7 @@
 #include "qvIInputTranslator.h"
 #include "qvIInputTranslatorFactory.h"
 
-#include "qvKeyTypes.h"
+//#include "qvKeyTypes.h"
 
 #include "IEventReceiver.h"
 
@@ -66,6 +66,7 @@ namespace qv
 
 			//translators
 			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, events::IEventArgs* args, bool realTime = false)=0;
+			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, const events::ET_EVENT_TYPE* type, bool realTime = false)=0;
 			virtual IAnyKeyInputTranslator* addAnyKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, events::IEventArgs* args, bool realTime = false)=0;
 			
 			

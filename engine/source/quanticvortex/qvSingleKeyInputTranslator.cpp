@@ -45,6 +45,16 @@ namespace qv
 		{
 		}
 		//-----------------------------------------------------------------------------------------
+		SingleKeyInputTranslator::SingleKeyInputTranslator(events::IEventManager* eventManager, 
+															EKEY_CODE keyCode, 
+															EKEY_STATE checkKeyState,
+															bool realTime,
+															const events::ET_EVENT_TYPE* type,
+															const IT_INPUT_TRANSLATOR_ID* ID):
+		ISingleKeyInputTranslator(eventManager, keyCode, checkKeyState, realTime, type, ID)
+		{
+		}
+		//-----------------------------------------------------------------------------------------
 		SingleKeyInputTranslator::~SingleKeyInputTranslator()
 		{
 		}

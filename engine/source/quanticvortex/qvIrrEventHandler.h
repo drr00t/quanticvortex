@@ -106,6 +106,14 @@ namespace input
 				return translator;
 			}
 
+			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, const events::ET_EVENT_TYPE* type, bool realTime = false)
+			{
+				ISingleKeyInputTranslator* translator = new SingleKeyInputTranslator( mEventManager, keyCode, checkState, realTime, type, ID);
+				mInputTranslators.push_back(translator);
+
+				return translator;
+			}
+
 			virtual IAnyKeyInputTranslator* addAnyKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, events::IEventArgs* args, bool realTime = false)
 			{
 				IAnyKeyInputTranslator* translator = new AnyKeyInputTranslator( mEventManager, realTime, args, ID);
