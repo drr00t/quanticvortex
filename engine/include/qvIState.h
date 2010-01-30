@@ -31,30 +31,26 @@
 
 namespace qv
 {
-    namespace gaming
+	class IState: public irr::IReferenceCounted
     {
-		class IState: public irr::IReferenceCounted
-        {
-   //     protected:
-   //         const S_STATE_TYPE* mType;
-			//const S_STATE_TYPE* mNexStateType;
+     protected:
+		const S_STATE* mState;
+		const S_STATE* mNextState;
 
-        public:
-    //        IState(const S_STATE_TYPE* state, const S_STATE_TYPE* nextState)
-				//:mType(type), mNexStateType(nextState)
-    //        {
-    //        }
+    public:
 
-            virtual const S_STATE_TYPE* getType() = 0; //{ return mType;}
+        virtual const S_STATE* getState() const { return mState; }
 
-			virtual const S_STATE_TYPE* getNextState() = 0; //{ return mNexStateType;}
+		virtual const S_STATE* getNextState() const { return mNextState; }
 
-            //virtual void addState(IState* state) = 0;
-            virtual void enter() = 0;
-            virtual void leave() = 0;
-            virtual void update(u32 elapsedTimeMs) = 0;
-        };
-    }
+        virtual void configure() = 0;
+        
+		virtual void enter() = 0;
+        
+		virtual void leave() = 0;
+        
+		virtual void update(u32 elapsedTimeMs) = 0;
+    };
 }
 
 #endif

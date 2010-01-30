@@ -96,7 +96,7 @@ namespace qv
 
             virtual void update( u32 currentTimeMs, u32 elapsedTimeMs)=0;
 
-            virtual void changeState( const S_STATE_TYPE* newState)=0;
+            virtual void changeState( const S_STATE* newState)=0;
 
         };
     }

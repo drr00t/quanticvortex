@@ -42,10 +42,6 @@
 //#include "qvIEventListener.h"
 //#include "qvIPhysicsManager.h"
 
-//using namespace qv::events;
-//using namespace qv::physics;
-//using namespace qv::runtime;
-
 
 namespace qv
 {
@@ -68,7 +64,7 @@ namespace qv
 
 			const GLT_GAME_LOGIC_TYPE* mType;
 
-            const S_STATE_TYPE* mState;
+            const S_STATE* mState;
 
             map<u32, IActor*> mActors;
             
@@ -152,7 +148,7 @@ namespace qv
 
             virtual void update( u32 currentTimeMs, u32 elapsedTimeMs);
 
-            virtual void changeState( const S_STATE_TYPE* newState);
+            virtual void changeState( const S_STATE* newState);
 
 
 			//IPhysicsManager* getPhysicsManager(){return mPhysicsManager;}

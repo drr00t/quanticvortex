@@ -60,7 +60,9 @@ namespace qv
 			virtual bool unregisterCommandEvent ( ICommandEvent* command);
 			//virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType);
 
-			virtual IEventArgs* getEventArgs(const ET_EVENT_TYPE* type);
+			virtual IEventArgs* createEmptyEventArgs(const ET_EVENT_TYPE* type);
+			virtual IChangeStateEventArgs* createChangeStateEventArgs(const S_STATE* state);
+
 			virtual void registerEventArgsFactory(IEventArgsFactory* factory);
 
 			virtual void registerEventType(const ET_EVENT_TYPE* type);

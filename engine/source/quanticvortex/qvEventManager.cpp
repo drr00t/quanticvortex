@@ -32,6 +32,7 @@
 
 //default event args factories
 #include "qvDefaultEventArgsFactory.h"
+#include "qvChangeStateEventArgs.h"
 
 namespace qv
 {
@@ -50,6 +51,28 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		EventManager::~EventManager()
 		{
+			EventTypeList::Iterator itrEvents = mValidEventTypes.begin();
+			for(;itrEvents != mValidEventTypes.end(); ++itrEvents)
+				(*itrEvents)->drop();
+
+			EventArgsFactoryList::Iterator itrFactories = mEventArgsFactories.begin();
+			for(;itrFactories != mEventArgsFactories.end(); ++itrFactories)
+				(*itrFactories)->drop();
+
+			EventToCommandEventMap::ParentLastIterator itrCommandsMap =
+				mRegistredCommandsMap.getParentLastIterator();
+
+			while(!itrCommandsMap.atEnd())
+			{
+				CommandEventList::Iterator itrCommands = 
+					(*itrCommandsMap.getNode()).getValue().begin();
+
+				for(;itrCommands != (*itrCommandsMap.getNode()).getValue().end();++itrCommands)
+					(*itrCommands)->drop();
+
+				(*itrCommandsMap.getNode()).getValue().clear();
+				mRegistredCommandsMap.remove((*itrCommandsMap.getNode()).getKey());
+			}
 		}
 		//-----------------------------------------------------------------------------------------
 		void EventManager::registerEventType(  const ET_EVENT_TYPE* type)
@@ -72,7 +95,7 @@ namespace qv
 			mEventArgsFactories.push_back(factory);
 		}
 		//-----------------------------------------------------------------------------------------
-		IEventArgs* EventManager::getEventArgs(const qv::events::ET_EVENT_TYPE *type)
+		IEventArgs* EventManager::createEmptyEventArgs(const qv::events::ET_EVENT_TYPE *type)
 		{
 			EventArgsFactoryList::Iterator itr = mEventArgsFactories.begin();
 			IEventArgs* args = 0;
@@ -84,6 +107,22 @@ namespace qv
 					break;
 				}
 			}
+
+			return args;
+		}
+		//-----------------------------------------------------------------------------------------
+		IChangeStateEventArgs* EventManager::createChangeStateEventArgs(const qv::S_STATE *state)
+		{
+			//EventArgsFactoryList::Iterator itr = mEventArgsFactories.begin();
+			IChangeStateEventArgs* args = 0;
+			//for(; itr != mEventArgsFactories.end(); ++itr)
+			//{
+			//	if((*itr)->getCreateableEventArgsType(type))
+			//	{
+			args = new ChangeStateEventArgs(ET_GAME_STATE_CHANGE, state);
+			//		break;
+			//	}
+			//}
 
 			return args;
 		}
@@ -164,10 +203,10 @@ namespace qv
 			if(!validateType(args->getEventType()))
 				return false;
 
-			EventToCommandEventMap::Node* nodeListenerMap = 
+			EventToCommandEventMap::Node* nodeCommandsMap = 
 				mRegistredCommandsMap.find(args->getTypeID());
 
-			if(!nodeListenerMap)
+			if(!nodeCommandsMap)
 				return false;
 
 			mReadyEvents[mActiveReadyEventList].push_back(args);
@@ -187,33 +226,33 @@ namespace qv
 				enqueueEvent(realtimeEvent);
 			//------------------------------------------------------------
 
-			if(mActiveReadyEventList == 0)
-				++mActiveReadyEventList;
-			else
-				mActiveReadyEventList = 0;
+			if(mActiveReadyEventList == 1)
+				--mActiveReadyEventList;
 
-			EventList::Iterator itrProcessEvent = mReadyEvents[processReadyEventList].begin();
-	        
+			++mActiveReadyEventList; //back to first one
 
-			while(itrProcessEvent != mReadyEvents[processReadyEventList].end())
+			EventList::Iterator itrEventArgs = mReadyEvents[processReadyEventList].begin();
+
+			for(;itrEventArgs != mReadyEvents[processReadyEventList].end(); ++itrEventArgs)
 			{
-				EventToCommandEventMap::Node* nodeListenerMap = 
-					mRegistredCommandsMap.find((*itrProcessEvent)->getTypeID());
+				EventToCommandEventMap::Node* nodeCommandsMap = 
+					mRegistredCommandsMap.find((*itrEventArgs)->getTypeID());
 
-				if(!nodeListenerMap)
+				if(!nodeCommandsMap)
 					continue;
 
-				CommandEventList::Iterator itrCommands = nodeListenerMap->getValue().begin();
+				CommandEventList::Iterator itrCommands = nodeCommandsMap->getValue().begin();
 	                             
-				for(;itrCommands != nodeListenerMap->getValue().end();++itrCommands)
+				for(;itrCommands != nodeCommandsMap->getValue().end();++itrCommands)
 				{
-					const IEventArgs* args = const_cast<IEventArgs*>(*itrProcessEvent);
+					const IEventArgs* args = const_cast<IEventArgs*>(*itrEventArgs);
 					(*itrCommands)->executeCommand(args);
 				}
 
-				//delete fired event from queue
-				(*itrProcessEvent)->drop();
+				//delete fired event args from queue
+				(*itrEventArgs)->drop();
 			}
+
 			mReadyEvents[processReadyEventList].clear();
 
 			return eventHandled;

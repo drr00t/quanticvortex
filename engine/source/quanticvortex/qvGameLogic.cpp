@@ -67,7 +67,7 @@ namespace qv
 			while(!itrActor.atEnd())
 			{
 				(*itrActor.getNode()).getValue()->drop();
-				mActors.remove( (*itrActor.getNode()).getKey());
+				mActors.delink( (*itrActor.getNode()).getKey());
 			}
 
             mActors.clear();
@@ -203,7 +203,7 @@ namespace qv
         }
 
         //-----------------------------------------------------------------------------------------
-		void GameLogic::changeState(const S_STATE_TYPE* newState)
+		void GameLogic::changeState(const S_STATE* newState)
         {
             mState = newState;
         }

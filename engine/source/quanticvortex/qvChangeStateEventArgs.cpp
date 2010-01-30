@@ -31,8 +31,8 @@ namespace qv
     namespace events
     {
 		//-----------------------------------------------------------------------------------------
-		ChangeStateEventArgs::ChangeStateEventArgs(const ET_EVENT_TYPE* eventType, const gaming::S_STATE_TYPE* state)
-			:mEventType(eventType), mStateType(state)
+		ChangeStateEventArgs::ChangeStateEventArgs(const ET_EVENT_TYPE* eventType, const S_STATE* state)
+			:IChangeStateEventArgs(eventType, state)
         {
         }
 		//-----------------------------------------------------------------------------------------

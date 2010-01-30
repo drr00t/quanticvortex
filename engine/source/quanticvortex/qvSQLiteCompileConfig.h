@@ -25,47 +25,13 @@
 **************************************************************************************************/
 
 
-#ifndef __I_EVENT_ARGS_H_
-#define __I_EVENT_ARGS_H_
+#ifndef __123EVENT_ARGS_H_
+#define __123EVENT_ARGS_H_
 
-#include "qvEventTypes.h"
+//QuanticVortex enebling feactures
+#define SQLITE_ENABLE_RTREE = 1
+#define SQLITE_THREADSAFE = 2
 
-
-namespace qv
-{
-    namespace events
-    {        
-		
-		class IEventArgs : public io::IAttributeExchangingObject
-        {
-		protected:
-			const ET_EVENT_TYPE* mEventType;
-
-        public:
-			IEventArgs(const ET_EVENT_TYPE* eventType)
-				:mEventType(eventType)
-			{
-			}
-
-			//virtual ~IEventArgs();
-			virtual const ET_EVENT_TYPE* getEventType( void ) const { return mEventType; }
-            virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
-			virtual const stringc& getTypeName( void ) const { return mEventType->Text; }
-
-	        //! Writes attributes of the object.
-	        /** Implement this to expose the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml serialization purposes. */
-			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const = 0;
-
-	        //! Reads attributes of the object.
-	        /** Implement this to set the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml deserialization purposes. */
-			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0) = 0;
-
-	        //virtual IEventData copy() const = 0;
-        };
-    }
-}
 
 #endif
 

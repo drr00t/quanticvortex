@@ -28,6 +28,7 @@
 #include "qvDefaultEventArgsFactory.h"
 
 #include "qvEventArgs.h"
+//#include "qvChangeStateEventArgs.h"
 
 namespace qv
 {
@@ -38,6 +39,7 @@ namespace qv
         {
 			mSupportedEventArgsTypes.push_back(ET_GAME_QUIT->HashedText);
 			mSupportedEventArgsTypes.push_back(ET_GAME_NEW->HashedText);
+			mSupportedEventArgsTypes.push_back(ET_GAME_STATE_CHANGE->HashedText);
         }
         //-----------------------------------------------------------------------------------------
         DefaultEventArgsFactory::~DefaultEventArgsFactory()
@@ -49,7 +51,10 @@ namespace qv
 			IEventArgs* eventArgs = 0;
 
 			if(getCreateableEventArgsType(type))
-				eventArgs = new EventArgs(type);
+			{
+				if((ET_GAME_QUIT == type) || (ET_GAME_NEW == type))
+					eventArgs = new EventArgs(type);
+			}
 
 			return eventArgs;
 		}

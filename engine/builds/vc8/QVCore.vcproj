@@ -185,7 +185,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\engine\include;..\..\..\engine\source\quanticvortex;..\..\..\engine\source\quanticvortex\irrbmesh;..\..\..\..\dependencies\include\irrlicht\include;..\..\..\..\dependencies\include\bullet;..\..\..\..\dependencies\include\tbb;..\..\..\..\dependencies\include\POCO"
+				AdditionalIncludeDirectories="..\..\..\engine\include;..\..\..\engine\source\quanticvortex;..\..\..\engine\source\quanticvortex\sqlite;..\..\..\..\dependencies\include\irrlicht\include;..\..\..\..\dependencies\include\bullet;..\..\..\..\dependencies\include\tbb;..\..\..\..\dependencies\include\POCO"
 				PreprocessorDefinitions="WIN32;_DEBUG;_QUANTICVORTEX_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				MinimalRebuild="false"
 				ExceptionHandling="1"
@@ -273,7 +273,7 @@
 				UseUnicodeResponseFiles="true"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
-				AdditionalIncludeDirectories="..\..\..\engine\include;..\..\..\engine\source\quanticvortex;..\..\..\engine\source\quanticvortex\irrbmesh;..\..\..\..\dependencies\include\irrlicht\include;..\..\..\..\dependencies\include\bullet;..\..\..\..\dependencies\include\tbb;..\..\..\..\dependencies\include\POCO"
+				AdditionalIncludeDirectories="..\..\..\engine\include;..\..\..\engine\source\quanticvortex;..\..\..\engine\source\quanticvortex\sqlite;..\..\..\..\dependencies\include\irrlicht\include;..\..\..\..\dependencies\include\bullet;..\..\..\..\dependencies\include\tbb;..\..\..\..\dependencies\include\POCO"
 				PreprocessorDefinitions="WIN32;NDEBUG;_QUANTICVORTEX_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="1"
@@ -342,7 +342,6 @@
 				>
 				<FileConfiguration
 					Name="DebugDLL|Win32"
-					ExcludedFromBuild="true"
 					>
 					<Tool
 						Name="VCCustomBuildTool"
@@ -375,9 +374,23 @@
 			<File
 				RelativePath="..\..\include\qvIGame.h"
 				>
+			</File>
+			<File
+				RelativePath="..\..\include\qvIState.h"
+				>
 				<FileConfiguration
 					Name="DebugDLL|Win32"
-					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\include\qvIStateMachine.h"
+				>
+				<FileConfiguration
+					Name="DebugDLL|Win32"
 					>
 					<Tool
 						Name="VCCustomBuildTool"
@@ -455,6 +468,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="..\..\include\qvStateTypes.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\include\qvSuperFastHash.h"
 				>
 			</File>
@@ -463,6 +480,10 @@
 				>
 				<File
 					RelativePath="..\..\include\qvActorTypes.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\qvGameStateTypes.h"
 					>
 				</File>
 				<File
@@ -522,27 +543,8 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\include\qvIState.h"
+					RelativePath="..\..\include\qvIGameStateMachine.h"
 					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\include\qvIStateMachine.h"
-					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvSActorParams.h"
@@ -578,10 +580,6 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\include\qvStateTypes.h"
-					>
 				</File>
 			</Filter>
 			<Filter
@@ -922,6 +920,98 @@
 						/>
 					</FileConfiguration>
 				</File>
+			</Filter>
+			<Filter
+				Name="content"
+				>
+				<Filter
+					Name="db"
+					>
+					<File
+						RelativePath="..\..\include\qvIDataReader.h"
+						>
+						<FileConfiguration
+							Name="DebugDLL|Win32"
+							ExcludedFromBuild="true"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\..\include\qvIDataSet.h"
+						>
+						<FileConfiguration
+							Name="DebugDLL|Win32"
+							ExcludedFromBuild="true"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\..\include\qvIDbCommand.h"
+						>
+						<FileConfiguration
+							Name="DebugDLL|Win32"
+							ExcludedFromBuild="true"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\..\include\qvIDbConnection.h"
+						>
+						<FileConfiguration
+							Name="DebugDLL|Win32"
+							ExcludedFromBuild="true"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\..\include\qvIDbDataAdapter.h"
+						>
+						<FileConfiguration
+							Name="DebugDLL|Win32"
+							ExcludedFromBuild="true"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\..\include\qvIDbParameter.h"
+						>
+						<FileConfiguration
+							Name="DebugDLL|Win32"
+							ExcludedFromBuild="true"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\..\include\qvIDbTransaction.h"
+						>
+						<FileConfiguration
+							Name="DebugDLL|Win32"
+							ExcludedFromBuild="true"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -1480,27 +1570,11 @@
 				Name="events impl"
 				>
 				<File
-					RelativePath="..\..\source\quanticvortex\qvChangeStateEventArgs.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\source\quanticvortex\qvChangeStateEventArgs.h"
-					>
-				</File>
-				<File
 					RelativePath="..\..\source\quanticvortex\qvDefaultEventArgsFactory.cpp"
 					>
 				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvDefaultEventArgsFactory.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\source\quanticvortex\qvEventArgs.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\source\quanticvortex\qvEventArgs.h"
 					>
 				</File>
 				<File
@@ -1534,6 +1608,62 @@
 						/>
 					</FileConfiguration>
 				</File>
+				<Filter
+					Name="event args"
+					>
+					<File
+						RelativePath="..\..\source\quanticvortex\qvChangeStateEventArgs.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\source\quanticvortex\qvChangeStateEventArgs.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\source\quanticvortex\qvEventArgs.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\source\quanticvortex\qvEventArgs.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="db impl"
+				>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvSQLiteCompileConfig.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvSQLiteDbConnection.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvSQLiteDbConnection.h"
+					>
+				</File>
+				<Filter
+					Name="sqlite"
+					>
+					<File
+						RelativePath="..\..\source\quanticvortex\sqlite\sqlite3.c"
+						>
+					</File>
+					<File
+						RelativePath="..\..\source\quanticvortex\sqlite\sqlite3.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\source\quanticvortex\sqlite\sqlite3ext.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="content impl"
+				>
 			</Filter>
 		</Filter>
 	</Files>

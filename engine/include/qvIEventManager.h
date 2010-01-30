@@ -32,6 +32,7 @@
 //#include "qvICommandEvent.h"
 //#include "qvIEventArgs.h"
 #include "qvEventTypes.h"
+#include "qvStateTypes.h"
 
 
 namespace qv
@@ -40,6 +41,7 @@ namespace qv
     {   
 		class ICommandEvent;
 		class IEventArgs;
+		class IChangeStateEventArgs;
 		class IEventArgsFactory;
 
 		class IEventManager: public IReferenceCounted
@@ -52,7 +54,9 @@ namespace qv
 			//virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType)=0;
 
 			//event args
-			virtual IEventArgs* getEventArgs(const ET_EVENT_TYPE* type)=0;
+			virtual IEventArgs* createEmptyEventArgs(const ET_EVENT_TYPE* type)=0;
+			virtual IChangeStateEventArgs* createChangeStateEventArgs(const S_STATE* state)=0;
+
 			virtual void registerEventArgsFactory(IEventArgsFactory* factory)=0;
 
 			virtual void registerEventType(const ET_EVENT_TYPE* type)=0;

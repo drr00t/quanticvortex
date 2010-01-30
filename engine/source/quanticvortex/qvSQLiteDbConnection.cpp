@@ -24,47 +24,23 @@
 
 **************************************************************************************************/
 
+#include "qvSQLiteDbConnection.h"
 
-#ifndef __CHANGE_STATE_EVENT_ARGS_H_
-#define __CHANGE_STATE_EVENT_ARGS_H_
-
-#include "qvIChangeStateEventArgs.h"
 
 namespace qv
 {
-    namespace events
+    namespace content
     {
-        class ChangeStateEventArgs: public IChangeStateEventArgs
-        {
-		private:
-			const ET_EVENT_TYPE* mEventType;
-			const S_STATE* mState;
+		namespace db
+		{
+			SQLiteDbConnection::SQLiteDbConnection()
+			{
+			}
 
-        public:
-            ChangeStateEventArgs(const ET_EVENT_TYPE* eventType, const S_STATE* state );
-			virtual ~ChangeStateEventArgs();
-
-            virtual const ET_EVENT_TYPE* getEventType( void ) const { return mEventType; }
-
-			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
-
-			virtual const stringc& getTypeName( void ) const { return mEventType->Text; }
-            
-			virtual const S_STATE* getState( void ) const { return mState; }
-
-	        //! Writes attributes of the object.
-	        /** Implement this to expose the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml serialization purposes. */
-			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
-
-	        //! Reads attributes of the object.
-	        /** Implement this to set the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml deserialization purposes. */
-			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
-
-        };
+			SQLiteDbConnection::~SQLiteDbConnection()
+			{
+			}
+		}
     }
 }
-
-#endif
 

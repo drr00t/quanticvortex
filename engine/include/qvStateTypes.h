@@ -31,16 +31,7 @@
 
 namespace qv
 {
-    namespace gaming
-    {
-		typedef SHashedString S_STATE_TYPE;
-
-		static const S_STATE_TYPE *S_INITIALIZATING_STATE = new S_STATE_TYPE("S_INITIALIZATING_STATE");
-		static const S_STATE_TYPE *S_LOADING_STATE = new S_STATE_TYPE("S_LOADING_STATE");
-		static const S_STATE_TYPE *S_RUNNING_STATE = new S_STATE_TYPE("S_RUNNING_STATE");
-		static const S_STATE_TYPE *S_WAITING_PLAYER_STATE = new S_STATE_TYPE("S_WAITING_PLAYER_STATE");
-		static const S_STATE_TYPE *S_MENU_STATE = new S_STATE_TYPE("S_MENU_STATE");
-    }
+	typedef SHashedString S_STATE;
 }
 
 #endif

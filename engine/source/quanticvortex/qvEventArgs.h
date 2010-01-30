@@ -40,7 +40,9 @@ namespace qv
 			const ET_EVENT_TYPE* mEventType;
 
         public:
-            EventArgs(const ET_EVENT_TYPE* eventType);
+            
+			EventArgs(const ET_EVENT_TYPE* eventType);
+
 			virtual ~EventArgs();
 
             virtual const ET_EVENT_TYPE* getEventType( void ) const

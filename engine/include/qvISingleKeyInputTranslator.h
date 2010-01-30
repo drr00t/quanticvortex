@@ -76,7 +76,7 @@ namespace qv
 									:IInputTranslator(eventManager,ID,ITT_SINGLE_KEY_TYPE,realTime),
 									mKeyCode(keyCode), mCheckKeyState(checkKeyState), mArgs(0)
 			{
-				mArgs = mEventManager->getEventArgs(type);
+				mArgs = mEventManager->createEmptyEventArgs(type);
 			}
 		};
 	}

@@ -38,9 +38,16 @@ namespace qv
 		
 		class IChangeStateEventArgs : public IEventArgs
         {
+		protected:
+			const S_STATE* mState;
 
 		public:
-			virtual const gaming::S_STATE_TYPE* getState( void ) const = 0;
+			IChangeStateEventArgs(const ET_EVENT_TYPE* type, const S_STATE* state)
+				:IEventArgs(type), mState(state)
+			{
+			}
+
+			virtual const S_STATE* getState( void ) const { return mState; }
 
         };
     }

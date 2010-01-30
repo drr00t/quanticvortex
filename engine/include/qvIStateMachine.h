@@ -24,29 +24,23 @@
 
 **************************************************************************************************/
 
-#ifndef __ISTATE_MACHINE_H_
-#define __ISTATE_MACHINE_H_
+#ifndef __I_STATE_MACHINE_H_
+#define __I_STATE_MACHINE_H_
 
 #include "qvIState.h"
 
 
 namespace qv
 {
-    namespace gaming
+	class IStateMachine: public IReferenceCounted
     {
-		class IStateMachine: public IReferenceCounted
-        {
-        public:
-
-            
-            virtual void addState(IState* state)=0;
-            virtual void changeState(const S_STATE_TYPE& newType)=0;
-            virtual const IState* getCurrentState()=0;
-            virtual void removeState(IState* state)=0;
-            virtual void setCurrentState(IState* state)=0;
-	        virtual void update(u32 elapsedTimeMs)=0;
-        };
-    }
+    public:
+        
+        virtual void addState(IState* state)=0;
+		virtual void changeState(const S_STATE* newState)=0;
+        virtual IState* getCurrentState()=0;
+        virtual void removeState(IState* state)=0;
+    };
 }
 #endif
 

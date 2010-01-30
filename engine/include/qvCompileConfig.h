@@ -86,5 +86,5 @@
 
 //#endif // _QUANTICVORTEX_API_
 
-#endif // __IRR_COMPILE_CONFIG_H_INCLUDED__
+#endif
 
