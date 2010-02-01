@@ -48,7 +48,6 @@ namespace qv
 			}
 
 			virtual const S_STATE* getState( void ) const { return mState; }
-
         };
     }
 }

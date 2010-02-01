@@ -28,24 +28,23 @@
 #define __I_GAME_STATE_H_
 
 #include "qvIState.h"
+#include "qvIGameLogic.h"
+
 
 namespace qv
 {
     namespace gaming
     {
-        class IGameLogic;
 
-		// the game state will work on game logic views, like: add sceneview to a human view, 
+		// the game state will work on game logic views, like: add sceneview to a human view,
 		//or add a gui view, or remove them when need, change content of a scene view
         class IGameState: public IState
         {
-        protected:
-            IGameLogic* mGameLogic;
 
         public:
 
-            IGameState(IGameLogic* gameLogic, const S_STATE_TYPE* state, const S_STATE_TYPE* nextState)
-                :IState( state, nextState), mGameLogic(gameLogic)
+            IGameState(const S_STATE* state)
+                :IState( state)
             {
             }
 
@@ -54,11 +53,16 @@ namespace qv
             }
 
 			//i can fire change state event, that run composite command ( fade-in, fade-out), or put load screen when loading
-			virtual void changeState(const S_STATE_TYPE* nextState)=0;
-			virtual void beginLoad()=0;
-			virtual void endLoad()=0;
-			virtual void update( u32 currentTimeMs, u32 elapsedTimeMs)=0;
-			virtual void exit()=0;
+            virtual void configure() = 0;
+
+            virtual void enter() = 0;
+
+            virtual void leave() = 0;
+
+			virtual void update( u32 currentTimeMs, u32 elapsedTimeMs) = 0;
+//            {
+//			    mGameLogic->update(currentTimeMs, elapsedTimeMs);
+//			}
         };
     }
 }

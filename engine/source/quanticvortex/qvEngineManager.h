@@ -28,15 +28,15 @@
 #ifndef __ENGINE_MANAGER_H_
 #define __ENGINE_MANAGER_H_
 
-#include "qvIEngineManager.h" 
+#include "qvIEngineManager.h"
 
 //#include "IrrlichtDevice.h"
 //#include "IVideoDriver.h"
 //#include "ITimer.h"
 
 namespace qv
-{    
-	
+{
+
 	class EngineManager : public IEngineManager
     {
 
@@ -53,7 +53,7 @@ namespace qv
         gaming::IGameLogic* mGameLogic;
 		events::IEventManager* mEventManager;
 		input::IInputReceiver* mInputReceiver;
-        
+
 		irr::IrrlichtDevice* mDevice3d;
 		//irr::video::IVideoDriver* mVideoDriver;
 		//irr::scene::ISceneManager* mSceneManager;
@@ -61,12 +61,12 @@ namespace qv
   //      size_t mWindowHandle;
 
         virtual void loadConfiguration();
- 	            
+
         virtual void registerGameEvents();
 
         void update( u32 currentTimeMs, u32 elapsedTimeMs);
 
-        void render( u32 currentTimeMs, u32 elapsedTimeMs); 
+        void render( u32 currentTimeMs, u32 elapsedTimeMs);
 
 
     public:
@@ -74,9 +74,9 @@ namespace qv
 		EngineManager();
 		EngineManager(const SGameParams& params );
         virtual ~EngineManager();
-        
+
         virtual bool initialize();
-		
+
 		virtual void finalize();
 
  	    virtual s32 run();
@@ -86,14 +86,14 @@ namespace qv
 		virtual void endRender();
 
 		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory);
-        
+
 		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type);
-		
+
 		virtual gaming::IGameLogic* getGameLogic()
         {
             return mGameLogic;
         }
-   
+
 		virtual events::IEventManager* getEventManager()
         {
             return mEventManager;
@@ -112,7 +112,7 @@ namespace qv
 		virtual irr::IrrlichtDevice* getDevice()
         {
             return mDevice3d;
-        }        
+        }
 
 		//virtual irr::io::IFileSystem* getFileSystem()
   //      {
@@ -137,7 +137,7 @@ namespace qv
   //      virtual size_t getWindowHandle()
   //      {
   //          return mWindowHandle;
-  //      }		
+  //      }
 
 		virtual void setQuit(bool quit)
 		{

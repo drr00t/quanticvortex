@@ -30,13 +30,13 @@
 
 #include "qvIEventManager.h"
 
-#include "tbb/concurrent_queue.h"
+//#include "tbb/concurrent_queue.h"
 
 
 namespace qv
 {
     namespace events
-    {   
+    {
 		class ICommandEvent;
 
 		class EventManager: public IEventManager
@@ -44,18 +44,18 @@ namespace qv
 		private:
 
 			static const s32 QueueEventsLenght = 2;
-			
+
 			typedef list<const ET_EVENT_TYPE*> EventTypeList;
 			typedef list<IEventArgs*> EventList;
 			typedef list<IEventArgsFactory*> EventArgsFactoryList;
 			typedef list<ICommandEvent*> CommandEventList;
 			typedef map<s32, CommandEventList> EventToCommandEventMap;
-			typedef tbb::concurrent_bounded_queue<IEventArgs*> ConcurrentEventList;
-	    
+//			typedef tbb::concurrent_bounded_queue<IEventArgs*> ConcurrentEventList;
+
 		public:
     		EventManager();
 			virtual ~EventManager();
-	        
+
 			virtual bool registerCommandEvent ( ICommandEvent* command);
 			virtual bool unregisterCommandEvent ( ICommandEvent* command);
 			//virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType);
@@ -73,12 +73,12 @@ namespace qv
 			virtual bool process ( f32 processingTime);
 			virtual bool trigger ( IEventArgs *args );
 			virtual bool validateType(const ET_EVENT_TYPE* type);
-	    
+
 		private:
 			EventTypeList mValidEventTypes;
 			EventToCommandEventMap mRegistredCommandsMap;
 			EventList mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
-			ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
+//			ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
 			EventArgsFactoryList mEventArgsFactories;
 			mutable s32 mActiveReadyEventList;
 		};

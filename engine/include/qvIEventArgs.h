@@ -42,7 +42,7 @@ namespace qv
 			const ET_EVENT_TYPE* mEventType;
 
         public:
-			IEventArgs(const ET_EVENT_TYPE* eventType)
+			IEventArgs(const ET_EVENT_TYPE* eventType = 0)
 				:mEventType(eventType)
 			{
 			}

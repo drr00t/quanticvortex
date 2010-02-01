@@ -51,9 +51,10 @@ namespace qv
         mGameParams.WindowSize = dimension2di(1024,768);
     }
     //-----------------------------------------------------------------------------
-    EngineManager::EngineManager(const SGameParams& params):_helpRequested(false), 
-        mDevice3d(0), /*mVideoDriver(0), mSceneManager(0), */ mInputReceiver(0), mQuit(false),
-        mEventManager(0)/*mHasPopup(false), mFileSystem(0), mGameLogic(0),mWindowHandle(0)*/
+    EngineManager::EngineManager(const SGameParams& params):_helpRequested(false),
+        mDevice3d(0), mInputReceiver(0), mQuit(false), mEventManager(0),
+        mGameLogic(0)/*mHasPopup(false), mFileSystem(0), mWindowHandle(0),
+        mVideoDriver(0), mSceneManager(0), */
     {
 
 #ifdef _DEBUG
@@ -62,7 +63,7 @@ namespace qv
 
 		mGameParams = params;
     }
-    //----------------------------------------------------------------------------- 	
+    //-----------------------------------------------------------------------------
     EngineManager::~EngineManager()
     {
 		finalize();
@@ -141,10 +142,8 @@ namespace qv
 	bool EngineManager::initialize()
     {
         loadConfiguration(); // load default configuration files, if present
-		
-		//mInputReceiver = new InputReceiver(this);
 
-        SIrrlichtCreationParameters parameters;
+		SIrrlichtCreationParameters parameters;
 
         parameters.Bits = mGameParams.Bits;
 		parameters.DriverType = irr::video::EDT_OPENGL;
@@ -153,29 +152,17 @@ namespace qv
         parameters.Fullscreen = mGameParams.Fullscreen;
 
         mDevice3d = createDeviceEx(parameters);
-        
+
 		gaming::IGameLogicFactory* factory = new gaming::GameLogicFactory(this);
         registerGameLogicFactory(factory);
         factory->drop();
 
 		mEventManager = new events::EventManager();
-		
-		registerGameEvents();
 
-  //      mVideoDriver = mDevice3d->getVideoDriver();
+		registerGameEvents();
 
 		mInputReceiver = new input::IrrEventHandler(mEventManager);
         mDevice3d->setEventReceiver(mInputReceiver);
-
-        //if(parameters.DriverType == EDT_OPENGL)
-        //    mWindowHandle = (size_t)mVideoDriver->getExposedVideoData().OpenGLWin32.HWnd;
-
-        //else if(parameters.DriverType == EDT_DIRECT3D9)
-        //    mWindowHandle = (size_t)mVideoDriver->getExposedVideoData().D3D9.HWnd;
-
-        //mSceneManager = mDevice3d->getSceneManager();
-        //
-        //mFileSystem = mDevice3d->getFileSystem();
 
         return true;
     }
@@ -184,12 +171,13 @@ namespace qv
     {
         for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
             mGameLogicFactories[i]->drop();
-
+        
+		mEventManager->drop();
+		
 		mInputReceiver->drop();
+		
 		mGameLogic->drop();
 
-        mEventManager->drop();
-        
 		mDevice3d->drop();
 	}
 	//-----------------------------------------------------------------------------
@@ -226,7 +214,7 @@ namespace qv
             mDevice3d->getTimer()->getTime();
 
 	        s32 lastFPS = -1;
-            
+
 			// In order to do framerate independent movement, we have to know
             // how long it was since the last frame
             u32 lastTimeMs = mDevice3d->getTimer()->getTime();
@@ -236,7 +224,7 @@ namespace qv
                 // Work out a frame delta time.
                 const u32 curentTimeMs = mDevice3d->getTimer()->getTime();
                 u32 elapsedTimeMs = (curentTimeMs - lastTimeMs); // Time in miliseconds
-                
+
 				lastTimeMs = curentTimeMs;
 
 				if(elapsedTimeMs > 16)
@@ -249,7 +237,7 @@ namespace qv
 
                     //game application render
                     render( curentTimeMs, elapsedTimeMs);
-					
+
 					lastTimeMs = curentTimeMs;
 
 					s32 fps = mDevice3d->getVideoDriver()->getFPS();
@@ -340,7 +328,7 @@ namespace qv
 //      }
 //
 //      resize = false;
-//      
+//
 //      if (receiver)
 //      {
 //         delete receiver;
@@ -353,10 +341,10 @@ namespace qv
 //         device->run(); // Very important to do this here!
 //         device->drop();
 //      }
-//   } 
+//   }
         }
 
         return 0;
     }
-    
+
 }

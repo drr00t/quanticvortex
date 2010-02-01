@@ -1,5 +1,6 @@
 
 #include "qvGameStateMachine.h"
+#include "qvIGameState.h"
 
 namespace qv
 {
@@ -15,43 +16,46 @@ namespace qv
         {
         }
 		//-----------------------------------------------------------------------------------------
-		void GameStateMachine::addState(qv::gaming::IState *state)
+		void GameStateMachine::addState(qv::IState *state, bool startUpState)
 		{
-            map<s32, IGameState*>::Node* node = mGameStateMap.find(state->getType().ID);
+		    if(mStateMap.isEmpty())
+		    {
+		        mStateMap[state->getState()->HashedText] = state;
+		    }
+		    else
+		    {
+		        StateMap::Node* node = mStateMap.find(state->getState()->HashedText);
 
-            //if(!node)
-            //    mGameStateMap[state->getType().ID] = state;
+                if(!node)
+                    mStateMap[state->getState()->HashedText] = state;
+		    }
+
+            if(startUpState)
+                mCurrentState = state;
+
 		}
 		//-----------------------------------------------------------------------------------------
-		void GameStateMachine::changeState(const qv::gaming::S_STATE_TYPE &newType)
+		void GameStateMachine::changeState(const qv::S_STATE* newState)
 		{
             //leave old game state
-            map<s32, IGameState*>::Node* nodeOld = mGameStateMap.find(mCurrentGameState.ID);
+            StateMap::Node* nodeNewState = mStateMap.find(newState->HashedText);
 
-            //if(nodeOld)
-            //    nodeOld->getValue()->leave();
-
-            //going to new one
-            //map<s32, IGameState*>::Node* nodeNew = mGameStateMap.find(newType.ID);
-
-            //if(nodeNew)
-            //{
-            //    mCurrentGameState = newType;
-            //    nodeNew->getValue()->enter();
+            if(nodeNewState)
+            {
+                mCurrentState->leave();
+                mCurrentState = nodeNewState->getValue();
+                mCurrentState->configure();
+                mCurrentState->enter();
+            }
 
 			//query for type in state list
 			//execute leave from current state
 			//execute enter from new current type state
 		}
 		//-----------------------------------------------------------------------------------------
-		void GameStateMachine::removeState(qv::gaming::IState *state)
+		void GameStateMachine::removeState(qv::IState *state)
 		{
             //mGameStateMap.remove(
-		}
-		//-----------------------------------------------------------------------------------------
-		void GameStateMachine::update(irr::u32 elapsedTimeMs)
-		{
-			//mCurrentState->update(elapsedTimeMs);
 		}
 		//-----------------------------------------------------------------------------------------
 	}

@@ -35,21 +35,23 @@ namespace qv
     {
      protected:
 		const S_STATE* mState;
-		const S_STATE* mNextState;
 
     public:
 
+        IState(const S_STATE* state)
+        :mState(state)
+        {
+        }
+
         virtual const S_STATE* getState() const { return mState; }
 
-		virtual const S_STATE* getNextState() const { return mNextState; }
-
         virtual void configure() = 0;
-        
+
 		virtual void enter() = 0;
-        
+
 		virtual void leave() = 0;
-        
-		virtual void update(u32 elapsedTimeMs) = 0;
+
+		virtual void update( u32 currentTimeMs, u32 elapsedTimeMs) = 0;
     };
 }
 

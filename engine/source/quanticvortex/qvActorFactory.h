@@ -18,7 +18,7 @@ namespace qv
 			ActorFactory(void){}
 			virtual ~ActorFactory(void){}
 
-			virtual const ActorType& getActorType() const = 0;
+			virtual const AT_ACTOR_TYPE* getActorType() const = 0;
 			virtual Actor* create() = 0;
 			virtual void destroy(Actor*) = 0;
 

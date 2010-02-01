@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="DebugDLL Win32" />
+	<File name="..\..\include\qvActorTypes.h" open="0" top="0" tabpos="0">
+		<Cursor position="1667" topLine="1" />
+	</File>
+	<File name="..\..\include\qvIEngineManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="1730" topLine="18" />
+	</File>
+	<File name="..\..\include\qvIEventManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="2719" topLine="32" />
+	</File>
+	<File name="..\..\include\qvIGameLogic.h" open="0" top="0" tabpos="0">
+		<Cursor position="3614" topLine="60" />
+	</File>
+	<File name="..\..\include\qvIGameState.h" open="0" top="0" tabpos="0">
+		<Cursor position="2267" topLine="27" />
+	</File>
+	<File name="..\..\include\qvIState.h" open="0" top="0" tabpos="0">
+		<Cursor position="1545" topLine="14" />
+	</File>
+	<File name="..\..\include\qvIStateMachine.h" open="0" top="0" tabpos="0">
+		<Cursor position="1742" topLine="3" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvDefaultEventArgsFactory.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1549" topLine="21" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvDefaultEventArgsFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1583" topLine="15" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEngineManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="5824" topLine="138" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEngineManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="1942" topLine="42" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEventManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2150" topLine="36" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEventManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="2129" topLine="47" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGameStateMachine.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1315" topLine="21" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGameStateMachine.h" open="0" top="0" tabpos="0">
+		<Cursor position="2154" topLine="20" />
+	</File>
+</CodeBlocks_layout_file>

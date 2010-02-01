@@ -36,8 +36,8 @@ namespace qv
     {
         class EventArgs: public IEventArgs
         {
-		private:
-			const ET_EVENT_TYPE* mEventType;
+		//protected:
+		//	const ET_EVENT_TYPE* mEventType;
 
         public:
             
@@ -45,20 +45,20 @@ namespace qv
 
 			virtual ~EventArgs();
 
-            virtual const ET_EVENT_TYPE* getEventType( void ) const
-			{
-				return mEventType;
-			}
+   //         virtual const ET_EVENT_TYPE* getEventType( void ) const
+			//{
+			//	return mEventType;
+			//}
 
-			virtual u32 getTypeID( void ) const
-			{
-				return mEventType->HashedText;
-			}
+			//virtual u32 getTypeID( void ) const
+			//{
+			//	return mEventType->HashedText;
+			//}
 
-			virtual const stringc& getTypeName( void ) const
-			{
-				return mEventType->Text;
-			}
+			//virtual const stringc& getTypeName( void ) const
+			//{
+			//	return mEventType->Text;
+			//}
 
 	        //! Writes attributes of the object.
 	        /** Implement this to expose the attributes of your scene node animator for

@@ -37,24 +37,27 @@ namespace qv
     {
         class IGameState;
 
+        typedef map<s32, IState*> StateMap;
+
 		class GameStateMachine: public IStateMachine
         {
 		protected:
-            map<s32, IGameState*> mGameStateMap;
-			S_STATE_TYPE mCurrentGameState;
-            //IGameState* mPreviousGameState;
-            //IGameState* mNextGameState;
+            StateMap mStateMap;
+			IState* mCurrentState;
 
         public:
 			GameStateMachine();
 			~GameStateMachine();
 
-            virtual void addState(IState* state);
-            virtual void changeState(const S_STATE_TYPE& newType);
-			//virtual const IState* getCurrentState(){return mCurrentState;}
+            virtual void addState(IState* state, bool startUpState = false);
+            virtual void changeState(const S_STATE* newState);
+			virtual IState* getCurrentState(){return mCurrentState;}
             virtual void removeState(IState* state);
-			//virtual void setCurrentState(IState* state){ mCurrentState = state;}
-	        virtual void update(u32 elapsedTimeMs);
+
+            virtual void update( u32 currentTimeMs, u32 elapsedTimeMs)
+            {
+                mCurrentState->update(currentTimeMs, elapsedTimeMs);
+            }
         };
     }
 }

@@ -52,7 +52,8 @@ namespace qv
 
 			if(getCreateableEventArgsType(type))
 			{
-				if((ET_GAME_QUIT == type) || (ET_GAME_NEW == type))
+				if((ET_GAME_QUIT->HashedText == type->HashedText) || 
+					(ET_GAME_NEW->HashedText == type->HashedText))
 					eventArgs = new EventArgs(type);
 			}
 

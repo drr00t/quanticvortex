@@ -39,6 +39,11 @@ namespace qv
 		class ICommandEvent: public ICommand
 		{
 		public:
+			ICommandEvent(const CI_COMMAND_ID* ID)
+				:ICommand(ID)
+			{
+			}
+
 			virtual const array<const ET_EVENT_TYPE*>& listenEventTypes() const =0;
 			//virtual void executeCommand(const IEventArgs* args) =0;
 		};

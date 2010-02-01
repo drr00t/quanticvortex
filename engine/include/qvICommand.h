@@ -41,11 +41,25 @@ namespace qv
 
 	class ICommand: public IReferenceCounted
     {
+	protected:
+		const CI_COMMAND_ID* mID;
 
     public:
-        virtual const CI_COMMAND_ID* getCommandID() const =0;
-		virtual u32 getID() const =0;
-        virtual const stringc& getName() const =0;
+		ICommand(const CI_COMMAND_ID* ID = 0)
+			:mID(ID)
+		{
+#ifdef _DEBUG
+			setDebugName(mID->Text.c_str());
+#endif
+		}
+
+		virtual ~ICommand()
+		{
+			mID->drop();
+		}
+		//virtual const CI_COMMAND_ID* getCommandID() const { return mID; }
+		virtual u32 getID() const { return mID->HashedText; } 
+		virtual const stringc& getName() const { return mID->Text; }
 		virtual void executeCommand(const events::IEventArgs* args) =0;
     };
 }

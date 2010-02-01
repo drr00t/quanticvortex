@@ -37,12 +37,12 @@
 namespace qv
 {
     namespace events
-    {   
+    {
 		//-----------------------------------------------------------------------------------------
 		EventManager::EventManager()
 			:mActiveReadyEventList(0)
 		{
-			setDebugName("EventManager");
+//			setDebugName("EventManager");
 
 			DefaultEventArgsFactory* factory = new DefaultEventArgsFactory();
 			registerEventArgsFactory(factory);
@@ -51,28 +51,29 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		EventManager::~EventManager()
 		{
-			EventTypeList::Iterator itrEvents = mValidEventTypes.begin();
-			for(;itrEvents != mValidEventTypes.end(); ++itrEvents)
-				(*itrEvents)->drop();
+			mRegistredCommandsMap.clear();
+			//EventToCommandEventMap::ParentLastIterator itrCommandsMap =
+			//	mRegistredCommandsMap.getParentLastIterator();
+
+			//while(!itrCommandsMap.atEnd())
+			//{
+			//	CommandEventList::Iterator itrCommands =
+			//		(*itrCommandsMap.getNode()).getValue().begin();
+
+			//	for(;itrCommands != (*itrCommandsMap.getNode()).getValue().end();++itrCommands)
+			//		(*itrCommands)->drop();
+
+			//	(*itrCommandsMap.getNode()).getValue().clear();
+			//	mRegistredCommandsMap.remove((*itrCommandsMap.getNode()).getKey());
+			//}
 
 			EventArgsFactoryList::Iterator itrFactories = mEventArgsFactories.begin();
 			for(;itrFactories != mEventArgsFactories.end(); ++itrFactories)
 				(*itrFactories)->drop();
 
-			EventToCommandEventMap::ParentLastIterator itrCommandsMap =
-				mRegistredCommandsMap.getParentLastIterator();
-
-			while(!itrCommandsMap.atEnd())
-			{
-				CommandEventList::Iterator itrCommands = 
-					(*itrCommandsMap.getNode()).getValue().begin();
-
-				for(;itrCommands != (*itrCommandsMap.getNode()).getValue().end();++itrCommands)
-					(*itrCommands)->drop();
-
-				(*itrCommandsMap.getNode()).getValue().clear();
-				mRegistredCommandsMap.remove((*itrCommandsMap.getNode()).getKey());
-			}
+			EventTypeList::Iterator itrEvents = mValidEventTypes.begin();
+			for(;itrEvents != mValidEventTypes.end(); ++itrEvents)
+				(*itrEvents)->drop();
 		}
 		//-----------------------------------------------------------------------------------------
 		void EventManager::registerEventType(  const ET_EVENT_TYPE* type)
@@ -86,7 +87,7 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		void EventManager::unregisterEventType( const ET_EVENT_TYPE* type)
 		{
-			
+
 		}
 		//-----------------------------------------------------------------------------------------
 		void EventManager::registerEventArgsFactory(IEventArgsFactory* factory)
@@ -179,10 +180,10 @@ namespace qv
 
 			for(u32 i = 0; i < events.size(); ++i)
 			{
-				EventToCommandEventMap::Node* nodeListenerMap = 
+				EventToCommandEventMap::Node* nodeListenerMap =
 					mRegistredCommandsMap.find(events[i]->HashedText);
 
-				CommandEventList::Iterator itrCommand = 
+				CommandEventList::Iterator itrCommand =
 					nodeListenerMap->getValue().begin();
 
 				for(;itrCommand != nodeListenerMap->getValue().end(); ++itrCommand)
@@ -193,8 +194,8 @@ namespace qv
 						break;
 					}
 				}
-			}            
-	        
+			}
+
 			return true;
 		}
 		//-----------------------------------------------------------------------------------------
@@ -203,7 +204,7 @@ namespace qv
 			if(!validateType(args->getEventType()))
 				return false;
 
-			EventToCommandEventMap::Node* nodeCommandsMap = 
+			EventToCommandEventMap::Node* nodeCommandsMap =
 				mRegistredCommandsMap.find(args->getTypeID());
 
 			if(!nodeCommandsMap)
@@ -221,9 +222,9 @@ namespace qv
 
 			//------------------------------------------------------------
 			//put all realtime generated events to our central event queue
-			IEventArgs* realtimeEvent(0);
-			while (!mRealtimeReadyEvents.empty() && mRealtimeReadyEvents.try_pop(realtimeEvent))
-				enqueueEvent(realtimeEvent);
+//			IEventArgs* realtimeEvent(0);
+//			while (!mRealtimeReadyEvents.empty() && mRealtimeReadyEvents.try_pop(realtimeEvent))
+//				enqueueEvent(realtimeEvent);
 			//------------------------------------------------------------
 
 			if(mActiveReadyEventList == 1)
@@ -235,14 +236,14 @@ namespace qv
 
 			for(;itrEventArgs != mReadyEvents[processReadyEventList].end(); ++itrEventArgs)
 			{
-				EventToCommandEventMap::Node* nodeCommandsMap = 
+				EventToCommandEventMap::Node* nodeCommandsMap =
 					mRegistredCommandsMap.find((*itrEventArgs)->getTypeID());
 
 				if(!nodeCommandsMap)
 					continue;
 
 				CommandEventList::Iterator itrCommands = nodeCommandsMap->getValue().begin();
-	                             
+
 				for(;itrCommands != nodeCommandsMap->getValue().end();++itrCommands)
 				{
 					const IEventArgs* args = const_cast<IEventArgs*>(*itrEventArgs);
@@ -265,14 +266,14 @@ namespace qv
 
 			//iterate throw generic event listener, like a monitor to all events registred
 
-			EventToCommandEventMap::Node* nodeListenerMap = 
+			EventToCommandEventMap::Node* nodeListenerMap =
 				mRegistredCommandsMap.find(args->getTypeID());
 
 			if(!nodeListenerMap)
 				return false;
-	        
-			bool eventHandled = false; 
-			
+
+			bool eventHandled = false;
+
 			CommandEventList& commands = nodeListenerMap->getValue();
 
 			for(CommandEventList::Iterator itr = commands.begin();itr != commands.end(); ++itr)
@@ -280,7 +281,7 @@ namespace qv
 				(*itr)->executeCommand(args);
 				eventHandled = true;
 			}
-	        
+
 			return eventHandled;
 		}
 		//-----------------------------------------------------------------------------------------
