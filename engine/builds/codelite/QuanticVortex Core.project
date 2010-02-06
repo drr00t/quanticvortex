@@ -145,7 +145,7 @@
     </VirtualDirectory>
   </VirtualDirectory>
   <Settings Type="Executable">
-    <Configuration Name="DebugDLL" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+    <Configuration Name="DebugDLL" CompilerType="VC++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
         <IncludePath Value="../../../engine/source/quanticvortex"/>
@@ -316,4 +316,5 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
   </Settings>
+  <Dependencies Name="DebugDLL"/>
 </CodeLite_Project>

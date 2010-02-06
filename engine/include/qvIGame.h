@@ -4,6 +4,7 @@
 
 #include "qvIEngineManager.h"
 
+
 namespace qv
 {
 	class IGame: public IReferenceCounted
@@ -14,10 +15,10 @@ namespace qv
 		void run(s32 argc, c8* argv[])=0;
 
 	protected:
-		bool addEvent()=0;
-		void addCommand()=0;
-		void addInputTranslator()=0;
-		void addState()=0;
+		void configureEvents()=0;
+		void configureCommands()=0;
+		void configureInputTranslator()=0;
+		void configureGameStates()=0;
     };
 }
 #endif
