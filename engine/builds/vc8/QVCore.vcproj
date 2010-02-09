@@ -185,7 +185,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\engine\include;..\..\..\engine\source\quanticvortex;..\..\..\engine\source\quanticvortex\sqlite;..\..\..\..\dependencies\include\irrlicht\include;..\..\..\..\dependencies\include\bullet;..\..\..\..\dependencies\include\tbb;..\..\..\..\dependencies\include\POCO"
+				AdditionalIncludeDirectories="..\..\..\engine\include;..\..\..\engine\source\quanticvortex;..\..\..\engine\source\quanticvortex\sqlite;..\..\..\dependencies\include\irrlicht\include;..\..\..\dependencies\include\bullet"
 				PreprocessorDefinitions="WIN32;_DEBUG;_QUANTICVORTEX_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				MinimalRebuild="false"
 				ExceptionHandling="1"
@@ -211,10 +211,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Irrlicht_d.lib libbulletdynamics_d.lib libbulletcollision_d.lib libbulletsoftbody_d.lib libbulletmath_d.lib tbb_debug.lib"
+				AdditionalDependencies="Irrlicht_d.lib libbulletdynamics_d.lib libbulletcollision_d.lib libbulletsoftbody_d.lib libbulletmath_d.lib"
 				OutputFile="..\..\bin\debug\QuanticVortex_d.dll"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\..\..\dependencies\libs\debug"
+				AdditionalLibraryDirectories="..\..\..\dependencies\libs\debug"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="..\..\obj\debug\QuanticVortex_d.pdb"
 				ImportLibrary="..\..\lib\debug\QuanticVortex_d.lib"
@@ -242,7 +242,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy ..\..\..\..\dependencies\bin\debug\*.dll ..\..\bin\debug\"
+				CommandLine="copy ..\..\..\dependencies\bin\debug\*.dll ..\..\bin\debug\"
 			/>
 		</Configuration>
 		<Configuration

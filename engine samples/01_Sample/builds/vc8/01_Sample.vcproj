@@ -189,7 +189,7 @@
 		</Configuration>
 		<Configuration
 			Name="DebugDLL|Win32"
-			OutputDirectory="..\..\bin\debug"
+			OutputDirectory="..\..\..\bin\debug"
 			IntermediateDirectory="..\..\obj\debug"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -213,7 +213,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include;..\..\..\..\engine\include;..\..\..\..\..\dependencies\include\irrlicht\include;..\..\..\..\..\dependencies\include\bullet"
+				AdditionalIncludeDirectories="..\..\include;..\..\..\..\engine\include;..\..\..\..\dependencies\include\irrlicht\include;..\..\..\..\dependencies\include\bullet"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				MinimalRebuild="true"
 				ExceptionHandling="1"
@@ -271,12 +271,12 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy ..\..\..\..\engine\bin\debug\*.dll ..\..\bin\debug\"
+				CommandLine="copy ..\..\..\..\engine\bin\debug\*.dll ..\..\..\bin\debug\"
 			/>
 		</Configuration>
 		<Configuration
 			Name="ReleaseDLL|Win32"
-			OutputDirectory="..\..\bin\release"
+			OutputDirectory="..\..\..\bin\release"
 			IntermediateDirectory="..\..\obj\release"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -360,7 +360,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy ..\..\..\..\engine\bin\release\*.dll ..\..\bin\release\"
+				CommandLine="copy ..\..\..\..\engine\bin\release\*.dll ..\..\..\bin\release\"
 			/>
 		</Configuration>
 	</Configurations>
