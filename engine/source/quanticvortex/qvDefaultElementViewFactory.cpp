@@ -49,10 +49,10 @@ namespace qv
 		{
             IElementView* elementView = 0;
 
-            if(type == EVT_ELEMENT_VIEW_SCENE)
+			if(type->HashedText == EVT_ELEMENT_VIEW_SCENE->HashedText)
                 elementView = new SceneView(name, mEngine);
 
-            else if(type == EVT_ELEMENT_VIEW_GUI)
+			else if(type->HashedText == EVT_ELEMENT_VIEW_GUI->HashedText)
                 elementView = new GuiView(name, mEngine);
 
 			return elementView;

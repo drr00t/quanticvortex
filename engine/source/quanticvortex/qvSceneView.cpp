@@ -35,7 +35,7 @@ namespace qv
     {
         //-----------------------------------------------------------------------------------------
         SceneView::SceneView( const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type)
-            :mVisible(true), mDefaultCamera(0), mSceneManager(0)
+			:mVisible(true), mDefaultCamera(0), mSceneManager(engine->getDevice()->getSceneManager())//, mOrder(1) //first element view to render
         {
 
 #ifdef _DEBUG
@@ -86,7 +86,10 @@ namespace qv
         //-----------------------------------------------------------------------------------------------
 		void SceneView::OnCreateNode(ISceneNode* node)
 		{
-			
+			if(node->getType() == scene::ESNT_CAMERA)
+			{
+				mDefaultCamera = static_cast<ICameraSceneNode*>(node);
+			}
 		}
         //-----------------------------------------------------------------------------------------------		
 		void SceneView::OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData)

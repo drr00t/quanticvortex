@@ -36,7 +36,15 @@ namespace qv
 	namespace input
 	{
 		// Enumeration for UP, DOWN, PRESSED and RELEASED key states. Also used for mouse button states.
-		enum EKEY_STATE {EKS_UP, EKS_DOWN, EKS_PRESSED, EKS_RELEASED};
+		enum EKEY_STATE 
+		{
+			EKS_UP = 0x01, 
+			EKS_DOWN = 0x02, 
+			EKS_PRESSED = 0x04, 
+			EKS_RELEASED = 0x08, 
+			EKS_PRESSED_OR_DOWN = EKS_DOWN | EKS_PRESSED, 
+			EKS_UP_OR_RELEASED = EKS_UP | EKS_RELEASED
+		};
 
 	}
 }

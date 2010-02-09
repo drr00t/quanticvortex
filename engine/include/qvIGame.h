@@ -11,6 +11,13 @@ namespace qv
     {
 
 	public:
+		IGame()
+		{
+		}
+		virtual ~IGame()
+		{
+		}
+
 		void loadConfiguration()=0;
 		void run(s32 argc, c8* argv[])=0;
 
@@ -19,6 +26,9 @@ namespace qv
 		void configureCommands()=0;
 		void configureInputTranslator()=0;
 		void configureGameStates()=0;
+
+
+		IEngineManager* mEngine;
     };
 }
 #endif

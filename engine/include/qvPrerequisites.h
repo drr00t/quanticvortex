@@ -65,9 +65,9 @@ using namespace irr::core;
 namespace qv
 {
     const f32 GF_GAME_LOGIC_FRAMERATE(16.666667f);
-    const f32 GF_GAME_ANIMATION_FRAMERATE(16.666667f);
-    const f32 GF_GAME_RENDER_FRAMERATE(16.666667f);
-    const f32 GF_GAME_PHYSICS_FRAMERATE(16.666667f);
+    const f32 GF_GAME_ANIMATION_FRAMERATE(16.666667f); // 1/30
+    const f32 GF_GAME_RENDER_FRAMERATE(16.666667f); //    1/60
+    const f32 GF_GAME_PHYSICS_FRAMERATE(16.666667f); //   1/60
     //const f32 GamePhysicsFramerate(16.666667f);
 }
 

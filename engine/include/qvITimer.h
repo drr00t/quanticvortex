@@ -5,42 +5,46 @@
 
 #include "qvPrerequisites.h"
 
-class Timer
+namespace qv
 {
-private:
-    irr::ITimer  *  mIrrlichtTimer;
+	class ITimer
+	{
+	private:
+		irr::ITimer  *  mIrrlichtTimer;
 
-    irr::u32    mTime;
-    irr::f32    mTimeRest;
-    irr::u32    mLastRealTime;
-    irr::u32    mLastStartTime;
-    irr::f32    mSpeed;
-    irr::u32    mLastTick;
-    int         mIsRunning;
+		u32    mTime;
+		f32    mTimeRest;
+		u32    mLastRealTime;
+		u32    mLastStartTime;
+		f32    mSpeed;
+		u32    mLastTick;
 
-public:
-	Timer(irr::ITimer * irrlichtTimer_, bool startRunning_=false);	// startRunning_ decides if timer is running or stopped after creation
-	virtual ~Timer();
+		int         mIsRunning;
 
-    // in milliseconds
-	virtual irr::u32 getTime()=0;
-	virtual void setTime(irr::u32 time_)=0;
+	public:
+		Timer(irr::ITimer * irrlichtTimer_, bool startRunning_=false);	// startRunning_ decides if timer is running or stopped after creation
+		virtual ~Timer();
 
-	virtual irr::u32 getLastTickInMs()=0;
-	virtual irr::f32 getLastTickInSeconds()=0;
+		// in milliseconds
+		virtual u32 getTime()=0;
+		virtual void setTime(u32 time_)=0;
 
-    // unlike irr::ITimer there's no reference counting for start/stop!
-	virtual void stop()=0;
-	virtual void start()=0;
-	virtual bool isStopped()=0;
+		virtual u32 getLastTickInMs()=0;
+		virtual f32 getLastTickInSeconds()=0;
 
-	virtual irr::u32 getLastStartTime()=0;
+		// unlike irr::ITimer there's no reference counting for start/stop!
+		virtual void stop()=0;
+		virtual void start()=0;
+		virtual bool isStopped()=0;
 
-	virtual void setSpeed(irr::f32 speed_ = 1.0f)=0;
-	virtual irr::f32 getSpeed()=0;
+		virtual u32 getLastStartTime()=0;
 
-	// Must be called regularly.
-	virtual void tick()=0;
-};
+		virtual void setSpeed(f32 speed_ = 1.0f)=0;
+		virtual f32 getSpeed()=0;
+
+		// Must be called regularly.
+		virtual void tick()=0;
+	};
+}
 
 #endif // TIMER_H

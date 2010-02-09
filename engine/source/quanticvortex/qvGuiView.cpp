@@ -9,7 +9,7 @@ namespace qv
     {
         //---------------------------------------------------------------------
         GuiView::GuiView(const c8* name,IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type)
-            : mElement(0), mGuiManager(0), mVisible(true)
+			: mElement(0), mGuiManager(0), mVisible(true)//, mOrder(5)
         {
 
 #ifdef _DEBUG

@@ -87,7 +87,7 @@ namespace qv
 
 		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory);
 
-		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type);
+		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type = gaming::GLT_GAME_LOGIC_DEFAULT);
 
 		virtual gaming::IGameLogic* getGameLogic()
         {

@@ -65,6 +65,34 @@ namespace qv
 
 			switch(mCheckKeyState)
 			{
+			case EKS_PRESSED_OR_DOWN:
+
+				if(context->keyPressed(mKeyCode) || context->keyDown(mKeyCode))
+				{
+					if(mRealTime)
+						mEventManager->trigger(mArgs);
+					else
+						mEventManager->enqueueEvent(mArgs);
+
+					translated = true;
+				}
+
+				break;
+
+			case EKS_UP_OR_RELEASED:
+
+				if(context->keyUp(mKeyCode) || context->keyReleased(mKeyCode))
+				{
+					if(mRealTime)
+						mEventManager->trigger(mArgs);
+					else
+						mEventManager->enqueueEvent(mArgs);
+
+					translated = true;
+				}
+
+				break;
+
 			case EKS_PRESSED:
 
 				if(context->keyPressed(mKeyCode))

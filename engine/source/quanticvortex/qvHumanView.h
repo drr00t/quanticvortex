@@ -48,7 +48,7 @@ namespace qv
             const GVT_GAME_VIEW_TYPE*  mType;
             const GVI_GAME_VIEW_ID*	mViewID;
 			const gaming::AI_ACTOR_ID*         mActorID;
-			list<IElementView*> mElementViews;
+			array<IElementView*> mElementViews;
 
             array<IElementViewFactory*> mElementViewFactories;
 

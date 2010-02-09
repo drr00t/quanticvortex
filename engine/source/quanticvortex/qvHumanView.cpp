@@ -71,11 +71,9 @@ namespace qv
         HumanView::~HumanView()
         {
 			//mProcessManager->drop();
-			
-            list<IElementView*>::Iterator itr = mElementViews.begin();
-			
-			for(;itr != mElementViews.end(); ++itr)
-				(*itr)->drop();
+			            
+			for(u32 i = 0; i < mElementViews.size(); ++i)
+				mElementViews[i]->drop();
             
             mElementViews.clear();
 
@@ -89,25 +87,29 @@ namespace qv
         //-----------------------------------------------------------------------------------------
         void HumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
         {
+			//////// Lock FPS at around 60
+			//////if((timeThisFrame - timePreviousFrame) <= 16) 
+			//////{
+			//////  Timer->tick();
+			//////  timeThisFrame = Timer->getTime();
+			//////}
+			//////timePreviousFrame = timeThisFrame; 
+
             //get new system time, but FIXME: should be game time from GameLogic maybe
             mCurrentTime = currentTimeMs;
 
             if (mCurrentTime == mLastUpdateTime)
 		        return;
 
-			f32 temp = mCurrentTime - mLastUpdateTime;
+			//mAccumulatorTime += elapsedTimeMs;
 
-			mAccumulatorTime += elapsedTimeMs;
-
-            //if(qv::GF_GAME_RENDER_FRAMERATE < (mCurrentTime - mLastUpdateTime))
-            //{
-                list<IElementView*>::Iterator itr;
-
+            if((mCurrentTime - mLastUpdateTime) > qv::GF_GAME_RENDER_FRAMERATE)
+            {
 				mEngine->beginRender(true, true); //call some beginRender from engine
 
-                for(itr = mElementViews.begin();itr!= mElementViews.end();++itr)
-                    if((*itr)->getVisible())
-                        (*itr)->render( mCurrentTime, elapsedTimeMs);
+                for(u32 i = 0; i < mElementViews.size(); ++i)
+                    if(mElementViews[i]->getVisible())
+                        mElementViews[i]->render( mCurrentTime, elapsedTimeMs);
 
 				//mEngineManager->getSceneManager()->drawAll();
 				
@@ -118,7 +120,7 @@ namespace qv
                 //register last render call time
                 mLastUpdateTime = mCurrentTime;
 				//mAccumulatorTime -= elapsedTimeMs;				
-            //}
+            }
             
         }
         //-----------------------------------------------------------------------------------------
@@ -134,10 +136,8 @@ namespace qv
 
 	        //m_Console.Update(deltaMilliseconds);
 
-			list<IElementView*>::Iterator itr;
-
-            for(itr = mElementViews.begin();itr!= mElementViews.end();++itr)
-                (*itr)->update(elapsedTimeMs);
+            for(u32 i = 0; i < mElementViews.size(); ++i)
+                mElementViews[i]->update( elapsedTimeMs);
 
             //fire game tick
    //         UpdateTickEventArgs tickEvent(elapsedTimeMs);
@@ -148,11 +148,18 @@ namespace qv
         {
             IElementView* elementView(0);
             for(u32 i = 0; i < mElementViewFactories.size(); ++i)
+			{
                 if(mElementViewFactories[i]->getCreateableElementViewType(type))
 				{
                     elementView = mElementViewFactories[i]->addElementView(name,type);
-					mElementViews.push_back(elementView);
+						mElementViews.push_back(elementView);
+					break;
 				}
+			}
+
+			////sort element views array, to put 3D scene, behind gui view, etc...
+			//if(mElementViews.size() > 1)
+			//	mElementViews.sort();
 
             return elementView;
         }
