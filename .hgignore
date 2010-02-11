@@ -1,0 +1,9 @@
+syntax: glob
+
+*.user
+obj/
+bin/
+lib/
+dependencies/
+*.ncb
+*.suo
