@@ -33,6 +33,7 @@
 //gaming
 #include "qvIActor.h"
 #include "qvActorTypes.h"
+#include "qvIGame.h"
 #include "qvIGameLogic.h"
 #include "qvIGameLogicFactory.h"
 #include "qvSActorParams.h"

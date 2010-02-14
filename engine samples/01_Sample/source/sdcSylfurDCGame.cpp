@@ -19,6 +19,7 @@ namespace sdc
 	//------------------------------------------------------------------------------------------------
     SylfurDCGame::SylfurDCGame()
     {
+
         qv::SGameParams params;
 
         params.Bits = 32;
@@ -78,7 +79,7 @@ namespace sdc
 		return initialized;
     }
     //-----------------------------------------------------------------------------
-	s32 SylfurDCGame::run()
+	s32 SylfurDCGame::run(s32 argc, c8* argv[])
 	{
 		return mEngine->run();
 	}

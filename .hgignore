@@ -4,6 +4,7 @@ syntax: glob
 obj/
 bin/
 lib/
+media/
 dependencies/
 *.ncb
 *.suo

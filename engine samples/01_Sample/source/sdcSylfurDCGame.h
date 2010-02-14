@@ -7,7 +7,7 @@
 
 namespace sdc
 {
-	class SylfurDCGame //: public Game
+	class SylfurDCGame //: public qv::IGame
     {
 	private:
 		qv::IEngineManager* mEngine;
@@ -18,10 +18,7 @@ namespace sdc
 
 		bool initialize();
 
-		s32 run();
-
-        //virtual bool loadGame();
-        //virtual void createGameAndView();
+		s32 run(s32 argc, c8* argv[]);
     };
 }
 

@@ -188,10 +188,10 @@
 				AdditionalIncludeDirectories="..\..\..\engine\include;..\..\..\engine\source\quanticvortex;..\..\..\engine\source\quanticvortex\sqlite;..\..\..\dependencies\include\irrlicht\include;..\..\..\dependencies\include\bullet"
 				PreprocessorDefinitions="WIN32;_DEBUG;_QUANTICVORTEX_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				MinimalRebuild="false"
-				ExceptionHandling="1"
+				ExceptionHandling="0"
 				BasicRuntimeChecks="3"
 				SmallerTypeCheck="false"
-				RuntimeLibrary="3"
+				RuntimeLibrary="1"
 				EnableEnhancedInstructionSet="0"
 				RuntimeTypeInfo="false"
 				UsePrecompiledHeader="0"
@@ -276,8 +276,8 @@
 				AdditionalIncludeDirectories="..\..\..\engine\include;..\..\..\engine\source\quanticvortex;..\..\..\engine\source\quanticvortex\sqlite;..\..\..\..\dependencies\include\irrlicht\include;..\..\..\..\dependencies\include\bullet;..\..\..\..\dependencies\include\tbb;..\..\..\..\dependencies\include\POCO"
 				PreprocessorDefinitions="WIN32;NDEBUG;_QUANTICVORTEX_EXPORTS"
 				StringPooling="true"
-				ExceptionHandling="1"
-				RuntimeLibrary="2"
+				ExceptionHandling="0"
+				RuntimeLibrary="0"
 				BufferSecurityCheck="false"
 				EnableFunctionLevelLinking="true"
 				EnableEnhancedInstructionSet="1"
@@ -532,6 +532,14 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="ReleaseDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvIGameLogic.h"
@@ -592,12 +600,28 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="ReleaseDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\include\qvSPlayerScore.h"
 					>
 					<FileConfiguration
 						Name="DebugDLL|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="ReleaseDLL|Win32"
 						ExcludedFromBuild="true"
 						>
 						<Tool
