@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QuanticVortex Tests", "builds\vc8\engine tests.vcproj", "{5C4DAC2B-EE84-432A-A150-760A836031AC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QuanticVortex Core", "..\engine\builds\vc8\QVCore.vcproj", "{9364E8D1-8A65-4817-9906-30FDF08546C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		DebugDLL|Win32 = DebugDLL|Win32
+		DebugStatic|Win32 = DebugStatic|Win32
+		Release|Win32 = Release|Win32
+		ReleaseDLL|Win32 = ReleaseDLL|Win32
+		ReleaseStatic|Win32 = ReleaseStatic|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.Debug|Win32.Build.0 = Debug|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.DebugDLL|Win32.ActiveCfg = Debug|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.DebugDLL|Win32.Build.0 = Debug|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.DebugStatic|Win32.ActiveCfg = Debug|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.DebugStatic|Win32.Build.0 = Debug|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.Release|Win32.ActiveCfg = Release|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.Release|Win32.Build.0 = Release|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.ReleaseDLL|Win32.ActiveCfg = Release|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.ReleaseDLL|Win32.Build.0 = Release|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.ReleaseStatic|Win32.ActiveCfg = Release|Win32
+		{5C4DAC2B-EE84-432A-A150-760A836031AC}.ReleaseStatic|Win32.Build.0 = Release|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.Debug|Win32.ActiveCfg = DebugDLL|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.Debug|Win32.Build.0 = DebugDLL|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.DebugDLL|Win32.ActiveCfg = DebugDLL|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.DebugDLL|Win32.Build.0 = DebugDLL|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.DebugStatic|Win32.ActiveCfg = DebugStatic|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.DebugStatic|Win32.Build.0 = DebugStatic|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.Release|Win32.ActiveCfg = ReleaseDLL|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.Release|Win32.Build.0 = ReleaseDLL|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.ReleaseDLL|Win32.ActiveCfg = ReleaseDLL|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.ReleaseDLL|Win32.Build.0 = ReleaseDLL|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.ReleaseStatic|Win32.ActiveCfg = ReleaseStatic|Win32
+		{9364E8D1-8A65-4817-9906-30FDF08546C7}.ReleaseStatic|Win32.Build.0 = ReleaseStatic|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
