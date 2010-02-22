@@ -48,7 +48,7 @@ namespace qv
 
 			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
 
-			virtual const stringc& getTypeName( void ) const { return mEventType->Text; }
+			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
             
 			virtual const S_STATE* getState( void ) const { return mState; }
 

@@ -39,10 +39,14 @@ namespace qv
 {
     namespace events
     {   
+		class IChangeStateEventArgs;
+		class ICameraActorAddedEventArgs;
 		class ICommandEvent;
 		class IEventArgs;
-		class IChangeStateEventArgs;
 		class IEventArgsFactory;
+		class IDynamicActorAddedEventArgs;
+		class IStaticActorAddedEventArgs;
+
 
 		class IEventManager: public IReferenceCounted
 		{
@@ -56,6 +60,9 @@ namespace qv
 			//event args
 			virtual IEventArgs* createEmptyEventArgs(const ET_EVENT_TYPE* type)=0;
 			virtual IChangeStateEventArgs* createChangeStateEventArgs(const S_STATE* state)=0;
+			virtual ICameraActorAddedEventArgs* createCameraActorAddedEventArgs(const c8* name)=0;
+			virtual IStaticActorAddedEventArgs* createStaticActorAddedEventArgs(const c8* name)=0;
+			virtual IDynamicActorAddedEventArgs* createDynamicActorAddedEventArgs(const c8* name)=0;
 
 			virtual void registerEventArgsFactory(IEventArgsFactory* factory)=0;
 

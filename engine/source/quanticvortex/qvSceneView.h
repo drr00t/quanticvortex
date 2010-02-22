@@ -27,34 +27,25 @@
 #ifndef __SCENE_VIEW_H_
 #define __SCENE_VIEW_H_
 
-//#include "qvPrerequisites.h"
 #include "qvISceneView.h"
-//#include "qvIActor.h"
-//#include "qvSActorParams.h"
 
 using namespace irr::scene;
-
-//using namespace qv::gaming;
-//using namespace qv::views;
 
 namespace qv
 {
     class IEngineManager;
 
+	namespace events
+	{
+		class IEventManager;
+	}
+
     namespace views
     {
-		//typedef map<s32,ISceneNode*> ActorSceneNodeMap;
+		typedef map<s32,ISceneNode*> ActorSceneNodeMap;
 
 		class SceneView: public ISceneView
         {
-		protected:
-			ISceneManager* mSceneManager;
-			ICameraSceneNode* mDefaultCamera;
-            map<s32,ISceneNode*> mActorSceneNodeMap;
-            const EVT_ELEMENT_VIEW_TYPE* mType;
-            const EVI_ELEMENT_VIEW_ID* mID;
-
-            bool mVisible;
 
         public:
             SceneView( const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type = EVT_ELEMENT_VIEW_SCENE);
@@ -69,6 +60,7 @@ namespace qv
             {
                 return mID;
             }
+
 			virtual bool getVisible()
             {
                 return mVisible;
@@ -78,9 +70,6 @@ namespace qv
             {
                 mVisible = visible;
             }
-
-            virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
-	        virtual void update( u32 elapsedTimeMs);
 
             virtual void setCamera(ICameraSceneNode* camera)
             {
@@ -97,14 +86,31 @@ namespace qv
                 return mSceneManager;
             }
 
+            virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
+	        
+			virtual void update( u32 elapsedTimeMs);
 
 			virtual void loadScene(const c8* sceneName);
+			
 			virtual void addSceneNode(const gaming::SActorArgs& args, const gaming::AI_ACTOR_ID* actorID = 0);
+			
 			virtual ISceneNode* findSceneNode(const gaming::AI_ACTOR_ID* actorID);
 
 			virtual void OnCreateNode(ISceneNode* node);
+			
 			virtual void OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData);
+			
 			virtual io::IAttributes* createUserData(ISceneNode* forSceneNode);
+
+		protected:
+			events::IEventManager* mEventManager;
+			ISceneManager* mSceneManager;
+			ICameraSceneNode* mDefaultCamera;
+			ActorSceneNodeMap mActorSceneNodeMap;
+            const EVT_ELEMENT_VIEW_TYPE* mType;
+            const EVI_ELEMENT_VIEW_ID* mID;
+            bool mVisible;
+
 		};
     }
 }

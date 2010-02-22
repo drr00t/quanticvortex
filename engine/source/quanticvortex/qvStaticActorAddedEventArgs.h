@@ -25,35 +25,34 @@
 **************************************************************************************************/
 
 
-#ifndef __EVENT_ARGS_H_
-#define __EVENT_ARGS_H_
+#ifndef __STATIC_ACTOR_ADDED_EVENT_ARGS_H_
+#define __STATIC_ACTOR_ADDED_EVENT_ARGS_H_
 
-#include "qvIEventArgs.h"
+#include "qvActorTypes.h"
+#include "qvIStaticActorAddedEventArgs.h"
 
 namespace qv
 {
     namespace events
     {
-        class EventArgs: public IEventArgs
+        class StaticActorAddedEventArgs: public IStaticActorAddedEventArgs
         {
-		protected:
+		private:
 			const ET_EVENT_TYPE* mEventType;
+			const gaming::AI_ACTOR_ID* mActorID;
 
         public:
-            
-			EventArgs(const ET_EVENT_TYPE* eventType);
-
-			virtual ~EventArgs();
-
-            virtual const ET_EVENT_TYPE* getEventType( void ) const
-			{
-				return mEventType;
-			}
+            StaticActorAddedEventArgs(const ET_EVENT_TYPE* eventType, const gaming::AI_ACTOR_ID* actorID );
+			virtual ~StaticActorAddedEventArgs();
+			virtual const ET_EVENT_TYPE* getEventType( void ) const  { return mEventType; }
+			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
 
 			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
 
-			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
+			virtual const c8* getStaticActorName( void ) const { return mActorID->Text.c_str(); }
 
+			virtual u32 getStaticActorID( void ) const { return mActorID->HashedText; }
+           
 	        //! Writes attributes of the object.
 	        /** Implement this to expose the attributes of your scene node animator for
 	        scripting languages, editors, debuggers or xml serialization purposes. */

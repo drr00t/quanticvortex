@@ -40,6 +40,11 @@ using namespace irr::scene;
 namespace qv
 {
 
+	namespace gaming
+	{
+		struct SActorArgs;
+	}
+
     namespace views
     {
         static const EVT_ELEMENT_VIEW_TYPE *EVT_ELEMENT_VIEW_SCENE = new EVT_ELEMENT_VIEW_TYPE("EVT_ELEMENT_VIEW_SCENE");

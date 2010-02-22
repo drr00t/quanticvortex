@@ -25,34 +25,37 @@
 **************************************************************************************************/
 
 
-#ifndef __EVENT_ARGS_H_
-#define __EVENT_ARGS_H_
+#ifndef __CAMERA_ACTOR_ADDED_EVENT_ARGS_H_
+#define __CAMERA_ACTOR_ADDED_EVENT_ARGS_H_
 
-#include "qvIEventArgs.h"
+#include "qvActorTypes.h"
+#include "qvICameraActorAddedEventArgs.h"
+
 
 namespace qv
 {
     namespace events
     {
-        class EventArgs: public IEventArgs
+
+		class CameraActorAddedEventArgs: public ICameraActorAddedEventArgs
         {
-		protected:
+		private:
 			const ET_EVENT_TYPE* mEventType;
+			const gaming::AI_ACTOR_ID* mActorID;
 
         public:
-            
-			EventArgs(const ET_EVENT_TYPE* eventType);
-
-			virtual ~EventArgs();
-
-            virtual const ET_EVENT_TYPE* getEventType( void ) const
-			{
-				return mEventType;
-			}
-
+			CameraActorAddedEventArgs(const ET_EVENT_TYPE* eventType, const gaming::AI_ACTOR_ID* actorID);
+			virtual ~CameraActorAddedEventArgs();
+			
+			virtual const ET_EVENT_TYPE* getEventType( void ) const  { return mEventType; }
+			
 			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
 
 			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
+			
+			virtual u32 getCameraActorID() const { return mActorID->HashedText; }
+			
+			virtual const c8* getCameraActorName() const { return mActorID->Text.c_str(); }
 
 	        //! Writes attributes of the object.
 	        /** Implement this to expose the attributes of your scene node animator for

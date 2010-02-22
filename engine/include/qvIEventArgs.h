@@ -38,19 +38,19 @@ namespace qv
 		
 		class IEventArgs : public io::IAttributeExchangingObject
         {
-		protected:
-			const ET_EVENT_TYPE* mEventType;
+		//protected:
+		//	const ET_EVENT_TYPE* mEventType;
 
         public:
-			IEventArgs(const ET_EVENT_TYPE* eventType = 0)
-				:mEventType(eventType)
-			{
-			}
+			//IEventArgs(const ET_EVENT_TYPE* eventType = 0)
+			//	:mEventType(eventType)
+			//{
+			//}
 
 			//virtual ~IEventArgs();
-			virtual const ET_EVENT_TYPE* getEventType( void ) const { return mEventType; }
-            virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
-			virtual const stringc& getTypeName( void ) const { return mEventType->Text; }
+			virtual const ET_EVENT_TYPE* getEventType( void ) const =0; // { return mEventType; }
+            virtual u32 getTypeID( void ) const  =0; //{ return mEventType->HashedText; }
+			virtual const c8* getTypeName( void ) const  =0; //{ return mEventType->Text; }
 
 	        //! Writes attributes of the object.
 	        /** Implement this to expose the attributes of your scene node animator for

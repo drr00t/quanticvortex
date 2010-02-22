@@ -24,23 +24,33 @@
 
 **************************************************************************************************/
 
-#include "qvSQLiteDbConnection.h"
+
+#ifndef __I_DYNAMIC_ACTOR_ADDED_EVENT_ARGS_H_
+#define __I_DYNAMIC_ACTOR_ADDED_EVENT_ARGS_H_
+
+#include "qvIEventArgs.h"
 
 
 namespace qv
 {
-    namespace content
-    {
-		namespace db
-		{
-			SQLiteDbConnection::SQLiteDbConnection()
-			{
-			}
+	//namespace gaming
+	//{
+	//	class ICameraActor;
+	//}
 
-			SQLiteDbConnection::~SQLiteDbConnection()
-			{
-			}
-		}
+    namespace events
+    {        
+		
+		class IDynamicActorAddedEventArgs : public IEventArgs
+        {
+		public:
+			virtual u32 getDynamicActorID() const = 0;
+			virtual const c8* getDynamicActorName() const = 0;
+
+        };
     }
 }
+
+#endif
+
 

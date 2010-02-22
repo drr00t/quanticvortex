@@ -68,7 +68,8 @@ namespace sdc
 		//registrar o command para o event QUIT
 		qv::views::IElementView* sceneView = view->addElementView("DefaultScene",qv::views::EVT_ELEMENT_VIEW_SCENE);
 		qv::views::ISceneView* scene = static_cast<qv::views::ISceneView*>(sceneView);
-		scene->loadScene("../../media/syenval-v2.zip");
+		//scene->loadScene("../../../media/syenval-v2.zip");
+		scene->loadScene("../../../media/bairro-1.zip");
 
         //MygameStatesFactory factory = new MygameStatesFactory(gameLogic);
         //gameLogic->registerGameStateFactory(factory);

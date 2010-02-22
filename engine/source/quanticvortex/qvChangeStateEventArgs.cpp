@@ -32,12 +32,14 @@ namespace qv
     {
 		//-----------------------------------------------------------------------------------------
 		ChangeStateEventArgs::ChangeStateEventArgs(const ET_EVENT_TYPE* eventType, const S_STATE* state)
-			:IChangeStateEventArgs(eventType, state)
+			:mEventType(eventType), mState(state)
         {
         }
 		//-----------------------------------------------------------------------------------------
 		ChangeStateEventArgs::~ChangeStateEventArgs()
 		{
+			mEventType->drop();
+			mState->drop();
 		}
 		//-----------------------------------------------------------------------------------------
     }

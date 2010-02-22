@@ -77,11 +77,11 @@ namespace qv
 	        //list<ActorID*> mAIPlayersAttached;
 
 			//physics system
-			//IPhysicsManager* mPhysicsManager;
+			physics::IPhysicsManager* mPhysicsManager;
 
    //         IProcessManager* mProcessManager;  game logic AI
 
-			//IEventListener* mEventListener;
+			//IEventListener* mEventListener;// here need put all event that gamelogic will listen for
 
         public:
             GameLogic(IEngineManager* engineManager, const GLT_GAME_LOGIC_TYPE* type=GLT_GAME_LOGIC_DEFAULT);
@@ -151,7 +151,8 @@ namespace qv
             virtual void changeState( const S_STATE* newState);
 
 
-			//IPhysicsManager* getPhysicsManager(){return mPhysicsManager;}
+			physics::IPhysicsManager* getPhysicsManager(){return mPhysicsManager;}
+
 			//IEventListener* getEventListener(){return mEventListener;}
             
 			//void attachProcess(IProcess* process) 

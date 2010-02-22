@@ -124,6 +124,8 @@ namespace qv
 			if(mGameLogicFactories[i]->getCreateableGameLogicType(type))
 			{
                 mGameLogic = mGameLogicFactories[i]->addGameLogic(type);
+				mGameLogic->initialize();
+
 				break;
 			}
 		}

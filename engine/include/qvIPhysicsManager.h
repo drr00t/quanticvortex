@@ -24,30 +24,42 @@
 
 **************************************************************************************************/
 
-#ifndef __IPHYSICSMANAGER_H_
-#define __IPHYSICSMANAGER_H_
+#ifndef __I_PHYSICS_MANAGER_H_
+#define __I_PHYSICS_MANAGER_H_
 
 #include "qvPrerequisites.h"
 
 
 namespace qv
 {
+	namespace gaming
+	{
+		class IActor;
+	}
+
     namespace physics    
 	{
         class IPhysicsManager: public irr::IReferenceCounted
         {
         public:
-			IPhysicsManager();
-			~IPhysicsManager();
+
+			virtual bool initialize() = 0;
+
+			virtual bool finalize() = 0;
 
 			virtual void update( u32 elapsedTimeMs)=0;
 
-            bool initialize();
-
 			//// Initialization of Physics Objects
 			//virtual void VAddSphere(float radius, IActor *actor, float specificGravity, enum PhysicsMaterial mat)=0;
+			virtual void addSphere(f32 radius, gaming::IActor *actor, f32 specificGravity)=0;
+			
 			//virtual void VAddBox(const Vec3& dimensions, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat) = 0;
+			//virtual void addBox(const gaming::IActor *actor) = 0;
+			virtual void addBox(const vector3df& dimensions, gaming::IActor *actor, f32 specificGravity) = 0;
+			
 			//virtual void VAddPointCloud(Vec3 *verts, int numPoints, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat)=0;
+			virtual void addConvexHull(vector3df *verts, s32 numPoints, gaming::IActor *actor, f32 specificGravity)=0;
+			
 			//virtual void VRemoveActor(ActorId id)=0;
 
 			//// Debugging

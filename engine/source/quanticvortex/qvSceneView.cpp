@@ -27,6 +27,8 @@
 #include "qvSceneView.h"
 
 #include "qvIEngineManager.h"
+#include "qvIEventManager.h"
+#include "qvICameraActorAddedEventArgs.h"
 
 
 namespace qv
@@ -35,7 +37,8 @@ namespace qv
     {
         //-----------------------------------------------------------------------------------------
         SceneView::SceneView( const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type)
-			:mVisible(true), mDefaultCamera(0), mSceneManager(engine->getDevice()->getSceneManager())//, mOrder(1) //first element view to render
+			:mVisible(true), mDefaultCamera(0), mSceneManager(engine->getDevice()->getSceneManager()),
+			mEventManager(engine->getEventManager())//, mOrder(1) //first element view to render
         {
 
 #ifdef _DEBUG
@@ -86,14 +89,24 @@ namespace qv
         //-----------------------------------------------------------------------------------------------
 		void SceneView::OnCreateNode(ISceneNode* node)
 		{
-			if(node->getType() == scene::ESNT_CAMERA)
-			{
-				mDefaultCamera = static_cast<ICameraSceneNode*>(node);
-			}
 		}
         //-----------------------------------------------------------------------------------------------		
 		void SceneView::OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData)
 		{
+			if(forSceneNode->getType() == scene::ESNT_CAMERA)
+			{
+				mDefaultCamera = static_cast<ICameraSceneNode*>(forSceneNode);
+				if(mDefaultCamera->getName())
+				{
+					events::ICameraActorAddedEventArgs* camera = mEventManager->createCameraActorAddedEventArgs(mDefaultCamera->getName());
+					//const gaming::AI_ACTOR_ID* id = new gaming::AI_ACTOR_ID(mDefaultCamera->getName());
+					forSceneNode->setName(camera->getCameraActorName());
+					forSceneNode->setID(camera->getCameraActorID());
+					mEventManager->enqueueEvent(camera);
+				}
+
+			}
+
 			//if(ESNT_MESH == forSceneNode->getType())
 			//{
 			//	IMeshSceneNode* mesh =  static_cast<IMeshSceneNode*>(forSceneNode);

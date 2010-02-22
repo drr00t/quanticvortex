@@ -25,13 +25,34 @@
 **************************************************************************************************/
 
 
-#ifndef __123EVENT_ARGS_H_
-#define __123EVENT_ARGS_H_
+#ifndef __I_CAMERA_ACTOR_H_
+#define __I_CAMERA_ACTOR_H_
 
-//QuanticVortex enebling feactures
-#define SQLITE_ENABLE_RTREE = 1
-#define SQLITE_THREADSAFE = 2
+#include "qvIActor.h"
 
 
+namespace qv
+{
+    namespace gaming
+    {
+		class ICameraActor: public IActor
+        {
+        public:
+			virtual f32 getAspectRatio () const =0;
+			virtual f32 getFarValue () const =0;
+			virtual f32 getFOV () const =0;
+			virtual f32 getNearValue () const =0;
+			virtual const core::vector3df& getTarget() const =0;
+			virtual const core::vector3df& getUpVector () const =0;
+
+			virtual void setAspectRatio (f32 aspect)=0;
+			virtual void setFarValue (f32 zf)=0;
+			virtual void setFOV (f32 fovy)=0;
+			virtual void setNearValue (f32 zn)=0;
+			virtual void setTarget (const core::vector3df &pos)=0;
+			virtual void setUpVector (const core::vector3df &pos)=0;
+        };
+    }
+}
 #endif
 

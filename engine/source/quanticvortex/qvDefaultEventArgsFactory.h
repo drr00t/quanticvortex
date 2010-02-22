@@ -50,6 +50,7 @@ namespace qv
             virtual ~DefaultEventArgsFactory();
 
 			virtual IEventArgs* addEmptyEventArgs( const ET_EVENT_TYPE* type);
+			virtual ICameraActorAddedEventArgs* addCameraActorAddedEventArgs( const c8* actorName);
 
 			virtual u32 getCreatableEventArgsTypeCount() const;
 

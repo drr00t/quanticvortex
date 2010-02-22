@@ -24,49 +24,23 @@
 
 **************************************************************************************************/
 
-
-#ifndef __EVENT_ARGS_H_
-#define __EVENT_ARGS_H_
-
-#include "qvIEventArgs.h"
+#include "qvCameraActorAddedEventArgs.h"
 
 namespace qv
 {
     namespace events
     {
-        class EventArgs: public IEventArgs
+		//-----------------------------------------------------------------------------------------
+		CameraActorAddedEventArgs::CameraActorAddedEventArgs(const ET_EVENT_TYPE* eventType, const gaming::AI_ACTOR_ID* actorID)
+			:mActorID(actorID), mEventType(eventType)
         {
-		protected:
-			const ET_EVENT_TYPE* mEventType;
-
-        public:
-            
-			EventArgs(const ET_EVENT_TYPE* eventType);
-
-			virtual ~EventArgs();
-
-            virtual const ET_EVENT_TYPE* getEventType( void ) const
-			{
-				return mEventType;
-			}
-
-			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
-
-			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
-
-	        //! Writes attributes of the object.
-	        /** Implement this to expose the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml serialization purposes. */
-			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
-
-	        //! Reads attributes of the object.
-	        /** Implement this to set the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml deserialization purposes. */
-			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
-
-        };
+        }
+		//-----------------------------------------------------------------------------------------
+		CameraActorAddedEventArgs::~CameraActorAddedEventArgs()
+		{
+			mActorID->drop();
+			mEventType->drop();
+		}
+		//-----------------------------------------------------------------------------------------
     }
 }
-
-#endif
-

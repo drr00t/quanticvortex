@@ -37,12 +37,15 @@ namespace qv
     namespace events
     {
 		class IEventArgs;
+		class ICameraActorAddedEventArgs;
 
 		class IEventArgsFactory : public IReferenceCounted
 		{
 		public:
 
 			virtual IEventArgs* addEmptyEventArgs( const ET_EVENT_TYPE* type) = 0;
+
+			virtual ICameraActorAddedEventArgs* addCameraActorAddedEventArgs( const c8* actorName) = 0;
 
 			virtual u32 getCreatableEventArgsTypeCount() const = 0;
 

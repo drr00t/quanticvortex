@@ -1,15 +1,18 @@
 
 #include "qvPhysicsManager.h"
 
+#include "qvIEngineManager.h"
+
+
 namespace qv
 {
     namespace physics
     {
         //-----------------------------------------------------------------------------------------
-		PhysicsManager::PhysicsManager(IrrlichtDevice* device)
-            :mBulletDynamicsWorld(0),mBulletBroadphaseInterface(0),
-            mBulletCollisionDispatcher(0),mBulletConstraintSolver(0),
-            mBulletDefaultCollisionConfiguration(0)
+		PhysicsManager::PhysicsManager(IEngineManager* engineManager)
+            :mEngineManager(engineManager), mBulletDynamicsWorld(0), mBulletBroadphaseInterface(0),
+            mBulletCollisionDispatcher(0), mBulletConstraintSolver(0), 
+			mBulletDefaultCollisionConfiguration(0)
         {
 
         }
@@ -22,28 +25,39 @@ namespace qv
         bool PhysicsManager::initialize()
         {
             mBulletDefaultCollisionConfiguration = new btDefaultCollisionConfiguration();
-            mBulletCollisionDispatcher = 
-                new btCollisionDispatcher(mBulletDefaultCollisionConfiguration);
+            mBulletCollisionDispatcher = new btCollisionDispatcher(mBulletDefaultCollisionConfiguration);
 
             mBulletBroadphaseInterface = new btDbvtBroadphase();
 
             mBulletConstraintSolver = new btSequentialImpulseConstraintSolver();
 
             mBulletDynamicsWorld = new btDiscreteDynamicsWorld(mBulletCollisionDispatcher,
-                mBulletBroadphaseInterface,mBulletConstraintSolver,
-                mBulletDefaultCollisionConfiguration);
+																mBulletBroadphaseInterface,
+																mBulletConstraintSolver,
+																mBulletDefaultCollisionConfiguration);
 
-            mBulletDynamicsWorld->setInternalTickCallback(internalTickCallback,this);
+            //mBulletDynamicsWorld->setInternalTickCallback( internalTickCallback, this);
 
             return true;
         }
+		//-----------------------------------------------------------------------------------------
+		bool PhysicsManager::finalize()
+		{
+			delete mBulletDynamicsWorld;
+			delete mBulletConstraintSolver;
+			delete mBulletBroadphaseInterface;
+			delete mBulletCollisionDispatcher;
+			delete mBulletDefaultCollisionConfiguration;
 
-        void PhysicsManager::internalTickCallback(btDynamicsWorld* const world, btScalar const timeStep)
-        {
+			return true;
+		}
+		//-----------------------------------------------------------------------------------------
+        //void PhysicsManager::internalTickCallback(btDynamicsWorld* const world, btScalar const timeStep)
+        //{
 	        //assert( world );
         	
 	        //assert( world->getWorldUserInfo() );
-	        //BulletPhysics * const bulletPhysics = static_cast<BulletPhysics*>( world->getWorldUserInfo() );
+	        //PhysicsManager* const bulletPhysics = static_cast<PhysicsManager*>( world->getWorldUserInfo() );
         	
 	        //CollisionPairs currentTickCollisionPairs;
         	
@@ -123,15 +137,33 @@ namespace qv
 			      //  it->second->m_desiredDeltaYAngleTime -= amountOfTimeToConsume;
 		       // }
 	        //}
-        }
+        //}
 
         //-----------------------------------------------------------------------------------------
 		void PhysicsManager::update( u32 elapsedTimeMs)
         {
-			btScalar elapsedTimeS(elapsedTimeMs/1000.0f); 
-
-            mBulletDynamicsWorld->stepSimulation(elapsedTimeS, 2); //just twos sub steps);
+            mBulletDynamicsWorld->stepSimulation(btScalar(elapsedTimeMs/1000.0f), 2); //just twos sub steps, is enough???);
         }
+        //-----------------------------------------------------------------------------------------
+		void PhysicsManager::addShape(f32 radius, gaming::IActor *actor, f32 specificGravity)
+		{
+
+		}
+		//-----------------------------------------------------------------------------------------
+		//void Phys
+		void PhysicsManager::addBox(const irr::core::vector3df &dimensions, qv::gaming::IActor *actor, irr::f32 specificGravity)
+		{
+
+		}
+        //-----------------------------------------------------------------------------------------
+		void PhysicsManager::addConvexHull(irr::core::vector3df *verts, irr::s32 numPoints, qv::gaming::IActor *actor, irr::f32 specificGravity)
+		{
+		}
+        //-----------------------------------------------------------------------------------------
+		void PhysicsManager::addSphere(irr::f32 radius, qv::gaming::IActor *actor, irr::f32 specificGravity)
+		{
+			btSphereShape* sphereShape = new btSphereShape(btScalar(radius));
+		}
         //-----------------------------------------------------------------------------------------
     }
 }

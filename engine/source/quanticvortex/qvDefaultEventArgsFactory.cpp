@@ -28,6 +28,7 @@
 #include "qvDefaultEventArgsFactory.h"
 
 #include "qvEventArgs.h"
+#include "qvCameraActorAddedEventArgs.h"
 //#include "qvChangeStateEventArgs.h"
 
 namespace qv
@@ -40,6 +41,7 @@ namespace qv
 			mSupportedEventArgsTypes.push_back(ET_GAME_QUIT->HashedText);
 			mSupportedEventArgsTypes.push_back(ET_GAME_NEW->HashedText);
 			mSupportedEventArgsTypes.push_back(ET_GAME_STATE_CHANGE->HashedText);
+			mSupportedEventArgsTypes.push_back(ET_CAMERA_ACTOR_ADDED->HashedText);
         }
         //-----------------------------------------------------------------------------------------
         DefaultEventArgsFactory::~DefaultEventArgsFactory()
@@ -59,7 +61,15 @@ namespace qv
 
 			return eventArgs;
 		}
-        //-----------------------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------------------------
+		ICameraActorAddedEventArgs* DefaultEventArgsFactory::addCameraActorAddedEventArgs( const c8* actorName)
+		{
+			ICameraActorAddedEventArgs* eventArgs = 
+				new CameraActorAddedEventArgs(ET_CAMERA_ACTOR_ADDED, new gaming::AI_ACTOR_ID(actorName));
+
+			return eventArgs;
+		}
+		//-----------------------------------------------------------------------------------------
 		u32 DefaultEventArgsFactory::getCreatableEventArgsTypeCount() const
         {
 			return mSupportedEventArgsTypes.size();

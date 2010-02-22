@@ -33,6 +33,7 @@
 //default event args factories
 #include "qvDefaultEventArgsFactory.h"
 #include "qvChangeStateEventArgs.h"
+#include "qvCameraActorAddedEventArgs.h"
 
 namespace qv
 {
@@ -108,6 +109,24 @@ namespace qv
 					break;
 				}
 			}
+
+			return args;
+		}
+		//-----------------------------------------------------------------------------------------
+		ICameraActorAddedEventArgs* EventManager::createCameraActorAddedEventArgs(const c8* actorName)
+		{
+			ICameraActorAddedEventArgs* args = new CameraActorAddedEventArgs(ET_CAMERA_ACTOR_ADDED,
+																new gaming::AI_ACTOR_ID(actorName));
+			//EventArgsFactoryList::Iterator itr = mEventArgsFactories.begin();
+			//IEventArgs* args = 0;
+			//for(; itr != mEventArgsFactories.end(); ++itr)
+			//{
+			//	if((*itr)->getCreateableEventArgsType(ET_CAMERA_ACTOR_ADDED))
+			//	{
+			//		args = (*itr)->addca(type);
+			//		break;
+			//	}
+			//}
 
 			return args;
 		}

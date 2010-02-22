@@ -37,6 +37,12 @@
 
 namespace qv
 {
+
+	namespace physics 
+	{
+		class IPhysicsManager;
+	}
+
     namespace views
     {
 		class IGameViewFactory;

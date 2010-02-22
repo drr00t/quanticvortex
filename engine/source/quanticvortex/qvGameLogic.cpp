@@ -27,7 +27,7 @@
 
 #include "qvGameLogic.h"
 
-#include "qvActor.h"
+#include "qvIActor.h"
 #include "qvIEngineManager.h"
 #include "qvDefaultGameViewFactory.h"
 #include "qvSActorParams.h"
@@ -37,6 +37,8 @@
 //#include "qvAIView.h"
 //#include "qvRecorderView.h"
 
+#include "qvPhysicsManager.h"
+
  
 namespace qv
 {
@@ -44,7 +46,7 @@ namespace qv
     {
         //-----------------------------------------------------------------------------------------
         GameLogic::GameLogic(IEngineManager* engineManager, const GLT_GAME_LOGIC_TYPE* type)
-            :mEngineManager(engineManager),mType(type)
+            :mEngineManager(engineManager), mPhysicsManager(0), mType(type)
         {
 #ifdef _DEBUG
 			setDebugName("DefaultGameLogic");
@@ -52,6 +54,8 @@ namespace qv
 			views::DefaultGameViewFactory* factory = new views::DefaultGameViewFactory(engineManager);
 			registerGameViewFactory(factory);
 			factory->drop();
+
+			mPhysicsManager = new physics::PhysicsManager(mEngineManager);
         }
         //-----------------------------------------------------------------------------------------
         GameLogic::~GameLogic()
@@ -75,6 +79,9 @@ namespace qv
 		//-----------------------------------------------------------------------------------------------
 		bool GameLogic::initialize()
 		{
+			
+			mPhysicsManager->initialize();
+
 			//mProcessManager = new ProcessManager();
 			//mState = EGS_INITIALIZING;
 
@@ -180,11 +187,11 @@ namespace qv
 			  //      // catch this in a release build...
 	    //    }
 
-			//if(mPhysicsManager)
-			//{
-			//	mPhysicsManager->update(elapsedTimeMs);
-			//	//m_pPhysics->VSyncVisibleScene();
-			//}
+			if(mPhysicsManager)
+			{
+				mPhysicsManager->update(elapsedTimeMs);
+				//m_pPhysics->VSyncVisibleScene();
+			}
 
             for(u32 i = 0; i < mGameViews.size(); ++i)
                 mGameViews[i]->update( elapsedTimeMs );

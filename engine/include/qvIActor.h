@@ -35,75 +35,27 @@ namespace qv
 {
     namespace gaming
     {
-		struct SActorArgs;
-
 		class IActor: public IReferenceCounted
         {
-
-        protected:
-			const AI_ACTOR_ID* mActorID;
-            const AT_ACTOR_TYPE* mActorType;
-			bool mPhysics;
-            matrix4 mTransformation;
-            //SActorArgs mActorParams;
-
         public:
 
-			//IActor( const SActorArgs& args)
-			//	:mActorID(0), mActorType(0)
-   //         {
-   //         }
-
-			IActor(const AI_ACTOR_ID* actorID, const AT_ACTOR_TYPE* actorType)
-				:mActorID(actorID),mActorType(actorType)
-            {
-            }
-
-            virtual ~IActor();
-
-			virtual u32 getID() const 
-            {
-				return mActorID->HashedText;
-            } 
-			virtual const stringc& getName() const 
-            {
-				return mActorID->Text;
-            } 
-
-            virtual u32 getTypeID() const 
-            {
-				return mActorType->HashedText;
-            }
+			virtual u32 getId() const = 0;
 			
-			virtual const c8* getTypeName() const 
-            {
-				return mActorType->Text.c_str();
-            } 
+            virtual u32 getType() const = 0;
 
-			virtual bool isPhysical()
-            {
-                return mPhysics;
-            }
+			virtual const matrix4& getTransformation() const =0;
 
-            virtual const matrix4& getTransformation()
-            {
-                return mTransformation;
-            }
+			virtual bool isPhysical() const = 0;
 
-            virtual void setTransformation(const matrix4& transformation)
-            {
-                mTransformation = transformation;
-            }
-			
-			//virtual const SActorArgs& getParams() = 0;
-			//virtual void setParams(const SActorArgs& args)=0;
+			virtual bool isVisible () const = 0;
 
-            virtual void update( u32 elapsedTimeMs)=0;
+            virtual void setTransformation( const matrix4& transformation) = 0;
+
+            virtual void update( u32 elapsedTimeMs) = 0;
         };
 
-        //typedef SharedPtr<IActor> ActorPtr;
+		typedef map<u32, IActor*> ActorsMap;
 
-		typedef map<u32, IActor*> ActorMap;
     }
 }
 #endif

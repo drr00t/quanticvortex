@@ -25,48 +25,34 @@
 **************************************************************************************************/
 
 
-#ifndef __EVENT_ARGS_H_
-#define __EVENT_ARGS_H_
+#ifndef __I_CAMERA_ACTOR_H_
+#define __I_CAMERA_ACTOR_H_
 
-#include "qvIEventArgs.h"
+#include "qvIActor.h"
+
 
 namespace qv
 {
-    namespace events
+    namespace gaming
     {
-        class EventArgs: public IEventArgs
+		class IDynamicActor: public IActor
         {
-		protected:
-			const ET_EVENT_TYPE* mEventType;
-
         public:
-            
-			EventArgs(const ET_EVENT_TYPE* eventType);
+			virtual f32 getPosition () const =0;
+			virtual f32 getOrientation () const =0;
+			virtual f32 getFOV () const =0;
+			virtual f32 getNearValue () const =0;
+			virtual const core::vector3df& getTarget() const =0;
+			virtual const core::vector3df& getUpVector () const =0;
 
-			virtual ~EventArgs();
-
-            virtual const ET_EVENT_TYPE* getEventType( void ) const
-			{
-				return mEventType;
-			}
-
-			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
-
-			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
-
-	        //! Writes attributes of the object.
-	        /** Implement this to expose the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml serialization purposes. */
-			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
-
-	        //! Reads attributes of the object.
-	        /** Implement this to set the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml deserialization purposes. */
-			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
-
+			virtual void setAspectRatio (f32 aspect)=0;
+			virtual void setFarValue (f32 zf)=0;
+			virtual void setFOV (f32 fovy)=0;
+			virtual void setNearValue (f32 zn)=0;
+			virtual void setTarget (const core::vector3df &pos)=0;
+			virtual void setUpVector (const core::vector3df &pos)=0;
         };
     }
 }
-
 #endif
 
