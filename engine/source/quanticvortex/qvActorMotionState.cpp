@@ -25,36 +25,27 @@
 **************************************************************************************************/
 
 
-#include "qvActor.h"
-
+#include "qvActorMotionState.h"
 
 namespace qv
 {
     namespace gaming
     {
-        //-----------------------------------------------------------------------------------------
-        Actor::Actor()
+		//-----------------------------------------------------------------------------------------
+		ActorMotionState::ActorMotionState()
         {
         }
 		//-----------------------------------------------------------------------------------------
-        Actor::Actor(const AI_ACTOR_ID* actorID, const AT_ACTOR_TYPE* type)
-            : mId(actorID),mType(type)
+		ActorMotionState::ActorMotionState(const AI_ACTOR_ID* actorID, const AT_ACTOR_TYPE* actorType)
+            : mID(actorID),mType(actorType)
         {
-        }
-        //-----------------------------------------------------------------------------------------
-        Actor::Actor( const c8* actorName, const AT_ACTOR_TYPE* type)
-            : mType(type)
-        {
-            mId = new AI_ACTOR_ID(actorName);
         }
 		//-----------------------------------------------------------------------------------------
-        Actor::~Actor()
+        ActorMotionState::~ActorMotionState()
         {
-            mId->drop();
-            mType->drop();
         }
         //-----------------------------------------------------------------------------------------
-        void Actor::update( u32 elapsedTimeMs)
+        void ActorMotionState::update( u32 elapsedTimeMs)
         {
         }
         //-----------------------------------------------------------------------------------------

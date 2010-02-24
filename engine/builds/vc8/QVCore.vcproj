@@ -630,20 +630,8 @@
 					</FileConfiguration>
 				</File>
 				<Filter
-					Name="actors"
+					Name="actors event args"
 					>
-					<File
-						RelativePath="..\..\include\qvICameraActor.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\include\qvIDynamicActor.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\include\qvIStaticActor.h"
-						>
-					</File>
 				</Filter>
 			</Filter>
 			<Filter
@@ -1264,28 +1252,8 @@
 				Name="physics impl"
 				>
 				<File
-					RelativePath="..\..\source\quanticvortex\qvActorMotion.cpp"
+					RelativePath="..\..\source\quanticvortex\qvActorMotionState.h"
 					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\source\quanticvortex\qvActorMotion.h"
-					>
-					<FileConfiguration
-						Name="DebugDLL|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvPhysicsManager.cpp"
@@ -1408,6 +1376,14 @@
 			<Filter
 				Name="gaming impl"
 				>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvActor.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\source\quanticvortex\qvActor.h"
+					>
+				</File>
 				<File
 					RelativePath="..\..\source\quanticvortex\qvActorFactory.cpp"
 					>
@@ -1645,32 +1621,8 @@
 					</File>
 				</Filter>
 				<Filter
-					Name="actors"
+					Name="actors args"
 					>
-					<File
-						RelativePath="..\..\source\quanticvortex\qvCameraActor.cpp"
-						>
-						<FileConfiguration
-							Name="DebugDLL|Win32"
-							ExcludedFromBuild="true"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-							/>
-						</FileConfiguration>
-					</File>
-					<File
-						RelativePath="..\..\source\quanticvortex\qvCameraActor.h"
-						>
-						<FileConfiguration
-							Name="DebugDLL|Win32"
-							ExcludedFromBuild="true"
-							>
-							<Tool
-								Name="VCCustomBuildTool"
-							/>
-						</FileConfiguration>
-					</File>
 				</Filter>
 				<Filter
 					Name="commands"

@@ -25,39 +25,52 @@
 **************************************************************************************************/
 
 
-#include "qvActor.h"
+#ifndef __ACTOR_H_
+#define __ACTOR_H_
+
+#include "qvIActor.h"
+
+using namespace irr::scene;
 
 
 namespace qv
 {
     namespace gaming
     {
-        //-----------------------------------------------------------------------------------------
-        Actor::Actor()
+        class Actor: public IActor
         {
-        }
-		//-----------------------------------------------------------------------------------------
-        Actor::Actor(const AI_ACTOR_ID* actorID, const AT_ACTOR_TYPE* type)
-            : mId(actorID),mType(type)
-        {
-        }
-        //-----------------------------------------------------------------------------------------
-        Actor::Actor( const c8* actorName, const AT_ACTOR_TYPE* type)
-            : mType(type)
-        {
-            mId = new AI_ACTOR_ID(actorName);
-        }
-		//-----------------------------------------------------------------------------------------
-        Actor::~Actor()
-        {
-            mId->drop();
-            mType->drop();
-        }
-        //-----------------------------------------------------------------------------------------
-        void Actor::update( u32 elapsedTimeMs)
-        {
-        }
-        //-----------------------------------------------------------------------------------------
+
+        public: 
+			
+            Actor();
+            Actor(const c8* actorName, const AT_ACTOR_TYPE* actorType);
+            Actor(const AI_ACTOR_ID* actorID, const AT_ACTOR_TYPE* actorType);
+
+            virtual ~Actor();
+
+            virtual u32 getId() const { return mId->HashedText;}
+			
+            virtual u32 getTypeId() const { return mType->HashedText;}
+
+            virtual const matrix4& getTransformation() const { return mTransformation;}
+
+            virtual bool isVisible () const { return mVisible;}
+            
+            virtual void setName( const c8* name){ if(!mId) mId = new AI_ACTOR_ID(name);}
+            
+            virtual void setTransformation( const matrix4& transformation) { mTransformation = transformation;}
+
+            virtual void setType( const AT_ACTOR_TYPE* type) { mType = type;}
+
+            virtual void update( u32 elapsedTimeMs);
+
+		protected:
+            const AI_ACTOR_ID* mId;
+            const AT_ACTOR_TYPE* mType;
+            matrix4 mTransformation;
+            bool mVisible;
+        };
     }
 }
+#endif
 

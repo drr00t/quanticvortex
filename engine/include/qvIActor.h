@@ -41,16 +41,18 @@ namespace qv
 
 			virtual u32 getId() const = 0;
 			
-            virtual u32 getType() const = 0;
+            virtual u32 getTypeId() const = 0;
 
 			virtual const matrix4& getTransformation() const =0;
 
-			virtual bool isPhysical() const = 0;
-
 			virtual bool isVisible () const = 0;
 
-            virtual void setTransformation( const matrix4& transformation) = 0;
+            virtual void setName( const c8* name) = 0;
 
+            virtual void setType( const AT_ACTOR_TYPE* type) = 0;
+
+            virtual void setTransformation( const matrix4& transformation) = 0;
+            
             virtual void update( u32 elapsedTimeMs) = 0;
         };
 

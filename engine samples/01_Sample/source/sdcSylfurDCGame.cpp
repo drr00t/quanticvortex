@@ -26,8 +26,8 @@ namespace sdc
         params.Fullscreen = false;
         params.Title = "Sylfur D.C. - Dimencional Chronical";
         params.Vsync = false;
-        params.WindowSize.Width = 1280;
-        params.WindowSize.Height = 800;
+        params.WindowSize.Width = 800;
+        params.WindowSize.Height = 600;
 
         mEngine = qv::createEngineManagerEx(params);
     }
@@ -69,7 +69,7 @@ namespace sdc
 		qv::views::IElementView* sceneView = view->addElementView("DefaultScene",qv::views::EVT_ELEMENT_VIEW_SCENE);
 		qv::views::ISceneView* scene = static_cast<qv::views::ISceneView*>(sceneView);
 		//scene->loadScene("../../../media/syenval-v2.zip");
-		scene->loadScene("../../../media/bairro-1.zip");
+		scene->loadScene("../../../media/irrb-0.4.zip");
 
         //MygameStatesFactory factory = new MygameStatesFactory(gameLogic);
         //gameLogic->registerGameStateFactory(factory);

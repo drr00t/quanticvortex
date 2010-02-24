@@ -3,6 +3,11 @@
 
 #include "qvIEngineManager.h"
 
+#include "btBulletDynamicsCommon.h"
+#include "BulletDynamics/Character/btKinematicCharacterController.h"
+#include "BulletCollision/CollisionDispatch/btGhostObject.h"
+
+#include "qvActorMotionState.h"
 
 namespace qv
 {
@@ -30,6 +35,8 @@ namespace qv
             mBulletBroadphaseInterface = new btDbvtBroadphase();
 
             mBulletConstraintSolver = new btSequentialImpulseConstraintSolver();
+
+            //mBulletDynamicsWorld->geto
 
             mBulletDynamicsWorld = new btDiscreteDynamicsWorld(mBulletCollisionDispatcher,
 																mBulletBroadphaseInterface,
