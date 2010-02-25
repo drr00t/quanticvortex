@@ -632,6 +632,14 @@
 				<Filter
 					Name="actors event args"
 					>
+					<File
+						RelativePath="..\..\include\qvIActorAddedEventArgs.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="actors commands"
+					>
 				</Filter>
 			</Filter>
 			<Filter

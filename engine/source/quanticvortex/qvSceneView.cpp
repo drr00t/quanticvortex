@@ -28,7 +28,7 @@
 
 #include "qvIEngineManager.h"
 #include "qvIEventManager.h"
-#include "qvICameraActorAddedEventArgs.h"
+//#include "qvICameraActorAddedEventArgs.h"
 
 
 namespace qv
@@ -93,36 +93,98 @@ namespace qv
         //-----------------------------------------------------------------------------------------------		
 		void SceneView::OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData)
 		{
-			if(forSceneNode->getType() == scene::ESNT_CAMERA)
-			{
-				mDefaultCamera = static_cast<ICameraSceneNode*>(forSceneNode);
-				if(mDefaultCamera->getName())
-				{
-					events::ICameraActorAddedEventArgs* camera = mEventManager->createCameraActorAddedEventArgs(mDefaultCamera->getName());
-					//const gaming::AI_ACTOR_ID* id = new gaming::AI_ACTOR_ID(mDefaultCamera->getName());
-					forSceneNode->setName(camera->getCameraActorName());
-					forSceneNode->setID(camera->getCameraActorID());
-					mEventManager->enqueueEvent(camera);
-				}
+            stringc nodeName = forSceneNode->getName();
+            stringc exporterName = userData->getAttributeAsString("Exporter");
+            bool hasPhysics = userData->getAttributeAsBool("Physics.Enabled");
 
-			}
+            //processing scene attributes
+            if(nodeName.equals_ignore_case("root"))
+            {   
+                //only irrb has physics attributes
+                if(exporterName.equals_ignore_case("irrb"))
+                {
+                    if(hasPhysics)
+                    {
+                        f32 gravity=-9.8f;
+                        
+                        if(userData->existsAttribute("Gravity"))
+                            gravity = userData->getAttributeAsFloat("Gravity");
+                        
+                        //1 - fire event to configure physics system gravity
+                        //getPhysicsManager()->setGravity(TVector3(0.f,gravity,0.f));
+                    }
+                }
+            }
+            else // Real SceneNodes
+            {
+                bool ghostObject = false;
 
-			//if(ESNT_MESH == forSceneNode->getType())
-			//{
-			//	IMeshSceneNode* mesh =  static_cast<IMeshSceneNode*>(forSceneNode);
-			//	ActorArgs* args = new MeshActorArgs();
+                if(hasPhysics)
+                {
+                    ghostObject = userData->getAttributeAsBool("Physics.Ghost");
+                }
 
-			//	args->setNodeType("mesh");
-			//	args->setPosition(mesh->getPosition());
-			//	args->setRotation(mesh->getRotation());
-			//	args->setScale(mesh->getScale());
+                scene::ICameraSceneNode* camera(0);
+                scene::IMeshSceneNode* meshNode(0);
 
-			//	NewActorEventArgs* e = new NewActorEventArgs(ActorID(forSceneNode->getName()), args);
+                switch(forSceneNode->getType())
+                {
+                case scene::ESNT_CAMERA:
 
-			//	mActorSceneNodeMap[e->getActorID().getHashedName()] = forSceneNode;
+                    //2 - fire event for camera added, this cameras should be storage by camera system, to control camera effets, etc...
+                    camera = static_cast<scene::ICameraSceneNode*>(forSceneNode);
+                    break;
 
-			//	mEventManager->enqueueEvent(e);
-			//}
+                case scene::ESNT_EMPTY:  
+                    // 3 - will be my marckers, zones (aabb), waypoints, etc... used on AI and Physics
+                    //scene::ISceneNode* emptyNode = forSceneNode;
+                    break;
+
+                case scene::ESNT_MESH:
+                    
+                    meshNode = static_cast<scene::IMeshSceneNode*>(forSceneNode);
+
+                    if(meshNode && !ghostObject && userData->existsAttribute("HWHint") &&
+                        userData->existsAttribute("HWType"))
+                    {
+                        scene::IMesh* staticMesh = meshNode->getMesh();
+
+                        //hardware mapping for mesh
+                        scene::E_HARDWARE_MAPPING  hwMapping = scene::EHM_STATIC;
+
+                        if(userData->getAttributeAsString("HWHint").equals_ignore_case("never"))
+                            hwMapping = scene::EHM_NEVER;
+
+                        else if(userData->getAttributeAsString("HWHint").equals_ignore_case("dynamic"))
+                            hwMapping = scene::EHM_DYNAMIC;
+
+                        else if(userData->getAttributeAsString("HWHint").equals_ignore_case("stream"))
+                            hwMapping = scene::EHM_STREAM;
+
+                        //vertex and index buffer caching
+                        scene::E_BUFFER_TYPE hwBufferType = scene::EBT_NONE;
+
+                        if(userData->getAttributeAsString("HWType").equals_ignore_case("vertex"))
+                            hwBufferType = scene::EBT_VERTEX;
+                        
+                        else if(userData->getAttributeAsString("HWType").equals_ignore_case("index"))
+                            hwBufferType = scene::EBT_INDEX;
+                        
+                        else if(userData->getAttributeAsString("HWType").equals_ignore_case("vertexindex"))
+                            hwBufferType = scene::EBT_VERTEX_AND_INDEX;
+
+                        staticMesh->setHardwareMappingHint(hwMapping, hwBufferType);
+                    }
+                    break;
+
+                case scene::ESNT_LIGHT:
+
+                    break;
+                
+                default:
+                    break;
+                }
+            }
 		}
 		//-----------------------------------------------------------------------------------------------
 		io::IAttributes* SceneView::createUserData(ISceneNode* forSceneNode)

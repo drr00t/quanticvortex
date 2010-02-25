@@ -110,7 +110,6 @@ namespace qv
             const EVT_ELEMENT_VIEW_TYPE* mType;
             const EVI_ELEMENT_VIEW_ID* mID;
             bool mVisible;
-
 		};
     }
 }

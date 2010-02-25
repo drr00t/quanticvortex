@@ -44,10 +44,11 @@ namespace qv
 			virtual void update( u32 elapsedTimeMs);
 
 			//// Initialization of Physics Objects
-            virtual void addShape(f32 radius, gaming::AI_ACTOR_ID *actorId, scene::ISceneNode* sceneNode, f32 specificGravity);
-
+            //virtual void addShape(f32 radius, gaming::AI_ACTOR_ID *actorId, scene::ISceneNode* sceneNode, f32 specificGravity);
+            virtual void addShape(f32 radius, gaming::IActor *actor, f32 specificGravity);
 			//virtual void VAddSphere(float radius, IActor *actor, float specificGravity, enum PhysicsMaterial mat)=0;
-			virtual void addSphere(f32 radius, gaming::AI_ACTOR_ID *actorId, f32 specificGravity);
+			//virtual void addSphere(f32 radius, gaming::AI_ACTOR_ID *actorId, f32 specificGravity);
+            virtual void addSphere(f32 radius, gaming::IActor *actor, f32 specificGravity);
 			
 			//virtual void VAddBox(const Vec3& dimensions, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat) = 0;
 			virtual void addBox(const vector3df& dimensions, gaming::IActor *actor, f32 specificGravity);

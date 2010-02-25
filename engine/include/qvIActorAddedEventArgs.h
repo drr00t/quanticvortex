@@ -25,27 +25,29 @@
 **************************************************************************************************/
 
 
-#ifndef __I_DYNAMIC_ACTOR_ADDED_EVENT_ARGS_H_
-#define __I_DYNAMIC_ACTOR_ADDED_EVENT_ARGS_H_
+#ifndef __I_ACTOR_ADDED_EVENT_ARGS_H_
+#define __I_ACTOR_ADDED_EVENT_ARGS_H_
 
 #include "qvIEventArgs.h"
 
 
 namespace qv
 {
-	//namespace gaming
-	//{
-	//	class ICameraActor;
-	//}
-
-    namespace events
+    namespace gaming
     {        
 		
-		class IDynamicActorAddedEventArgs : public IEventArgs
+		class IActorAddedEventArgs : public IEventArgs
         {
 		public:
-			virtual u32 getDynamicActorID() const = 0;
-			virtual const c8* getDynamicActorName() const = 0;
+			virtual u32 getActorID() const = 0;
+			
+            virtual const c8* getActorName() const = 0;
+
+            virtual bool hasPhysicsBody() const = 0;
+
+            virtual scene::ISceneNode* getSceneNode() = 0;
+
+            virtual const vector3df* getVelocity() const = 0;
 
         };
     }
