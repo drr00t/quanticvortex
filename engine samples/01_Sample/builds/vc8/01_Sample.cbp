@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="01_Sample_Helloword" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="DebugStatic Win32">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\Debug\Sdc" prefix_auto="1" extension_auto="1" />
+				<Option object_output="..\..\obj\Debug" />
+				<Option external_deps="..\..\..\..\engine\bin\debug\QuanticVortex_d.dll;..\..\..\..\engine\bin\debug\Irrlicht_d.dll;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_IRR_STATIC_LIB_" />
+					<Add option="-W" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add directory="..\..\include" />
+					<Add directory="..\..\..\..\engine\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\bullet" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\..\include" />
+					<Add directory="..\..\..\..\engine\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\bullet" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="QuanticVortexStatic_d" />
+					<Add directory="..\..\..\dependencies\libs\debug" />
+					<Add directory="..\..\..\QuanticVortex\engine\lib" />
+				</Linker>
+			</Target>
+			<Target title="ReleaseStatic Win32">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\Release\Sdc" prefix_auto="1" extension_auto="1" />
+				<Option object_output="..\..\obj\Release" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_IRR_STATIC_LIB_" />
+					<Add option="-W" />
+					<Add directory="..\..\include" />
+					<Add directory="..\..\..\..\engine\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\bullet" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\..\include" />
+					<Add directory="..\..\..\..\engine\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\bullet" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="QuanticVortexStatic" />
+					<Add directory="..\..\..\..\..\dependencies\libs\release" />
+					<Add directory="..\..\..\..\..\QuanticVortex\engine\lib" />
+				</Linker>
+			</Target>
+			<Target title="DebugDLL Win32">
+				<Option platforms="Windows;" />
+				<Option output="..\..\..\bin\debug\01_Sample_d" prefix_auto="1" extension_auto="1" />
+				<Option object_output="..\..\obj\debug" />
+				<Option external_deps="..\..\..\..\engine\bin\debug\QuanticVortex_d.dll;..\..\..\..\engine\bin\debug\Irrlicht_d.dll;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-W" />
+					<Add option="-O0" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add directory="..\..\include" />
+					<Add directory="..\..\..\..\engine\include" />
+					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\dependencies\include\bullet" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\..\include" />
+					<Add directory="..\..\..\..\engine\include" />
+					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\dependencies\include\bullet" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="QuanticVortex_d.dll" />
+					<Add directory="..\..\..\..\dependencies\libs\debug\gcc" />
+					<Add directory="..\..\..\..\engine\lib" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c del ..\..\bin\debug\*.dll" />
+					<Add after="cmd /c copy ..\..\..\..\engine\bin\debug\*.dll ..\..\..\bin\debug\" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="ReleaseDLL Win32">
+				<Option platforms="Windows;" />
+				<Option output="..\..\..\bin\release\01_Sample" prefix_auto="1" extension_auto="1" />
+				<Option object_output="..\..\obj\release" />
+				<Option external_deps="..\..\..\..\engine\bin\release\QuanticVortex.dll;..\..\..\..\engine\bin\release\Irrlicht.dll;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add directory="..\..\include" />
+					<Add directory="..\..\..\..\engine\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\bullet" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\..\include" />
+					<Add directory="..\..\..\..\engine\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\..\dependencies\include\bullet" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="QuanticVortex.dll" />
+					<Add directory="..\..\..\..\engine\lib\release" />
+					<Add directory="..\..\..\..\dependencies\libs\release" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="copy ..\..\..\..\engine\bin\release\*.dll ..\..\..\bin\release\" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="Windows" targets="DebugDLL Win32;ReleaseDLL Win32;" />
+		</VirtualTargets>
+		<Unit filename="..\..\source\main.cpp" />
+		<Unit filename="..\..\source\sdcQuitCommand.cpp" />
+		<Unit filename="..\..\source\sdcQuitCommand.h" />
+		<Unit filename="..\..\source\sdcSylfurDCGame.cpp" />
+		<Unit filename="..\..\source\sdcSylfurDCGame.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

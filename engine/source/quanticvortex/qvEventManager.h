@@ -37,10 +37,10 @@ namespace qv
 {
     namespace events
     {
-		class ICommandEvent;
-		class ICameraActorAddedEventArgs;
-		class IDynamicActorAddedEventArgs;
-		class IStaticActorAddedEventArgs;
+//		class ICommandEvent;
+//		class ICameraActorAddedEventArgs;
+//		class IDynamicActorAddedEventArgs;
+//		class IStaticActorAddedEventArgs;
 
 		class EventManager: public IEventManager
 		{
@@ -64,11 +64,11 @@ namespace qv
 			//virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType);
 
 			virtual IEventArgs* createEmptyEventArgs(const ET_EVENT_TYPE* type);
-			virtual IChangeStateEventArgs* createChangeStateEventArgs(const S_STATE* state);
-			
+//			virtual IChangeStateEventArgs* createChangeStateEventArgs(const S_STATE* state);
+
 			virtual ICameraActorAddedEventArgs* createCameraActorAddedEventArgs(const c8* actorName);
-			virtual IStaticActorAddedEventArgs* createStaticActorAddedEventArgs(const c8* name){return 0;}
-			virtual IDynamicActorAddedEventArgs* createDynamicActorAddedEventArgs(const c8* name){return 0;}
+//			virtual IStaticActorAddedEventArgs* createStaticActorAddedEventArgs(const c8* name){return 0;}
+//			virtual IDynamicActorAddedEventArgs* createDynamicActorAddedEventArgs(const c8* name){return 0;}
 
 			virtual void registerEventArgsFactory(IEventArgsFactory* factory);
 

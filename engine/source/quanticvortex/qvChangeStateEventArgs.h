@@ -28,13 +28,13 @@
 #ifndef __CHANGE_STATE_EVENT_ARGS_H_
 #define __CHANGE_STATE_EVENT_ARGS_H_
 
-#include "qvIChangeStateEventArgs.h"
+//#include "qvIChangeStateEventArgs.h"
 
 namespace qv
 {
     namespace events
     {
-        class ChangeStateEventArgs: public IChangeStateEventArgs
+        class ChangeStateEventArg //: public IChangeStateEventArgs
         {
 		private:
 			const ET_EVENT_TYPE* mEventType;
@@ -49,7 +49,7 @@ namespace qv
 			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
 
 			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
-            
+
 			virtual const S_STATE* getState( void ) const { return mState; }
 
 	        //! Writes attributes of the object.

@@ -49,7 +49,7 @@ namespace qv
 
 	namespace views
 	{
-		IGameViewFactory;
+		class IGameViewFactory;
 	}
 
     namespace gaming
@@ -59,7 +59,7 @@ namespace qv
         {
 
         protected:
-            
+
             array<views::IGameViewFactory*> mGameViewFactories;
 
 			const GLT_GAME_LOGIC_TYPE* mType;
@@ -67,9 +67,9 @@ namespace qv
             const S_STATE* mState;
 
             map<u32, IActor*> mActors;
-            
+
             array<views::IGameView*> mGameViews;
-            
+
             IEngineManager* mEngineManager;
 
             //SPlayerScore mPlayerScore;
@@ -115,7 +115,7 @@ namespace qv
 				if(actor)
 					actor->setTransformation(transformation);
 			}
-            
+
 			void removeActor(const AI_ACTOR_ID* actorID)
 			{
 				IActor* actor = getActor(actorID);
@@ -132,15 +132,15 @@ namespace qv
 			{
 				return mGameViews;
 			}
-			
+
             virtual void addView(views::IGameView* gameView, const AI_ACTOR_ID* actorID = 0);
-            
+
 			virtual views::IGameView* addView(const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, const AI_ACTOR_ID* actorID = 0);
 
             virtual views::IHumanView* addHumanView(const c8* viewID, const AI_ACTOR_ID* actorID = 0);
-			
+
             virtual void removeView(views::IGameView* gameView);
-			
+
 			virtual void registerGameViewFactory(views::IGameViewFactory* factoryToAdd);
 
 
@@ -154,9 +154,9 @@ namespace qv
 			physics::IPhysicsManager* getPhysicsManager(){return mPhysicsManager;}
 
 			//IEventListener* getEventListener(){return mEventListener;}
-            
-			//void attachProcess(IProcess* process) 
-			//{ 
+
+			//void attachProcess(IProcess* process)
+			//{
 			//	if(mProcessManager)mProcessManager->attach(process);
 			//}
 

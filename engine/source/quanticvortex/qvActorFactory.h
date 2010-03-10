@@ -12,6 +12,7 @@ namespace qv
 {
 	namespace gaming
 	{
+
 		class ActorFactory
 		{
 		public:

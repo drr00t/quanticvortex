@@ -5,6 +5,10 @@
 #include "qvActorTypes.h"
 #include "qvIPhysicsManager.h"
 
+#include "LinearMath/btQuaternion.h"
+//#include "LinearMath/btVector3.h"
+
+
 
 class btBroadphaseInterface;
 class btCollisionDispatcher;
@@ -13,7 +17,27 @@ class btConstraintSolver;
 class btDefaultCollisionConfiguration;
 class btDynamicsWorld;
 
+namespace
+{
+	void quaternionToEuler(const btQuaternion &TQuat, btVector3 &TEuler)
+	{
+		btScalar W = TQuat.getW();
+		btScalar X = TQuat.getX();
+		btScalar Y = TQuat.getY();
+		btScalar Z = TQuat.getZ();
 
+		float WSquared = W * W;
+		float XSquared = X * X;
+		float YSquared = Y * Y;
+		float ZSquared = Z * Z;
+
+		TEuler.setX(atan2f(2.0f * (Y * Z + X * W), -XSquared - YSquared + ZSquared + WSquared));
+		TEuler.setY(asinf(-2.0f * (X * Z - Y * W)));
+		TEuler.setZ(atan2f(2.0f * (X * Y + Z * W), XSquared - YSquared - ZSquared + WSquared));
+
+		TEuler *= core::RADTODEG;
+	}
+}
 
 namespace qv
 {
@@ -24,7 +48,7 @@ namespace qv
 		class IActor;
 	}
 
-    namespace physics    
+    namespace physics
 	{
         //typedef SharedPtr<PhysicsObject> PhysicsObjectPtr;
 		//typedef std::map< u32, PhysicsObjectPtr> PhysicsActorMap;
@@ -49,10 +73,10 @@ namespace qv
 			//virtual void VAddSphere(float radius, IActor *actor, float specificGravity, enum PhysicsMaterial mat)=0;
 			//virtual void addSphere(f32 radius, gaming::AI_ACTOR_ID *actorId, f32 specificGravity);
             virtual void addSphere(f32 radius, gaming::IActor *actor, f32 specificGravity);
-			
+
 			//virtual void VAddBox(const Vec3& dimensions, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat) = 0;
 			virtual void addBox(const vector3df& dimensions, gaming::IActor *actor, f32 specificGravity);
-			
+
 			//virtual void VAddPointCloud(Vec3 *verts, int numPoints, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat)=0;
 			virtual void addConvexHull(vector3df *verts, s32 numPoints, gaming::IActor *actor, f32 specificGravity);
 
@@ -85,7 +109,7 @@ namespace qv
 
 			f32 mTimeUpdate;
 			//PhysicsActorMap mPhysicsActors;
-            
+
             //static void internalTickCallback( btDynamicsWorld* const world, btScalar const timeStep);
 
 		};

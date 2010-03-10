@@ -32,7 +32,7 @@
 
 //default event args factories
 #include "qvDefaultEventArgsFactory.h"
-#include "qvChangeStateEventArgs.h"
+//#include "qvChangeStateEventArgs.h"
 #include "qvCameraActorAddedEventArgs.h"
 
 namespace qv
@@ -131,21 +131,21 @@ namespace qv
 			return args;
 		}
 		//-----------------------------------------------------------------------------------------
-		IChangeStateEventArgs* EventManager::createChangeStateEventArgs(const qv::S_STATE *state)
-		{
-			//EventArgsFactoryList::Iterator itr = mEventArgsFactories.begin();
-			IChangeStateEventArgs* args = 0;
-			//for(; itr != mEventArgsFactories.end(); ++itr)
-			//{
-			//	if((*itr)->getCreateableEventArgsType(type))
-			//	{
-			args = new ChangeStateEventArgs(ET_GAME_STATE_CHANGE, state);
-			//		break;
-			//	}
-			//}
-
-			return args;
-		}
+//		IChangeStateEventArgs* EventManager::createChangeStateEventArgs(const qv::S_STATE *state)
+//		{
+//			//EventArgsFactoryList::Iterator itr = mEventArgsFactories.begin();
+////			IChangeStateEventArgs* args = 0;
+//			//for(; itr != mEventArgsFactories.end(); ++itr)
+//			//{
+//			//	if((*itr)->getCreateableEventArgsType(type))
+//			//	{
+////			args = new ChangeStateEventArgs(ET_GAME_STATE_CHANGE, state);
+//			//		break;
+//			//	}
+//			//}
+//
+//			return 0;
+//		}
 		//-----------------------------------------------------------------------------------------
 		bool EventManager::abortEvent(const ET_EVENT_TYPE* type, bool all)
 		{
@@ -293,9 +293,9 @@ namespace qv
 
 			bool eventHandled = false;
 
-			CommandEventList& commands = nodeListenerMap->getValue();
+			const CommandEventList& commands = nodeListenerMap->getValue();
 
-			for(CommandEventList::Iterator itr = commands.begin();itr != commands.end(); ++itr)
+			for(CommandEventList::ConstIterator itr = commands.begin();itr != commands.end(); ++itr)
 			{
 				(*itr)->executeCommand(args);
 				eventHandled = true;

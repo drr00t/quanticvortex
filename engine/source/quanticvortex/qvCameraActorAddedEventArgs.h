@@ -46,15 +46,15 @@ namespace qv
         public:
 			CameraActorAddedEventArgs(const ET_EVENT_TYPE* eventType, const gaming::AI_ACTOR_ID* actorID);
 			virtual ~CameraActorAddedEventArgs();
-			
+
 			virtual const ET_EVENT_TYPE* getEventType( void ) const  { return mEventType; }
-			
+
 			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
 
 			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
-			
+
 			virtual u32 getCameraActorID() const { return mActorID->HashedText; }
-			
+
 			virtual const c8* getCameraActorName() const { return mActorID->Text.c_str(); }
 
 	        //! Writes attributes of the object.

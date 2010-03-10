@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="QuanticVortex Core" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="DebugStatic Win32">
+				<Option output="..\..\lib\libQuanticVortexStatic_d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="..\..\obj" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-W" />
+					<Add option="-O0" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_QUANTICVORTEX_STATIC_LIB_" />
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\engine\source\quanticvortex" />
+					<Add directory="..\..\..\engine\source\quanticvortex\irrbmesh" />
+					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\..\dependencies\include\tbb" />
+					<Add directory="..\..\..\..\dependencies\include\POCO" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\engine\source\quanticvortex" />
+					<Add directory="..\..\..\engine\source\quanticvortex\irrbmesh" />
+					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\..\dependencies\include\tbb" />
+					<Add directory="..\..\..\..\dependencies\include\POCO" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="Irrlicht_d.dll" />
+					<Add library="libbulletdynamics" />
+					<Add library="libbulletcollision" />
+					<Add library="libbulletsoftbody" />
+					<Add library="libLinearMath" />
+					<Add directory="..\..\..\..\dependencies\libs\debug" />
+				</Linker>
+			</Target>
+			<Target title="ReleaseStatic Win32">
+				<Option output="..\..\lib\libQuanticVortexStatic" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="..\..\obj" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-W" />
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_QUANTICVORTEX_STATIC_LIB_" />
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\engine\source\quanticvortex" />
+					<Add directory="..\..\..\engine\source\quanticvortex\irrbmesh" />
+					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\..\dependencies\include\tbb" />
+					<Add directory="..\..\..\..\dependencies\include\POCO" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\engine\source\quanticvortex" />
+					<Add directory="..\..\..\engine\source\quanticvortex\irrbmesh" />
+					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\..\dependencies\include\tbb" />
+					<Add directory="..\..\..\..\dependencies\include\POCO" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="Irrlicht.dll" />
+					<Add library="libbulletdynamics" />
+					<Add library="libbulletcollision" />
+					<Add library="libbulletsoftbody" />
+					<Add library="libLinearMath" />
+					<Add directory="..\..\..\..\dependencies\libs\release" />
+				</Linker>
+			</Target>
+			<Target title="Win32 - Debug - DLL">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\debug\QuanticVortex_d" prefix_auto="1" extension_auto="1" />
+				<Option object_output="..\..\obj\debug" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-W" />
+					<Add option="-O0" />
+					<Add option="-Wno-unused-parameter" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_QUANTICVORTEX_EXPORTS" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D__GNUWIN32__" />
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\engine\source\quanticvortex" />
+					<Add directory="..\..\..\engine\source\quanticvortex\sqlite" />
+					<Add directory="..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\dependencies\include\bullet" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\engine\source\quanticvortex" />
+					<Add directory="..\..\..\engine\source\quanticvortex\sqlite" />
+					<Add directory="..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\dependencies\include\bullet" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="Irrlicht_d.dll" />
+					<Add library="libbulletdynamics" />
+					<Add library="libbulletcollision" />
+					<Add library="libbulletsoftbody" />
+					<Add library="libLinearMath" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winspool" />
+					<Add library="comdlg32" />
+					<Add library="advapi32" />
+					<Add library="shell32" />
+					<Add library="ole32" />
+					<Add library="uuid" />
+					<Add directory="..\..\..\dependencies\libs\debug\gcc" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c del ..\..\bin\debug\Irrlicht_d.dll" />
+					<Add after="cmd /c copy ..\..\..\dependencies\bin\debug\gcc\*_d.dll ..\..\bin\debug\." />
+					<Add after="cmd /c copy ..\..\bin\debug\*.a ..\..\lib\." />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Win32 - Release - Fastmath - DLL">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\release\QuanticVortex" prefix_auto="1" extension_auto="1" />
+				<Option object_output="..\..\obj\release" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-Wall" />
+					<Add option="-W" />
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_QUANTICVORTEX_EXPORTS" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-D__GNUWIN32__" />
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\engine\source\quanticvortex" />
+					<Add directory="..\..\..\engine\source\quanticvortex\sqlite" />
+					<Add directory="..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\dependencies\include\bullet" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\engine\source\quanticvortex" />
+					<Add directory="..\..\..\engine\source\quanticvortex\libOpenSteer" />
+					<Add directory="..\..\..\engine\source\quanticvortex\sqlite" />
+					<Add directory="..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\dependencies\include\bullet" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libIrrlicht.dll" />
+					<Add library="libbulletdynamics" />
+					<Add library="libbulletcollision" />
+					<Add library="libbulletsoftbody" />
+					<Add library="libLinearMath" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="winspool" />
+					<Add library="comdlg32" />
+					<Add library="advapi32" />
+					<Add library="shell32" />
+					<Add library="ole32" />
+					<Add library="uuid" />
+					<Add directory="..\..\..\dependencies\libs\release\gcc" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c del ..\..\bin\release\Irrlicht.dll" />
+					<Add after="cmd /c copy ..\..\..\dependencies\bin\release\gcc\*.dll ..\..\bin\release\." />
+					<Add after="cmd /c copy ..\..\bin\release\*.a ..\..\lib\." />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Win32 - Debug - DLL;Win32 - Release - Fastmath - DLL;" />
+		</VirtualTargets>
+		<Unit filename="..\..\include\IrrIni.h" />
+		<Unit filename="..\..\include\SValue.h" />
+		<Unit filename="..\..\include\qvActorTypes.h" />
+		<Unit filename="..\..\include\qvCommandTypes.h" />
+		<Unit filename="..\..\include\qvCompileConfig.h" />
+		<Unit filename="..\..\include\qvConfigProfile.h" />
+		<Unit filename="..\..\include\qvEventTypes.h" />
+		<Unit filename="..\..\include\qvGameStateTypes.h" />
+		<Unit filename="..\..\include\qvGameViewTypes.h" />
+		<Unit filename="..\..\include\qvIAIView.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvIActor.h" />
+		<Unit filename="..\..\include\qvIAnyKeyInputTranslator.h" />
+		<Unit filename="..\..\include\qvICameraActorAddedEventArgs.h" />
+		<Unit filename="..\..\include\qvICommand.h" />
+		<Unit filename="..\..\include\qvICommandArgs.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvICommandEvent.h" />
+		<Unit filename="..\..\include\qvICommandInput.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Release - Fastmath - DLL" />
+		</Unit>
+		<Unit filename="..\..\include\qvIElementView.h" />
+		<Unit filename="..\..\include\qvIElementViewFactory.h" />
+		<Unit filename="..\..\include\qvIEngineManager.h" />
+		<Unit filename="..\..\include\qvIEventArgs.h" />
+		<Unit filename="..\..\include\qvIEventArgsFactory.h" />
+		<Unit filename="..\..\include\qvIEventManager.h" />
+		<Unit filename="..\..\include\qvIGame.h" />
+		<Unit filename="..\..\include\qvIGameLogic.h" />
+		<Unit filename="..\..\include\qvIGameLogicFactory.h" />
+		<Unit filename="..\..\include\qvIGameState.h" />
+		<Unit filename="..\..\include\qvIGameStateMachine.h" />
+		<Unit filename="..\..\include\qvIGameView.h" />
+		<Unit filename="..\..\include\qvIGameViewFactory.h" />
+		<Unit filename="..\..\include\qvIGuiView.h" />
+		<Unit filename="..\..\include\qvIHumanView.h" />
+		<Unit filename="..\..\include\qvIInputReceiver.h" />
+		<Unit filename="..\..\include\qvIInputTranslator.h" />
+		<Unit filename="..\..\include\qvIInputTranslatorFactory.h" />
+		<Unit filename="..\..\include\qvINetworkView.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvIPhysicsActor.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Release - Fastmath - DLL" />
+		</Unit>
+		<Unit filename="..\..\include\qvIPhysicsManager.h" />
+		<Unit filename="..\..\include\qvIPhysicsView.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvIProcess.h" />
+		<Unit filename="..\..\include\qvIProcessManager.h" />
+		<Unit filename="..\..\include\qvIRecorderView.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvISceneView.h" />
+		<Unit filename="..\..\include\qvISingleKeyInputTranslator.h" />
+		<Unit filename="..\..\include\qvIState.h" />
+		<Unit filename="..\..\include\qvIStateMachine.h" />
+		<Unit filename="..\..\include\qvIStaticActor.h" />
+		<Unit filename="..\..\include\qvITimer.h" />
+		<Unit filename="..\..\include\qvKeyTypes.h" />
+		<Unit filename="..\..\include\qvPrerequisites.h" />
+		<Unit filename="..\..\include\qvQuanticVortex.h" />
+		<Unit filename="..\..\include\qvSActorParams.h" />
+		<Unit filename="..\..\include\qvSEventArgs.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Release - Fastmath - DLL" />
+		</Unit>
+		<Unit filename="..\..\include\qvSGameArgs.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvSGameData.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvSGameLogicParams.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvSGameParams.h" />
+		<Unit filename="..\..\include\qvSHashedString.h" />
+		<Unit filename="..\..\include\qvSPlayerScore.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvSingletonHolder.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\include\qvStateTypes.h" />
+		<Unit filename="..\..\include\qvSuperFastHash.h" />
+		<Unit filename="..\..\source\quanticvortex\IrrINI\CIrrIniIrr.cpp" />
+		<Unit filename="..\..\source\quanticvortex\IrrINI\CIrrIniIrr.h" />
+		<Unit filename="..\..\source\quanticvortex\IrrINI\CIrrIniStub.cpp" />
+		<Unit filename="..\..\source\quanticvortex\IrrINI\CIrrIniStub.h" />
+		<Unit filename="..\..\source\quanticvortex\IrrINI\IrrINI.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvActorFactory.cpp">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvActorFactory.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvActorManager.cpp">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvActorManager.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvActorMotion.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvActorMotion.h" />
+		<Unit filename="..\..\source\quanticvortex\qvAnyKeyInputTranslator.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvAnyKeyInputTranslator.h" />
+		<Unit filename="..\..\source\quanticvortex\qvCameraActor.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvCameraActorAddedEventArgs.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvCameraActorAddedEventArgs.h" />
+		<Unit filename="..\..\source\quanticvortex\qvChangeStateEventArgs.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvDefaultElementViewFactory.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvDefaultElementViewFactory.h" />
+		<Unit filename="..\..\source\quanticvortex\qvDefaultEventArgsFactory.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvDefaultEventArgsFactory.h" />
+		<Unit filename="..\..\source\quanticvortex\qvDefaultGameViewFactory.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvDefaultGameViewFactory.h" />
+		<Unit filename="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.h" />
+		<Unit filename="..\..\source\quanticvortex\qvEngineManager.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvEngineManager.h" />
+		<Unit filename="..\..\source\quanticvortex\qvEventArgs.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvEventArgs.h" />
+		<Unit filename="..\..\source\quanticvortex\qvEventManager.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvEventManager.h" />
+		<Unit filename="..\..\source\quanticvortex\qvGameLogic.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvGameLogic.h" />
+		<Unit filename="..\..\source\quanticvortex\qvGameLogicFactory.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvGameLogicFactory.h" />
+		<Unit filename="..\..\source\quanticvortex\qvGameStateMachine.cpp">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Release - Fastmath - DLL" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvGameStateMachine.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Release - Fastmath - DLL" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvGuiView.cpp">
+			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - DLL" />
+			<Option target="Win32 - Release - Fastmath - DLL" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvGuiView.h">
+			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - DLL" />
+			<Option target="Win32 - Release - Fastmath - DLL" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvHumanView.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvHumanView.h" />
+		<Unit filename="..\..\source\quanticvortex\qvInitializatingGameState.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvInitializatingGameState.h" />
+		<Unit filename="..\..\source\quanticvortex\qvInputReceiver.cpp">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Release - Fastmath - DLL" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvInputReceiver.h">
+			<Option target="DebugStatic Win32" />
+			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Release - Fastmath - DLL" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvIrrEventHandler.h" />
+		<Unit filename="..\..\source\quanticvortex\qvLoadingGameState.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvLoadingGameState.h" />
+		<Unit filename="..\..\source\quanticvortex\qvMenuGameState.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvMenuGameState.h" />
+		<Unit filename="..\..\source\quanticvortex\qvPhysicsManager.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvPhysicsManager.h" />
+		<Unit filename="..\..\source\quanticvortex\qvQuanticVortex.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvRunningGameState.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvRunningGameState.h" />
+		<Unit filename="..\..\source\quanticvortex\qvSceneView.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvSceneView.h" />
+		<Unit filename="..\..\source\quanticvortex\qvSingleKeyInputTranslator.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvSingleKeyInputTranslator.h" />
+		<Unit filename="..\..\source\quanticvortex\qvStaticActorAddedEventArgs.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvSuperFastHash.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvWaintingPlayerGameState.cpp" />
+		<Unit filename="..\..\source\quanticvortex\qvWaintingPlayerGameState.h" />
+		<Unit filename="..\..\source\quanticvortex\sqlite\sqlite3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\source\quanticvortex\sqlite\sqlite3.h" />
+		<Unit filename="..\..\source\quanticvortex\sqlite\sqlite3ext.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

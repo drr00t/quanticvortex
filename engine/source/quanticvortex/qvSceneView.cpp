@@ -84,13 +84,13 @@ namespace qv
         //-----------------------------------------------------------------------------------------
 		void SceneView::update( u32 elapsedTimeMs)
         {
-            
+
         }
         //-----------------------------------------------------------------------------------------------
 		void SceneView::OnCreateNode(ISceneNode* node)
 		{
 		}
-        //-----------------------------------------------------------------------------------------------		
+        //-----------------------------------------------------------------------------------------------
 		void SceneView::OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData)
 		{
             stringc nodeName = forSceneNode->getName();

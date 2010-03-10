@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="QuanticVortex Samples workspace">
+		<Project filename="../engine/builds/vc8/QVCore.cbp" />
+		<Project filename="01_Sample/builds/vc8/01_Sample.cbp" active="1" />
+	</Workspace>
+</CodeBlocks_workspace_file>

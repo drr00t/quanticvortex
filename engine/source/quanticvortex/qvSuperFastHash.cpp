@@ -28,7 +28,9 @@
 #include "qvSuperFastHash.h"
 
 //int definitions from C99
-#include "inttypes.h"
+//#ifndef __GNUWIN32__
+//    #include "inttypes.h"
+//#endif
 
 #include "qvSHashedString.h"
 

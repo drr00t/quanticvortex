@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Win32 - Release - Fastmath - DLL" />
+	<File name="..\..\source\quanticvortex\qvPhysicsManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="283" topLine="3" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvPhysicsManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="290" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
