@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="ReleaseDLL Win32" />
-	<File name="..\..\source\main.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="225" topLine="0" />
-	</File>
+	<ActiveTarget name="Win32 - Release - DLL" />
 	<File name="..\..\source\sdcSylfurDCGame.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="1390" topLine="39" />
+		<Cursor position="307" topLine="54" />
 	</File>
 </CodeBlocks_layout_file>

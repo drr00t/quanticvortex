@@ -6,8 +6,9 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="DebugStatic Win32">
-				<Option output="..\..\lib\libQuanticVortexStatic_d" prefix_auto="1" extension_auto="1" />
+			<Target title="Win32 - Debug - Static">
+				<Option platforms="Windows;" />
+				<Option output="..\..\lib\debug\QuanticVortexStatic_d" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="..\..\obj" />
 				<Option type="2" />
@@ -47,8 +48,9 @@
 					<Add directory="..\..\..\..\dependencies\libs\debug" />
 				</Linker>
 			</Target>
-			<Target title="ReleaseStatic Win32">
-				<Option output="..\..\lib\libQuanticVortexStatic" prefix_auto="1" extension_auto="1" />
+			<Target title="Win32 - Release - Static">
+				<Option platforms="Windows;" />
+				<Option output="..\..\lib\release\libQuanticVortexStatic" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="..\..\obj" />
 				<Option type="2" />
@@ -90,7 +92,7 @@
 			</Target>
 			<Target title="Win32 - Debug - DLL">
 				<Option platforms="Windows;" />
-				<Option output="..\..\bin\debug\QuanticVortex_d" prefix_auto="1" extension_auto="1" />
+				<Option output="..\..\bin\debug\QuanticVortex_d.dll" prefix_auto="0" extension_auto="0" />
 				<Option object_output="..\..\obj\debug" />
 				<Option type="3" />
 				<Option compiler="gcc" />
@@ -139,15 +141,14 @@
 					<Add directory="..\..\..\dependencies\libs\debug\gcc" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c del ..\..\bin\debug\Irrlicht_d.dll" />
 					<Add after="cmd /c copy ..\..\..\dependencies\bin\debug\gcc\*_d.dll ..\..\bin\debug\." />
-					<Add after="cmd /c copy ..\..\bin\debug\*.a ..\..\lib\debug." />
+					<Add after="cmd /c copy ..\..\bin\debug\*.a ..\..\lib\debug\." />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Win32 - Release - Fastmath - DLL">
 				<Option platforms="Windows;" />
-				<Option output="..\..\bin\release\QuanticVortex" prefix_auto="1" extension_auto="1" />
+				<Option output="..\..\bin\release\QuanticVortex.dll" prefix_auto="0" extension_auto="0" />
 				<Option object_output="..\..\obj\release" />
 				<Option type="3" />
 				<Option compiler="gcc" />
@@ -195,9 +196,8 @@
 					<Add directory="..\..\..\dependencies\libs\release\gcc" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c del ..\..\bin\release\Irrlicht.dll" />
 					<Add after="cmd /c copy ..\..\..\dependencies\bin\release\gcc\*.dll ..\..\bin\release\." />
-					<Add after="cmd /c copy ..\..\bin\release\*.a ..\..\lib\release." />
+					<Add after="cmd /c copy ..\..\bin\release\*.a ..\..\lib\release\." />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -215,21 +215,21 @@
 		<Unit filename="..\..\include\qvGameStateTypes.h" />
 		<Unit filename="..\..\include\qvGameViewTypes.h" />
 		<Unit filename="..\..\include\qvIAIView.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvIActor.h" />
 		<Unit filename="..\..\include\qvIAnyKeyInputTranslator.h" />
 		<Unit filename="..\..\include\qvICameraActorAddedEventArgs.h" />
 		<Unit filename="..\..\include\qvICommand.h" />
 		<Unit filename="..\..\include\qvICommandArgs.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvICommandEvent.h" />
 		<Unit filename="..\..\include\qvICommandInput.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
 		<Unit filename="..\..\include\qvIElementView.h" />
@@ -251,24 +251,24 @@
 		<Unit filename="..\..\include\qvIInputTranslator.h" />
 		<Unit filename="..\..\include\qvIInputTranslatorFactory.h" />
 		<Unit filename="..\..\include\qvINetworkView.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvIPhysicsActor.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
 		<Unit filename="..\..\include\qvIPhysicsManager.h" />
 		<Unit filename="..\..\include\qvIPhysicsView.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvIProcess.h" />
 		<Unit filename="..\..\include\qvIProcessManager.h" />
 		<Unit filename="..\..\include\qvIRecorderView.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvISceneView.h" />
 		<Unit filename="..\..\include\qvISingleKeyInputTranslator.h" />
@@ -281,31 +281,31 @@
 		<Unit filename="..\..\include\qvQuanticVortex.h" />
 		<Unit filename="..\..\include\qvSActorParams.h" />
 		<Unit filename="..\..\include\qvSEventArgs.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
 		<Unit filename="..\..\include\qvSGameArgs.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvSGameData.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvSGameLogicParams.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvSGameParams.h" />
 		<Unit filename="..\..\include\qvSHashedString.h" />
 		<Unit filename="..\..\include\qvSPlayerScore.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvSingletonHolder.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\include\qvStateTypes.h" />
 		<Unit filename="..\..\include\qvSuperFastHash.h" />
@@ -315,20 +315,20 @@
 		<Unit filename="..\..\source\quanticvortex\IrrINI\CIrrIniStub.h" />
 		<Unit filename="..\..\source\quanticvortex\IrrINI\IrrINI.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvActorFactory.cpp">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvActorFactory.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvActorManager.cpp">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvActorManager.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvActorMotion.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvActorMotion.h" />
@@ -361,22 +361,22 @@
 		<Unit filename="..\..\source\quanticvortex\qvGameLogicFactory.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvGameLogicFactory.h" />
 		<Unit filename="..\..\source\quanticvortex\qvGameStateMachine.cpp">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvGameStateMachine.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvGuiView.cpp">
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Release - Static" />
 			<Option target="Win32 - Debug - DLL" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvGuiView.h">
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Release - Static" />
 			<Option target="Win32 - Debug - DLL" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
@@ -385,13 +385,13 @@
 		<Unit filename="..\..\source\quanticvortex\qvInitializatingGameState.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvInitializatingGameState.h" />
 		<Unit filename="..\..\source\quanticvortex\qvInputReceiver.cpp">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvInputReceiver.h">
-			<Option target="DebugStatic Win32" />
-			<Option target="ReleaseStatic Win32" />
+			<Option target="Win32 - Debug - Static" />
+			<Option target="Win32 - Release - Static" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvIrrEventHandler.h" />

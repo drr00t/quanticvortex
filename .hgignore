@@ -6,5 +6,6 @@ bin/
 lib/
 media/
 dependencies/
+dependencies-sources/
 *.ncb
 *.suo

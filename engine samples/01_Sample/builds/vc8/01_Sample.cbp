@@ -6,9 +6,9 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="DebugStatic Win32">
-				<Option platforms="Windows;" />
-				<Option output="..\..\bin\Debug\Sdc" prefix_auto="1" extension_auto="1" />
+			<Target title="Win32 - Debug - Static">
+				<Option platforms="" />
+				<Option output="..\..\..\bin\Debug\01_Sample" prefix_auto="1" extension_auto="1" />
 				<Option object_output="..\..\obj\Debug" />
 				<Option external_deps="..\..\..\..\engine\bin\debug\QuanticVortex_d.dll;..\..\..\..\engine\bin\debug\Irrlicht_d.dll;" />
 				<Option type="1" />
@@ -37,9 +37,9 @@
 					<Add directory="..\..\..\QuanticVortex\engine\lib" />
 				</Linker>
 			</Target>
-			<Target title="ReleaseStatic Win32">
-				<Option platforms="Windows;" />
-				<Option output="..\..\bin\Release\Sdc" prefix_auto="1" extension_auto="1" />
+			<Target title="Win32 - Release - Static">
+				<Option platforms="" />
+				<Option output="..\..\..\bin\Release\01_Sample" prefix_auto="1" extension_auto="1" />
 				<Option object_output="..\..\obj\Release" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -65,7 +65,7 @@
 					<Add directory="..\..\..\..\..\QuanticVortex\engine\lib" />
 				</Linker>
 			</Target>
-			<Target title="DebugDLL Win32">
+			<Target title="Win32 - Debug - DLL">
 				<Option platforms="Windows;" />
 				<Option output="..\..\..\bin\debug\01_Sample_d" prefix_auto="1" extension_auto="1" />
 				<Option object_output="..\..\obj\debug" />
@@ -92,17 +92,17 @@
 					<Add directory="..\..\..\..\dependencies\include\bullet" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="QuanticVortex_d.dll" />
+					<Add library="libQuanticVortex_d.dll" />
 					<Add directory="..\..\..\..\engine\lib\debug" />
 					<Add directory="..\..\..\..\dependencies\libs\debug\gcc" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c del ..\..\..\bin\debug\*.dll" />
-					<Add after="cmd /c copy ..\..\..\..\engine\bin\debug\*.dll ..\..\..\bin\debug\." />
+					<Add after="cmd /c del ..\..\..\bin\debug\*_d.dll" />
+					<Add after="cmd /c copy ..\..\..\..\engine\bin\debug\*_d.dll ..\..\..\bin\debug\." />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
-			<Target title="ReleaseDLL Win32">
+			<Target title="Win32 - Release - DLL">
 				<Option platforms="Windows;" />
 				<Option output="..\..\..\bin\release\01_Sample" prefix_auto="1" extension_auto="1" />
 				<Option object_output="..\..\obj\release" />
@@ -110,6 +110,9 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-O3" />
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
 					<Add option="-W" />
 					<Add option="-DWIN32" />
 					<Add option="-DNDEBUG" />
@@ -121,23 +124,24 @@
 				<ResourceCompiler>
 					<Add directory="..\..\include" />
 					<Add directory="..\..\..\..\engine\include" />
-					<Add directory="..\..\..\..\..\dependencies\include\irrlicht\include" />
-					<Add directory="..\..\..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\dependencies\include\bullet" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="QuanticVortex.dll" />
+					<Add option="-s" />
+					<Add library="libQuanticVortex.dll" />
 					<Add directory="..\..\..\..\engine\lib\release" />
-					<Add directory="..\..\..\..\dependencies\libs\release" />
+					<Add directory="..\..\..\..\dependencies\libs\release\gcc" />
 				</Linker>
 				<ExtraCommands>
 					<Add after="cmd /c del ..\..\..\bin\release\*.dll" />
-					<Add after="cmd /c  copy ..\..\..\..\engine\bin\release\*.dll ..\..\..\bin\release\." />
+					<Add after="cmd /c copy ..\..\..\..\engine\bin\release\*.dll ..\..\..\bin\release\." />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 		</Build>
 		<VirtualTargets>
-			<Add alias="Windows" targets="DebugDLL Win32;ReleaseDLL Win32;" />
+			<Add alias="Windows" targets="Win32 - Debug - DLL;Win32 - Release - DLL;" />
 		</VirtualTargets>
 		<Unit filename="..\..\source\main.cpp" />
 		<Unit filename="..\..\source\sdcQuitCommand.cpp" />
