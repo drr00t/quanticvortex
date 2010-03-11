@@ -44,14 +44,14 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-W" />
 					<Add option="-DWIN32" />
 					<Add option="-DNDEBUG" />
 					<Add option="-D_IRR_STATIC_LIB_" />
-					<Add option="-W" />
 					<Add directory="..\..\include" />
-					<Add directory="..\..\..\..\engine\include" />
-					<Add directory="..\..\..\..\..\dependencies\include\irrlicht\include" />
-					<Add directory="..\..\..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\dependencies\include\bullet" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="..\..\include" />
@@ -93,12 +93,12 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add library="QuanticVortex_d.dll" />
+					<Add directory="..\..\..\..\engine\lib\debug" />
 					<Add directory="..\..\..\..\dependencies\libs\debug\gcc" />
-					<Add directory="..\..\..\..\engine\lib" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="cmd /c del ..\..\bin\debug\*.dll" />
-					<Add after="cmd /c copy ..\..\..\..\engine\bin\debug\*.dll ..\..\..\bin\debug\" />
+					<Add after="cmd /c del ..\..\..\bin\debug\*.dll" />
+					<Add after="cmd /c copy ..\..\..\..\engine\bin\debug\*.dll ..\..\..\bin\debug\." />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -115,8 +115,8 @@
 					<Add option="-DNDEBUG" />
 					<Add directory="..\..\include" />
 					<Add directory="..\..\..\..\engine\include" />
-					<Add directory="..\..\..\..\..\dependencies\include\irrlicht\include" />
-					<Add directory="..\..\..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
+					<Add directory="..\..\..\..\dependencies\include\bullet" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="..\..\include" />
@@ -130,7 +130,9 @@
 					<Add directory="..\..\..\..\dependencies\libs\release" />
 				</Linker>
 				<ExtraCommands>
-					<Add after="copy ..\..\..\..\engine\bin\release\*.dll ..\..\..\bin\release\" />
+					<Add after="cmd /c del ..\..\..\bin\release\*.dll" />
+					<Add after="cmd /c  copy ..\..\..\..\engine\bin\release\*.dll ..\..\..\bin\release\." />
+					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
 		</Build>

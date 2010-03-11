@@ -25,10 +25,11 @@
 **************************************************************************************************/
 
 
-#ifndef __CAMERA_ACTOR_ADDED_EVENT_ARGS_H_
-#define __CAMERA_ACTOR_ADDED_EVENT_ARGS_H_
+#ifndef __I_CAMERA_ACTOR_ADDED_EVENT_ARGS_H_
+#define __I_CAMERA_ACTOR_ADDED_EVENT_ARGS_H_
 
-#include "qvICameraActorAddedEventArgs.h"
+#include "qvActorTypes.h"
+#include "qvIEventArgs.h"
 
 
 namespace qv
@@ -36,36 +37,18 @@ namespace qv
     namespace events
     {
 
-		class CameraActorAddedEventArgs: public ICameraActorAddedEventArgs
+		class ICameraActorAddedEventArgs: public IEventArgs
         {
-		private:
-			const ET_EVENT_TYPE* mEventType;
-			const gaming::AI_ACTOR_ID* mActorID;
-
         public:
-			CameraActorAddedEventArgs(const ET_EVENT_TYPE* eventType, const gaming::AI_ACTOR_ID* actorID);
-			virtual ~CameraActorAddedEventArgs();
+			virtual const ET_EVENT_TYPE* getEventType( void ) const = 0;
 
-			virtual const ET_EVENT_TYPE* getEventType( void ) const  { return mEventType; }
+			virtual u32 getTypeID( void ) const  = 0;
 
-			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
+			virtual const c8* getTypeName( void ) const  = 0;
 
-			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
+			virtual u32 getCameraActorID() const  = 0;
 
-			virtual u32 getCameraActorID() const { return mActorID->HashedText; }
-
-			virtual const c8* getCameraActorName() const { return mActorID->Text.c_str(); }
-
-	        //! Writes attributes of the object.
-	        /** Implement this to expose the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml serialization purposes. */
-			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
-
-	        //! Reads attributes of the object.
-	        /** Implement this to set the attributes of your scene node animator for
-	        scripting languages, editors, debuggers or xml deserialization purposes. */
-			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
-
+			virtual const c8* getCameraActorName() const  = 0;
         };
     }
 }

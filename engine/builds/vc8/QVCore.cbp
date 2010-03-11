@@ -141,7 +141,7 @@
 				<ExtraCommands>
 					<Add after="cmd /c del ..\..\bin\debug\Irrlicht_d.dll" />
 					<Add after="cmd /c copy ..\..\..\dependencies\bin\debug\gcc\*_d.dll ..\..\bin\debug\." />
-					<Add after="cmd /c copy ..\..\bin\debug\*.a ..\..\lib\." />
+					<Add after="cmd /c copy ..\..\bin\debug\*.a ..\..\lib\debug." />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -197,7 +197,7 @@
 				<ExtraCommands>
 					<Add after="cmd /c del ..\..\bin\release\Irrlicht.dll" />
 					<Add after="cmd /c copy ..\..\..\dependencies\bin\release\gcc\*.dll ..\..\bin\release\." />
-					<Add after="cmd /c copy ..\..\bin\release\*.a ..\..\lib\." />
+					<Add after="cmd /c copy ..\..\bin\release\*.a ..\..\lib\release." />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
