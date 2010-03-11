@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
-	<ActiveTarget name="All" />
+	<ActiveTarget name="" />
+	<File name="..\..\source\quanticvortex\IrrINI\CIrrIniStub.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="10192" topLine="492" />
+	</File>
+	<File name="..\..\source\quanticvortex\IrrINI\CIrrIniStub.h" open="0" top="0" tabpos="0">
+		<Cursor position="2217" topLine="37" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvCameraActorAddedEventArgs.h" open="0" top="0" tabpos="0">
+		<Cursor position="1757" topLine="27" />
+	</File>
 </BrowseTracker_layout_file>

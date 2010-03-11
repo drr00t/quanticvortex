@@ -53,7 +53,7 @@ public:
 
 protected:
 	core::array<SSection*> Sections;
-	IFileSystem* FileSystem;
+	io::IFileSystem* FileSystem;
 	core::stringc Content;
 	core::stringc FullFileName;
 	bool SaveOnDestroy;

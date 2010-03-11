@@ -1,6 +1,6 @@
 // Copyright (C) 2007-2009 Matthias Specht
 // For conditions of distribution and use, see copyright notice in license.txt
-#include "CIrrIniStub.h" 
+#include "CIrrIniStub.h"
 
 namespace irr
 {
@@ -8,7 +8,7 @@ namespace io
 {
 
 CIrrIniStub::CIrrIniStub(IFileSystem* fileSystem, const c8* file, bool save)
-: Content(""), SaveOnDestroy(save), FileSystem(fileSystem)
+: FileSystem(fileSystem), Content(""), SaveOnDestroy(save)
 {
 	if(FileSystem)
 		FileSystem->grab();
@@ -79,7 +79,7 @@ bool CIrrIniStub::load()
 	while(eol_pos != -1)
 	{
 		buffer = Content.subString( sol_pos, eol_pos-sol_pos );
-		
+
 		if( Content.equalsn("##", 2) || Content.equalsn(";", 1) )
 		{
 			comment = buffer;
@@ -249,7 +249,7 @@ bool CIrrIniStub::keyExists(const c8* section, const c8* key ) const
 			break;
 		}
 	}
-	
+
 	return false;
 }
 
@@ -505,6 +505,7 @@ void CIrrIniStub::setValue(const c8* section, const c8* key, video::E_DRIVER_TYP
 {
 	core::stringc str;
 
+
 	switch(value)
 	{
 	case video::EDT_NULL:
@@ -526,7 +527,7 @@ void CIrrIniStub::setValue(const c8* section, const c8* key, video::E_DRIVER_TYP
 	case video::EDT_DIRECT3D9:
 		str = "EDT_DIRECT3D9";
 		break;
-		
+
 	case video::EDT_OPENGL:
 		str = "EDT_OPENGL";
 		break;
@@ -768,7 +769,7 @@ EKEY_CODE CIrrIniStub::convertIrrKeyCode(core::stringc str) const
 		return KEY_PLAY;
 	else if(str.equals_ignore_case("ZOOM"))
 		return KEY_ZOOM;
-	else 
+	else
 		return (EKEY_CODE)0x0;
 }
 
@@ -801,7 +802,7 @@ const char* CIrrIniStub::convertIrrKeyCode(EKEY_CODE value) const
 	case KEY_UP: return "UP";
 	case KEY_RIGHT: return "RIGHT";
 	case KEY_DOWN: return "DOWN";
-	case KEY_SELECT: return "SELECT"; 
+	case KEY_SELECT: return "SELECT";
 	case KEY_PRINT: return "PRINT";
 	case KEY_EXECUT: return "EXECUT";
 	case KEY_SNAPSHOT: return "SNAPSHOT";
@@ -809,7 +810,7 @@ const char* CIrrIniStub::convertIrrKeyCode(EKEY_CODE value) const
 	case KEY_DELETE: return "DELETE";
 	case KEY_HELP: return "HELP";
 	case KEY_KEY_0: return "0";
-	case KEY_KEY_1: return "1"; 
+	case KEY_KEY_1: return "1";
 	case KEY_KEY_2: return "2";
 	case KEY_KEY_3: return "3";
 	case KEY_KEY_4: return "4";
@@ -854,7 +855,7 @@ const char* CIrrIniStub::convertIrrKeyCode(EKEY_CODE value) const
 	case KEY_NUMPAD3: return "NUMPAD3";
 	case KEY_NUMPAD4: return "NUMPAD4";
 	case KEY_NUMPAD5: return "NUMPAD5";
-	case KEY_NUMPAD6: return "NUMPAD6"; 
+	case KEY_NUMPAD6: return "NUMPAD6";
 	case KEY_NUMPAD7: return "NUMPAD7";
 	case KEY_NUMPAD8: return "NUMPAD8";
 	case KEY_NUMPAD9: return "NUMPAD9";

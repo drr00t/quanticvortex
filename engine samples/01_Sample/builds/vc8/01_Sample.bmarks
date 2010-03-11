@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
-	<ActiveTarget name="Win32 - Release - DLL" />
-	<File name="..\..\source\sdcSylfurDCGame.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="307" topLine="54" />
-	</File>
+	<ActiveTarget name="Win32 - Debug - DLL" />
 </BrowseTracker_layout_file>
