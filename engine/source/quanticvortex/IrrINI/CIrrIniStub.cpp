@@ -531,6 +531,8 @@ void CIrrIniStub::setValue(const c8* section, const c8* key, video::E_DRIVER_TYP
 	case video::EDT_OPENGL:
 		str = "EDT_OPENGL";
 		break;
+    default:
+		break;
 	}
 
 	setValue(section,key,str.c_str());

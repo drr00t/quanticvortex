@@ -54,6 +54,8 @@ namespace qv
 
 			while(!itrActor.atEnd())
 				mActorSceneNodeMap.delink(itrActor->getKey());
+
+            mID->drop();
         }
         //-----------------------------------------------------------------------------------------
 		ISceneNode* SceneView::findSceneNode(const gaming::AI_ACTOR_ID* actorID)
@@ -99,17 +101,17 @@ namespace qv
 
             //processing scene attributes
             if(nodeName.equals_ignore_case("root"))
-            {   
+            {
                 //only irrb has physics attributes
                 if(exporterName.equals_ignore_case("irrb"))
                 {
                     if(hasPhysics)
                     {
                         f32 gravity=-9.8f;
-                        
+
                         if(userData->existsAttribute("Gravity"))
                             gravity = userData->getAttributeAsFloat("Gravity");
-                        
+
                         //1 - fire event to configure physics system gravity
                         //getPhysicsManager()->setGravity(TVector3(0.f,gravity,0.f));
                     }
@@ -135,13 +137,13 @@ namespace qv
                     camera = static_cast<scene::ICameraSceneNode*>(forSceneNode);
                     break;
 
-                case scene::ESNT_EMPTY:  
+                case scene::ESNT_EMPTY:
                     // 3 - will be my marckers, zones (aabb), waypoints, etc... used on AI and Physics
                     //scene::ISceneNode* emptyNode = forSceneNode;
                     break;
 
                 case scene::ESNT_MESH:
-                    
+
                     meshNode = static_cast<scene::IMeshSceneNode*>(forSceneNode);
 
                     if(meshNode && !ghostObject && userData->existsAttribute("HWHint") &&
@@ -166,10 +168,10 @@ namespace qv
 
                         if(userData->getAttributeAsString("HWType").equals_ignore_case("vertex"))
                             hwBufferType = scene::EBT_VERTEX;
-                        
+
                         else if(userData->getAttributeAsString("HWType").equals_ignore_case("index"))
                             hwBufferType = scene::EBT_INDEX;
-                        
+
                         else if(userData->getAttributeAsString("HWType").equals_ignore_case("vertexindex"))
                             hwBufferType = scene::EBT_VERTEX_AND_INDEX;
 
@@ -180,7 +182,7 @@ namespace qv
                 case scene::ESNT_LIGHT:
 
                     break;
-                
+
                 default:
                     break;
                 }
