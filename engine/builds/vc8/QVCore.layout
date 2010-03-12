@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="" />
+	<ActiveTarget name="Windows x86" />
+	<File name="..\..\include\qvIPhysicsManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="1041" topLine="27" />
+	</File>
+	<File name="..\..\source\quanticvortex\IrrINI\CIrrIniIrr.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="362" topLine="0" />
+	</File>
 	<File name="..\..\source\quanticvortex\IrrINI\CIrrIniStub.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="10192" topLine="492" />
+		<Cursor position="951" topLine="18" />
 	</File>
-	<File name="..\..\source\quanticvortex\IrrINI\CIrrIniStub.h" open="0" top="0" tabpos="0">
-		<Cursor position="2217" topLine="37" />
+	<File name="..\..\source\quanticvortex\qvPhysicsManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="2483" topLine="69" />
 	</File>
-	<File name="..\..\source\quanticvortex\qvCameraActorAddedEventArgs.h" open="0" top="0" tabpos="0">
-		<Cursor position="1757" topLine="27" />
+	<File name="..\..\source\quanticvortex\qvSceneView.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="3235" topLine="84" />
 	</File>
 </CodeBlocks_layout_file>

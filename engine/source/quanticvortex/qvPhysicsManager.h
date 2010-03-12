@@ -50,10 +50,6 @@ namespace qv
 
     namespace physics
 	{
-        //typedef SharedPtr<PhysicsObject> PhysicsObjectPtr;
-		//typedef std::map< u32, PhysicsObjectPtr> PhysicsActorMap;
-        typedef list<btCollisionObject*> CollisionObjectsList;
-
 		class PhysicsManager: public IPhysicsManager
         {
         public:
@@ -99,6 +95,10 @@ namespace qv
 			//virtual void VSetVelocity(ActorId actorId, const Vec3& vel) = 0;
 			//virtual void VTranslate(ActorId actorId, const Vec3& vec) = 0;
 		private:
+
+            //TODO: verify bullet collection
+            typedef list<btCollisionObject*> CollisionObjectsList;
+
 			IEngineManager* mEngineManager;
             btDynamicsWorld* mBulletDynamicsWorld;
             btBroadphaseInterface* mBulletBroadphaseInterface;

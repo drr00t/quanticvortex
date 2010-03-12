@@ -203,7 +203,7 @@
 			</Target>
 		</Build>
 		<VirtualTargets>
-			<Add alias="All" targets="Win32 - Debug - DLL;Win32 - Release - Fastmath - DLL;" />
+			<Add alias="Windows x86" targets="Win32 - Debug - DLL;Win32 - Release - Fastmath - DLL;" />
 		</VirtualTargets>
 		<Unit filename="..\..\include\IrrIni.h" />
 		<Unit filename="..\..\include\SValue.h" />
@@ -334,9 +334,6 @@
 		<Unit filename="..\..\source\quanticvortex\qvActorMotion.h" />
 		<Unit filename="..\..\source\quanticvortex\qvAnyKeyInputTranslator.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvAnyKeyInputTranslator.h" />
-		<Unit filename="..\..\source\quanticvortex\qvCameraActor.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvCameraActorAddedEventArgs.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvCameraActorAddedEventArgs.h" />
 		<Unit filename="..\..\source\quanticvortex\qvChangeStateEventArgs.cpp">

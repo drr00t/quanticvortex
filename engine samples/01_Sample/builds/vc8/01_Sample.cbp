@@ -141,7 +141,7 @@
 			</Target>
 		</Build>
 		<VirtualTargets>
-			<Add alias="Windows" targets="Win32 - Debug - DLL;Win32 - Release - DLL;" />
+			<Add alias="Windows x86" targets="Win32 - Debug - DLL;Win32 - Release - DLL;" />
 		</VirtualTargets>
 		<Unit filename="..\..\source\main.cpp" />
 		<Unit filename="..\..\source\sdcQuitCommand.cpp" />
