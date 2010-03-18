@@ -115,6 +115,7 @@
 					<Add directory="..\..\..\engine\source\quanticvortex\sqlite" />
 					<Add directory="..\..\..\dependencies\include\irrlicht\include" />
 					<Add directory="..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\dependencies\include\boost" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="..\..\..\engine\include" />
@@ -168,6 +169,7 @@
 					<Add directory="..\..\..\engine\source\quanticvortex\sqlite" />
 					<Add directory="..\..\..\dependencies\include\irrlicht\include" />
 					<Add directory="..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\dependencies\include\boost" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="..\..\..\engine\include" />

@@ -1,29 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
-	<ActiveTarget name="Windows x86" />
-	<File name="..\..\include\qvIPhysicsManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="1041" topLine="27" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="..\..\source\quanticvortex\IrrINI\CIrrIniIrr.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="362" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="..\..\source\quanticvortex\IrrINI\CIrrIniStub.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="951" topLine="18" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvPhysicsManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="2483" topLine="69" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvSceneView.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="3235" topLine="84" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
-	</File>
+	<ActiveTarget name="" />
 </BrowseTracker_layout_file>
