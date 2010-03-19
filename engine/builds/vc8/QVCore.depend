@@ -6769,7 +6769,7 @@
 
 1266860062 d:\documentacao\quanticminds\quanticvortex\engine\include\svalue.h
 
-1266860063 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\irrini\cirrinistub.cpp
+1268407454 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\irrini\cirrinistub.cpp
 	"CIrrIniStub.h"
 
 1266860063 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\irrini\irrini.cpp
@@ -6797,9 +6797,10 @@
 	"qvPrerequisites.h"
 	"qvSuperFastHash.h"
 
-1266860063 d:\documentacao\quanticminds\quanticvortex\engine\include\qvprerequisites.h
+1269022127 d:\documentacao\quanticminds\quanticvortex\engine\include\qvprerequisites.h
 	"irrlicht.h"
 	"qvSuperFastHash.h"
+	<boost/shared_ptr.hpp>
 
 1266860063 d:\documentacao\quanticminds\quanticvortex\engine\include\qvsuperfasthash.h
 	"qvCompileConfig.h"
@@ -6870,7 +6871,7 @@
 	"qvIElementView.h"
 	"qvIActor.h"
 
-1268309908 d:\documentacao\quanticminds\quanticvortex\engine\include\qviactor.h
+1269022322 d:\documentacao\quanticminds\quanticvortex\engine\include\qviactor.h
 	"qvActorTypes.h"
 
 1265714950 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvguiview.h

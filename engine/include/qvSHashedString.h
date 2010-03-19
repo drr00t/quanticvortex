@@ -34,6 +34,12 @@
 
 namespace qv
 {
+    struct SHashedString
+    {
+        c8* Text;
+        u32 HashedText;
+    };
+
 	struct SHashedString: IReferenceCounted
     {
 		//-------------------------------------------------------------------------
@@ -72,12 +78,12 @@ namespace qv
 		bool operator== ( const SHashedString &other ) const
 		{
 #ifdef _DEBUG
-		return ((Text == other.Text) && (HashedText == other.HashedText));	
+		return ((Text == other.Text) && (HashedText == other.HashedText));
 #else
 		return (HashedText == other.HashedText);
 #endif
 		}
-		//-------------------------------------------------------------------------	    
+		//-------------------------------------------------------------------------
 		bool operator!= ( const SHashedString &other ) const
 		{
 #	ifdef _DEBUG
@@ -85,7 +91,7 @@ namespace qv
 			//TODO: I will need debug possible hashe collisions
 #	else
 			return (HashedText != other.HashedText);
-#	endif	
+#	endif
 		}
 		//-------------------------------------------------------------------------
 		bool operator< ( const SHashedString &other ) const

@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="" />
+	<ActiveTarget name="Windows x86" />
+	<File name="..\..\include\qvIActor.h" open="1" top="0" tabpos="2">
+		<Cursor position="1638" topLine="19" />
+	</File>
+	<File name="..\..\include\qvPrerequisites.h" open="1" top="0" tabpos="1">
+		<Cursor position="2823" topLine="35" />
+	</File>
+	<File name="..\..\include\qvSHashedString.h" open="1" top="1" tabpos="4">
+		<Cursor position="1635" topLine="27" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGameLogic.h" open="1" top="0" tabpos="3">
+		<Cursor position="3794" topLine="115" />
+	</File>
 </CodeBlocks_layout_file>

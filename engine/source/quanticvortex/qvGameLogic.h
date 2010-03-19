@@ -122,7 +122,7 @@ namespace qv
 
                 if(actor)
                 {
-					actor->drop();
+//					actor->drop();
 					mActors.delink(actorID->HashedText);
                 }
 			}

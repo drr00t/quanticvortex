@@ -35,12 +35,12 @@ namespace qv
 {
     namespace gaming
     {
-		class IActor: public IReferenceCounted
+		class IActor //: public IReferenceCounted
         {
         public:
 
 			virtual u32 getId() const = 0;
-			
+
             virtual u32 getTypeId() const = 0;
 
 			virtual const matrix4& getTransformation() const =0;
@@ -52,12 +52,12 @@ namespace qv
             virtual void setType( const AT_ACTOR_TYPE* type) = 0;
 
             virtual void setTransformation( const matrix4& transformation) = 0;
-            
-            virtual void update( u32 elapsedTimeMs) = 0;
+
+            virtual void update( u32 elapsedTimeMs) const = 0;
         };
 
 		typedef map<u32, IActor*> ActorsMap;
-
+		typedef boost::shared_ptr<IActor> IActorPtr;
     }
 }
 #endif

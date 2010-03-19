@@ -33,13 +33,13 @@
 
 #   pragma warning (disable : 4275) // non dll-interface class used as base
 //                                     // for dll-interface class
-// 
+//
 #   pragma warning (disable : 4661) // no suitable definition provided for
 //                                     // explicit template instantiation request
 //
 #   pragma warning (disable : 4221) // private dependency
 
-#	pragma warning (disable : 4251) //needs to have dll-interface to be used by clients 
+#	pragma warning (disable : 4251) //needs to have dll-interface to be used by clients
 
 #   pragma warning( disable : 4244 ) // possible loss of data in converversion - small number of places
 
@@ -71,7 +71,10 @@ namespace qv
 
 //----------------------------------------------
 
-//#include "POCO/"
+//Boost common headers
+
+#include <boost/shared_ptr.hpp>
+
 
 #endif
 
