@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
-	<ActiveTarget name="Windows x86" />
-	<File name="..\..\include\qvIActor.h" open="1" top="0" tabpos="2">
-		<Cursor position="1638" topLine="19" />
+	<ActiveTarget name="Win32 - Debug - DLL" />
+	<File name="..\..\include\qvIEventManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="2970" topLine="52" />
 		<BrowseMarks positions="" />
 		<Book_Marks positions="" />
 	</File>
-	<File name="..\..\include\qvPrerequisites.h" open="1" top="0" tabpos="1">
-		<Cursor position="2823" topLine="35" />
+	<File name="..\..\include\qvIInputTranslatorFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1711" topLine="24" />
 		<BrowseMarks positions="" />
 		<Book_Marks positions="" />
 	</File>
-	<File name="..\..\include\qvSHashedString.h" open="1" top="1" tabpos="4">
-		<Cursor position="1635" topLine="27" />
+	<File name="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="3125" topLine="60" />
+		<BrowseMarks positions="3037,3440" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1758" topLine="36" />
+		<BrowseMarks positions="1941" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEventManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="6321" topLine="160" />
 		<BrowseMarks positions="" />
 		<Book_Marks positions="" />
 	</File>
-	<File name="..\..\source\quanticvortex\qvGameLogic.h" open="1" top="0" tabpos="3">
-		<Cursor position="3794" topLine="115" />
+	<File name="..\..\source\quanticvortex\qvEventManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="3208" topLine="63" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="..\..\source\quanticvortex\sqlite\sqlite3.c" open="0" top="0" tabpos="0">
+		<Cursor position="1057859" topLine="28856" />
 		<BrowseMarks positions="" />
 		<Book_Marks positions="" />
 	</File>

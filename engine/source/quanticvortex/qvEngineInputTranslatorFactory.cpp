@@ -38,8 +38,9 @@ namespace qv
     {
         //-----------------------------------------------------------------------------------------
 		EngineInputTranslatorFactory::EngineInputTranslatorFactory( IEventManager* eventManager,
-																	IInputReceiver* inputReceiver):
-		mEventManager(eventManager), mInputReceiver(inputReceiver)
+																	IInputReceiver* inputReceiver)
+																	:mEventManager(eventManager),
+																	mInputReceiver(inputReceiver)
         {
 			mSupportedEngineInputTranslatorTypes.push_back(ITT_ANY_KEY_TYPE.Hash);
 			mSupportedEngineInputTranslatorTypes.push_back(ITT_SINGLE_KEY_TYPE.Hash);
@@ -54,7 +55,7 @@ namespace qv
         {
         }
 		//-----------------------------------------------------------------------------------------------
-		IInputTranslatorSharedPtr addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, events::IEventArgsSharedPtr args, bool realTime)
+		IInputTranslatorSharedPtr EngineInputTranslatorFactory::addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, events::IEventArgsSharedPtr args, bool realTime)
 		{
 			IInputTranslatorSharedPtr translator;
 //			if(getCreateableInputTranslator(inputTranslatorHashType))

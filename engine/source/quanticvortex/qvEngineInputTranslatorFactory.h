@@ -25,8 +25,8 @@
 **************************************************************************************************/
 
 
-#ifndef _I_ENGINE_INPUT_TRANSLATOR_FACTORY_H_
-#define _I_ENGINE_INPUT_TRANSLATOR_FACTORY_H_
+#ifndef _ENGINE_INPUT_TRANSLATOR_FACTORY_H_
+#define _kENGINE_INPUT_TRANSLATOR_FACTORY_H_
 
 #include "qvIInputTranslatorFactory.h"
 

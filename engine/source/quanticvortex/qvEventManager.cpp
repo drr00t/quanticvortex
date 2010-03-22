@@ -86,8 +86,22 @@ namespace qv
 			if(!validateType(type))
 				mValidEventTypes.push_back(type.Hash);
 		}
+				//-----------------------------------------------------------------------------------------
+		void EventManager::registerEventType( u32 eventHashType)
+		{
+			if( eventHashType <= 0)
+				return;
+
+			if(!validateType(eventHashType))
+				mValidEventTypes.push_back(eventHashType);
+		}
 		//-----------------------------------------------------------------------------------------
 		void EventManager::unregisterEventType( const ET_EVENT_TYPE & type)
+		{
+
+		}
+		//-----------------------------------------------------------------------------------------
+		void EventManager::unregisterEventType( u32 eventHashType)
 		{
 
 		}
@@ -149,6 +163,11 @@ namespace qv
 //		}
 		//-----------------------------------------------------------------------------------------
 		bool EventManager::abortEvent(const ET_EVENT_TYPE& type, bool all)
+		{
+			return true;
+		}
+		//-----------------------------------------------------------------------------------------
+		bool EventManager::abortEvent( u32 eventHashType, bool all)
 		{
 			return true;
 		}

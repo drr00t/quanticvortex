@@ -6013,7 +6013,7 @@
 	"CVertexBuffer.h"
 	"CIndexBuffer.h"
 
-1264961026 d:\documentacao\quanticminds\quanticvortex\dependencies\include\irrlicht\include\idynamicmeshbuffer.h
+1268501019 d:\documentacao\quanticminds\quanticvortex\dependencies\include\irrlicht\include\idynamicmeshbuffer.h
 	"IMeshBuffer.h"
 	"IVertexBuffer.h"
 	"IIndexBuffer.h"
@@ -6787,30 +6787,34 @@
 
 1268309908 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvactormotion.cpp
 
-1265714949 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvanykeyinputtranslator.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvanykeyinputtranslator.cpp
 	"qvAnyKeyInputTranslator.h"
 	"qvIEventManager.h"
 	"qvIInputReceiver.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvanykeyinputtranslator.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvanykeyinputtranslator.h
 	"qvIAnyKeyInputTranslator.h"
+	"qvIEventArgs.h"
 
-1265714948 d:\documentacao\quanticminds\quanticvortex\engine\include\qvianykeyinputtranslator.h
+1269264005 d:\documentacao\quanticminds\quanticvortex\engine\include\qvianykeyinputtranslator.h
 	"qvIInputTranslator.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qviinputtranslator.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qviinputtranslator.h
 	"qvSHashedString.h"
 	"qvEventTypes.h"
 	"qvKeyTypes.h"
 
-1266860063 d:\documentacao\quanticminds\quanticvortex\engine\include\qvshashedstring.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvshashedstring.h
 	"qvPrerequisites.h"
 	"qvSuperFastHash.h"
 
-1269022127 d:\documentacao\quanticminds\quanticvortex\engine\include\qvprerequisites.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvprerequisites.h
 	"irrlicht.h"
 	"qvSuperFastHash.h"
+	<boost/config.hpp>
 	<boost/shared_ptr.hpp>
+	<boost/weak_ptr.hpp>
+	<boost/make_shared.hpp>
 
 1266860063 d:\documentacao\quanticminds\quanticvortex\engine\include\qvsuperfasthash.h
 	"qvCompileConfig.h"
@@ -6822,128 +6826,131 @@
 
 1265714948 d:\documentacao\quanticminds\quanticvortex\engine\include\qvconfigprofile.h
 
-1266860062 d:\documentacao\quanticminds\quanticvortex\engine\include\qveventtypes.h
+1269264005 d:\documentacao\quanticminds\quanticvortex\engine\include\qveventtypes.h
 	"qvPrerequisites.h"
 	"qvSHashedString.h"
 
 1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvkeytypes.h
 	"Keycodes.h"
 
-1268309908 d:\documentacao\quanticminds\quanticvortex\engine\include\qvieventmanager.h
-	"qvEventTypes.h"
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvieventmanager.h
+	"qvIEventCommand.h"
+	"qvIEventArgs.h"
 	"qvStateTypes.h"
 
 1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvstatetypes.h
 	"qvSHashedString.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qviinputreceiver.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qviinputreceiver.h
 	"qvIInputTranslator.h"
 	"qvIInputTranslatorFactory.h"
 	"IEventReceiver.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qviinputtranslatorfactory.h
+1269280451 d:\documentacao\quanticminds\quanticvortex\engine\include\qviinputtranslatorfactory.h
 	"qvIInputTranslator.h"
+	"qvIEventArgs.h"
 
-1266860063 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvcameraactoraddedeventargs.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvcameraactoraddedeventargs.cpp
 	"qvCameraActorAddedEventArgs.h"
 
-1268309908 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvcameraactoraddedeventargs.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvcameraactoraddedeventargs.h
 	"qvICameraActorAddedEventArgs.h"
 
-1268309908 d:\documentacao\quanticminds\quanticvortex\engine\include\qvicameraactoraddedeventargs.h
+1269264005 d:\documentacao\quanticminds\quanticvortex\engine\include\qvicameraactoraddedeventargs.h
 	"qvActorTypes.h"
 	"qvIEventArgs.h"
 
-1266860062 d:\documentacao\quanticminds\quanticvortex\engine\include\qvactortypes.h
+1269264005 d:\documentacao\quanticminds\quanticvortex\engine\include\qvactortypes.h
 	"qvSHashedString.h"
 
-1266860062 d:\documentacao\quanticminds\quanticvortex\engine\include\qvieventargs.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvieventargs.h
 	"qvEventTypes.h"
 
-1265714949 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaultelementviewfactory.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaultelementviewfactory.cpp
 	"qvDefaultElementViewFactory.h"
 	"qvSceneView.h"
 	"qvGuiView.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaultelementviewfactory.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaultelementviewfactory.h
 	"qvIElementViewFactory.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvielementviewfactory.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvielementviewfactory.h
 	"qvIElementView.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvielementview.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvielementview.h
 	"qvSHashedString.h"
 
-1268309908 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvsceneview.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvsceneview.h
 	"qvISceneView.h"
 
-1266860063 d:\documentacao\quanticminds\quanticvortex\engine\include\qvisceneview.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvisceneview.h
 	"qvIElementView.h"
 	"qvIActor.h"
 
-1269022322 d:\documentacao\quanticminds\quanticvortex\engine\include\qviactor.h
+1269264005 d:\documentacao\quanticminds\quanticvortex\engine\include\qviactor.h
 	"qvActorTypes.h"
 
-1265714950 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvguiview.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvguiview.h
 	"qvIGuiView.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qviguiview.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qviguiview.h
 	"qvIElementView.h"
 
-1266860063 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaulteventargsfactory.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaulteventargsfactory.cpp
 	"qvDefaultEventArgsFactory.h"
 	"qvEventArgs.h"
 	"qvCameraActorAddedEventArgs.h"
 
-1266860063 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaulteventargsfactory.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaulteventargsfactory.h
 	"qvIEventArgsFactory.h"
 
-1266860063 d:\documentacao\quanticminds\quanticvortex\engine\include\qvieventargsfactory.h
-	"qvEventTypes.h"
-
-1266860063 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qveventargs.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvieventargsfactory.h
 	"qvIEventArgs.h"
 
-1265714949 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaultgameviewfactory.cpp
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qveventargs.h
+	"qvIEventArgs.h"
+
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaultgameviewfactory.cpp
 	"qvDefaultGameViewFactory.h"
 	"qvHumanView.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaultgameviewfactory.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvdefaultgameviewfactory.h
 	"qvIGameViewFactory.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvigameviewfactory.h
-	"qvGameViewTypes.h"
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvigameviewfactory.h
+	"qvIGameView.h"
 
-1265714948 d:\documentacao\quanticminds\quanticvortex\engine\include\qvgameviewtypes.h
+1269264005 d:\documentacao\quanticminds\quanticvortex\engine\include\qvgameviewtypes.h
 	"qvSHashedString.h"
 
-1265714950 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvhumanview.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvhumanview.h
 	"qvIHumanView.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvihumanview.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvihumanview.h
 	"qvIGameView.h"
 	"qvIElementView.h"
+	"qvICommand.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvigameview.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvigameview.h
 	"qvGameViewTypes.h"
-	"qvIActor.h"
 
-1265714949 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvengineinputtranslatorfactory.cpp
+1269280441 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvengineinputtranslatorfactory.cpp
 	"qvEngineInputTranslatorFactory.h"
 	"qvAnyKeyInputTranslator.h"
 	"qvSingleKeyInputTranslator.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvengineinputtranslatorfactory.h
+1269280451 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvengineinputtranslatorfactory.h
 	"qvIInputTranslatorFactory.h"
 
-1265714950 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvsinglekeyinputtranslator.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvsinglekeyinputtranslator.h
 	"qvISingleKeyInputTranslator.h"
+	"qvIEventArgs.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvisinglekeyinputtranslator.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvisinglekeyinputtranslator.h
 	"qvIInputTranslator.h"
 	"qvIEventManager.h"
 
-1266860063 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvenginemanager.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvenginemanager.cpp
 	"qvEngineManager.h"
 	"qvEventManager.h"
 	"qvIrrEventHandler.h"
@@ -6972,13 +6979,14 @@
 1266860063 d:\documentacao\quanticminds\quanticvortex\engine\include\qvistate.h
 	"qvStateTypes.h"
 
-1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvsgameparams.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvsgameparams.h
 	"qvPrerequisites.h"
 
-1268309908 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qveventmanager.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qveventmanager.h
 	"qvIEventManager.h"
+	"qvIEventCommand.h"
 
-1265714950 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvirreventhandler.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvirreventhandler.h
 	"qvIInputReceiver.h"
 	"qvSingleKeyInputTranslator.h"
 	"qvAnyKeyInputTranslator.h"
@@ -6986,27 +6994,26 @@
 1265714950 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvgamelogicfactory.h
 	"qvIGameLogicFactory.h"
 
-1266860063 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qveventargs.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qveventargs.cpp
 	"qvEventArgs.h"
 
-1268309908 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qveventmanager.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qveventmanager.cpp
 	"qvEventManager.h"
-	"qvIEventArgs.h"
-	"qvICommandEvent.h"
 	"qvDefaultEventArgsFactory.h"
 	"qvCameraActorAddedEventArgs.h"
 
-1265714948 d:\documentacao\quanticminds\quanticvortex\engine\include\qvicommandevent.h
+1269264005 d:\documentacao\quanticminds\quanticvortex\engine\include\qvicommandevent.h
 	"qvICommand.h"
 	"qvEventTypes.h"
 
-1266860062 d:\documentacao\quanticminds\quanticvortex\engine\include\qvicommand.h
+1269264005 d:\documentacao\quanticminds\quanticvortex\engine\include\qvicommand.h
+	"qvIEventArgs.h"
 	"qvCommandTypes.h"
 
-1265714948 d:\documentacao\quanticminds\quanticvortex\engine\include\qvcommandtypes.h
+1269264005 d:\documentacao\quanticminds\quanticvortex\engine\include\qvcommandtypes.h
 	"qvSHashedString.h"
 
-1266860063 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvgamelogic.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvgamelogic.cpp
 	"qvGameLogic.h"
 	"qvIActor.h"
 	"qvIEngineManager.h"
@@ -7015,7 +7022,7 @@
 	"qvHumanView.h"
 	"qvPhysicsManager.h"
 
-1268309908 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvgamelogic.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvgamelogic.h
 	"qvIGameLogic.h"
 	"qvIProcessManager.h"
 
@@ -7025,10 +7032,13 @@
 1265714949 d:\documentacao\quanticminds\quanticvortex\engine\include\qvsactorparams.h
 	"qvActorTypes.h"
 
-1268429902 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvphysicsmanager.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvphysicsmanager.h
 	"qvActorTypes.h"
 	"qvIPhysicsManager.h"
-	"LinearMath/btQuaternion.h"
+	"btBulletCollisionCommon.h"
+	"btBulletDynamicsCommon.h"
+	"BulletCollision/CollisionDispatch/btGhostObject.h"
+	"BulletCollision/BroadphaseCollision/btOverlappingPairCallback.h"
 
 1268309681 d:\documentacao\quanticminds\quanticvortex\engine\include\qviphysicsmanager.h
 	"qvPrerequisites.h"
@@ -7063,15 +7073,15 @@
 	"btMinMax.h"
 	<altivec.h>
 
-1265714950 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvgamelogicfactory.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvgamelogicfactory.cpp
 	"qvGameLogicFactory.h"
 	"qvGameLogic.h"
 
-1265714950 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvguiview.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvguiview.cpp
 	"qvGuiView.h"
 	"qvIEngineManager.h"
 
-1265714950 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvhumanview.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvhumanview.cpp
 	"qvHumanView.h"
 	"qvDefaultElementViewFactory.h"
 	"qvIEventManager.h"
@@ -7652,22 +7662,21 @@
 1266860064 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvrunninggamestate.h
 	"qvIGameState.h"
 
-1268309908 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvsceneview.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvsceneview.cpp
 	"qvSceneView.h"
 	"qvIEngineManager.h"
 	"qvIEventManager.h"
 
-1265714950 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvsinglekeyinputtranslator.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvsinglekeyinputtranslator.cpp
 	"qvSingleKeyInputTranslator.h"
 	"qvIEventManager.h"
 	"qvIInputReceiver.h"
 
-1266860064 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvstaticactoraddedeventargs.cpp
+1269264006 source:d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvstaticactoraddedeventargs.cpp
 	"qvStaticActorAddedEventArgs.h"
 
-1266860064 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvstaticactoraddedeventargs.h
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\source\quanticvortex\qvstaticactoraddedeventargs.h
 	"qvActorTypes.h"
-	"qvIStaticActorAddedEventArgs.h"
 
 1266860063 d:\documentacao\quanticminds\quanticvortex\engine\include\qvistaticactoraddedeventargs.h
 	"qvIEventArgs.h"
@@ -7760,6 +7769,10 @@
 	"qvIInputReceiver.h"
 
 1269215607 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvieventcommand.h
+	"qvICommand.h"
+	"qvEventTypes.h"
+
+1269264006 d:\documentacao\quanticminds\quanticvortex\engine\include\qvieventcommand.h
 	"qvICommand.h"
 	"qvEventTypes.h"
 
