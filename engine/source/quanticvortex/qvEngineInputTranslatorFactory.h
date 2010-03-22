@@ -31,7 +31,7 @@
 #include "qvIInputTranslatorFactory.h"
 
 namespace qv
-{    
+{
 	class IEventManager;
 
 	namespace input
@@ -44,20 +44,20 @@ namespace qv
 		class EngineInputTranslatorFactory : public IInputTranslatorFactory
 		{
 		protected:
-			array<u32> mSupportedEngineInputTranslatorTypes;
+			InputTranslatorTypesArray mSupportedEngineInputTranslatorTypes;
 			IEventManager* mEventManager;
 			IInputReceiver* mInputReceiver;
 
 		public:
 			EngineInputTranslatorFactory( IEventManager* eventManager, IInputReceiver* inputReceiver);
-			
+
 			virtual ~EngineInputTranslatorFactory();
 
-			virtual IInputTranslator* addInputTranslator (const IT_INPUT_TRANSLATOR_ID* id, const IT_INPUT_TRANSLATOR_TYPE* type, IEventArgs* args, bool realTime = true);
+			virtual IInputTranslatorSharedPtr addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, events::IEventArgsSharedPtr args, bool realTime = false);
 
 			virtual u32 getCreatableInputTranslatorCount() const;
 
-			virtual bool getCreateableInputTranslator(const IT_INPUT_TRANSLATOR_ID* ID);
+			virtual bool getCreateableInputTranslator( u32 inputTranslatorHashType) const;
 		};
     }
 }

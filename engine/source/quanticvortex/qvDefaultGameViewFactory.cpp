@@ -36,27 +36,27 @@ namespace qv
         DefaultGameViewFactory::DefaultGameViewFactory(IEngineManager* engine)
             :mEngine(engine)
         {
-			mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_HUMAN->HashedText);
-			mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_AI->HashedText);
-            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_RECORDER->HashedText);
-            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_NETWORK->HashedText);
-            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_PHYSICS->HashedText);
+			mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_HUMAN.Hash);
+			mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_AI.Hash);
+            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_RECORDER.Hash);
+            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_NETWORK.Hash);
+            mSupportedGameViewTypes.push_back(GVT_GAME_VIEW_PHYSICS.Hash);
         }
         //-----------------------------------------------------------------------------------------
         DefaultGameViewFactory::~DefaultGameViewFactory()
         {
         }
 		//-----------------------------------------------------------------------------------------------
-        IGameView* DefaultGameViewFactory::addGameView(const c8* viewID, const GVT_GAME_VIEW_TYPE* type)
+        IGameViewSharedPtr DefaultGameViewFactory::addGameView( u32 gameViewHashType)
 		{
-            IGameView* gameView = 0;
+            IGameViewSharedPtr gameView;
 
-            if(type == GVT_GAME_VIEW_HUMAN)
-                gameView = new HumanView(viewID, mEngine);
+            if(gameViewHashType == GVT_GAME_VIEW_HUMAN.Hash)
+                gameView.reset(new HumanView(mEngine));
 
             //else if(type == GameViewHuman)
             //    gameView = new HumanView(name,mEngine);
-            
+
             //else if(type == GameViewAI)
             //    gameView = new HumanView(name,mEngine);
             //
@@ -77,10 +77,10 @@ namespace qv
             return mSupportedGameViewTypes.size();
         }
         //-----------------------------------------------------------------------------------------
-        bool DefaultGameViewFactory::getCreateableGameViewType(const GVT_GAME_VIEW_TYPE* type)
+        bool DefaultGameViewFactory::getCreateableGameViewType( u32 gameViewHashType) const
         {
 	        for (u32 i=0; i<mSupportedGameViewTypes.size(); ++i)
-                if (mSupportedGameViewTypes[i] == type->HashedText)
+                if (mSupportedGameViewTypes[i] == gameViewHashType)
 			        return true;
 
             return false;

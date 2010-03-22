@@ -72,8 +72,11 @@ namespace qv
 //----------------------------------------------
 
 //Boost common headers
-
+#include <boost/config.hpp>
 #include <boost/shared_ptr.hpp>
+#include <boost/weak_ptr.hpp>
+//#include <boost/scope_ptr.hpp>
+#include <boost/make_shared.hpp>
 
 
 #endif

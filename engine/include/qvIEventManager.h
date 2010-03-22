@@ -29,9 +29,9 @@
 #define __I_EVENT_MANAGER_H_
 
 //#include "qvPrerequisites.h"
-//#include "qvICommandEvent.h"
-//#include "qvIEventArgs.h"
-#include "qvEventTypes.h"
+#include "qvIEventCommand.h"
+#include "qvIEventArgs.h"
+//#include "qvEventTypes.h"
 #include "qvStateTypes.h"
 
 
@@ -41,7 +41,7 @@ namespace qv
     {
 //		class IChangeStateEventArgs;
 		class ICameraActorAddedEventArgs;
-		class ICommandEvent;
+//		class IEventCommand;
 		class IEventArgs;
 		class IEventArgsFactory;
 //		class IDynamicActorAddedEventArgs;
@@ -53,27 +53,45 @@ namespace qv
 
 		public:
 
-			virtual bool registerCommandEvent ( ICommandEvent* command)=0;
-			virtual bool unregisterCommandEvent ( ICommandEvent* command)=0;
-			//virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType)=0;
+			virtual bool registerCommandEvent ( IEventCommandSharedPtr command) = 0;
 
+			virtual bool unregisterCommandEvent ( IEventCommandSharedPtr command) = 0;
+			//virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType)=0;
 			//event args
-			virtual IEventArgs* createEmptyEventArgs(const ET_EVENT_TYPE* type)=0;
+			virtual IEventArgsSharedPtr createEmptyEventArgs(const ET_EVENT_TYPE & type) = 0;
 //			virtual IChangeStateEventArgs* createChangeStateEventArgs(const S_STATE* state)=0;
-			virtual ICameraActorAddedEventArgs* createCameraActorAddedEventArgs(const c8* name)=0;
+
+			virtual ICameraActorAddedEventArgs* createCameraActorAddedEventArgs(const c8 * name) = 0;
 //			virtual IStaticActorAddedEventArgs* createStaticActorAddedEventArgs(const c8* name)=0;
 //			virtual IDynamicActorAddedEventArgs* createDynamicActorAddedEventArgs(const c8* name)=0;
 
-			virtual void registerEventArgsFactory(IEventArgsFactory* factory)=0;
+			virtual void registerEventArgsFactory(IEventArgsFactory * factory) = 0;
 
-			virtual void registerEventType(const ET_EVENT_TYPE* type)=0;
-			virtual void unregisterEventType(const ET_EVENT_TYPE* type)=0;
+			virtual void registerEventType(const ET_EVENT_TYPE & type) = 0;
 
-			virtual bool abortEvent ( const ET_EVENT_TYPE* type, bool all = false )=0;
-			virtual bool enqueueEvent (IEventArgs* args)=0;
-			virtual bool process ( f32 processingTime)=0;
-			virtual bool trigger ( IEventArgs *args )=0;
-			virtual bool validateType(const ET_EVENT_TYPE* type)=0;
+			virtual void unregisterEventType(const ET_EVENT_TYPE & type) = 0;
+
+			virtual void registerEventType( u32 eventHashType) = 0;
+
+			virtual void unregisterEventType( u32 eventHashType) = 0;
+
+			virtual bool abortEvent ( const ET_EVENT_TYPE & type, bool all = false ) = 0;
+
+			virtual bool abortEvent ( u32 eventHashType, bool all = false ) = 0;
+
+			virtual bool enqueueEvent (IEventArgs * args) = 0;
+
+			virtual bool enqueueEvent (IEventArgsSharedPtr args) = 0;
+
+			virtual bool process ( f32 processingTime) = 0;
+
+			virtual bool trigger ( IEventArgs * args ) = 0;
+
+			virtual bool trigger ( IEventArgsSharedPtr args ) = 0;
+
+			virtual bool validateType(const ET_EVENT_TYPE & type) = 0;
+
+			virtual bool validateType( u32 eventHashType) = 0;
 
 			//default event args
 		};

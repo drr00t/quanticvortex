@@ -12,7 +12,7 @@
 namespace qv
 {
     namespace events
-    {   
+    {
 		class IEventManager;
 	}
 
@@ -25,7 +25,7 @@ namespace input
 	// Keyboard key states.
 	//EKEY_STATE mKeyState[KEY_KEY_CODES_COUNT];
 
-	//base implementation released by Seven on Irrlicht forums: 
+	//base implementation released by Seven on Irrlicht forums:
 	//http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=34052&highlight=irreventhandler
 	class IrrEventHandler : public IInputReceiver
         {
@@ -60,14 +60,14 @@ namespace input
 			f32 mouseWheel()      { return mMouse.Wheel;         }
 			f32 mouseWheelDelta()   { return mMouse.WheelDelta;   }
 
-			IrrEventHandler(events::IEventManager* eventManager)         
+			IrrEventHandler(events::IEventManager* eventManager)
 				:mEventManager(eventManager)
 			{
 
 #ifdef _DEBUG
 			setDebugName("IrrEventHandler");
 #endif
-				
+
 				for (s32 i = 0; i < KEY_KEY_CODES_COUNT; ++i) mKeyState[i] = EKS_RELEASED;
 
 				mMouse.X = 0;
@@ -81,54 +81,54 @@ namespace input
 
 			virtual ~IrrEventHandler(void)   {}
 
-			virtual IInputTranslator* getInputTranslator( const IT_INPUT_TRANSLATOR_ID* translatorID)
+			virtual IInputTranslator* getInputTranslator( u32 inputTranslatorHashId)
 			{
 				IInputTranslator* inputTranslator = 0;
 
 				for(u32 i = 0; i < mInputTranslators.size(); ++i)
 				{
-					if(mInputTranslators[i]->getID()->HashedText == translatorID->HashedText)
-					{					
+					if(mInputTranslators[i]->getHashId() == inputTranslatorHashId)
+					{
 						inputTranslator = mInputTranslators[i];
 						break;
 					}
 				}
 
-				return inputTranslator;				
+				return inputTranslator;
 			}
-			
+
 			//translators
-			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, events::IEventArgs* args, bool realTime = false)
-			{
-				ISingleKeyInputTranslator* translator = new SingleKeyInputTranslator( mEventManager, keyCode, checkState, realTime, args, ID);
-				mInputTranslators.push_back(translator);
+//			virtual IInputTranslatorSharedPtr addSingleKeyTranslator (const c8* inputTranslatorName, EKEY_CODE keyCode, EKEY_STATE checkState, events::IEventArgsSharedPtr args, bool realTime = false)
+//			{
+//				IInputTranslatorSharedPtr translator(new SingleKeyInputTranslator( mEventManager, keyCode, checkState, realTime, args, inputTranslatorName));
+//				mInputTranslators.push_back(translator);
+//
+//				return translator;
+//			}
 
-				return translator;
-			}
+//			virtual IInputTranslatorSharedPtr addSingleKeyTranslator (const c8* inputTranslatorName, EKEY_CODE keyCode, EKEY_STATE checkState, u32 inputTranslatorHashType, bool realTime = false)
+//			{
+//				IInputTranslatorSharedPtr translator(new SingleKeyInputTranslator( mEventManager, keyCode, checkState, realTime, inputTranslatorHashType, inputTranslatorName));
+//				registerInputTranslator(translator);
+//
+//				return translator;
+//			}
 
-			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, const events::ET_EVENT_TYPE* type, bool realTime = false)
-			{
-				ISingleKeyInputTranslator* translator = new SingleKeyInputTranslator( mEventManager, keyCode, checkState, realTime, type, ID);
-				registerInputTranslator(translator);
-
-				return translator;
-			}
-
-			virtual IAnyKeyInputTranslator* addAnyKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, events::IEventArgs* args, bool realTime = false)
-			{
-				IAnyKeyInputTranslator* translator = new AnyKeyInputTranslator( mEventManager, realTime, args, ID);
-				mInputTranslators.push_back(translator);
-
-				return translator;
-			}
-
+//			virtual IInputTranslatorSharedPtr addAnyKeyTranslator (const c8* inputTranslatorName, events::IEventArgsSharedPtr args, bool realTime = false)
+//			{
+//				IInputTranslatorSharedPtr translator(new AnyKeyInputTranslator( mEventManager, realTime, args,inputTranslatorName));
+//				mInputTranslators.push_back(translator);
+//
+//				return translator;
+//			}
+//
 
 			virtual void registerInputTranslator( IInputTranslator* translator)
 			{
-				IInputTranslator* inputTranslator = getInputTranslator(translator->getID());
-
-				if(!inputTranslator)
-					mInputTranslators.push_back(translator);
+//				IInputTranslatorSharedPtr inputTranslator = getInputTranslator(translator->getHashId());
+//
+//				if(!inputTranslator)
+//					mInputTranslators.push_back(translator);
 			}
 
 			virtual void unregisterInputTranslator( const IT_INPUT_TRANSLATOR_ID* translatorID)
@@ -154,7 +154,7 @@ namespace input
 			virtual bool keyReleased(EKEY_CODE keycode)      {   return (mKeyState[keycode] == EKS_RELEASED);                        };
 
 			// keyboard events
-			virtual bool OnKeyInputEvent(const SEvent& e)   
+			virtual bool OnKeyInputEvent(const SEvent& e)
 			{
 				//update input state of keyboard
 				//mContextInput.update(e);
@@ -162,7 +162,7 @@ namespace input
 			   //command for keyboard event registred by InputTranslators can executed here
 				for(u32 i = 0; i < mInputTranslators.size(); ++i)
 					return mInputTranslators[i]->translate(this);
-			   return false;                                          
+			   return false;
 			}
 
 			// guievents
@@ -208,12 +208,12 @@ namespace input
 						  else mKeyState[e.KeyInput.Key] = EKS_DOWN;
 					   }
 					   else
-					   if (mKeyState[e.KeyInput.Key] != EKS_UP)   
+					   if (mKeyState[e.KeyInput.Key] != EKS_UP)
 						  mKeyState[e.KeyInput.Key] = EKS_RELEASED;
-					    
+
 					   //if (e.KeyInput.PressedDown == true) return OnKeyInputEvent(e);
 					   if (e.KeyInput.PressedDown) return OnKeyInputEvent(e);
-					}    
+					}
 					break;
 
 				case EET_GUI_EVENT :
@@ -236,7 +236,7 @@ namespace input
 					//	  case EGET_SPINBOX_CHANGED         : return OnSpinBoxChanged(e);
 					//	  default : return false;
 					//   }
-					//} 
+					//}
 					break;
 
 				case EET_MOUSE_INPUT_EVENT :
@@ -253,7 +253,7 @@ namespace input
 					//	  case EMIE_RMOUSE_LEFT_UP      :   mMouse.RButtonDown = false; return OnRMouseLeftUp(e);
 					//	  case EMIE_MMOUSE_LEFT_UP      :   mMouse.MButtonDown = false; return OnMMouseLeftUp(e);
 					//	  case EMIE_MOUSE_MOVED         :   return OnMouseMoved(e);
-					//	  case EMIE_MOUSE_WHEEL         :   
+					//	  case EMIE_MOUSE_WHEEL         :
 					//		 {
 					//			mMouse.WheelDelta = mMouse.Wheel - e.MouseInput.Wheel;
 					//			mMouse.Wheel += e.MouseInput.Wheel;
@@ -261,20 +261,20 @@ namespace input
 					//		 }
 					//	  default : return false;
 					//   }
-					//} 
+					//}
 					break;
 
 				case EET_USER_EVENT :
 					{
 					   return OnUserEvent(e);
 					   default : return false;
-					} 
+					}
 					break;
 				}
 
 				return false;
 			}
-        }; 
+        };
     }
 }
 

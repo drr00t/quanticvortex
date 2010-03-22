@@ -34,9 +34,9 @@
 namespace qv
 {
     namespace events
-    {        
-		
-		class IEventArgs : public io::IAttributeExchangingObject
+    {
+
+		class IEventArgs //: public io::IAttributeExchangingObject
         {
 		//protected:
 		//	const ET_EVENT_TYPE* mEventType;
@@ -48,22 +48,26 @@ namespace qv
 			//}
 
 			//virtual ~IEventArgs();
-			virtual const ET_EVENT_TYPE* getEventType( void ) const =0; // { return mEventType; }
-            virtual u32 getTypeID( void ) const  =0; //{ return mEventType->HashedText; }
-			virtual const c8* getTypeName( void ) const  =0; //{ return mEventType->Text; }
+//			virtual const ET_EVENT_TYPE* getEventType( void ) const =0; // { return mEventType; }
+            virtual u32 getHashType( ) const  = 0; //{ return mEventType->HashedText; }
+//			virtual const c8* getTypeName( void ) const  =0; //{ return mEventType->Text; }
 
 	        //! Writes attributes of the object.
 	        /** Implement this to expose the attributes of your scene node animator for
 	        scripting languages, editors, debuggers or xml serialization purposes. */
-			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const = 0;
+//			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const = 0;
 
 	        //! Reads attributes of the object.
 	        /** Implement this to set the attributes of your scene node animator for
 	        scripting languages, editors, debuggers or xml deserialization purposes. */
-			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0) = 0;
+//			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0) = 0;
 
 	        //virtual IEventData copy() const = 0;
         };
+
+        typedef boost::shared_ptr<IEventArgs> IEventArgsSharedPtr;
+        typedef list<IEventArgsSharedPtr> EventArgslist;
+        typedef array<IEventArgsSharedPtr> EventArgsArray;
     }
 }
 

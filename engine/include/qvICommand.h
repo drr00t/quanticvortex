@@ -29,42 +29,29 @@
 #define __I_COMMAND_H_
 
 //#include "qvPrerequisites.h"
+#include "qvIEventArgs.h"
 #include "qvCommandTypes.h"
 
 
 namespace qv
 {
-	namespace events
-	{
-		class IEventArgs;
-	}
+//	namespace events
+//	{
+//		class IEventArgsSharedPtr;
+//	}
 
-	class ICommand: public IReferenceCounted
+	class ICommand
     {
     public:
-		ICommand(const CI_COMMAND_ID* ID = 0)
-			:mID(ID)
-		{
-#ifdef _DEBUG
-			setDebugName(mID->Text.c_str());
-#endif
-		}
+        virtual u32 getHashId() const = 0;
 
-		virtual ~ICommand()
-		{
-			mID->drop();
-		}
+        virtual u32 getHashType() const = 0;
 
-        virtual u32 getID() const { return mID->HashedText; } 
-
-        virtual const stringc& getName() const { return mID->Text; }
-
-        virtual void executeCommand(const events::IEventArgs* args) =0;
-	
-    protected:
-		const CI_COMMAND_ID* mID;
-
+        virtual void executeCommand(events::IEventArgsSharedPtr args) =0;
     };
+
+    typedef boost::shared_ptr<ICommand> ICommandSharedPtr;
+    typedef list<ICommandSharedPtr> CommandList;
 }
 #endif
 

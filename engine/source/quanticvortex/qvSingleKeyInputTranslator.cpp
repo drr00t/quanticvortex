@@ -35,28 +35,36 @@ namespace qv
 	namespace input
 	{
 		//-----------------------------------------------------------------------------------------
-		SingleKeyInputTranslator::SingleKeyInputTranslator(events::IEventManager* eventManager, 
-															EKEY_CODE keyCode, 
+		SingleKeyInputTranslator::SingleKeyInputTranslator(events::IEventManager* eventManager,
+															EKEY_CODE keyCode,
 															EKEY_STATE checkKeyState,
 															bool realTime,
-															events::IEventArgs* args,
-															const IT_INPUT_TRANSLATOR_ID* ID):
-		ISingleKeyInputTranslator(eventManager, keyCode, checkKeyState, realTime, args, ID)
+															events::IEventArgsSharedPtr args,
+															u32 inputTranslatorHashType,
+															const c8* inputTranslatorName)
+															:mEventManager(eventManager),
+															mKeyCode(keyCode),
+															mCheckKeyState(checkKeyState),
+															mRealTime(realTime), mArgs(args),
+															mInputTranslatorHashType(inputTranslatorHashType)
+
 		{
+		    mId = new IT_INPUT_TRANSLATOR_ID(inputTranslatorName);
 		}
 		//-----------------------------------------------------------------------------------------
-		SingleKeyInputTranslator::SingleKeyInputTranslator(events::IEventManager* eventManager, 
-															EKEY_CODE keyCode, 
-															EKEY_STATE checkKeyState,
-															bool realTime,
-															const events::ET_EVENT_TYPE* type,
-															const IT_INPUT_TRANSLATOR_ID* ID):
-		ISingleKeyInputTranslator(eventManager, keyCode, checkKeyState, realTime, type, ID)
-		{
-		}
+//		SingleKeyInputTranslator::SingleKeyInputTranslator(events::IEventManager* eventManager,
+//															EKEY_CODE keyCode,
+//															EKEY_STATE checkKeyState,
+//															bool realTime,
+//															const events::ET_EVENT_TYPE* type,
+//															const IT_INPUT_TRANSLATOR_ID* ID):
+//		ISingleKeyInputTranslator(eventManager, keyCode, checkKeyState, realTime, type, ID)
+//		{
+//		}
 		//-----------------------------------------------------------------------------------------
 		SingleKeyInputTranslator::~SingleKeyInputTranslator()
 		{
+		    mId->drop();
 		}
 		//-----------------------------------------------------------------------------------------
 		bool SingleKeyInputTranslator::translate(qv::input::IInputReceiver *context)
@@ -117,8 +125,8 @@ namespace qv
 						mEventManager->enqueueEvent(mArgs);
 
 					translated = true;
-				}				
-				
+				}
+
 				break;
 
 			case EKS_DOWN:
@@ -131,8 +139,8 @@ namespace qv
 						mEventManager->enqueueEvent(mArgs);
 
 					translated = true;
-				}				
-				
+				}
+
 				break;
 
 			case EKS_UP:
@@ -145,8 +153,8 @@ namespace qv
 						mEventManager->enqueueEvent(mArgs);
 
 					translated = true;
-				}				
-				
+				}
+
 				break;
 
 			default:

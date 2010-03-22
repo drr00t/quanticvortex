@@ -36,7 +36,7 @@ namespace qv
 		typedef SHashedString EVI_ELEMENT_VIEW_ID;
         typedef SHashedString EVT_ELEMENT_VIEW_TYPE;
 
-		class IElementView: public irr::IReferenceCounted
+		class IElementView //: public irr::IReferenceCounted
         {
 		//protected:
 		//	u16 mOrder;
@@ -45,12 +45,17 @@ namespace qv
 
 			//virtual const u16 getOrder(){ return mOrder;}
 
-            virtual const EVI_ELEMENT_VIEW_ID* getID()=0;
-            virtual const EVT_ELEMENT_VIEW_TYPE* getType() =0;
-	        virtual bool getVisible()=0;
-			virtual void setVisible(bool visible)=0;
-	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs)=0;
-	        virtual void update(u32 elapsedTimeMs)=0;
+            virtual u32 getHashId() const = 0;
+
+            virtual u32 getHashType() const = 0;
+
+	        virtual bool getVisible() const = 0;
+
+			virtual void setVisible(bool visible) = 0;
+
+	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs) = 0;
+
+	        virtual void update(u32 elapsedTimeMs) = 0;
 
 			////operators
 			//bool operator < (const IElementView& other) const
@@ -64,7 +69,8 @@ namespace qv
 			//}
         };
 
-		//typedef list<IElementView*> ElementViewList;
+        typedef boost::shared_ptr<IElementView> IElementViewSharedPtr;
+		typedef list<IElementViewSharedPtr> ElementViewList;
     }
 }
 #endif

@@ -5,17 +5,12 @@
 #include "qvActorTypes.h"
 #include "qvIPhysicsManager.h"
 
-#include "LinearMath/btQuaternion.h"
-//#include "LinearMath/btVector3.h"
+//#include "LinearMath/btQuaternion.h"
+#include "btBulletCollisionCommon.h"
+#include "btBulletDynamicsCommon.h"
+#include "BulletCollision/CollisionDispatch/btGhostObject.h"
+#include "BulletCollision/BroadphaseCollision/btOverlappingPairCallback.h"
 
-
-
-class btBroadphaseInterface;
-class btCollisionDispatcher;
-class btCollisionObject;
-class btConstraintSolver;
-class btDefaultCollisionConfiguration;
-class btDynamicsWorld;
 
 namespace
 {
@@ -97,7 +92,8 @@ namespace qv
 		private:
 
             //TODO: verify bullet collection
-            typedef list<btCollisionObject*> CollisionObjectsList;
+//            typedef list<btCollisionObject*> CollisionObjectsList;
+            typedef btAlignedObjectArray<btCollisionShape*> CollisionShapes;
 
 			IEngineManager* mEngineManager;
             btDynamicsWorld* mBulletDynamicsWorld;
@@ -105,7 +101,7 @@ namespace qv
             btCollisionDispatcher* mBulletCollisionDispatcher;
             btDefaultCollisionConfiguration* mBulletDefaultCollisionConfiguration;
             btConstraintSolver* mBulletConstraintSolver;
-            CollisionObjectsList mCollisionObjectsList;
+            CollisionShapes mCollisionObjectsList;
 
 			f32 mTimeUpdate;
 			//PhysicsActorMap mPhysicsActors;

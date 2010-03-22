@@ -37,23 +37,23 @@ namespace qv
         DefaultElementViewFactory::DefaultElementViewFactory(IEngineManager* engine)
             :mEngine(engine)
         {
-			mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_SCENE->HashedText);
-			mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_GUI->HashedText);
+			mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_SCENE.Hash);
+			mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_GUI.Hash);
         }
         //-----------------------------------------------------------------------------------------
         DefaultElementViewFactory::~DefaultElementViewFactory()
         {
         }
 		//-----------------------------------------------------------------------------------------------
-        IElementView* DefaultElementViewFactory::addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type)
+        IElementViewSharedPtr DefaultElementViewFactory::addElementView( const c8* name, u32 elementViewHashType)
 		{
-            IElementView* elementView = 0;
+            IElementViewSharedPtr elementView;
 
-			if(type->HashedText == EVT_ELEMENT_VIEW_SCENE->HashedText)
-                elementView = new SceneView(name, mEngine);
+			if(elementViewHashType == EVT_ELEMENT_VIEW_SCENE.Hash)
+                elementView.reset(new SceneView(name, mEngine));
 
-			else if(type->HashedText == EVT_ELEMENT_VIEW_GUI->HashedText)
-                elementView = new GuiView(name, mEngine);
+			else if(elementViewHashType == EVT_ELEMENT_VIEW_GUI.Hash)
+                elementView.reset(new GuiView(name, mEngine));
 
 			return elementView;
 		}
@@ -63,10 +63,10 @@ namespace qv
             return mSupportedElementViewTypes.size();
         }
         //-----------------------------------------------------------------------------------------
-        bool DefaultElementViewFactory::getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type)
+        bool DefaultElementViewFactory::getCreateableElementViewType( u32 elementViewHashType) const
         {
 	        for (u32 i=0; i<mSupportedElementViewTypes.size(); ++i)
-				if (mSupportedElementViewTypes[i] == type->HashedText)
+				if (mSupportedElementViewTypes[i] == elementViewHashType)
 			        return true;
 
             return false;

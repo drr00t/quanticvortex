@@ -35,13 +35,12 @@ namespace qv
 {
     namespace gaming
     {
-		
-        typedef SHashedString AI_ACTOR_ID;
 
+        typedef SHashedString AI_ACTOR_ID;
 		typedef SHashedString AT_ACTOR_TYPE;
 
-		static const AT_ACTOR_TYPE* AT_ACTOR_CAMERA = new AT_ACTOR_TYPE("AT_ACTOR_CAMERA");
-		static const AT_ACTOR_TYPE* AT_ACTOR_PLAYER = new AT_ACTOR_TYPE("AT_ACTOR_PLAYER");
+		static const AT_ACTOR_TYPE AT_ACTOR_CAMERA("AT_ACTOR_CAMERA");
+		static const AT_ACTOR_TYPE AT_ACTOR_PLAYER("AT_ACTOR_PLAYER");
     }
 }
 #endif

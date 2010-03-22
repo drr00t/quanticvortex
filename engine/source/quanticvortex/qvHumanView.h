@@ -42,16 +42,53 @@ namespace qv
 
 		class HumanView: public IHumanView
         {
+        public:
+            HumanView(IEngineManager* engine, u32 viewHashType = GVT_GAME_VIEW_HUMAN.Hash);
+
+            virtual ~HumanView();
+
+			virtual void attach(u32 viewHashId, u32 actorHashId = 0)
+			{
+				mViewHashId = viewHashId;
+                mActorHashId = actorHashId;
+			}
+
+            virtual u32 getHashId() const { return mViewHashId; }
+
+            virtual u32 getHashType() const { return mViewHashType; }
+
+//			virtual void lostDevice();
+
+	        virtual void update(u32 elapsedTimeMs);
+
+	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs); //time in miliseconds
+
+	        //// Virtual methods to control the layering of interface elements
+            virtual IElementViewSharedPtr addElementView(const c8* name, u32 elementViewHashType);
+
+   //         virtual void pushElement(IElementView* element);
+
+			//virtual void popElement(IElementView* element);
+
+            virtual void registerElementViewFactory(IElementViewFactory* factoryToAdd);
+
+			//void attachProcess(Process* process){mProcessManager->attach(process);}
+
+            //command that will registred on event manager to response to spacefic events
+            virtual const CommandList& commandEventResponseList() const { return mEventCommands; }
+
+            //coomand that will registred on input manager to response to user input
+            virtual const CommandList& commandInputResponseList() const { return mInputCommands; }
 
         protected:
             IEngineManager*     mEngine;
-            const GVT_GAME_VIEW_TYPE*  mType;
-            const GVI_GAME_VIEW_ID*	mViewID;
-			const gaming::AI_ACTOR_ID*         mActorID;
+            u32 mViewHashType;
+            u32	mViewHashId;
+            u32 mActorHashId;
 			array<IElementView*> mElementViews;
-
             array<IElementViewFactory*> mElementViewFactories;
-
+            CommandList mInputCommands;
+            CommandList mEventCommands;
 			//I need to put aITimer here, to allow private timer to player view
 
             //IGUIFont* mFont;
@@ -61,7 +98,7 @@ namespace qv
 
             f32 mCurrentTime;    // current time
             f32 mLastUpdateTime; // last tick time update
-			f32 mAccumulatorTime;
+			u32 mAccumulatorTime;
 
 	        //// Interface sensitive objects
 	        //shared_ptr<IMouseHandler> mMouseHandler;
@@ -69,45 +106,6 @@ namespace qv
 			//InputController* mInputController;
 	        //ProcessManager *mProcessManager;				    // just for gui elements.
 
-
-        public:
-            HumanView( const c8* viewID = 0, IEngineManager* engine = 0, const GVT_GAME_VIEW_TYPE* viewType = GVT_GAME_VIEW_HUMAN);
-            virtual ~HumanView();
-
-            virtual const GVT_GAME_VIEW_TYPE* getType()
-			{
-				return mType;
-			}
-
-            virtual const GVI_GAME_VIEW_ID* getID() const
-			{
-				return mViewID;
-			}
-		
-            virtual void attach(const GVI_GAME_VIEW_ID* viewID, const gaming::AI_ACTOR_ID* actorID = 0)
-			{
-				mViewID = viewID;
-
-				if(actorID)
-					mActorID = actorID;
-			}
-			
-			virtual void lostDevice();
-
-	        virtual void update(u32 elapsedTimeMs);
-
-	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs); //time in miliseconds
-
-	        //// Virtual methods to control the layering of interface elements
-            virtual IElementView* addElementView(const c8* name, const EVT_ELEMENT_VIEW_TYPE* type);
-
-   //         virtual void pushElement(IElementView* element);
-
-			//virtual void popElement(IElementView* element);
-
-            virtual void registerElementViewFactory(IElementViewFactory* factoryToAdd);
-
-			//void attachProcess(Process* process){mProcessManager->attach(process);}
         };
     }
 }

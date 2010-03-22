@@ -28,24 +28,22 @@
 #ifndef __I_GAME_VIEW_FACTORY_H_
 #define __I_GAME_VIEW_FACTORY_H_
 
-#include "qvGameViewTypes.h"
+#include "qvIGameView.h"
 
 
 namespace qv
 {
     namespace views
     {
-		class IGameView;
-
 		class IGameViewFactory : public virtual IReferenceCounted
 		{
 		public:
 
-            virtual IGameView* addGameView(const c8* viewID, const GVT_GAME_VIEW_TYPE* type) = 0;
+            virtual IGameViewSharedPtr addGameView( u32 gameViewHashType) = 0;
 
 			virtual u32 getCreatableGameViewTypeCount() const = 0;
 
-			virtual bool getCreateableGameViewType(const GVT_GAME_VIEW_TYPE* type) = 0;
+			virtual bool getCreateableGameViewType( u32 gameViewHashType) const = 0;
 		};
     }
 }

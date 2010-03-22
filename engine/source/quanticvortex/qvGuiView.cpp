@@ -8,15 +8,15 @@ namespace qv
     namespace views
     {
         //---------------------------------------------------------------------
-        GuiView::GuiView(const c8* name,IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type)
-			: mElement(0), mGuiManager(0), mVisible(true)//, mOrder(5)
+        GuiView::GuiView(const c8* name,IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE& type)
+			: mElement(0), mGuiManager(0), mVisible(true), mHashType(type.Hash)//, mOrder(5)
         {
 
-#ifdef _DEBUG
-			setDebugName("GuiView");
-#endif
+//#ifdef _DEBUG
+//			setDebugName("GuiView");
+//#endif
 			mID = new EVI_ELEMENT_VIEW_ID(name);
-			//recti window(0,0,mGuiManager->getVideoDriver()->getScreenSize().Width, 
+			//recti window(0,0,mGuiManager->getVideoDriver()->getScreenSize().Width,
 			//				mGuiManager->getVideoDriver()->getScreenSize().Height);
 			//mElement = mGuiManager->addWindow(window);
         }

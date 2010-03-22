@@ -33,33 +33,35 @@
 
 namespace qv
 {
-	namespace events
-	{
-		class IEventManager;
-		class IEventArgs;
-	}
-	
+//	namespace events
+//	{
+//		class IEventManager;
+//		class IEventArgsSharedPtr;
+//	}
+
 	namespace input
 	{
 		class IInputReceiver;
-		
-		static const IT_INPUT_TRANSLATOR_TYPE* ITT_ANY_KEY_TYPE = new IT_INPUT_TRANSLATOR_ID("ITT_ANY_KEY_TYPE");
-		
+
+		static const IT_INPUT_TRANSLATOR_TYPE ITT_ANY_KEY_TYPE("ITT_ANY_KEY_TYPE");
+
 		class IAnyKeyInputTranslator : public IInputTranslator
 		{
-        protected:
-			events::IEventArgs* mArgs;
+//        protected:
+//			events::IEventArgs* mArgs;
 
-		public:
+//		public:
 
-			IAnyKeyInputTranslator(events::IEventManager* eventManager, 
-									bool realTime,
-									events::IEventArgs* args,
-									const IT_INPUT_TRANSLATOR_ID* ID)
-									:IInputTranslator(eventManager, ID, ITT_ANY_KEY_TYPE, realTime),
-									mArgs(args)
-			{
-			}
+//			IAnyKeyInputTranslator(events::IEventManager* eventManager,
+//									bool realTime,
+//									events::IEventArgs* args,
+//									const IT_INPUT_TRANSLATOR_ID* ID)
+//									:IInputTranslator(eventManager, ID, ITT_ANY_KEY_TYPE, realTime),
+//									mArgs(args)
+//			{
+//			}
+
+
 		};
 	}
 }

@@ -31,14 +31,13 @@ namespace qv
     namespace events
     {
 		//-----------------------------------------------------------------------------------------
-		EventArgs::EventArgs(const ET_EVENT_TYPE* eventType)
-			:mEventType(eventType)
+		EventArgs::EventArgs(const ET_EVENT_TYPE& eventType)
+			:mEventHashType(eventType.Hash)
         {
         }
 		//-----------------------------------------------------------------------------------------
 		EventArgs::~EventArgs()
 		{
-			mEventType->drop();
 		}
 		//-----------------------------------------------------------------------------------------
     }

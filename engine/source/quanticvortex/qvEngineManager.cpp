@@ -52,8 +52,9 @@ namespace qv
     }
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager(const SGameParams& params):_helpRequested(false),
-        mDevice3d(0), mInputReceiver(0), mQuit(false), mEventManager(0),
-        mGameLogic(0)/*mHasPopup(false), mFileSystem(0), mWindowHandle(0),
+        mQuit(false), mGameLogic(0), mEventManager(0), mInputReceiver(0),
+        mDevice3d(0)
+        /*mHasPopup(false), mFileSystem(0), mWindowHandle(0),
         mVideoDriver(0), mSceneManager(0), */
     {
 
@@ -173,11 +174,11 @@ namespace qv
     {
         for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
             mGameLogicFactories[i]->drop();
-        
+
 		mEventManager->drop();
-		
+
 		mInputReceiver->drop();
-		
+
 		mGameLogic->drop();
 
 		mDevice3d->drop();

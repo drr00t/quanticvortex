@@ -29,33 +29,46 @@
 #define _ANY_KEY_INPUT_TRANSLATOR_H_
 
 #include "qvIAnyKeyInputTranslator.h"
+#include "qvIEventArgs.h"
 
 
 namespace qv
 {
-	namespace events
-	{
-		class IEventManager;
-		class IEventArgs;
-	}
-	
+//	namespace events
+//	{
+//		class IEventManager;
+//		class IEventArgsSharedPtr;
+//	}
+
 	namespace input
 	{
 		class IInputReceiver;
-		
+
 		class AnyKeyInputTranslator : public IAnyKeyInputTranslator
 		{
 
 		public:
 
-			AnyKeyInputTranslator(events::IEventManager* eventManager, 
+			AnyKeyInputTranslator(events::IEventManager* eventManager,
 									bool realTime,
-									events::IEventArgs* args,
-									const IT_INPUT_TRANSLATOR_ID* ID);
+									events::IEventArgsSharedPtr args,
+									const c8* inputTranslatorName,
+									u32 inputTranslatorHashType = ITT_ANY_KEY_TYPE.Hash);
 
 			virtual ~AnyKeyInputTranslator();
 
+            virtual u32 getHashId() const { return mID->Hash; }
+
+            virtual u32 getHashType() const { return mInputTranslatorHashType; }
+
 			virtual bool translate(IInputReceiver *context);
+
+        private:
+			events::IEventManager* mEventManager;
+			bool mRealTime;
+			events::IEventArgsSharedPtr mArgs;
+			const IT_INPUT_TRANSLATOR_ID* mID;
+			u32 mInputTranslatorHashType;
 		};
 	}
 }

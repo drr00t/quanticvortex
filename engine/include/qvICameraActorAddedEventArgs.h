@@ -40,15 +40,15 @@ namespace qv
 		class ICameraActorAddedEventArgs: public IEventArgs
         {
         public:
-			virtual const ET_EVENT_TYPE* getEventType( void ) const = 0;
+//			virtual const ET_EVENT_TYPE* getEventType( void ) const = 0;
 
-			virtual u32 getTypeID( void ) const  = 0;
+			virtual u32 getTypeId( void ) const  = 0;
 
-			virtual const c8* getTypeName( void ) const  = 0;
+//			virtual const c8* getTypeName( void ) const  = 0;
 
-			virtual u32 getCameraActorID() const  = 0;
+			virtual u32 getCameraActorId() const  = 0;
 
-			virtual const c8* getCameraActorName() const  = 0;
+//			virtual const c8* getCameraActorName() const  = 0;
         };
     }
 }

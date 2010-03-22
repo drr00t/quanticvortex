@@ -36,7 +36,7 @@
 namespace qv
 {
 	namespace events
-	{	
+	{
 		class IEventManager;
 	}
 
@@ -47,29 +47,37 @@ namespace qv
         typedef SHashedString IT_INPUT_TRANSLATOR_ID;
 		typedef SHashedString IT_INPUT_TRANSLATOR_TYPE;
 
-		class IInputTranslator : public IReferenceCounted
+		typedef array<u32> InputTranslatorTypesArray;
+
+		class IInputTranslator //: public IReferenceCounted
 		{
-		protected:
-			const IT_INPUT_TRANSLATOR_ID* mID;
-			const IT_INPUT_TRANSLATOR_TYPE* mType;
-			events::IEventManager* mEventManager;
-			bool mRealTime;
+//		protected:
+//			const IT_INPUT_TRANSLATOR_ID* mID;
+//			const IT_INPUT_TRANSLATOR_TYPE* mType;
+//			events::IEventManager* mEventManager;
+//			bool mRealTime;
 
 		public:
-			IInputTranslator(events::IEventManager* eventManager, const IT_INPUT_TRANSLATOR_ID* ID, const IT_INPUT_TRANSLATOR_TYPE* type, bool realTime)
-				: mID(ID), mType(type), mEventManager(eventManager)
-			{
-			}
+//			IInputTranslator(events::IEventManager* eventManager, const IT_INPUT_TRANSLATOR_ID* ID, const IT_INPUT_TRANSLATOR_TYPE* type, bool realTime)
+//				: mID(ID), mType(type), mEventManager(eventManager)
+//			{
+//			}
 
-			virtual ~IInputTranslator (){}
+//			virtual ~IInputTranslator (){}
 
-			virtual const IT_INPUT_TRANSLATOR_ID* getID()
-			{
-				return mID;
-			}
+//			virtual const IT_INPUT_TRANSLATOR_ID* getID()
+//			{
+//				return mID;
+//			}
+            virtual u32 getHashId() const = 0;
+
+            virtual u32 getHashType() const = 0;
 
 			virtual bool translate(IInputReceiver *context) = 0;
 		};
+
+		typedef boost::shared_ptr<IInputTranslator> IInputTranslatorSharedPtr;
+		typedef list<IInputTranslatorSharedPtr> InputTranslatorList;
 	}
 }
 

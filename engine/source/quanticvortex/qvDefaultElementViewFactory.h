@@ -31,11 +31,11 @@
 #include "qvIElementViewFactory.h"
 
 namespace qv
-{    
+{
     class IEngineManager;
-	
+
     namespace views
-    {   
+    {
 
         class DefaultElementViewFactory : public IElementViewFactory
 		{
@@ -47,11 +47,11 @@ namespace qv
             DefaultElementViewFactory(IEngineManager* engine);
             virtual ~DefaultElementViewFactory();
 
-            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type);
+            virtual IElementViewSharedPtr addElementView( const c8* name, u32 elementViewHashType);
 
 			virtual u32 getCreatableElementViewTypeCount() const;
 
-            virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type);
+            virtual bool getCreateableElementViewType( u32 elementViewHashType) const;
 		};
     }
 }

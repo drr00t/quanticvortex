@@ -38,25 +38,25 @@ namespace qv
         //-----------------------------------------------------------------------------------------
         DefaultEventArgsFactory::DefaultEventArgsFactory()
         {
-			mSupportedEventArgsTypes.push_back(ET_GAME_QUIT->HashedText);
-			mSupportedEventArgsTypes.push_back(ET_GAME_NEW->HashedText);
-			mSupportedEventArgsTypes.push_back(ET_GAME_STATE_CHANGE->HashedText);
-			mSupportedEventArgsTypes.push_back(ET_CAMERA_ACTOR_ADDED->HashedText);
+			mSupportedEventArgsTypes.push_back(ET_GAME_QUIT.Hash);
+			mSupportedEventArgsTypes.push_back(ET_GAME_NEW.Hash);
+			mSupportedEventArgsTypes.push_back(ET_GAME_STATE_CHANGE.Hash);
+			mSupportedEventArgsTypes.push_back(ET_CAMERA_ACTOR_ADDED.Hash);
         }
         //-----------------------------------------------------------------------------------------
         DefaultEventArgsFactory::~DefaultEventArgsFactory()
         {
         }
 		//-----------------------------------------------------------------------------------------------
-		IEventArgs* DefaultEventArgsFactory::addEmptyEventArgs( const ET_EVENT_TYPE* type)
+		IEventArgsSharedPtr DefaultEventArgsFactory::addEmptyEventArgs( const ET_EVENT_TYPE& type)
 		{
-			IEventArgs* eventArgs = 0;
+			IEventArgsSharedPtr eventArgs;
 
 			if(getCreateableEventArgsType(type))
 			{
-				if((ET_GAME_QUIT->HashedText == type->HashedText) || 
-					(ET_GAME_NEW->HashedText == type->HashedText))
-					eventArgs = new EventArgs(type);
+				if((ET_GAME_QUIT.Hash == type.Hash) ||
+					(ET_GAME_NEW.Hash == type.Hash))
+					eventArgs = IEventArgsSharedPtr(new EventArgs(type));
 			}
 
 			return eventArgs;
@@ -64,8 +64,8 @@ namespace qv
 		//-----------------------------------------------------------------------------------------------
 		ICameraActorAddedEventArgs* DefaultEventArgsFactory::addCameraActorAddedEventArgs( const c8* actorName)
 		{
-			ICameraActorAddedEventArgs* eventArgs = 
-				new CameraActorAddedEventArgs(ET_CAMERA_ACTOR_ADDED, new gaming::AI_ACTOR_ID(actorName));
+			ICameraActorAddedEventArgs* eventArgs(0);
+//				new CameraActorAddedEventArgs(ET_CAMERA_ACTOR_ADDED.Hash, new gaming::AI_ACTOR_ID(actorName));
 
 			return eventArgs;
 		}
@@ -75,10 +75,10 @@ namespace qv
 			return mSupportedEventArgsTypes.size();
         }
         //-----------------------------------------------------------------------------------------
-		bool DefaultEventArgsFactory::getCreateableEventArgsType(const ET_EVENT_TYPE* type)
+		bool DefaultEventArgsFactory::getCreateableEventArgsType(const ET_EVENT_TYPE& type) const
         {
 	        for (u32 i=0; i<mSupportedEventArgsTypes.size(); ++i)
-				if (mSupportedEventArgsTypes[i] == type->HashedText)
+				if (mSupportedEventArgsTypes[i] == type.Hash)
 			        return true;
 
             return false;

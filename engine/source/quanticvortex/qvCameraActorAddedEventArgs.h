@@ -38,34 +38,34 @@ namespace qv
 
 		class CameraActorAddedEventArgs: public ICameraActorAddedEventArgs
         {
-		private:
-			const ET_EVENT_TYPE* mEventType;
-			const gaming::AI_ACTOR_ID* mActorID;
 
         public:
-			CameraActorAddedEventArgs(const ET_EVENT_TYPE* eventType, const gaming::AI_ACTOR_ID* actorID);
+			CameraActorAddedEventArgs(const u32& eventHashType, const u32& actorHashId);
 			virtual ~CameraActorAddedEventArgs();
 
-			virtual const ET_EVENT_TYPE* getEventType( void ) const  { return mEventType; }
+//			virtual const ET_EVENT_TYPE* getEventType( void ) const  { return mEventType; }
 
-			virtual u32 getTypeID( void ) const { return mEventType->HashedText; }
+			virtual u32 getTypeId( void ) const { return mEventHashType; }
 
-			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
+//			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
 
-			virtual u32 getCameraActorID() const { return mActorID->HashedText; }
+			virtual u32 getCameraActorId() const { return mActorHashId; }
 
-			virtual const c8* getCameraActorName() const { return mActorID->Text.c_str(); }
+//			virtual const c8* getCameraActorName() const { return mActorID.get()->Text.c_str(); }
 
 	        //! Writes attributes of the object.
 	        /** Implement this to expose the attributes of your scene node animator for
 	        scripting languages, editors, debuggers or xml serialization purposes. */
-			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
+//			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
 
 	        //! Reads attributes of the object.
 	        /** Implement this to set the attributes of your scene node animator for
 	        scripting languages, editors, debuggers or xml deserialization purposes. */
-			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
+//			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
 
+		private:
+			u32 mEventHashType;
+			u32 mActorHashId;
         };
     }
 }

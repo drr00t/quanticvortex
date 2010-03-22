@@ -28,7 +28,7 @@
 #ifndef __I_EVENT_ARGS_FACTORY_H_
 #define __I_EVENT_ARGS_FACTORY_H_
 
-#include "qvEventTypes.h"
+#include "qvIEventArgs.h"
 
 namespace qv
 {
@@ -36,20 +36,20 @@ namespace qv
 
     namespace events
     {
-		class IEventArgs;
+//		class IEventArgsSharedPtr;
 		class ICameraActorAddedEventArgs;
 
 		class IEventArgsFactory : public IReferenceCounted
 		{
 		public:
 
-			virtual IEventArgs* addEmptyEventArgs( const ET_EVENT_TYPE* type) = 0;
+			virtual IEventArgsSharedPtr addEmptyEventArgs( const ET_EVENT_TYPE& type) = 0;
 
 			virtual ICameraActorAddedEventArgs* addCameraActorAddedEventArgs( const c8* actorName) = 0;
 
 			virtual u32 getCreatableEventArgsTypeCount() const = 0;
 
-			virtual bool getCreateableEventArgsType(const ET_EVENT_TYPE* type) = 0;
+			virtual bool getCreateableEventArgsType(const ET_EVENT_TYPE& type) const = 0;
 		};
     }
 }

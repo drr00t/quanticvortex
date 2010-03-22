@@ -25,28 +25,24 @@
 **************************************************************************************************/
 
 
-#ifndef __I_COMMAND_EVENT_H_
-#define __I_COMMAND_EVENT_H_
+#ifndef __I_EVENT_COMMAND_H_
+#define __I_EVENT_COMMAND_H_
 
 #include "qvICommand.h"
 #include "qvEventTypes.h"
 
 
 namespace qv
-{     
+{
     namespace events
-    {   
-		class ICommandEvent: public ICommand
+    {
+		class IEventCommand: public ICommand
 		{
 		public:
-			ICommandEvent(const CI_COMMAND_ID* ID)
-				:ICommand(ID)
-			{
-			}
-
-			virtual const array<const ET_EVENT_TYPE*>& listenEventTypes() const =0;
-			//virtual void executeCommand(const IEventArgs* args) =0;
+			virtual const EventTypesList& listenEventTypes() const =0;
 		};
+
+		typedef boost::shared<IEventCommand> IEventCommandSharedPtr;
 	}
 }
 #endif

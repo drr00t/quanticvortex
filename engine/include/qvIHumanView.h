@@ -31,6 +31,7 @@
 //#include "qvEngineManager.h"
 #include "qvIGameView.h"
 #include "qvIElementView.h"
+#include "qvICommand.h"
 //#include "input/qvInputController.h"
 //#include "runtime/qvProcessManager.h"
 
@@ -46,17 +47,30 @@ namespace qv
     namespace views
     {
         class IElementViewFactory;
-		class IElementView;
 
 		class IHumanView: public IGameView
         {
 
         public:
-            virtual IElementView* addElementView(const c8* name, const EVT_ELEMENT_VIEW_TYPE* type)=0;
+            virtual IElementViewSharedPtr addElementView(const c8* name, u32 elementViewHashType)=0;
+
+//            virtual u32 getHashId() const = 0;
+
    //         virtual void pushElement(IElementView* element)=0;
+
 			//virtual void popElement(IElementView* element)=0;
+
             virtual void registerElementViewFactory(IElementViewFactory* factoryToAdd)=0;
-			//void attachProcess(Process* process){mProcessManager->attach(process);}
+
+//			void attachProcess(Process* process) = 0;
+
+            //command that will registred on event manager to response to spacefic events
+            virtual const CommandList& commandEventResponseList() const = 0;
+
+            //coomand that will registred on input manager to response to user input
+            virtual const CommandList& commandInputResponseList() const = 0;
+
+            //
         };
     }
 }

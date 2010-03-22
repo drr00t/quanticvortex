@@ -2310,19 +2310,20 @@
 	"qvICommand.h"
 	"qvEventTypes.h"
 
-1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvicommand.h
+1269052486 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvicommand.h
 	"qvCommandTypes.h"
 
 1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvcommandtypes.h
 	"qvSHashedString.h"
 
-1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvshashedstring.h
+1269052415 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvshashedstring.h
 	"qvPrerequisites.h"
 	"qvSuperFastHash.h"
 
-1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvprerequisites.h
+1269047443 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvprerequisites.h
 	"irrlicht.h"
 	"qvSuperFastHash.h"
+	<boost/shared_ptr.hpp>
 
 1266159974 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\irrlicht\include\irrlicht.h
 	"IrrCompileConfig.h"
@@ -2522,7 +2523,7 @@
 	"CVertexBuffer.h"
 	"CIndexBuffer.h"
 
-1264961026 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\irrlicht\include\idynamicmeshbuffer.h
+1268501019 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\irrlicht\include\idynamicmeshbuffer.h
 	"IMeshBuffer.h"
 	"IVertexBuffer.h"
 	"IIndexBuffer.h"
@@ -3314,7 +3315,7 @@
 	"qvIProcess.h"
 	"qvIState.h"
 
-1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviactor.h
+1269047443 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviactor.h
 	"qvActorTypes.h"
 
 1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvactortypes.h
@@ -3343,7 +3344,7 @@
 1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvstatetypes.h
 	"qvSHashedString.h"
 
-1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvsgameparams.h
+1268500384 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvsgameparams.h
 	"qvPrerequisites.h"
 
 1268272525 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine samples\01_sample\source\sdcsylfurdcgame.cpp

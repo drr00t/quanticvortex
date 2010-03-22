@@ -34,17 +34,12 @@
 
 namespace qv
 {
-    struct SHashedString
-    {
-        c8* Text;
-        u32 HashedText;
-    };
 
-	struct SHashedString: IReferenceCounted
+	struct SHashedString: public IReferenceCounted
     {
 		//-------------------------------------------------------------------------
 		SHashedString()
-			:Text(0),HashedText(0)
+			:Text(0),Hash(0)
 		{
 		}
 		//-------------------------------------------------------------------------
@@ -52,11 +47,11 @@ namespace qv
 			:Text(text)
 		{
 			Text.make_upper();
-			HashedText = createSuperFastHash(Text);
+			Hash = createSuperFastHash(Text);
 		}
 		//-------------------------------------------------------------------------
-		SHashedString(const c8* text, u32 hashedText)
-			:Text(text), HashedText(hashedText)
+		SHashedString(const c8* text, u32 hash)
+			:Text(text), Hash(hash)
 		{
 		}
 		//-------------------------------------------------------------------------
@@ -70,7 +65,7 @@ namespace qv
 		SHashedString& operator= ( const SHashedString &other )
 		{
 			Text = other.Text;
-			HashedText = other.HashedText;
+			Hash = other.Hash;
 
 			return *this;
 		}
@@ -78,36 +73,39 @@ namespace qv
 		bool operator== ( const SHashedString &other ) const
 		{
 #ifdef _DEBUG
-		return ((Text == other.Text) && (HashedText == other.HashedText));
+		return ((Text == other.Text) && (Hash == other.Hash));
 #else
-		return (HashedText == other.HashedText);
+		return (Hash == other.Hash);
 #endif
 		}
 		//-------------------------------------------------------------------------
 		bool operator!= ( const SHashedString &other ) const
 		{
 #	ifdef _DEBUG
-			return ((HashedText != other.HashedText) && (Text != other.Text));
+			return ((Hash != other.Hash) && (Text != other.Text));
 			//TODO: I will need debug possible hashe collisions
 #	else
-			return (HashedText != other.HashedText);
+			return (Hash != other.Hash);
 #	endif
 		}
 		//-------------------------------------------------------------------------
 		bool operator< ( const SHashedString &other ) const
 		{
-			return (HashedText < other.HashedText);
+			return (Hash < other.Hash);
 		}
 		//-------------------------------------------------------------------------
 		bool operator> ( const SHashedString &other ) const
 		{
-			return (HashedText > other.HashedText);
+			return (Hash > other.Hash);
 		}
 		//-------------------------------------------------------------------------
 
 		stringc Text;
-		u32 HashedText;
+		u32 Hash;
     };
+
+    typedef boost::shared_ptr<SHashedString> SHashedStringSharedPtr;
+    typedef boost::weak_ptr<SHashedString> SHashedStringWeakPtr;
 }
 #endif
 

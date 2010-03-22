@@ -35,53 +35,55 @@
 namespace qv
 {
     namespace events
-    {       
+    {
 		typedef SHashedString ET_EVENT_TYPE;
-        
-        //engine sertvices events
-        static const ET_EVENT_TYPE *ET_GRAPHICS_STARTED = new ET_EVENT_TYPE("ET_GRAPHICS_STARTED");
-        static const ET_EVENT_TYPE *ET_GRAPHICS_STOPPED = new ET_EVENT_TYPE("ET_GRAPHICS_STOPPED");
 
-        static const ET_EVENT_TYPE *ET_EVENT_SYSTEM_STARTED = new ET_EVENT_TYPE("ET_EVENT_SYSTEM_STARTED");
-        static const ET_EVENT_TYPE *ET_EVENT_SYSTEM_STOPPED = new ET_EVENT_TYPE("ET_EVENT_SYSTEM_STOPPED");
+		typedef list<u32> EventTypesList;
+
+        //engine sertvices events
+        static const ET_EVENT_TYPE ET_GRAPHICS_STARTED("ET_GRAPHICS_STARTED");
+        static const ET_EVENT_TYPE ET_GRAPHICS_STOPPED("ET_GRAPHICS_STOPPED");
+
+        static const ET_EVENT_TYPE ET_EVENT_SYSTEM_STARTED("ET_EVENT_SYSTEM_STARTED");
+        static const ET_EVENT_TYPE ET_EVENT_SYSTEM_STOPPED("ET_EVENT_SYSTEM_STOPPED");
 
         //game application events
-        static const ET_EVENT_TYPE *ET_GAME_LOAD = new ET_EVENT_TYPE("ET_GAME_LOAD");
-        static const ET_EVENT_TYPE *ET_GAME_NEW = new ET_EVENT_TYPE("ET_GAME_NEW");
-        static const ET_EVENT_TYPE *ET_GAME_OPTIONS = new ET_EVENT_TYPE("ET_GAME_OPTIONS");
-        static const ET_EVENT_TYPE *ET_GAME_PAUSE = new ET_EVENT_TYPE("ET_GAME_PAUSE");
-        static const ET_EVENT_TYPE *ET_GAME_QUIT = new ET_EVENT_TYPE("ET_GAME_QUIT");
-        static const ET_EVENT_TYPE *ET_GAME_SAVE = new ET_EVENT_TYPE("ET_GAME_SAVE");
-        static const ET_EVENT_TYPE *ET_GAME_STATE_CHANGE = new ET_EVENT_TYPE("ET_GAME_STATE_CHANGE");
-        static const ET_EVENT_TYPE *ET_GAME_UNPAUSE = new ET_EVENT_TYPE("ET_GAME_PAUSE");
+        static const ET_EVENT_TYPE ET_GAME_LOAD("ET_GAME_LOAD");
+        static const ET_EVENT_TYPE ET_GAME_NEW("ET_GAME_NEW");
+        static const ET_EVENT_TYPE ET_GAME_OPTIONS("ET_GAME_OPTIONS");
+        static const ET_EVENT_TYPE ET_GAME_PAUSE("ET_GAME_PAUSE");
+        static const ET_EVENT_TYPE ET_GAME_QUIT("ET_GAME_QUIT");
+        static const ET_EVENT_TYPE ET_GAME_SAVE("ET_GAME_SAVE");
+        static const ET_EVENT_TYPE ET_GAME_STATE_CHANGE("ET_GAME_STATE_CHANGE");
+        static const ET_EVENT_TYPE ET_GAME_UNPAUSE("ET_GAME_PAUSE");
 
         //game logic events
-        static const ET_EVENT_TYPE *ET_GAME_LOGIC_STARTED = new ET_EVENT_TYPE("ET_GAME_LOGIC_STARTED");
-        static const ET_EVENT_TYPE *ET_GAME_LOGIC_STOPPED = new ET_EVENT_TYPE("ET_GAME_LOGIC_STOPPED");
-        static const ET_EVENT_TYPE *ET_GAME_LOGIC_TICK_UPDATE = new ET_EVENT_TYPE("ET_GAME_LOGIC_TICK");
+        static const ET_EVENT_TYPE ET_GAME_LOGIC_STARTED("ET_GAME_LOGIC_STARTED");
+        static const ET_EVENT_TYPE ET_GAME_LOGIC_STOPPED("ET_GAME_LOGIC_STOPPED");
+        static const ET_EVENT_TYPE ET_GAME_LOGIC_TICK_UPDATE("ET_GAME_LOGIC_TICK");
 
-        static const ET_EVENT_TYPE *ET_HUMAN_VIEW_ATTACHED = new ET_EVENT_TYPE("ET_HUMAN_VIEW_ATTACHED");
-        static const ET_EVENT_TYPE *ET_HUMAN_VIEW_DETACHED = new ET_EVENT_TYPE("ET_HUMAN_VIEW_DETACHED");
-        
-        static const ET_EVENT_TYPE *ET_PHYSICS_STARTED = new ET_EVENT_TYPE("ET_PHYSICS_STARTED");
-        static const ET_EVENT_TYPE *ET_PHYSICS_STOPPED = new ET_EVENT_TYPE("ET_PHYSICS_STOPPED");
-		
-		static const ET_EVENT_TYPE *ET_CAMERA_ACTOR_ADDED = new ET_EVENT_TYPE("ET_CAMERA_ACTOR_ADDED");
+        static const ET_EVENT_TYPE ET_HUMAN_VIEW_ATTACHED("ET_HUMAN_VIEW_ATTACHED");
+        static const ET_EVENT_TYPE ET_HUMAN_VIEW_DETACHED("ET_HUMAN_VIEW_DETACHED");
 
-        static const ET_EVENT_TYPE *ET_ACTOR_CREATED = new ET_EVENT_TYPE("ET_ACTOR_CREATED");
-        static const ET_EVENT_TYPE *ET_ACTOR_DESTROYED = new ET_EVENT_TYPE("ET_ACTOR_DESTROYED");
-        static const ET_EVENT_TYPE *ET_ACTOR_MOVE = new ET_EVENT_TYPE("ET_ACTOR_MOVE");
-        static const ET_EVENT_TYPE *ET_ACTOR_COLLIDE = new ET_EVENT_TYPE("ET_ACTOR_COLLIDE");
+        static const ET_EVENT_TYPE ET_PHYSICS_STARTED("ET_PHYSICS_STARTED");
+        static const ET_EVENT_TYPE ET_PHYSICS_STOPPED("ET_PHYSICS_STOPPED");
 
-        static const ET_EVENT_TYPE *ET_ACTOR_PLAYER_DIE = new ET_EVENT_TYPE("ET_ACTOR_PLAYER_DIE");
-        static const ET_EVENT_TYPE *ET_ACTOR_PLAYER_JUMP = new ET_EVENT_TYPE("ET_ACTOR_PLAYER_JUMP");
-        static const ET_EVENT_TYPE *ET_ACTOR_PLAYER_MOVE = new ET_EVENT_TYPE("ET_ACTOR_PLAYER_MOVE");
-        static const ET_EVENT_TYPE *ET_ACTOR_PLAYER_NEW = new ET_EVENT_TYPE("ET_ACTOR_PLAYER_NEW");
-        static const ET_EVENT_TYPE *ET_ACTOR_PLAYER_TURN = new ET_EVENT_TYPE("ET_ACTOR_PLAYER_TURN");
-        static const ET_EVENT_TYPE *ET_ACTOR_PLAYER_COLLIDE = new ET_EVENT_TYPE("ET_ACTOR_PLAYER_COLLIDE");
-        
+		static const ET_EVENT_TYPE ET_CAMERA_ACTOR_ADDED("ET_CAMERA_ACTOR_ADDED");
 
-        
+        static const ET_EVENT_TYPE ET_ACTOR_CREATED("ET_ACTOR_CREATED");
+        static const ET_EVENT_TYPE ET_ACTOR_DESTROYED("ET_ACTOR_DESTROYED");
+        static const ET_EVENT_TYPE ET_ACTOR_MOVE("ET_ACTOR_MOVE");
+        static const ET_EVENT_TYPE ET_ACTOR_COLLIDE("ET_ACTOR_COLLIDE");
+
+        static const ET_EVENT_TYPE ET_ACTOR_PLAYER_DIE("ET_ACTOR_PLAYER_DIE");
+        static const ET_EVENT_TYPE ET_ACTOR_PLAYER_JUMP("ET_ACTOR_PLAYER_JUMP");
+        static const ET_EVENT_TYPE ET_ACTOR_PLAYER_MOVE("ET_ACTOR_PLAYER_MOVE");
+        static const ET_EVENT_TYPE ET_ACTOR_PLAYER_NEW("ET_ACTOR_PLAYER_NEW");
+        static const ET_EVENT_TYPE ET_ACTOR_PLAYER_TURN("ET_ACTOR_PLAYER_TURN");
+        static const ET_EVENT_TYPE ET_ACTOR_PLAYER_COLLIDE("ET_ACTOR_PLAYER_COLLIDE");
+
+
+
 
         //game application events...
         //mEventManager->registerEventType(GraphicsStartedEventArgs::mEventType);

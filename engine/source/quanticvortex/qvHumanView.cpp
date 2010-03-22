@@ -37,20 +37,16 @@ namespace qv
     namespace views
     {
         //-----------------------------------------------------------------------------------------
-        HumanView::HumanView( const c8* viewID, IEngineManager* engine, 
-            const GVT_GAME_VIEW_TYPE* viewType)
-			:mViewID(0), mType(viewType), mLastUpdateTime(0.0f), mEngine(engine),
+        HumanView::HumanView( IEngineManager* engine, u32 viewHashType)
+			: mViewHashType(viewHashType), mLastUpdateTime(0.0f), mEngine(engine),
 			mCurrentTime(0.0f), mAccumulatorTime(0)
-			/*mProcessManager(0),mInputController(0),*/ 
+			/*mProcessManager(0),mInputController(0),*/
         {
-			
 
-#ifdef _DEBUG
-			setDebugName("HumanView");
-#endif
 
-			mViewID = new GVI_GAME_VIEW_ID(viewID);
-
+//#ifdef _DEBUG
+//			setDebugName("HumanView");
+//#endif
             DefaultElementViewFactory* factory = new DefaultElementViewFactory(mEngine);
             registerElementViewFactory(factory);
             factory->drop();
@@ -59,7 +55,7 @@ namespace qv
 	        //IGUISkin* skin = mEngineManager->getGuiManager()->getSkin();
          //   skin->setFont(mFont);
 
-	        //InitAudio(); 
+	        //InitAudio();
 
 	  //      mProcessManager = new ProcessManager();
 			//mProcessManager->grab();
@@ -71,10 +67,10 @@ namespace qv
         HumanView::~HumanView()
         {
 			//mProcessManager->drop();
-			            
-			for(u32 i = 0; i < mElementViews.size(); ++i)
-				mElementViews[i]->drop();
-            
+
+//			for(u32 i = 0; i < mElementViews.size(); ++i)
+//				mElementViews[i]->drop();
+
             mElementViews.clear();
 
          //   SAFE_RELEASE( m_pTextSprite );
@@ -88,12 +84,12 @@ namespace qv
         void HumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
         {
 			//////// Lock FPS at around 60
-			//////if((timeThisFrame - timePreviousFrame) <= 16) 
+			//////if((timeThisFrame - timePreviousFrame) <= 16)
 			//////{
 			//////  Timer->tick();
 			//////  timeThisFrame = Timer->getTime();
 			//////}
-			//////timePreviousFrame = timeThisFrame; 
+			//////timePreviousFrame = timeThisFrame;
 
             //get new system time, but FIXME: should be game time from GameLogic maybe
             mCurrentTime = currentTimeMs;
@@ -101,9 +97,9 @@ namespace qv
             if (mCurrentTime == mLastUpdateTime)
 		        return;
 
-			//mAccumulatorTime += elapsedTimeMs;
+			mAccumulatorTime += elapsedTimeMs;
 
-            if((mCurrentTime - mLastUpdateTime) > qv::GF_GAME_RENDER_FRAMERATE)
+            if(mAccumulatorTime >= 16 ) //qv::GF_GAME_RENDER_FRAMERATE)
             {
 				mEngine->beginRender(true, true); //call some beginRender from engine
 
@@ -112,22 +108,22 @@ namespace qv
                         mElementViews[i]->render( mCurrentTime, elapsedTimeMs);
 
 				//mEngineManager->getSceneManager()->drawAll();
-				
+
 				//mEngineManager->getGuiManager()->drawAll();
 
                 mEngine->endRender(); //call some endRender from engine
 
                 //register last render call time
                 mLastUpdateTime = mCurrentTime;
-				//mAccumulatorTime -= elapsedTimeMs;				
+				mAccumulatorTime = 0;
             }
-            
-        }
-        //-----------------------------------------------------------------------------------------
-        void HumanView::lostDevice()
-        {
 
         }
+        //-----------------------------------------------------------------------------------------
+//        void HumanView::lostDevice()
+//        {
+//
+//        }
         //-----------------------------------------------------------------------------------------
         void HumanView::update( u32 elapsedTimeMs)
         {
@@ -144,17 +140,17 @@ namespace qv
 			//mEngineManager->getEventManager()->trigger(&tickEvent);
         }
         //-----------------------------------------------------------------------------------------
-        IElementView* HumanView::addElementView(const c8* name, const EVT_ELEMENT_VIEW_TYPE* type)
+        IElementViewSharedPtr HumanView::addElementView(const c8* name, u32 elementViewHashType)
         {
-            IElementView* elementView(0);
+            IElementViewSharedPtr elementView;
             for(u32 i = 0; i < mElementViewFactories.size(); ++i)
 			{
-                if(mElementViewFactories[i]->getCreateableElementViewType(type))
-				{
-                    elementView = mElementViewFactories[i]->addElementView(name,type);
-						mElementViews.push_back(elementView);
-					break;
-				}
+//                if(mElementViewFactories[i]->getCreateableElementViewType(type))
+//				{
+//                    elementView.reset(mElementViewFactories[i]->addElementView(name,type));
+//						mElementViews.push_back(elementView);
+//					break;
+//				}
 			}
 
 			////sort element views array, to put 3D scene, behind gui view, etc...

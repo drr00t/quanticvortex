@@ -47,7 +47,7 @@ namespace qv
 
     namespace views
     {
-        static const EVT_ELEMENT_VIEW_TYPE *EVT_ELEMENT_VIEW_SCENE = new EVT_ELEMENT_VIEW_TYPE("EVT_ELEMENT_VIEW_SCENE");
+        static const EVT_ELEMENT_VIEW_TYPE EVT_ELEMENT_VIEW_SCENE("EVT_ELEMENT_VIEW_SCENE");
 
 		class ISceneView: public IElementView, public ISceneUserDataSerializer
         {

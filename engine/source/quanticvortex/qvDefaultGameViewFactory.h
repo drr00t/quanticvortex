@@ -32,13 +32,12 @@
 
 
 namespace qv
-{    
+{
     class IEngineManager;
-	
+
 
     namespace views
-    {   
-
+    {
         class DefaultGameViewFactory : public IGameViewFactory
 		{
         private:
@@ -49,11 +48,11 @@ namespace qv
             DefaultGameViewFactory(IEngineManager* engine);
             virtual ~DefaultGameViewFactory();
 
-            virtual IGameView* addGameView( const c8* viewID, const GVT_GAME_VIEW_TYPE* type);
+            virtual IGameViewSharedPtr addGameView( u32 gameViewHashType);
 
 			virtual u32 getCreatableGameViewTypeCount() const;
 
-            virtual bool getCreateableGameViewType(const GVT_GAME_VIEW_TYPE* type);
+            virtual bool getCreateableGameViewType( u32 gameViewHashType) const;
 		};
     }
 }

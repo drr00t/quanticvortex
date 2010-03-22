@@ -35,13 +35,13 @@ namespace qv
 {
     namespace gaming
     {
-		class IActor //: public IReferenceCounted
+		class IActor
         {
         public:
 
-			virtual u32 getId() const = 0;
+			virtual const u32& getHashId() const = 0;
 
-            virtual u32 getTypeId() const = 0;
+            virtual const u32& getHashType() const = 0;
 
 			virtual const matrix4& getTransformation() const =0;
 
@@ -56,8 +56,11 @@ namespace qv
             virtual void update( u32 elapsedTimeMs) const = 0;
         };
 
-		typedef map<u32, IActor*> ActorsMap;
-		typedef boost::shared_ptr<IActor> IActorPtr;
+		typedef boost::shared_ptr<IActor> IActorSharedPtr;
+		typedef boost::weak_ptr<IActor> IActorWeakPtr;
+        typedef map<u32, IActorSharedPtr> ActorsMap;
+        typedef list<IActorSharedPtr> ActorsSharedPtrList;
+        typedef list<IActorWeakPtr> ActorsWeakPtrList;
     }
 }
 #endif

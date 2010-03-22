@@ -31,15 +31,14 @@ namespace qv
     namespace events
     {
 		//-----------------------------------------------------------------------------------------
-		CameraActorAddedEventArgs::CameraActorAddedEventArgs(const ET_EVENT_TYPE* eventType, const gaming::AI_ACTOR_ID* actorID)
-			:mActorID(actorID), mEventType(eventType)
+		CameraActorAddedEventArgs::CameraActorAddedEventArgs(const u32 & eventHashType,
+                                                                const u32 & actorHashId)
+			:mActorHashId(actorHashId), mEventHashType(eventHashType)
         {
         }
 		//-----------------------------------------------------------------------------------------
 		CameraActorAddedEventArgs::~CameraActorAddedEventArgs()
 		{
-			mActorID->drop();
-			mEventType->drop();
 		}
 		//-----------------------------------------------------------------------------------------
     }

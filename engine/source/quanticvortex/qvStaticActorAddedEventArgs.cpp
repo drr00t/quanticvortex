@@ -30,17 +30,17 @@ namespace qv
 {
     namespace events
     {
-		//-----------------------------------------------------------------------------------------
-		StaticActorAddedEventArgs::StaticActorAddedEventArgs(const ET_EVENT_TYPE* eventType, const gaming::AI_ACTOR_ID* actorID)
-			:mEventType(eventType), mActorID(actorID)
-        {
-        }
-		//-----------------------------------------------------------------------------------------
-		StaticActorAddedEventArgs::~StaticActorAddedEventArgs()
-		{
-			mEventType->drop();
-			mActorID->drop();
-		}
-		//-----------------------------------------------------------------------------------------
+//		//-----------------------------------------------------------------------------------------
+//		StaticActorAddedEventArgs::StaticActorAddedEventArgs(const ET_EVENT_TYPE* eventType, const gaming::AI_ACTOR_ID* actorID)
+//			:mEventType(eventType), mActorID(actorID)
+//        {
+//        }
+//		//-----------------------------------------------------------------------------------------
+//		StaticActorAddedEventArgs::~StaticActorAddedEventArgs()
+//		{
+//			mEventType->drop();
+//			mActorID->drop();
+//		}
+//		//-----------------------------------------------------------------------------------------
     }
 }

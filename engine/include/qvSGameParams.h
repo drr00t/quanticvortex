@@ -34,17 +34,16 @@ namespace qv
 {
 	struct SGameParams
     {
-
 		SGameParams():
-			Title(L"Default Game Title"),
 			WindowSize(dimension2du(1024, 768)),
-			Bits(16),
 			Fullscreen(false),
 			Vsync(false),
+			Bits(16),
             HostGame(false),
             LocalPlayers(1),
             AIPlayers(0),  //player vs computer games i can use this to test the ai and animation, maybe
-            RemotePlayers(0)
+            RemotePlayers(0),
+            Title(L"Default Game Title")
 		{
 		}
 
@@ -74,12 +73,12 @@ namespace qv
 
 			return *this;
 		}
-        
+
         dimension2du WindowSize;
         bool Fullscreen;
 		bool Vsync;
-		u8 Bits;        
-		
+		u8 Bits;
+
         bool HostGame;
         u8 LocalPlayers;
         u8 AIPlayers;

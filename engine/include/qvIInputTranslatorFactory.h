@@ -29,22 +29,21 @@
 #define __I_INPUT_TRANSLATOR_FACTORY_H_
 
 #include "qvIInputTranslator.h"
+#include "qvIEventArgs.h"
 
 namespace qv
 {
-	class IEventArgs;
-
     namespace input
     {
 		class IInputTranslatorFactory : public IReferenceCounted
 		{
 		public:
 
-			virtual IInputTranslator* addInputTranslator (const IT_INPUT_TRANSLATOR_ID* id, const IT_INPUT_TRANSLATOR_TYPE* type, IEventArgs* args, bool realTime = false) = 0;
+			virtual IInputTranslatorSharedPtr addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, events::IEventArgsSharedPtr args, bool realTime = false) = 0;
 
 			virtual u32 getCreatableInputTranslatorCount() const = 0;
 
-			virtual bool getCreateableInputTranslator(const IT_INPUT_TRANSLATOR_ID* ID) = 0;
+			virtual bool getCreateableInputTranslator( u32 inputTranslatorHashType) const = 0;
 		};
     }
 }

@@ -29,6 +29,7 @@
 #define _SINGLE_KEY_INPUT_TRANSLATOR_H_
 
 #include "qvISingleKeyInputTranslator.h"
+#include "qvIEventArgs.h"
 
 
 namespace qv
@@ -36,13 +37,13 @@ namespace qv
 	namespace events
 	{
 		class IEventManager;
-		class IEventArgs;
+//		class IEventArgsSharedPtr;
 	}
 
 	namespace input
 	{
 		class IInputReceiver;
-		
+
 		class SingleKeyInputTranslator : public ISingleKeyInputTranslator
 		{
 
@@ -58,23 +59,37 @@ namespace qv
 
 		public:
 
-			SingleKeyInputTranslator(events::IEventManager* eventManager, 
-									EKEY_CODE keyCode, 
-									EKEY_STATE checkKeyState,
-									bool realTime,
-									events::IEventArgs* args,
-									const IT_INPUT_TRANSLATOR_ID* ID);
+//			SingleKeyInputTranslator(events::IEventManager* eventManager,
+//									EKEY_CODE keyCode,
+//									EKEY_STATE checkKeyState,
+//									bool realTime,
+//									events::IEventArgsSharedPtr args,
+//									const c8* inputTranslatorName);
 
-			SingleKeyInputTranslator(events::IEventManager* eventManager, 
-									EKEY_CODE keyCode, 
+			SingleKeyInputTranslator(events::IEventManager* eventManager,
+									EKEY_CODE keyCode,
 									EKEY_STATE checkKeyState,
 									bool realTime,
-									const events::ET_EVENT_TYPE* type,
-									const IT_INPUT_TRANSLATOR_ID* ID);
+									events::IEventArgsSharedPtr args,
+									u32 inputTranslatorHashtype,
+									const c8* inputTranslatorName);
 
 			virtual ~SingleKeyInputTranslator();
 
+            virtual u32 getHashId() const { return mId->Hash; }
+
+            virtual u32 getHashType() const { return mInputTranslatorHashType; }
+
 			virtual bool translate(IInputReceiver *context);
+
+        private:
+            events::IEventManager* mEventManager;
+			EKEY_CODE mKeyCode;
+			EKEY_STATE mCheckKeyState;
+			bool mRealTime;
+			events::IEventArgsSharedPtr mArgs;
+			u32 mInputTranslatorHashType;
+			const IT_INPUT_TRANSLATOR_ID* mId;
 		};
 	}
 }

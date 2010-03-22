@@ -13,37 +13,29 @@ namespace qv
 
     namespace views
     {
-        
+
         class GuiView: public IGuiView
         {
         protected:
             IGUIElement* mElement;
             IGUIEnvironment* mGuiManager;
 			bool mVisible;
-            const EVT_ELEMENT_VIEW_TYPE* mType;
+            u32 mHashType;
             const EVI_ELEMENT_VIEW_ID* mID;
 
         public:
-            GuiView(const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type = EVT_ELEMENT_VIEW_GUI);
+            GuiView(const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE& type = EVT_ELEMENT_VIEW_GUI);
             virtual ~GuiView();
-			
-            virtual const EVT_ELEMENT_VIEW_TYPE* getType()
-            {
-                return mType;
-            }
-            
-            virtual const EVI_ELEMENT_VIEW_ID* getID()
-            {
-                return mID;
-            }
 
-            virtual bool getVisible()
-            {
-                return mVisible;
-            }
+            virtual u32 getHashId() const { return mID->Hash; }
+
+            virtual u32 getHashType() const { return mHashType; }
+
+	        virtual bool getVisible() const { return mVisible; }
+
 
 			virtual void setVisible( bool visible)
-            {
+			{
                 mVisible = visible;
             }
 

@@ -41,11 +41,11 @@ namespace qv
 		{
 		public:
 
-            virtual IElementView* addElementView( const c8* name, const EVT_ELEMENT_VIEW_TYPE* type) = 0;
+            virtual IElementViewSharedPtr addElementView( const c8* name, u32 elementViewHashType) = 0;
 
 			virtual u32 getCreatableElementViewTypeCount() const = 0;
 
-			virtual bool getCreateableElementViewType(const EVT_ELEMENT_VIEW_TYPE* type) = 0;
+			virtual bool getCreateableElementViewType( u32 elementViewHashType) const = 0;
 		};
     }
 }

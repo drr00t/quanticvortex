@@ -28,7 +28,7 @@
 #include "qvGameLogicFactory.h"
 #include "qvGameLogic.h"
 
- 
+
 namespace qv
 {
     namespace gaming
@@ -37,7 +37,7 @@ namespace qv
 		GameLogicFactory::GameLogicFactory(IEngineManager* engine)
 			:mEngine(engine)
         {
-			mSupportedGameLogicTypes.push_back(GLT_GAME_LOGIC_DEFAULT->HashedText);
+//			mSupportedGameLogicTypes.push_back(GLT_GAME_LOGIC_DEFAULT.Hash);
         }
         //-----------------------------------------------------------------------------------------
         GameLogicFactory::~GameLogicFactory()
@@ -47,8 +47,8 @@ namespace qv
         IGameLogic* GameLogicFactory::addGameLogic(const GLT_GAME_LOGIC_TYPE* type)
 		{
             IGameLogic* gameLogic = 0;
-			if(getCreateableGameLogicType(type))
-				gameLogic = new GameLogic(mEngine);
+//			if(getCreateableGameLogicType(type))
+//				gameLogic = new GameLogic(mEngine);
 			return gameLogic;
 		}
         //-----------------------------------------------------------------------------------------
@@ -59,9 +59,9 @@ namespace qv
         //-----------------------------------------------------------------------------------------
         bool GameLogicFactory::getCreateableGameLogicType(const GLT_GAME_LOGIC_TYPE* type)
         {
-	        for (u32 i=0; i<mSupportedGameLogicTypes.size(); ++i)
-				if (mSupportedGameLogicTypes[i] == type->HashedText)
-			        return true;
+//	        for (u32 i=0; i<mSupportedGameLogicTypes.size(); ++i)
+//				if (mSupportedGameLogicTypes[i] == type->HashedText)
+//			        return true;
 
             return false;
 

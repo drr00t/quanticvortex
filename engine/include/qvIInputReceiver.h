@@ -54,7 +54,7 @@ namespace qv
 		{
 		public:
 
-			virtual IInputTranslator* getInputTranslator( const IT_INPUT_TRANSLATOR_ID* translatorID) = 0;
+			virtual IInputTranslator* getInputTranslator( u32 inputTranslatorHashId) = 0;
 
             virtual void registerInputTranslator( IInputTranslator* translator) = 0;
 
@@ -65,11 +65,11 @@ namespace qv
 			virtual void registerInputTranslatorFactory( IInputTranslatorFactory* factory) = 0;
 
 			//translators
-			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, events::IEventArgs* args, bool realTime = false)=0;
-			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, const events::ET_EVENT_TYPE* type, bool realTime = false)=0;
-			virtual IAnyKeyInputTranslator* addAnyKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, events::IEventArgs* args, bool realTime = false)=0;
-			
-			
+//			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, events::IEventArgs* args, bool realTime = false)=0;
+//			virtual ISingleKeyInputTranslator* addSingleKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, EKEY_CODE keyCode, EKEY_STATE checkState, const events::ET_EVENT_TYPE* type, bool realTime = false)=0;
+//			virtual IAnyKeyInputTranslator* addAnyKeyTranslator (const IT_INPUT_TRANSLATOR_ID* ID, events::IEventArgs* args, bool realTime = false)=0;
+//
+
 			//current context
 
 			virtual bool keyPressed(EKEY_CODE keycode)=0;

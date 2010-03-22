@@ -96,19 +96,19 @@ namespace qv
                 return mType;
             }
 
-            virtual IActor* getActor(const AI_ACTOR_ID* actorID)
+            virtual IActor* getActor(const AI_ACTOR_ID & actorID)
 			{
-				map<u32,IActor*>::Node* actor = mActors.find(actorID->HashedText);
+				map<u32,IActor*>::Node* actor = mActors.find(actorID.Hash);
 				IActor* actorFounded = 0;
 				if(actor)
 					actorFounded = actor->getValue();
 				return actorFounded;
 			}
 
-			virtual void addActor( const AI_ACTOR_ID* actorID, const SActorArgs& args);
+			virtual void addActor( const AI_ACTOR_ID & actorID, const SActorArgs& args);
 
 
-			virtual void moveActor( const AI_ACTOR_ID* actorID, const matrix4& transformation)
+			virtual void moveActor( const AI_ACTOR_ID & actorID, const matrix4& transformation)
 			{
 				IActor* actor = getActor(actorID);
 
@@ -116,14 +116,14 @@ namespace qv
 					actor->setTransformation(transformation);
 			}
 
-			void removeActor(const AI_ACTOR_ID* actorID)
+			void removeActor(const AI_ACTOR_ID & actorID)
 			{
 				IActor* actor = getActor(actorID);
 
                 if(actor)
                 {
 //					actor->drop();
-					mActors.delink(actorID->HashedText);
+					mActors.delink(actorID.Hash);
                 }
 			}
 

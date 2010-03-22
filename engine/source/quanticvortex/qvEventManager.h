@@ -28,7 +28,9 @@
 #ifndef __EVENT_MANAGER_H_
 #define __EVENT_MANAGER_H_
 
+
 #include "qvIEventManager.h"
+#include "qvIEventCommand.h"
 
 //#include "tbb/concurrent_queue.h"
 
@@ -37,10 +39,6 @@ namespace qv
 {
     namespace events
     {
-//		class ICommandEvent;
-//		class ICameraActorAddedEventArgs;
-//		class IDynamicActorAddedEventArgs;
-//		class IStaticActorAddedEventArgs;
 
 		class EventManager: public IEventManager
 		{
@@ -48,43 +46,63 @@ namespace qv
 
 			static const s32 QueueEventsLenght = 2;
 
-			typedef list<const ET_EVENT_TYPE*> EventTypeList;
-			typedef list<IEventArgs*> EventList;
+//			typedef list<const ET_EVENT_TYPE*> EventTypeList;
+//			typedef list<IEventArgs*> EventList;
 			typedef list<IEventArgsFactory*> EventArgsFactoryList;
-			typedef list<ICommandEvent*> CommandEventList;
-			typedef map<s32, CommandEventList> EventToCommandEventMap;
+//			typedef list<ICommandEvent*> CommandEventList;
+			typedef map< u32, EventCommandArray> EventToCommandEventMap;
 //			typedef tbb::concurrent_bounded_queue<IEventArgs*> ConcurrentEventList;
 
 		public:
     		EventManager();
 			virtual ~EventManager();
 
-			virtual bool registerCommandEvent ( ICommandEvent* command);
-			virtual bool unregisterCommandEvent ( ICommandEvent* command);
+			virtual bool registerCommandEvent ( IEventCommandSharedPtr command);
+
+			virtual bool unregisterCommandEvent ( IEventCommandSharedPtr command);
 			//virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType);
 
-			virtual IEventArgs* createEmptyEventArgs(const ET_EVENT_TYPE* type);
+			virtual IEventArgsSharedPtr createEmptyEventArgs(const ET_EVENT_TYPE & type);
+
+//			virtual IEventArgsSharedPtr createEmptyEventArgs( u32 eventHashType);
 //			virtual IChangeStateEventArgs* createChangeStateEventArgs(const S_STATE* state);
 
-			virtual ICameraActorAddedEventArgs* createCameraActorAddedEventArgs(const c8* actorName);
+			virtual ICameraActorAddedEventArgs* createCameraActorAddedEventArgs(const c8 * actorName);
 //			virtual IStaticActorAddedEventArgs* createStaticActorAddedEventArgs(const c8* name){return 0;}
 //			virtual IDynamicActorAddedEventArgs* createDynamicActorAddedEventArgs(const c8* name){return 0;}
 
-			virtual void registerEventArgsFactory(IEventArgsFactory* factory);
+			virtual void registerEventArgsFactory(IEventArgsFactory * factory);
 
-			virtual void registerEventType(const ET_EVENT_TYPE* type);
-			virtual void unregisterEventType(const ET_EVENT_TYPE* type);
+			virtual void registerEventType(const ET_EVENT_TYPE & type);
 
-			virtual bool abortEvent ( const ET_EVENT_TYPE* type, bool all = false );
-			virtual bool enqueueEvent (IEventArgs* args);
+			virtual void unregisterEventType(const ET_EVENT_TYPE & type);
+
+			virtual void registerEventType( u32 eventHashType);
+
+			virtual void unregisterEventType( u32 eventHashType);
+
+			virtual bool abortEvent ( const ET_EVENT_TYPE & type, bool all = false );
+
+			virtual bool abortEvent ( u32 eventHashType, bool all = false );
+
+			virtual bool enqueueEvent (IEventArgs * args);
+
+			virtual bool enqueueEvent (IEventArgsSharedPtr args);
+
 			virtual bool process ( f32 processingTime);
-			virtual bool trigger ( IEventArgs *args );
-			virtual bool validateType(const ET_EVENT_TYPE* type);
+
+			virtual bool trigger ( IEventArgs * args );
+
+			virtual bool trigger ( IEventArgsSharedPtr args );
+
+			virtual bool validateType(const ET_EVENT_TYPE & type);
+
+			virtual bool validateType(u32 eventHashType);
 
 		private:
-			EventTypeList mValidEventTypes;
+			EventTypesList mValidEventTypes;
 			EventToCommandEventMap mRegistredCommandsMap;
-			EventList mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
+			EventArgsArray mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
 //			ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
 			EventArgsFactoryList mEventArgsFactories;
 			mutable s32 mActiveReadyEventList;

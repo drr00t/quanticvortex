@@ -37,12 +37,13 @@ namespace qv
     namespace input
     {
         //-----------------------------------------------------------------------------------------
-		EngineInputTranslatorFactory::EngineInputTranslatorFactory( IEventManager* eventManager, 
-																	IInputReceiver* inputReceiver): 
+		EngineInputTranslatorFactory::EngineInputTranslatorFactory( IEventManager* eventManager,
+																	IInputReceiver* inputReceiver):
 		mEventManager(eventManager), mInputReceiver(inputReceiver)
         {
-			mSupportedEngineInputTranslatorTypes.push_back(ITT_ANY_KEY_TYPE->HashedText);
-			mSupportedEngineInputTranslatorTypes.push_back(ITT_SINGLE_KEY_TYPE->HashedText);
+			mSupportedEngineInputTranslatorTypes.push_back(ITT_ANY_KEY_TYPE.Hash);
+			mSupportedEngineInputTranslatorTypes.push_back(ITT_SINGLE_KEY_TYPE.Hash);
+
 			//quit translator
 			//pause translator
 			//menu translator
@@ -53,15 +54,15 @@ namespace qv
         {
         }
 		//-----------------------------------------------------------------------------------------------
-		IInputTranslator* EngineInputTranslatorFactory::addInputTranslator (const IT_INPUT_TRANSLATOR_ID* id, const IT_INPUT_TRANSLATOR_TYPE* type, IEventArgs* args, bool realTime)
+		IInputTranslatorSharedPtr addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, events::IEventArgsSharedPtr args, bool realTime)
 		{
-			IInputTranslator* translator = 0;
-			if(getCreateableInputTranslator(type))
-			{
+			IInputTranslatorSharedPtr translator;
+//			if(getCreateableInputTranslator(inputTranslatorHashType))
+//			{
 				//key and key state will be set after by user
 				//if(ITT_SINGLE_KEY_TYPE->HashedText == type->HashedText)
 				//	translator = new SingleKeyInputTranslator(mEventManager, realTime, args, ID);
-			}
+//			}
 			return translator;
 		}
         //-----------------------------------------------------------------------------------------
@@ -70,10 +71,10 @@ namespace qv
             return mSupportedEngineInputTranslatorTypes.size();
         }
         //-----------------------------------------------------------------------------------------
-		bool EngineInputTranslatorFactory::getCreateableInputTranslator(const IT_INPUT_TRANSLATOR_TYPE* type)
+		bool EngineInputTranslatorFactory::getCreateableInputTranslator( u32 inputTranslatorHashType) const
         {
 	        for (u32 i=0; i<mSupportedEngineInputTranslatorTypes.size(); ++i)
-				if (mSupportedEngineInputTranslatorTypes[i] == type->HashedText)
+				if (mSupportedEngineInputTranslatorTypes[i] == inputTranslatorHashType)
 			        return true;
 
             return false;

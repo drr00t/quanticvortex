@@ -31,11 +31,11 @@
 #include "qvIEventArgsFactory.h"
 
 namespace qv
-{    
+{
 
-	
+
     namespace events
-    {   
+    {
 		//class IEventManager;
 
 		class DefaultEventArgsFactory : public IEventArgsFactory
@@ -49,12 +49,12 @@ namespace qv
 			//DefaultEventArgsFactory(IEventManager* eventManager);
             virtual ~DefaultEventArgsFactory();
 
-			virtual IEventArgs* addEmptyEventArgs( const ET_EVENT_TYPE* type);
+			virtual IEventArgsSharedPtr addEmptyEventArgs( const ET_EVENT_TYPE& type);
 			virtual ICameraActorAddedEventArgs* addCameraActorAddedEventArgs( const c8* actorName);
 
 			virtual u32 getCreatableEventArgsTypeCount() const;
 
-			virtual bool getCreateableEventArgsType(const ET_EVENT_TYPE* type);
+			virtual bool getCreateableEventArgsType(const ET_EVENT_TYPE& type) const;
 		};
     }
 }

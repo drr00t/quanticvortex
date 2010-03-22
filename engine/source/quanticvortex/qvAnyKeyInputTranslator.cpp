@@ -35,16 +35,21 @@ namespace qv
 	namespace input
 	{
 		//-----------------------------------------------------------------------------------------
-		AnyKeyInputTranslator::AnyKeyInputTranslator(events::IEventManager* eventManager, 
-													bool realTime,
-													events::IEventArgs* args,
-													const IT_INPUT_TRANSLATOR_ID* ID):
-		IAnyKeyInputTranslator(eventManager, realTime, args, ID)
+		AnyKeyInputTranslator::AnyKeyInputTranslator(events::IEventManager* eventManager,
+													bool realTime, events::IEventArgsSharedPtr args,
+													const c8* inputTranslatorName,
+													u32 inputTranslatorHashType)
+													:mEventManager(eventManager), mRealTime(realTime),
+													mArgs(args),
+													mInputTranslatorHashType(inputTranslatorHashType)
+
 		{
+		    mID = new IT_INPUT_TRANSLATOR_ID(inputTranslatorName);
 		}
 		//-----------------------------------------------------------------------------------------
 		AnyKeyInputTranslator::~AnyKeyInputTranslator()
 		{
+		    mID->drop();
 		}
 		//-----------------------------------------------------------------------------------------
 		bool AnyKeyInputTranslator::translate(qv::input::IInputReceiver *context)

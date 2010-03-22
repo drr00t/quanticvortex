@@ -36,14 +36,14 @@ namespace qv
     namespace views
     {
         //-----------------------------------------------------------------------------------------
-        SceneView::SceneView( const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE* type)
+        SceneView::SceneView( const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE& type)
 			:mVisible(true), mDefaultCamera(0), mSceneManager(engine->getDevice()->getSceneManager()),
-			mEventManager(engine->getEventManager())//, mOrder(1) //first element view to render
+			mEventManager(engine->getEventManager()), mHashType(type.Hash), mID(0)//, mOrder(1) //first element view to render
         {
 
-#ifdef _DEBUG
-			setDebugName("SceneView");
-#endif
+//#ifdef _DEBUG
+//			setDebugName("SceneView");
+//#endif
 			mID = new EVI_ELEMENT_VIEW_ID(name);
         }
         //-----------------------------------------------------------------------------------------
@@ -60,10 +60,10 @@ namespace qv
         //-----------------------------------------------------------------------------------------
 		ISceneNode* SceneView::findSceneNode(const gaming::AI_ACTOR_ID* actorID)
         {
-			map<s32,ISceneNode*>::Node* node = mActorSceneNodeMap.find(actorID->HashedText);
-
-			if(node)
-				return node->getValue();
+//			map<s32,ISceneNode*>::Node* node = mActorSceneNodeMap.find(actorID->HashedText);
+//
+//			if(node)
+//				return node->getValue();
 
 			return 0;
         }
