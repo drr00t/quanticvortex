@@ -2,7 +2,7 @@
 #ifndef __ACTORMANAGER_H_
 #define __ACTORMANAGER_H_
 
-#include "qvIActor.h"
+#include "qvIActorManager.h"
 //#include "qvActorArgs.h"
 #include "qvActorFactory.h"
 
@@ -12,24 +12,32 @@ namespace qv
 {
     namespace gaming
     {
-        class ActorManager
+        class ActorManager: IActorManager
         {
-		private:
-			//map for mapping factories to actortors factories
-			//s32, PlayerFactory* for example
-
-        public: 
+        public:
 			ActorManager();
+
             virtual ~ActorManager();
 
-			//query actor
-			//remove actor
-			//create actor with (args, empty just actor stub)
-			//register actor factories by ID or type name
-			//unregister actor factories by ID or type name
-			//load actor from file (deserialization of actor sabed before)
-			//query actor factory
+            virtual IActorSharedPtr addActor( const c8* actorName, u32 actorHashType);
 
+            virtual IActorSharedPtr addCameraActor( u32 actorHashType);
+
+            virtual IActorSharedPtr addPlayerActor( u32 actorHashType);
+
+            virtual void findActorsByType( u32 actorHashType , ActorsSharedPtrArray& actors);
+
+            virtual IActorSharedPtr findActor(u32 actorHashId);
+
+            virtual void registerActorFactory(IActorFactory * factory);
+
+            virtual void registerActorFactory(IActorFactorySharedPtr factory);
+
+            virtual void removeActor( u32 actorHashId);
+
+        private:
+            ActorsSharedPtrArray mActors;
+            ActorFactorySharedPtrArray mActorsFactories;
         };
     }
 }

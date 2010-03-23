@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Win32 - Release - Fastmath - DLL" />
-	<File name="..\..\source\quanticvortex\qvGameStateMachine.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="1263" topLine="4" />
+	<ActiveTarget name="Win32 - Debug - DLL" />
+	<File name="..\..\include\qvIActor.h" open="0" top="0" tabpos="0">
+		<Cursor position="2318" topLine="39" />
+	</File>
+	<File name="..\..\include\qvIActorFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="2060" topLine="32" />
+	</File>
+	<File name="..\..\include\qvIActorManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="2008" topLine="29" />
+	</File>
+	<File name="..\..\include\qvPrerequisites.h" open="0" top="0" tabpos="0">
+		<Cursor position="1986" topLine="34" />
+	</File>
+	<File name="..\..\include\qvQuanticVortex.h" open="0" top="0" tabpos="0">
+		<Cursor position="1695" topLine="23" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvActorManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="583" topLine="0" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvActorManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="258" topLine="1" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvSceneView.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2042" topLine="27" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvSceneView.h" open="0" top="0" tabpos="0">
+		<Cursor position="3587" topLine="101" />
 	</File>
 </CodeBlocks_layout_file>

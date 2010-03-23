@@ -239,12 +239,6 @@
 			<Option target="Win32 - Debug - Static" />
 			<Option target="Win32 - Release - Static" />
 		</Unit>
-		<Unit filename="..\..\include\qvICommandEvent.h" />
-		<Unit filename="..\..\include\qvICommandInput.h">
-			<Option target="Win32 - Debug - Static" />
-			<Option target="Win32 - Release - Static" />
-			<Option target="Win32 - Release - Fastmath - DLL" />
-		</Unit>
 		<Unit filename="..\..\include\qvIElementView.h" />
 		<Unit filename="..\..\include\qvIElementViewFactory.h" />
 		<Unit filename="..\..\include\qvIEngineManager.h" />

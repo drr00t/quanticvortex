@@ -31,26 +31,27 @@
 #include "qvCompileConfig.h"
 
 //gaming
-#include "qvIActor.h"
 #include "qvActorTypes.h"
-#include "qvIGame.h"
+#include "qvSActorParams.h"
+#include "qvIActor.h"
+#include "qvIActorFactory.h"
+#include "qvIActorManager.h"
 #include "qvIGameLogic.h"
 #include "qvIGameLogicFactory.h"
-#include "qvSActorParams.h"
-#include "qvIState.h"
 #include "qvStateTypes.h"
+#include "qvIState.h"
 
 //input
-#include "qvIAnyKeyInputTranslator.h"
+#include "qvKeyTypes.h"
 #include "qvIInputReceiver.h"
 #include "qvIInputTranslator.h"
-#include "qvIInputTranslatorFactory.h"
+#include "qvIAnyKeyInputTranslator.h"
 #include "qvISingleKeyInputTranslator.h"
-#include "qvKeyTypes.h"
+#include "qvIInputTranslatorFactory.h"
 
 //physics
 //#include "qvIPhysicsActor.h"
-//#include "qvIPhysicsManager.h"
+#include "qvIPhysicsManager.h"
 
 //runtime
 #include "qvIProcess.h"
@@ -64,30 +65,27 @@
 #include "qvIHumanView.h"
 #include "qvISceneView.h"
 
-
 //utils
-#include "qvSingletonHolder.h"
 #include "qvSHashedString.h"
 
 //qv
 #include "qvCommandTypes.h"
 #include "qvICommand.h"
 #include "qvIEngineManager.h"
-
 #include "qvSGameParams.h"
 #include "qvSHashedString.h"
 
 //events
-#include "qvICommandEvent.h"
+#include "qvEventTypes.h"
+#include "qvIEventCommand.h"
 #include "qvIEventArgs.h"
 #include "qvIEventArgsFactory.h"
 #include "qvIEventManager.h"
-#include "qvEventTypes.h"
 
 
 namespace qv
 {
-    extern "C" _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManager( 
+    extern "C" _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManager(
                                                                                         bool fullscreen = false,
 		                                                                                bool vsync = false,
 		                                                                                u8 bits = 16,

@@ -28,20 +28,18 @@
 #ifndef __I_ACTOR_FACTORY_H_
 #define __I_ACTOR_FACTORY_H_
 
-#include "qvActorTypes.h"
+#include "qvIActor.h"
 
 
 namespace qv
 {
     namespace gaming
     {
-		class IActorWeakPtr;
-
 		class IActorFactory
 		{
 		public:
 
-			virtual IActorWeakPtr addActor( const u32 & actorHashType) = 0;
+			virtual IActorSharedPtr addActor( const c8 * actorName, const u32 & actorHashType) = 0;
 
 			virtual u32 getCreatableActorTypeCount() const = 0;
 
@@ -50,6 +48,7 @@ namespace qv
 
 		typedef boost::shared_ptr<IActorFactory> IActorFactorySharedPtr;
 		typedef list<IActorFactorySharedPtr> ActorFactorySharedPtrList;
+		typedef array<IActorFactorySharedPtr> ActorFactorySharedPtrArray;
     }
 }
 #endif

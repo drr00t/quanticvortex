@@ -43,6 +43,8 @@
 			</Target>
 		</Build>
 		<Unit filename="..\..\source\main.cpp" />
+		<Unit filename="..\..\..\engine\include\qvActorsCommon.h" />
+		<Unit filename="..\..\..\engine\source\quanticvortex\qvActorsCommon.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

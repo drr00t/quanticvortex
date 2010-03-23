@@ -39,28 +39,27 @@ namespace qv
         {
         public:
 
-			virtual const u32& getHashId() const = 0;
+			virtual u32 getHashId() const = 0;
 
-            virtual const u32& getHashType() const = 0;
+            virtual u32 getHashType() const = 0;
 
 			virtual const matrix4& getTransformation() const =0;
 
 			virtual bool isVisible () const = 0;
 
-            virtual void setName( const c8* name) = 0;
+//            virtual void setName( const c8* name) = 0;
 
-            virtual void setType( const AT_ACTOR_TYPE* type) = 0;
+            virtual void setType( u32 actorHashType) = 0;
 
             virtual void setTransformation( const matrix4& transformation) = 0;
 
-            virtual void update( u32 elapsedTimeMs) const = 0;
+//            virtual void update( u32 elapsedTimeMs) const = 0;
         };
 
 		typedef boost::shared_ptr<IActor> IActorSharedPtr;
-		typedef boost::weak_ptr<IActor> IActorWeakPtr;
         typedef map<u32, IActorSharedPtr> ActorsMap;
         typedef list<IActorSharedPtr> ActorsSharedPtrList;
-        typedef list<IActorWeakPtr> ActorsWeakPtrList;
+        typedef array<IActorSharedPtr> ActorsSharedPtrArray;
     }
 }
 #endif

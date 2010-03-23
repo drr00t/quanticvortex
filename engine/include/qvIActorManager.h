@@ -29,6 +29,7 @@
 #define __I_ACTOR_MANAGER_H_
 
 #include "qvIActor.h"
+#include "qvIActorFactory.h"
 
 
 namespace qv
@@ -39,23 +40,24 @@ namespace qv
 
 		class IActorManager
         {
-            IActorWeakPtr addActor(const u32 & actorHashType) = 0;
+            virtual IActorSharedPtr addActor( const c8* actorName, u32 actorHashType) = 0;
 
-            IActorWeakPtr addCameraActor(const u32 & actorHashType) = 0;
+            virtual IActorSharedPtr addCameraActor( u32 actorHashType) = 0;
 
-            IActorWeakPtr addPlayerActor(const u32 & actorHashType) = 0;
+            virtual IActorSharedPtr addPlayerActor( u32 actorHashType) = 0;
 
-            void findActorsByType(const u32 & actorHashType , ActorsWeakPtrList& actors) = 0;
+            virtual void findActorsByType( u32 actorHashType , ActorsSharedPtrArray& actors) = 0;
 
-            IActorWeakPtr findActor(const u32 & actorHashId) = 0;
+            virtual IActorSharedPtr findActor(u32 actorHashId) = 0;
 
-            void registerActorFactory(IActorFactory* factory) = 0;
+            virtual void registerActorFactory(IActorFactory * factory) = 0;
 
-            void removeActor(const u32 & actorHashId) = 0;
+            virtual void registerActorFactory(IActorFactorySharedPtr factory) = 0;
+
+            virtual void removeActor( u32 actorHashId) = 0;
         };
 
         typedef boost::shared_ptr<IActorManager> IActorManagerSharedPtr;
-        typedef boost::weak_ptr<IActorManager> IActorManagerWeakPtr;
     }
 }
 #endif

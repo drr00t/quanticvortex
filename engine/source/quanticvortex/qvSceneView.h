@@ -109,13 +109,15 @@ namespace qv
 			virtual io::IAttributes* createUserData(ISceneNode* forSceneNode);
 
 		protected:
-			events::IEventManager* mEventManager;
-			ISceneManager* mSceneManager;
+
+            bool mVisible;
 			ICameraSceneNode* mDefaultCamera;
-			ActorSceneNodeMap mActorSceneNodeMap;
+			ISceneManager* mSceneManager;
+			events::IEventManager* mEventManager;
             u32 mHashType;
             EVI_ELEMENT_VIEW_ID* mID;
-            bool mVisible;
+            ActorSceneNodeMap mActorSceneNodeMap;
+
 		};
     }
 }

@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Win32 - Debug - DLL" />
-	<File name="..\..\include\qvIEventManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="2970" topLine="52" />
+	<File name="..\..\include\qvIActor.h" open="0" top="0" tabpos="0">
+		<Cursor position="2318" topLine="39" />
+	</File>
+	<File name="..\..\include\qvIActorFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="2060" topLine="32" />
 		<BrowseMarks positions="" />
 		<Book_Marks positions="" />
 	</File>
-	<File name="..\..\include\qvIInputTranslatorFactory.h" open="0" top="0" tabpos="0">
-		<Cursor position="1711" topLine="24" />
+	<File name="..\..\include\qvIActorManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="2008" topLine="29" />
 		<BrowseMarks positions="" />
 		<Book_Marks positions="" />
 	</File>
-	<File name="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="3125" topLine="60" />
-		<BrowseMarks positions="3037,3440" />
+	<File name="..\..\include\qvPrerequisites.h" open="0" top="0" tabpos="0">
+		<Cursor position="1986" topLine="34" />
+	</File>
+	<File name="..\..\include\qvQuanticVortex.h" open="0" top="0" tabpos="0">
+		<Cursor position="1695" topLine="23" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvActorManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="583" topLine="0" />
+		<BrowseMarks positions="619,2767" />
 		<Book_Marks positions="" />
 	</File>
-	<File name="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.h" open="0" top="0" tabpos="0">
-		<Cursor position="1758" topLine="36" />
-		<BrowseMarks positions="1941" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvEventManager.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="6321" topLine="160" />
+	<File name="..\..\source\quanticvortex\qvActorManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="258" topLine="1" />
 		<BrowseMarks positions="" />
 		<Book_Marks positions="" />
 	</File>
-	<File name="..\..\source\quanticvortex\qvEventManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="3208" topLine="63" />
-		<BrowseMarks positions="" />
+	<File name="..\..\source\quanticvortex\qvSceneView.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2042" topLine="27" />
+		<BrowseMarks positions="1830" />
 		<Book_Marks positions="" />
 	</File>
-	<File name="..\..\source\quanticvortex\sqlite\sqlite3.c" open="0" top="0" tabpos="0">
-		<Cursor position="1057859" topLine="28856" />
+	<File name="..\..\source\quanticvortex\qvSceneView.h" open="0" top="0" tabpos="0">
+		<Cursor position="3587" topLine="101" />
 		<BrowseMarks positions="" />
 		<Book_Marks positions="" />
 	</File>
