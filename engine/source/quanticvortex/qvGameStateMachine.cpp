@@ -20,14 +20,14 @@ namespace qv
 		{
 		    if(mStateMap.isEmpty())
 		    {
-		        mStateMap[state->getState()->HashedText] = state;
+		        mStateMap[state->getState()->Hash] = state;
 		    }
 		    else
 		    {
-		        StateMap::Node* node = mStateMap.find(state->getState()->HashedText);
+		        StateMap::Node* node = mStateMap.find(state->getState()->Hash);
 
                 if(!node)
-                    mStateMap[state->getState()->HashedText] = state;
+                    mStateMap[state->getState()->Hash] = state;
 		    }
 
             if(startUpState)
@@ -38,7 +38,7 @@ namespace qv
 		void GameStateMachine::changeState(const qv::S_STATE* newState)
 		{
             //leave old game state
-            StateMap::Node* nodeNewState = mStateMap.find(newState->HashedText);
+            StateMap::Node* nodeNewState = mStateMap.find(newState->Hash);
 
             if(nodeNewState)
             {

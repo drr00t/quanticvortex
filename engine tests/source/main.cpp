@@ -4,7 +4,7 @@
 TEST( HelloUnitTestPP )
 {
 
-   CHECK( false );
+   CHECK( true );
 
 }
 

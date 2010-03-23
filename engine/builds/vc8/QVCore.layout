@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Win32 - Debug - DLL" />
-	<File name="..\..\include\qvIEventManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="2970" topLine="52" />
-	</File>
-	<File name="..\..\include\qvIInputTranslatorFactory.h" open="0" top="0" tabpos="0">
-		<Cursor position="1711" topLine="24" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="3125" topLine="60" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.h" open="0" top="0" tabpos="0">
-		<Cursor position="1758" topLine="36" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvEventManager.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="6321" topLine="160" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvEventManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="3208" topLine="63" />
-	</File>
-	<File name="..\..\source\quanticvortex\sqlite\sqlite3.c" open="0" top="0" tabpos="0">
-		<Cursor position="1057859" topLine="28856" />
+	<ActiveTarget name="Win32 - Release - Fastmath - DLL" />
+	<File name="..\..\source\quanticvortex\qvGameStateMachine.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="1263" topLine="4" />
 	</File>
 </CodeBlocks_layout_file>

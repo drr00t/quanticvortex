@@ -6,48 +6,19 @@
 		<Option pch_mode="2" />
 		<Option compiler="msvc8" />
 		<Build>
-			<Target title="Debug Win32">
-				<Option output="engine tests" prefix_auto="1" extension_auto="1" />
-				<Option object_output="..\..\obj\debug" />
-				<Option type="1" />
-				<Option compiler="msvc8" />
-				<Compiler>
-					<Add option="/DWIN32" />
-					<Add option="/D_DEBUG" />
-					<Add option="/D_CONSOLE" />
-					<Add option="/W3" />
-					<Add option="/ZI" />
-					<Add option="/Od" />
-					<Add option="/MDd" />
-					<Add directory="..\..\include" />
-					<Add directory="..\..\..\..\engine\include" />
-					<Add directory="..\..\..\..\dependencies\include\UnitTest++" />
-				</Compiler>
-				<ResourceCompiler>
-					<Add directory="..\..\include" />
-					<Add directory="..\..\..\..\engine\include" />
-					<Add directory="..\..\..\..\dependencies\include\UnitTest++" />
-				</ResourceCompiler>
-				<Linker>
-					<Add library="UnitTest++.vsnet2005" />
-					<Add directory="..\..\..\..\dependencies\libs\debug" />
-				</Linker>
-			</Target>
-			<Target title="Release Win32">
-				<Option output="engine tests" prefix_auto="1" extension_auto="1" />
+			<Target title="Win32 - Release - DLL">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\win32-gcc\RunAllTests" prefix_auto="1" extension_auto="1" />
 				<Option object_output="..\..\obj\release" />
 				<Option type="1" />
-				<Option compiler="msvc8" />
+				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="/DWIN32" />
-					<Add option="/DNDEBUG" />
-					<Add option="/D_CONSOLE" />
-					<Add option="/W3" />
-					<Add option="/Zi" />
-					<Add option="/MD" />
+					<Add option="-O1" />
+					<Add option="-Wmain" />
+					<Add option="-Wall" />
 					<Add directory="..\..\include" />
-					<Add directory="..\..\..\..\engine\include" />
-					<Add directory="..\..\..\..\dependencies\include\UnitTest++" />
+					<Add directory="..\..\..\engine\include" />
+					<Add directory="..\..\..\dependencies\include\UnitTest++" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="..\..\include" />
@@ -55,10 +26,20 @@
 					<Add directory="..\..\..\..\dependencies\include\UnitTest++" />
 				</ResourceCompiler>
 				<Linker>
-					<Add option="/INCREMENTAL:NO" />
-					<Add library="UnitTest++.vsnet2005" />
-					<Add directory="..\..\..\..\dependencies\libs\release" />
+					<Add option="-s" />
+					<Add library="libUnitTest++" />
+					<Add library="libQuanticVortex.dll" />
+					<Add directory="..\..\..\engine\lib\win32-gcc" />
+					<Add directory="..\..\..\dependencies\libs\win32-gcc" />
 				</Linker>
+				<ExtraCommands>
+					<Add after="cmd /c copy ..\..\..\dependencies\bin\win32-gcc\Irrlicht.dll ..\..\bin\win32-gcc\." />
+					<Add after="cmd /c copy ..\..\..\dependencies\bin\win32-gcc\cAudio.dll ..\..\bin\win32-gcc\." />
+					<Add after="cmd /c copy ..\..\..\dependencies\bin\win32-gcc\OpenAL32.dll ..\..\bin\win32-gcc\." />
+					<Add after="cmd /c copy ..\..\..\dependencies\bin\win32-gcc\wrap_oal.dll ..\..\bin\win32-gcc\." />
+					<Add after="cmd /c copy ..\..\..\dependencies\bin\win32-gcc\cAp_EAXLegacyPreset.dll ..\..\bin\win32-gcc\." />
+					<Mode after="always" />
+				</ExtraCommands>
 			</Target>
 		</Build>
 		<Unit filename="..\..\source\main.cpp" />
