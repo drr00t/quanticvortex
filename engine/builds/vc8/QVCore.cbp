@@ -287,6 +287,7 @@
 		<Unit filename="..\..\include\qvIStaticActor.h" />
 		<Unit filename="..\..\include\qvITimer.h" />
 		<Unit filename="..\..\include\qvKeyTypes.h" />
+		<Unit filename="..\..\include\qvMemoryManager.h" />
 		<Unit filename="..\..\include\qvMemoryManagerConfig.h" />
 		<Unit filename="..\..\include\qvPrerequisites.h" />
 		<Unit filename="..\..\include\qvQuanticVortex.h" />
@@ -405,6 +406,7 @@
 		<Unit filename="..\..\source\quanticvortex\qvIrrEventHandler.h" />
 		<Unit filename="..\..\source\quanticvortex\qvLoadingGameState.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvLoadingGameState.h" />
+		<Unit filename="..\..\source\quanticvortex\qvMemoryManager.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvMenuGameState.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvMenuGameState.h" />
 		<Unit filename="..\..\source\quanticvortex\qvPhysicsManager.cpp" />

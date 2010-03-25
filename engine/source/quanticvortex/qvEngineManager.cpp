@@ -35,12 +35,16 @@
 //factories
 #include "qvGameLogicFactory.h"
 
+#include "qvActorManager.h"
+
 
 namespace qv
 {
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager()
     {
+        gaming::ActorManager* manager = QV_NEW(gaming::ActorManager);
+
 #ifdef _DEBUG
 		setDebugName("EngineManager");
 #endif
@@ -144,6 +148,7 @@ namespace qv
     //-----------------------------------------------------------------------------
 	bool EngineManager::initialize()
     {
+
         loadConfiguration(); // load default configuration files, if present
 
 		SIrrlichtCreationParameters parameters;

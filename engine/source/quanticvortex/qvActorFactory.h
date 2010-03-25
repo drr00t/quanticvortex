@@ -29,16 +29,13 @@
 #define _ACTOR_FACTORY_H_
 
 #include "qvIActorFactory.h"
+#include "qvIActorManager.h"
 
 
 namespace qv
 {
 	namespace gaming
 	{
-        class IActorManagerWeakPtr;
-        class IActorManagerSharedPtr;
-
-
 		class ActorFactory: public IActorFactory
 		{
 		public:
@@ -47,15 +44,15 @@ namespace qv
 
 			virtual ~ActorFactory(void);
 
-			virtual IActorWeakPtr addActor( const u32 & actorHashType);
+			virtual IActorSharedPtr addActor( const u32 & actorHashType);
 
 			virtual u32 getCreatableActorTypeCount() const;
 
 			virtual bool getCreateableActorType( const u32 & actorHashType) const;
 
         private:
-            IActorManagerWeakPtr mActorManager;
-            ActorTypeWeakPtrList mActorTypes;
+//            IActorManagerWeakPtr mActorManager;
+            ActorFactorySharedPtrArray mActorTypes;
 
 		};
 	}
