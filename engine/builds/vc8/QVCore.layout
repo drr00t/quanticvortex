@@ -1,28 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Win32 - Debug - DLL" />
-	<File name="..\..\include\qvIActorFactory.h" open="0" top="0" tabpos="0">
-		<Cursor position="1527" topLine="22" />
-	</File>
-	<File name="..\..\include\qvIMemoryManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="1801" topLine="1" />
-	</File>
-	<File name="..\..\include\qvMemoryManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="1854" topLine="37" />
-	</File>
-	<File name="..\..\include\qvPrerequisites.h" open="0" top="0" tabpos="0">
-		<Cursor position="3013" topLine="62" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvActorFactory.h" open="0" top="0" tabpos="0">
-		<Cursor position="2062" topLine="29" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvActorManager.h" open="0" top="0" tabpos="0">
-		<Cursor position="254" topLine="0" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvEngineManager.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="1857" topLine="30" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvMemoryManager.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="1440" topLine="5" />
-	</File>
+	<ActiveTarget name="Windows x86" />
 </CodeBlocks_layout_file>

@@ -162,8 +162,8 @@
 				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-O3" />
-					<Add option="-Wall" />
 					<Add option="-W" />
+					<Add option="-ffast-math" />
 					<Add option="-DWIN32" />
 					<Add option="-DNDEBUG" />
 					<Add option="-D_QUANTICVORTEX_EXPORTS" />
