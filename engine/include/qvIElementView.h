@@ -69,7 +69,7 @@ namespace qv
 			//}
         };
 
-        typedef boost::shared_ptr<IElementView> IElementViewSharedPtr;
+        typedef Poco::SharedPtr<IElementView> IElementViewSharedPtr;
 		typedef list<IElementViewSharedPtr> ElementViewList;
     }
 }

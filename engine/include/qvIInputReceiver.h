@@ -32,6 +32,7 @@
 #include "qvIInputTranslator.h"
 #include "qvIInputTranslatorFactory.h"
 
+//#include "qvSHashedString.h"
 //#include "qvKeyTypes.h"
 
 #include "IEventReceiver.h"
@@ -48,6 +49,8 @@ namespace qv
 		class IAnyKeyInputTranslator;
 		class ISingleKeyInputTranslator;
 		class IInputTranslatorFactory;
+
+		typedef SHashedString IRD_INPUT_RECEIVER_DRIVER;
 
         class IInputReceiver :  public IEventReceiver,
                                 public IReferenceCounted
@@ -79,9 +82,9 @@ namespace qv
 			virtual bool keyUp(EKEY_CODE keycode)=0;
 
 			virtual bool keyReleased(EKEY_CODE keycode)=0;
-
-
 		};
+
+		typedef Poco::SharedPtr<IInputReceiver> IInputReceiverSharedPtr;
 	}
 }
 

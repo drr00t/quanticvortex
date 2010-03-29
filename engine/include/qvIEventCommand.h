@@ -40,10 +40,9 @@ namespace qv
 		{
 		public:
 			virtual const EventTypesList& listenEventTypes() const =0;
-			//virtual void executeCommand(const IEventArgs* args) =0;
 		};
 
-		typedef boost::shared_ptr<IEventCommand> IEventCommandSharedPtr;
+		typedef Poco::SharedPtr<IEventCommand> IEventCommandSharedPtr;
 		typedef array<IEventCommandSharedPtr> EventCommandArray;
 	}
 }

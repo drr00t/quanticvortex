@@ -191,7 +191,7 @@ namespace qv
 					{
 						const EventCommandArray& arrEventCommands = nodeListeners->getValue();
 
-						for( s32 j = 0; j < arrEventCommands.size(); ++j)
+						for( u32 j = 0; j < arrEventCommands.size(); ++j)
 							if(arrEventCommands[j]->getHashId() ==  command->getHashId())
 								return false;
 
@@ -293,7 +293,7 @@ namespace qv
 
 //			for(;itrEventArgs != mReadyEvents[processReadyEventList].end(); ++itrEventArgs)
 //			{
-            for(s32 i = 0; i < mReadyEvents[processReadyEventList].size(); ++i)
+            for(u32 i = 0; i < mReadyEvents[processReadyEventList].size(); ++i)
 			    trigger(mReadyEvents[processReadyEventList][i]);
 //				EventToCommandEventMap::Node* nodeCommandsMap =
 //					mRegistredCommandsMap.find((*itrEventArgs)->getTypeID());
@@ -335,11 +335,11 @@ namespace qv
 
 			const EventCommandArray& commands = nodeListenerMap->getValue();
 
-			for(s32 i = 0; i < commands.size(); ++i)
-			{
-//				commands[i]->executeCommand(args);
-				eventHandled = true;
-			}
+//			for(s32 i = 0; i < commands.size(); ++i)
+//			{
+////				commands[i]->executeCommand(args);
+//				eventHandled = true;
+//			}
 
 			return eventHandled;
 		}
@@ -361,9 +361,10 @@ namespace qv
 
 			const EventCommandArray& commands = nodeListenerMap->getValue();
 
-			for(s32 i = 0; i < commands.size(); ++i)
+			for(u32 i = 0; i < commands.size(); ++i)
 			{
-				commands[i]->executeCommand(args);
+			    ICommandSharedPtr com = commands[i];
+				com->executeCommand(args);
 				eventHandled = true;
 			}
 

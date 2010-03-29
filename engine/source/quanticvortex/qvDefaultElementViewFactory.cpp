@@ -26,7 +26,7 @@
 
 
 #include "qvDefaultElementViewFactory.h"
-#include "qvSceneView.h"
+#include "drivers/irrlicht/qvSceneViewIrrlicht.h"
 #include "qvGuiView.h"
 
 namespace qv
@@ -50,10 +50,10 @@ namespace qv
             IElementViewSharedPtr elementView;
 
 			if(elementViewHashType == EVT_ELEMENT_VIEW_SCENE.Hash)
-                elementView.reset(new SceneView(name, mEngine));
+                elementView.assign(new SceneViewIrrlicht(name, mEngine));
 
 			else if(elementViewHashType == EVT_ELEMENT_VIEW_GUI.Hash)
-                elementView.reset(new GuiView(name, mEngine));
+                elementView.assign(new GuiView(name, mEngine));
 
 			return elementView;
 		}

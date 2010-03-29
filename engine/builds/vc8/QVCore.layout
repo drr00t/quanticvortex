@@ -1,4 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Windows x86" />
+	<ActiveTarget name="Win32 - Debug - DLL" />
+	<File name="..\..\include\IrrIni.h" open="0" top="0" tabpos="0">
+		<Cursor position="418" topLine="69" />
+	</File>
+	<File name="..\..\include\qvCompileConfig.h" open="0" top="0" tabpos="0">
+		<Cursor position="1438" topLine="6" />
+	</File>
+	<File name="..\..\include\qvConfigProfile.h" open="0" top="0" tabpos="0">
+		<Cursor position="2223" topLine="9" />
+	</File>
+	<File name="..\..\include\qvEventTypes.h" open="0" top="0" tabpos="0">
+		<Cursor position="2367" topLine="34" />
+	</File>
+	<File name="..\..\include\qvIEngineManager.h" open="1" top="0" tabpos="6">
+		<Cursor position="2194" topLine="37" />
+	</File>
+	<File name="..\..\include\qvIInputReceiver.h" open="0" top="0" tabpos="0">
+		<Cursor position="2292" topLine="50" />
+	</File>
+	<File name="..\..\include\qvIInputReceiverDriverFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1666" topLine="12" />
+	</File>
+	<File name="..\..\include\qvSuperFastHash.h" open="0" top="0" tabpos="0">
+		<Cursor position="1395" topLine="7" />
+	</File>
+	<File name="..\..\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2522" topLine="29" />
+	</File>
+	<File name="..\..\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1715" topLine="15" />
+	</File>
+	<File name="..\..\source\quanticvortex\drivers\irrlicht\qvInputEventHandlerIrrlicht.h" open="0" top="0" tabpos="0">
+		<Cursor position="1687" topLine="64" />
+	</File>
+	<File name="..\..\source\quanticvortex\drivers\irrlicht\qvSceneViewIrrlicht.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="2004" topLine="24" />
+	</File>
+	<File name="..\..\source\quanticvortex\drivers\irrlicht\qvSceneViewIrrlicht.h" open="1" top="0" tabpos="2">
+		<Cursor position="1920" topLine="43" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvDefaultElementViewFactory.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="1501" topLine="13" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEngineManager.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="5806" topLine="135" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEngineManager.h" open="1" top="1" tabpos="5">
+		<Cursor position="1761" topLine="33" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEventManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="9740" topLine="275" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGameStateMachine.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="870" topLine="0" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvPhysicsManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="433" topLine="0" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvPhysicsManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="3927" topLine="57" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvQuanticVortex.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="3074" topLine="24" />
+	</File>
 </CodeBlocks_layout_file>

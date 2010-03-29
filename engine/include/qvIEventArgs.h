@@ -65,7 +65,7 @@ namespace qv
 	        //virtual IEventData copy() const = 0;
         };
 
-        typedef boost::shared_ptr<IEventArgs> IEventArgsSharedPtr;
+        typedef Poco::SharedPtr<IEventArgs> IEventArgsSharedPtr;
         typedef list<IEventArgsSharedPtr> EventArgslist;
         typedef array<IEventArgsSharedPtr> EventArgsArray;
     }

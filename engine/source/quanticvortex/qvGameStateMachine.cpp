@@ -18,17 +18,17 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		void GameStateMachine::addState(qv::IState *state, bool startUpState)
 		{
-		    if(mStateMap.isEmpty())
-		    {
-		        mStateMap[state->getState()->Hash] = state;
-		    }
-		    else
-		    {
-		        StateMap::Node* node = mStateMap.find(state->getState()->Hash);
-
-                if(!node)
-                    mStateMap[state->getState()->Hash] = state;
-		    }
+//		    if(mStateMap.isEmpty())
+//		    {
+//		        mStateMap[state->getState()->Hash] = state;
+//		    }
+//		    else
+//		    {
+//		        StateMap::Node* node = mStateMap.find(state->getState()->Hash);
+//
+//                if(!node)
+//                    mStateMap[state->getState()->Hash] = state;
+//		    }
 
             if(startUpState)
                 mCurrentState = state;

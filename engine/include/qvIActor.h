@@ -56,7 +56,7 @@ namespace qv
 //            virtual void update( u32 elapsedTimeMs) const = 0;
         };
 
-		typedef boost::shared_ptr<IActor> IActorSharedPtr;
+		typedef Poco::SharedPtr<IActor> IActorSharedPtr;
         typedef map<u32, IActorSharedPtr> ActorsMap;
         typedef list<IActorSharedPtr> ActorsSharedPtrList;
         typedef array<IActorSharedPtr> ActorsSharedPtrArray;

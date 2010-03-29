@@ -56,7 +56,7 @@ namespace qv
 	        virtual void update(u32 elapsedTimeMs)=0;
         };
 
-        typedef boost::shared_ptr<IGameView> IGameViewSharedPtr;
+        typedef Poco::SharedPtr<IGameView> IGameViewSharedPtr;
 		typedef list<IGameViewSharedPtr> GameViewList;
         //typedef array<IGameView*> GameViewArray;
     }

@@ -30,7 +30,7 @@
 #include "qvEventManager.h"
 
 //Irrlicht input receiver implementation
-#include "qvIrrEventHandler.h"
+#include "drivers/irrlicht/qvInputEventHandlerIrrlicht.h"
 
 //factories
 #include "qvGameLogicFactory.h"
@@ -43,7 +43,6 @@ namespace qv
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager()
     {
-        gaming::ActorManager* manager = QV_NEW(gaming::ActorManager);
 
 #ifdef _DEBUG
 		setDebugName("EngineManager");
@@ -93,11 +92,11 @@ namespace qv
         //mEventManager->registerEventType(&ET_GAME_LOGIC_STOPPED);
         //mEventManager->registerEventType(&ET_GAME_LOGIC_TICK_UPDATE);
         //
-		mEventManager->registerEventType(qv::events::ET_GAME_QUIT);
-		mEventManager->registerEventType(qv::events::ET_GAME_SAVE);
-		mEventManager->registerEventType(qv::events::ET_GAME_OPTIONS);
-		mEventManager->registerEventType(qv::events::ET_GAME_LOAD);
-        mEventManager->registerEventType(qv::events::ET_GAME_NEW);
+		mEventManager->registerEventType(qv::events::ET_GAME_QUIT.Hash);
+		mEventManager->registerEventType(qv::events::ET_GAME_SAVE.Hash);
+		mEventManager->registerEventType(qv::events::ET_GAME_OPTIONS.Hash);
+		mEventManager->registerEventType(qv::events::ET_GAME_LOAD.Hash);
+        mEventManager->registerEventType(qv::events::ET_GAME_NEW.Hash);
         //
         //mEventManager->registerEventType(&ET_PHYSICS_STARTED);
         //mEventManager->registerEventType(&ET_PHYSICS_STOPPED);
@@ -116,27 +115,27 @@ namespace qv
 
     }
     //-----------------------------------------------------------------------------
-	void EngineManager::registerGameLogicFactory(gaming::IGameLogicFactory *factory)
+	void EngineManager::registerInputReceiverDriverFactory(input::IInputReceiverDriverFactory *factory)
     {
-        factory->grab();
-        mGameLogicFactories.push_back(factory);
+//        factory->grab();
+//        mGameLogicFactories.push_back(factory);
     }
     //-----------------------------------------------------------------------------
-	gaming::IGameLogic* EngineManager::addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type)
-    {
-        for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
-		{
-			if(mGameLogicFactories[i]->getCreateableGameLogicType(type))
-			{
-                mGameLogic = mGameLogicFactories[i]->addGameLogic(type);
-				mGameLogic->initialize();
-
-				break;
-			}
-		}
-
-        return mGameLogic;
-    }
+//	gaming::IGameLogic* EngineManager::addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type)
+//    {
+//        for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
+//		{
+//			if(mGameLogicFactories[i]->getCreateableGameLogicType(type))
+//			{
+//                mGameLogic = mGameLogicFactories[i]->addGameLogic(type);
+//				mGameLogic->initialize();
+//
+//				break;
+//			}
+//		}
+//
+//        return mGameLogic;
+//    }
     //-----------------------------------------------------------------------------
     void EngineManager::loadConfiguration()
     {
@@ -161,24 +160,21 @@ namespace qv
 
         mDevice3d = createDeviceEx(parameters);
 
-		gaming::IGameLogicFactory* factory = new gaming::GameLogicFactory(this);
-        registerGameLogicFactory(factory);
-        factory->drop();
+//		gaming::IGameLogicFactory* factory = new gaming::GameLogicFactory(this);
+//        registerGameLogicFactory(factory);
+//        factory->drop();
 
 		mEventManager = new events::EventManager();
 
 		registerGameEvents();
-
-		mInputReceiver = new input::IrrEventHandler(mEventManager);
-        mDevice3d->setEventReceiver(mInputReceiver);
 
         return true;
     }
 	//-----------------------------------------------------------------------------
 	void EngineManager::finalize()
     {
-        for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
-            mGameLogicFactories[i]->drop();
+        for(u32 i = 0; i < mInputReceiverDriverFactories.size(); ++i)
+            mInputReceiverDriverFactories[i]->drop();
 
 		mEventManager->drop();
 

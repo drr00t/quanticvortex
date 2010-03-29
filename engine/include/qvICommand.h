@@ -50,8 +50,9 @@ namespace qv
         virtual void executeCommand(events::IEventArgsSharedPtr args) =0;
     };
 
-    typedef boost::shared_ptr<ICommand> ICommandSharedPtr;
+    typedef Poco::SharedPtr<ICommand> ICommandSharedPtr;
     typedef list<ICommandSharedPtr> CommandList;
+    typedef array<ICommandSharedPtr> CommandArray;
 }
 #endif
 

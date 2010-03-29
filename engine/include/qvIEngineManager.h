@@ -28,9 +28,7 @@
 #ifndef __I_ENGINE_MANAGER_H_
 #define __I_ENGINE_MANAGER_H_
 
-//#include "qvIEventManager.h"
-#include "qvIGameLogicFactory.h"
-//#include "qvIInputReceiver.h"
+#include "qvIInputReceiverDriverFactory.h"
 #include "qvSGameParams.h"
 
 
@@ -49,6 +47,11 @@ namespace qv
 		class IInputReceiver;
 	}
 
+	namespace gaming
+	{
+		class IGameLogic;
+	}
+
 	class IEngineManager : public IReferenceCounted
     {
 
@@ -63,9 +66,10 @@ namespace qv
 
 		virtual void endRender()=0;
 
-		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory)=0;
+//		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory)=0;
+		virtual void registerInputReceiverDriverFactory(input::IInputReceiverDriverFactory* factory)=0;
 
-		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type = gaming::GLT_GAME_LOGIC_DEFAULT)=0;
+//		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type = gaming::GLT_GAME_LOGIC_DEFAULT)=0;
 
 		virtual gaming::IGameLogic* getGameLogic()=0;
 

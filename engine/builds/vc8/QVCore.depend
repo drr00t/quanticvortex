@@ -4869,22 +4869,26 @@
 1269204745 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvianykeyinputtranslator.h
 	"qvIInputTranslator.h"
 
-1269220213 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviinputtranslator.h
+1269735491 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviinputtranslator.h
 	"qvSHashedString.h"
 	"qvEventTypes.h"
 	"qvKeyTypes.h"
 
-1269204922 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvshashedstring.h
+1269734440 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvshashedstring.h
 	"qvPrerequisites.h"
 	"qvSuperFastHash.h"
 
-1269482327 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvprerequisites.h
+1269743431 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvprerequisites.h
 	"irrlicht.h"
 	"qvSuperFastHash.h"
-	<boost/config.hpp>
-	<boost/shared_ptr.hpp>
-	<boost/weak_ptr.hpp>
-	<boost/make_shared.hpp>
+	"Poco/AutoPtr.h"
+	"Poco/SharedPtr.h"
+	"Poco/Path.h"
+	"Poco/File.h"
+	"Poco/Glob.h"
+	"Poco/Types.h"
+	"Poco/Void.h"
+	"Poco/Any.h"
 	"qvMemoryManager.h"
 
 1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvsuperfasthash.h
@@ -4895,7 +4899,7 @@
 1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvcompileconfig.h
 	"qvConfigProfile.h"
 
-1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvconfigprofile.h
+1269822072 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvconfigprofile.h
 
 1269211941 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qveventtypes.h
 	"qvPrerequisites.h"
@@ -4912,7 +4916,7 @@
 1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvstatetypes.h
 	"qvSHashedString.h"
 
-1269222121 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviinputreceiver.h
+1269810411 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviinputreceiver.h
 	"qvIInputTranslator.h"
 	"qvIInputTranslatorFactory.h"
 	"IEventReceiver.h"
@@ -4934,12 +4938,12 @@
 1269133706 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvactortypes.h
 	"qvSHashedString.h"
 
-1269204385 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvieventargs.h
+1269735506 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvieventargs.h
 	"qvEventTypes.h"
 
-1269200282 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvdefaultelementviewfactory.cpp
+1269807181 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvdefaultelementviewfactory.cpp
 	"qvDefaultElementViewFactory.h"
-	"qvSceneView.h"
+	"drivers/irrlicht/qvSceneViewIrrlicht.h"
 	"qvGuiView.h"
 
 1269200173 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvdefaultelementviewfactory.h
@@ -4948,7 +4952,7 @@
 1269200115 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvielementviewfactory.h
 	"qvIElementView.h"
 
-1269178745 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvielementview.h
+1269735579 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvielementview.h
 	"qvSHashedString.h"
 
 1269478289 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvsceneview.h
@@ -4958,7 +4962,7 @@
 	"qvIElementView.h"
 	"qvIActor.h"
 
-1269478289 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviactor.h
+1269735623 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviactor.h
 	"qvActorTypes.h"
 
 1269135302 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvguiview.h
@@ -4981,7 +4985,7 @@
 1269135210 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qveventargs.h
 	"qvIEventArgs.h"
 
-1269200964 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvdefaultgameviewfactory.cpp
+1269735772 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvdefaultgameviewfactory.cpp
 	"qvDefaultGameViewFactory.h"
 	"qvHumanView.h"
 
@@ -5002,7 +5006,7 @@
 	"qvIElementView.h"
 	"qvICommand.h"
 
-1269199612 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvigameview.h
+1269735758 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvigameview.h
 	"qvGameViewTypes.h"
 
 1269306098 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvengineinputtranslatorfactory.cpp
@@ -5021,17 +5025,18 @@
 	"qvIInputTranslator.h"
 	"qvIEventManager.h"
 
-1268514249 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvenginemanager.cpp
+1269727545 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvenginemanager.cpp
 	"qvEngineManager.h"
 	"qvEventManager.h"
 	"qvIrrEventHandler.h"
 	"qvGameLogicFactory.h"
+	"qvActorManager.h"
 
-1268272526 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvenginemanager.h
+1269821195 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvenginemanager.h
 	"qvIEngineManager.h"
 
-1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvienginemanager.h
-	"qvIGameLogicFactory.h"
+1269821181 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvienginemanager.h
+	"qvIInputReceiverDriverFactory.h"
 	"qvSGameParams.h"
 
 1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvigamelogicfactory.h
@@ -5068,7 +5073,7 @@
 1269135239 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qveventargs.cpp
 	"qvEventArgs.h"
 
-1269306098 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qveventmanager.cpp
+1269741207 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qveventmanager.cpp
 	"qvEventManager.h"
 	"qvDefaultEventArgsFactory.h"
 	"qvCameraActorAddedEventArgs.h"
@@ -5077,7 +5082,7 @@
 	"qvICommand.h"
 	"qvEventTypes.h"
 
-1269220543 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvicommand.h
+1269740093 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvicommand.h
 	"qvIEventArgs.h"
 	"qvCommandTypes.h"
 
@@ -5103,7 +5108,7 @@
 1268272525 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvsactorparams.h
 	"qvActorTypes.h"
 
-1268514179 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvphysicsmanager.h
+1269822572 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvphysicsmanager.h
 	"qvActorTypes.h"
 	"qvIPhysicsManager.h"
 	"btBulletCollisionCommon.h"
@@ -7771,7 +7776,7 @@
 1268272526 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvinputreceiver.h
 	"qvIInputReceiver.h"
 
-1269215607 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvieventcommand.h
+1269736978 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qvieventcommand.h
 	"qvICommand.h"
 	"qvEventTypes.h"
 
@@ -7786,10 +7791,10 @@
 	"qvIActor.h"
 	"qvIActorFactory.h"
 
-1269478289 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviactorfactory.h
+1269735786 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviactorfactory.h
 	"qvIActor.h"
 
-1269478289 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviactormanager.h
+1269735795 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviactormanager.h
 	"qvIActor.h"
 	"qvIActorFactory.h"
 
@@ -7799,4 +7804,156 @@
 	<new>
 
 1269480180 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvmemorymanager.cpp
+
+1269727585 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvactormanager.h
+	"qvIActorManager.h"
+	"qvActorFactory.h"
+
+1269481234 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\qvactorfactory.h
+	"qvIActorFactory.h"
+	"qvIActorManager.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\sharedptr.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/AtomicCounter.h"
+	<algorithm>
+
+1269635516 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\foundation.h
+	"Poco/Config.h"
+	"Poco/Platform.h"
+	"Poco/Platform_WIN32.h"
+	"Poco/Platform_VMS.h"
+	"Poco/Platform_POSIX.h"
+	"Poco/Bugcheck.h"
+	"Poco/Types.h"
+	<string>
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\config.h
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\platform.h
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\platform_win32.h
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\platform_vms.h
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\platform_posix.h
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\bugcheck.h
+	"Poco/Foundation.h"
+	<string>
+	<iostream>
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\types.h
+	"Poco/Foundation.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\exception.h
+	"Poco/Foundation.h"
+	<stdexcept>
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\atomiccounter.h
+	"Poco/Foundation.h"
+	"Poco/UnWindows.h"
+	<libkern/OSAtomic.h>
+	"Poco/Mutex.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\unwindows.h
+	<windows.h>
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\mutex.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/ScopedLock.h"
+	"Poco/Mutex_WIN32.h"
+	"Poco/Mutex_POSIX.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\scopedlock.h
+	"Poco/Foundation.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\mutex_win32.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	"Poco/UnWindows.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\mutex_posix.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<pthread.h>
+	<errno.h>
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\autoptr.h
+	"Poco/Foundation.h"
+	"Poco/Exception.h"
+	<algorithm>
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\path.h
+	"Poco/Foundation.h"
+	<vector>
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\file.h
+	"Poco/Foundation.h"
+	"Poco/Timestamp.h"
+	<vector>
+	"Poco/File_WIN32U.h"
+	"Poco/File_WIN32.h"
+	"Poco/File_UNIX.h"
+	"Poco/File_VMS.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\timestamp.h
+	"Poco/Foundation.h"
+	<ctime>
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\file_win32u.h
+	"Poco/Foundation.h"
+	"Poco/Timestamp.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\file_win32.h
+	"Poco/Foundation.h"
+	"Poco/Timestamp.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\file_unix.h
+	"Poco/Foundation.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\file_vms.h
+	"Poco/Foundation.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\glob.h
+	"Poco/Foundation.h"
+	"Poco/TextIterator.h"
+	<set>
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\textiterator.h
+	"Poco/Foundation.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\void.h
+	"Poco/Foundation.h"
+
+1263568252 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\poco\poco\any.h
+	"Poco/Exception.h"
+	<algorithm>
+	<typeinfo>
+
+1269807062 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\drivers\irrlicht\qvsceneviewirrlicht.cpp
+	"qvSceneViewIrrlicht.h"
+	"qvIEngineManager.h"
+	"qvIEventManager.h"
+
+1269806986 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\drivers\irrlicht\qvsceneviewirrlicht.h
+	"qvISceneView.h"
+
+1269810883 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\drivers\irrlicht\qvdefaultinputreceiverdriverfactory.cpp
+	"qvDefaultInputReceiverDriverFactory.h"
+	"drivers/irrlicht/qvInputEventHandlerIrrlicht.h"
+
+1269809367 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\drivers\irrlicht\qvdefaultinputreceiverdriverfactory.h
+	"qvIInputReceiverDriverFactory.h"
+
+1269808654 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\include\qviinputreceiverdriverfactory.h
+	"qvIInputReceiver.h"
+
+1269810709 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine\source\quanticvortex\drivers\irrlicht\qvinputeventhandlerirrlicht.h
+	"qvIInputReceiver.h"
+	"qvIEngineManager.h"
+	"qvSingleKeyInputTranslator.h"
+	"qvAnyKeyInputTranslator.h"
 

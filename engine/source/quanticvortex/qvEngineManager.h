@@ -48,11 +48,13 @@ namespace qv
     protected:
 		SGameParams mGameParams;
 
-		array<gaming::IGameLogicFactory*> mGameLogicFactories;
+//		array<gaming::IGameLogicFactory*> mGameLogicFactories;
+		array<input::IInputReceiverDriverFactory*> mInputReceiverDriverFactories;
 
         gaming::IGameLogic* mGameLogic;
 		events::IEventManager* mEventManager;
-		input::IInputReceiver* mInputReceiver;
+
+		input::IInputReceiverSharedPtr mInputReceiver;
 
 		irr::IrrlichtDevice* mDevice3d;
 		//irr::video::IVideoDriver* mVideoDriver;
@@ -85,9 +87,10 @@ namespace qv
 
 		virtual void endRender();
 
-		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory);
+//		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory);
 
-		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type = gaming::GLT_GAME_LOGIC_DEFAULT);
+//		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type = gaming::GLT_GAME_LOGIC_DEFAULT);
+        virtual void registerInputReceiverDriverFactory(input::IInputReceiverDriverFactory* factory);
 
 		virtual gaming::IGameLogic* getGameLogic()
         {

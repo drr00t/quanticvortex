@@ -1,0 +1,94 @@
+# depslib dependency file v1.0
+1268272525 source:e:\projetos\quanticminds\sylfur-d.c\quanticvortex\engine tests\source\main.cpp
+	"UnitTest++.h"
+	"TestReporterStdout.h"
+
+1188380910 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\unittest++.h
+	"Config.h"
+	"Test.h"
+	"TestList.h"
+	"TestSuite.h"
+	"TestResults.h"
+	"TestMacros.h"
+	"CheckMacros.h"
+	"TestRunner.h"
+	"TimeConstraint.h"
+
+1225384716 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\config.h
+
+1225298288 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\test.h
+	"TestDetails.h"
+
+1174329256 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\testdetails.h
+
+1180482158 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\testlist.h
+
+1174329256 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\testsuite.h
+
+1174329256 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\testresults.h
+
+1225402026 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\testmacros.h
+	"Config.h"
+	"ExecuteTest.h"
+	"AssertException.h"
+	"TestDetails.h"
+	"MemoryOutStream.h"
+	"Posix/SignalTranslator.h"
+
+1225298288 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\executetest.h
+	"TestDetails.h"
+	"MemoryOutStream.h"
+	"AssertException.h"
+	"CurrentTest.h"
+	"Posix/SignalTranslator.h"
+
+1174329256 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\memoryoutstream.h
+	"Config.h"
+	<sstream>
+	<cstddef>
+
+1174329256 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\assertexception.h
+	<exception>
+
+1225298288 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\currenttest.h
+
+1224694602 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\posix\signaltranslator.h
+	<setjmp.h>
+	<signal.h>
+
+1225298288 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\checkmacros.h
+	"Checks.h"
+	"AssertException.h"
+	"MemoryOutStream.h"
+	"TestDetails.h"
+	"CurrentTest.h"
+
+1225384062 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\checks.h
+	"Config.h"
+	"TestResults.h"
+	"MemoryOutStream.h"
+
+1225298288 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\testrunner.h
+	"Test.h"
+	"TestList.h"
+	"CurrentTest.h"
+
+1225298288 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\timeconstraint.h
+	"TimeHelpers.h"
+
+1174329256 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\timehelpers.h
+	"Config.h"
+	"Posix/TimeHelpers.h"
+	"Win32/TimeHelpers.h"
+
+1174329256 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\posix\timehelpers.h
+	<sys/time.h>
+
+1225384716 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\win32\timehelpers.h
+	"../Config.h"
+
+1174329256 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\testreporterstdout.h
+	"TestReporter.h"
+
+1174329256 e:\projetos\quanticminds\sylfur-d.c\quanticvortex\dependencies\include\unittest++\testreporter.h
+

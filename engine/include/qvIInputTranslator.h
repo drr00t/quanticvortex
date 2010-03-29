@@ -76,7 +76,7 @@ namespace qv
 			virtual bool translate(IInputReceiver *context) = 0;
 		};
 
-		typedef boost::shared_ptr<IInputTranslator> IInputTranslatorSharedPtr;
+		typedef Poco::SharedPtr<IInputTranslator> IInputTranslatorSharedPtr;
 		typedef list<IInputTranslatorSharedPtr> InputTranslatorList;
 	}
 }

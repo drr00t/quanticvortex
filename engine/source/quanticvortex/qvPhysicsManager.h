@@ -104,10 +104,6 @@ namespace qv
             CollisionShapes mCollisionObjectsList;
 
 			f32 mTimeUpdate;
-			//PhysicsActorMap mPhysicsActors;
-
-            //static void internalTickCallback( btDynamicsWorld* const world, btScalar const timeStep);
-
 		};
 
         //typedef SharedPtr<IActor> ActorPtr;

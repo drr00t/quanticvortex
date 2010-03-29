@@ -103,9 +103,6 @@ namespace qv
 		stringc Text;
 		u32 Hash;
     };
-
-    typedef boost::shared_ptr<SHashedString> SHashedStringSharedPtr;
-    typedef boost::weak_ptr<SHashedString> SHashedStringWeakPtr;
 }
 #endif
 

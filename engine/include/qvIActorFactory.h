@@ -46,7 +46,7 @@ namespace qv
 			virtual bool getCreateableActorType( const u32 & actorHashType) = 0;
 		};
 
-		typedef boost::shared_ptr<IActorFactory> IActorFactorySharedPtr;
+		typedef Poco::SharedPtr<IActorFactory> IActorFactorySharedPtr;
 		typedef list<IActorFactorySharedPtr> ActorFactorySharedPtrList;
 		typedef array<IActorFactorySharedPtr> ActorFactorySharedPtrArray;
     }

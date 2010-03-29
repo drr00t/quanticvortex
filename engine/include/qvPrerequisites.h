@@ -71,12 +71,38 @@ namespace qv
 
 //----------------------------------------------
 
-//Boost common headers
-#include <boost/config.hpp>
-#include <boost/shared_ptr.hpp>
-#include <boost/weak_ptr.hpp>
-//#include <boost/scope_ptr.hpp>
-#include <boost/make_shared.hpp>
+// POCO headers
+#include "Poco/AutoPtr.h"
+#include "Poco/SharedPtr.h"
+#include "Poco/Path.h"
+#include "Poco/File.h"
+#include "Poco/Glob.h"
+#include "Poco/Types.h"
+#include "Poco/Void.h"
+#include "Poco/Any.h"
+
+
+namespace gv
+{
+    using Poco::SharedPtr;
+    using Poco::AutoPtr;
+    using Poco::Path;
+    using Poco::Int8;
+    using Poco::UInt8;
+    using Poco::Int16;
+    using Poco::UInt16;
+    using Poco::Int32;
+    using Poco::UInt32;
+    using Poco::Int64;
+    using Poco::UInt64;
+    using Poco::IntPtr;
+    using Poco::UIntPtr;
+    using Poco::Void;
+    using Poco::Any;
+    using Poco::AnyCast;
+}
+
+
 
 //Memory manager configuration
 #include "qvMemoryManager.h"

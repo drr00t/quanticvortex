@@ -44,7 +44,7 @@
 #define RENDER_IRRLICHT 1
 #define RENDER_OGRE3D 2 //not implemented yet
 
-#define CONTENT_DB_SQLITE  1 //not implemented yet
+#define RENDER RENDER_IRRLICHT
 
 
 

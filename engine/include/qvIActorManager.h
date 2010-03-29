@@ -57,7 +57,7 @@ namespace qv
             virtual void removeActor( u32 actorHashId) = 0;
         };
 
-        typedef boost::shared_ptr<IActorManager> IActorManagerSharedPtr;
+        typedef Poco::SharedPtr<IActorManager> IActorManagerSharedPtr;
     }
 }
 #endif

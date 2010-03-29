@@ -12,7 +12,7 @@ namespace qv
 {
     namespace gaming
     {
-        class ActorManager//: IActorManager
+        class ActorManager: IActorManager
         {
         public:
 			ActorManager();
