@@ -126,13 +126,13 @@
 					<Add directory="..\..\..\dependencies\include\bullet" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="libIrrlicht_d.dll.a" />
+					<Add library="libIrrlicht_d.dll" />
 					<Add library="libbulletdynamics_d" />
 					<Add library="libbulletcollision_d" />
 					<Add library="libbulletsoftbody_d" />
 					<Add library="libLinearMath_d" />
-					<Add library="libPocoFoundationmtd.a" />
-					<Add library="libPocoUtilmtd.a" />
+					<Add library="libPocoFoundationmtd" />
+					<Add library="libPocoUtilmtd" />
 					<Add directory="..\..\..\dependencies\libs\win32-gcc" />
 				</Linker>
 				<ExtraCommands>
@@ -180,13 +180,13 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="libIrrlicht.dll.a" />
+					<Add library="libIrrlicht.dll" />
 					<Add library="libbulletdynamics" />
 					<Add library="libbulletcollision" />
 					<Add library="libbulletsoftbody" />
 					<Add library="libLinearMath" />
-					<Add library="libPocoFoundationmt.a" />
-					<Add library="libPocoUtilmt.a" />
+					<Add library="libPocoFoundationmt" />
+					<Add library="libPocoUtilmt" />
 					<Add directory="..\..\..\dependencies\libs\win32-gcc" />
 				</Linker>
 				<ExtraCommands>
@@ -203,8 +203,6 @@
 		<VirtualTargets>
 			<Add alias="Windows x86" targets="Win32 - Debug - DLL;Win32 - Release - Fastmath - DLL;" />
 		</VirtualTargets>
-		<Unit filename="..\..\include\IrrIni.h" />
-		<Unit filename="..\..\include\SValue.h" />
 		<Unit filename="..\..\include\qvActorTypes.h" />
 		<Unit filename="..\..\include\qvCommandTypes.h" />
 		<Unit filename="..\..\include\qvCompileConfig.h" />
@@ -221,7 +219,6 @@
 		<Unit filename="..\..\include\qvIActorFactory.h" />
 		<Unit filename="..\..\include\qvIActorManager.h" />
 		<Unit filename="..\..\include\qvIAnyKeyInputTranslator.h" />
-		<Unit filename="..\..\include\qvICameraActorAddedEventArgs.h" />
 		<Unit filename="..\..\include\qvICommand.h" />
 		<Unit filename="..\..\include\qvICommandArgs.h">
 			<Option target="Win32 - Debug - Static" />
@@ -248,7 +245,6 @@
 		<Unit filename="..\..\include\qvIInputReceiverDriverFactory.h" />
 		<Unit filename="..\..\include\qvIInputTranslator.h" />
 		<Unit filename="..\..\include\qvIInputTranslatorFactory.h" />
-		<Unit filename="..\..\include\qvIMemoryManager.h" />
 		<Unit filename="..\..\include\qvINetworkView.h">
 			<Option target="Win32 - Debug - Static" />
 			<Option target="Win32 - Release - Static" />
@@ -274,11 +270,8 @@
 		<Unit filename="..\..\include\qvISingleKeyInputTranslator.h" />
 		<Unit filename="..\..\include\qvIState.h" />
 		<Unit filename="..\..\include\qvIStateMachine.h" />
-		<Unit filename="..\..\include\qvIStaticActor.h" />
 		<Unit filename="..\..\include\qvITimer.h" />
 		<Unit filename="..\..\include\qvKeyTypes.h" />
-		<Unit filename="..\..\include\qvMemoryManager.h" />
-		<Unit filename="..\..\include\qvMemoryManagerConfig.h" />
 		<Unit filename="..\..\include\qvPrerequisites.h" />
 		<Unit filename="..\..\include\qvQuanticVortex.h" />
 		<Unit filename="..\..\include\qvSActorParams.h" />
@@ -305,17 +298,8 @@
 			<Option target="Win32 - Debug - Static" />
 			<Option target="Win32 - Release - Static" />
 		</Unit>
-		<Unit filename="..\..\include\qvSingletonHolder.h">
-			<Option target="Win32 - Debug - Static" />
-			<Option target="Win32 - Release - Static" />
-		</Unit>
 		<Unit filename="..\..\include\qvStateTypes.h" />
 		<Unit filename="..\..\include\qvSuperFastHash.h" />
-		<Unit filename="..\..\source\quanticvortex\IrrINI\CIrrIniIrr.cpp" />
-		<Unit filename="..\..\source\quanticvortex\IrrINI\CIrrIniIrr.h" />
-		<Unit filename="..\..\source\quanticvortex\IrrINI\CIrrIniStub.cpp" />
-		<Unit filename="..\..\source\quanticvortex\IrrINI\CIrrIniStub.h" />
-		<Unit filename="..\..\source\quanticvortex\IrrINI\IrrINI.cpp" />
 		<Unit filename="..\..\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.cpp" />
 		<Unit filename="..\..\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.h" />
 		<Unit filename="..\..\source\quanticvortex\drivers\irrlicht\qvInputEventHandlerIrrlicht.h" />
@@ -341,8 +325,6 @@
 		<Unit filename="..\..\source\quanticvortex\qvActorMotion.h" />
 		<Unit filename="..\..\source\quanticvortex\qvAnyKeyInputTranslator.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvAnyKeyInputTranslator.h" />
-		<Unit filename="..\..\source\quanticvortex\qvCameraActorAddedEventArgs.cpp" />
-		<Unit filename="..\..\source\quanticvortex\qvCameraActorAddedEventArgs.h" />
 		<Unit filename="..\..\source\quanticvortex\qvChangeStateEventArgs.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -400,7 +382,6 @@
 		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvLoadingGameState.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvLoadingGameState.h" />
-		<Unit filename="..\..\source\quanticvortex\qvMemoryManager.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvMenuGameState.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvMenuGameState.h" />
 		<Unit filename="..\..\source\quanticvortex\qvPhysicsManager.cpp" />
@@ -410,15 +391,9 @@
 		<Unit filename="..\..\source\quanticvortex\qvRunningGameState.h" />
 		<Unit filename="..\..\source\quanticvortex\qvSingleKeyInputTranslator.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvSingleKeyInputTranslator.h" />
-		<Unit filename="..\..\source\quanticvortex\qvStaticActorAddedEventArgs.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvSuperFastHash.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvWaintingPlayerGameState.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvWaintingPlayerGameState.h" />
-		<Unit filename="..\..\source\quanticvortex\sqlite\sqlite3.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="..\..\source\quanticvortex\sqlite\sqlite3.h" />
-		<Unit filename="..\..\source\quanticvortex\sqlite\sqlite3ext.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

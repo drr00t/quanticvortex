@@ -102,18 +102,5 @@ namespace gv
     using Poco::AnyCast;
 }
 
-
-
-//Memory manager configuration
-#include "qvMemoryManager.h"
-
-#ifdef _DEBUG
-	#define QV_NEW(T) qv::MemoryManager::allocate<T>(sizeof(T), __FILE__, __LINE__, __FUNCTION__)
-	#define QV_DELETE(pointer) qv::MemoryManager::deallocate(pointer)
-#else
-	#define QV_NEW(T) qv::MemoryManager::allocate<T>(sizeof(T))
-	#define QV_DELETE(pointer) qv::MemoryManager::deallocate(pointer)
-#endif
-
 #endif
 

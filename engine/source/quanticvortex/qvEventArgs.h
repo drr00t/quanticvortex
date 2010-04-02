@@ -36,30 +36,19 @@ namespace qv
     {
         class EventArgs: public IEventArgs
         {
-		protected:
-			u32 mEventHashType;
-
         public:
 
-			EventArgs(const ET_EVENT_TYPE& eventType);
+			EventArgs( u32 eventArgsHashType);
 
 			virtual ~EventArgs();
 
-            virtual u32 getHashType( void ) const { return mEventHashType; }
-//
-//			virtual const c8* getTypeName( void ) const { return mEventType->Text.c_str(); }
-//
-//	        //! Writes attributes of the object.
-//	        /** Implement this to expose the attributes of your scene node animator for
-//	        scripting languages, editors, debuggers or xml serialization purposes. */
-//			virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const{}
-//
-//	        //! Reads attributes of the object.
-//	        /** Implement this to set the attributes of your scene node animator for
-//	        scripting languages, editors, debuggers or xml deserialization purposes. */
-//			virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0){}
+            virtual u32 getHashType( void ) const;
 
+		private:
+			u32 mEventArgsHashType;
         };
+
+        inline u32 EventArgs::getHashType() const { return mEventArgsHashType; }
     }
 }
 

@@ -28,6 +28,7 @@
 #ifndef __I_EVENT_ARGS_FACTORY_H_
 #define __I_EVENT_ARGS_FACTORY_H_
 
+#include <vector>
 #include "qvIEventArgs.h"
 
 namespace qv
@@ -36,21 +37,19 @@ namespace qv
 
     namespace events
     {
-//		class IEventArgsSharedPtr;
-		class ICameraActorAddedEventArgs;
-
-		class IEventArgsFactory : public IReferenceCounted
+		class IEventArgsFactory
 		{
 		public:
 
-			virtual IEventArgsSharedPtr addEmptyEventArgs( const ET_EVENT_TYPE& type) = 0;
-
-			virtual ICameraActorAddedEventArgs* addCameraActorAddedEventArgs( const c8* actorName) = 0;
+			virtual IEventArgsSharedPtr createEventArgs( u32 eventArgsHashtype) = 0;
 
 			virtual u32 getCreatableEventArgsTypeCount() const = 0;
 
-			virtual bool getCreateableEventArgsType(const ET_EVENT_TYPE& type) const = 0;
+			virtual bool getCreateableEventArgsType( u32 eventArgsHashtype) const = 0;
 		};
+
+		typedef Poco::SharedPtr<IEventArgsFactory> IEventArgsFactorySharedPtr;
+		typedef std::vector<IEventArgsFactorySharedPtr> EventArgsFactoryVector;
     }
 }
 #endif

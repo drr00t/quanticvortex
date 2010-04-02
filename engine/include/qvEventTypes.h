@@ -31,6 +31,8 @@
 #include "qvPrerequisites.h"
 #include "qvSHashedString.h"
 
+#include <vector>
+
 
 namespace qv
 {
@@ -38,7 +40,8 @@ namespace qv
     {
 		typedef SHashedString ET_EVENT_TYPE;
 
-		typedef list<u32> EventTypesList;
+		typedef std::vector<u32> EventHashTypesVector;
+		typedef std::vector<ET_EVENT_TYPE*> EventTypesVector;
 
         //engine sertvices events
         static const ET_EVENT_TYPE ET_GRAPHICS_STARTED("ET_GRAPHICS_STARTED");

@@ -176,12 +176,6 @@ namespace qv
         for(u32 i = 0; i < mInputReceiverDriverFactories.size(); ++i)
             mInputReceiverDriverFactories[i]->drop();
 
-		mEventManager->drop();
-
-		mInputReceiver->drop();
-
-		mGameLogic->drop();
-
 		mDevice3d->drop();
 	}
 	//-----------------------------------------------------------------------------

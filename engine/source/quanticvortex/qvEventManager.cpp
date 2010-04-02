@@ -33,7 +33,6 @@
 //default event args factories
 #include "qvDefaultEventArgsFactory.h"
 //#include "qvChangeStateEventArgs.h"
-#include "qvCameraActorAddedEventArgs.h"
 
 namespace qv
 {
@@ -45,9 +44,9 @@ namespace qv
 		{
 //			setDebugName("EventManager");
 
-			DefaultEventArgsFactory* factory = new DefaultEventArgsFactory();
+			 DefaultEventArgsFactory* factory = new DefaultEventArgsFactory();
 			registerEventArgsFactory(factory);
-			factory->drop();
+//			factory->drop();
 		}
 		//-----------------------------------------------------------------------------------------
 		EventManager::~EventManager()
@@ -68,9 +67,9 @@ namespace qv
 			//	mRegistredCommandsMap.remove((*itrCommandsMap.getNode()).getKey());
 			//}
 
-			EventArgsFactoryList::Iterator itrFactories = mEventArgsFactories.begin();
-			for(;itrFactories != mEventArgsFactories.end(); ++itrFactories)
-				(*itrFactories)->drop();
+//			EventArgsFactoryVector::Iterator itrFactories = mEventArgsFactories.begin();
+//			for(;itrFactories != mEventArgsFactories.end(); ++itrFactories)
+//				(*itrFactories)->drop();
 
             mValidEventTypes.clear();
 //			EventTypesList::Iterator itrEvents = mValidEventTypes.begin();
@@ -78,15 +77,6 @@ namespace qv
 //				(*itrEvents)->drop();
 		}
 		//-----------------------------------------------------------------------------------------
-		void EventManager::registerEventType(  const ET_EVENT_TYPE & type)
-		{
-			if( type.Hash <= 0)
-				return;
-
-			if(!validateType(type))
-				mValidEventTypes.push_back(type.Hash);
-		}
-				//-----------------------------------------------------------------------------------------
 		void EventManager::registerEventType( u32 eventHashType)
 		{
 			if( eventHashType <= 0)
@@ -96,11 +86,6 @@ namespace qv
 				mValidEventTypes.push_back(eventHashType);
 		}
 		//-----------------------------------------------------------------------------------------
-		void EventManager::unregisterEventType( const ET_EVENT_TYPE & type)
-		{
-
-		}
-		//-----------------------------------------------------------------------------------------
 		void EventManager::unregisterEventType( u32 eventHashType)
 		{
 
@@ -108,63 +93,8 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		void EventManager::registerEventArgsFactory(IEventArgsFactory* factory)
 		{
-			factory->grab();
+//			factory->grab();
 			mEventArgsFactories.push_back(factory);
-		}
-		//-----------------------------------------------------------------------------------------
-		IEventArgsSharedPtr EventManager::createEmptyEventArgs(const qv::events::ET_EVENT_TYPE & type)
-		{
-			EventArgsFactoryList::Iterator itr = mEventArgsFactories.begin();
-			IEventArgsSharedPtr args;
-			for(; itr != mEventArgsFactories.end(); ++itr)
-			{
-				if((*itr)->getCreateableEventArgsType(type))
-				{
-					args = (*itr)->addEmptyEventArgs(type);
-					break;
-				}
-			}
-
-			return args;
-		}
-		//-----------------------------------------------------------------------------------------
-		ICameraActorAddedEventArgs* EventManager::createCameraActorAddedEventArgs(const c8* actorName)
-		{
-			ICameraActorAddedEventArgs* args(0); // = new CameraActorAddedEventArgs(ET_CAMERA_ACTOR_ADDED,
-												//				new gaming::AI_ACTOR_ID(actorName));
-			//EventArgsFactoryList::Iterator itr = mEventArgsFactories.begin();
-			//IEventArgs* args = 0;
-			//for(; itr != mEventArgsFactories.end(); ++itr)
-			//{
-			//	if((*itr)->getCreateableEventArgsType(ET_CAMERA_ACTOR_ADDED))
-			//	{
-			//		args = (*itr)->addca(type);
-			//		break;
-			//	}
-			//}
-
-			return args;
-		}
-		//-----------------------------------------------------------------------------------------
-//		IChangeStateEventArgs* EventManager::createChangeStateEventArgs(const qv::S_STATE *state)
-//		{
-//			//EventArgsFactoryList::Iterator itr = mEventArgsFactories.begin();
-////			IChangeStateEventArgs* args = 0;
-//			//for(; itr != mEventArgsFactories.end(); ++itr)
-//			//{
-//			//	if((*itr)->getCreateableEventArgsType(type))
-//			//	{
-////			args = new ChangeStateEventArgs(ET_GAME_STATE_CHANGE, state);
-//			//		break;
-//			//	}
-//			//}
-//
-//			return 0;
-//		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::abortEvent(const ET_EVENT_TYPE& type, bool all)
-		{
-			return true;
 		}
 		//-----------------------------------------------------------------------------------------
 		bool EventManager::abortEvent( u32 eventHashType, bool all)
@@ -174,17 +104,27 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		bool EventManager::registerCommandEvent(IEventCommandSharedPtr command)
 		{
-			const EventTypesList& commandEvents = command->listenEventTypes();
+//			const EventHashTypesVector& commandEvents = command->listenEventTypes();
 
 			//add listner in all event that it desire listen
 //			for(u32 i = 0; i < commandEvents.size(); ++i)
-            EventTypesList::ConstIterator itr = commandEvents.begin();
-            for(;itr != commandEvents.end(); ++itr)
-			{
-				if(validateType((*itr)))
+//            EventTypesList::ConstIterator itr = commandEvents.begin();
+//            for(;itr != commandEvents.end(); ++itr)
+//			{
+//				if(validateType((*itr)))
+                if(validateType((command->getEventHashType())))
 				{
-					EventToCommandEventMap::Node* nodeListeners =
-						mRegistredCommandsMap.find((*itr));
+				    for( u32 i = 0; i < mRegistredCommandsMap.size(); ++i)
+				    {
+                        if(mRegistredCommandsMap[i]->getEventHashType() ==
+                            command->getEventHashType())
+                            {
+
+                            }
+				    }
+
+//					EventToCommandEventMap::Node* nodeListeners =
+//						mRegistredCommandsMap.find((*itr));
 
 					//if event already existe, check if listener already exist
 					if(nodeListeners)
@@ -234,23 +174,6 @@ namespace qv
 					}
 				}
 			}
-
-			return true;
-		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::enqueueEvent(IEventArgs *args)
-		{
-			if(!validateType(args->getHashType()))
-				return false;
-
-            //check for a command listening this event
-			EventToCommandEventMap::Node* nodeCommandsMap =
-				mRegistredCommandsMap.find(args->getHashType());
-
-			if(!nodeCommandsMap)
-				return false;
-
-//			mReadyEvents[mActiveReadyEventList].push_back(args);
 
 			return true;
 		}
@@ -318,32 +241,6 @@ namespace qv
 			return eventHandled;
 		}
 		//-----------------------------------------------------------------------------------------
-		bool EventManager::trigger(IEventArgs *args)
-		{
-			if(!args || !validateType(args->getHashType()))
-				return false;
-
-			//iterate throw generic event listener, like a monitor to all events registred
-
-			EventToCommandEventMap::Node* nodeListenerMap =
-				mRegistredCommandsMap.find(args->getHashType());
-
-			if(!nodeListenerMap)
-				return false;
-
-			bool eventHandled = false;
-
-			const EventCommandArray& commands = nodeListenerMap->getValue();
-
-//			for(s32 i = 0; i < commands.size(); ++i)
-//			{
-////				commands[i]->executeCommand(args);
-//				eventHandled = true;
-//			}
-
-			return eventHandled;
-		}
-		//-----------------------------------------------------------------------------------------
 		bool EventManager::trigger(IEventArgsSharedPtr args)
 		{
 			if(!args || !validateType(args->getHashType()))
@@ -369,19 +266,6 @@ namespace qv
 			}
 
 			return eventHandled;
-		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::validateType( const ET_EVENT_TYPE & type)
-		{
-			if (type.Hash <= 0)
-				return false;
-
-			EventTypesList::ConstIterator itr;
-			for(itr = mValidEventTypes.begin(); itr != mValidEventTypes.end(); ++itr)
-				if((*itr) == type.Hash)
-					return false;
-
-			return true;
 		}
 		//-----------------------------------------------------------------------------------------
 		bool EventManager::validateType( u32 eventHashType)

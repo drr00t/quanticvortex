@@ -32,29 +32,23 @@
 
 namespace qv
 {
-
-
     namespace events
     {
-		//class IEventManager;
-
 		class DefaultEventArgsFactory : public IEventArgsFactory
 		{
         private:
-            array<u32> mSupportedEventArgsTypes;
-			//IEventManager* mEventManager;
+            EventHashTypesVector mSupportedEventArgsTypes;
 
 		public:
 			DefaultEventArgsFactory();
-			//DefaultEventArgsFactory(IEventManager* eventManager);
+
             virtual ~DefaultEventArgsFactory();
 
-			virtual IEventArgsSharedPtr addEmptyEventArgs( const ET_EVENT_TYPE& type);
-			virtual ICameraActorAddedEventArgs* addCameraActorAddedEventArgs( const c8* actorName);
+			virtual IEventArgsSharedPtr createEventArgs( u32 eventArgsHashType);
 
 			virtual u32 getCreatableEventArgsTypeCount() const;
 
-			virtual bool getCreateableEventArgsType(const ET_EVENT_TYPE& type) const;
+			virtual bool getCreateableEventArgsType( u32 eventArgsHashType) const;
 		};
     }
 }

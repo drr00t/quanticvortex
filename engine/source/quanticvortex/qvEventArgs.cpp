@@ -31,8 +31,8 @@ namespace qv
     namespace events
     {
 		//-----------------------------------------------------------------------------------------
-		EventArgs::EventArgs(const ET_EVENT_TYPE& eventType)
-			:mEventHashType(eventType.Hash)
+		EventArgs::EventArgs( u32 eventArgsHashType)
+			:mEventArgsHashType(eventArgsHashType)
         {
         }
 		//-----------------------------------------------------------------------------------------

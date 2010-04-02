@@ -28,7 +28,6 @@
 #include "qvDefaultEventArgsFactory.h"
 
 #include "qvEventArgs.h"
-#include "qvCameraActorAddedEventArgs.h"
 //#include "qvChangeStateEventArgs.h"
 
 namespace qv
@@ -38,34 +37,22 @@ namespace qv
         //-----------------------------------------------------------------------------------------
         DefaultEventArgsFactory::DefaultEventArgsFactory()
         {
+            // event args that get any arguments
 			mSupportedEventArgsTypes.push_back(ET_GAME_QUIT.Hash);
 			mSupportedEventArgsTypes.push_back(ET_GAME_NEW.Hash);
 			mSupportedEventArgsTypes.push_back(ET_GAME_STATE_CHANGE.Hash);
-			mSupportedEventArgsTypes.push_back(ET_CAMERA_ACTOR_ADDED.Hash);
         }
         //-----------------------------------------------------------------------------------------
         DefaultEventArgsFactory::~DefaultEventArgsFactory()
         {
         }
 		//-----------------------------------------------------------------------------------------------
-		IEventArgsSharedPtr DefaultEventArgsFactory::addEmptyEventArgs( const ET_EVENT_TYPE& type)
+		IEventArgsSharedPtr DefaultEventArgsFactory::createEventArgs( u32 eventArgsHashType)
 		{
 			IEventArgsSharedPtr eventArgs;
 
-			if(getCreateableEventArgsType(type))
-			{
-				if((ET_GAME_QUIT.Hash == type.Hash) ||
-					(ET_GAME_NEW.Hash == type.Hash))
-					eventArgs = IEventArgsSharedPtr(new EventArgs(type));
-			}
-
-			return eventArgs;
-		}
-		//-----------------------------------------------------------------------------------------------
-		ICameraActorAddedEventArgs* DefaultEventArgsFactory::addCameraActorAddedEventArgs( const c8* actorName)
-		{
-			ICameraActorAddedEventArgs* eventArgs(0);
-//				new CameraActorAddedEventArgs(ET_CAMERA_ACTOR_ADDED.Hash, new gaming::AI_ACTOR_ID(actorName));
+			if(getCreateableEventArgsType(eventArgsHashType))
+                eventArgs = IEventArgsSharedPtr(new EventArgs( eventArgsHashType));
 
 			return eventArgs;
 		}
@@ -75,10 +62,10 @@ namespace qv
 			return mSupportedEventArgsTypes.size();
         }
         //-----------------------------------------------------------------------------------------
-		bool DefaultEventArgsFactory::getCreateableEventArgsType(const ET_EVENT_TYPE& type) const
+		bool DefaultEventArgsFactory::getCreateableEventArgsType( u32 eventArgsHashType) const
         {
 	        for (u32 i=0; i<mSupportedEventArgsTypes.size(); ++i)
-				if (mSupportedEventArgsTypes[i] == type.Hash)
+				if (mSupportedEventArgsTypes[i] == eventArgsHashType)
 			        return true;
 
             return false;
