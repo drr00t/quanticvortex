@@ -30,6 +30,11 @@
 
 #include "qvActorTypes.h"
 
+#include "Poco/SharedPtr.h"
+#include "irrArray.h"
+#include "irrMap.h"
+#include "irrList.h"
+
 
 namespace qv
 {
@@ -43,23 +48,21 @@ namespace qv
 
             virtual u32 getHashType() const = 0;
 
-			virtual const matrix4& getTransformation() const =0;
+//			virtual const btTransform& getTransformation() const =0;
 
 			virtual bool isVisible () const = 0;
 
-//            virtual void setName( const c8* name) = 0;
-
             virtual void setType( u32 actorHashType) = 0;
 
-            virtual void setTransformation( const matrix4& transformation) = 0;
+//            virtual void setTransformation( const btTransform& transformation) = 0;
 
 //            virtual void update( u32 elapsedTimeMs) const = 0;
         };
 
 		typedef Poco::SharedPtr<IActor> IActorSharedPtr;
-        typedef map<u32, IActorSharedPtr> ActorsMap;
-        typedef list<IActorSharedPtr> ActorsSharedPtrList;
-        typedef array<IActorSharedPtr> ActorsSharedPtrArray;
+        typedef irr::core::map<u32, IActorSharedPtr> ActorsMap;
+        typedef irr::core::list<IActorSharedPtr> ActorsSharedPtrList;
+        typedef irr::core::array<IActorSharedPtr> ActorsSharedPtrArray;
     }
 }
 #endif

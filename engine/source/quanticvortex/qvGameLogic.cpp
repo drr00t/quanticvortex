@@ -45,8 +45,8 @@ namespace qv
     namespace gaming
     {
         //-----------------------------------------------------------------------------------------
-        GameLogic::GameLogic(IEngineManager* engineManager, const GLT_GAME_LOGIC_TYPE* type)
-            :mEngineManager(engineManager), mPhysicsManager(0), mType(type)
+        GameLogic::GameLogic(IEngineManager* engineManager)
+            :mEngineManager(engineManager), mPhysicsManager(0)
         {
 #ifdef _DEBUG
 			setDebugName("DefaultGameLogic");
@@ -66,7 +66,7 @@ namespace qv
 
 			mGameViews.clear();
 
-			map<u32,IActor*>::ParentLastIterator itrActor = mActors.getParentLastIterator();
+			ActorsMap::ParentLastIterator itrActor = mActors.getParentLastIterator();
 
 //			while(!itrActor.atEnd())
 //			{
@@ -106,13 +106,13 @@ namespace qv
 			return true;
 		}
         //-----------------------------------------------------------------------------------------
-		void GameLogic::addActor( const AI_ACTOR_ID & actorID, const SActorArgs& args)
+		void GameLogic::addActor( u32 actorHashId)
         {
 			IActor* actor = 0;
 
 			//ask to an actor factory if it possible create an actor with this args
 			//if there is no other actor with this ID
-			if(!mActors.find(actorID.Hash))
+			if(!mActors.find(actorHashId))
 			{
 				//if(args.getNodeType().equals_ignore_case("mesh"))
 				//{
@@ -198,7 +198,7 @@ namespace qv
 
         }
         //-----------------------------------------------------------------------------------------
-        bool GameLogic::loadGame(const stringw& gameName)
+        bool GameLogic::loadGame(const string& gameName)
         {
 	        //if (gameName=="NewGame")
 	        //{
@@ -215,7 +215,7 @@ namespace qv
             mState = newState;
         }
         //-----------------------------------------------------------------------------------------
-		void GameLogic::addView(views::IGameView* gameView, const AI_ACTOR_ID * actorID)
+		void GameLogic::addView(views::IGameView* gameView, u32 actorHashId)
         {
 //            gameView->grab();
             mGameViews.push_back(gameView);
@@ -229,7 +229,7 @@ namespace qv
             //view->restore();
         }
         //-----------------------------------------------------------------------------------------
-        views::IGameView* GameLogic::addView( const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, const AI_ACTOR_ID* actorID)
+        views::IGameView* GameLogic::addView( const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, u32 actorHashId)
         {
             views::IGameView* gameView(0);
 
@@ -249,18 +249,6 @@ namespace qv
             //i need restart view here, on book it use restore method
             //view->restore();
         }
-        //-----------------------------------------------------------------------------------------
-        views::IHumanView* GameLogic::addHumanView(const irr::c8 *viewID, const AI_ACTOR_ID* actorID)
-        {
-            views::IHumanView* gameView(0);
-
-//            gameView = new views::HumanView(viewID, mEngineManager);
-//            mGameViews.push_back(gameView);
-//            gameView->attach(gameView->getID(), actorID);
-
-            return gameView;
-        }
-        //virtual IHumanView* addHumanView(const c8* viewID, ActorID* actorID=0);
         //-----------------------------------------------------------------------------------------
         void GameLogic::removeView(views::IGameView* gameView)
         {

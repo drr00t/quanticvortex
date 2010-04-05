@@ -31,27 +31,27 @@
 #include "qvIGameLogicFactory.h"
 
 namespace qv
-{    
+{
 	class IEngineManager;
 
     namespace gaming
     {
-        class GameLogicFactory : public IGameLogicFactory
-		{
-        private:
-            array<u32> mSupportedGameLogicTypes;
-			IEngineManager* mEngine;
-
-		public:
-            GameLogicFactory(IEngineManager* engine);
-            virtual ~GameLogicFactory();
-
-            virtual IGameLogic* addGameLogic(const GLT_GAME_LOGIC_TYPE* type);
-
-			virtual u32 getCreateableGameLogicTypeCount() const;
-
-			virtual bool getCreateableGameLogicType(const GLT_GAME_LOGIC_TYPE* type);
-		};
+//        class GameLogicFactory : public IGameLogicFactory
+//		{
+//        private:
+//            array<u32> mSupportedGameLogicTypes;
+//			IEngineManager* mEngine;
+//
+//		public:
+//            GameLogicFactory(IEngineManager* engine);
+//            virtual ~GameLogicFactory();
+//
+//            virtual IGameLogic* addGameLogic(const GLT_GAME_LOGIC_TYPE* type);
+//
+//			virtual u32 getCreateableGameLogicTypeCount() const;
+//
+//			virtual bool getCreateableGameLogicType(const GLT_GAME_LOGIC_TYPE* type);
+//		};
     }
 }
 #endif

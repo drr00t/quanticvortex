@@ -30,6 +30,8 @@
 
 #include "qvIElementViewFactory.h"
 
+#include "irrArray.h"
+
 namespace qv
 {
     class IEngineManager;
@@ -40,7 +42,7 @@ namespace qv
         class DefaultElementViewFactory : public IElementViewFactory
 		{
         private:
-            array<u32> mSupportedElementViewTypes;
+            irr::core::array<u32> mSupportedElementViewTypes;
             IEngineManager* mEngine;
 
 		public:

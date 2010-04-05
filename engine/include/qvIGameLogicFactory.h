@@ -37,16 +37,16 @@ namespace qv
     namespace gaming
     {
 
-		class IGameLogicFactory : public IReferenceCounted
-		{
-		public:
-
-            virtual IGameLogic* addGameLogic(const GLT_GAME_LOGIC_TYPE* type) = 0;
-
-			virtual u32 getCreateableGameLogicTypeCount() const = 0;
-
-			virtual bool getCreateableGameLogicType(const GLT_GAME_LOGIC_TYPE* type) = 0;
-		};
+//		class IGameLogicFactory : public IReferenceCounted
+//		{
+//		public:
+//
+//            virtual IGameLogic* addGameLogic() = 0;
+//
+//			virtual u32 getCreateableGameLogicTypeCount() const = 0;
+//
+//			virtual bool getCreateableGameLogicType() = 0;
+//		};
     }
 }
 #endif

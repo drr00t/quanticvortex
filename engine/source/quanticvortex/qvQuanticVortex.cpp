@@ -33,8 +33,8 @@ namespace qv
 	_QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManager( bool fullscreen,
 	                                                                                bool vsync,
 	                                                                                u8 bits,
-	                                                                                dimension2du windowSize,
-                                                                                    stringw title,
+	                                                                                irr::core::dimension2du windowSize,
+                                                                                    string title,
                                                                                     bool hostGame,
                                                                                     u8 localPlayers,
                                                                                     u8 aIPlayers,
@@ -54,7 +54,7 @@ namespace qv
 		return createEngineManagerEx(params);
 	};
 
-    //grab must be called after get the engine instance, and drop must be called be before finish game 
+    //grab must be called after get the engine instance, and drop must be called be before finish game
     _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManagerEx(const SGameParams& params)
 	{
         IEngineManager* engineManager = new EngineManager(params);

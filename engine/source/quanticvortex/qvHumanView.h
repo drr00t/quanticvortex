@@ -75,20 +75,20 @@ namespace qv
 			//void attachProcess(Process* process){mProcessManager->attach(process);}
 
             //command that will registred on event manager to response to spacefic events
-            virtual const CommandList& commandEventResponseList() const { return mEventCommands; }
+//            virtual const CommandList& commandEventResponseList() const { return mEventCommands; }
 
             //coomand that will registred on input manager to response to user input
-            virtual const CommandList& commandInputResponseList() const { return mInputCommands; }
+//            virtual const CommandList& commandInputResponseList() const { return mInputCommands; }
 
         protected:
             IEngineManager*     mEngine;
             u32 mViewHashType;
             u32	mViewHashId;
             u32 mActorHashId;
-			array<IElementView*> mElementViews;
-            array<IElementViewFactory*> mElementViewFactories;
-            CommandList mInputCommands;
-            CommandList mEventCommands;
+			ElementViewList mElementViews;
+//            array<IElementViewFactory*> mElementViewFactories;
+//            CommandList mInputCommands;
+//            CommandList mEventCommands;
 			//I need to put aITimer here, to allow private timer to player view
 
             //IGUIFont* mFont;
@@ -96,9 +96,11 @@ namespace qv
             //IGUIEnvironment* mGuiEnvironment;
 
 
-            f32 mCurrentTime;    // current time
-            f32 mLastUpdateTime; // last tick time update
+            real mCurrentTime;    // current time
+            real mLastUpdateTime; // last tick time update
 			u32 mAccumulatorTime;
+
+			cAudio::IAudioManager* mAudioManager;
 
 	        //// Interface sensitive objects
 	        //shared_ptr<IMouseHandler> mMouseHandler;

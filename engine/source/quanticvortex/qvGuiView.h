@@ -4,8 +4,8 @@
 
 #include "qvIGuiView.h"
 
-using namespace irr::gui;
-
+#include "IGUIElement.h"
+#include "IGUIEnvironment.h"
 
 namespace qv
 {
@@ -17,14 +17,14 @@ namespace qv
         class GuiView: public IGuiView
         {
         protected:
-            IGUIElement* mElement;
-            IGUIEnvironment* mGuiManager;
+            irr::gui::IGUIElement* mElement;
+            irr::gui::IGUIEnvironment* mGuiManager;
 			bool mVisible;
             u32 mHashType;
             const EVI_ELEMENT_VIEW_ID* mID;
 
         public:
-            GuiView(const c8* name, IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE& type = EVT_ELEMENT_VIEW_GUI);
+            GuiView(const c8* name, IEngineManager* engine, u32 elementViewHashType);
             virtual ~GuiView();
 
             virtual u32 getHashId() const { return mID->Hash; }

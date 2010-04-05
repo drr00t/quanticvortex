@@ -31,6 +31,7 @@
 #include "qvIInputReceiverDriverFactory.h"
 #include "qvSGameParams.h"
 
+#include "IReferenceCounted.h"
 
 namespace qv
 {
@@ -52,7 +53,7 @@ namespace qv
 		class IGameLogic;
 	}
 
-	class IEngineManager : public IReferenceCounted
+	class IEngineManager : public irr::IReferenceCounted
     {
 
 	public:
@@ -73,7 +74,7 @@ namespace qv
 
 		virtual gaming::IGameLogic* getGameLogic()=0;
 
-        virtual IrrlichtDevice* getDevice()=0;
+//        virtual IrrlichtDevice* getDevice()=0;
 
 		virtual events::IEventManager* getEventManager()=0;
 

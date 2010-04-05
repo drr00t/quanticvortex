@@ -28,20 +28,22 @@
 #ifndef __I_GAME_VIEW_H_
 #define __I_GAME_VIEW_H_
 
+#include "IReferenceCounted.h"
+#include "irrArray.h"
 #include "qvGameViewTypes.h"
-//#include "qvIActor.h"
 
+#include "Poco/SharedPtr.h"
+#include "irrArray.h"
+#include "IReferenceCounted.h"
 
 namespace qv
 {
     namespace views
     {
 
-        class IGameView //: public IReferenceCounted
+        class IGameView : public irr::IReferenceCounted
         {
         public:
-
-            //virtual const GVT_GAME_VIEW_TYPE* getType()=0;
 
 			virtual void attach(u32 viewHashId, u32 actorHashId = 0) = 0;
 
@@ -57,7 +59,7 @@ namespace qv
         };
 
         typedef Poco::SharedPtr<IGameView> IGameViewSharedPtr;
-		typedef list<IGameViewSharedPtr> GameViewList;
+		typedef irr::core::array<IGameViewSharedPtr> GameViewsArray;
         //typedef array<IGameView*> GameViewArray;
     }
 }

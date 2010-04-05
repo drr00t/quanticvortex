@@ -36,6 +36,8 @@
 //#include "qvKeyTypes.h"
 
 #include "IEventReceiver.h"
+#include "Poco/SharedPtr.h"
+#include "IReferenceCounted.h"
 
 namespace qv
 {
@@ -52,8 +54,8 @@ namespace qv
 
 		typedef SHashedString IRD_INPUT_RECEIVER_DRIVER;
 
-        class IInputReceiver :  public IEventReceiver,
-                                public IReferenceCounted
+        class IInputReceiver :  public irr::IEventReceiver,
+                                public irr::IReferenceCounted
 		{
 		public:
 
@@ -61,7 +63,7 @@ namespace qv
 
             virtual void registerInputTranslator( IInputTranslator* translator) = 0;
 
-            virtual void unregisterInputTranslator( const IT_INPUT_TRANSLATOR_ID* translatorID) = 0;
+            virtual void unregisterInputTranslator( u32 inputTranslatorHashId) = 0;
 
             virtual void unregisterInputTranslator( IInputTranslator* translator) = 0;
 
@@ -75,13 +77,13 @@ namespace qv
 
 			//current context
 
-			virtual bool keyPressed(EKEY_CODE keycode)=0;
+			virtual bool keyPressed(irr::EKEY_CODE keycode)=0;
 
-			virtual bool keyDown(EKEY_CODE keycode)=0;
+			virtual bool keyDown(irr::EKEY_CODE keycode)=0;
 
-			virtual bool keyUp(EKEY_CODE keycode)=0;
+			virtual bool keyUp(irr::EKEY_CODE keycode)=0;
 
-			virtual bool keyReleased(EKEY_CODE keycode)=0;
+			virtual bool keyReleased(irr::EKEY_CODE keycode)=0;
 		};
 
 		typedef Poco::SharedPtr<IInputReceiver> IInputReceiverSharedPtr;

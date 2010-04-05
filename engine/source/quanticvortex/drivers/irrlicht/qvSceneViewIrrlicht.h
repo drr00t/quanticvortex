@@ -29,7 +29,7 @@
 
 #include "qvISceneView.h"
 
-using namespace irr::scene;
+#include "irrMap.h"
 
 namespace qv
 {
@@ -42,7 +42,7 @@ namespace qv
 
     namespace views
     {
-		typedef map<s32,ISceneNode*> ActorSceneNodeMap;
+		typedef irr::core::map<s32, irr::scene::ISceneNode*> ActorSceneNodeMap;
 
 		class SceneViewIrrlicht: public ISceneView
         {
@@ -77,17 +77,17 @@ namespace qv
                 mVisible = visible;
             }
 
-            virtual void setCamera(ICameraSceneNode* camera)
+            virtual void setCamera(irr::scene::ICameraSceneNode* camera)
             {
                 mDefaultCamera = camera;
             }
 
-			virtual ICameraSceneNode* getCamera()
+			virtual irr::scene::ICameraSceneNode* getCamera()
             {
                 return mDefaultCamera;
             }
 
-			virtual ISceneManager* getSceneManager()
+			virtual irr::scene::ISceneManager* getSceneManager()
             {
                 return mSceneManager;
             }
@@ -98,21 +98,21 @@ namespace qv
 
 			virtual void loadScene(const c8* sceneName);
 
-			virtual void addSceneNode(const gaming::SActorArgs& args, const gaming::AI_ACTOR_ID* actorID = 0);
+			virtual void addSceneNode(const gaming::SActorArgs& args, u32 actorHashId = 0);
 
-			virtual ISceneNode* findSceneNode(const gaming::AI_ACTOR_ID* actorID);
+			virtual irr::scene::ISceneNode* findSceneNode( u32 actorHashId);
 
-			virtual void OnCreateNode(ISceneNode* node);
+			virtual void OnCreateNode(irr::scene::ISceneNode* node);
 
-			virtual void OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData);
+			virtual void OnReadUserData(irr::scene::ISceneNode* forSceneNode, irr::io::IAttributes* userData);
 
-			virtual io::IAttributes* createUserData(ISceneNode* forSceneNode);
+			virtual irr::io::IAttributes* createUserData(irr::scene::ISceneNode* forSceneNode);
 
 		protected:
 
             bool mVisible;
-			ICameraSceneNode* mDefaultCamera;
-			ISceneManager* mSceneManager;
+			irr::scene::ICameraSceneNode* mDefaultCamera;
+			irr::scene::ISceneManager* mSceneManager;
 			events::IEventManager* mEventManager;
             u32 mElementViewHashType;
             EVI_ELEMENT_VIEW_ID* mID;

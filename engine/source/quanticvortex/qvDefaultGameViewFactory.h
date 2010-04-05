@@ -30,6 +30,8 @@
 
 #include "qvIGameViewFactory.h"
 
+#include "irrArray.h"
+
 
 namespace qv
 {
@@ -41,7 +43,7 @@ namespace qv
         class DefaultGameViewFactory : public IGameViewFactory
 		{
         private:
-            array<u32> mSupportedGameViewTypes;
+            irr::core::array<u32> mSupportedGameViewTypes;
             IEngineManager* mEngine;
 
 		public:

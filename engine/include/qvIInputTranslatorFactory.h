@@ -31,11 +31,13 @@
 #include "qvIInputTranslator.h"
 #include "qvIEventArgs.h"
 
+#include "IReferenceCounted.h"
+
 namespace qv
 {
     namespace input
     {
-		class IInputTranslatorFactory : public IReferenceCounted
+		class IInputTranslatorFactory : public irr::IReferenceCounted
 		{
 		public:
 

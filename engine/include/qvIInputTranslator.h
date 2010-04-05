@@ -33,6 +33,10 @@
 #include "qvEventTypes.h"
 #include "qvKeyTypes.h"
 
+#include "Poco/SharedPtr.h"
+#include "irrArray.h"
+#include "irrList.h"
+
 namespace qv
 {
 	namespace events
@@ -44,12 +48,12 @@ namespace qv
 	{
 		class IInputReceiver;
 
-        typedef SHashedString IT_INPUT_TRANSLATOR_ID;
-		typedef SHashedString IT_INPUT_TRANSLATOR_TYPE;
+        typedef SHashedString ITI_INPUT_TRANSLATOR_ID;
+		typedef SHashedString ITT_INPUT_TRANSLATOR_TYPE;
 
-		typedef array<u32> InputTranslatorTypesArray;
+		typedef irr::core::array<u32> InputTranslatorHashTypesArray;
 
-		class IInputTranslator //: public IReferenceCounted
+		class IInputTranslator
 		{
 //		protected:
 //			const IT_INPUT_TRANSLATOR_ID* mID;
@@ -77,7 +81,7 @@ namespace qv
 		};
 
 		typedef Poco::SharedPtr<IInputTranslator> IInputTranslatorSharedPtr;
-		typedef list<IInputTranslatorSharedPtr> InputTranslatorList;
+		typedef irr::core::list<IInputTranslatorSharedPtr> InputTranslatorList;
 	}
 }
 

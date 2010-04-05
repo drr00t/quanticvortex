@@ -30,6 +30,8 @@
 
 #include "qvIInputReceiverDriverFactory.h"
 
+#include "irrArray.h"
+
 
 namespace qv
 {
@@ -40,7 +42,7 @@ namespace qv
         class DefaultInputReceiverDriverFactory : public IInputReceiverDriverFactory
 		{
         private:
-            array<u32> mSupportedInputReceiverDriverTypes;
+            irr::core::array<u32> mSupportedInputReceiverDriverTypes;
             IEngineManager* mEngine;
 
 		public:

@@ -28,14 +28,16 @@
 #ifndef __S_HASHED_STRING_H_
 #define __S_HASHED_STRING_H_
 
-#include "qvPrerequisites.h"
 #include "qvSuperFastHash.h"
+#include "qvTypes.h"
+
+#include "Poco/String.h"
 
 
 namespace qv
 {
 
-	struct SHashedString: public IReferenceCounted
+	struct SHashedString
     {
 		//-------------------------------------------------------------------------
 		SHashedString()
@@ -46,7 +48,7 @@ namespace qv
 		SHashedString(const c8* text)
 			:Text(text)
 		{
-			Text.make_upper();
+		    Poco::toLowerInPlace(Text);
 			Hash = createSuperFastHash(Text);
 		}
 		//-------------------------------------------------------------------------
@@ -100,7 +102,7 @@ namespace qv
 		}
 		//-------------------------------------------------------------------------
 
-		stringc Text;
+		string Text;
 		u32 Hash;
     };
 }

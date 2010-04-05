@@ -29,6 +29,10 @@
 
 #include "qvSHashedString.h"
 
+#include "Poco/SharedPtr.h"
+#include "irrList.h"
+#include "IReferenceCounted.h"
+
 namespace qv
 {
     namespace views
@@ -36,7 +40,7 @@ namespace qv
 		typedef SHashedString EVI_ELEMENT_VIEW_ID;
         typedef SHashedString EVT_ELEMENT_VIEW_TYPE;
 
-		class IElementView //: public irr::IReferenceCounted
+		class IElementView: public irr::IReferenceCounted
         {
 		//protected:
 		//	u16 mOrder;
@@ -70,7 +74,7 @@ namespace qv
         };
 
         typedef Poco::SharedPtr<IElementView> IElementViewSharedPtr;
-		typedef list<IElementViewSharedPtr> ElementViewList;
+		typedef irr::core::list<IElementViewSharedPtr> ElementViewList;
     }
 }
 #endif

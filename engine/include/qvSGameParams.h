@@ -30,12 +30,14 @@
 
 #include "qvPrerequisites.h"
 
+#include "irrMath.h"
+
 namespace qv
 {
 	struct SGameParams
     {
 		SGameParams():
-			WindowSize(dimension2du(1024, 768)),
+			WindowSize(irr::core::dimension2du(1024, 768)),
 			Fullscreen(false),
 			Vsync(false),
 			Bits(16),
@@ -43,7 +45,7 @@ namespace qv
             LocalPlayers(1),
             AIPlayers(0),  //player vs computer games i can use this to test the ai and animation, maybe
             RemotePlayers(0),
-            Title(L"Default Game Title")
+            Title("Default Game Title")
 		{
 		}
 
@@ -74,7 +76,7 @@ namespace qv
 			return *this;
 		}
 
-        dimension2du WindowSize;
+        irr::core::dimension2du WindowSize;
         bool Fullscreen;
 		bool Vsync;
 		u8 Bits;
@@ -88,7 +90,7 @@ namespace qv
         bool InputBuffered;
         bool InputDebug;
 
-        stringw Title;
+        string Title;
         //texture size
         //detail level
         //shadow maps

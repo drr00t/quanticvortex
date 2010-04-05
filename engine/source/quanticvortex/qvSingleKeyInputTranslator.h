@@ -67,7 +67,7 @@ namespace qv
 //									const c8* inputTranslatorName);
 
 			SingleKeyInputTranslator(events::IEventManager* eventManager,
-									EKEY_CODE keyCode,
+									irr::EKEY_CODE keyCode,
 									EKEY_STATE checkKeyState,
 									bool realTime,
 									events::IEventArgsSharedPtr args,
@@ -84,12 +84,12 @@ namespace qv
 
         private:
             events::IEventManager* mEventManager;
-			EKEY_CODE mKeyCode;
+			irr::EKEY_CODE mKeyCode;
 			EKEY_STATE mCheckKeyState;
 			bool mRealTime;
 			events::IEventArgsSharedPtr mArgs;
 			u32 mInputTranslatorHashType;
-			const IT_INPUT_TRANSLATOR_ID* mId;
+			const ITI_INPUT_TRANSLATOR_ID* mId;
 		};
 	}
 }

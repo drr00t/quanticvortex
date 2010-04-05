@@ -30,12 +30,13 @@
 
 #include "qvIGameView.h"
 
+#include "IReferenceCounted.h"
 
 namespace qv
 {
     namespace views
     {
-		class IGameViewFactory : public virtual IReferenceCounted
+		class IGameViewFactory : public irr::IReferenceCounted
 		{
 		public:
 

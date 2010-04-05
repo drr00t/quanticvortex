@@ -4,6 +4,8 @@
 
 #include "qvPrerequisites.h"
 
+#include "IReferenceCounted.h"
+
 namespace qv
 {
     namespace runtime
@@ -17,7 +19,7 @@ namespace qv
             EPS_FAILED,
         };
 
-		
+
 		const c8* const ProcessStatusNames[] =
 		{
 			"Ready",
@@ -38,10 +40,10 @@ namespace qv
 			virtual E_PROCESS_STATUS update(u32 elapsedTime)=0;
 
 			virtual void setStatus(E_PROCESS_STATUS processStatus)=0;
-			
+
 			virtual E_PROCESS_STATUS getStatus()=0;
 
-			virtual const list<IProcess*>& getChildren() const =0;
+//			virtual const list<IProcess*>& getChildren() const =0;
 
         };
 

@@ -52,8 +52,8 @@ namespace qv
 			if(elementViewHashType == EVT_ELEMENT_VIEW_SCENE.Hash)
                 elementView.assign(new SceneViewIrrlicht(name, mEngine));
 
-			else if(elementViewHashType == EVT_ELEMENT_VIEW_GUI.Hash)
-                elementView.assign(new GuiView(name, mEngine));
+//			else if(elementViewHashType == EVT_ELEMENT_VIEW_GUI.Hash)
+//                elementView.assign(new GuiView(name, mEngine));
 
 			return elementView;
 		}

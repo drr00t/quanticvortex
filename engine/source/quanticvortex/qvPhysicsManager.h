@@ -2,6 +2,7 @@
 #ifndef __PHYSICS_MANAGER_H_
 #define __PHYSICS_MANAGER_H_
 
+#include "qvTypes.h"
 #include "qvActorTypes.h"
 #include "qvIPhysicsManager.h"
 
@@ -30,7 +31,7 @@ namespace
 		TEuler.setY(asinf(-2.0f * (X * Z - Y * W)));
 		TEuler.setZ(atan2f(2.0f * (X * Y + Z * W), XSquared - YSquared - ZSquared + WSquared));
 
-		TEuler *= core::RADTODEG;
+		TEuler *= irr::core::RADTODEG;
 	}
 }
 
@@ -60,16 +61,16 @@ namespace qv
 
 			//// Initialization of Physics Objects
             //virtual void addShape(f32 radius, gaming::AI_ACTOR_ID *actorId, scene::ISceneNode* sceneNode, f32 specificGravity);
-            virtual void addShape(f32 radius, gaming::IActor *actor, f32 specificGravity);
+            virtual void addShape(real radius, gaming::IActor *actor, real specificGravity);
 			//virtual void VAddSphere(float radius, IActor *actor, float specificGravity, enum PhysicsMaterial mat)=0;
 			//virtual void addSphere(f32 radius, gaming::AI_ACTOR_ID *actorId, f32 specificGravity);
-            virtual void addSphere(f32 radius, gaming::IActor *actor, f32 specificGravity);
+            virtual void addSphere(real radius, gaming::IActor *actor, real specificGravity);
 
 			//virtual void VAddBox(const Vec3& dimensions, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat) = 0;
-			virtual void addBox(const vector3df& dimensions, gaming::IActor *actor, f32 specificGravity);
+			virtual void addBox(const irr::core::vector3df& dimensions, gaming::IActor *actor, real specificGravity);
 
 			//virtual void VAddPointCloud(Vec3 *verts, int numPoints, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat)=0;
-			virtual void addConvexHull(vector3df *verts, s32 numPoints, gaming::IActor *actor, f32 specificGravity);
+			virtual void addConvexHull( irr::core::vector3df *verts, s32 numPoints, gaming::IActor *actor, real specificGravity);
 
 
 			//virtual void VRemoveActor(ActorId id)=0;
@@ -103,7 +104,7 @@ namespace qv
             btConstraintSolver* mBulletConstraintSolver;
             CollisionShapes mCollisionObjectsList;
 
-			f32 mTimeUpdate;
+			real mTimeUpdate;
 		};
 
         //typedef SharedPtr<IActor> ActorPtr;

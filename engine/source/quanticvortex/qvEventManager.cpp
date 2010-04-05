@@ -77,6 +77,12 @@ namespace qv
 //				(*itrEvents)->drop();
 		}
 		//-----------------------------------------------------------------------------------------
+		IEventArgsSharedPtr EventManager::createEmptyEventArgs(u32 eventArgsHashType)
+		{
+		    IEventArgsSharedPtr args;
+		    return args;
+		}
+		//-----------------------------------------------------------------------------------------
 		void EventManager::registerEventType( u32 eventHashType)
 		{
 			if( eventHashType <= 0)
@@ -112,68 +118,68 @@ namespace qv
 //            for(;itr != commandEvents.end(); ++itr)
 //			{
 //				if(validateType((*itr)))
-                if(validateType((command->getEventHashType())))
-				{
-				    for( u32 i = 0; i < mRegistredCommandsMap.size(); ++i)
-				    {
-                        if(mRegistredCommandsMap[i]->getEventHashType() ==
-                            command->getEventHashType())
-                            {
-
-                            }
-				    }
+//                if(validateType((command->getEventArgsHashType())))
+//				{
+//				    for( u32 i = 0; i < mRegistredCommandsMap.size(); ++i)
+//				    {
+//                        if(mRegistredCommandsMap[i]-> getEventArgsHashType() ==
+//                            command->getEventArgsHashType())
+//                            {
+//
+//                            }
+//				    }
 
 //					EventToCommandEventMap::Node* nodeListeners =
 //						mRegistredCommandsMap.find((*itr));
 
 					//if event already existe, check if listener already exist
-					if(nodeListeners)
-					{
-						const EventCommandArray& arrEventCommands = nodeListeners->getValue();
-
-						for( u32 j = 0; j < arrEventCommands.size(); ++j)
-							if(arrEventCommands[j]->getHashId() ==  command->getHashId())
-								return false;
-
-						nodeListeners->getValue().push_back(command);
-
-						break;
-					}
-					else
-					{
-						EventCommandArray commands;
-						commands.push_back(command);
-						mRegistredCommandsMap[(*itr)] = commands;
-
-						break;
-					}
-				}
-			}
+//					if(nodeListeners)
+//					{
+//						const EventCommandArray& arrEventCommands = nodeListeners->getValue();
+//
+//						for( u32 j = 0; j < arrEventCommands.size(); ++j)
+//							if(arrEventCommands[j]->getHashId() ==  command->getHashId())
+//								return false;
+//
+//						nodeListeners->getValue().push_back(command);
+//
+//						break;
+//					}
+//					else
+//					{
+//						EventCommandArray commands;
+//						commands.push_back(command);
+//						mRegistredCommandsMap[(*itr)] = commands;
+//
+//						break;
+//					}
+//				}
+//			}
 
 			return true;
 		}
 		//-----------------------------------------------------------------------------------------
 		bool EventManager::unregisterCommandEvent(IEventCommandSharedPtr command)
 		{
-			const EventTypesList& events = command->listenEventTypes();
-			EventTypesList::ConstIterator itrEvents = events.begin();
-
-			for(; itrEvents != events.end(); ++itrEvents)
-			{
-				EventToCommandEventMap::Node* nodeListenerMap =
-					mRegistredCommandsMap.find((*itrEvents));
-
-				EventCommandArray eventCommands = nodeListenerMap->getValue();
-
-				for( u32 j = 0 ; j < eventCommands.size(); ++j)
-				{
-					if(eventCommands[j]->getHashId() == command->getHashId())
-                    {
-    				    eventCommands.erase(j);
-						break;
-					}
-				}
-			}
+//			const EventTypesList& events = command->listenEventTypes();
+//			EventTypesList::ConstIterator itrEvents = events.begin();
+//
+//			for(; itrEvents != events.end(); ++itrEvents)
+//			{
+//				EventToCommandEventMap::Node* nodeListenerMap =
+//					mRegistredCommandsMap.find((*itrEvents));
+//
+//				EventCommandArray eventCommands = nodeListenerMap->getValue();
+//
+//				for( u32 j = 0 ; j < eventCommands.size(); ++j)
+//				{
+//					if(eventCommands[j]->getHashId() == command->getHashId())
+//                    {
+//    				    eventCommands.erase(j);
+//						break;
+//					}
+//				}
+//			}
 
 			return true;
 		}
@@ -184,18 +190,18 @@ namespace qv
 				return false;
 
             //check for a command listening this event
-			EventToCommandEventMap::Node* nodeCommandsMap =
-				mRegistredCommandsMap.find(args->getHashType());
-
-			if(!nodeCommandsMap)
-				return false;
+//			EventToCommandEventMap::Node* nodeCommandsMap =
+//				mRegistredCommandsMap.find(args->getHashType());
+//
+//			if(!nodeCommandsMap)
+//				return false;
 
 			mReadyEvents[mActiveReadyEventList].push_back(args);
 
 			return true;
 		}
 		//-----------------------------------------------------------------------------------------
-		bool EventManager::process(f32 processingTime)
+		bool EventManager::process(real processingTime)
 		{
 			bool eventHandled = false;
 			s32 processReadyEventList = mActiveReadyEventList;
@@ -248,22 +254,22 @@ namespace qv
 
 			//iterate throw generic event listener, like a monitor to all events registred
 
-			EventToCommandEventMap::Node* nodeListenerMap =
-				mRegistredCommandsMap.find(args->getHashType());
-
-			if(!nodeListenerMap)
-				return false;
+//			EventToCommandEventMap::Node* nodeListenerMap =
+//				mRegistredCommandsMap.find(args->getHashType());
+//
+//			if(!nodeListenerMap)
+//				return false;
 
 			bool eventHandled = false;
 
-			const EventCommandArray& commands = nodeListenerMap->getValue();
-
-			for(u32 i = 0; i < commands.size(); ++i)
-			{
-			    ICommandSharedPtr com = commands[i];
-				com->executeCommand(args);
-				eventHandled = true;
-			}
+//			const EventCommandArray& commands = nodeListenerMap->getValue();
+//
+//			for(u32 i = 0; i < commands.size(); ++i)
+//			{
+//			    ICommandSharedPtr com = commands[i];
+//				com->executeCommand(args);
+//				eventHandled = true;
+//			}
 
 			return eventHandled;
 		}
@@ -273,10 +279,10 @@ namespace qv
 			if(eventHashType <= 0)
 				return false;
 
-			EventTypesList::Iterator itr;
-			for(itr = mValidEventTypes.begin(); itr != mValidEventTypes.end(); ++itr)
-				if((*itr) == eventHashType)
-					return true;
+//			EventTypesList::Iterator itr;
+//			for(itr = mValidEventTypes.begin(); itr != mValidEventTypes.end(); ++itr)
+//				if((*itr) == eventHashType)
+//					return true;
 
 			return false;
 		}

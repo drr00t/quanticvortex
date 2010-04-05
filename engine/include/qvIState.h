@@ -29,6 +29,8 @@
 
 #include "qvStateTypes.h"
 
+#include "IReferenceCounted.h"
+
 namespace qv
 {
 	class IState: public irr::IReferenceCounted

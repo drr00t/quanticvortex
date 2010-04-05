@@ -51,8 +51,8 @@ namespace qv
 		{
             IGameViewSharedPtr gameView;
 
-            if(gameViewHashType == GVT_GAME_VIEW_HUMAN.Hash)
-                gameView.assign(new HumanView(mEngine));
+//            if(gameViewHashType == GVT_GAME_VIEW_HUMAN.Hash)
+//                gameView.assign(new HumanView(mEngine));
 
             //else if(type == GameViewHuman)
             //    gameView = new HumanView(name,mEngine);

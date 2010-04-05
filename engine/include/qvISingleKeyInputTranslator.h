@@ -37,7 +37,7 @@ namespace qv
 	{
 		class IInputReceiver;
 
-		static const IT_INPUT_TRANSLATOR_TYPE ITT_SINGLE_KEY_TYPE("ITT_SINGLE_KEY_TYPE");
+		static const ITT_INPUT_TRANSLATOR_TYPE ITT_SINGLE_KEY("ITT_SINGLE_KEY_TYPE");
 
 		class ISingleKeyInputTranslator : public IInputTranslator
 		{

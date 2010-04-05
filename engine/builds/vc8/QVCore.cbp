@@ -105,6 +105,7 @@
 					<Add option="-W" />
 					<Add option="-O0" />
 					<Add option="-Wno-unused-parameter" />
+					<Add option="-mwindows" />
 					<Add option="-DWIN32" />
 					<Add option="-D_DEBUG" />
 					<Add option="-D_QUANTICVORTEX_EXPORTS" />
@@ -133,6 +134,7 @@
 					<Add library="libLinearMath_d" />
 					<Add library="libPocoFoundationmtd" />
 					<Add library="libPocoUtilmtd" />
+					<Add library="libcAudio_d.dll" />
 					<Add directory="..\..\..\dependencies\libs\win32-gcc" />
 				</Linker>
 				<ExtraCommands>
@@ -157,6 +159,7 @@
 					<Add option="-O3" />
 					<Add option="-W" />
 					<Add option="-ffast-math" />
+					<Add option="-mwindows" />
 					<Add option="-DWIN32" />
 					<Add option="-DNDEBUG" />
 					<Add option="-D_QUANTICVORTEX_EXPORTS" />
@@ -187,6 +190,7 @@
 					<Add library="libLinearMath" />
 					<Add library="libPocoFoundationmt" />
 					<Add library="libPocoUtilmt" />
+					<Add library="libcAudio.dll" />
 					<Add directory="..\..\..\dependencies\libs\win32-gcc" />
 				</Linker>
 				<ExtraCommands>
@@ -238,6 +242,7 @@
 		<Unit filename="..\..\include\qvIGameStateMachine.h" />
 		<Unit filename="..\..\include\qvIGameView.h" />
 		<Unit filename="..\..\include\qvIGameViewFactory.h" />
+		<Unit filename="..\..\include\qvIGameViewManager.h" />
 		<Unit filename="..\..\include\qvIGuiView.h" />
 		<Unit filename="..\..\include\qvIHumanView.h" />
 		<Unit filename="..\..\include\qvIInputCommand.h" />
@@ -273,6 +278,7 @@
 		<Unit filename="..\..\include\qvITimer.h" />
 		<Unit filename="..\..\include\qvKeyTypes.h" />
 		<Unit filename="..\..\include\qvPrerequisites.h" />
+		<Unit filename="..\..\include\qvProtothread.h" />
 		<Unit filename="..\..\include\qvQuanticVortex.h" />
 		<Unit filename="..\..\include\qvSActorParams.h" />
 		<Unit filename="..\..\include\qvSEventArgs.h">
@@ -300,6 +306,7 @@
 		</Unit>
 		<Unit filename="..\..\include\qvStateTypes.h" />
 		<Unit filename="..\..\include\qvSuperFastHash.h" />
+		<Unit filename="..\..\include\qvTypes.h" />
 		<Unit filename="..\..\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.cpp" />
 		<Unit filename="..\..\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.h" />
 		<Unit filename="..\..\source\quanticvortex\drivers\irrlicht\qvInputEventHandlerIrrlicht.h" />
@@ -391,7 +398,6 @@
 		<Unit filename="..\..\source\quanticvortex\qvRunningGameState.h" />
 		<Unit filename="..\..\source\quanticvortex\qvSingleKeyInputTranslator.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvSingleKeyInputTranslator.h" />
-		<Unit filename="..\..\source\quanticvortex\qvSuperFastHash.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvWaintingPlayerGameState.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvWaintingPlayerGameState.h" />
 		<Extensions>

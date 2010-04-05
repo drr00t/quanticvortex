@@ -8,8 +8,8 @@ namespace qv
     namespace views
     {
         //---------------------------------------------------------------------
-        GuiView::GuiView(const c8* name,IEngineManager* engine, const EVT_ELEMENT_VIEW_TYPE& type)
-			: mElement(0), mGuiManager(0), mVisible(true), mHashType(type.Hash)//, mOrder(5)
+        GuiView::GuiView(const c8* name,IEngineManager* engine, u32 elementViewHashType)
+			: mElement(0), mGuiManager(0), mVisible(true), mHashType(elementViewHashType)//, mOrder(5)
         {
 
 //#ifdef _DEBUG

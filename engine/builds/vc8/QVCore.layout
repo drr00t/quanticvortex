@@ -1,7 +1,175 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Windows x86" />
-	<File name="..\..\source\quanticvortex\qvEventManager.cpp" open="1" top="1" tabpos="0">
-		<Cursor position="4863" topLine="109" />
+	<ActiveTarget name="Win32 - Debug - DLL" />
+	<File name="..\..\include\qvIActor.h" open="0" top="0" tabpos="0">
+		<Cursor position="1612" topLine="30" />
+	</File>
+	<File name="..\..\include\qvIActorFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="2089" topLine="22" />
+	</File>
+	<File name="..\..\include\qvIAnyKeyInputTranslator.h" open="0" top="0" tabpos="0">
+		<Cursor position="1858" topLine="30" />
+	</File>
+	<File name="..\..\include\qvICommand.h" open="0" top="0" tabpos="0">
+		<Cursor position="1950" topLine="26" />
+	</File>
+	<File name="..\..\include\qvIElementView.h" open="0" top="0" tabpos="0">
+		<Cursor position="1561" topLine="26" />
+	</File>
+	<File name="..\..\include\qvIElementViewFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1718" topLine="18" />
+	</File>
+	<File name="..\..\include\qvIEngineManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="2449" topLine="57" />
+	</File>
+	<File name="..\..\include\qvIEventArgs.h" open="0" top="0" tabpos="0">
+		<Cursor position="1594" topLine="18" />
+	</File>
+	<File name="..\..\include\qvIEventManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="2794" topLine="49" />
+	</File>
+	<File name="..\..\include\qvIGameLogic.h" open="0" top="0" tabpos="0">
+		<Cursor position="1657" topLine="37" />
+	</File>
+	<File name="..\..\include\qvIGameLogicFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1879" topLine="17" />
+	</File>
+	<File name="..\..\include\qvIGameView.h" open="0" top="0" tabpos="0">
+		<Cursor position="1612" topLine="28" />
+	</File>
+	<File name="..\..\include\qvIGameViewFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1617" topLine="16" />
+	</File>
+	<File name="..\..\include\qvIHumanView.h" open="0" top="0" tabpos="0">
+		<Cursor position="1623" topLine="16" />
+	</File>
+	<File name="..\..\include\qvIInputReceiver.h" open="0" top="0" tabpos="0">
+		<Cursor position="2302" topLine="47" />
+	</File>
+	<File name="..\..\include\qvIInputReceiverDriverFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1587" topLine="19" />
+	</File>
+	<File name="..\..\include\qvIInputTranslator.h" open="0" top="0" tabpos="0">
+		<Cursor position="2839" topLine="52" />
+	</File>
+	<File name="..\..\include\qvIInputTranslatorFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1588" topLine="17" />
+	</File>
+	<File name="..\..\include\qvIPhysicsManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="1565" topLine="27" />
+	</File>
+	<File name="..\..\include\qvIProcess.h" open="0" top="0" tabpos="0">
+		<Cursor position="82" topLine="3" />
+	</File>
+	<File name="..\..\include\qvIProcessManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="265" topLine="0" />
+	</File>
+	<File name="..\..\include\qvISceneView.h" open="0" top="0" tabpos="0">
+		<Cursor position="2455" topLine="36" />
+	</File>
+	<File name="..\..\include\qvISingleKeyInputTranslator.h" open="0" top="0" tabpos="0">
+		<Cursor position="1716" topLine="40" />
+	</File>
+	<File name="..\..\include\qvIState.h" open="0" top="0" tabpos="0">
+		<Cursor position="1515" topLine="15" />
+	</File>
+	<File name="..\..\include\qvQuanticVortex.h" open="0" top="0" tabpos="0">
+		<Cursor position="3932" topLine="69" />
+	</File>
+	<File name="..\..\include\qvSGameParams.h" open="0" top="0" tabpos="0">
+		<Cursor position="1963" topLine="29" />
+	</File>
+	<File name="..\..\include\qvSHashedString.h" open="1" top="0" tabpos="1">
+		<Cursor position="2473" topLine="74" />
+	</File>
+	<File name="..\..\include\qvSuperFastHash.h" open="1" top="1" tabpos="2">
+		<Cursor position="1665" topLine="21" />
+	</File>
+	<File name="..\..\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1813" topLine="24" />
+	</File>
+	<File name="..\..\source\quanticvortex\drivers\irrlicht\qvInputEventHandlerIrrlicht.h" open="0" top="0" tabpos="0">
+		<Cursor position="10228" topLine="240" />
+	</File>
+	<File name="..\..\source\quanticvortex\drivers\irrlicht\qvSceneViewIrrlicht.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="4537" topLine="87" />
+	</File>
+	<File name="..\..\source\quanticvortex\drivers\irrlicht\qvSceneViewIrrlicht.h" open="0" top="0" tabpos="0">
+		<Cursor position="1801" topLine="26" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvAnyKeyInputTranslator.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2295" topLine="33" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvAnyKeyInputTranslator.h" open="0" top="0" tabpos="0">
+		<Cursor position="2231" topLine="37" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvDefaultElementViewFactory.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2711" topLine="37" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvDefaultElementViewFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1739" topLine="24" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvDefaultGameViewFactory.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2626" topLine="36" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvDefaultGameViewFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1559" topLine="24" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2122" topLine="26" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEngineInputTranslatorFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="1822" topLine="25" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEngineManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="9798" topLine="224" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEngineManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="1672" topLine="43" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEventManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="7417" topLine="185" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvEventManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="1665" topLine="22" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGameLogic.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="8946" topLine="231" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGameLogic.h" open="0" top="0" tabpos="0">
+		<Cursor position="2112" topLine="46" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGameLogicFactory.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="3153" topLine="35" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGameLogicFactory.h" open="0" top="0" tabpos="0">
+		<Cursor position="2144" topLine="21" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGuiView.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="356" topLine="0" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvGuiView.h" open="0" top="0" tabpos="0">
+		<Cursor position="573" topLine="4" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvHumanView.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="7108" topLine="154" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvHumanView.h" open="0" top="0" tabpos="0">
+		<Cursor position="3216" topLine="59" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvPhysicsManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="8575" topLine="144" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvPhysicsManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="3915" topLine="79" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvQuanticVortex.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2020" topLine="17" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvSingleKeyInputTranslator.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="3041" topLine="33" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvSingleKeyInputTranslator.h" open="0" top="0" tabpos="0">
+		<Cursor position="2971" topLine="61" />
 	</File>
 </CodeBlocks_layout_file>

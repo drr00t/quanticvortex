@@ -30,6 +30,8 @@
 
 #include "qvIElementView.h"
 
+#include "IReferenceCounted.h"
+
 namespace qv
 {
     class IEngineManager;
@@ -37,7 +39,7 @@ namespace qv
     namespace views
     {
 
-		class IElementViewFactory : public IReferenceCounted
+		class IElementViewFactory : public irr::IReferenceCounted
 		{
 		public:
 

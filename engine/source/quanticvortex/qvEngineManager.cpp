@@ -25,18 +25,15 @@
 **************************************************************************************************/
 
 //managers
-#include "qvEngineManager.h"
-
 #include "qvEventManager.h"
-
-//Irrlicht input receiver implementation
-#include "drivers/irrlicht/qvInputEventHandlerIrrlicht.h"
-
-//factories
-#include "qvGameLogicFactory.h"
-
+#include "qvEngineManager.h"
 #include "qvActorManager.h"
 
+#include "qvGameLogic.h"
+
+#include "irrlicht.h"
+//Irrlicht input receiver implementation
+#include "drivers/irrlicht/qvInputEventHandlerIrrlicht.h"
 
 namespace qv
 {
@@ -50,8 +47,8 @@ namespace qv
 		mGameParams.Bits = 16;
         mGameParams.Fullscreen = false;
         mGameParams.LocalPlayers = 1;
-        mGameParams.Title = L"Default game Window";
-        mGameParams.WindowSize = dimension2di(1024,768);
+        mGameParams.Title = "Default game Window";
+        mGameParams.WindowSize = irr::core::dimension2di(1024,768);
     }
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager(const SGameParams& params):_helpRequested(false),
@@ -150,7 +147,7 @@ namespace qv
 
         loadConfiguration(); // load default configuration files, if present
 
-		SIrrlichtCreationParameters parameters;
+		irr::SIrrlichtCreationParameters parameters;
 
         parameters.Bits = mGameParams.Bits;
 		parameters.DriverType = irr::video::EDT_OPENGL;
@@ -158,7 +155,7 @@ namespace qv
         parameters.WindowSize = mGameParams.WindowSize;
         parameters.Fullscreen = mGameParams.Fullscreen;
 
-        mDevice3d = createDeviceEx(parameters);
+        mDevice3d = irr::createDeviceEx(parameters);
 
 //		gaming::IGameLogicFactory* factory = new gaming::GameLogicFactory(this);
 //        registerGameLogicFactory(factory);
@@ -183,7 +180,7 @@ namespace qv
     {
         if (mGameLogic)
 	    {
-            mEventManager->process(GF_GAME_LOGIC_FRAMERATE);
+            mEventManager->process(GC_GAME_FRAMERATE);
 
             mGameLogic->update(currentTimeMs, elapsedTimeMs);
 	    }
@@ -191,8 +188,9 @@ namespace qv
     //-----------------------------------------------------------------------------
     void EngineManager::render( u32 currentTimeMs, u32 elapsedTimeMs)
     {
-        for(u32 i = 0; i < mGameLogic->getGameViews().size(); ++i)
-            mGameLogic->getGameViews()[i]->render(currentTimeMs, elapsedTimeMs);
+//        const views::GameViewArray gameViews = mGameLogic->getGameViews();
+//        for(u32 i = 0; i < gameViews.size(); ++i)
+//            gameViews[i]->render(currentTimeMs, elapsedTimeMs);
     }
 	//-----------------------------------------------------------------------------
     void EngineManager::beginRender(bool backBuffer, bool zBuffer)
@@ -242,14 +240,15 @@ namespace qv
 
 		            if (lastFPS != fps)
 		            {
-                        stringw str = mGameParams.Title + L" - QuanticVortex Engine [";
-			            str += mDevice3d->getVideoDriver()->getName();
-			            str += "] FPS:";
-			            str += fps;
-			            str += " Triangles:";
-						str += mDevice3d->getVideoDriver()->getPrimitiveCountDrawn();
-
-                        mDevice3d->setWindowCaption(str.c_str());
+//                        irr::core::stringw str = mGameParams.Title;
+//                        str.append(L" - QuanticVortex Engine [");
+//			            str.append(mDevice3d->getVideoDriver()->getName());
+//			            str.append("] FPS:");
+//			            str.append(fps);
+//			            str.append(" Triangles:");
+//						str.append(mDevice3d->getVideoDriver()->getPrimitiveCountDrawn());
+//
+//                        mDevice3d->setWindowCaption(str.c_str());
 			            lastFPS = fps;
 		            }
 

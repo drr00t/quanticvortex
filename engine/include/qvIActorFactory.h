@@ -30,6 +30,9 @@
 
 #include "qvIActor.h"
 
+#include "Poco/SharedPtr.h"
+#include "irrArray.h"
+#include "irrList.h"
 
 namespace qv
 {
@@ -47,8 +50,8 @@ namespace qv
 		};
 
 		typedef Poco::SharedPtr<IActorFactory> IActorFactorySharedPtr;
-		typedef list<IActorFactorySharedPtr> ActorFactorySharedPtrList;
-		typedef array<IActorFactorySharedPtr> ActorFactorySharedPtrArray;
+		typedef irr::core::list<IActorFactorySharedPtr> ActorFactorySharedPtrList;
+		typedef irr::core::array<IActorFactorySharedPtr> ActorFactorySharedPtrArray;
     }
 }
 #endif

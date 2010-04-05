@@ -33,6 +33,8 @@
 
 #include "qvEventTypes.h"
 
+#include "Poco/SharedPtr.h"
+
 
 namespace qv
 {

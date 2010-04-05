@@ -28,9 +28,6 @@
 #ifndef __I_EVENT_COMMAND_H_
 #define __I_EVENT_COMMAND_H_
 
-#include <vector>
-#include <utility>
-
 #include "qvICommand.h"
 #include "qvEventTypes.h"
 
@@ -42,8 +39,7 @@ namespace qv
 		class IEventCommand: public ICommand
 		{
 		public:
-			virtual const EventTypesVector& listenEventTypes() const =0;
-			virtual u32 getEventArgsHashTypes() const =0;
+			virtual u32 getEventArgsHashType() const =0;
 		};
 
 		typedef Poco::SharedPtr<IEventCommand> IEventCommandSharedPtr;

@@ -32,6 +32,10 @@
 #include "qvIEventArgs.h"
 #include "qvCommandTypes.h"
 
+#include "Poco/SharedPtr.h"
+#include "irrArray.h"
+#include "irrList.h"
+
 
 namespace qv
 {
@@ -51,8 +55,8 @@ namespace qv
     };
 
     typedef Poco::SharedPtr<ICommand> ICommandSharedPtr;
-    typedef list<ICommandSharedPtr> CommandList;
-    typedef array<ICommandSharedPtr> CommandArray;
+    typedef irr::core::list<ICommandSharedPtr> CommandList;
+    typedef irr::core::array<ICommandSharedPtr> CommandArray;
 }
 #endif
 

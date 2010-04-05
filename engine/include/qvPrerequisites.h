@@ -45,7 +45,7 @@
 
 #endif
 
-#include "irrlicht.h"
+//#include "irrlicht.h"
 //#include "IReferenceCounted.h"
 //#include "irrArray.h"
 //#include "irrList.h"
@@ -54,53 +54,33 @@
 //#include "irrString.h"
 //#include "irrTypes.h"
 
-using namespace irr;
-using namespace irr::core;
+//using namespace irr;
+//using namespace irr::core;
 
 
-#include "qvSuperFastHash.h"
+//#include "qvSuperFastHash.h"
+
+//math types
+#include "LinearMath/btTransform.h"
+#include "LinearMath/btQuickprof.h"  //for btClock portable timing class
+#include "LinearMath/btList.h"
+#include "LinearMath/btHashMap.h"
+
+#include "qvTypes.h"
 
 namespace qv
 {
-    const f32 GF_GAME_LOGIC_FRAMERATE(16.666667f);
-    const f32 GF_GAME_ANIMATION_FRAMERATE(16.666667f); // 1/30
-    const f32 GF_GAME_RENDER_FRAMERATE(16.666667f); //    1/60
-    const f32 GF_GAME_PHYSICS_FRAMERATE(16.666667f); //   1/60
+    typedef btScalar    real; //single ou double precision
+
+    //game constants
+    const u32 GC_GAME_FRAMERATE(16);
+    const u32 GC_ANIMATION_FRAMERATE(16); // 1/30
+    const u32 GF_RENDER_FRAMERATE(16); //    1/60
+    const u32 GF_GAME_PHYSICS_FRAMERATE(16); //   1/60
     //const f32 GamePhysicsFramerate(16.666667f);
+
 }
 
-//----------------------------------------------
-
-// POCO headers
-#include "Poco/AutoPtr.h"
-#include "Poco/SharedPtr.h"
-#include "Poco/Path.h"
-#include "Poco/File.h"
-#include "Poco/Glob.h"
-#include "Poco/Types.h"
-#include "Poco/Void.h"
-#include "Poco/Any.h"
-
-
-namespace gv
-{
-    using Poco::SharedPtr;
-    using Poco::AutoPtr;
-    using Poco::Path;
-    using Poco::Int8;
-    using Poco::UInt8;
-    using Poco::Int16;
-    using Poco::UInt16;
-    using Poco::Int32;
-    using Poco::UInt32;
-    using Poco::Int64;
-    using Poco::UInt64;
-    using Poco::IntPtr;
-    using Poco::UIntPtr;
-    using Poco::Void;
-    using Poco::Any;
-    using Poco::AnyCast;
-}
 
 #endif
 

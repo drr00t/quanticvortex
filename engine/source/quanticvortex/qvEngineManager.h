@@ -34,47 +34,22 @@
 //#include "IVideoDriver.h"
 //#include "ITimer.h"
 
+#include "irrArray.h"
+
+#include "IrrlichtDevice.h"
+
+
 namespace qv
 {
 
 	class EngineManager : public IEngineManager
     {
-
-    private:
-        bool _helpRequested;
-        bool mHasPopup;
-		bool mQuit;
-
-    protected:
-		SGameParams mGameParams;
-
-//		array<gaming::IGameLogicFactory*> mGameLogicFactories;
-		array<input::IInputReceiverDriverFactory*> mInputReceiverDriverFactories;
-
-        gaming::IGameLogic* mGameLogic;
-		events::IEventManager* mEventManager;
-
-		input::IInputReceiverSharedPtr mInputReceiver;
-
-		irr::IrrlichtDevice* mDevice3d;
-		//irr::video::IVideoDriver* mVideoDriver;
-		//irr::scene::ISceneManager* mSceneManager;
-		//irr::io::IFileSystem* mFileSystem;
-  //      size_t mWindowHandle;
-
-        virtual void loadConfiguration();
-
-        virtual void registerGameEvents();
-
-        void update( u32 currentTimeMs, u32 elapsedTimeMs);
-
-        void render( u32 currentTimeMs, u32 elapsedTimeMs);
-
-
     public:
 
 		EngineManager();
+
 		EngineManager(const SGameParams& params );
+
         virtual ~EngineManager();
 
         virtual bool initialize();
@@ -112,10 +87,10 @@ namespace qv
             return mGameParams;
         }
 
-		virtual irr::IrrlichtDevice* getDevice()
-        {
-            return mDevice3d;
-        }
+//		virtual irr::IrrlichtDevice* getDevice()
+//        {
+//            return mDevice3d;
+//        }
 
 		//virtual irr::io::IFileSystem* getFileSystem()
   //      {
@@ -146,6 +121,37 @@ namespace qv
 		{
 			mQuit = quit;
 		}
+
+    private:
+        bool _helpRequested;
+        bool mHasPopup;
+		bool mQuit;
+		btClock mClock;
+
+    protected:
+		SGameParams mGameParams;
+
+//		array<gaming::IGameLogicFactory*> mGameLogicFactories;
+		irr::core::array<input::IInputReceiverDriverFactory*> mInputReceiverDriverFactories;
+
+        gaming::IGameLogic* mGameLogic;
+		events::IEventManager* mEventManager;
+
+		input::IInputReceiverSharedPtr mInputReceiver;
+
+		irr::IrrlichtDevice* mDevice3d;
+		//irr::video::IVideoDriver* mVideoDriver;
+		//irr::scene::ISceneManager* mSceneManager;
+		//irr::io::IFileSystem* mFileSystem;
+  //      size_t mWindowHandle;
+
+        virtual void loadConfiguration();
+
+        virtual void registerGameEvents();
+
+        void update( u32 currentTimeMs, u32 elapsedTimeMs);
+
+        void render( u32 currentTimeMs, u32 elapsedTimeMs);
     };
 }
 

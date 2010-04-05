@@ -103,9 +103,9 @@ namespace qv
             {
 				mEngine->beginRender(true, true); //call some beginRender from engine
 
-                for(u32 i = 0; i < mElementViews.size(); ++i)
-                    if(mElementViews[i]->getVisible())
-                        mElementViews[i]->render( mCurrentTime, elapsedTimeMs);
+//                for(u32 i = 0; i < mElementViews.size(); ++i)
+//                    if(mElementViews[i]->getVisible())
+//                        mElementViews[i]->render( mCurrentTime, elapsedTimeMs);
 
 				//mEngineManager->getSceneManager()->drawAll();
 
@@ -132,8 +132,8 @@ namespace qv
 
 	        //m_Console.Update(deltaMilliseconds);
 
-            for(u32 i = 0; i < mElementViews.size(); ++i)
-                mElementViews[i]->update( elapsedTimeMs);
+//            for(u32 i = 0; i < mElementViews.size(); ++i)
+//                mElementViews[i]->update( elapsedTimeMs);
 
             //fire game tick
    //         UpdateTickEventArgs tickEvent(elapsedTimeMs);
@@ -143,15 +143,15 @@ namespace qv
         IElementViewSharedPtr HumanView::addElementView(const c8* name, u32 elementViewHashType)
         {
             IElementViewSharedPtr elementView;
-            for(u32 i = 0; i < mElementViewFactories.size(); ++i)
-			{
-//                if(mElementViewFactories[i]->getCreateableElementViewType(type))
-//				{
-//                    elementView.reset(mElementViewFactories[i]->addElementView(name,type));
-//						mElementViews.push_back(elementView);
-//					break;
-//				}
-			}
+//            for(u32 i = 0; i < mElementViewFactories.size(); ++i)
+//			{
+////                if(mElementViewFactories[i]->getCreateableElementViewType(type))
+////				{
+////                    elementView.reset(mElementViewFactories[i]->addElementView(name,type));
+////						mElementViews.push_back(elementView);
+////					break;
+////				}
+//			}
 
 			////sort element views array, to put 3D scene, behind gui view, etc...
 			//if(mElementViews.size() > 1)
@@ -181,8 +181,8 @@ namespace qv
         //-----------------------------------------------------------------------------------------
         void HumanView::registerElementViewFactory(IElementViewFactory *factoryToAdd)
         {
-            factoryToAdd->grab();
-            mElementViewFactories.push_back(factoryToAdd);
+//            factoryToAdd->grab();
+//            mElementViewFactories.push_back(factoryToAdd);
         }
         //-----------------------------------------------------------------------------------------
     }

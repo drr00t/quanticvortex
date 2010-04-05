@@ -53,7 +53,7 @@ namespace qv
 									bool realTime,
 									events::IEventArgsSharedPtr args,
 									const c8* inputTranslatorName,
-									u32 inputTranslatorHashType = ITT_ANY_KEY_TYPE.Hash);
+									u32 inputTranslatorHashType = ITT_ANY_KEY.Hash);
 
 			virtual ~AnyKeyInputTranslator();
 
@@ -67,7 +67,7 @@ namespace qv
 			events::IEventManager* mEventManager;
 			bool mRealTime;
 			events::IEventArgsSharedPtr mArgs;
-			const IT_INPUT_TRANSLATOR_ID* mID;
+			const ITI_INPUT_TRANSLATOR_ID* mID;
 			u32 mInputTranslatorHashType;
 		};
 	}

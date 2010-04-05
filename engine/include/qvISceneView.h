@@ -29,13 +29,9 @@
 
 #include "qvIElementView.h"
 #include "qvIActor.h"
-//#include "qvSActorParams.h"
-//#include "qvEventManager.h"
 
-using namespace irr::scene;
-
-//using namespace qv::gaming;
-//using namespace qv::events;
+#include "ICameraSceneNode.h"
+#include "ISceneManager.h"
 
 namespace qv
 {
@@ -49,22 +45,22 @@ namespace qv
     {
         static const EVT_ELEMENT_VIEW_TYPE EVT_ELEMENT_VIEW_SCENE("EVT_ELEMENT_VIEW_SCENE");
 
-		class ISceneView: public IElementView, public ISceneUserDataSerializer
+		class ISceneView: public IElementView //, public ISceneUserDataSerializer
         {
         public:
 
-			virtual ICameraSceneNode* getCamera()=0;
-			virtual void setCamera(ICameraSceneNode* camera)=0;
+			virtual irr::scene::ICameraSceneNode* getCamera() = 0;
+			virtual void setCamera(irr::scene::ICameraSceneNode* camera) = 0;
 
-			virtual ISceneManager* getSceneManager()=0;
+			virtual irr::scene::ISceneManager* getSceneManager() = 0;
 
          //   virtual void render( u32 currentTimeMs, u32 elapsedTimeMs)=0;
 	        //virtual void update( u32 elapsedTimeMs)=0;
 
-			virtual void loadScene(const c8* sceneName)=0;
+			virtual void loadScene(const c8* sceneName) = 0;
 
-			virtual void addSceneNode(const gaming::SActorArgs& args, const gaming::AI_ACTOR_ID* actorID = 0)=0;
-			virtual ISceneNode* findSceneNode(const gaming::AI_ACTOR_ID* actorID)=0;
+			virtual void addSceneNode(const gaming::SActorArgs& args, u32 actorHashId = 0) = 0;
+			virtual irr::scene::ISceneNode* findSceneNode( u32 actorHashId) = 0;
 
 			//virtual void OnCreateNode(ISceneNode* node)=0;
 			//virtual void OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData)=0;

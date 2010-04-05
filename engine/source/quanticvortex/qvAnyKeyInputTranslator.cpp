@@ -44,12 +44,11 @@ namespace qv
 													mInputTranslatorHashType(inputTranslatorHashType)
 
 		{
-		    mID = new IT_INPUT_TRANSLATOR_ID(inputTranslatorName);
+		    mID = new ITI_INPUT_TRANSLATOR_ID(inputTranslatorName);
 		}
 		//-----------------------------------------------------------------------------------------
 		AnyKeyInputTranslator::~AnyKeyInputTranslator()
 		{
-		    mID->drop();
 		}
 		//-----------------------------------------------------------------------------------------
 		bool AnyKeyInputTranslator::translate(qv::input::IInputReceiver *context)

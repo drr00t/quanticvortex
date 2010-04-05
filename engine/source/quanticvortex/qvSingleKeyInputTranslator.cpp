@@ -36,7 +36,7 @@ namespace qv
 	{
 		//-----------------------------------------------------------------------------------------
 		SingleKeyInputTranslator::SingleKeyInputTranslator(events::IEventManager* eventManager,
-															EKEY_CODE keyCode,
+															irr::EKEY_CODE keyCode,
 															EKEY_STATE checkKeyState,
 															bool realTime,
 															events::IEventArgsSharedPtr args,
@@ -49,7 +49,7 @@ namespace qv
 															mInputTranslatorHashType(inputTranslatorHashType)
 
 		{
-		    mId = new IT_INPUT_TRANSLATOR_ID(inputTranslatorName);
+//		    mId = new IT_INPUT_TRANSLATOR_ID(inputTranslatorName);
 		}
 		//-----------------------------------------------------------------------------------------
 //		SingleKeyInputTranslator::SingleKeyInputTranslator(events::IEventManager* eventManager,
@@ -64,7 +64,7 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		SingleKeyInputTranslator::~SingleKeyInputTranslator()
 		{
-		    mId->drop();
+//		    mId->drop();
 		}
 		//-----------------------------------------------------------------------------------------
 		bool SingleKeyInputTranslator::translate(qv::input::IInputReceiver *context)

@@ -42,8 +42,8 @@ namespace qv
 																	:mEventManager(eventManager),
 																	mInputReceiver(inputReceiver)
         {
-			mSupportedEngineInputTranslatorTypes.push_back(ITT_ANY_KEY_TYPE.Hash);
-			mSupportedEngineInputTranslatorTypes.push_back(ITT_SINGLE_KEY_TYPE.Hash);
+			mSupportedEngineInputTranslatorTypes.push_back(ITT_ANY_KEY.Hash);
+			mSupportedEngineInputTranslatorTypes.push_back(ITT_SINGLE_KEY.Hash);
 
 			//quit translator
 			//pause translator

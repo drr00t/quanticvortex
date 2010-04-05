@@ -34,6 +34,7 @@
 
 //#include "tbb/concurrent_queue.h"
 
+#include "Poco/AtomicCounter.h"
 
 namespace qv
 {
@@ -80,7 +81,7 @@ namespace qv
 
 			virtual bool enqueueEvent (IEventArgsSharedPtr args);
 
-			virtual bool process ( f32 processingTime);
+			virtual bool process ( real processingTime);
 
 			virtual bool trigger ( IEventArgsSharedPtr args );
 

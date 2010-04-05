@@ -35,12 +35,8 @@
 //#include "qvIGameViewFactory.h"
 #include "qvIProcessManager.h"
 
-//#include "core/qvActor.h"
-//#include "qvSActorParams.h"
-//#include "qvSPlayerScore.h"
-
-//#include "qvIEventListener.h"
-//#include "qvIPhysicsManager.h"
+#include "irrArray.h"
+#include "irrMap.h"
 
 
 namespace qv
@@ -60,15 +56,13 @@ namespace qv
 
         protected:
 
-            array<views::IGameViewFactory*> mGameViewFactories;
-
-			const GLT_GAME_LOGIC_TYPE* mType;
+            irr::core::array<views::IGameViewFactory*> mGameViewFactories;
 
             const S_STATE* mState;
 
-            map<u32, IActor*> mActors;
+            ActorsMap mActors;
 
-            array<views::IGameView*> mGameViews;
+            views::GameViewsArray mGameViews;
 
             IEngineManager* mEngineManager;
 
@@ -84,67 +78,60 @@ namespace qv
 			//IEventListener* mEventListener;// here need put all event that gamelogic will listen for
 
         public:
-            GameLogic(IEngineManager* engineManager, const GLT_GAME_LOGIC_TYPE* type=GLT_GAME_LOGIC_DEFAULT);
+            GameLogic(IEngineManager* engineManager);
             virtual ~GameLogic();
 
 			virtual bool initialize();
 
 			virtual bool finalize();
 
-            virtual const GLT_GAME_LOGIC_TYPE* getType() const
-            {
-                return mType;
-            }
-
-            virtual IActor* getActor(const AI_ACTOR_ID & actorID)
+            virtual IActorSharedPtr getActor( u32 actorHashId)
 			{
-				map<u32,IActor*>::Node* actor = mActors.find(actorID.Hash);
+//				ActorsMap::Node* actor = mActors.find(actorHashId);
 				IActor* actorFounded = 0;
-				if(actor)
-					actorFounded = actor->getValue();
+//				if(actor)
+//					actorFounded = actor->getValue();
 				return actorFounded;
 			}
 
-			virtual void addActor( const AI_ACTOR_ID & actorID, const SActorArgs& args);
+			virtual void addActor( u32 actorHashId);
 
 
-			virtual void moveActor( const AI_ACTOR_ID & actorID, const matrix4& transformation)
+//			virtual void moveActor( u32 actorHashId, const matrix4& transformation)
+//			{
+//				IActor* actor = getActor(actorID);
+//
+//				if(actor)
+//					actor->setTransformation(transformation);
+//			}
+
+			void removeActor( u32 actorHashId)
 			{
-				IActor* actor = getActor(actorID);
-
-				if(actor)
-					actor->setTransformation(transformation);
-			}
-
-			void removeActor(const AI_ACTOR_ID & actorID)
-			{
-				IActor* actor = getActor(actorID);
+				IActor* actor = getActor(actorHashId);
 
                 if(actor)
                 {
 //					actor->drop();
-					mActors.delink(actorID.Hash);
+//					mActors.delink(actorID.Hash);
                 }
 			}
 
 
-			virtual const array<views::IGameView*>& getGameViews() const
+			virtual const views::GameViewsArray& getGameViews() const
 			{
 				return mGameViews;
 			}
 
-            virtual void addView(views::IGameView* gameView, const AI_ACTOR_ID* actorID = 0);
+            virtual void addView(views::IGameView* gameView, u32 actorHashId = 0);
 
-			virtual views::IGameView* addView(const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, const AI_ACTOR_ID* actorID = 0);
-
-            virtual views::IHumanView* addHumanView(const c8* viewID, const AI_ACTOR_ID* actorID = 0);
+			virtual views::IGameView* addView(const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, u32 actorHashId = 0);
 
             virtual void removeView(views::IGameView* gameView);
 
 			virtual void registerGameViewFactory(views::IGameViewFactory* factoryToAdd);
 
 
-			virtual bool loadGame(const stringw& gameName);
+			virtual bool loadGame(const string& gameName);
 
             virtual void update( u32 currentTimeMs, u32 elapsedTimeMs);
 

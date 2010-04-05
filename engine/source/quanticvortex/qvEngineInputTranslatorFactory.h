@@ -44,7 +44,7 @@ namespace qv
 		class EngineInputTranslatorFactory : public IInputTranslatorFactory
 		{
 		protected:
-			InputTranslatorTypesArray mSupportedEngineInputTranslatorTypes;
+			InputTranslatorHashTypesArray mSupportedEngineInputTranslatorTypes;
 			IEventManager* mEventManager;
 			IInputReceiver* mInputReceiver;
 

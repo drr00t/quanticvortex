@@ -71,7 +71,7 @@ namespace qv
 
 			virtual bool enqueueEvent (IEventArgsSharedPtr args) = 0;
 
-			virtual bool process ( f32 processingTime) = 0;
+			virtual bool process ( real processingTime) = 0;
 
 			virtual bool trigger ( IEventArgsSharedPtr args ) = 0;
 

@@ -29,6 +29,11 @@
 
 #include "qvPrerequisites.h"
 
+#include "IReferenceCounted.h"
+
+#include "irrMath.h"
+#include "vector3d.h"
+#include "qvTypes.h"
 
 namespace qv
 {
@@ -37,7 +42,7 @@ namespace qv
 		class IActor;
 	}
 
-    namespace physics    
+    namespace physics
 	{
         class IPhysicsManager: public irr::IReferenceCounted
         {
@@ -51,15 +56,15 @@ namespace qv
 
 			//// Initialization of Physics Objects
 			//virtual void VAddSphere(float radius, IActor *actor, float specificGravity, enum PhysicsMaterial mat)=0;
-			virtual void addSphere(f32 radius, gaming::IActor *actor, f32 specificGravity)=0;
-			
+			virtual void addSphere(real radius, gaming::IActor *actor, real specificGravity)=0;
+
 			//virtual void VAddBox(const Vec3& dimensions, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat) = 0;
 			//virtual void addBox(const gaming::IActor *actor) = 0;
-			virtual void addBox(const vector3df& dimensions, gaming::IActor *actor, f32 specificGravity) = 0;
-			
+			virtual void addBox(const irr::core::vector3df& dimensions, gaming::IActor *actor, real specificGravity) = 0;
+
 			//virtual void VAddPointCloud(Vec3 *verts, int numPoints, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat)=0;
-			virtual void addConvexHull(vector3df *verts, s32 numPoints, gaming::IActor *actor, f32 specificGravity)=0;
-			
+			virtual void addConvexHull( irr::core::vector3df *verts, s32 numPoints, gaming::IActor *actor, real specificGravity)=0;
+
 			//virtual void VRemoveActor(ActorId id)=0;
 
 			//// Debugging

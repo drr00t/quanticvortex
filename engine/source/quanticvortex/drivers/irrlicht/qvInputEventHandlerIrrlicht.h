@@ -35,10 +35,10 @@ namespace input
 
 		private:
 			//i need see which collection will work bether here
-			array<IInputTranslator*> mInputTranslators;
-			array<IInputTranslatorFactory*> mInputTranslatorsFactories;
+			irr::core::array<IInputTranslator*> mInputTranslators;
+			irr::core::array<IInputTranslatorFactory*> mInputTranslatorsFactories;
 
-			EKEY_STATE mKeyState[KEY_KEY_CODES_COUNT];
+			EKEY_STATE mKeyState[irr::KEY_KEY_CODES_COUNT];
 
 			events::IEventManager* mEventManager;
 
@@ -52,16 +52,16 @@ namespace input
 			  bool LButtonDown;
 			  bool RButtonDown;
 			  bool MButtonDown;
-			  f32 Wheel;
-			  f32 WheelDelta;
+			  real Wheel;
+			  real WheelDelta;
 			};
 
 			struct SMouseData mMouse;
 
 			s32 mouseX()         { return mMouse.X;            }
 			s32 mouseY()         { return mMouse.Y;            }
-			f32 mouseWheel()      { return mMouse.Wheel;         }
-			f32 mouseWheelDelta()   { return mMouse.WheelDelta;   }
+			real mouseWheel()      { return mMouse.Wheel;         }
+			real mouseWheelDelta()   { return mMouse.WheelDelta;   }
 
 			InputEventHandlerIrrlicht(IEngineManager* engineManager)
 				:mEventManager(engineManager->getEventManager())
@@ -71,7 +71,7 @@ namespace input
 			setDebugName("IrrEventHandler");
 #endif
 
-				for (s32 i = 0; i < KEY_KEY_CODES_COUNT; ++i) mKeyState[i] = EKS_RELEASED;
+				for (s32 i = 0; i < irr::KEY_KEY_CODES_COUNT; ++i) mKeyState[i] = EKS_RELEASED;
 
 				mMouse.X = 0;
 				mMouse.Y = 0;
@@ -134,7 +134,7 @@ namespace input
 //					mInputTranslators.push_back(translator);
 			}
 
-			virtual void unregisterInputTranslator( const IT_INPUT_TRANSLATOR_ID* translatorID)
+			virtual void unregisterInputTranslator( u32 inputTranslatorHashId)
 			{
 
 			}
@@ -151,13 +151,13 @@ namespace input
 			}
 
 			//context
-			virtual bool keyPressed(EKEY_CODE keycode)         {   return (mKeyState[keycode] == EKS_PRESSED);                        };
-			virtual bool keyDown(EKEY_CODE keycode)         {   return (mKeyState[keycode] == EKS_DOWN || mKeyState[keycode] == EKS_PRESSED); };
-			virtual bool keyUp(EKEY_CODE keycode)            {   return (mKeyState[keycode] == EKS_UP || mKeyState[keycode] == EKS_RELEASED);   };
-			virtual bool keyReleased(EKEY_CODE keycode)      {   return (mKeyState[keycode] == EKS_RELEASED);                        };
+			virtual bool keyPressed(irr::EKEY_CODE keycode)         {   return (mKeyState[keycode] == EKS_PRESSED);                        };
+			virtual bool keyDown(irr::EKEY_CODE keycode)         {   return (mKeyState[keycode] == EKS_DOWN || mKeyState[keycode] == EKS_PRESSED); };
+			virtual bool keyUp(irr::EKEY_CODE keycode)            {   return (mKeyState[keycode] == EKS_UP || mKeyState[keycode] == EKS_RELEASED);   };
+			virtual bool keyReleased(irr::EKEY_CODE keycode)      {   return (mKeyState[keycode] == EKS_RELEASED);                        };
 
 			// keyboard events
-			virtual bool OnKeyInputEvent(const SEvent& e)
+			virtual bool OnKeyInputEvent(const irr::SEvent& e)
 			{
 				//update input state of keyboard
 				//mContextInput.update(e);
@@ -169,39 +169,39 @@ namespace input
 			}
 
 			// guievents
-			virtual bool OnButtonClicked(const SEvent& e)         {   return false;   }
-			virtual bool OnScrollBarChanged(const SEvent& e)      {   return false;   }
-			virtual bool OnCheckBoxChanged(const SEvent& e)         {   return false;   }
-			virtual bool OnListBoxChanged(const SEvent& e)         {   return false;   }
-			virtual bool OnListBoxSelectedAgain(const SEvent& e)   {   return false;   }
-			virtual bool OnFileSelected(const SEvent& e)         {   return false;   }
-			virtual bool OnMessageBoxYes(const SEvent& e)         {   return false;   }
-			virtual bool OnMessageBoxNo(const SEvent& e)         {   return false;   }
-			virtual bool OnMessageBoxOk(const SEvent& e)         {   return false;   }
-			virtual bool OnMessageBoxCancel(const SEvent& e)      {   return false;   }
-			virtual bool OnEditBoxEnter(const SEvent& e)         {   return false;   }
-			virtual bool OnTabChanged(const SEvent& e)            {   return false;   }
-			virtual bool OnComboBoxChanged(const SEvent& e)         {   return false;   }
-			virtual bool OnSpinBoxChanged(const SEvent& e)         {   return false;   }
+			virtual bool OnButtonClicked(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnScrollBarChanged(const irr::SEvent& e)      {   return false;   }
+			virtual bool OnCheckBoxChanged(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnListBoxChanged(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnListBoxSelectedAgain(const irr::SEvent& e)   {   return false;   }
+			virtual bool OnFileSelected(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnMessageBoxYes(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnMessageBoxNo(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnMessageBoxOk(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnMessageBoxCancel(const irr::SEvent& e)      {   return false;   }
+			virtual bool OnEditBoxEnter(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnTabChanged(const irr::SEvent& e)            {   return false;   }
+			virtual bool OnComboBoxChanged(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnSpinBoxChanged(const irr::SEvent& e)         {   return false;   }
 
 			// mouse events
-			virtual bool OnLMousePressedDown(const SEvent& e)      {   return false;   }
-			virtual bool OnRMousePressedDown(const SEvent& e)      {   return false;   }
-			virtual bool OnMMousePressedDown(const SEvent& e)      {   return false;   }
-			virtual bool OnLMouseLeftUp(const SEvent& e)         {   return false;   }
-			virtual bool OnRMouseLeftUp(const SEvent& e)         {   return false;   }
-			virtual bool OnMMouseLeftUp(const SEvent& e)         {   return false;   }
-			virtual bool OnMouseMoved(const SEvent& e)            {   return false;   }
-			virtual bool OnMouseWheel(const SEvent& e)            {   return false;   }
+			virtual bool OnLMousePressedDown(const irr::SEvent& e)      {   return false;   }
+			virtual bool OnRMousePressedDown(const irr::SEvent& e)      {   return false;   }
+			virtual bool OnMMousePressedDown(const irr::SEvent& e)      {   return false;   }
+			virtual bool OnLMouseLeftUp(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnRMouseLeftUp(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnMMouseLeftUp(const irr::SEvent& e)         {   return false;   }
+			virtual bool OnMouseMoved(const irr::SEvent& e)            {   return false;   }
+			virtual bool OnMouseWheel(const irr::SEvent& e)            {   return false;   }
 
 			// user events
-			virtual bool OnUserEvent(const SEvent& e)            {   return false;   }
+			virtual bool OnUserEvent(const irr::SEvent& e)            {   return false;   }
 
-			virtual bool OnEvent(const SEvent& e)
+			virtual bool OnEvent(const irr::SEvent& e)
 			{
 				switch (e.EventType)
 				{
-				case EET_KEY_INPUT_EVENT :
+				case irr::EET_KEY_INPUT_EVENT :
 					{
 						if (e.KeyInput.PressedDown == true)
 					   if (e.KeyInput.PressedDown)
@@ -219,7 +219,7 @@ namespace input
 					}
 					break;
 
-				case EET_GUI_EVENT :
+				case irr::EET_GUI_EVENT :
 					{
 					   switch (e.GUIEvent.EventType)
 					   {
@@ -242,21 +242,21 @@ namespace input
 					}
 					break;
 
-				case EET_MOUSE_INPUT_EVENT :
+				case irr::EET_MOUSE_INPUT_EVENT :
 					{
 					   mMouse.X = e.MouseInput.X;
 					   mMouse.Y = e.MouseInput.Y;
 
 					   switch (e.MouseInput.Event)
 					   {
-						  case EMIE_LMOUSE_PRESSED_DOWN   :   mMouse.LButtonDown = true; return OnLMousePressedDown(e);
-						  case EMIE_RMOUSE_PRESSED_DOWN   :   mMouse.RButtonDown = true; return OnRMousePressedDown(e);
-						  case EMIE_MMOUSE_PRESSED_DOWN   :   mMouse.MButtonDown = true; return OnMMousePressedDown(e);
-						  case EMIE_LMOUSE_LEFT_UP      :   mMouse.LButtonDown = false; return OnLMouseLeftUp(e);
-						  case EMIE_RMOUSE_LEFT_UP      :   mMouse.RButtonDown = false; return OnRMouseLeftUp(e);
-						  case EMIE_MMOUSE_LEFT_UP      :   mMouse.MButtonDown = false; return OnMMouseLeftUp(e);
-						  case EMIE_MOUSE_MOVED         :   return OnMouseMoved(e);
-						  case EMIE_MOUSE_WHEEL         :
+						  case irr::EMIE_LMOUSE_PRESSED_DOWN   :   mMouse.LButtonDown = true; return OnLMousePressedDown(e);
+						  case irr::EMIE_RMOUSE_PRESSED_DOWN   :   mMouse.RButtonDown = true; return OnRMousePressedDown(e);
+						  case irr::EMIE_MMOUSE_PRESSED_DOWN   :   mMouse.MButtonDown = true; return OnMMousePressedDown(e);
+						  case irr::EMIE_LMOUSE_LEFT_UP      :   mMouse.LButtonDown = false; return OnLMouseLeftUp(e);
+						  case irr::EMIE_RMOUSE_LEFT_UP      :   mMouse.RButtonDown = false; return OnRMouseLeftUp(e);
+						  case irr::EMIE_MMOUSE_LEFT_UP      :   mMouse.MButtonDown = false; return OnMMouseLeftUp(e);
+						  case irr::EMIE_MOUSE_MOVED         :   return OnMouseMoved(e);
+						  case irr::EMIE_MOUSE_WHEEL         :
 							 {
 								mMouse.WheelDelta = mMouse.Wheel - e.MouseInput.Wheel;
 								mMouse.Wheel += e.MouseInput.Wheel;
@@ -267,7 +267,7 @@ namespace input
 					}
 					break;
 
-				case EET_USER_EVENT :
+				case irr::EET_USER_EVENT :
 					{
 					   return OnUserEvent(e);
 					   default : return false;

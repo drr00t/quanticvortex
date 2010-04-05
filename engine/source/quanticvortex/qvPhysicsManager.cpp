@@ -155,22 +155,22 @@ namespace qv
             mBulletDynamicsWorld->stepSimulation(btScalar(elapsedTimeMs/1000.0f), 2); //just twos sub steps, is enough???);
         }
         //-----------------------------------------------------------------------------------------
-		void PhysicsManager::addShape(f32 radius, gaming::IActor *actor, f32 specificGravity)
+		void PhysicsManager::addShape(real radius, gaming::IActor *actor, real specificGravity)
 		{
 
 		}
 		//-----------------------------------------------------------------------------------------
 		//void Phys
-		void PhysicsManager::addBox(const irr::core::vector3df &dimensions, qv::gaming::IActor *actor, irr::f32 specificGravity)
+		void PhysicsManager::addBox(const irr::core::vector3df &dimensions, qv::gaming::IActor *actor, real specificGravity)
 		{
 
 		}
         //-----------------------------------------------------------------------------------------
-		void PhysicsManager::addConvexHull(irr::core::vector3df *verts, irr::s32 numPoints, qv::gaming::IActor *actor, irr::f32 specificGravity)
+		void PhysicsManager::addConvexHull(irr::core::vector3df *verts, irr::s32 numPoints, qv::gaming::IActor *actor, real specificGravity)
 		{
 		}
         //-----------------------------------------------------------------------------------------
-		void PhysicsManager::addSphere(irr::f32 radius, qv::gaming::IActor *actor, irr::f32 specificGravity)
+		void PhysicsManager::addSphere( real radius, qv::gaming::IActor *actor, real specificGravity)
 		{
 			btSphereShape* sphereShape = new btSphereShape(btScalar(radius));
 		}

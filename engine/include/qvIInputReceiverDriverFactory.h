@@ -30,6 +30,8 @@
 
 #include "qvIInputReceiver.h"
 
+#include "IReferenceCounted.h"
+
 namespace qv
 {
     class IEngineManager;
@@ -37,7 +39,7 @@ namespace qv
     namespace input
     {
 
-		class IInputReceiverDriverFactory : public IReferenceCounted
+		class IInputReceiverDriverFactory : public irr::IReferenceCounted
 		{
 		public:
 

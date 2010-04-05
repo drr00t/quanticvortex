@@ -32,7 +32,9 @@
 #include "qvIGameView.h"
 #include "qvIElementView.h"
 #include "qvICommand.h"
-//#include "input/qvInputController.h"
+#include "qvIInputTranslator.h"
+
+#include "IAudioManager.h"
 //#include "runtime/qvProcessManager.h"
 
 
@@ -64,13 +66,13 @@ namespace qv
 
 //			void attachProcess(Process* process) = 0;
 
-            //command that will registred on event manager to response to spacefic events
-            virtual const CommandList& commandEventResponseList() const = 0;
-
             //coomand that will registred on input manager to response to user input
-            virtual const CommandList& commandInputResponseList() const = 0;
+            virtual const input::InputTranslatorList& listenInputTranslators() const = 0;
 
-            //
+            virtual void initAudio() = 0;
+
+            virtual cAudio::IAudioManager* getAudioManager() = 0;
+
         };
     }
 }
