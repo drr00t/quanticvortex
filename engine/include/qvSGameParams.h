@@ -90,7 +90,7 @@ namespace qv
         bool InputBuffered;
         bool InputDebug;
 
-        string Title;
+        irr::core::stringc Title;
         //texture size
         //detail level
         //shadow maps

@@ -32,14 +32,14 @@
 
 namespace qv
 {
-	class IStateMachine: public IReferenceCounted
+	class IStateMachine: public irr::IReferenceCounted
     {
     public:
         virtual void addState(IState* state, bool startUpState = false)=0;
 		virtual void changeState(const S_STATE* newState)=0;
         virtual IState* getCurrentState()=0;
         virtual void removeState(IState* state)=0;
-        
+
     };
 }
 #endif

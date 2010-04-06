@@ -35,33 +35,34 @@ namespace qv
 	{
 		//-----------------------------------------------------------------------
 		InputReceiver::InputReceiver(IEngineManager* engineManager)
-            :mCurrentGeneration(0),mEngineManager(engineManager)
+            :mCurrentGeneration(0), mEngineManager(engineManager)
 		{
             for(u8 i = 0; i < C_KEY_GENERATIONS_COUNT; ++i)
-                memset(mKeyPressed[i], 0, irr::KEY_KEY_CODES_COUNT);
+                for(u8 j = 0; j < irr::KEY_KEY_CODES_COUNT; ++j)
+                    mKeyPressed[i][j] = 0;
 		}
 		//-----------------------------------------------------------------------
 		InputReceiver::~InputReceiver()
 		{
 		}
 		//-----------------------------------------------------------------------
-        bool InputReceiver::OnEvent(const SEvent& event)
+        bool InputReceiver::OnEvent(const irr::SEvent& event)
 		{
-            stringc log;
+//            irr::core::stringc log;
 
             switch(event.EventType)
             {
-            case EET_GUI_EVENT:
+            case irr::EET_GUI_EVENT:
 
                 break;
-            case EET_KEY_INPUT_EVENT:
-                
-                mKeyPressed[mCurrentGeneration][event.KeyInput.Key] = event.KeyInput.PressedDown; 
-                
-                log = L"Key: " + event.KeyInput.Key;
-                log += L"   State: " + event.KeyInput.PressedDown;
+            case irr::EET_KEY_INPUT_EVENT:
 
-                mEngineManager->getDevice()->getLogger()->log(log.c_str());
+                mKeyPressed[mCurrentGeneration][event.KeyInput.Key] = event.KeyInput.PressedDown;
+
+//                log = L"Key: " + event.KeyInput.Key;
+//                log += L"   State: " + event.KeyInput.PressedDown;
+
+//                mEngineManager->getDevice()->getLogger()->log(log.c_str());
 
                 //generation increment
                 ++mCurrentGeneration;
@@ -69,16 +70,16 @@ namespace qv
                     mCurrentGeneration = 0;
 
                 break;
-            case EET_JOYSTICK_INPUT_EVENT:
+            case irr::EET_JOYSTICK_INPUT_EVENT:
 
                 break;
-            case EET_MOUSE_INPUT_EVENT:
+            case irr::EET_MOUSE_INPUT_EVENT:
 
-                log = L"Mouse position X x" + event.MouseInput.X;
-                log = L" Y: " + event.MouseInput.Y;
-                mEngineManager->getDevice()->getLogger()->log(log.c_str());
+//                log = L"Mouse position X x" + event.MouseInput.X;
+//                log = L" Y: " + event.MouseInput.Y;
+//                mEngineManager->getDevice()->getLogger()->log(log.c_str());
 
-                log = L"";
+//                log = L"";
 
                 break;
             default:
@@ -96,7 +97,7 @@ namespace qv
 		{
 		}
 		//-----------------------------------------------------------------------
-        void InputReceiver::unregisterInputTranslator(const IT_INPUT_TRANSLATOR_ID& translatorID)
+        void InputReceiver::unregisterInputTranslator( u32 inputTranslatorHashId)
 		{
 		}
 		//-----------------------------------------------------------------------

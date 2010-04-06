@@ -25,34 +25,33 @@
 **************************************************************************************************/
 
 
-#ifndef __I_GAME_VIEW_FACTORY_H_
-#define __I_GAME_VIEW_FACTORY_H_
+#ifndef __HASH_FUNCTIONS_H_
+#define __HASH_FUNCTIONS_H_
 
-#include "qvIGameView.h"
-
-#include "Poco/SharedPtr.h"
-
-#include "irrArray.h"
-#include "IReferenceCounted.h"
+#include "qvCompileConfig.h"
+#include "qvTypes.h"
 
 namespace qv
 {
-    namespace views
-    {
-		class IGameViewFactory : public irr::IReferenceCounted
-		{
-		public:
 
-            virtual IGameViewSharedPtr addGameView( u32 gameViewHashType) = 0;
+    //-----------------------------------------------------------------------------
+    // MurmurHash2, by Austin Appleby  from http://sites.google.com/site/murmurhash/
 
-			virtual u32 getCreatableGameViewTypeCount() const = 0;
+    // Note - This code makes a few assumptions about how your machine behaves -
 
-			virtual bool getCreateableGameViewType( u32 gameViewHashType) const = 0;
-		};
+    // 1. We can read a 4-byte value from any address without crashing
+    // 2. sizeof(int) == 4
 
-        typedef Poco::SharedPtr<IGameViewFactory> IGameViewFactorySharedPtr;
-		typedef irr::core::array<IGameViewFactorySharedPtr> GameViewFactoryArray;
-    }
+    // And it has a few limitations -
+
+    // 1. It will not work incrementally.
+    // 2. It will not produce the same results on little-endian and big-endian
+    //    machines.
+
+    // All code is released to the public domain. For business purposes, Murmurhash is
+    // under the MIT license.
+    _QUANTICVORTEX_API_ u32 QUANTICVORTEX_CALLCONV createMurmurHash2 ( const void * key, u32 len, u32 seed = 0);
 }
+
 #endif
 

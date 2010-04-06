@@ -90,7 +90,7 @@ namespace qv
 		                                                                                bool vsync = false,
 		                                                                                u8 bits = 16,
 		                                                                                irr::core::dimension2du windowSize = irr::core::dimension2du(1024,768),
-                                                                                        string title = "Quantic Vortex Game",
+                                                                                        irr::core::stringc title = "Quantic Vortex Game",
                                                                                         bool hostGame = true,
                                                                                         u8 localPlayers = 1,
                                                                                         u8 aIPlayers = 0,

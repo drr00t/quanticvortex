@@ -198,7 +198,7 @@ namespace qv
 
         }
         //-----------------------------------------------------------------------------------------
-        bool GameLogic::loadGame(const string& gameName)
+        bool GameLogic::loadGame(const irr::core::stringc& gameName)
         {
 	        //if (gameName=="NewGame")
 	        //{
@@ -229,7 +229,7 @@ namespace qv
             //view->restore();
         }
         //-----------------------------------------------------------------------------------------
-        views::IGameView* GameLogic::addView( const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, u32 actorHashId)
+        views::IGameView* GameLogic::addView( const c8* viewID, u32 viewHashType, u32 actorHashId)
         {
             views::IGameView* gameView(0);
 

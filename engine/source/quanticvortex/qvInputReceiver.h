@@ -52,9 +52,9 @@ namespace qv
             InputReceiver(IEngineManager* engineManager);
 			virtual ~InputReceiver();
 
-            virtual bool OnEvent(const SEvent& event);
+            virtual bool OnEvent(const irr::SEvent& event);
             virtual void registerInputTranslator( IInputTranslator* translator);
-            virtual void unregisterInputTranslator( const IT_INPUT_TRANSLATOR_ID& translatorID);
+            virtual void unregisterInputTranslator( u32 inputTranslatorHashId);
             virtual void unregisterInputTranslator( IInputTranslator* translator);
 		};
 	}

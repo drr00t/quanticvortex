@@ -215,6 +215,7 @@
 		<Unit filename="..\..\include\qvEventTypes.h" />
 		<Unit filename="..\..\include\qvGameStateTypes.h" />
 		<Unit filename="..\..\include\qvGameViewTypes.h" />
+		<Unit filename="..\..\include\qvHashFunctions.h" />
 		<Unit filename="..\..\include\qvIAIView.h">
 			<Option target="Win32 - Debug - Static" />
 			<Option target="Win32 - Release - Static" />
@@ -224,10 +225,6 @@
 		<Unit filename="..\..\include\qvIActorManager.h" />
 		<Unit filename="..\..\include\qvIAnyKeyInputTranslator.h" />
 		<Unit filename="..\..\include\qvICommand.h" />
-		<Unit filename="..\..\include\qvICommandArgs.h">
-			<Option target="Win32 - Debug - Static" />
-			<Option target="Win32 - Release - Static" />
-		</Unit>
 		<Unit filename="..\..\include\qvIElementView.h" />
 		<Unit filename="..\..\include\qvIElementViewFactory.h" />
 		<Unit filename="..\..\include\qvIEngineManager.h" />
@@ -373,20 +370,11 @@
 			<Option target="Win32 - Debug - DLL" />
 			<Option target="Win32 - Release - Fastmath - DLL" />
 		</Unit>
+		<Unit filename="..\..\source\quanticvortex\qvHashFunctions.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvHumanView.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvHumanView.h" />
 		<Unit filename="..\..\source\quanticvortex\qvInitializatingGameState.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvInitializatingGameState.h" />
-		<Unit filename="..\..\source\quanticvortex\qvInputReceiver.cpp">
-			<Option target="Win32 - Debug - Static" />
-			<Option target="Win32 - Release - Static" />
-			<Option target="Win32 - Release - Fastmath - DLL" />
-		</Unit>
-		<Unit filename="..\..\source\quanticvortex\qvInputReceiver.h">
-			<Option target="Win32 - Debug - Static" />
-			<Option target="Win32 - Release - Static" />
-			<Option target="Win32 - Release - Fastmath - DLL" />
-		</Unit>
 		<Unit filename="..\..\source\quanticvortex\qvLoadingGameState.cpp" />
 		<Unit filename="..\..\source\quanticvortex\qvLoadingGameState.h" />
 		<Unit filename="..\..\source\quanticvortex\qvMenuGameState.cpp" />

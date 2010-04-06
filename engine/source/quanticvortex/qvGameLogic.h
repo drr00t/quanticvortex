@@ -53,30 +53,6 @@ namespace qv
 
 		class GameLogic : public IGameLogic
         {
-
-        protected:
-
-            irr::core::array<views::IGameViewFactory*> mGameViewFactories;
-
-            const S_STATE* mState;
-
-            ActorsMap mActors;
-
-            views::GameViewsArray mGameViews;
-
-            IEngineManager* mEngineManager;
-
-            //SPlayerScore mPlayerScore;
-            //ActorID mHumanPlayerAttached;
-	        //list<ActorID*> mAIPlayersAttached;
-
-			//physics system
-			physics::IPhysicsManager* mPhysicsManager;
-
-   //         IProcessManager* mProcessManager;  game logic AI
-
-			//IEventListener* mEventListener;// here need put all event that gamelogic will listen for
-
         public:
             GameLogic(IEngineManager* engineManager);
             virtual ~GameLogic();
@@ -124,14 +100,14 @@ namespace qv
 
             virtual void addView(views::IGameView* gameView, u32 actorHashId = 0);
 
-			virtual views::IGameView* addView(const c8* viewID, const views::GVT_GAME_VIEW_TYPE* viewType, u32 actorHashId = 0);
+			virtual views::IGameView* addView(const c8* viewID, u32 viewHashType, u32 actorHashId = 0);
 
             virtual void removeView(views::IGameView* gameView);
 
 			virtual void registerGameViewFactory(views::IGameViewFactory* factoryToAdd);
 
 
-			virtual bool loadGame(const string& gameName);
+			virtual bool loadGame(const irr::core::stringc& gameName);
 
             virtual void update( u32 currentTimeMs, u32 elapsedTimeMs);
 
@@ -148,6 +124,30 @@ namespace qv
 			//}
 
 			//void detachProcess(IProcess* process){}
+
+
+        protected:
+
+            irr::core::array<views::IGameViewFactory*> mGameViewFactories;
+
+            const S_STATE* mState;
+
+            ActorsMap mActors;
+
+            views::GameViewsArray mGameViews;
+
+            IEngineManager* mEngineManager;
+
+            //SPlayerScore mPlayerScore;
+            //ActorID mHumanPlayerAttached;
+	        //list<ActorID*> mAIPlayersAttached;
+
+			//physics system
+			physics::IPhysicsManager* mPhysicsManager;
+
+   //         IProcessManager* mProcessManager;  game logic AI
+
+			//IEventListener* mEventListener;// here need put all event that gamelogic will listen for
         };
     }
 }

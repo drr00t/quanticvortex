@@ -28,10 +28,11 @@
 #ifndef __S_HASHED_STRING_H_
 #define __S_HASHED_STRING_H_
 
-#include "qvSuperFastHash.h"
 #include "qvTypes.h"
+#include "qvHashFunctions.h"
 
-#include "Poco/String.h"
+#include "irrString.h"
+
 
 
 namespace qv
@@ -48,8 +49,8 @@ namespace qv
 		SHashedString(const c8* text)
 			:Text(text)
 		{
-		    Poco::toLowerInPlace(Text);
-			Hash = createSuperFastHash(Text);
+		    Text.make_lower();
+			Hash = createMurmurHash2( Text.c_str(), Text.size());
 		}
 		//-------------------------------------------------------------------------
 		SHashedString(const c8* text, u32 hash)
@@ -102,7 +103,7 @@ namespace qv
 		}
 		//-------------------------------------------------------------------------
 
-		string Text;
+		irr::core::stringc Text;
 		u32 Hash;
     };
 }

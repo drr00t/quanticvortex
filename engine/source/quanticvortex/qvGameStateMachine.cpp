@@ -38,15 +38,15 @@ namespace qv
 		void GameStateMachine::changeState(const qv::S_STATE* newState)
 		{
             //leave old game state
-            StateMap::Node* nodeNewState = mStateMap.find(newState->Hash);
+//            StateMap::Node* nodeNewState = mStateMap.find(newState->Hash);
 
-            if(nodeNewState)
-            {
-                mCurrentState->leave();
-                mCurrentState = nodeNewState->getValue();
-                mCurrentState->configure();
-                mCurrentState->enter();
-            }
+//            if(nodeNewState)
+//            {
+//                mCurrentState->leave();
+//                mCurrentState = nodeNewState->getValue();
+//                mCurrentState->configure();
+//                mCurrentState->enter();
+//            }
 
 			//query for type in state list
 			//execute leave from current state

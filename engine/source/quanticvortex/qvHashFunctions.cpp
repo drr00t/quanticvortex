@@ -25,72 +25,59 @@
 **************************************************************************************************/
 
 
-#ifndef __SUPER_FAST_HASH_H_
-#define __SUPER_FAST_HASH_H_
-
-#include "qvCompileConfig.h"
-#include "qvTypes.h"
+#include "qvHashFunctions.h"
 
 
 namespace qv
 {
-	#define GET_16_BITS(d) (*((const u16 *) (d)))
-
-    _QUANTICVORTEX_API_ u32 QUANTICVORTEX_CALLCONV createSuperFastHash (const string& text)
+    _QUANTICVORTEX_API_ u32 QUANTICVORTEX_CALLCONV createMurmurHash2 ( const void * key, u32 len, u32 seed)
     {
-        const c8* data = text.c_str();
-		u32 len = text.size();
-		u32 hash = len;
-		u32	tmp;
-		int rem;
+        // 'm' and 'r' are mixing constants generated offline.
+        // They're not really 'magic', they just happen to work well.
 
-		if (len <= 0 || data == NULL) return 0;
+        const u32 m = 0x5bd1e995;
+        const s32 r = 24;
 
-        rem = len & 3;
+        // Initialize the hash to a 'random' value
 
-		len >>= 2;
+        u32 h = seed ^ len;
 
-		/* Main loop */
-		for (;len > 0; len--)
-		{
-			hash  += GET_16_BITS (data);
-			tmp    = (GET_16_BITS (data+2) << 11) ^ hash;
-			hash   = (hash << 16) ^ tmp;
-			data  += 2*sizeof (u16);
-			hash  += hash >> 11;
-		}
+        // Mix 4 bytes at a time into the hash
 
+        const u8 * data = (const u8 *)key;
 
+        while(len >= 4)
+        {
+            u32 k = *(u32 *)data;
 
-		/* Handle end cases */
+            k *= m;
+            k ^= k >> r;
+            k *= m;
 
-		switch (rem)
-		{
-			case 3: hash += GET_16_BITS (data);
-					hash ^= hash << 16;
-					hash ^= data[sizeof (u16)] << 18;
-					hash += hash >> 11;
-					break;
-			case 2: hash += GET_16_BITS (data);
-					hash ^= hash << 11;
-					hash += hash >> 17;
-					break;
-			case 1: hash += *data;
-					hash ^= hash << 10;
-					hash += hash >> 1;
-		}
+            h *= m;
+            h ^= k;
 
-        /* Force "avalanching" of final 127 bits */
-		hash ^= hash << 3;
-		hash += hash >> 5;
-		hash ^= hash << 4;
-		hash += hash >> 17;
-		hash ^= hash << 25;
-		hash += hash >> 6;
+            data += 4;
+            len -= 4;
+        }
 
-		return hash;
+        // Handle the last few bytes of the input array
+
+        switch(len)
+        {
+        case 3: h ^= data[2] << 16;
+        case 2: h ^= data[1] << 8;
+        case 1: h ^= data[0];
+                h *= m;
+        };
+
+        // Do a few final mixes of the hash to ensure the last few
+        // bytes are well-incorporated.
+
+        h ^= h >> 13;
+        h *= m;
+        h ^= h >> 15;
+
+        return h;
     }
 }
-
-#endif
-

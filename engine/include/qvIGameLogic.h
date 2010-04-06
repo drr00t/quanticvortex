@@ -69,7 +69,7 @@ namespace qv
 
 			virtual void removeView(views::IGameView* gameView) = 0;
 
-			virtual bool loadGame(const string& gameName) const = 0;
+			virtual bool loadGame(const irr::core::stringc& gameName) const = 0;
 
             virtual void update( u32 currentTimeMs, u32 elapsedTimeMs) = 0;
 

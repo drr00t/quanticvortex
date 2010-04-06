@@ -25,33 +25,35 @@
 **************************************************************************************************/
 
 
-#ifndef __I_GAME_VIEW_FACTORY_H_
-#define __I_GAME_VIEW_FACTORY_H_
+#ifndef __I_GAME_VIEW_MANAGER_H_
+#define __I_GAME_VIEW_MANAGER_H_
 
 #include "qvIGameView.h"
 
-#include "Poco/SharedPtr.h"
-
-#include "irrArray.h"
-#include "IReferenceCounted.h"
 
 namespace qv
 {
     namespace views
     {
-		class IGameViewFactory : public irr::IReferenceCounted
-		{
-		public:
 
-            virtual IGameViewSharedPtr addGameView( u32 gameViewHashType) = 0;
+        class IGameViewManager //: public IReferenceCounted
+        {
+        public:
 
-			virtual u32 getCreatableGameViewTypeCount() const = 0;
+            //virtual const GVT_GAME_VIEW_TYPE* getType()=0;
 
-			virtual bool getCreateableGameViewType( u32 gameViewHashType) const = 0;
-		};
+			virtual void attach(u32 viewHashId, u32 actorHashId = 0) = 0;
 
-        typedef Poco::SharedPtr<IGameViewFactory> IGameViewFactorySharedPtr;
-		typedef irr::core::array<IGameViewFactorySharedPtr> GameViewFactoryArray;
+            virtual u32 getHashId() const = 0;
+
+            virtual u32 getHashType() const = 0;
+
+            //virtual const u8 getOrder() const=0;  //order to update view
+
+	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs) = 0; //time in miliseconds
+
+	        virtual void update(u32 elapsedTimeMs)=0;
+        };
     }
 }
 #endif

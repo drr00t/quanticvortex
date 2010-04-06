@@ -27,7 +27,7 @@
 #ifndef __GAME_STATE_MACHINE_H_
 #define __GAME_STATE_MACHINE_H_
 
-#include "qvPrerequisites.h"
+#include "qvTypes.h"
 #include "qvIStateMachine.h"
 
 
@@ -37,12 +37,12 @@ namespace qv
     {
         class IGameState;
 
-        typedef map<s32, IState*> StateMap;
+//        typedef map<s32, IState*> StateMap;
 
 		class GameStateMachine: public IStateMachine
         {
 		protected:
-            StateMap mStateMap;
+//            StateMap mStateMap;
 			IState* mCurrentState;
 
         public:

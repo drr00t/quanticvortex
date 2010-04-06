@@ -34,7 +34,7 @@ namespace qv
 	                                                                                bool vsync,
 	                                                                                u8 bits,
 	                                                                                irr::core::dimension2du windowSize,
-                                                                                    string title,
+                                                                                    irr::core::stringc title,
                                                                                     bool hostGame,
                                                                                     u8 localPlayers,
                                                                                     u8 aIPlayers,

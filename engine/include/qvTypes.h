@@ -29,7 +29,7 @@
 #define __QV_TYPES_H_
 
 #include <inttypes.h>
-#include <string>
+
 
 namespace qv
 {
@@ -49,11 +49,11 @@ namespace qv
 
     typedef char		c8;
 
-    typedef std::char_traits<u8> uchar_traits;
-    typedef std::basic_string<u8, uchar_traits> ustring;
-
-    typedef std::char_traits<c8> char_traits;
-    typedef std::basic_string<c8, char_traits> string;
+//    typedef std::char_traits<u8> uchar_traits;
+//    typedef std::basic_string<u8, uchar_traits> ustring;
+//
+//    typedef std::char_traits<c8> char_traits;
+//    typedef std::basic_string<c8, char_traits> string;
 }
 
 #endif
