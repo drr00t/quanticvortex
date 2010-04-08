@@ -35,7 +35,7 @@ namespace qv
         void ActorManager::findActorsByType( u32 actorHashType , ActorsSharedPtrArray& actors)
         {
             for(s32 i = 0; i < mActors.size(); ++i)
-                if(mActors[i].getHashType() == actorHashType)
+                if(mActors[i]->getHashType() == actorHashType)
                     actors.push_back(mActors[i]);
         }
         //-----------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ namespace qv
             IActorSharedPtr actorPtr;
             for(s32 i = 0; i < mActors.size(); ++i)
             {
-                 if(mActors[i].getHashId() == actorHashId)
+                 if(mActors[i]->getHashId() == actorHashId)
                  {
                      actorPtr = mActors[i];
                      break;
@@ -71,7 +71,7 @@ namespace qv
             //populatin deletion list
             for(s32 i = 0; i < mActors.size(); ++i)
             {
-                if(mActors[i].getHashId() == actorHashId)
+                if(mActors[i]->getHashId() == actorHashId)
                 {
                     actorIdx = i ;
                     break;

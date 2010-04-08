@@ -1,5 +1,5 @@
 
-#include "core/qvActorArgs.h"
+#include "qvActorArgs.h"
 
 namespace qv
 {

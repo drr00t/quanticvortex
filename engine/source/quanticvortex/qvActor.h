@@ -30,8 +30,6 @@
 
 #include "qvIActor.h"
 
-using namespace irr::scene;
-
 
 namespace qv
 {
@@ -43,31 +41,30 @@ namespace qv
         public: 
 			
             Actor();
-            Actor(const c8* actorName, const AT_ACTOR_TYPE* actorType);
-            Actor(const AI_ACTOR_ID* actorID, const AT_ACTOR_TYPE* actorType);
+            Actor(const c8* actorName, u32 actorHashType);
 
             virtual ~Actor();
 
-            virtual u32 getId() const { return mId->HashedText;}
+            virtual u32 getHashId() const { return mId->Hash;}
 			
-            virtual u32 getTypeId() const { return mType->HashedText;}
+            virtual u32 getHashType() const { return mActorHashType;}
 
-            virtual const matrix4& getTransformation() const { return mTransformation;}
+//            virtual const matrix4& getTransformation() const { return mTransformation;}
 
             virtual bool isVisible () const { return mVisible;}
             
-            virtual void setName( const c8* name){ if(!mId) mId = new AI_ACTOR_ID(name);}
+//            virtual void setName( const c8* name){ if(!mId) mId = new AI_ACTOR_ID(name);}
             
-            virtual void setTransformation( const matrix4& transformation) { mTransformation = transformation;}
+//            virtual void setTransformation( const matrix4& transformation) { mTransformation = transformation;}
 
-            virtual void setType( const AT_ACTOR_TYPE* type) { mType = type;}
+//            virtual void setType( const AT_ACTOR_TYPE* type) { mType = type;}
 
             virtual void update( u32 elapsedTimeMs);
 
 		protected:
             const AI_ACTOR_ID* mId;
-            const AT_ACTOR_TYPE* mType;
-            matrix4 mTransformation;
+            u32 mActorHashType;
+//            matrix4 mTransformation;
             bool mVisible;
         };
     }

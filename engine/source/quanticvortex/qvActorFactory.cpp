@@ -31,7 +31,7 @@ namespace qv
     namespace gaming
     {
         ActorFactory::ActorFactory(IActorManagerSharedPtr actorManager)
-        :mActorManager(actorManager)
+//        :mActorManager(actorManager)
         {
 //            mActorTypes.
         }

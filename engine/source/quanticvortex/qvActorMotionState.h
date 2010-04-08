@@ -29,11 +29,13 @@
 #define __ACTOR_MOTION_STATE_H_
 
 #include "qvPrerequisites.h"
+#include "qvTypes.h"
 #include "qvActorTypes.h"
 
 #include "LinearMath/btQuaternion.h"
 #include "LinearMath/btDefaultMotionState.h"
 
+#include "ISceneNode.h"
 
 namespace
 {
@@ -44,16 +46,16 @@ namespace
 		btScalar Y = TQuat.getY();
 		btScalar Z = TQuat.getZ();
 
-		f32 WSquared = W * W;
-		f32 XSquared = X * X;
-		f32 YSquared = Y * Y;
-		f32 ZSquared = Z * Z;
+		qv::real WSquared = W * W;
+		qv::real XSquared = X * X;
+		qv::real YSquared = Y * Y;
+		qv::real ZSquared = Z * Z;
 
 		TEuler.setX(atan2f(2.0f * (Y * Z + X * W), -XSquared - YSquared + ZSquared + WSquared));
 		TEuler.setY(asinf(-2.0f * (X * Z - Y * W)));
 		TEuler.setZ(atan2f(2.0f * (X * Y + Z * W), XSquared - YSquared - ZSquared + WSquared));
 		
-		TEuler *= core::RADTODEG;
+		TEuler *= irr::core::RADTODEG;
 	}
 }
 
@@ -65,12 +67,12 @@ namespace qv
         struct ActorMotionState: public btDefaultMotionState
         {
         private:
-	        scene::ISceneNode* mSceneNode;
+	        irr::scene::ISceneNode* mSceneNode;
             const gaming::AI_ACTOR_ID* mActorId;
 
         public: 
 			
-            ActorMotionState(const gaming::AI_ACTOR_ID* actorId, scene::ISceneNode* sceneNode)
+            ActorMotionState(const gaming::AI_ACTOR_ID* actorId, irr::scene::ISceneNode* sceneNode)
                 :mSceneNode(sceneNode), mActorId(actorId)
             {
             }
@@ -90,18 +92,18 @@ namespace qv
 		        m_graphicsWorldTrans = centerOfMassWorldTrans;
 
 		        const btVector3& Point = centerOfMassWorldTrans.getOrigin();
-                mSceneNode->setPosition(core::vector3df(Point[0], Point[1], Point[2])); //is possible scale mesh here
+                mSceneNode->setPosition(irr::core::vector3df(Point[0], Point[1], Point[2])); //is possible scale mesh here
 
 		        // Set rotation
 		        btVector3 EulerRotation;
 		        quaternionToEuler(centerOfMassWorldTrans.getRotation(), EulerRotation);
-		        mSceneNode->setRotation(core::vector3df(EulerRotation[0], EulerRotation[1], EulerRotation[2]));
+		        mSceneNode->setRotation(irr::core::vector3df(EulerRotation[0], EulerRotation[1], EulerRotation[2]));
 	        }
 
             // return actor ID
             u32 getActorId() const
             {
-                return mActorId->HashedText;
+                return mActorId->Hash;
             }
         };
     }

@@ -36,22 +36,16 @@ namespace qv
         Actor::Actor()
         {
         }
-		//-----------------------------------------------------------------------------------------
-        Actor::Actor(const AI_ACTOR_ID* actorID, const AT_ACTOR_TYPE* type)
-            : mId(actorID),mType(type)
-        {
-        }
         //-----------------------------------------------------------------------------------------
-        Actor::Actor( const c8* actorName, const AT_ACTOR_TYPE* type)
-            : mType(type)
+        Actor::Actor( const c8* actorName, u32 actorHashType)
+            : mActorHashType(actorHashType)
         {
             mId = new AI_ACTOR_ID(actorName);
         }
 		//-----------------------------------------------------------------------------------------
         Actor::~Actor()
         {
-            mId->drop();
-            mType->drop();
+
         }
         //-----------------------------------------------------------------------------------------
         void Actor::update( u32 elapsedTimeMs)

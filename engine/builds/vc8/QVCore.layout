@@ -1,49 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Win32 - Debug - DLL" />
-	<File name="..\..\include\qvHashFunctions.h" open="0" top="0" tabpos="0">
-		<Cursor position="2240" topLine="33" />
-	</File>
-	<File name="..\..\include\qvIGameLogic.h" open="0" top="0" tabpos="0">
-		<Cursor position="2436" topLine="58" />
-	</File>
-	<File name="..\..\include\qvIGameViewFactory.h" open="0" top="0" tabpos="0">
-		<Cursor position="1548" topLine="28" />
-	</File>
-	<File name="..\..\include\qvIStateMachine.h" open="0" top="0" tabpos="0">
-		<Cursor position="1695" topLine="22" />
-	</File>
-	<File name="..\..\include\qvQuanticVortex.h" open="0" top="0" tabpos="0">
-		<Cursor position="3873" topLine="77" />
-	</File>
-	<File name="..\..\include\qvSGameParams.h" open="0" top="0" tabpos="0">
-		<Cursor position="2011" topLine="32" />
-	</File>
-	<File name="..\..\include\qvSHashedString.h" open="0" top="0" tabpos="0">
-		<Cursor position="1966" topLine="40" />
-	</File>
-	<File name="..\..\include\qvSuperFastHash.h" open="0" top="0" tabpos="0">
-		<Cursor position="101" topLine="0" />
-	</File>
-	<File name="..\..\include\qvTypes.h" open="0" top="0" tabpos="0">
-		<Cursor position="1903" topLine="35" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvGameLogic.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="9065" topLine="242" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvGameLogic.h" open="0" top="0" tabpos="0">
-		<Cursor position="3863" topLine="114" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvGameStateMachine.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="1291" topLine="28" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvGameStateMachine.h" open="0" top="0" tabpos="0">
-		<Cursor position="1761" topLine="32" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvHashFunctions.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="2316" topLine="20" />
-	</File>
-	<File name="..\..\source\quanticvortex\qvQuanticVortex.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="2763" topLine="41" />
+	<ActiveTarget name="Windows x86" />
+	<File name="..\..\source\quanticvortex\qvChangeStateEventArgs.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1177" topLine="9" />
 	</File>
 </CodeBlocks_layout_file>

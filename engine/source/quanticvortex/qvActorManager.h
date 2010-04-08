@@ -6,7 +6,6 @@
 //#include "qvActorArgs.h"
 #include "qvActorFactory.h"
 
-//using namespace irr::scene;
 
 namespace qv
 {

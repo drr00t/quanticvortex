@@ -33,12 +33,7 @@
 //#include "events/qvEventManager.h"
 //#include "input/qvInputManager.h"
 
-#include "IrrINI.h"
-
-//using namespace irr::gui;
-//using namespace irr::io;
-//using namespace irr::video;
-//using namespace irr::scene;
+#include "IReferenceCounted.h"
 //
 //using namespace qv::core;
 //using namespace qv::input;
@@ -57,7 +52,7 @@ namespace qv
 
 namespace qv
 {    
-	class _QUANTICVORTEX_API Game : public IReferenceCounted
+	class _QUANTICVORTEX_API Game : public irr::IReferenceCounted
     {
 
 	private:

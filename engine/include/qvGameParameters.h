@@ -4,34 +4,34 @@
 
 #include "qvPrerequisites.h" 
 
-using namespace irr::io;
-
+#include "irrString.h" 
+#include "IAttributeExchangingObject.h"
 
 namespace qv
 {    
-	class GameParameters :  public virtual IAttributeExchangingObject
+	class GameParameters :  public virtual irr::io::IAttributeExchangingObject
     {
 
     protected:
-        stringc mGameTitle;
-        stringc mGameAppDirectory;
-        stringc mUserHomeDirectory;
+        irr::core::stringc mGameTitle;
+        irr::core::stringc mGameAppDirectory;
+        irr::core::stringc mUserHomeDirectory;
 
     public:
 
 	    GameParameters();
         virtual ~GameParameters();
 
-		stringc& gameAppDirectory();
-        stringc& userHomeDirectory();
+		irr::core::stringc& gameAppDirectory();
+        irr::core::stringc& userHomeDirectory();
 
     	virtual bool loadGame() = 0;
         virtual void createGameAndView() = 0;
 
 
 		/// serialization interface implementation
-		virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const;
-		virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0);
+		virtual void serializeAttributes(irr::io::IAttributes* out, irr::io::SAttributeReadWriteOptions* options=0) const;
+		virtual void deserializeAttributes(irr::io::IAttributes* in, irr::io::SAttributeReadWriteOptions* options=0);
 
     };
 }

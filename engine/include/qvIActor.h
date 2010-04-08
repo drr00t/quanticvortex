@@ -56,7 +56,7 @@ namespace qv
 
 //            virtual void setTransformation( const btTransform& transformation) = 0;
 
-//            virtual void update( u32 elapsedTimeMs) const = 0;
+            virtual void update( u32 elapsedTimeMs) const = 0;
         };
 
 		typedef Poco::SharedPtr<IActor> IActorSharedPtr;
