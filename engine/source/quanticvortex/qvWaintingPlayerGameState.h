@@ -21,10 +21,7 @@ namespace qv
             WaintingPlayerGameState();
             ~WaintingPlayerGameState();
 
-            virtual const S_STATE* getState()
-            {
-                return mState;
-            }
+            virtual u32 getState() { return mState.Hash; }
 
             virtual void configure();
 
@@ -35,7 +32,7 @@ namespace qv
 	        virtual void update( u32 currentTimeMs, u32 elapsedTimeMs);
 
         private:
-            const S_STATE* mState; 
+            S_STATE mState; 
 
         };
     }

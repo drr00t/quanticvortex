@@ -2,7 +2,7 @@
 #ifndef __SDC_CONTROLLER_QUIT_COMMAND_H_
 #define __SDC_CONTROLLER_QUIT_COMMAND_H_
 
-#include "qvICommandEvent.h"
+#include "qvIEventCommand.h"
 
 namespace qv
 {
@@ -18,7 +18,14 @@ namespace sdc
 {
     namespace controller
     {
-		class QuitCommand: public qv::events::ICommandEvent
+        /**
+         * \class QuitCommand
+         * \author adriano.ribeiro
+         * \date 04/08/10
+         * \file sdcQuitCommand.h
+         * \brief 
+         */
+		class QuitCommand: public qv::events::IEventCommand
 		{
 		private:
 			qv::IEngineManager* mEngine;
@@ -27,21 +34,6 @@ namespace sdc
 		public:
 			QuitCommand(qv::IEngineManager* engine);
 			virtual ~QuitCommand();
-
-			//virtual const qv::CI_COMMAND_ID* getCommandID() const
-			//{
-			//	return mID;
-			//}
-
-			//virtual u32 getID() const
-			//{
-			//	return mType->HashedText;
-			//}
-			//
-			//virtual const stringc& getName() const
-			//{
-			//	return mType->Text;
-			//}
 
 			virtual const array<const qv::events::ET_EVENT_TYPE*>& listenEventTypes() const
 			{

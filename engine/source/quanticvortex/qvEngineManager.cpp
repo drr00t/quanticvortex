@@ -39,6 +39,7 @@ namespace qv
 {
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager()
+    :mQuit(false),mHasPopup(false),_helpRequested(false)
     {
 
 #ifdef _DEBUG
@@ -53,7 +54,7 @@ namespace qv
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager(const SGameParams& params):_helpRequested(false),
         mQuit(false), mGameLogic(0), mEventManager(0), mInputReceiver(0),
-        mDevice3d(0)
+        mDevice3d(0),_helpRequested(false)
         /*mHasPopup(false), mFileSystem(0), mWindowHandle(0),
         mVideoDriver(0), mSceneManager(0), */
     {

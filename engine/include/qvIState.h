@@ -37,7 +37,7 @@ namespace qv
     {
     public:
 
-        virtual const S_STATE* getState() = 0;
+        virtual u32 getState() = 0;
 
         virtual void configure() = 0;
 

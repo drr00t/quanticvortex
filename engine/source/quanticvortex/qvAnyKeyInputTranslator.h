@@ -57,7 +57,7 @@ namespace qv
 
 			virtual ~AnyKeyInputTranslator();
 
-            virtual u32 getHashId() const { return mID->Hash; }
+            virtual u32 getHashId() const { return mID.Hash; }
 
             virtual u32 getHashType() const { return mInputTranslatorHashType; }
 
@@ -67,7 +67,7 @@ namespace qv
 			events::IEventManager* mEventManager;
 			bool mRealTime;
 			events::IEventArgsSharedPtr mArgs;
-			const ITI_INPUT_TRANSLATOR_ID* mID;
+			ITI_INPUT_TRANSLATOR_ID mID;
 			u32 mInputTranslatorHashType;
 		};
 	}

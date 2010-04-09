@@ -80,8 +80,6 @@
     <File Name="../../include/qvTypes.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="quanticvortex">
-    <File Name="../../source/quanticvortex/qvActor.cpp"/>
-    <File Name="../../source/quanticvortex/qvActor.h"/>
     <File Name="../../source/quanticvortex/qvActorManager.cpp"/>
     <File Name="../../source/quanticvortex/qvActorManager.h"/>
     <File Name="../../source/quanticvortex/qvActorMotion.cpp"/>
@@ -139,10 +137,13 @@
         <File Name="../../source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.h"/>
       </VirtualDirectory>
     </VirtualDirectory>
+    <File Name="../../source/quanticvortex/qvSHashedString.cpp"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
   <Settings Type="Dynamic Library">
     <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g" Required="yes" PreCompiledHeader="">
+      <Compiler Options="-g;-fno-rtti" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
         <IncludePath Value="../../../engine/source/quanticvortex"/>
         <IncludePath Value="../../../dependencies/include/irrlicht/include"/>
@@ -157,14 +158,15 @@
       </Compiler>
       <Linker Options="" Required="yes">
         <LibraryPath Value="../../../dependencies/libs/win32-gcc"/>
-        <Library Value="libIrrlicht_d.dll"/>
+        <LibraryPath Value="../../../dependencies/bin/win32-gcc"/>
+        <Library Value="Irrlicht_d.dll"/>
+        <Library Value="cAudio_d.dll"/>
         <Library Value="libbulletdynamics_d"/>
         <Library Value="libbulletcollision_d"/>
         <Library Value="libbulletsoftbody_d"/>
         <Library Value="libLinearMath_d"/>
         <Library Value="libPocoFoundationmtd"/>
         <Library Value="libPocoUtilmtd"/>
-        <Library Value="libcAudio_d.dll"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../../bin/win32-gcc/QuanticVortex_d.dll" IntermediateDirectory="../../obj/debug" Command="" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
@@ -190,7 +192,7 @@
       </AdditionalRules>
     </Configuration>
     <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-ffast-math" Required="yes" PreCompiledHeader="">
+      <Compiler Options="-ffast-math;-fno-rtti" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
         <IncludePath Value="../../../engine/source/quanticvortex"/>
         <IncludePath Value="../../../dependencies/include/irrlicht/include"/>
@@ -203,8 +205,9 @@
         <Preprocessor Value="_CRT_SECURE_NO_WARNINGS"/>
         <Preprocessor Value="__GNUWIN32__"/>
       </Compiler>
-      <Linker Options="-s;-O2" Required="yes">
+      <Linker Options="-s;-O2;" Required="yes">
         <LibraryPath Value="../../../dependencies/libs/win32-gcc"/>
+        <LibraryPath Value="../../../dependencies/bin/win32-gcc"/>
         <Library Value="libIrrlicht.dll"/>
         <Library Value="libbulletdynamics"/>
         <Library Value="libbulletcollision"/>

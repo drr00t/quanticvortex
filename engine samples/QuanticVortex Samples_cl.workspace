@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CodeLite_Workspace Name="QuanticVortex Samples_cl" Database="./QuanticVortex Samples_cl.tags">
   <Project Name="QuanticVortex_Core" Path="../engine/builds/codelite/QuanticVortex_Core.project" Active="Yes"/>
+  <Project Name="01_Sample" Path="01_Sample/builds/cl/01_Sample.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="QuanticVortex_Core" ConfigName="Debug"/>
+      <Project Name="01_Sample" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="QuanticVortex_Core" ConfigName="Release"/>
+      <Project Name="01_Sample" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

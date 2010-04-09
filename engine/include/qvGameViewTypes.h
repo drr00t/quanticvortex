@@ -39,11 +39,11 @@ namespace qv
 		typedef SHashedString GVT_GAME_VIEW_TYPE;
 
         //engine sertvices events
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_AI("GVT_GAME_VIEW_AI");               //decision makeing events, sensor system
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_HUMAN("GVT_GAME_VIEW_HUMAN");         //local human player view
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_NETWORK("GVT_GAME_VIEW_NETWORK");     //network player (proxy)
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_PHYSICS("GVT_GAME_VIEW_PHYSICS");     //i will try use this for physics debuging
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_RECORDER("GVT_GAME_VIEW_RECORDER");   //listen all events fired
+        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_AI = HASH_STRING("GVT_GAME_VIEW_AI");               //decision makeing events, sensor system
+        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_HUMAN = HASH_STRING("GVT_GAME_VIEW_HUMAN");         //local human player view
+        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_NETWORK = HASH_STRING("GVT_GAME_VIEW_NETWORK");     //network player (proxy)
+        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_PHYSICS = HASH_STRING("GVT_GAME_VIEW_PHYSICS");     //i will try use this for physics debuging
+        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_RECORDER = HASH_STRING("GVT_GAME_VIEW_RECORDER");   //listen all events fired
 
 
     }

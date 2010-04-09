@@ -31,6 +31,7 @@
 //#include "qvICameraActorAddedEventArgs.h"
 
 #include "IFileSystem.h"
+#include "IMeshSceneNode.h"
 #include "irrTypes.h"
 
 namespace qv
@@ -40,13 +41,13 @@ namespace qv
         //-----------------------------------------------------------------------------------------
         SceneViewIrrlicht::SceneViewIrrlicht( const c8* name, IEngineManager* engine, u32 elementViewHashType)
 			:mVisible(true), mDefaultCamera(0), mSceneManager(0),
-			mEventManager(engine->getEventManager()), mElementViewHashType(elementViewHashType), mID(0)//, mOrder(1) //first element view to render
+			mEventManager(engine->getEventManager()), mElementViewHashType(elementViewHashType)//, mOrder(1) //first element view to render
         {
 
 //#ifdef _DEBUG
 //			setDebugName("SceneView");
 //#endif
-			mID = new EVI_ELEMENT_VIEW_ID(name);
+			mID = HASH_STRING(name);
         }
         //-----------------------------------------------------------------------------------------
         SceneViewIrrlicht::~SceneViewIrrlicht()
@@ -99,94 +100,94 @@ namespace qv
             irr::core::stringc exporterName = userData->getAttributeAsString("Exporter");
             bool hasPhysics = userData->getAttributeAsBool("Physics.Enabled");
 
-//            //processing scene attributes
-//            if(nodeName.equals_ignore_case("root"))
-//            {
-//                //only irrb has physics attributes
-//                if(exporterName.equals_ignore_case("irrb"))
-//                {
-//                    if(hasPhysics)
-//                    {
-//                        f32 gravity=-9.8f;
-//
-//                        if(userData->existsAttribute("Gravity"))
-//                            gravity = userData->getAttributeAsFloat("Gravity");
-//
-//                        //1 - fire event to configure physics system gravity
-//                        //getPhysicsManager()->setGravity(TVector3(0.f,gravity,0.f));
-//                    }
-//                }
-//            }
-//            else // Real SceneNodes
-//            {
-//                bool ghostObject = false;
-//
-//                if(hasPhysics)
-//                {
-//                    ghostObject = userData->getAttributeAsBool("Physics.Ghost");
-//                }
-//
-//                irr::scene::ICameraSceneNode* camera(0);
-//                irr::scene::IMeshSceneNode* meshNode(0);
-//
-//                switch(forSceneNode->getType())
-//                {
-//                case scene::ESNT_CAMERA:
-//
-//                    //2 - fire event for camera added, this cameras should be storage by camera system, to control camera effets, etc...
-//                    camera = static_cast<scene::ICameraSceneNode*>(forSceneNode);
-//                    break;
-//
-//                case scene::ESNT_EMPTY:
-//                    // 3 - will be my marckers, zones (aabb), waypoints, etc... used on AI and Physics
-//                    //scene::ISceneNode* emptyNode = forSceneNode;
-//                    break;
-//
-//                case scene::ESNT_MESH:
-//
-//                    meshNode = static_cast<scene::IMeshSceneNode*>(forSceneNode);
-//
-//                    if(meshNode && !ghostObject && userData->existsAttribute("HWHint") &&
-//                        userData->existsAttribute("HWType"))
-//                    {
-//                        scene::IMesh* staticMesh = meshNode->getMesh();
-//
-//                        //hardware mapping for mesh
-//                        scene::E_HARDWARE_MAPPING  hwMapping = scene::EHM_STATIC;
-//
-//                        if(userData->getAttributeAsString("HWHint").equals_ignore_case("never"))
-//                            hwMapping = scene::EHM_NEVER;
-//
-//                        else if(userData->getAttributeAsString("HWHint").equals_ignore_case("dynamic"))
-//                            hwMapping = scene::EHM_DYNAMIC;
-//
-//                        else if(userData->getAttributeAsString("HWHint").equals_ignore_case("stream"))
-//                            hwMapping = scene::EHM_STREAM;
-//
-//                        //vertex and index buffer caching
-//                        scene::E_BUFFER_TYPE hwBufferType = scene::EBT_NONE;
-//
-//                        if(userData->getAttributeAsString("HWType").equals_ignore_case("vertex"))
-//                            hwBufferType = scene::EBT_VERTEX;
-//
-//                        else if(userData->getAttributeAsString("HWType").equals_ignore_case("index"))
-//                            hwBufferType = scene::EBT_INDEX;
-//
-//                        else if(userData->getAttributeAsString("HWType").equals_ignore_case("vertexindex"))
-//                            hwBufferType = scene::EBT_VERTEX_AND_INDEX;
-//
-//                        staticMesh->setHardwareMappingHint(hwMapping, hwBufferType);
-//                    }
-//                    break;
-//
-//                case scene::ESNT_LIGHT:
-//
-//                    break;
-//
-//                default:
-//                    break;
-//                }
-//            }
+            //processing scene attributes
+            if(nodeName.equals_ignore_case("root"))
+            {
+                //only irrb has physics attributes
+                if(exporterName.equals_ignore_case("irrb"))
+                {
+                    if(hasPhysics)
+                    {
+                        real gravity=-9.8f;
+
+                        if(userData->existsAttribute("Gravity"))
+                            gravity = userData->getAttributeAsFloat("Gravity");
+
+                        //1 - fire event to configure physics system gravity
+                        //getPhysicsManager()->setGravity(TVector3(0.f,gravity,0.f));
+                    }
+                }
+            }
+            else // Real SceneNodes
+            {
+                bool ghostObject = false;
+
+                if(hasPhysics)
+                {
+                    ghostObject = userData->getAttributeAsBool("Physics.Ghost");
+                }
+
+                irr::scene::ICameraSceneNode* camera(0);
+                irr::scene::IMeshSceneNode* meshNode(0);
+
+                switch(forSceneNode->getType())
+                {
+                case irr::scene::ESNT_CAMERA:
+
+                    //2 - fire event for camera added, this cameras should be storage by camera system, to control camera effets, etc...
+                    camera = static_cast<irr::scene::ICameraSceneNode*>(forSceneNode);
+                    break;
+
+                case irr::scene::ESNT_EMPTY:
+                    // 3 - will be my marckers, zones (aabb), waypoints, etc... used on AI and Physics
+                    //scene::ISceneNode* emptyNode = forSceneNode;
+                    break;
+
+                case irr::scene::ESNT_MESH:
+
+                    meshNode = static_cast<irr::scene::IMeshSceneNode*>(forSceneNode);
+
+                    if(meshNode && !ghostObject && userData->existsAttribute("HWHint") &&
+                        userData->existsAttribute("HWType"))
+                    {
+                        irr::scene::IMesh* staticMesh = meshNode->getMesh();
+
+                        //hardware mapping for mesh
+                        irr::scene::E_HARDWARE_MAPPING  hwMapping = irr::scene::EHM_STATIC;
+
+                        if(userData->getAttributeAsString("HWHint").equals_ignore_case("never"))
+                            hwMapping = irr::scene::EHM_NEVER;
+
+                        else if(userData->getAttributeAsString("HWHint").equals_ignore_case("dynamic"))
+                            hwMapping = irr::scene::EHM_DYNAMIC;
+
+                        else if(userData->getAttributeAsString("HWHint").equals_ignore_case("stream"))
+                            hwMapping = irr::scene::EHM_STREAM;
+
+                        //vertex and index buffer caching
+                        irr::scene::E_BUFFER_TYPE hwBufferType = irr::scene::EBT_NONE;
+
+                        if(userData->getAttributeAsString("HWType").equals_ignore_case("vertex"))
+                            hwBufferType = irr::scene::EBT_VERTEX;
+
+                        else if(userData->getAttributeAsString("HWType").equals_ignore_case("index"))
+                            hwBufferType = irr::scene::EBT_INDEX;
+
+                        else if(userData->getAttributeAsString("HWType").equals_ignore_case("vertexindex"))
+                            hwBufferType = irr::scene::EBT_VERTEX_AND_INDEX;
+
+                        staticMesh->setHardwareMappingHint(hwMapping, hwBufferType);
+                    }
+                    break;
+
+                case irr::scene::ESNT_LIGHT:
+
+                    break;
+
+                default:
+                    break;
+                }
+            }
 		}
 		//-----------------------------------------------------------------------------------------------
 		irr::io::IAttributes* SceneViewIrrlicht::createUserData(irr::scene::ISceneNode* forSceneNode)

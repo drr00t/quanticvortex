@@ -40,7 +40,7 @@ namespace qv
         Actor::Actor( const c8* actorName, u32 actorHashType)
             : mActorHashType(actorHashType)
         {
-            mId = new AI_ACTOR_ID(actorName);
+            mId = HASH_STRING(actorName);
         }
 		//-----------------------------------------------------------------------------------------
         Actor::~Actor()

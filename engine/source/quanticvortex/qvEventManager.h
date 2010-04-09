@@ -43,17 +43,6 @@ namespace qv
 
 		class EventManager: public IEventManager
 		{
-		private:
-
-			static const s32 QueueEventsLenght = 2;
-
-//			typedef list<const ET_EVENT_TYPE*> EventTypeList;
-//			typedef list<IEventArgs*> EventList;
-//			typedef std::list<IEventArgsFactory*> EventArgsFactoryList;
-//			typedef list<ICommandEvent*> CommandEventList;
-//			typedef map< u32, EventCommandArray> EventToCommandEventMap;
-//			typedef tbb::concurrent_bounded_queue<IEventArgs*> ConcurrentEventList;
-
 		public:
     		EventManager();
 			virtual ~EventManager();
@@ -88,6 +77,7 @@ namespace qv
 			virtual bool validateType(u32 eventHashType);
 
 		private:
+			static const s32 QueueEventsLenght = 2;
 			EventHashTypesVector mValidEventTypes;
 			EventArgsEventCommandVector mRegistredCommandsMap;
 			EventArgsVector mReadyEvents[QueueEventsLenght]; //to event lists to double buffering

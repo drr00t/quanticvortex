@@ -10,7 +10,7 @@ namespace sdc
 {
 	namespace input
 	{
-		qv::input::IT_INPUT_TRANSLATOR_ID* IT_QUIT_TRANSLATOR = new qv::input::IT_INPUT_TRANSLATOR_ID("IT_QUIT_TRANSLATOR");
+		qv::input::IT_INPUT_TRANSLATOR_ID IT_QUIT("IT_QUIT");
 	}
 }
 
@@ -49,7 +49,7 @@ namespace sdc
         qv::views::IHumanView* view = gameLogic->addHumanView("SylfurDCView", playerID);
 		
 		// start my sample
-		//i really don´t need create event args my self, i just need pass event type that i want to my translator
+		//i really donÂ´t need create event args my self, i just need pass event type that i want to my translator
 		//internally the translator will create the event args using there onw eventManager pointer and feed the 
 		//even args with the correct arguments, like this:
 		qv::input::ISingleKeyInputTranslator* quit = 

@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Windows x86" />
-	<File name="..\..\source\quanticvortex\qvChangeStateEventArgs.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="1177" topLine="9" />
-	</File>
 </CodeBlocks_layout_file>

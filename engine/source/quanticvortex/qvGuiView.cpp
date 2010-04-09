@@ -15,7 +15,7 @@ namespace qv
 //#ifdef _DEBUG
 //			setDebugName("GuiView");
 //#endif
-			mID = new EVI_ELEMENT_VIEW_ID(name);
+			mID  = HASH_STRING(name);
 			//recti window(0,0,mGuiManager->getVideoDriver()->getScreenSize().Width,
 			//				mGuiManager->getVideoDriver()->getScreenSize().Height);
 			//mElement = mGuiManager->addWindow(window);

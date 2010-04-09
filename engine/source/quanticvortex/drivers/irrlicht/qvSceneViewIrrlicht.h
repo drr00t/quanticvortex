@@ -51,46 +51,19 @@ namespace qv
             SceneViewIrrlicht( const c8* name, IEngineManager* engine, u32 elementViewHashType = EVT_ELEMENT_VIEW_SCENE.Hash);
 			virtual ~SceneViewIrrlicht();
 
-            virtual u32 getHashId() const { return mID->Hash; }
+            virtual u32 getHashId() const { return mID.Hash; }
 
             virtual u32 getHashType() const { return mElementViewHashType; }
 
 	        virtual bool getVisible() const { return mVisible; }
 
-//            virtual const EVT_ELEMENT_VIEW_TYPE* getType()
-//            {
-//                return mType;
-//            }
-//
-//            virtual const EVI_ELEMENT_VIEW_ID* getID()
-//            {
-//                return mID;
-//            }
-//
-//			virtual bool getVisible()
-//            {
-//                return mVisible;
-//            }
+            virtual void setVisible(bool visible) { mVisible = visible; }
 
-            virtual void setVisible(bool visible)
-            {
-                mVisible = visible;
-            }
+            virtual void setCamera(irr::scene::ICameraSceneNode* camera) { mDefaultCamera = camera; }
 
-            virtual void setCamera(irr::scene::ICameraSceneNode* camera)
-            {
-                mDefaultCamera = camera;
-            }
+			virtual irr::scene::ICameraSceneNode* getCamera() { return mDefaultCamera; }
 
-			virtual irr::scene::ICameraSceneNode* getCamera()
-            {
-                return mDefaultCamera;
-            }
-
-			virtual irr::scene::ISceneManager* getSceneManager()
-            {
-                return mSceneManager;
-            }
+			virtual irr::scene::ISceneManager* getSceneManager() { return mSceneManager; }
 
             virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
 
@@ -115,7 +88,7 @@ namespace qv
 			irr::scene::ISceneManager* mSceneManager;
 			events::IEventManager* mEventManager;
             u32 mElementViewHashType;
-            EVI_ELEMENT_VIEW_ID* mID;
+            EVI_ELEMENT_VIEW_ID mID;
             ActorSceneNodeMap mActorSceneNodeMap;
 
 		};

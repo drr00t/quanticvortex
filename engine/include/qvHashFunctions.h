@@ -32,8 +32,7 @@
 #include "qvTypes.h"
 
 namespace qv
-{
-
+{    
     //-----------------------------------------------------------------------------
     // MurmurHash2, by Austin Appleby  from http://sites.google.com/site/murmurhash/
 

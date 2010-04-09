@@ -28,84 +28,28 @@
 #ifndef __S_HASHED_STRING_H_
 #define __S_HASHED_STRING_H_
 
+#include "qvCompileConfig.h"
 #include "qvTypes.h"
-#include "qvHashFunctions.h"
 
 #include "irrString.h"
 
-
+//to convert text to hashed string
+#define HASH_STRING(text) qv::createHashedString( text)
 
 namespace qv
 {
 
 	struct SHashedString
     {
-		//-------------------------------------------------------------------------
-		SHashedString()
-			:Text(0),Hash(0)
-		{
-		}
-		//-------------------------------------------------------------------------
-		SHashedString(const c8* text)
-			:Text(text)
-		{
-		    Text.make_lower();
-			Hash = createMurmurHash2( Text.c_str(), Text.size());
-		}
-		//-------------------------------------------------------------------------
-		SHashedString(const c8* text, u32 hash)
-			:Text(text), Hash(hash)
-		{
-		}
-		//-------------------------------------------------------------------------
-		SHashedString( const SHashedString &other )
-		{
-			*this= other;
-		}
-		//-------------------------------------------------------------------------
-		//operators
-		//-------------------------------------------------------------------------
-		SHashedString& operator= ( const SHashedString &other )
-		{
-			Text = other.Text;
-			Hash = other.Hash;
-
-			return *this;
-		}
-		//-------------------------------------------------------------------------
-		bool operator== ( const SHashedString &other ) const
-		{
+        
 #ifdef _DEBUG
-		return ((Text == other.Text) && (Hash == other.Hash));
-#else
-		return (Hash == other.Hash);
+        irr::core::stringc Text;
 #endif
-		}
-		//-------------------------------------------------------------------------
-		bool operator!= ( const SHashedString &other ) const
-		{
-#	ifdef _DEBUG
-			return ((Hash != other.Hash) && (Text != other.Text));
-			//TODO: I will need debug possible hashe collisions
-#	else
-			return (Hash != other.Hash);
-#	endif
-		}
-		//-------------------------------------------------------------------------
-		bool operator< ( const SHashedString &other ) const
-		{
-			return (Hash < other.Hash);
-		}
-		//-------------------------------------------------------------------------
-		bool operator> ( const SHashedString &other ) const
-		{
-			return (Hash > other.Hash);
-		}
-		//-------------------------------------------------------------------------
 
-		irr::core::stringc Text;
 		u32 Hash;
     };
+    
+    _QUANTICVORTEX_API_ const SHashedString& QUANTICVORTEX_CALLCONV createHashedString( const irr::c8* text);
 }
 #endif
 

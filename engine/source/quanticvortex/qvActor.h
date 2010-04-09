@@ -45,7 +45,7 @@ namespace qv
 
             virtual ~Actor();
 
-            virtual u32 getHashId() const { return mId->Hash;}
+            virtual u32 getHashId() const { return mId.Hash;}
 			
             virtual u32 getHashType() const { return mActorHashType;}
 
@@ -62,7 +62,7 @@ namespace qv
             virtual void update( u32 elapsedTimeMs);
 
 		protected:
-            const AI_ACTOR_ID* mId;
+            const AI_ACTOR_ID& mId;
             u32 mActorHashType;
 //            matrix4 mTransformation;
             bool mVisible;

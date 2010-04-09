@@ -43,7 +43,7 @@ namespace qv
 	{
 		class IInputReceiver;
 
-		static const ITT_INPUT_TRANSLATOR_TYPE ITT_ANY_KEY("ITT_ANY_KEY_TYPE");
+		static const ITT_INPUT_TRANSLATOR_TYPE ITT_ANY_KEY = HASH_STRING("ITT_ANY_KEY_TYPE");
 
 		class IAnyKeyInputTranslator : public IInputTranslator
 		{

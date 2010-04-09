@@ -172,7 +172,7 @@ namespace qv
         //-----------------------------------------------------------------------------------------
 		void PhysicsManager::addSphere( real radius, qv::gaming::IActor *actor, real specificGravity)
 		{
-			btSphereShape* sphereShape = new btSphereShape(btScalar(radius));
+//			btSphereShape* sphereShape = new btSphereShape(btScalar(radius));
 		}
         //-----------------------------------------------------------------------------------------
     }

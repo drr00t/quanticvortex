@@ -16,18 +16,11 @@ namespace qv
 
         class GuiView: public IGuiView
         {
-        protected:
-            irr::gui::IGUIElement* mElement;
-            irr::gui::IGUIEnvironment* mGuiManager;
-			bool mVisible;
-            u32 mHashType;
-            const EVI_ELEMENT_VIEW_ID* mID;
-
         public:
             GuiView(const c8* name, IEngineManager* engine, u32 elementViewHashType);
             virtual ~GuiView();
 
-            virtual u32 getHashId() const { return mID->Hash; }
+            virtual u32 getHashId() const { return mID.Hash; }
 
             virtual u32 getHashType() const { return mHashType; }
 
@@ -41,6 +34,13 @@ namespace qv
 
 	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
 	        virtual void update( u32 elapsedTimeMs);
+            
+        protected:
+            irr::gui::IGUIElement* mElement;
+            irr::gui::IGUIEnvironment* mGuiManager;
+			bool mVisible;
+            u32 mHashType;
+            EVI_ELEMENT_VIEW_ID mID;
         };
     }
 }

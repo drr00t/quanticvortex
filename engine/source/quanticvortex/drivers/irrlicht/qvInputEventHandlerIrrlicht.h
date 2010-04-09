@@ -26,7 +26,7 @@ namespace input
 	// Keyboard key states.
 	//EKEY_STATE mKeyState[KEY_KEY_CODES_COUNT];
 
-	static const IRD_INPUT_RECEIVER_DRIVER IRD_INPUT_RECEIVER_DRIVER_IRRLICHT("IRD_INPUT_RECEIVER_DRIVER_IRRLICHT");
+	static const IRD_INPUT_RECEIVER_DRIVER IRD_INPUT_RECEIVER_DRIVER_IRRLICHT = HASH_STRING("IRD_INPUT_RECEIVER_DRIVER_IRRLICHT");
 
 	//base implementation released by Seven on Irrlicht forums:
 	//http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=34052&highlight=irreventhandler

@@ -44,7 +44,7 @@ namespace qv
 													mInputTranslatorHashType(inputTranslatorHashType)
 
 		{
-		    mID = new ITI_INPUT_TRANSLATOR_ID(inputTranslatorName);
+		    mID = HASH_STRING(inputTranslatorName);
 		}
 		//-----------------------------------------------------------------------------------------
 		AnyKeyInputTranslator::~AnyKeyInputTranslator()
