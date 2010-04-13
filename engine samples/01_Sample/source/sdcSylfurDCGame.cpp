@@ -6,13 +6,6 @@
 
 #include "sdcQuitCommand.h"
 
-namespace sdc
-{
-	namespace input
-	{
-		qv::input::IT_INPUT_TRANSLATOR_ID IT_QUIT("IT_QUIT");
-	}
-}
 
 namespace sdc
 {
@@ -26,8 +19,8 @@ namespace sdc
         params.Fullscreen = false;
         params.Title = "Sylfur D.C. - Dimencional Chronical";
         params.Vsync = false;
-        params.WindowSize.Width = 800;
-        params.WindowSize.Height = 600;
+        params.WindowSize.Width = 1280;
+        params.WindowSize.Height = 800;
 
         mEngine = qv::createEngineManagerEx(params);
     }
@@ -45,8 +38,15 @@ namespace sdc
 			return false;
 
 		qv::gaming::IGameLogic* gameLogic = mEngine->addGameLogic();
-		qv::gaming::AI_ACTOR_ID* playerID = new qv::gaming::AI_ACTOR_ID("PlayerID");
-        qv::views::IHumanView* view = gameLogic->addHumanView("SylfurDCView", playerID);
+        
+        // game state are reference counted and shoud owned by GameLogic
+        // IInitializatingGameState initialize = gameLogic->addGameState(InitializatingGameState);
+        // initialize->registerSingleKeyInputTranslator(input::IT_QUIT_TRANSLATOR, irr::KEY_ESCAPE, qv::input::EKS_PRESSED_OR_DOWN, qv::events::ET_GAME_MENU, true)
+        // initialize->registerSingleKeyInputTranslator(input::IT_QUIT_TRANSLATOR, irr::KEY_ESCAPE, qv::input::EKS_PRESSED_OR_DOWN, qv::events::ET_GAME_QUIT, true)
+        // initialize->registerKeyStateInputTranslator(input::IT_QUIT_TRANSLATOR, irr::KEY_ESCAPE, qv::input::EKS_PRESSED_OR_DOWN, qv::events::ET_GAME_QUIT, true)
+        // initialize->registerEventCommand(QuitCommand);
+
+		qv::gaming::AI_ACTOR_ID playerID = HASH_STRING("PlayerID");
 		
 		// start my sample
 		//i really don´t need create event args my self, i just need pass event type that i want to my translator
@@ -80,7 +80,7 @@ namespace sdc
 		return initialized;
     }
     //-----------------------------------------------------------------------------
-	s32 SylfurDCGame::run(s32 argc, c8* argv[])
+	qv::s32 SylfurDCGame::run(qv::s32 argc, qv::c8* argv[])
 	{
 		return mEngine->run();
 	}

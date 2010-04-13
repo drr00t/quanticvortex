@@ -30,28 +30,33 @@
 #include "qvIState.h"
 #include "qvGameStateTypes.h"
 
+#include "Poco/SharedPtr.h"
 
 namespace qv
 {
     namespace gaming
     {
-
+        
 		// the game state will work on game logic views, like: add sceneview to a human view,
-		//or add a gui view, or remove them when need, change content of a scene view
+		// or add a gui view, or remove them when need, change content of a scene view
+        // [GameState name]
+        //      [scene files]
+        //      [input translators]
+        //      [event commands]
+        // [GameState]
         class IGameState: public IState
         {
 
         public:
 
 			//i can fire change state event, that run composite command ( fade-in, fade-out), or put load screen when loading
-            virtual void configure() = 0;
-
-            virtual void enter() = 0;
-
-            virtual void leave() = 0;
-
-			virtual void update( u32 currentTimeMs, u32 elapsedTimeMs) = 0;
+            virtual void registerLevel( void) = 0;
+            virtual void getLevels() = 0;
+            virtual void getCurrentLevel() = 0;
+            virtual void setCurrentLevel() = 0;
         };
+        
+        typedef Poco::SharedPtr<IGameState> IGameStateSharedPtr;
     }
 }
 

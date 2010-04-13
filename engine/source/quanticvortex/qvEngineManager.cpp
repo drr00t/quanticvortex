@@ -52,11 +52,9 @@ namespace qv
         mGameParams.WindowSize = irr::core::dimension2di(1024,768);
     }
     //-----------------------------------------------------------------------------
-    EngineManager::EngineManager(const SGameParams& params):_helpRequested(false),
-        mQuit(false), mGameLogic(0), mEventManager(0), mInputReceiver(0),
-        mDevice3d(0),_helpRequested(false)
-        /*mHasPopup(false), mFileSystem(0), mWindowHandle(0),
-        mVideoDriver(0), mSceneManager(0), */
+    EngineManager::EngineManager(const SGameParams& params):mQuit(false), 
+        mGameLogic(0), mEventManager(0), mInputReceiver(0),mDevice3d(0),
+        _helpRequested(false)
     {
 
 #ifdef _DEBUG
@@ -118,22 +116,6 @@ namespace qv
 //        factory->grab();
 //        mGameLogicFactories.push_back(factory);
     }
-    //-----------------------------------------------------------------------------
-//	gaming::IGameLogic* EngineManager::addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type)
-//    {
-//        for(u32 i = 0; i < mGameLogicFactories.size(); ++i)
-//		{
-//			if(mGameLogicFactories[i]->getCreateableGameLogicType(type))
-//			{
-//                mGameLogic = mGameLogicFactories[i]->addGameLogic(type);
-//				mGameLogic->initialize();
-//
-//				break;
-//			}
-//		}
-//
-//        return mGameLogic;
-//    }
     //-----------------------------------------------------------------------------
     void EngineManager::loadConfiguration()
     {
@@ -208,6 +190,7 @@ namespace qv
     {
         if (!_helpRequested)
         {
+            mClock
             mDevice3d->getTimer()->getTime();
 
 	        s32 lastFPS = -1;

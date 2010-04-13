@@ -62,88 +62,31 @@ namespace qv
 
 		virtual void endRender();
 
-//		virtual void registerGameLogicFactory(gaming::IGameLogicFactory* factory);
-
-//		virtual gaming::IGameLogic* addGameLogic(const gaming::GLT_GAME_LOGIC_TYPE* type = gaming::GLT_GAME_LOGIC_DEFAULT);
         virtual void registerInputReceiverDriverFactory(input::IInputReceiverDriverFactory* factory);
 
-		virtual gaming::IGameLogic* getGameLogic()
-        {
-            return mGameLogic;
-        }
+		virtual gaming::IGameLogic* getGameLogic(){return mGameLogic;}
 
-		virtual events::IEventManager* getEventManager()
-        {
-            return mEventManager;
-        }
+		virtual events::IEventManager* getEventManager(){return mEventManager;}
 
-		virtual input::IInputReceiver* getInputReceiver()
-        {
-            return mInputReceiver;
-        }
+		virtual input::IInputReceiver* getInputReceiver() { return mInputReceiver;}
 
-        virtual SGameParams& getGameParameters()
-        {
-            return mGameParams;
-        }
+        virtual SGameParams& getGameParameters() { return mGameParams;}
 
-//		virtual irr::IrrlichtDevice* getDevice()
-//        {
-//            return mDevice3d;
-//        }
-
-		//virtual irr::io::IFileSystem* getFileSystem()
-  //      {
-  //          return mFileSystem;
-  //      }
-
-		//virtual irr::gui::IGUIEnvironment* getGuiManager()
-  //      {
-  //          return mDevice3d->getGUIEnvironment();
-  //      }
-
-		//virtual irr::scene::ISceneManager* getSceneManager()
-  //      {
-  //          return mSceneManager;
-  //      }
-
-		//virtual irr::video::IVideoDriver* getVideoDriver()
-  //      {
-  //          return mVideoDriver;
-  //      }
-
-  //      virtual size_t getWindowHandle()
-  //      {
-  //          return mWindowHandle;
-  //      }
-
-		virtual void setQuit(bool quit)
-		{
-			mQuit = quit;
-		}
-
-    private:
-        bool _helpRequested;
-        bool mHasPopup;
-		bool mQuit;
-		btClock mClock;
+		virtual void setQuit(bool quit) { mQuit = quit;}
 
     protected:
+    
 		SGameParams mGameParams;
 
-//		array<gaming::IGameLogicFactory*> mGameLogicFactories;
 		irr::core::array<input::IInputReceiverDriverFactory*> mInputReceiverDriverFactories;
 
         gaming::IGameLogic* mGameLogic;
+        
 		events::IEventManager* mEventManager;
 
 		input::IInputReceiverSharedPtr mInputReceiver;
 
 		irr::IrrlichtDevice* mDevice3d;
-		//irr::video::IVideoDriver* mVideoDriver;
-		//irr::scene::ISceneManager* mSceneManager;
-		//irr::io::IFileSystem* mFileSystem;
-  //      size_t mWindowHandle;
 
         virtual void loadConfiguration();
 
@@ -152,6 +95,12 @@ namespace qv
         void update( u32 currentTimeMs, u32 elapsedTimeMs);
 
         void render( u32 currentTimeMs, u32 elapsedTimeMs);
+        
+    private:
+        bool _helpRequested;
+        bool mHasPopup;
+		bool mQuit;
+		btClock mClock;
     };
 }
 

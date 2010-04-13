@@ -7,19 +7,19 @@
 
 namespace sdc
 {
-	class SylfurDCGame //: public qv::IGame
+	class SylfurDCGame
     {
-	private:
-		qv::IEngineManager* mEngine;
-
     public:
 	    SylfurDCGame();
 		virtual ~SylfurDCGame();
 
 		bool initialize();
 
-		s32 run(s32 argc, c8* argv[]);
-    };
+		qv::s32 run(qv::s32 argc, qv::c8* argv[]);
+        
+	private:
+		qv::IEngineManager* mEngine;
+};
 }
 
 #endif

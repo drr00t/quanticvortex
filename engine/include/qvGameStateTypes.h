@@ -29,10 +29,17 @@
 
 #include "qvStateTypes.h"
 
+#include "Poco/SharedPtr.h"
+#include "irrMap.h"
+
 namespace qv
 {
 	namespace gaming
 	{
+        typedef irr::core::stringc LevelPack;
+        typedef Poco::SharedPtr<LevelPack> LevelPackPtr;
+        typedef irr::core::map<u32, LevelPackPtr> LevelPacksMap; 
+        
 		static const S_STATE S_GAME_STATE_INITIALIZATING = HASH_STRING("S_STATE_INITIALIZATING");
 		static const S_STATE S_GAME_STATE_MENU  = HASH_STRING("S_STATE_MENU");
 		static const S_STATE S_GAME_STATE_LOADING  = HASH_STRING("S_STATE_LOADING");
