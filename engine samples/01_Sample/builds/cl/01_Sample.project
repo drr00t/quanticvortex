@@ -13,6 +13,8 @@
     <File Name="../../source/sdcSylfurDCGame.h"/>
     <File Name="../../source/sdcQuitCommand.h"/>
     <File Name="../../source/sdcQuitCommand.cpp"/>
+    <File Name="../../source/gamestate.h"/>
+    <File Name="../../source/gamestate.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">

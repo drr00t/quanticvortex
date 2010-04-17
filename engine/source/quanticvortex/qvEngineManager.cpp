@@ -127,6 +127,7 @@ namespace qv
     //-----------------------------------------------------------------------------
 	bool EngineManager::initialize()
     {
+        mClock = new btClock();
 
         loadConfiguration(); // load default configuration files, if present
 
@@ -190,14 +191,14 @@ namespace qv
     {
         if (!_helpRequested)
         {
-            mClock
+            mClock->reset();
             mDevice3d->getTimer()->getTime();
 
 	        s32 lastFPS = -1;
 
 			// In order to do framerate independent movement, we have to know
             // how long it was since the last frame
-            u32 lastTimeMs = mDevice3d->getTimer()->getTime();
+            u32 lastTimeMs =  mClock->getTimeMilliseconds();//mDevice3d->getTimer()->getTime();
 
 	        while(mDevice3d->run() && !mQuit)
             {

@@ -78,6 +78,7 @@
     <File Name="../../include/qvSPlayerScore.h"/>
     <File Name="../../include/qvStateTypes.h"/>
     <File Name="../../include/qvTypes.h"/>
+    <File Name="../../include/qvEventCommandTypes.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="quanticvortex">
     <File Name="../../source/quanticvortex/qvActorManager.cpp"/>
@@ -142,6 +143,15 @@
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
   <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
     <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g;-fno-rtti" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
@@ -240,14 +250,5 @@
         <CustomPreBuild/>
       </AdditionalRules>
     </Configuration>
-    <GlobalSettings>
-      <Compiler Options="">
-        <IncludePath Value="."/>
-      </Compiler>
-      <Linker Options="">
-        <LibraryPath Value="."/>
-      </Linker>
-      <ResourceCompiler Options=""/>
-    </GlobalSettings>
   </Settings>
 </CodeLite_Project>

@@ -30,10 +30,6 @@
 
 #include "qvIEngineManager.h"
 
-//#include "IrrlichtDevice.h"
-//#include "IVideoDriver.h"
-//#include "ITimer.h"
-
 #include "irrArray.h"
 
 #include "IrrlichtDevice.h"

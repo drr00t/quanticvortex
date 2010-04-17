@@ -48,7 +48,7 @@ namespace qv
 		virtual void update( u32 currentTimeMs, u32 elapsedTimeMs) = 0;
     };
     
-    typedef Poco::Shared<IState> IStateSharedPtr;
+    typedef Poco::SharedPtr<IState> IStateSharedPtr;
 }
 
 #endif

@@ -29,6 +29,8 @@
 
 #include "qvIState.h"
 #include "qvGameStateTypes.h"
+#include "qvIEventCommand.h"
+#include "qvIInputTranslator.h"
 
 #include "Poco/SharedPtr.h"
 
@@ -50,10 +52,8 @@ namespace qv
         public:
 
 			//i can fire change state event, that run composite command ( fade-in, fade-out), or put load screen when loading
-            virtual void registerLevel( void) = 0;
-            virtual void getLevels() = 0;
-            virtual void getCurrentLevel() = 0;
-            virtual void setCurrentLevel() = 0;
+            virtual const input::InputTranslatorList& getInputTranslators() const = 0;
+            virtual const events::EventCommandHashTypesVector& getLevels() const = 0;
         };
         
         typedef Poco::SharedPtr<IGameState> IGameStateSharedPtr;
