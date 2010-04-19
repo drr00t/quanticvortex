@@ -44,21 +44,13 @@ namespace qv
 
 		EngineManager();
 
-		EngineManager(const SGameParams& params );
-
         virtual ~EngineManager();
-
-        virtual bool initialize();
-
-		virtual void finalize();
 
  	    virtual s32 run();
 
 		virtual void beginRender(bool backBuffer, bool zBuffer);
 
 		virtual void endRender();
-
-        virtual void registerInputReceiverDriverFactory(input::IInputReceiverDriverFactory* factory);
 
 		virtual gaming::IGameLogic* getGameLogic(){return mGameLogic;}
 
@@ -71,10 +63,20 @@ namespace qv
 		virtual void setQuit(bool quit) { mQuit = quit;}
 
     protected:
-    
-		SGameParams mGameParams;
+        
+        bool initialize();
 
-		irr::core::array<input::IInputReceiverDriverFactory*> mInputReceiverDriverFactories;
+		void finalize();
+
+        void loadConfiguration();
+
+        void registerGameEvents();
+
+        void update( u32 currentTimeMs, u32 elapsedTimeMs);
+
+        void render( u32 currentTimeMs, u32 elapsedTimeMs);
+
+		SGameParams mGameParams;
 
         gaming::IGameLogic* mGameLogic;
         
@@ -83,14 +85,6 @@ namespace qv
 		input::IInputReceiverSharedPtr mInputReceiver;
 
 		irr::IrrlichtDevice* mDevice3d;
-
-        virtual void loadConfiguration();
-
-        virtual void registerGameEvents();
-
-        void update( u32 currentTimeMs, u32 elapsedTimeMs);
-
-        void render( u32 currentTimeMs, u32 elapsedTimeMs);
         
     private:
         bool _helpRequested;

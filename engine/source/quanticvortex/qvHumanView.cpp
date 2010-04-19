@@ -31,7 +31,6 @@
 #include "qvIEventManager.h"
 #include "qvIEngineManager.h"
 
-
 namespace qv
 {
     namespace views
@@ -43,10 +42,7 @@ namespace qv
 			/*mProcessManager(0),mInputController(0),*/
         {
 
-
-//#ifdef _DEBUG
-//			setDebugName("HumanView");
-//#endif
+            
             DefaultElementViewFactory* factory = new DefaultElementViewFactory(mEngine);
             registerElementViewFactory(factory);
             factory->drop();
@@ -103,9 +99,9 @@ namespace qv
             {
 				mEngine->beginRender(true, true); //call some beginRender from engine
 
-//                for(u32 i = 0; i < mElementViews.size(); ++i)
-//                    if(mElementViews[i]->getVisible())
-//                        mElementViews[i]->render( mCurrentTime, elapsedTimeMs);
+                for(u32 i = 0; i < mElementViews.size(); ++i)
+                    if(mElementViews[i]->getVisible())
+                        mElementViews[i]->render( mCurrentTime, elapsedTimeMs);
 
 				//mEngineManager->getSceneManager()->drawAll();
 

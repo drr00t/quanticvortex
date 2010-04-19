@@ -29,7 +29,6 @@
 #define __HUMAN_VIEW_H_
 
 #include "qvIHumanView.h"
-//#include "runtime/qvProcessManager.h"
 
 
 namespace qv
@@ -85,7 +84,7 @@ namespace qv
             u32 mViewHashType;
             u32	mViewHashId;
             u32 mActorHashId;
-			ElementViewList mElementViews;
+			ElementViewArray mElementViews;
 //            array<IElementViewFactory*> mElementViewFactories;
 //            CommandList mInputCommands;
 //            CommandList mEventCommands;

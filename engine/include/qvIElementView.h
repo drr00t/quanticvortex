@@ -27,6 +27,8 @@
 #ifndef __I_ELEMENT_VIEW_H_
 #define __I_ELEMENT_VIEW_H_
 
+#include <vector>
+
 #include "qvSHashedString.h"
 
 #include "Poco/SharedPtr.h"
@@ -74,7 +76,7 @@ namespace qv
         };
 
         typedef Poco::SharedPtr<IElementView> IElementViewSharedPtr;
-		typedef irr::core::list<IElementViewSharedPtr> ElementViewList;
+		typedef std::vector<IElementViewSharedPtr> ElementViewArray;
     }
 }
 #endif

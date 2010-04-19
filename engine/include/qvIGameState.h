@@ -51,9 +51,6 @@ namespace qv
 
         public:
 
-			//i can fire change state event, that run composite command ( fade-in, fade-out), or put load screen when loading
-            virtual const input::InputTranslatorList& getInputTranslators() const = 0;
-            virtual const events::EventCommandHashTypesVector& getLevels() const = 0;
         };
         
         typedef Poco::SharedPtr<IGameState> IGameStateSharedPtr;

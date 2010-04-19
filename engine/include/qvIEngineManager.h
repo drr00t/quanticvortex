@@ -31,8 +31,6 @@
 #include "qvIInputReceiverDriverFactory.h"
 #include "qvSGameParams.h"
 
-#include "IReferenceCounted.h"
-
 namespace qv
 {
 
@@ -53,21 +51,16 @@ namespace qv
 		class IGameLogic;
 	}
 
-	class IEngineManager : public irr::IReferenceCounted
+	class IEngineManager
     {
 
 	public:
-        virtual bool initialize()=0;
-
-		virtual void finalize()=0;
 
  	    virtual s32 run()=0;
 
 		virtual void beginRender(bool backBuffer, bool zBuffer)=0;
 
 		virtual void endRender()=0;
-
-		virtual void registerInputReceiverDriverFactory(input::IInputReceiverDriverFactory* factory)=0;
 
 		virtual gaming::IGameLogic* getGameLogic()=0;
 

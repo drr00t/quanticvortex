@@ -57,8 +57,8 @@ namespace qv
     //grab must be called after get the engine instance, and drop must be called be before finish game
     _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManagerEx(const SGameParams& params)
 	{
-        IEngineManager* engineManager = new EngineManager(params);
-		return engineManager;
+        IEngineManager* engineManager = new EngineManager();
+        return engineManager;
 	};
 }
 

@@ -37,6 +37,7 @@ namespace qv
 		//-----------------------------------------------------------------------------------------
 		void GameStateMachine::changeState(const qv::S_STATE* newState)
 		{
+            
             //leave old game state
 //            StateMap::Node* nodeNewState = mStateMap.find(newState->Hash);
 

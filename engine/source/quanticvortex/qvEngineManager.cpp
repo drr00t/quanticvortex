@@ -35,33 +35,15 @@
 //Irrlicht input receiver implementation
 #include "drivers/irrlicht/qvInputEventHandlerIrrlicht.h"
 
+
 namespace qv
 {
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager()
     :mQuit(false),mHasPopup(false),_helpRequested(false)
     {
-
-#ifdef _DEBUG
-		setDebugName("EngineManager");
-#endif
-		mGameParams.Bits = 16;
-        mGameParams.Fullscreen = false;
-        mGameParams.LocalPlayers = 1;
-        mGameParams.Title = "Default game Window";
-        mGameParams.WindowSize = irr::core::dimension2di(1024,768);
-    }
-    //-----------------------------------------------------------------------------
-    EngineManager::EngineManager(const SGameParams& params):mQuit(false), 
-        mGameLogic(0), mEventManager(0), mInputReceiver(0),mDevice3d(0),
-        _helpRequested(false)
-    {
-
-#ifdef _DEBUG
-		setDebugName("EngineManager");
-#endif
-
-		mGameParams = params;
+        if(!initialize())
+            mQuit = true;
     }
     //-----------------------------------------------------------------------------
     EngineManager::~EngineManager()
@@ -111,23 +93,25 @@ namespace qv
 
     }
     //-----------------------------------------------------------------------------
-	void EngineManager::registerInputReceiverDriverFactory(input::IInputReceiverDriverFactory *factory)
-    {
-//        factory->grab();
-//        mGameLogicFactories.push_back(factory);
-    }
-    //-----------------------------------------------------------------------------
     void EngineManager::loadConfiguration()
     {
         //load strings
         //load language
         //load key-action mappings
+        
         //configure game application
+        mGameParams.Bits = 32;
+        mGameParams.Fullscreen = false;
+        mGameParams.LocalPlayers = 1;
+        mGameParams.HostGame = true;
+        mGameParams.Title = "Default game Window";
+        mGameParams.WindowSize = irr::core::dimension2di(1024,768);
+        
     }
     //-----------------------------------------------------------------------------
 	bool EngineManager::initialize()
     {
-        mClock = new btClock();
+        mClock.reset();
 
         loadConfiguration(); // load default configuration files, if present
 
@@ -141,23 +125,35 @@ namespace qv
 
         mDevice3d = irr::createDeviceEx(parameters);
 
-//		gaming::IGameLogicFactory* factory = new gaming::GameLogicFactory(this);
-//        registerGameLogicFactory(factory);
-//        factory->drop();
-
 		mEventManager = new events::EventManager();
 
+        //registring engine events
 		registerGameEvents();
+        
+        //raised engine initialized event
+        // mEventManager->trigger(EngineInitializedEventArgs);
+        
+        // maybe each one raise next state
+        // initialize game logic - here game logic will get parâmeters configure internal things like: physics, sound, actor managment
+        // loading resources - maybe preloading something musics and textures
+        // menu - show menu to user choose options
+        // waiting for players - check Players attached to game logic, if enogh, if not attach local player as humam view
+        // running - start run
+        
 
         return true;
     }
 	//-----------------------------------------------------------------------------
 	void EngineManager::finalize()
     {
-        for(u32 i = 0; i < mInputReceiverDriverFactories.size(); ++i)
-            mInputReceiverDriverFactories[i]->drop();
-
-		mDevice3d->drop();
+        if(mGameLogic)
+            delete mGameLogic;
+        
+        if(mEventManager)
+            delete mEventManager;
+            
+        //render system
+        mDevice3d->drop();
 	}
 	//-----------------------------------------------------------------------------
     void EngineManager::update( u32 currentTimeMs, u32 elapsedTimeMs)
@@ -191,19 +187,16 @@ namespace qv
     {
         if (!_helpRequested)
         {
-            mClock->reset();
-            mDevice3d->getTimer()->getTime();
-
 	        s32 lastFPS = -1;
 
 			// In order to do framerate independent movement, we have to know
             // how long it was since the last frame
-            u32 lastTimeMs =  mClock->getTimeMilliseconds();//mDevice3d->getTimer()->getTime();
-
-	        while(mDevice3d->run() && !mQuit)
+            u32 lastTimeMs =  mClock.getTimeMilliseconds();
+            u32 curentTimeMs = lastTimeMs;
+	        while(!mQuit)
             {
                 // Work out a frame delta time.
-                const u32 curentTimeMs = mDevice3d->getTimer()->getTime();
+                u32 curentTimeMs = mClock.getTimeMilliseconds();
                 u32 elapsedTimeMs = (curentTimeMs - lastTimeMs); // Time in miliseconds
 
 				lastTimeMs = curentTimeMs;
@@ -225,27 +218,18 @@ namespace qv
 
 		            if (lastFPS != fps)
 		            {
-//                        irr::core::stringw str = mGameParams.Title;
-//                        str.append(L" - QuanticVortex Engine [");
-//			            str.append(mDevice3d->getVideoDriver()->getName());
-//			            str.append("] FPS:");
-//			            str.append(fps);
-//			            str.append(" Triangles:");
-//						str.append(mDevice3d->getVideoDriver()->getPrimitiveCountDrawn());
-//
-//                        mDevice3d->setWindowCaption(str.c_str());
+                        irr::core::stringw str = mGameParams.Title;
+                        str.append(L" - QuanticVortex Engine [");
+			            str.append(mDevice3d->getVideoDriver()->getName());
+			            str.append("] FPS:");
+			            str.append(fps);
+			            str.append(" Triangles:");
+						str.append(mDevice3d->getVideoDriver()->getPrimitiveCountDrawn());
+
+                        mDevice3d->setWindowCaption(str.c_str());
+                        
 			            lastFPS = fps;
 		            }
-
-					//if(elapsedTimeMs > 16)
-					//{
-					//	mDevice3d->sleep((elapsedTimeMs - 16));
-					//}
-					//else if(elapsedTimeMs > 16)
-					//{
-					//	mDevice3d->sleep((16 - elapsedTimeMs));
-					//}
-
                 //}
                 //else
                 //{

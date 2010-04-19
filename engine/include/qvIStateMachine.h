@@ -29,6 +29,8 @@
 
 #include "qvIState.h"
 
+#include "IReferenceCounted.h"
+
 
 namespace qv
 {
