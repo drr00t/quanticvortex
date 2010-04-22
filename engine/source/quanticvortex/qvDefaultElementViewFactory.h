@@ -30,32 +30,46 @@
 
 #include "qvIElementViewFactory.h"
 
-#include "irrArray.h"
-
 namespace qv
 {
     class IEngineManager;
 
-    namespace views
-    {
+namespace views
+{
+    class GuiView;
+    class SceneView;
+}
 
-        class DefaultElementViewFactory : public IElementViewFactory
-		{
-        private:
-            irr::core::array<u32> mSupportedElementViewTypes;
-            IEngineManager* mEngine;
+}
 
-		public:
-            DefaultElementViewFactory(IEngineManager* engine);
-            virtual ~DefaultElementViewFactory();
 
-            virtual IElementViewSharedPtr addElementView( const c8* name, u32 elementViewHashType);
+namespace qv
+{
+namespace views
+{
 
-			virtual u32 getCreatableElementViewTypeCount() const;
+class DefaultElementViewFactory : public IElementViewFactory
+{
 
-            virtual bool getCreateableElementViewType( u32 elementViewHashType) const;
-		};
-    }
+public:
+    DefaultElementViewFactory(IEngineManager* engine);
+    virtual ~DefaultElementViewFactory();
+
+    virtual IElementView* addElementView( const c8* name, u32 elementViewHashType);
+
+    virtual u32 getCreatableElementViewTypeCount() const;
+
+    virtual bool getCreateableElementViewType( u32 elementViewHashType) const;
+
+private:
+    ElementViewHashTypesArray mSupportedElementViewTypes;
+
+};
+
+
+}
+
+
 }
 #endif
 

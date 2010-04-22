@@ -38,60 +38,62 @@
 namespace qv
 {
 
-	class EngineManager : public IEngineManager
-    {
-    public:
+class EngineManager : public IEngineManager
+{
+public:
 
-		EngineManager();
+    EngineManager();
 
-        virtual ~EngineManager();
+    virtual ~EngineManager();
 
- 	    virtual s32 run();
+    virtual s32 run();
 
-		virtual void beginRender(bool backBuffer, bool zBuffer);
+    virtual void beginRender(bool backBuffer, bool zBuffer);
 
-		virtual void endRender();
+    virtual void endRender();
 
-		virtual gaming::IGameLogic* getGameLogic(){return mGameLogic;}
+    virtual gaming::GameLogic* getGameLogic(){return mGameLogic;}
 
-		virtual events::IEventManager* getEventManager(){return mEventManager;}
+    virtual events::IEventManager* getEventManager(){return mEventManager;}
 
-		virtual input::IInputReceiver* getInputReceiver() { return mInputReceiver;}
+    virtual input::IInputReceiver* getInputReceiver() { return mInputReceiver;}
 
-        virtual SGameParams& getGameParameters() { return mGameParams;}
+    virtual SGameParams& getGameParameters() { return mGameParams;}
 
-		virtual void setQuit(bool quit) { mQuit = quit;}
+    virtual void setQuit(bool quit) { mQuit = quit;}
 
-    protected:
-        
-        bool initialize();
+protected:
 
-		void finalize();
+    bool initialize();
 
-        void loadConfiguration();
+    void finalize();
 
-        void registerGameEvents();
+    void loadConfiguration();
 
-        void update( u32 currentTimeMs, u32 elapsedTimeMs);
+    void registerGameEvents();
 
-        void render( u32 currentTimeMs, u32 elapsedTimeMs);
+    void update( u32 currentTimeMs, u32 elapsedTimeMs);
 
-		SGameParams mGameParams;
+    void render( u32 currentTimeMs, u32 elapsedTimeMs);
 
-        gaming::IGameLogic* mGameLogic;
-        
-		events::IEventManager* mEventManager;
+    SGameParams mGameParams;
 
-		input::IInputReceiverSharedPtr mInputReceiver;
+    gaming::GameLogic* mGameLogic;
 
-		irr::IrrlichtDevice* mDevice3d;
-        
-    private:
-        bool _helpRequested;
-        bool mHasPopup;
-		bool mQuit;
-		btClock mClock;
-    };
+    events::IEventManager* mEventManager;
+
+    input::IInputReceiverSharedPtr mInputReceiver;
+
+    irr::IrrlichtDevice* mDevice3d;
+
+private:
+    bool _helpRequested;
+    bool mHasPopup;
+    bool mQuit;
+    btClock mClock;
+};
+
+
 }
 
 #endif

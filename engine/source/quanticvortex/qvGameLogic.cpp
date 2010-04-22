@@ -27,9 +27,8 @@
 
 #include "qvGameLogic.h"
 
-#include "qvIActor.h"
+#include "qvActor.h"
 #include "qvIEngineManager.h"
-#include "qvDefaultGameViewFactory.h"
 #include "qvSActorParams.h"
 #include "qvHumanView.h"
 
@@ -46,16 +45,9 @@ namespace qv
     {
         //-----------------------------------------------------------------------------------------
         GameLogic::GameLogic(IEngineManager* engineManager)
-            :mEngineManager(engineManager), mPhysicsManager(0)
+            :mPhysicsManager(0)
         {
-#ifdef _DEBUG
-			setDebugName("DefaultGameLogic");
-#endif
-			views::DefaultGameViewFactory* factory = new views::DefaultGameViewFactory(engineManager);
-			registerGameViewFactory(factory);
-			factory->drop();
-
-			mPhysicsManager = new physics::PhysicsManager(mEngineManager);
+			mPhysicsManager = new physics::PhysicsManager(engineManager);
         }
         //-----------------------------------------------------------------------------------------
         GameLogic::~GameLogic()
@@ -108,7 +100,7 @@ namespace qv
         //-----------------------------------------------------------------------------------------
 		void GameLogic::addActor( u32 actorHashId)
         {
-			IActor* actor = 0;
+			Actor* actor = 0;
 
 			//ask to an actor factory if it possible create an actor with this args
 			//if there is no other actor with this ID
@@ -212,55 +204,23 @@ namespace qv
         //-----------------------------------------------------------------------------------------
 		void GameLogic::changeState(const S_STATE* newState)
         {
-            mState = newState;
+//            mState = newState;
         }
         //-----------------------------------------------------------------------------------------
-		void GameLogic::addView(views::IGameView* gameView, u32 actorHashId)
+        views::AbstractGameView* GameLogic::addView(const c8* viewName, u32 viewHashType, u32 actorHashId)
         {
-//            gameView->grab();
-            mGameViews.push_back(gameView);
-//            gameView->attach(gameView->getID(), actorID);
-            //mPlayerScore.AttachedViewType = gameView->getType();
-
-            //mPlayerScore.Actor = actorID;
-
-
-            //i need restart view here, on book it use restore method
-            //view->restore();
-        }
-        //-----------------------------------------------------------------------------------------
-        views::IGameView* GameLogic::addView( const c8* viewID, u32 viewHashType, u32 actorHashId)
-        {
-            views::IGameView* gameView(0);
-
-            for(u32 i = 0; i < mGameViewFactories.size(); ++i)
-            {
-//                if(mGameViewFactories[i]->getCreateableGameViewType(viewType))
-//                {
-//                    gameView = mGameViewFactories[i]->addGameView(viewID, viewType);
-//                    mGameViews.push_back(gameView);
-//                    mGameViews.sort();
-//                    gameView->attach(gameView->getID(), actorID);
-//					break;
-//                }
-            }
+            views::AbstractGameView* gameView(0);
 
             return gameView;
             //i need restart view here, on book it use restore method
             //view->restore();
         }
         //-----------------------------------------------------------------------------------------
-        void GameLogic::removeView(views::IGameView* gameView)
+        void GameLogic::removeView(views::AbstractGameView* gameView)
         {
-            s32 idx = mGameViews.binary_search(gameView);
+//            s32 idx = mGameViews.binary_search(gameView);
 //            mGameViews[idx]->drop();
 //            mGameViews.erase(idx);
-        }
-        //-----------------------------------------------------------------------------------------
-        void GameLogic::registerGameViewFactory(views::IGameViewFactory *factoryToAdd)
-        {
-			factoryToAdd->grab();
-            mGameViewFactories.push_back(factoryToAdd);
         }
         //-----------------------------------------------------------------------------------------
     }

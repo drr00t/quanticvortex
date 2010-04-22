@@ -24,11 +24,9 @@
 
 **************************************************************************************************/
 
-//managers
+//engine headers
 #include "qvEventManager.h"
 #include "qvEngineManager.h"
-#include "qvActorManager.h"
-
 #include "qvGameLogic.h"
 
 #include "irrlicht.h"
@@ -98,7 +96,7 @@ namespace qv
         //load strings
         //load language
         //load key-action mappings
-        
+
         //configure game application
         mGameParams.Bits = 32;
         mGameParams.Fullscreen = false;
@@ -106,7 +104,7 @@ namespace qv
         mGameParams.HostGame = true;
         mGameParams.Title = "Default game Window";
         mGameParams.WindowSize = irr::core::dimension2di(1024,768);
-        
+
     }
     //-----------------------------------------------------------------------------
 	bool EngineManager::initialize()
@@ -115,31 +113,21 @@ namespace qv
 
         loadConfiguration(); // load default configuration files, if present
 
-		irr::SIrrlichtCreationParameters parameters;
-
-        parameters.Bits = mGameParams.Bits;
-		parameters.DriverType = irr::video::EDT_OPENGL;
-		parameters.Stencilbuffer = true;
-        parameters.WindowSize = mGameParams.WindowSize;
-        parameters.Fullscreen = mGameParams.Fullscreen;
-
-        mDevice3d = irr::createDeviceEx(parameters);
-
 		mEventManager = new events::EventManager();
 
         //registring engine events
 		registerGameEvents();
-        
+
         //raised engine initialized event
         // mEventManager->trigger(EngineInitializedEventArgs);
-        
+
         // maybe each one raise next state
         // initialize game logic - here game logic will get parâmeters configure internal things like: physics, sound, actor managment
         // loading resources - maybe preloading something musics and textures
         // menu - show menu to user choose options
         // waiting for players - check Players attached to game logic, if enogh, if not attach local player as humam view
         // running - start run
-        
+
 
         return true;
     }
@@ -148,10 +136,10 @@ namespace qv
     {
         if(mGameLogic)
             delete mGameLogic;
-        
+
         if(mEventManager)
             delete mEventManager;
-            
+
         //render system
         mDevice3d->drop();
 	}
@@ -227,7 +215,7 @@ namespace qv
 						str.append(mDevice3d->getVideoDriver()->getPrimitiveCountDrawn());
 
                         mDevice3d->setWindowCaption(str.c_str());
-                        
+
 			            lastFPS = fps;
 		            }
                 //}

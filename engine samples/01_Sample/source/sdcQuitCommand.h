@@ -25,23 +25,23 @@ namespace sdc
          * \file sdcQuitCommand.h
          * \brief 
          */
-		class QuitCommand: public qv::events::IEventCommand
-		{
-		private:
-			qv::IEngineManager* mEngine;
-			array<const qv::events::ET_EVENT_TYPE*> mEventTypes;
-
-		public:
-			QuitCommand(qv::IEngineManager* engine);
-			virtual ~QuitCommand();
-
-			virtual const array<const qv::events::ET_EVENT_TYPE*>& listenEventTypes() const
-			{
-				return mEventTypes;
-			}
-
-			virtual void executeCommand(const qv::events::IEventArgs* args);
-		};
+//		class QuitCommand //: public qv::events::IEventCommand
+//		{
+//		private:
+//			qv::IEngineManager* mEngine;
+////			array<qv::u32> mEventTypes;
+//
+//		public:
+//			QuitCommand(qv::IEngineManager* engine);
+//			virtual ~QuitCommand();
+//
+////			virtual const array<qv::u32>& listenEventTypes() const
+////			{
+////				return mEventTypes;
+////			}
+//
+//			virtual void executeCommand(const qv::events::IEventArgs* args);
+//		};
     }
 }
 

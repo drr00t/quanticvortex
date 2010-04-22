@@ -84,6 +84,8 @@
 					<Add directory="..\..\..\..\engine\include" />
 					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
 					<Add directory="..\..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\..\dependencies\include\poco" />
+					<Add directory="..\..\..\..\dependencies\include\cAudio\include" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="..\..\include" />
@@ -92,13 +94,14 @@
 					<Add directory="..\..\..\..\dependencies\include\bullet" />
 				</ResourceCompiler>
 				<Linker>
-					<Add library="libQuanticVortex_d.dll" />
+					<Add library="QuanticVortex_d.dll" />
 					<Add directory="..\..\..\..\engine\lib\debug" />
 					<Add directory="..\..\..\..\dependencies\libs\debug\gcc" />
+					<Add directory="..\..\..\..\engine\bin\win32-gcc" />
 				</Linker>
 				<ExtraCommands>
 					<Add after="cmd /c del ..\..\..\bin\debug\*_d.dll" />
-					<Add after="cmd /c copy ..\..\..\..\engine\bin\debug\*_d.dll ..\..\..\bin\debug\." />
+					<Add after="cmd /c copy ..\..\..\..\engine\bin\win32-gcc\*_d.dll ..\..\..\bin\debug\." />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -120,6 +123,8 @@
 					<Add directory="..\..\..\..\engine\include" />
 					<Add directory="..\..\..\..\dependencies\include\irrlicht\include" />
 					<Add directory="..\..\..\..\dependencies\include\bullet" />
+					<Add directory="..\..\..\..\dependencies\include\poco" />
+					<Add directory="..\..\..\..\dependencies\include\cAudio" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="..\..\include" />
@@ -129,7 +134,7 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="libQuanticVortex.dll" />
+					<Add library="QuanticVortex.dll" />
 					<Add directory="..\..\..\..\engine\lib\release" />
 					<Add directory="..\..\..\..\dependencies\libs\release\gcc" />
 				</Linker>

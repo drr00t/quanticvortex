@@ -31,47 +31,54 @@
 
 namespace qv
 {
-    namespace views
-    {
-        //-----------------------------------------------------------------------------------------
-        DefaultElementViewFactory::DefaultElementViewFactory(IEngineManager* engine)
-            :mEngine(engine)
-        {
-			mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_SCENE.Hash);
-			mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_GUI.Hash);
-        }
-        //-----------------------------------------------------------------------------------------
-        DefaultElementViewFactory::~DefaultElementViewFactory()
-        {
-        }
-		//-----------------------------------------------------------------------------------------------
-        IElementViewSharedPtr DefaultElementViewFactory::addElementView( const c8* name, u32 elementViewHashType)
-		{
-            IElementViewSharedPtr elementView;
+namespace views
+{
+//-----------------------------------------------------------------------------------------
+DefaultElementViewFactory::DefaultElementViewFactory(IEngineManager* engine)
+//    :mEngine(engine)
+{
+    mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_SCENE.Hash);
+    mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_GUI.Hash);
 
-			if(elementViewHashType == EVT_ELEMENT_VIEW_SCENE.Hash)
-                elementView.assign(new SceneViewIrrlicht(name, mEngine));
+//    engine->getGameLogic()->getHumanView()->getSceneView();
+//    engine->getGameLogic()->getHumanView()->getGuiView();
+
+}
+//-----------------------------------------------------------------------------------------
+DefaultElementViewFactory::~DefaultElementViewFactory()
+{
+}
+//-----------------------------------------------------------------------------------------------
+IElementView* DefaultElementViewFactory::addElementView( const c8* name, u32 elementViewHashType)
+{
+    IElementView* elementView(0);
+
+//    if(elementViewHashType == EVT_ELEMENT_VIEW_SCENE.Hash)
+//        elementView.assign(new SceneViewIrrlicht(name, mEngine));
 
 //			else if(elementViewHashType == EVT_ELEMENT_VIEW_GUI.Hash)
 //                elementView.assign(new GuiView(name, mEngine));
 
-			return elementView;
-		}
-        //-----------------------------------------------------------------------------------------
-        u32 DefaultElementViewFactory::getCreatableElementViewTypeCount() const
-        {
-            return mSupportedElementViewTypes.size();
-        }
-        //-----------------------------------------------------------------------------------------
-        bool DefaultElementViewFactory::getCreateableElementViewType( u32 elementViewHashType) const
-        {
-	        for (u32 i=0; i<mSupportedElementViewTypes.size(); ++i)
-				if (mSupportedElementViewTypes[i] == elementViewHashType)
-			        return true;
+    return elementView;
+}
+//-----------------------------------------------------------------------------------------
+u32 DefaultElementViewFactory::getCreatableElementViewTypeCount() const
+{
+    return mSupportedElementViewTypes.size();
+}
+//-----------------------------------------------------------------------------------------
+bool DefaultElementViewFactory::getCreateableElementViewType( u32 elementViewHashType) const
+{
+    for (u32 i=0; i<mSupportedElementViewTypes.size(); ++i)
+        if (mSupportedElementViewTypes[i] == elementViewHashType)
+            return true;
 
-            return false;
+    return false;
 
-        }
-        //-----------------------------------------------------------------------------------------
-    }
+}
+//-----------------------------------------------------------------------------------------
+
+}
+
+
 }

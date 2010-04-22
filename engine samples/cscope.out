@@ -1,0 +1,20279 @@
+cscope 15 /cygdrive/e/QuanticVortex/engine samples               0000113841
+	@..\engine\include\qvActorTypes.h
+
+28 #iâdeà
+__ACTOR_TYPES_H_
+
+
+29 
+	#__ACTOR_TYPES_H_
+
+
+	)
+
+31 
+	~"qvSHashedSŒšg.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+Çme¥aû
+ 
+	ggamšg
+
+
+40 
+SHashedSŒšg
+ 
+	tAI_ACTOR_ID
+;
+
+41 
+SHashedSŒšg
+ 
+	tAT_ACTOR_TYPE
+;
+
+43 cÚ¡ 
+AT_ACTOR_TYPE
+ 
+AT_ACTOR_CAMERA
+("AT_ACTOR_CAMERA");
+
+44 cÚ¡ 
+AT_ACTOR_TYPE
+ 
+AT_ACTOR_PLAYER
+("AT_ACTOR_PLAYER");
+
+	@..\engine\include\qvCommandTypes.h
+
+28 #iâdeà
+__COMMAND_TYPES_H_
+
+
+29 
+	#__COMMAND_TYPES_H_
+
+
+	)
+
+31 
+	~"qvSHashedSŒšg.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+SHashedSŒšg
+ 
+	tCI_COMMAND_ID
+;
+
+37 
+SHashedSŒšg
+ 
+	tCT_COMMAND_TYPE
+;
+
+40 cÚ¡ 
+CT_COMMAND_TYPE
+ 
+CT_COMMAND_EVENT
+("EVENT TRANSLATOR");
+
+41 cÚ¡ 
+CT_COMMAND_TYPE
+ 
+CT_COMMAND_INPUT
+("INPUT TRANSLATOR");
+
+	@..\engine\include\qvCompileConfig.h
+
+28 #iâdeà
+__COMPILE_CONFIG_H_
+
+
+29 
+	#__COMPILE_CONFIG_H_
+
+
+	)
+
+31 
+	~"qvCÚfigProfe.h
+"
+
+34 
+	#QUANTICVORTEX_VERSION_MAJOR
+ 0
+
+	)
+
+35 
+	#QUANTICVORTEX_VERSION_MINOR
+ 2
+
+	)
+
+36 
+	#QUANTICVORTEX_VERSION_REVISION
+ 0
+
+	)
+
+41 
+	#QUANTICVORTEX_SDK_VERSION
+ "0.2"
+
+	)
+
+46 #ià
+defšed
+(
+_WIN32
+è|| defšed(
+_WIN64
+è|| defšed(
+WIN32
+è|| defšed(
+WIN64
+)
+
+47 
+	#_QUANTICVORTEX_PLATAFORM_
+ 
+PLATAFORM_WINDOWS
+
+
+	)
+
+51 #ià
+defšed
+(
+_MSC_VER
+) && (_MSC_VER < 1300)
+
+60 #iâdeà
+_QUANTICVORTEX_STATIC_LIB_
+
+
+61 #ifdeà
+_QUANTICVORTEX_EXPORTS
+
+
+62 
+	#_QUANTICVORTEX_API_
+ 
+	`__deş¥ec
+(
+dÎexpÜt
+)
+
+	)
+
+64 
+	#_QUANTICVORTEX_API_
+ 
+	`__deş¥ec
+(
+dÎimpÜt
+)
+
+	)
+
+67 
+	#_QUANTICVORTEX_API_
+
+
+	)
+
+71 #ià
+defšed
+(
+_STDCALL_SUPPORTED
+)
+
+72 
+	#QUANTICVORTEX_CALLCONV
+ 
+__¡dÿÎ
+
+
+	)
+
+74 
+	#QUANTICVORTEX_CALLCONV
+ 
+__cdeş
+
+
+	)
+
+	@..\engine\include\qvConcurrentArray.h
+
+6 
+	~"qvP»»quis™es.h
+"
+
+9 
+Çme¥aû
+ 
+	gqv
+
+
+	@..\engine\include\qvConfig.h
+
+27 #iâdeà
+_QUANTICVORTEX_CONFIG_H_
+
+
+28 
+	#_QUANTICVORTEX_CONFIG_H_
+
+
+	)
+
+30 
+	~"qvCÚfigProfe.h
+"
+
+34 #ià
+defšed
+(
+_WIN32
+è|| defšed(
+_WIN64
+è|| defšed(
+WIN32
+è|| defšed(
+WIN64
+)
+
+35 
+	#QUANTICVORTEX_PLATAFORM
+ 
+PLATAFORM_WINDOWS
+
+
+	)
+
+36 
+	~<wšdows.h
+>
+
+37 #undeà
+NOMINMAX
+
+
+38 
+	#NOMINMAX
+
+
+	)
+
+41 #ià
+QUANTICVORTEX_PLATAFORM
+ =ğ
+PLATAFORM_WINDOWS
+
+
+42 #iâdeà
+_QUANTICVORTEX_STATIC_LIB_
+
+
+44 #ifdeà
+_QUANTICVORTEX_EXPORTS
+
+
+45 
+	#_QUANTICVORTEX_API
+ 
+	`__deş¥ec
+(
+dÎexpÜt
+)
+
+	)
+
+47 
+	#_QUANTICVORTEX_API
+ 
+	`__deş¥ec
+(
+dÎimpÜt
+)
+
+	)
+
+50 
+	#_QUANTICVORTEX_API
+
+
+	)
+
+55 #ià
+defšed
+(
+_STDCALL_SUPPORTED
+)
+
+56 
+	#QUANTICVORTEX_CALLCONV
+ 
+__¡dÿÎ
+
+
+	)
+
+58 
+	#QUANTICVORTEX_CALLCONV
+ 
+__cdeş
+
+
+	)
+
+62 
+	#QUANTICVORTEX_PHYSICS
+ 
+PHYSICS_BULLET
+
+
+	)
+
+63 
+	#QUANTICVORTEX_RENDER
+ 
+RENDER_IRRLICHT
+
+
+	)
+
+	@..\engine\include\qvConfigProfile.h
+
+27 #iâdeà
+_QUANTICVORTEX_CONFIG_PROFILE_H_
+
+
+28 
+	#_QUANTICVORTEX_CONFIG_PROFILE_H_
+
+
+	)
+
+31 
+	#PLATAFORM_WINDOWS
+ 1
+
+	)
+
+32 
+	#PLATAFORM_LINUX
+ 2
+
+33 
+	#PLATAFORM_MACOS
+ 3
+
+34 
+	#PLATAFORM_PS3
+ 4
+
+35 
+	#PLATAFORM_XBOX
+ 5
+
+36 
+
+	)
+
+38 
+	#PHYSICS_BULLET
+ 1
+
+	)
+
+39 
+	#PHYSICS_NEWTON
+ 2
+
+40 
+	#PHYSICS_PHYSX
+ 3
+
+41 
+	#PHYSICS_HAVOK
+ 4
+
+42 
+
+	)
+
+44 
+	#RENDER_IRRLICHT
+ 1
+
+	)
+
+45 
+	#RENDER_OGRE3D
+ 2
+
+46 
+
+	)
+
+47 
+	#RENDER
+ 
+RENDER_IRRLICHT
+
+
+	)
+
+	@..\engine\include\qvEventTypes.h
+
+28 #iâdeà
+__EVENT_TYPES_H_
+
+
+29 
+	#__EVENT_TYPES_H_
+
+
+	)
+
+31 
+	~"qvP»»quis™es.h
+"
+
+32 
+	~"qvSHashedSŒšg.h
+"
+
+34 
+	~<veùÜ
+>
+
+37 
+Çme¥aû
+ 
+	gqv
+
+
+39 
+Çme¥aû
+ 
+	gev’ts
+
+
+41 
+SHashedSŒšg
+ 
+	tET_EVENT_TYPE
+;
+
+43 
+	g¡d
+::
+	tveùÜ
+<
+	tu32
+> 
+	tEv’tHashTy³sVeùÜ
+;
+
+44 
+	g¡d
+::
+	tveùÜ
+<
+	tET_EVENT_TYPE
+*> 
+	tEv’tTy³sVeùÜ
+;
+
+47 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GRAPHICS_STARTED
+("ET_GRAPHICS_STARTED");
+
+48 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GRAPHICS_STOPPED
+("ET_GRAPHICS_STOPPED");
+
+50 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_EVENT_SYSTEM_STARTED
+("ET_EVENT_SYSTEM_STARTED");
+
+51 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_EVENT_SYSTEM_STOPPED
+("ET_EVENT_SYSTEM_STOPPED");
+
+54 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_LOAD
+("ET_GAME_LOAD");
+
+55 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_NEW
+("ET_GAME_NEW");
+
+56 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_OPTIONS
+("ET_GAME_OPTIONS");
+
+57 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_PAUSE
+("ET_GAME_PAUSE");
+
+58 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_QUIT
+("ET_GAME_QUIT");
+
+59 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_SAVE
+("ET_GAME_SAVE");
+
+60 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_STATE_CHANGE
+("ET_GAME_STATE_CHANGE");
+
+61 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_UNPAUSE
+("ET_GAME_PAUSE");
+
+64 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_LOGIC_STARTED
+("ET_GAME_LOGIC_STARTED");
+
+65 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_LOGIC_STOPPED
+("ET_GAME_LOGIC_STOPPED");
+
+66 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_GAME_LOGIC_TICK_UPDATE
+("ET_GAME_LOGIC_TICK");
+
+68 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_HUMAN_VIEW_ATTACHED
+("ET_HUMAN_VIEW_ATTACHED");
+
+69 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_HUMAN_VIEW_DETACHED
+("ET_HUMAN_VIEW_DETACHED");
+
+71 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_PHYSICS_STARTED
+("ET_PHYSICS_STARTED");
+
+72 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_PHYSICS_STOPPED
+("ET_PHYSICS_STOPPED");
+
+74 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_CAMERA_ACTOR_ADDED
+("ET_CAMERA_ACTOR_ADDED");
+
+76 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_CREATED
+("ET_ACTOR_CREATED");
+
+77 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_DESTROYED
+("ET_ACTOR_DESTROYED");
+
+78 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_MOVE
+("ET_ACTOR_MOVE");
+
+79 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_COLLIDE
+("ET_ACTOR_COLLIDE");
+
+81 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_PLAYER_DIE
+("ET_ACTOR_PLAYER_DIE");
+
+82 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_PLAYER_JUMP
+("ET_ACTOR_PLAYER_JUMP");
+
+83 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_PLAYER_MOVE
+("ET_ACTOR_PLAYER_MOVE");
+
+84 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_PLAYER_NEW
+("ET_ACTOR_PLAYER_NEW");
+
+85 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_PLAYER_TURN
+("ET_ACTOR_PLAYER_TURN");
+
+86 cÚ¡ 
+ET_EVENT_TYPE
+ 
+ET_ACTOR_PLAYER_COLLIDE
+("ET_ACTOR_PLAYER_COLLIDE");
+
+	@..\engine\include\qvGameParameters.h
+
+2 #iâdeà
+__GAMEPARAMETERS_H_
+
+
+3 
+	#__GAMEPARAMETERS_H_
+
+
+	)
+
+5 
+	~"qvP»»quis™es.h
+"
+
+7 
+	~"œrSŒšg.h
+"
+
+8 
+	~"IA‰ribu‹ExchªgšgObjeù.h
+"
+
+10 
+Çme¥aû
+ 
+	gqv
+
+
+12 şas 
+	cGameP¬am‘”s
+ : 
+public
+ 
+vœtu®
+ 
+œr
+::
+io
+::
+IA‰ribu‹ExchªgšgObjeù
+
+
+15 
+´Ùeùed
+:
+
+16 
+œr
+::
+cÜe
+::
+¡ršgc
+ 
+mGameT™Ë
+;
+
+17 
+	gœr
+::
+cÜe
+::
+¡ršgc
+ 
+mGameAµDœeùÜy
+;
+
+18 
+	gœr
+::
+cÜe
+::
+¡ršgc
+ 
+mU£rHomeDœeùÜy
+;
+
+20 
+	gpublic
+:
+
+22 
+GameP¬am‘”s
+();
+
+23 
+	gvœtu®
+ ~
+GameP¬am‘”s
+();
+
+25 
+	gœr
+::
+cÜe
+::
+¡ršgc
+& 
+gameAµDœeùÜy
+();
+
+26 
+	gœr
+::
+cÜe
+::
+¡ršgc
+& 
+u£rHomeDœeùÜy
+();
+
+28 
+vœtu®
+ 
+boŞ
+ 
+lßdGame
+() = 0;
+
+29 
+vœtu®
+ 
+ü—‹GameAndV›w
+() = 0;
+
+33 
+vœtu®
+ 
+£rŸlizeA‰ribu‹s
+(
+œr
+::
+io
+::
+IA‰ribu‹s
+* 
+out
+, i¼::io::
+SA‰ribu‹R—dWr™eO±iÚs
+* 
+İtiÚs
+=0) const;
+
+34 
+vœtu®
+ 
+de£rŸlizeA‰ribu‹s
+(
+œr
+::
+io
+::
+IA‰ribu‹s
+* 
+š
+, i¼::io::
+SA‰ribu‹R—dWr™eO±iÚs
+* 
+İtiÚs
+=0);
+
+	@..\engine\include\qvGameStateTypes.h
+
+27 #iâdeà
+__GAME_STATE_TYPES_H_
+
+
+28 
+	#__GAME_STATE_TYPES_H_
+
+
+	)
+
+30 
+	~"qvS‹Ty³s.h
+"
+
+32 
+Çme¥aû
+ 
+	gqv
+
+
+34 
+Çme¥aû
+ 
+	ggamšg
+
+
+36 cÚ¡ 
+S_STATE
+ *
+	gS_GAME_STATE_INITIALIZATING
+ = 
+Ãw
+ S_STATE("S_STATE_INITIALIZATING");
+
+37 cÚ¡ 
+S_STATE
+ *
+	gS_GAME_STATE_MENU
+ = 
+Ãw
+ S_STATE("S_STATE_MENU");
+
+38 cÚ¡ 
+S_STATE
+ *
+	gS_GAME_STATE_LOADING
+ = 
+Ãw
+ S_STATE("S_STATE_LOADING");
+
+39 cÚ¡ 
+S_STATE
+ *
+	gS_GAME_STATE_WAITING_PLAYER
+ = 
+Ãw
+ S_STATE("S_STATE_WAITING_PLAYER");
+
+40 cÚ¡ 
+S_STATE
+ *
+	gS_GAME_STATE_RUNNING
+ = 
+Ãw
+ S_STATE("S_STATE_RUNNING");
+
+	@..\engine\include\qvGameViewTypes.h
+
+28 #iâdeà
+__GAME_VIEW_TYPES_H_
+
+
+29 
+	#__GAME_VIEW_TYPES_H_
+
+
+	)
+
+31 
+	~"qvSHashedSŒšg.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+Çme¥aû
+ 
+	gv›ws
+
+
+38 
+SHashedSŒšg
+ 
+	tGVI_GAME_VIEW_ID
+;
+
+39 
+SHashedSŒšg
+ 
+	tGVT_GAME_VIEW_TYPE
+;
+
+42 cÚ¡ 
+GVT_GAME_VIEW_TYPE
+ 
+GVT_GAME_VIEW_AI
+("GVT_GAME_VIEW_AI");
+
+43 cÚ¡ 
+GVT_GAME_VIEW_TYPE
+ 
+GVT_GAME_VIEW_HUMAN
+("GVT_GAME_VIEW_HUMAN");
+
+44 cÚ¡ 
+GVT_GAME_VIEW_TYPE
+ 
+GVT_GAME_VIEW_NETWORK
+("GVT_GAME_VIEW_NETWORK");
+
+45 cÚ¡ 
+GVT_GAME_VIEW_TYPE
+ 
+GVT_GAME_VIEW_PHYSICS
+("GVT_GAME_VIEW_PHYSICS");
+
+46 cÚ¡ 
+GVT_GAME_VIEW_TYPE
+ 
+GVT_GAME_VIEW_RECORDER
+("GVT_GAME_VIEW_RECORDER");
+
+	@..\engine\include\qvHashFunctions.h
+
+28 #iâdeà
+__HASH_FUNCTIONS_H_
+
+
+29 
+	#__HASH_FUNCTIONS_H_
+
+
+	)
+
+31 
+	~"qvCompeCÚfig.h
+"
+
+32 
+	~"qvTy³s.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+53 
+_QUANTICVORTEX_API_
+ 
+u32
+ 
+QUANTICVORTEX_CALLCONV
+ 
+ü—‹MurmurHash2
+ ( cÚ¡ * 
+key
+, u32 
+Ën
+, u32 
+£ed
+ = 0);
+
+	@..\engine\include\qvIAIView.h
+
+28 #iâdeà
+__HUMANVIEW_H_
+
+
+29 
+	#__HUMANVIEW_H_
+
+
+	)
+
+32 
+	~"qvIGameV›w.h
+"
+
+33 
+	~"qvIEËm’tV›w.h
+"
+
+37 
+usšg
+ 
+Çme¥aû
+ 
+	gœr
+::
+gui
+;
+
+39 
+usšg
+ 
+Çme¥aû
+ 
+	gqv
+::
+gamšg
+;
+
+47 
+Çme¥aû
+ 
+	gqv
+
+
+49 
+şass
+ 
+	gEngšeMªag”
+;
+
+51 
+Çme¥aû
+ 
+	gv›ws
+
+
+53 şas 
+	cHumªV›w
+: 
+public
+ 
+IGameV›w
+
+
+56 
+´Ùeùed
+:
+
+57 
+GameV›wID
+ 
+mV›wID
+;
+
+58 
+E_GAME_VIEW_TYPE
+ 
+	gmTy³
+;
+
+59 
+EËm’tV›wLi¡
+ 
+	gmEËm’tV›ws
+;
+
+61 
+AùÜID
+* 
+	gmAùÜID
+;
+
+63 
+IGUIFÚt
+* 
+	gmFÚt
+;
+
+68 
+f32
+ 
+	gmCu¼’tTime
+;
+
+69 
+f32
+ 
+	gmLa¡Upd©eTime
+;
+
+70 
+f32
+ 
+	gmAccumuÏtÜTime
+;
+
+81 
+	gpublic
+:
+
+82 
+HumªV›w
+ĞcÚ¡ 
+c8
+* 
+v›wID
+);
+
+83 
+	gvœtu®
+ ~
+HumªV›w
+();
+
+85 
+vœtu®
+ 
+E_GAME_VIEW_TYPE
+ 
+g‘Ty³
+()
+
+87  
+	gmTy³
+;
+
+90 
+vœtu®
+ cÚ¡ 
+	gGameV›wID
+& 
+g‘ID
+() const
+
+92  
+	gmV›wID
+;
+
+95 
+vœtu®
+ 
+lo¡Deviû
+();
+
+96 
+vœtu®
+ 
+©ch
+(cÚ¡ 
+GameV›wID
+& 
+v›wID
+, 
+AùÜID
+* 
+aùÜID
+=0);
+
+97 
+vœtu®
+ 
+upd©e
+(
+u32
+ 
+–­£dTimeMs
+);
+
+98 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+101 
+vœtu®
+ 
+pushEËm’t
+(
+IEËm’tV›w
+* 
+–em’t
+);
+
+102 
+vœtu®
+ 
+pİEËm’t
+(
+IEËm’tV›w
+* 
+–em’t
+);
+
+	@..\engine\include\qvIActor.h
+
+28 #iâdeà
+__I_ACTOR_H_
+
+
+29 
+	#__I_ACTOR_H_
+
+
+	)
+
+31 
+	~"qvAùÜTy³s.h
+"
+
+33 
+	~"Poco/Sh¬edPŒ.h
+"
+
+34 
+	~"œrA¼ay.h
+"
+
+35 
+	~"œrM­.h
+"
+
+36 
+	~"œrLi¡.h
+"
+
+39 
+Çme¥aû
+ 
+	gqv
+
+
+41 
+Çme¥aû
+ 
+	ggamšg
+
+
+43 şas 
+	cIAùÜ
+
+
+45 
+	gpublic
+:
+
+47 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+() const = 0;
+
+49 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+() const = 0;
+
+53 
+vœtu®
+ 
+boŞ
+ 
+isVisibË
+ () const = 0;
+
+55 
+vœtu®
+ 
+£tTy³
+Ğ
+u32
+ 
+aùÜHashTy³
+) = 0;
+
+59 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+) const = 0;
+
+62 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIAùÜ
+> 
+	tIAùÜSh¬edPŒ
+;
+
+63 
+	gœr
+::
+	tcÜe
+::
+	tm­
+<
+	tu32
+, 
+	tIAùÜSh¬edPŒ
+> 
+	tAùÜsM­
+;
+
+64 
+	gœr
+::
+	tcÜe
+::
+	tli¡
+<
+	tIAùÜSh¬edPŒ
+> 
+	tAùÜsSh¬edPŒLi¡
+;
+
+65 
+	gœr
+::
+	tcÜe
+::
+	t¬¿y
+<
+	tIAùÜSh¬edPŒ
+> 
+	tAùÜsSh¬edPŒA¼ay
+;
+
+	@..\engine\include\qvIActorAddedEventArgs.h
+
+28 #iâdeà
+__I_ACTOR_ADDED_EVENT_ARGS_H_
+
+
+29 
+	#__I_ACTOR_ADDED_EVENT_ARGS_H_
+
+
+	)
+
+31 
+	~"qvIEv’tArgs.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+Çme¥aû
+ 
+	ggamšg
+
+
+39 şas 
+	cIAùÜAddedEv’tArgs
+ : 
+public
+ 
+IEv’tArgs
+
+
+41 
+public
+:
+
+42 
+vœtu®
+ 
+u32
+ 
+g‘AùÜID
+() const = 0;
+
+44 
+vœtu®
+ cÚ¡ 
+c8
+* 
+g‘AùÜName
+() const = 0;
+
+46 
+vœtu®
+ 
+boŞ
+ 
+hasPhysicsBody
+() const = 0;
+
+48 
+vœtu®
+ 
+	gsûÃ
+::
+ISûÃNode
+* 
+g‘SûÃNode
+() = 0;
+
+50 
+vœtu®
+ cÚ¡ 
+veùÜ3df
+* 
+g‘V–oc™y
+() const = 0;
+
+	@..\engine\include\qvIActorFactory.h
+
+28 #iâdeà
+__I_ACTOR_FACTORY_H_
+
+
+29 
+	#__I_ACTOR_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIAùÜ.h
+"
+
+33 
+	~"Poco/Sh¬edPŒ.h
+"
+
+34 
+	~"œrA¼ay.h
+"
+
+35 
+	~"œrLi¡.h
+"
+
+37 
+Çme¥aû
+ 
+	gqv
+
+
+39 
+Çme¥aû
+ 
+	ggamšg
+
+
+41 şas 
+	cIAùÜFaùÜy
+
+
+43 
+	gpublic
+:
+
+45 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+addAùÜ
+ĞcÚ¡ 
+c8
+ * 
+aùÜName
+, cÚ¡ 
+u32
+ & 
+aùÜHashTy³
+) = 0;
+
+47 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËAùÜTy³CouÁ
+() const = 0;
+
+49 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËAùÜTy³
+ĞcÚ¡ 
+u32
+ & 
+aùÜHashTy³
+) = 0;
+
+52 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIAùÜFaùÜy
+> 
+	tIAùÜFaùÜySh¬edPŒ
+;
+
+53 
+	gœr
+::
+	tcÜe
+::
+	tli¡
+<
+	tIAùÜFaùÜySh¬edPŒ
+> 
+	tAùÜFaùÜySh¬edPŒLi¡
+;
+
+54 
+	gœr
+::
+	tcÜe
+::
+	t¬¿y
+<
+	tIAùÜFaùÜySh¬edPŒ
+> 
+	tAùÜFaùÜySh¬edPŒA¼ay
+;
+
+	@..\engine\include\qvIActorManager.h
+
+28 #iâdeà
+__I_ACTOR_MANAGER_H_
+
+
+29 
+	#__I_ACTOR_MANAGER_H_
+
+
+	)
+
+31 
+	~"qvIAùÜ.h
+"
+
+32 
+	~"qvIAùÜFaùÜy.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+Çme¥aû
+ 
+	ggamšg
+
+
+39 
+şass
+ 
+	gIAùÜFaùÜy
+;
+
+41 şas 
+	cIAùÜMªag”
+
+
+43 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+addAùÜ
+ĞcÚ¡ 
+c8
+* 
+aùÜName
+, 
+u32
+ 
+aùÜHashTy³
+) = 0;
+
+45 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+addCam”aAùÜ
+Ğ
+u32
+ 
+aùÜHashTy³
+) = 0;
+
+47 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+addPÏy”AùÜ
+Ğ
+u32
+ 
+aùÜHashTy³
+) = 0;
+
+49 
+vœtu®
+ 
+fšdAùÜsByTy³
+Ğ
+u32
+ 
+aùÜHashTy³
+ , 
+AùÜsSh¬edPŒA¼ay
+& 
+aùÜs
+) = 0;
+
+51 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+fšdAùÜ
+(
+u32
+ 
+aùÜHashId
+) = 0;
+
+53 
+vœtu®
+ 
+»gi¡”AùÜFaùÜy
+(
+IAùÜFaùÜy
+ * 
+çùÜy
+) = 0;
+
+55 
+vœtu®
+ 
+»gi¡”AùÜFaùÜy
+(
+IAùÜFaùÜySh¬edPŒ
+ 
+çùÜy
+) = 0;
+
+57 
+vœtu®
+ 
+»moveAùÜ
+Ğ
+u32
+ 
+aùÜHashId
+) = 0;
+
+60 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIAùÜMªag”
+> 
+	tIAùÜMªag”Sh¬edPŒ
+;
+
+	@..\engine\include\qvIAnyKeyInputTranslator.h
+
+28 #iâdeà
+_I_ANY_KEY_INPUT_TRANSLATOR_H_
+
+
+29 
+	#_I_ANY_KEY_INPUT_TRANSLATOR_H_
+
+
+	)
+
+31 
+	~"qvIIÅutT¿n¦©Ü.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+42 
+Çme¥aû
+ 
+	gšput
+
+
+44 
+şass
+ 
+	gIIÅutReûiv”
+;
+
+46 cÚ¡ 
+ITT_INPUT_TRANSLATOR_TYPE
+ 
+ITT_ANY_KEY
+("ITT_ANY_KEY_TYPE");
+
+48 şas 
+	cIAnyKeyIÅutT¿n¦©Ü
+ : 
+public
+ 
+IIÅutT¿n¦©Ü
+
+
+	@..\engine\include\qvICommand.h
+
+28 #iâdeà
+__I_COMMAND_H_
+
+
+29 
+	#__I_COMMAND_H_
+
+
+	)
+
+32 
+	~"qvIEv’tArgs.h
+"
+
+33 
+	~"qvCommªdTy³s.h
+"
+
+35 
+	~"Poco/Sh¬edPŒ.h
+"
+
+36 
+	~"œrA¼ay.h
+"
+
+37 
+	~"œrLi¡.h
+"
+
+40 
+Çme¥aû
+ 
+	gqv
+
+
+47 şas 
+	cICommªd
+
+
+49 
+	gpublic
+:
+
+50 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+() const = 0;
+
+52 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+() const = 0;
+
+54 
+vœtu®
+ 
+execu‹Commªd
+(
+ev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+) =0;
+
+57 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tICommªd
+> 
+	tICommªdSh¬edPŒ
+;
+
+58 
+	gœr
+::
+	tcÜe
+::
+	tli¡
+<
+	tICommªdSh¬edPŒ
+> 
+	tCommªdLi¡
+;
+
+59 
+	gœr
+::
+	tcÜe
+::
+	t¬¿y
+<
+	tICommªdSh¬edPŒ
+> 
+	tCommªdA¼ay
+;
+
+	@..\engine\include\qvIElementView.h
+
+27 #iâdeà
+__I_ELEMENT_VIEW_H_
+
+
+28 
+	#__I_ELEMENT_VIEW_H_
+
+
+	)
+
+30 
+	~"qvSHashedSŒšg.h
+"
+
+32 
+	~"Poco/Sh¬edPŒ.h
+"
+
+33 
+	~"œrLi¡.h
+"
+
+34 
+	~"IReã»nûCouÁed.h
+"
+
+36 
+Çme¥aû
+ 
+	gqv
+
+
+38 
+Çme¥aû
+ 
+	gv›ws
+
+
+40 
+SHashedSŒšg
+ 
+	tEVI_ELEMENT_VIEW_ID
+;
+
+41 
+SHashedSŒšg
+ 
+	tEVT_ELEMENT_VIEW_TYPE
+;
+
+43 şas 
+	cIEËm’tV›w
+: 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+48 
+public
+:
+
+52 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+() const = 0;
+
+54 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+() const = 0;
+
+56 
+vœtu®
+ 
+boŞ
+ 
+g‘VisibË
+() const = 0;
+
+58 
+vœtu®
+ 
+£tVisibË
+(
+boŞ
+ 
+visibË
+) = 0;
+
+60 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+) = 0;
+
+62 
+vœtu®
+ 
+upd©e
+(
+u32
+ 
+–­£dTimeMs
+) = 0;
+
+76 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIEËm’tV›w
+> 
+	tIEËm’tV›wSh¬edPŒ
+;
+
+77 
+	gœr
+::
+	tcÜe
+::
+	tli¡
+<
+	tIEËm’tV›wSh¬edPŒ
+> 
+	tEËm’tV›wLi¡
+;
+
+	@..\engine\include\qvIElementViewFactory.h
+
+28 #iâdeà
+__I_ELEMENT_VIEW_FACTORY_H_
+
+
+29 
+	#__I_ELEMENT_VIEW_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIEËm’tV›w.h
+"
+
+33 
+	~"IReã»nûCouÁed.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+şass
+ 
+	gIEngšeMªag”
+;
+
+39 
+Çme¥aû
+ 
+	gv›ws
+
+
+42 şas 
+	cIEËm’tV›wFaùÜy
+ : 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+44 
+public
+:
+
+46 
+vœtu®
+ 
+IEËm’tV›wSh¬edPŒ
+ 
+addEËm’tV›w
+ĞcÚ¡ 
+c8
+* 
+Çme
+, 
+u32
+ 
+–em’tV›wHashTy³
+) = 0;
+
+48 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËEËm’tV›wTy³CouÁ
+() const = 0;
+
+50 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËEËm’tV›wTy³
+Ğ
+u32
+ 
+–em’tV›wHashTy³
+) const = 0;
+
+	@..\engine\include\qvIEngineManager.h
+
+28 #iâdeà
+__I_ENGINE_MANAGER_H_
+
+
+29 
+	#__I_ENGINE_MANAGER_H_
+
+
+	)
+
+31 
+	~"qvIIÅutReûiv”Driv”FaùÜy.h
+"
+
+32 
+	~"qvSGameP¬ams.h
+"
+
+34 
+	~"IReã»nûCouÁed.h
+"
+
+36 
+Çme¥aû
+ 
+	gqv
+
+
+39 
+	gSGameP¬ams
+;
+
+41 
+Çme¥aû
+ 
+	gev’ts
+
+
+43 
+şass
+ 
+	gIEv’tMªag”
+;
+
+46 
+Çme¥aû
+ 
+	gšput
+
+
+48 
+şass
+ 
+	gIIÅutReûiv”
+;
+
+51 
+Çme¥aû
+ 
+	ggamšg
+
+
+53 
+şass
+ 
+	gIGameLogic
+;
+
+56 şas 
+	cIEngšeMªag”
+ : 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+59 
+public
+:
+
+60 
+vœtu®
+ 
+boŞ
+ 
+š™Ÿlize
+()=0;
+
+62 
+vœtu®
+ 
+fš®ize
+()=0;
+
+64 
+vœtu®
+ 
+s32
+ 
+run
+()=0;
+
+66 
+vœtu®
+ 
+begšR’d”
+(
+boŞ
+ 
+backBufãr
+, boŞ 
+zBufãr
+)=0;
+
+68 
+vœtu®
+ 
+’dR’d”
+()=0;
+
+71 
+vœtu®
+ 
+»gi¡”IÅutReûiv”Driv”FaùÜy
+(
+šput
+::
+IIÅutReûiv”Driv”FaùÜy
+* 
+çùÜy
+)=0;
+
+75 
+vœtu®
+ 
+	ggamšg
+::
+IGameLogic
+* 
+g‘GameLogic
+()=0;
+
+79 
+vœtu®
+ 
+	gev’ts
+::
+IEv’tMªag”
+* 
+g‘Ev’tMªag”
+()=0;
+
+81 
+vœtu®
+ 
+	gšput
+::
+IIÅutReûiv”
+* 
+g‘IÅutReûiv”
+()=0;
+
+83 
+vœtu®
+ 
+	gSGameP¬ams
+& 
+g‘GameP¬am‘”s
+()=0;
+
+95 
+vœtu®
+ 
+£tQu™
+(
+boŞ
+ 
+qu™
+)=0;
+
+	@..\engine\include\qvIEventArgs.h
+
+28 #iâdeà
+__I_EVENT_ARGS_H_
+
+
+29 
+	#__I_EVENT_ARGS_H_
+
+
+	)
+
+31 
+	~<li¡
+>
+
+32 
+	~<veùÜ
+>
+
+34 
+	~"qvEv’tTy³s.h
+"
+
+36 
+	~"Poco/Sh¬edPŒ.h
+"
+
+39 
+Çme¥aû
+ 
+	gqv
+
+
+41 
+Çme¥aû
+ 
+	gev’ts
+
+
+44 şas 
+	cIEv’tArgs
+
+
+46 
+	gpublic
+:
+
+47 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+( ) const = 0;
+
+50 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIEv’tArgs
+> 
+	tIEv’tArgsSh¬edPŒ
+;
+
+51 
+	g¡d
+::
+	tveùÜ
+<
+	tIEv’tArgsSh¬edPŒ
+> 
+	tEv’tArgsVeùÜ
+;
+
+	@..\engine\include\qvIEventArgsFactory.h
+
+28 #iâdeà
+__I_EVENT_ARGS_FACTORY_H_
+
+
+29 
+	#__I_EVENT_ARGS_FACTORY_H_
+
+
+	)
+
+31 
+	~<veùÜ
+>
+
+32 
+	~"qvIEv’tArgs.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+38 
+Çme¥aû
+ 
+	gev’ts
+
+
+40 şas 
+	cIEv’tArgsFaùÜy
+
+
+42 
+	gpublic
+:
+
+44 
+vœtu®
+ 
+IEv’tArgsSh¬edPŒ
+ 
+ü—‹Ev’tArgs
+Ğ
+u32
+ 
+ev’tArgsHashty³
+) = 0;
+
+46 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËEv’tArgsTy³CouÁ
+() const = 0;
+
+48 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËEv’tArgsTy³
+Ğ
+u32
+ 
+ev’tArgsHashty³
+) const = 0;
+
+51 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIEv’tArgsFaùÜy
+> 
+	tIEv’tArgsFaùÜySh¬edPŒ
+;
+
+52 
+	g¡d
+::
+	tveùÜ
+<
+	tIEv’tArgsFaùÜySh¬edPŒ
+> 
+	tEv’tArgsFaùÜyVeùÜ
+;
+
+	@..\engine\include\qvIEventCommand.h
+
+28 #iâdeà
+__I_EVENT_COMMAND_H_
+
+
+29 
+	#__I_EVENT_COMMAND_H_
+
+
+	)
+
+31 
+	~"qvICommªd.h
+"
+
+32 
+	~"qvEv’tTy³s.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+Çme¥aû
+ 
+	gev’ts
+
+
+39 şas 
+	cIEv’tCommªd
+: 
+public
+ 
+ICommªd
+
+
+41 
+public
+:
+
+42 
+vœtu®
+ 
+u32
+ 
+g‘Ev’tArgsHashTy³
+() const =0;
+
+45 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIEv’tCommªd
+> 
+	tIEv’tCommªdSh¬edPŒ
+;
+
+46 
+	g¡d
+::
+	tveùÜ
+<
+	tIEv’tCommªdSh¬edPŒ
+> 
+	tEv’tCommªdVeùÜ
+;
+
+47 
+	g¡d
+::
+	t·œ
+<
+	tu32
+, 
+	tIEv’tCommªdSh¬edPŒ
+> 
+	tEv’tArgsEv’tCommªdPaœ
+;
+
+48 
+	g¡d
+::
+	tveùÜ
+<
+	tEv’tArgsEv’tCommªdPaœ
+*> 
+	tEv’tArgsEv’tCommªdVeùÜ
+;
+
+	@..\engine\include\qvIEventManager.h
+
+28 #iâdeà
+__I_EVENT_MANAGER_H_
+
+
+29 
+	#__I_EVENT_MANAGER_H_
+
+
+	)
+
+31 
+	~"qvIEv’tCommªd.h
+"
+
+32 
+	~"qvIEv’tArgs.h
+"
+
+34 
+	~"qvS‹Ty³s.h
+"
+
+37 
+Çme¥aû
+ 
+	gqv
+
+
+39 
+Çme¥aû
+ 
+	gev’ts
+
+
+43 
+şass
+ 
+	gIEv’tArgsFaùÜy
+;
+
+48 şas 
+	cIEv’tMªag”
+
+
+51 
+	gpublic
+:
+
+53 
+vœtu®
+ 
+boŞ
+ 
+»gi¡”CommªdEv’t
+ ( 
+IEv’tCommªdSh¬edPŒ
+ 
+commªd
+) = 0;
+
+55 
+vœtu®
+ 
+boŞ
+ 
+uÄegi¡”CommªdEv’t
+ ( 
+IEv’tCommªdSh¬edPŒ
+ 
+commªd
+) = 0;
+
+58 
+vœtu®
+ 
+IEv’tArgsSh¬edPŒ
+ 
+ü—‹Em±yEv’tArgs
+Ğ
+u32
+ 
+ev’tArgsHashty³
+) = 0;
+
+64 
+vœtu®
+ 
+»gi¡”Ev’tArgsFaùÜy
+(
+IEv’tArgsFaùÜy
+ * 
+çùÜy
+) = 0;
+
+66 
+vœtu®
+ 
+»gi¡”Ev’tTy³
+Ğ
+u32
+ 
+ev’tHashTy³
+) = 0;
+
+68 
+vœtu®
+ 
+uÄegi¡”Ev’tTy³
+Ğ
+u32
+ 
+ev’tHashTy³
+) = 0;
+
+70 
+vœtu®
+ 
+boŞ
+ 
+abÜtEv’t
+ ( 
+u32
+ 
+ev’tHashTy³
+, boŞ 
+®l
+ = 
+çl£
+ ) = 0;
+
+72 
+vœtu®
+ 
+boŞ
+ 
+’queueEv’t
+ (
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+) = 0;
+
+74 
+vœtu®
+ 
+boŞ
+ 
+´oûss
+ ( 
+»®
+ 
+´oûssšgTime
+) = 0;
+
+76 
+vœtu®
+ 
+boŞ
+ 
+Œigg”
+ ( 
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+ ) = 0;
+
+78 
+vœtu®
+ 
+boŞ
+ 
+v®id©eTy³
+Ğ
+u32
+ 
+ev’tHashTy³
+) = 0;
+
+	@..\engine\include\qvIGame.h
+
+2 #iâdeà
+__I_GAME_H_
+
+
+3 
+	#__I_GAME_H_
+
+
+	)
+
+5 
+	~"qvIEngšeMªag”.h
+"
+
+8 
+Çme¥aû
+ 
+	gqv
+
+
+10 şas 
+	cIGame
+: 
+public
+ 
+IReã»nûCouÁed
+
+
+13 
+public
+:
+
+15 
+vœtu®
+ ~
+IGame
+()
+
+17 
+mEngše
+->
+drİ
+();
+
+20 
+vœtu®
+ 
+lßdCÚfigu¿tiÚ
+(){}
+
+21 
+vœtu®
+ 
+s32
+ 
+run
+(s32 
+¬gc
+, 
+c8
+* 
+¬gv
+[])=0;
+
+23 
+	g´Ùeùed
+:
+
+24 
+ü—‹Engše
+()
+
+36 
+cÚfigu»Ev’ts
+(){}
+
+37 
+cÚfigu»Commªds
+(){}
+
+38 
+cÚfigu»IÅutT¿n¦©Ü
+(){}
+
+39 
+cÚfigu»GameS‹s
+(){}
+
+41 
+qv
+::
+SGameP¬ams
+ 
+mP¬ams
+;
+
+42 
+IEngšeMªag”
+* 
+	gmEngše
+;
+
+	@..\engine\include\qvIGameLogic.h
+
+28 #iâdeà
+__I_GAME_LOGIC_H_
+
+
+29 
+	#__I_GAME_LOGIC_H_
+
+
+	)
+
+31 
+	~"qvSHashedSŒšg.h
+"
+
+32 
+	~"qvIAùÜ.h
+"
+
+33 
+	~"qvIGameV›w.h
+"
+
+34 
+	~"qvIProûss.h
+"
+
+35 
+	~"qvIS‹.h
+"
+
+37 
+	~"IReã»nûCouÁed.h
+"
+
+39 
+Çme¥aû
+ 
+	gqv
+
+
+42 
+Çme¥aû
+ 
+	gphysics
+
+
+44 
+şass
+ 
+	gIPhysicsMªag”
+;
+
+47 
+Çme¥aû
+ 
+	ggamšg
+
+
+50 şas 
+	cIGameLogic
+: 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+52 
+public
+:
+
+54 
+vœtu®
+ 
+boŞ
+ 
+š™Ÿlize
+() const = 0;
+
+56 
+vœtu®
+ 
+boŞ
+ 
+fš®ize
+() const = 0;
+
+58 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+g‘AùÜ
+Ğ
+u32
+ 
+aùÜHashId
+)=0;
+
+60 
+vœtu®
+ 
+addAùÜ
+Ğ
+u32
+ 
+aùÜHashId
+)=0;
+
+62 
+vœtu®
+ 
+»moveAùÜ
+Ğ
+u32
+ 
+aùÜHashId
+) = 0;
+
+64 
+vœtu®
+ cÚ¡ 
+	gv›ws
+::
+GameV›wsA¼ay
+& 
+g‘GameV›ws
+() const = 0;
+
+66 
+vœtu®
+ 
+addV›w
+(
+v›ws
+::
+IGameV›w
+* 
+gameV›w
+, 
+u32
+ 
+aùÜHashId
+ = 0) = 0;
+
+68 
+vœtu®
+ 
+	gv›ws
+::
+IGameV›w
+* 
+addV›w
+(cÚ¡ 
+c8
+* 
+v›wID
+, 
+u32
+ 
+gameV›wHashTy³
+, u32 
+aùÜHashId
+ = 0) = 0;
+
+70 
+vœtu®
+ 
+»moveV›w
+(
+v›ws
+::
+IGameV›w
+* 
+gameV›w
+) = 0;
+
+72 
+vœtu®
+ 
+boŞ
+ 
+lßdGame
+(cÚ¡ 
+œr
+::
+cÜe
+::
+¡ršgc
+& 
+gameName
+) const = 0;
+
+74 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+) = 0;
+
+76 
+vœtu®
+ 
+chªgeS‹
+Ğ
+u32
+ 
+ÃwS‹HashId
+) = 0;
+
+	@..\engine\include\qvIGameLogicFactory.h
+
+28 #iâdeà
+__I_GAME_LOGIC_FACTORY_H_
+
+
+29 
+	#__I_GAME_LOGIC_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIGameLogic.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+şass
+ 
+	gIEngšeMªag”
+;
+
+37 
+Çme¥aû
+ 
+	ggamšg
+
+
+	@..\engine\include\qvIGameState.h
+
+27 #iâdeà
+__I_GAME_STATE_H_
+
+
+28 
+	#__I_GAME_STATE_H_
+
+
+	)
+
+30 
+	~"qvIS‹.h
+"
+
+31 
+	~"qvGameS‹Ty³s.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+Çme¥aû
+ 
+	ggamšg
+
+
+41 şas 
+	cIGameS‹
+: 
+public
+ 
+IS‹
+
+
+44 
+public
+:
+
+47 
+vœtu®
+ 
+cÚfigu»
+() = 0;
+
+49 
+vœtu®
+ 
+’‹r
+() = 0;
+
+51 
+vœtu®
+ 
+Ëave
+() = 0;
+
+53 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+) = 0;
+
+	@..\engine\include\qvIGameStateMachine.h
+
+27 #iâdeà
+__I_GAME_STATE_MACHINE_H_
+
+
+28 
+	#__I_GAME_STATE_MACHINE_H_
+
+
+	)
+
+30 
+	~"qvIS‹Machše.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+Çme¥aû
+ 
+	ggamšg
+
+
+37 şas 
+	cIGameS‹Machše
+: 
+public
+ 
+IS‹Machše
+
+
+39 
+public
+:
+
+40 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+)=0;
+
+	@..\engine\include\qvIGameView.h
+
+28 #iâdeà
+__I_GAME_VIEW_H_
+
+
+29 
+	#__I_GAME_VIEW_H_
+
+
+	)
+
+31 
+	~"IReã»nûCouÁed.h
+"
+
+32 
+	~"œrA¼ay.h
+"
+
+33 
+	~"qvGameV›wTy³s.h
+"
+
+35 
+	~"Poco/Sh¬edPŒ.h
+"
+
+36 
+	~"œrA¼ay.h
+"
+
+37 
+	~"IReã»nûCouÁed.h
+"
+
+39 
+Çme¥aû
+ 
+	gqv
+
+
+41 
+Çme¥aû
+ 
+	gv›ws
+
+
+44 şas 
+	cIGameV›w
+ : 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+46 
+public
+:
+
+48 
+vœtu®
+ 
+©ch
+(
+u32
+ 
+v›wHashId
+, u32 
+aùÜHashId
+ = 0) = 0;
+
+50 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+() const = 0;
+
+52 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+() const = 0;
+
+56 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+) = 0;
+
+58 
+vœtu®
+ 
+upd©e
+(
+u32
+ 
+–­£dTimeMs
+)=0;
+
+61 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIGameV›w
+> 
+	tIGameV›wSh¬edPŒ
+;
+
+62 
+	gœr
+::
+	tcÜe
+::
+	t¬¿y
+<
+	tIGameV›wSh¬edPŒ
+> 
+	tGameV›wsA¼ay
+;
+
+	@..\engine\include\qvIGameViewFactory.h
+
+28 #iâdeà
+__I_GAME_VIEW_FACTORY_H_
+
+
+29 
+	#__I_GAME_VIEW_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIGameV›w.h
+"
+
+33 
+	~"Poco/Sh¬edPŒ.h
+"
+
+35 
+	~"œrA¼ay.h
+"
+
+36 
+	~"IReã»nûCouÁed.h
+"
+
+38 
+Çme¥aû
+ 
+	gqv
+
+
+40 
+Çme¥aû
+ 
+	gv›ws
+
+
+42 şas 
+	cIGameV›wFaùÜy
+ : 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+44 
+public
+:
+
+46 
+vœtu®
+ 
+IGameV›wSh¬edPŒ
+ 
+addGameV›w
+Ğ
+u32
+ 
+gameV›wHashTy³
+) = 0;
+
+48 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËGameV›wTy³CouÁ
+() const = 0;
+
+50 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËGameV›wTy³
+Ğ
+u32
+ 
+gameV›wHashTy³
+) const = 0;
+
+53 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIGameV›wFaùÜy
+> 
+	tIGameV›wFaùÜySh¬edPŒ
+;
+
+54 
+	gœr
+::
+	tcÜe
+::
+	t¬¿y
+<
+	tIGameV›wFaùÜySh¬edPŒ
+> 
+	tGameV›wFaùÜyA¼ay
+;
+
+	@..\engine\include\qvIGameViewManager.h
+
+28 #iâdeà
+__I_GAME_VIEW_MANAGER_H_
+
+
+29 
+	#__I_GAME_VIEW_MANAGER_H_
+
+
+	)
+
+31 
+	~"qvIGameV›w.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+Çme¥aû
+ 
+	gv›ws
+
+
+39 şas 
+	cIGameV›wMªag”
+
+
+41 
+	gpublic
+:
+
+45 
+vœtu®
+ 
+©ch
+(
+u32
+ 
+v›wHashId
+, u32 
+aùÜHashId
+ = 0) = 0;
+
+47 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+() const = 0;
+
+49 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+() const = 0;
+
+53 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+) = 0;
+
+55 
+vœtu®
+ 
+upd©e
+(
+u32
+ 
+–­£dTimeMs
+)=0;
+
+	@..\engine\include\qvIGuiView.h
+
+2 #iâdeà
+__IGUIVIEW_H_
+
+
+3 
+	#__IGUIVIEW_H_
+
+
+	)
+
+5 
+	~"qvIEËm’tV›w.h
+"
+
+7 
+Çme¥aû
+ 
+	gqv
+
+
+9 
+Çme¥aû
+ 
+	gv›ws
+
+
+11 cÚ¡ 
+EVT_ELEMENT_VIEW_TYPE
+ 
+EVT_ELEMENT_VIEW_GUI
+("EVT_ELEMENT_VIEW_GUI");
+
+13 şas 
+	cIGuiV›w
+: 
+public
+ 
+IEËm’tV›w
+
+
+	@..\engine\include\qvIHumanView.h
+
+28 #iâdeà
+__I_HUMAN_VIEW_H_
+
+
+29 
+	#__I_HUMAN_VIEW_H_
+
+
+	)
+
+32 
+	~"qvIGameV›w.h
+"
+
+33 
+	~"qvIEËm’tV›w.h
+"
+
+34 
+	~"qvICommªd.h
+"
+
+35 
+	~"qvIIÅutT¿n¦©Ü.h
+"
+
+37 
+	~"IAudioMªag”.h
+"
+
+41 
+Çme¥aû
+ 
+	gqv
+
+
+49 
+Çme¥aû
+ 
+	gv›ws
+
+
+51 
+şass
+ 
+	gIEËm’tV›wFaùÜy
+;
+
+53 şas 
+	cIHumªV›w
+: 
+public
+ 
+IGameV›w
+
+
+56 
+public
+:
+
+57 
+vœtu®
+ 
+IEËm’tV›wSh¬edPŒ
+ 
+addEËm’tV›w
+(cÚ¡ 
+c8
+* 
+Çme
+, 
+u32
+ 
+–em’tV›wHashTy³
+)=0;
+
+65 
+vœtu®
+ 
+»gi¡”EËm’tV›wFaùÜy
+(
+IEËm’tV›wFaùÜy
+* 
+çùÜyToAdd
+)=0;
+
+70 
+vœtu®
+ cÚ¡ 
+	gšput
+::
+IÅutT¿n¦©ÜLi¡
+& 
+li¡’IÅutT¿n¦©Üs
+() const = 0;
+
+72 
+vœtu®
+ 
+š™Audio
+() = 0;
+
+74 
+vœtu®
+ 
+	gcAudio
+::
+IAudioMªag”
+* 
+g‘AudioMªag”
+() = 0;
+
+	@..\engine\include\qvIInputCommand.h
+
+28 #iâdeà
+__I_INPUT_COMMAND_H_
+
+
+29 
+	#__I_INPUT_COMMAND_H_
+
+
+	)
+
+31 
+	~"qvICommªd.h
+"
+
+32 
+	~"qvEv’tTy³s.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+Çme¥aû
+ 
+	ggamšg
+
+
+45 şas 
+	cIIÅutCommªd
+: 
+public
+ 
+ICommªd
+
+
+	@..\engine\include\qvIInputReceiver.h
+
+29 #iâdeà
+__I_INPUT_RECEIVER_H_
+
+
+30 
+	#__I_INPUT_RECEIVER_H_
+
+
+	)
+
+32 
+	~"qvIIÅutT¿n¦©Ü.h
+"
+
+33 
+	~"qvIIÅutT¿n¦©ÜFaùÜy.h
+"
+
+38 
+	~"IEv’tReûiv”.h
+"
+
+39 
+	~"Poco/Sh¬edPŒ.h
+"
+
+40 
+	~"IReã»nûCouÁed.h
+"
+
+42 
+Çme¥aû
+ 
+	gqv
+
+
+44 
+Çme¥aû
+ 
+	gev’ts
+
+
+46 
+şass
+ 
+	gIEv’tArgs
+;
+
+49 
+Çme¥aû
+ 
+	gšput
+
+
+51 
+şass
+ 
+	gIAnyKeyIÅutT¿n¦©Ü
+;
+
+52 
+şass
+ 
+	gISšgËKeyIÅutT¿n¦©Ü
+;
+
+53 
+şass
+ 
+	gIIÅutT¿n¦©ÜFaùÜy
+;
+
+55 
+SHashedSŒšg
+ 
+	tIRD_INPUT_RECEIVER_DRIVER
+;
+
+57 
+şass
+ 
+	gIIÅutReûiv”
+ : 
+public
+ 
+œr
+::
+IEv’tReûiv”
+,
+
+58 
+public
+ 
+	gœr
+::
+IReã»nûCouÁed
+
+
+60 
+public
+:
+
+62 
+vœtu®
+ 
+IIÅutT¿n¦©Ü
+* 
+g‘IÅutT¿n¦©Ü
+Ğ
+u32
+ 
+šputT¿n¦©ÜHashId
+) = 0;
+
+64 
+vœtu®
+ 
+»gi¡”IÅutT¿n¦©Ü
+Ğ
+IIÅutT¿n¦©Ü
+* 
+Œª¦©Ü
+) = 0;
+
+66 
+vœtu®
+ 
+uÄegi¡”IÅutT¿n¦©Ü
+Ğ
+u32
+ 
+šputT¿n¦©ÜHashId
+) = 0;
+
+68 
+vœtu®
+ 
+uÄegi¡”IÅutT¿n¦©Ü
+Ğ
+IIÅutT¿n¦©Ü
+* 
+Œª¦©Ü
+) = 0;
+
+70 
+vœtu®
+ 
+»gi¡”IÅutT¿n¦©ÜFaùÜy
+Ğ
+IIÅutT¿n¦©ÜFaùÜy
+* 
+çùÜy
+) = 0;
+
+80 
+vœtu®
+ 
+boŞ
+ 
+keyP»s£d
+(
+œr
+::
+EKEY_CODE
+ 
+keycode
+)=0;
+
+82 
+vœtu®
+ 
+boŞ
+ 
+keyDown
+(
+œr
+::
+EKEY_CODE
+ 
+keycode
+)=0;
+
+84 
+vœtu®
+ 
+boŞ
+ 
+keyUp
+(
+œr
+::
+EKEY_CODE
+ 
+keycode
+)=0;
+
+86 
+vœtu®
+ 
+boŞ
+ 
+keyR–—£d
+(
+œr
+::
+EKEY_CODE
+ 
+keycode
+)=0;
+
+89 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIIÅutReûiv”
+> 
+	tIIÅutReûiv”Sh¬edPŒ
+;
+
+	@..\engine\include\qvIInputReceiverDriverFactory.h
+
+28 #iâdeà
+__I_INPUT_RECEIVER_FACTORY_H_
+
+
+29 
+	#__I_INPUT_RECEIVER_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIIÅutReûiv”.h
+"
+
+33 
+	~"IReã»nûCouÁed.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+şass
+ 
+	gIEngšeMªag”
+;
+
+39 
+Çme¥aû
+ 
+	gšput
+
+
+42 şas 
+	cIIÅutReûiv”Driv”FaùÜy
+ : 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+44 
+public
+:
+
+46 
+vœtu®
+ 
+IIÅutReûiv”Sh¬edPŒ
+ 
+addIÅutReûiv”
+Ğ
+u32
+ 
+šputReûiv”HashTy³
+) = 0;
+
+48 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËIÅutReûiv”Ty³CouÁ
+() const = 0;
+
+50 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËIÅutReûiv”Ty³
+Ğ
+u32
+ 
+šputReûiv”HashTy³
+) const = 0;
+
+	@..\engine\include\qvIInputReceiverFactory.h
+
+28 #iâdeà
+__I_INPUT_RECEIVER_FACTORY_H_
+
+
+29 
+	#__I_INPUT_RECEIVER_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIIÅutReûiv”.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+şass
+ 
+	gIEngšeMªag”
+;
+
+37 
+Çme¥aû
+ 
+	gv›ws
+
+
+40 şas 
+	cIIÅutReûiv”Driv”FaùÜy
+ : 
+public
+ 
+IReã»nûCouÁed
+
+
+42 
+public
+:
+
+44 
+vœtu®
+ 
+IEËm’tV›wSh¬edPŒ
+ 
+addEËm’tV›w
+ĞcÚ¡ 
+c8
+* 
+Çme
+, 
+u32
+ 
+šputReûiveTy³
+) = 0;
+
+46 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËEËm’tV›wTy³CouÁ
+() const = 0;
+
+48 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËEËm’tV›wTy³
+Ğ
+u32
+ 
+–em’tV›wHashTy³
+) const = 0;
+
+	@..\engine\include\qvIInputTranslator.h
+
+29 #iâdeà
+_I_INPUT_TRANSLATOR_H_
+
+
+30 
+	#_I_INPUT_TRANSLATOR_H_
+
+
+	)
+
+32 
+	~"qvSHashedSŒšg.h
+"
+
+33 
+	~"qvEv’tTy³s.h
+"
+
+34 
+	~"qvKeyTy³s.h
+"
+
+36 
+	~"Poco/Sh¬edPŒ.h
+"
+
+37 
+	~"œrA¼ay.h
+"
+
+38 
+	~"œrLi¡.h
+"
+
+40 
+Çme¥aû
+ 
+	gqv
+
+
+42 
+Çme¥aû
+ 
+	gev’ts
+
+
+44 
+şass
+ 
+	gIEv’tMªag”
+;
+
+47 
+Çme¥aû
+ 
+	gšput
+
+
+49 
+şass
+ 
+	gIIÅutReûiv”
+;
+
+51 
+SHashedSŒšg
+ 
+	tITI_INPUT_TRANSLATOR_ID
+;
+
+52 
+SHashedSŒšg
+ 
+	tITT_INPUT_TRANSLATOR_TYPE
+;
+
+54 
+	gœr
+::
+	tcÜe
+::
+	t¬¿y
+<
+	tu32
+> 
+	tIÅutT¿n¦©ÜHashTy³sA¼ay
+;
+
+56 şas 
+	cIIÅutT¿n¦©Ü
+
+
+64 
+	gpublic
+:
+
+76 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+() const = 0;
+
+78 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+() const = 0;
+
+80 
+vœtu®
+ 
+boŞ
+ 
+Œª¦©e
+(
+IIÅutReûiv”
+ *
+cÚ‹xt
+) = 0;
+
+83 
+	gPoco
+::
+	tSh¬edPŒ
+<
+	tIIÅutT¿n¦©Ü
+> 
+	tIIÅutT¿n¦©ÜSh¬edPŒ
+;
+
+84 
+	gœr
+::
+	tcÜe
+::
+	tli¡
+<
+	tIIÅutT¿n¦©ÜSh¬edPŒ
+> 
+	tIÅutT¿n¦©ÜLi¡
+;
+
+	@..\engine\include\qvIInputTranslatorFactory.h
+
+28 #iâdeà
+__I_INPUT_TRANSLATOR_FACTORY_H_
+
+
+29 
+	#__I_INPUT_TRANSLATOR_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIIÅutT¿n¦©Ü.h
+"
+
+32 
+	~"qvIEv’tArgs.h
+"
+
+34 
+	~"IReã»nûCouÁed.h
+"
+
+36 
+Çme¥aû
+ 
+	gqv
+
+
+38 
+Çme¥aû
+ 
+	gšput
+
+
+40 şas 
+	cIIÅutT¿n¦©ÜFaùÜy
+ : 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+42 
+public
+:
+
+44 
+vœtu®
+ 
+IIÅutT¿n¦©ÜSh¬edPŒ
+ 
+addIÅutT¿n¦©Ü
+ (cÚ¡ 
+c8
+* 
+šputT¿n¦©ÜName
+, 
+u32
+ 
+šputT¿n¦©ÜHashTy³
+, 
+ev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+, 
+boŞ
+ 
+»®Time
+ = 
+çl£
+) = 0;
+
+46 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËIÅutT¿n¦©ÜCouÁ
+() const = 0;
+
+48 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËIÅutT¿n¦©Ü
+Ğ
+u32
+ 
+šputT¿n¦©ÜHashTy³
+) const = 0;
+
+	@..\engine\include\qvIMemoryManager.h
+
+28 #iâdeà
+_MEMORY_MANAGER_H_
+
+
+29 
+	#_MEMORY_MANAGER_H_
+
+
+	)
+
+31 
+	~"qvP»»quis™es.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 şas 
+	cIMemÜyMªag”
+
+
+39 
+	gpublic
+:
+
+40 
+vœtu®
+ * 
+®loÿ‹
+(
+size_t
+ 
+size
+, cÚ¡ 
+c8
+* 
+f’ame
+, 
+s32
+ 
+lše
+, cÚ¡ c8* 
+funùiÚ
+) = 0;
+
+41 
+vœtu®
+ 
+d—Îoÿ‹
+(* 
+poš‹r
+) = 0;
+
+42 
+vœtu®
+ 
+size_t
+ 
+g‘MaxAÎoÿtiÚSize
+() = 0;
+
+	@..\engine\include\qvINetworkView.h
+
+28 #iâdeà
+__HUMANVIEW_H_
+
+
+29 
+	#__HUMANVIEW_H_
+
+
+	)
+
+32 
+	~"qvIGameV›w.h
+"
+
+33 
+	~"qvIEËm’tV›w.h
+"
+
+37 
+usšg
+ 
+Çme¥aû
+ 
+	gœr
+::
+gui
+;
+
+39 
+usšg
+ 
+Çme¥aû
+ 
+	gqv
+::
+gamšg
+;
+
+47 
+Çme¥aû
+ 
+	gqv
+
+
+49 
+şass
+ 
+	gEngšeMªag”
+;
+
+51 
+Çme¥aû
+ 
+	gv›ws
+
+
+53 şas 
+	cHumªV›w
+: 
+public
+ 
+IGameV›w
+
+
+56 
+´Ùeùed
+:
+
+57 
+GameV›wID
+ 
+mV›wID
+;
+
+58 
+E_GAME_VIEW_TYPE
+ 
+	gmTy³
+;
+
+59 
+EËm’tV›wLi¡
+ 
+	gmEËm’tV›ws
+;
+
+61 
+AùÜID
+* 
+	gmAùÜID
+;
+
+63 
+IGUIFÚt
+* 
+	gmFÚt
+;
+
+68 
+f32
+ 
+	gmCu¼’tTime
+;
+
+69 
+f32
+ 
+	gmLa¡Upd©eTime
+;
+
+70 
+f32
+ 
+	gmAccumuÏtÜTime
+;
+
+81 
+	gpublic
+:
+
+82 
+HumªV›w
+ĞcÚ¡ 
+c8
+* 
+v›wID
+);
+
+83 
+	gvœtu®
+ ~
+HumªV›w
+();
+
+85 
+vœtu®
+ 
+E_GAME_VIEW_TYPE
+ 
+g‘Ty³
+()
+
+87  
+	gmTy³
+;
+
+90 
+vœtu®
+ cÚ¡ 
+	gGameV›wID
+& 
+g‘ID
+() const
+
+92  
+	gmV›wID
+;
+
+95 
+vœtu®
+ 
+lo¡Deviû
+();
+
+96 
+vœtu®
+ 
+©ch
+(cÚ¡ 
+GameV›wID
+& 
+v›wID
+, 
+AùÜID
+* 
+aùÜID
+=0);
+
+97 
+vœtu®
+ 
+upd©e
+(
+u32
+ 
+–­£dTimeMs
+);
+
+98 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+101 
+vœtu®
+ 
+pushEËm’t
+(
+IEËm’tV›w
+* 
+–em’t
+);
+
+102 
+vœtu®
+ 
+pİEËm’t
+(
+IEËm’tV›w
+* 
+–em’t
+);
+
+	@..\engine\include\qvIPhysicsActor.h
+
+27 #iâdeà
+__IPHYSICSACTOR_H_
+
+
+28 
+	#__IPHYSICSACTOR_H_
+
+
+	)
+
+30 
+	~"qvP»»quis™es.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+Çme¥aû
+ 
+	gphysics
+
+
+38 şas 
+	cIPhysicsAùÜ
+: 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+41 
+public
+:
+
+42 
+IPhysicsAùÜ
+();
+
+43 ~
+IPhysicsAùÜ
+();
+
+	@..\engine\include\qvIPhysicsManager.h
+
+27 #iâdeà
+__I_PHYSICS_MANAGER_H_
+
+
+28 
+	#__I_PHYSICS_MANAGER_H_
+
+
+	)
+
+30 
+	~"qvP»»quis™es.h
+"
+
+32 
+	~"IReã»nûCouÁed.h
+"
+
+34 
+	~"œrM©h.h
+"
+
+35 
+	~"veùÜ3d.h
+"
+
+36 
+	~"qvTy³s.h
+"
+
+38 
+Çme¥aû
+ 
+	gqv
+
+
+40 
+Çme¥aû
+ 
+	ggamšg
+
+
+42 
+şass
+ 
+	gIAùÜ
+;
+
+45 
+Çme¥aû
+ 
+	gphysics
+
+
+47 şas 
+	cIPhysicsMªag”
+: 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+49 
+public
+:
+
+51 
+vœtu®
+ 
+boŞ
+ 
+š™Ÿlize
+() = 0;
+
+53 
+vœtu®
+ 
+boŞ
+ 
+fš®ize
+() = 0;
+
+55 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+)=0;
+
+59 
+vœtu®
+ 
+addSph”e
+(
+»®
+ 
+¿dius
+, 
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+,„—È
+¥ecificG¿v™y
+)=0;
+
+63 
+vœtu®
+ 
+addBox
+(cÚ¡ 
+œr
+::
+cÜe
+::
+veùÜ3df
+& 
+dim’siÚs
+, 
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+, 
+»®
+ 
+¥ecificG¿v™y
+) = 0;
+
+66 
+vœtu®
+ 
+addCÚvexHuÎ
+Ğ
+œr
+::
+cÜe
+::
+veùÜ3df
+ *
+v”ts
+, 
+s32
+ 
+numPošts
+, 
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+, 
+»®
+ 
+¥ecificG¿v™y
+)=0;
+
+	@..\engine\include\qvIPhysicsView.h
+
+28 #iâdeà
+__HUMANVIEW_H_
+
+
+29 
+	#__HUMANVIEW_H_
+
+
+	)
+
+32 
+	~"qvIGameV›w.h
+"
+
+33 
+	~"qvIEËm’tV›w.h
+"
+
+37 
+usšg
+ 
+Çme¥aû
+ 
+	gœr
+::
+gui
+;
+
+39 
+usšg
+ 
+Çme¥aû
+ 
+	gqv
+::
+gamšg
+;
+
+47 
+Çme¥aû
+ 
+	gqv
+
+
+49 
+şass
+ 
+	gEngšeMªag”
+;
+
+51 
+Çme¥aû
+ 
+	gv›ws
+
+
+53 şas 
+	cHumªV›w
+: 
+public
+ 
+IGameV›w
+
+
+56 
+´Ùeùed
+:
+
+57 
+GameV›wID
+ 
+mV›wID
+;
+
+58 
+E_GAME_VIEW_TYPE
+ 
+	gmTy³
+;
+
+59 
+EËm’tV›wLi¡
+ 
+	gmEËm’tV›ws
+;
+
+61 
+AùÜID
+* 
+	gmAùÜID
+;
+
+63 
+IGUIFÚt
+* 
+	gmFÚt
+;
+
+68 
+f32
+ 
+	gmCu¼’tTime
+;
+
+69 
+f32
+ 
+	gmLa¡Upd©eTime
+;
+
+70 
+f32
+ 
+	gmAccumuÏtÜTime
+;
+
+81 
+	gpublic
+:
+
+82 
+HumªV›w
+ĞcÚ¡ 
+c8
+* 
+v›wID
+);
+
+83 
+	gvœtu®
+ ~
+HumªV›w
+();
+
+85 
+vœtu®
+ 
+E_GAME_VIEW_TYPE
+ 
+g‘Ty³
+()
+
+87  
+	gmTy³
+;
+
+90 
+vœtu®
+ cÚ¡ 
+	gGameV›wID
+& 
+g‘ID
+() const
+
+92  
+	gmV›wID
+;
+
+95 
+vœtu®
+ 
+lo¡Deviû
+();
+
+96 
+vœtu®
+ 
+©ch
+(cÚ¡ 
+GameV›wID
+& 
+v›wID
+, 
+AùÜID
+* 
+aùÜID
+=0);
+
+97 
+vœtu®
+ 
+upd©e
+(
+u32
+ 
+–­£dTimeMs
+);
+
+98 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+101 
+vœtu®
+ 
+pushEËm’t
+(
+IEËm’tV›w
+* 
+–em’t
+);
+
+102 
+vœtu®
+ 
+pİEËm’t
+(
+IEËm’tV›w
+* 
+–em’t
+);
+
+	@..\engine\include\qvIProcess.h
+
+2 #iâdeà
+__IPROCESS_H_
+
+
+3 
+	#__IPROCESS_H_
+
+
+	)
+
+5 
+	~"qvP»»quis™es.h
+"
+
+7 
+	~"IReã»nûCouÁed.h
+"
+
+9 
+Çme¥aû
+ 
+	gqv
+
+
+11 
+Çme¥aû
+ 
+	gruÁime
+
+
+13 
+	eE_PROCESS_STATUS
+
+
+15 
+	gEPS_READY
+,
+
+16 
+	gEPS_STOPPED
+,
+
+17 
+	gEPS_RUNNING
+,
+
+18 
+	gEPS_COMPLETED
+,
+
+19 
+	gEPS_FAILED
+,
+
+23 cÚ¡ 
+c8
+* cÚ¡ 
+	gProûssStusNames
+[] =
+
+33 şas 
+	cIProûss
+: 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+35 
+public
+:
+
+37 
+IProûss
+();
+
+38 
+	gvœtu®
+ ~
+IProûss
+();
+
+40 
+vœtu®
+ 
+E_PROCESS_STATUS
+ 
+upd©e
+(
+u32
+ 
+–­£dTime
+)=0;
+
+42 
+vœtu®
+ 
+£tStus
+(
+E_PROCESS_STATUS
+ 
+´oûssStus
+)=0;
+
+44 
+vœtu®
+ 
+E_PROCESS_STATUS
+ 
+g‘Stus
+()=0;
+
+	@..\engine\include\qvIProcessManager.h
+
+2 #iâdeà
+__IPROCESSMANAGER_H_
+
+
+3 
+	#__IPROCESSMANAGER_H_
+
+
+	)
+
+5 
+	~"qvP»»quis™es.h
+"
+
+8 
+	~"IReã»nûCouÁed.h
+"
+
+10 
+Çme¥aû
+ 
+	gqv
+
+
+12 
+Çme¥aû
+ 
+	gruÁime
+
+
+14 
+şass
+ 
+	gIProûss
+;
+
+16 şas 
+	cIProûssMªag”
+: 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+18 
+public
+:
+
+22 
+vœtu®
+ 
+©ch
+Ğ
+IProûss
+* 
+´oûss
+ )=0;
+
+23 
+vœtu®
+ 
+d‘ach
+Ğ
+IProûss
+* 
+´oûss
+ )=0;
+
+25 
+vœtu®
+ 
+boŞ
+ 
+hasProûs£s
+()=0;
+
+27 
+vœtu®
+ 
+E_PROCESS_STATUS
+ 
+upd©e
+Ğ
+u32
+ 
+–­£dTime
+)=0;
+
+	@..\engine\include\qvIRecorderView.h
+
+28 #iâdeà
+__HUMANVIEW_H_
+
+
+29 
+	#__HUMANVIEW_H_
+
+
+	)
+
+32 
+	~"qvIGameV›w.h
+"
+
+33 
+	~"qvIEËm’tV›w.h
+"
+
+37 
+usšg
+ 
+Çme¥aû
+ 
+	gœr
+::
+gui
+;
+
+39 
+usšg
+ 
+Çme¥aû
+ 
+	gqv
+::
+gamšg
+;
+
+47 
+Çme¥aû
+ 
+	gqv
+
+
+49 
+şass
+ 
+	gEngšeMªag”
+;
+
+51 
+Çme¥aû
+ 
+	gv›ws
+
+
+53 şas 
+	cHumªV›w
+: 
+public
+ 
+IGameV›w
+
+
+56 
+´Ùeùed
+:
+
+57 
+GameV›wID
+ 
+mV›wID
+;
+
+58 
+E_GAME_VIEW_TYPE
+ 
+	gmTy³
+;
+
+59 
+EËm’tV›wLi¡
+ 
+	gmEËm’tV›ws
+;
+
+61 
+AùÜID
+* 
+	gmAùÜID
+;
+
+63 
+IGUIFÚt
+* 
+	gmFÚt
+;
+
+68 
+f32
+ 
+	gmCu¼’tTime
+;
+
+69 
+f32
+ 
+	gmLa¡Upd©eTime
+;
+
+70 
+f32
+ 
+	gmAccumuÏtÜTime
+;
+
+81 
+	gpublic
+:
+
+82 
+HumªV›w
+ĞcÚ¡ 
+c8
+* 
+v›wID
+);
+
+83 
+	gvœtu®
+ ~
+HumªV›w
+();
+
+85 
+vœtu®
+ 
+E_GAME_VIEW_TYPE
+ 
+g‘Ty³
+()
+
+87  
+	gmTy³
+;
+
+90 
+vœtu®
+ cÚ¡ 
+	gGameV›wID
+& 
+g‘ID
+() const
+
+92  
+	gmV›wID
+;
+
+95 
+vœtu®
+ 
+lo¡Deviû
+();
+
+96 
+vœtu®
+ 
+©ch
+(cÚ¡ 
+GameV›wID
+& 
+v›wID
+, 
+AùÜID
+* 
+aùÜID
+=0);
+
+97 
+vœtu®
+ 
+upd©e
+(
+u32
+ 
+–­£dTimeMs
+);
+
+98 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+101 
+vœtu®
+ 
+pushEËm’t
+(
+IEËm’tV›w
+* 
+–em’t
+);
+
+102 
+vœtu®
+ 
+pİEËm’t
+(
+IEËm’tV›w
+* 
+–em’t
+);
+
+	@..\engine\include\qvIReferenceCount.h
+
+28 #iâdeà
+__I_REFERENCE_COUNT_H_
+
+
+29 
+	#__I_REFERENCE_COUNT_H_
+
+
+	)
+
+32 
+Çme¥aû
+ 
+	gqv
+
+
+34 şas 
+	cIReã»nûCouÁ
+
+
+36 
+	gpublic
+:
+
+37 
+vœtu®
+ 
+du¶iÿ‹
+() = 0;
+
+42 
+vœtu®
+ 
+»Ëa£
+() = 0;
+
+	@..\engine\include\qvISceneView.h
+
+27 #iâdeà
+__I_SCENE_VIEW_H_
+
+
+28 
+	#__I_SCENE_VIEW_H_
+
+
+	)
+
+30 
+	~"qvIEËm’tV›w.h
+"
+
+31 
+	~"qvIAùÜ.h
+"
+
+33 
+	~"ICam”aSûÃNode.h
+"
+
+34 
+	~"ISûÃMªag”.h
+"
+
+36 
+Çme¥aû
+ 
+	gqv
+
+
+39 
+Çme¥aû
+ 
+	ggamšg
+
+
+41 
+	gSAùÜArgs
+;
+
+44 
+Çme¥aû
+ 
+	gv›ws
+
+
+46 cÚ¡ 
+EVT_ELEMENT_VIEW_TYPE
+ 
+EVT_ELEMENT_VIEW_SCENE
+("EVT_ELEMENT_VIEW_SCENE");
+
+48 şas 
+	cISûÃV›w
+: 
+public
+ 
+IEËm’tV›w
+
+
+50 
+public
+:
+
+52 
+vœtu®
+ 
+œr
+::
+sûÃ
+::
+ICam”aSûÃNode
+* 
+g‘Cam”a
+() = 0;
+
+53 
+vœtu®
+ 
+£tCam”a
+(
+œr
+::
+sûÃ
+::
+ICam”aSûÃNode
+* 
+ÿm”a
+) = 0;
+
+55 
+vœtu®
+ 
+	gœr
+::
+sûÃ
+::
+ISûÃMªag”
+* 
+g‘SûÃMªag”
+() = 0;
+
+60 
+vœtu®
+ 
+lßdSûÃ
+(cÚ¡ 
+c8
+* 
+sûÃName
+) = 0;
+
+62 
+vœtu®
+ 
+addSûÃNode
+(cÚ¡ 
+gamšg
+::
+SAùÜArgs
+& 
+¬gs
+, 
+u32
+ 
+aùÜHashId
+ = 0) = 0;
+
+63 
+vœtu®
+ 
+	gœr
+::
+sûÃ
+::
+ISûÃNode
+* 
+fšdSûÃNode
+Ğ
+u32
+ 
+aùÜHashId
+) = 0;
+
+	@..\engine\include\qvISingleKeyInputTranslator.h
+
+28 #iâdeà
+_I_SINGLE_KEY_INPUT_TRANSLATOR_H_
+
+
+29 
+	#_I_SINGLE_KEY_INPUT_TRANSLATOR_H_
+
+
+	)
+
+31 
+	~"qvIIÅutT¿n¦©Ü.h
+"
+
+32 
+	~"qvIEv’tMªag”.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+Çme¥aû
+ 
+	gšput
+
+
+38 
+şass
+ 
+	gIIÅutReûiv”
+;
+
+40 cÚ¡ 
+ITT_INPUT_TRANSLATOR_TYPE
+ 
+ITT_SINGLE_KEY
+("ITT_SINGLE_KEY_TYPE");
+
+42 şas 
+	cISšgËKeyIÅutT¿n¦©Ü
+ : 
+public
+ 
+IIÅutT¿n¦©Ü
+
+
+50 
+public
+:
+
+	@..\engine\include\qvIState.h
+
+27 #iâdeà
+__I_STATE_H_
+
+
+28 
+	#__I_STATE_H_
+
+
+	)
+
+30 
+	~"qvS‹Ty³s.h
+"
+
+32 
+	~"IReã»nûCouÁed.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 şas 
+	cIS‹
+: 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+38 
+public
+:
+
+40 
+vœtu®
+ cÚ¡ 
+S_STATE
+* 
+g‘S‹
+() = 0;
+
+42 
+vœtu®
+ 
+cÚfigu»
+() = 0;
+
+44 
+vœtu®
+ 
+’‹r
+() = 0;
+
+46 
+vœtu®
+ 
+Ëave
+() = 0;
+
+48 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+) = 0;
+
+	@..\engine\include\qvIStateMachine.h
+
+27 #iâdeà
+__I_STATE_MACHINE_H_
+
+
+28 
+	#__I_STATE_MACHINE_H_
+
+
+	)
+
+30 
+	~"qvIS‹.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 şas 
+	cIS‹Machše
+: 
+public
+ 
+œr
+::
+IReã»nûCouÁed
+
+
+37 
+public
+:
+
+38 
+vœtu®
+ 
+addS‹
+(
+IS‹
+* 
+¡©e
+, 
+boŞ
+ 
+¡¬tUpS‹
+ = 
+çl£
+)=0;
+
+39 
+vœtu®
+ 
+chªgeS‹
+(cÚ¡ 
+S_STATE
+* 
+ÃwS‹
+)=0;
+
+40 
+vœtu®
+ 
+IS‹
+* 
+g‘Cu¼’tS‹
+()=0;
+
+41 
+vœtu®
+ 
+»moveS‹
+(
+IS‹
+* 
+¡©e
+)=0;
+
+	@..\engine\include\qvITimer.h
+
+3 #iâdeà
+__I_TIMER_H_
+
+
+4 
+	#__I_TIMER_H_
+
+
+	)
+
+6 
+	~"qvP»»quis™es.h
+"
+
+8 
+Çme¥aû
+ 
+	gqv
+
+
+10 şas 
+	cITim”
+
+
+12 
+	g´iv©e
+:
+
+13 
+œr
+::
+ITim”
+ * 
+mI¼lichtTim”
+;
+
+15 
+u32
+ 
+	gmTime
+;
+
+16 
+f32
+ 
+	gmTimeRe¡
+;
+
+17 
+u32
+ 
+	gmLa¡R—lTime
+;
+
+18 
+u32
+ 
+	gmLa¡S¹Time
+;
+
+19 
+f32
+ 
+	gmS³ed
+;
+
+20 
+u32
+ 
+	gmLa¡Tick
+;
+
+22 
+	gmIsRuÂšg
+;
+
+24 
+	gpublic
+:
+
+25 
+Tim”
+(
+œr
+::
+ITim”
+ * 
+œ¾ichtTim”_
+, 
+boŞ
+ 
+¡¬tRuÂšg_
+=
+çl£
+);
+
+26 
+	gvœtu®
+ ~
+Tim”
+();
+
+29 
+vœtu®
+ 
+u32
+ 
+g‘Time
+()=0;
+
+30 
+vœtu®
+ 
+£tTime
+(
+u32
+ 
+time_
+)=0;
+
+32 
+vœtu®
+ 
+u32
+ 
+g‘La¡TickInMs
+()=0;
+
+33 
+vœtu®
+ 
+f32
+ 
+g‘La¡TickInSecÚds
+()=0;
+
+36 
+vœtu®
+ 
+¡İ
+()=0;
+
+37 
+vœtu®
+ 
+¡¬t
+()=0;
+
+38 
+vœtu®
+ 
+boŞ
+ 
+isStİ³d
+()=0;
+
+40 
+vœtu®
+ 
+u32
+ 
+g‘La¡S¹Time
+()=0;
+
+42 
+vœtu®
+ 
+£tS³ed
+(
+f32
+ 
+¥“d_
+ = 1.0f)=0;
+
+43 
+vœtu®
+ 
+f32
+ 
+g‘S³ed
+()=0;
+
+46 
+vœtu®
+ 
+tick
+()=0;
+
+	@..\engine\include\qvKeyTypes.h
+
+29 #iâdeà
+__KEY_TYPES_H_
+
+
+30 
+	#__KEY_TYPES_H_
+
+
+	)
+
+32 
+	~"Keycodes.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+Çme¥aû
+ 
+	gšput
+
+
+39 
+	eEKEY_STATE
+
+
+41 
+	gEKS_UP
+ = 0x01,
+
+42 
+	gEKS_DOWN
+ = 0x02,
+
+43 
+	gEKS_PRESSED
+ = 0x04,
+
+44 
+	gEKS_RELEASED
+ = 0x08,
+
+45 
+	gEKS_PRESSED_OR_DOWN
+ = 
+EKS_DOWN
+ | 
+EKS_PRESSED
+,
+
+46 
+	gEKS_UP_OR_RELEASED
+ = 
+EKS_UP
+ | 
+EKS_RELEASED
+
+
+	@..\engine\include\qvPrerequisites.h
+
+28 #iâdeà
+__QV_PREREQUISITES_H_
+
+
+29 
+	#__QV_PREREQUISITES_H_
+
+
+	)
+
+32 #ifdeà
+_MSC_VER
+
+
+34 #´agm¨
+w¬nšg
+ (
+di§bË
+ : 4275)
+
+37 #´agm¨
+w¬nšg
+ (
+di§bË
+ : 4661)
+
+40 #´agm¨
+w¬nšg
+ (
+di§bË
+ : 4221)
+
+42 #´agm¨
+w¬nšg
+ (
+di§bË
+ : 4251)
+
+44 #´agm¨
+w¬nšg
+Ğ
+di§bË
+ : 4244 )
+
+64 
+	~"Lš—rM©h/btT¿nsfÜm.h
+"
+
+65 
+	~"Lš—rM©h/btQuick´of.h
+"
+
+66 
+	~"Lš—rM©h/btLi¡.h
+"
+
+67 
+	~"Lš—rM©h/btHashM­.h
+"
+
+69 
+	~"qvTy³s.h
+"
+
+71 
+Çme¥aû
+ 
+	gqv
+
+
+73 
+btSÿÏr
+ 
+	t»®
+;
+
+76 cÚ¡ 
+u32
+ 
+GC_GAME_FRAMERATE
+(16);
+
+77 cÚ¡ 
+u32
+ 
+GC_ANIMATION_FRAMERATE
+(16);
+
+78 cÚ¡ 
+u32
+ 
+GF_RENDER_FRAMERATE
+(16);
+
+79 cÚ¡ 
+u32
+ 
+GF_GAME_PHYSICS_FRAMERATE
+(16);
+
+	@..\engine\include\qvProtothread.h
+
+50 #iâdeà
+__PROTOTHREAD_H__
+
+
+51 
+	#__PROTOTHREAD_H__
+
+
+	)
+
+86 şas 
+	cPrÙÙh»ad
+
+
+88 
+	mpublic
+:
+
+91 
+	$PrÙÙh»ad
+(è: 
+	$_±Lše
+(0) { }
+
+142 #iâdeà
+__PROTOTHREAD_H__
+
+
+143 
+	#__PROTOTHREAD_H__
+
+
+	)
+
+178 şas 
+	cPrÙÙh»ad
+
+
+180 
+public
+:
+
+183 
+	`PrÙÙh»ad
+(è: 
+	`_±Lše
+(0) { }
+
+186 
+	`Re¡¬t
+(è{ 
+_±Lše
+ = 0; }
+
+191 
+	`Stİ
+(è{ 
+_±Lše
+ = 
+LšeNumb”Inv®id
+; }
+
+195 
+boŞ
+ 
+	`IsRuÂšg
+(è{  
+_±Lše
+ !ğ
+LšeNumb”Inv®id
+; }
+
+200 
+vœtu®
+ 
+boŞ
+ 
+	`Run
+() = 0;
+
+202 
+´Ùeùed
+:
+
+205 
+	tLšeNumb”
+;
+
+208 cÚ¡ 
+LšeNumb”
+ 
+LšeNumb”Inv®id
+ = (LineNumber)(-1);
+
+212 
+LšeNumb”
+ 
+_±Lše
+;
+
+213 
+	}
+};
+
+216 
+	#PT_BEGIN
+(è
+boŞ
+ 
+±Y›lded
+ = 
+Œue
+; 
+_±Lše
+è{ 0:
+
+	)
+
+219 
+	#PT_END
+(è: ; 
+	}
+} 
+	`Stİ
+();  
+çl£
+;
+
+	)
+
+222 
+	#PT_WAIT_UNTIL
+(
+cÚd™iÚ
+) \
+
+223 dØ{ 
+_±Lše
+ = 
+__LINE__
+; __LINE__: \
+
+224 ià(!(
+cÚd™iÚ
+)è 
+Œue
+; } 0)
+
+	)
+
+227 
+	#PT_WAIT_WHILE
+(
+cÚd™iÚ
+è
+	`PT_WAIT_UNTIL
+(!(cÚd™iÚ))
+
+	)
+
+230 
+	#PT_WAIT_THREAD
+(
+chd
+è
+	`PT_WAIT_WHILE
+((chd).
+	$Run
+())
+
+	)
+
+233 
+	#PT_SPAWN
+(
+chd
+) \
+
+234 dØ{ (
+chd
+).
+	`Re¡¬t
+(); 
+	`PT_WAIT_THREAD
+(chd); 
+	}
+} 0)
+
+	)
+
+237 
+	#PT_RESTART
+(èdØ{ 
+	`Re¡¬t
+();  
+Œue
+; 
+	}
+} 0)
+
+	)
+
+240 
+	#PT_EXIT
+(èdØ{ 
+	`Stİ
+();  
+çl£
+; 
+	}
+} 0)
+
+	)
+
+243 
+	#PT_YIELD
+() \
+
+244 dØ{ 
+±Y›lded
+ = 
+çl£
+; 
+_±Lše
+ = 
+__LINE__
+; __LINE__: \
+
+245 ià(!
+±Y›lded
+è 
+Œue
+; 
+	}
+} 0)
+
+	)
+
+248 
+	#PT_YIELD_UNTIL
+(
+cÚd™iÚ
+) \
+
+249 dØ{ 
+±Y›lded
+ = 
+çl£
+; 
+_±Lše
+ = 
+__LINE__
+; __LINE__: \
+
+250 ià(!
+±Y›lded
+ || !(
+cÚd™iÚ
+)è 
+Œue
+; 
+	}
+} 0)
+
+	)
+
+254 
+	$»¡¬t
+(è{ 
+_±Lše
+ = 0; 
+	}
+}
+
+259 
+	$¡İ
+(è{ 
+_±Lše
+ = 
+LšeNumb”Inv®id
+; 
+	}
+}
+
+263 
+boŞ
+ 
+	$ruÂšg
+(è{  
+_±Lše
+ !ğ
+LšeNumb”Inv®id
+; 
+	}
+}
+
+268 
+vœtu®
+ 
+boŞ
+ 
+run
+() = 0;
+
+270 
+	g´Ùeùed
+:
+
+273 
+	tLšeNumb”
+;
+
+276 cÚ¡ 
+LšeNumb”
+ 
+	gLšeNumb”Inv®id
+ = (LineNumber)(-1);
+
+280 
+LšeNumb”
+ 
+	g_±Lše
+;
+
+284 
+	#PT_BEGIN
+(è
+boŞ
+ 
+±Y›lded
+ = 
+Œue
+; 
+_±Lše
+è{ 0:
+
+	)
+
+287 
+	#PT_END
+(è: ; } 
+	`¡İ
+();  
+çl£
+;
+
+	)
+
+290 
+	#PT_WAIT_UNTIL
+(
+cÚd™iÚ
+) \
+
+291 dØ{ 
+_±Lše
+ = 
+__LINE__
+; __LINE__: \
+
+292 ià(!(
+cÚd™iÚ
+)è 
+Œue
+; } 0)
+
+	)
+
+295 
+	#PT_WAIT_WHILE
+(
+cÚd™iÚ
+è
+	`PT_WAIT_UNTIL
+(!(cÚd™iÚ))
+
+	)
+
+298 
+	#PT_WAIT_THREAD
+(
+chd
+è
+	`PT_WAIT_WHILE
+((chd).
+	`run
+())
+
+	)
+
+301 
+	#PT_SPAWN
+(
+chd
+) \
+
+302 dØ{ (
+chd
+).
+	`»¡¬t
+(); 
+	`PT_WAIT_THREAD
+(chd); } 0)
+
+	)
+
+305 
+	#PT_RESTART
+(èdØ{ 
+	`»¡¬t
+();  
+Œue
+; } 0)
+
+	)
+
+308 
+	#PT_EXIT
+(èdØ{ 
+	`¡İ
+();  
+çl£
+; } 0)
+
+	)
+
+311 
+	#PT_YIELD
+() \
+
+312 dØ{ 
+±Y›lded
+ = 
+çl£
+; 
+_±Lše
+ = 
+__LINE__
+; __LINE__: \
+
+313 ià(!
+±Y›lded
+è 
+Œue
+; } 0)
+
+	)
+
+316 
+	#PT_YIELD_UNTIL
+(
+cÚd™iÚ
+) \
+
+317 dØ{ 
+±Y›lded
+ = 
+çl£
+; 
+_±Lše
+ = 
+__LINE__
+; __LINE__: \
+
+318 ià(!
+±Y›lded
+ || !(
+cÚd™iÚ
+)è 
+Œue
+; } 0)
+
+	)
+
+	@..\engine\include\qvQuanticVortex.h
+
+28 #iâdeà
+__QUANTIC_VORTEX_ENGINE_H_
+
+
+29 
+	#__QUANTIC_VORTEX_ENGINE_H_
+
+
+	)
+
+31 
+	~"qvCompeCÚfig.h
+"
+
+34 
+	~"qvAùÜTy³s.h
+"
+
+35 
+	~"qvSAùÜP¬ams.h
+"
+
+36 
+	~"qvIAùÜ.h
+"
+
+37 
+	~"qvIAùÜFaùÜy.h
+"
+
+38 
+	~"qvIAùÜMªag”.h
+"
+
+39 
+	~"qvIGameLogic.h
+"
+
+40 
+	~"qvIGameLogicFaùÜy.h
+"
+
+41 
+	~"qvS‹Ty³s.h
+"
+
+42 
+	~"qvIS‹.h
+"
+
+45 
+	~"qvKeyTy³s.h
+"
+
+46 
+	~"qvIIÅutReûiv”.h
+"
+
+47 
+	~"qvIIÅutT¿n¦©Ü.h
+"
+
+48 
+	~"qvIAnyKeyIÅutT¿n¦©Ü.h
+"
+
+49 
+	~"qvISšgËKeyIÅutT¿n¦©Ü.h
+"
+
+50 
+	~"qvIIÅutT¿n¦©ÜFaùÜy.h
+"
+
+54 
+	~"qvIPhysicsMªag”.h
+"
+
+57 
+	~"qvIProûss.h
+"
+
+58 
+	~"qvIProûssMªag”.h
+"
+
+61 
+	~"qvIEËm’tV›w.h
+"
+
+62 
+	~"qvIGameV›w.h
+"
+
+63 
+	~"qvIGameV›wFaùÜy.h
+"
+
+64 
+	~"qvIGuiV›w.h
+"
+
+65 
+	~"qvIHumªV›w.h
+"
+
+66 
+	~"qvISûÃV›w.h
+"
+
+69 
+	~"qvSHashedSŒšg.h
+"
+
+72 
+	~"qvCommªdTy³s.h
+"
+
+73 
+	~"qvICommªd.h
+"
+
+74 
+	~"qvIEngšeMªag”.h
+"
+
+75 
+	~"qvSGameP¬ams.h
+"
+
+76 
+	~"qvSHashedSŒšg.h
+"
+
+79 
+	~"qvEv’tTy³s.h
+"
+
+80 
+	~"qvIEv’tCommªd.h
+"
+
+81 
+	~"qvIEv’tArgs.h
+"
+
+82 
+	~"qvIEv’tArgsFaùÜy.h
+"
+
+83 
+	~"qvIEv’tMªag”.h
+"
+
+86 
+Çme¥aû
+ 
+	gqv
+
+
+88 "C" 
+_QUANTICVORTEX_API_
+ 
+IEngšeMªag”
+* 
+QUANTICVORTEX_CALLCONV
+ 
+ü—‹EngšeMªag”
+(
+
+89 
+boŞ
+ 
+fuÎsü“n
+ = 
+çl£
+,
+
+90 
+boŞ
+ 
+vsync
+ = 
+çl£
+,
+
+91 
+u8
+ 
+b™s
+ = 16,
+
+92 
+œr
+::
+cÜe
+::
+dim’siÚ2du
+ 
+wšdowSize
+ = irr::core::dimension2du(1024,768),
+
+93 
+œr
+::
+cÜe
+::
+¡ršgc
+ 
+t™Ë
+ = "Quantic Vortex Game",
+
+94 
+boŞ
+ 
+ho¡Game
+ = 
+Œue
+,
+
+95 
+u8
+ 
+loÿlPÏy”s
+ = 1,
+
+96 
+u8
+ 
+aIPÏy”s
+ = 0,
+
+97 
+u8
+ 
+»mÙePÏy”s
+ = 0);
+
+99 "C" 
+_QUANTICVORTEX_API_
+ 
+IEngšeMªag”
+* 
+QUANTICVORTEX_CALLCONV
+ 
+ü—‹EngšeMªag”Ex
+(cÚ¡ 
+SGameP¬ams
+& 
+·¿ms
+);
+
+	@..\engine\include\qvSActorParams.h
+
+2 #iâdeà
+__S_ACTOR_PARAMS_H_
+
+
+3 
+	#__S_ACTOR_PARAMS_H_
+
+
+	)
+
+5 
+	~"qvAùÜTy³s.h
+"
+
+8 
+Çme¥aû
+ 
+	gqv
+
+
+10 
+Çme¥aû
+ 
+	ggamšg
+
+
+30 
+	sSAùÜArgs
+
+
+33 
+SAùÜArgs
+(){}
+
+35 
+boŞ
+ 
+	gİ”©Ü
+!=(cÚ¡ 
+SAùÜArgs
+ &
+Ùh”
+) const
+
+37  ((
+ID
+ !ğ
+Ùh”
+.IDè&& (
+Ty³
+ != other.Type));
+
+40 
+boŞ
+ 
+	gİ”©Ü
+==(cÚ¡ 
+SAùÜArgs
+ &
+Ùh”
+) const
+
+42  ((
+ID
+ =ğ
+Ùh”
+.IDè&& (
+Ty³
+ == other.Type));
+
+55 
+AI_ACTOR_ID
+* 
+	gID
+;
+
+56 
+AT_ACTOR_TYPE
+* 
+	gTy³
+;
+
+	@..\engine\include\qvSEventArgs.h
+
+28 #iâdeà
+__S_EVENTARGS_H_
+
+
+29 
+	#__S_EVENTARGS_H_
+
+
+	)
+
+31 
+	~"qvP»»quis™es.h
+"
+
+32 
+	~"qvEv’tTy³s.h
+"
+
+36 
+Çme¥aû
+ 
+	gqv
+
+
+39 
+	gSEv’tArgs
+: 
+IReã»nûCouÁed
+
+
+41 
+SEv’tArgs
+(cÚ¡ 
+ET_EVENT_TYPE
+& 
+ty³
+)
+
+42 :
+Ty³
+(
+ty³
+)
+
+45 
+SEv’tArgs
+ĞcÚ¡ SEv’tArgs& 
+Ùh”
+)
+
+47 *
+this
+ = 
+Ùh”
+;
+
+51 
+	gSEv’tArgs
+& 
+	gİ”©Ü
+ğ(cÚ¡ 
+SEv’tArgs
+& 
+Ùh”
+)
+
+53 
+Ty³
+ = 
+Ùh”
+.Type;
+
+55  *
+	gthis
+;
+
+58 
+boŞ
+ 
+	gİ”©Ü
+!=(cÚ¡ 
+SEv’tArgs
+ &
+Ùh”
+) const
+
+60  (
+Ty³
+ !ğ
+Ùh”
+.Type);
+
+63 
+boŞ
+ 
+	gİ”©Ü
+==(cÚ¡ 
+SEv’tArgs
+ &
+Ùh”
+) const
+
+65  (
+Ty³
+ =ğ
+Ùh”
+.Type);
+
+68 
+ET_EVENT_TYPE
+ 
+	gTy³
+;
+
+	@..\engine\include\qvSGameArgs.h
+
+2 #iâdeà
+__ISCRIPTABLEEVENTDESCRIPTION_H_
+
+
+3 
+	#__ISCRIPTABLEEVENTDESCRIPTION_H_
+
+
+	)
+
+7 
+Çme¥aû
+ 
+	gqv
+
+
+9 
+	sSGameArgs
+
+
+11 
+SGameArgs
+()
+
+15 
+	gSGameArgs
+& 
+	gİ”©Ü
+=(cÚ¡ 
+SGameArgs
+& 
+Ùh”
+)
+
+17  *
+this
+;
+
+	@..\engine\include\qvSGameData.h
+
+2 #iâdeà
+__SGAMEDATA_H_
+
+
+3 
+	#__SGAMEDATA_H_
+
+
+	)
+
+5 
+	~"qvP»»quis™es.h
+"
+
+6 
+	~"qvIGameV›w.h
+"
+
+8 
+usšg
+ 
+Çme¥aû
+ 
+	gqv
+::
+gamšg
+;
+
+10 
+Çme¥aû
+ 
+	gqv
+
+
+12 
+Çme¥aû
+ 
+	ggamšg
+
+
+14 
+	sSGameD©a
+
+
+17 
+SGameD©a
+()
+
+21 
+SGameD©a
+(cÚ¡ SGameD©a& 
+Ùh”
+)
+
+23 *
+	gthis
+ = 
+Ùh”
+;
+
+26 
+	gSGameD©a
+& 
+	gİ”©Ü
+ğ(cÚ¡ 
+SGameD©a
+& 
+Ùh”
+)
+
+29  *
+this
+;
+
+	@..\engine\include\qvSGameLogicParams.h
+
+2 #iâdeà
+__SGAMEPARAMS_H_
+
+
+3 
+	#__SGAMEPARAMS_H_
+
+
+	)
+
+5 
+	~"qvP»»quis™es.h
+"
+
+7 
+Çme¥aû
+ 
+	gqv
+
+
+9 
+	sSGameLogicP¬ams
+
+
+12 
+SGameLogicP¬ams
+()
+
+16 
+SGameLogicP¬ams
+(cÚ¡ SGameLogicP¬ams& 
+Ùh”
+)
+
+18 *
+	gthis
+ = 
+Ùh”
+;
+
+21 
+	gSGameLogicP¬ams
+& 
+	gİ”©Ü
+ğ(cÚ¡ 
+SGameLogicP¬ams
+& 
+Ùh”
+)
+
+25  *
+this
+;
+
+	@..\engine\include\qvSGameParams.h
+
+28 #iâdeà
+__SGAMEPARAMS_H_
+
+
+29 
+	#__SGAMEPARAMS_H_
+
+
+	)
+
+31 
+	~"qvP»»quis™es.h
+"
+
+33 
+	~"œrM©h.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+	sSGameP¬ams
+
+
+39 
+SGameP¬ams
+():
+
+40 
+WšdowSize
+(
+œr
+::
+cÜe
+::
+dim’siÚ2du
+(1024, 768)),
+
+41 
+FuÎsü“n
+(
+çl£
+),
+
+42 
+Vsync
+(
+çl£
+),
+
+43 
+B™s
+(16),
+
+44 
+Ho¡Game
+(
+çl£
+),
+
+45 
+LoÿlPÏy”s
+(1),
+
+46 
+AIPÏy”s
+(0),
+
+47 
+RemÙePÏy”s
+(0),
+
+48 
+T™Ë
+("Default Game Title")
+
+52 
+SGameP¬ams
+(cÚ¡ SGameP¬ams& 
+Ùh”
+)
+
+54 *
+	gthis
+ = 
+Ùh”
+;
+
+57 
+	gSGameP¬ams
+& 
+	gİ”©Ü
+ğ(cÚ¡ 
+SGameP¬ams
+& 
+Ùh”
+)
+
+59 
+T™Ë
+ = 
+Ùh”
+.Title;
+
+60 
+	gWšdowSize
+ = 
+Ùh”
+.
+WšdowSize
+;
+
+61 
+	gB™s
+ = 
+Ùh”
+.
+B™s
+;
+
+62 
+	gFuÎsü“n
+ = 
+Ùh”
+.
+FuÎsü“n
+;
+
+63 
+	gVsync
+ = 
+Ùh”
+.
+Vsync
+;
+
+65 
+	gHo¡Game
+ = 
+Ùh”
+.
+Ho¡Game
+;
+
+66 
+	gLoÿlPÏy”s
+ = 
+Ùh”
+.
+LoÿlPÏy”s
+;
+
+67 
+	gAIPÏy”s
+ = 
+Ùh”
+.
+AIPÏy”s
+;
+
+68 
+	gRemÙePÏy”s
+ = 
+Ùh”
+.
+RemÙePÏy”s
+;
+
+71 
+	gShowCursÜ
+ = 
+Ùh”
+.
+ShowCursÜ
+;
+
+72 
+	gIÅutBufã»d
+ = 
+Ùh”
+.
+IÅutBufã»d
+;
+
+73 
+	gIÅutDebug
+ = 
+Ùh”
+.
+IÅutDebug
+;
+
+74 
+	gWšdowSize
+ = 
+Ùh”
+.
+WšdowSize
+;
+
+76  *
+	gthis
+;
+
+79 
+	gœr
+::
+cÜe
+::
+dim’siÚ2du
+ 
+WšdowSize
+;
+
+80 
+boŞ
+ 
+	gFuÎsü“n
+;
+
+81 
+boŞ
+ 
+	gVsync
+;
+
+82 
+u8
+ 
+	gB™s
+;
+
+84 
+boŞ
+ 
+	gHo¡Game
+;
+
+85 
+u8
+ 
+	gLoÿlPÏy”s
+;
+
+86 
+u8
+ 
+	gAIPÏy”s
+;
+
+87 
+u8
+ 
+	gRemÙePÏy”s
+;
+
+89 
+boŞ
+ 
+	gShowCursÜ
+;
+
+90 
+boŞ
+ 
+	gIÅutBufã»d
+;
+
+91 
+boŞ
+ 
+	gIÅutDebug
+;
+
+93 
+	gœr
+::
+cÜe
+::
+¡ršgc
+ 
+T™Ë
+;
+
+	@..\engine\include\qvSHashedString.h
+
+28 #iâdeà
+__S_HASHED_STRING_H_
+
+
+29 
+	#__S_HASHED_STRING_H_
+
+
+	)
+
+31 
+	~"qvTy³s.h
+"
+
+32 
+	~"qvHashFunùiÚs.h
+"
+
+34 
+	~"œrSŒšg.h
+"
+
+38 
+Çme¥aû
+ 
+	gqv
+
+
+41 
+	sSHashedSŒšg
+
+
+44 
+SHashedSŒšg
+()
+
+45 :
+Text
+(0),
+Hash
+(0)
+
+49 
+SHashedSŒšg
+(cÚ¡ 
+c8
+* 
+‹xt
+)
+
+50 :
+Text
+(
+‹xt
+)
+
+52 
+Text
+.
+make_low”
+();
+
+53 
+	gHash
+ = 
+ü—‹MurmurHash2
+Ğ
+Text
+.
+c_¡r
+(), Text.
+size
+());
+
+56 
+SHashedSŒšg
+(cÚ¡ 
+c8
+* 
+‹xt
+, 
+u32
+ 
+hash
+)
+
+57 :
+Text
+(
+‹xt
+), 
+Hash
+(
+hash
+)
+
+61 
+SHashedSŒšg
+ĞcÚ¡ SHashedSŒšg &
+Ùh”
+ )
+
+63 *
+	gthis
+ğ
+Ùh”
+;
+
+68 
+	gSHashedSŒšg
+& 
+	gİ”©Ü
+ğĞcÚ¡ 
+SHashedSŒšg
+ &
+Ùh”
+ )
+
+70 
+Text
+ = 
+Ùh”
+.Text;
+
+71 
+	gHash
+ = 
+Ùh”
+.
+Hash
+;
+
+73  *
+	gthis
+;
+
+76 
+boŞ
+ 
+	gİ”©Ü
+=ğĞcÚ¡ 
+SHashedSŒšg
+ &
+Ùh”
+ ) const
+
+78 #ifdeà
+_DEBUG
+
+
+79  ((
+Text
+ =ğ
+Ùh”
+.Textè&& (
+Hash
+ == other.Hash));
+
+81  (
+	gHash
+ =ğ
+Ùh”
+.
+Hash
+);
+
+85 
+boŞ
+ 
+	gİ”©Ü
+!ğĞcÚ¡ 
+SHashedSŒšg
+ &
+Ùh”
+ ) const
+
+87 #ifdeà
+_DEBUG
+
+
+88  ((
+Hash
+ !ğ
+Ùh”
+.Hashè&& (
+Text
+ != other.Text));
+
+91  (
+	gHash
+ !ğ
+Ùh”
+.
+Hash
+);
+
+95 
+boŞ
+ 
+	gİ”©Ü
+< ( cÚ¡ 
+	gSHashedSŒšg
+ &
+	gÙh”
+ ) const
+
+97  (
+	gHash
+ < 
+	gÙh”
+.Hash);
+
+100 
+boŞ
+ 
+	gİ”©Ü
+> ( cÚ¡ 
+	gSHashedSŒšg
+ &
+	gÙh”
+ ) const
+
+102  (
+	gHash
+ > 
+	gÙh”
+.Hash);
+
+106 
+	gœr
+::
+cÜe
+::
+¡ršgc
+ 
+Text
+;
+
+107 
+u32
+ 
+	gHash
+;
+
+	@..\engine\include\qvSPlayerScore.h
+
+2 #iâdeà
+__SGAMEDATA_H_
+
+
+3 
+	#__SGAMEDATA_H_
+
+
+	)
+
+5 
+	~"qvP»»quis™es.h
+"
+
+6 
+	~"qvIGameV›w.h
+"
+
+8 
+usšg
+ 
+Çme¥aû
+ 
+	gqv
+::
+gamšg
+;
+
+10 
+Çme¥aû
+ 
+	gqv
+
+
+12 
+Çme¥aû
+ 
+	ggamšg
+
+
+15 
+	sSPÏy”ScÜe
+
+
+17 
+SPÏy”ScÜe
+()
+
+21 
+SPÏy”ScÜe
+(cÚ¡ 
+AI_ACTOR_ID
+& 
+aùÜ
+, cÚ¡ 
+v›ws
+::
+GVT_GAME_VIEW_TYPE
+& 
+©chedV›wTy³
+, 
+u32
+ 
+scÜe
+ = 0, 
+u8
+ 
+Ëv–
+ = 1)
+
+22 :
+AùÜ
+(
+aùÜ
+), 
+ScÜe
+(
+scÜe
+), 
+A‰achedV›wTy³
+(
+©chedV›wTy³
+),
+Lev–
+(
+Ëv–
+)
+
+26 
+SPÏy”ScÜe
+(cÚ¡ SPÏy”ScÜe& 
+Ùh”
+)
+
+28 *
+	gthis
+ = 
+Ùh”
+;
+
+31 
+	gSPÏy”ScÜe
+& 
+	gİ”©Ü
+=(cÚ¡ 
+SPÏy”ScÜe
+& 
+Ùh”
+)
+
+33 
+Lev–
+ = 
+Ùh”
+.Level;
+
+34 
+	gAùÜ
+ = 
+Ùh”
+.
+AùÜ
+;
+
+35 
+	gScÜe
+ = 
+Ùh”
+.
+ScÜe
+;
+
+36 
+	gA‰achedV›wTy³
+ = 
+Ùh”
+.
+A‰achedV›wTy³
+;
+
+38  *
+	gthis
+;
+
+51 
+u8
+ 
+	gLev–
+;
+
+52 
+AI_ACTOR_ID
+ 
+	gAùÜ
+;
+
+53 
+u32
+ 
+	gScÜe
+;
+
+54 
+	gv›ws
+::
+GVT_GAME_VIEW_TYPE
+ 
+A‰achedV›wTy³
+;
+
+	@..\engine\include\qvSingletonHolder.h
+
+28 #iâdeà
+__SINGLETON_HOLDER_H_
+
+
+29 
+	#__SINGLETON_HOLDER_H_
+
+
+	)
+
+31 
+Çme¥aû
+ 
+	gqv
+
+
+33 
+	g‹m¶©e
+ <
+şass
+ 
+	gT
+> cÏs 
+	cSšgËtÚHŞd”
+
+
+35 
+	gpublic
+:
+
+37 
+ü—‹In¡ªû
+()
+
+39 if(!
+msIn¡ªû
+)
+
+40 
+msIn¡ªû
+ = 
+Ãw
+ 
+T
+;
+
+43 
+T
+* 
+g‘
+()
+
+45 if(!
+	gmsIn¡ªû
+)
+
+46 
+	gmsIn¡ªû
+ = 
+Ãw
+ 
+T
+;
+
+47  
+	gmsIn¡ªû
+;
+
+50 
+de¡royIn¡ªû
+()
+
+52 if(
+	gmsIn¡ªû
+)
+
+53 
+d–‘e
+ 
+	gmsIn¡ªû
+;
+
+56 
+	g´Ùeùed
+:
+
+58 
+SšgËtÚHŞd”
+();
+
+59 ~
+SšgËtÚHŞd”
+();
+
+61 
+	g´iv©e
+:
+
+63 
+SšgËtÚHŞd”
+(SingletonHolder const&);
+
+64 
+	gSšgËtÚHŞd”
+& 
+	gİ”©Ü
+=(
+SšgËtÚHŞd”
+ const&);
+
+66 
+	g´iv©e
+:
+
+67 
+T
+* 
+msIn¡ªû
+;
+
+71 
+	g‹m¶©e
+ <
+şass
+ 
+	gT
+> 
+T
+* 
+	gSšgËtÚHŞd”
+<T>::
+msIn¡ªû
+=0;
+
+	@..\engine\include\qvStateTypes.h
+
+27 #iâdeà
+__STATE_TYPES_H_
+
+
+28 
+	#__STATE_TYPES_H_
+
+
+	)
+
+30 
+	~"qvSHashedSŒšg.h
+"
+
+32 
+Çme¥aû
+ 
+	gqv
+
+
+34 
+SHashedSŒšg
+ 
+	tS_STATE
+;
+
+	@..\engine\include\qvTypes.h
+
+28 #iâdeà
+__QV_TYPES_H_
+
+
+29 
+	#__QV_TYPES_H_
+
+
+	)
+
+31 
+	~<š‰y³s.h
+>
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+ušt8_t
+ 
+	tu8
+;
+
+39 
+št8_t
+ 
+	ts8
+;
+
+41 
+ušt16_t
+ 
+	tu16
+;
+
+43 
+št16_t
+ 
+	ts16
+;
+
+45 
+ušt32_t
+ 
+	tu32
+;
+
+47 
+št32_t
+ 
+	ts32
+;
+
+50 
+	tc8
+;
+
+	@..\engine\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.cpp
+
+28 
+	~"qvDeçuÉIÅutReûiv”Driv”FaùÜy.h
+"
+
+29 
+	~"driv”s/œ¾icht/qvIÅutEv’tHªdËrI¼licht.h
+"
+
+31 
+Çme¥aû
+ 
+	gqv
+
+
+33 
+Çme¥aû
+ 
+	gšput
+
+
+36 
+	gDeçuÉIÅutReûiv”Driv”FaùÜy
+::
+DeçuÉIÅutReûiv”Driv”FaùÜy
+(
+IEngšeMªag”
+* 
+’gše
+)
+
+37 :
+mEngše
+(
+’gše
+)
+
+39 
+mSuµÜ‹dIÅutReûiv”Driv”Ty³s
+.
+push_back
+(
+IRD_INPUT_RECEIVER_DRIVER_IRRLICHT
+.
+Hash
+);
+
+46 
+	gDeçuÉIÅutReûiv”Driv”FaùÜy
+::~
+DeçuÉIÅutReûiv”Driv”FaùÜy
+()
+
+50 
+IIÅutReûiv”Sh¬edPŒ
+ 
+DeçuÉIÅutReûiv”Driv”FaùÜy
+::
+addIÅutReûiv”
+Ğ
+u32
+ 
+šputReûiv”HashTy³
+)
+
+52 
+IIÅutReûiv”Sh¬edPŒ
+ 
+šputReûiv”
+;
+
+54 if(
+	gšputReûiv”HashTy³
+ =ğ
+IRD_INPUT_RECEIVER_DRIVER_IRRLICHT
+.
+Hash
+)
+
+55 
+šputReûiv”
+.
+assign
+(
+Ãw
+ 
+IÅutEv’tHªdËrI¼licht
+(
+mEngše
+));
+
+57  
+	gšputReûiv”
+;
+
+60 
+u32
+ 
+	gDeçuÉIÅutReûiv”Driv”FaùÜy
+::
+g‘C»©abËIÅutReûiv”Ty³CouÁ
+() const
+
+62  
+mSuµÜ‹dIÅutReûiv”Driv”Ty³s
+.
+size
+();
+
+65 
+boŞ
+ 
+	gDeçuÉIÅutReûiv”Driv”FaùÜy
+::
+g‘C»©—bËIÅutReûiv”Ty³
+Ğ
+u32
+ 
+šputReûiv”HashTy³
+) const
+
+67 
+u32
+ 
+i
+=0; 
+	gi
+ < 
+	gmSuµÜ‹dIÅutReûiv”Driv”Ty³s
+.
+size
+(); ++i)
+
+68 ià(
+	gmSuµÜ‹dIÅutReûiv”Driv”Ty³s
+[
+i
+] =ğ
+šputReûiv”HashTy³
+)
+
+69  
+Œue
+;
+
+71  
+	gçl£
+;
+
+	@..\engine\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.h
+
+28 #iâdeà
+__DEFAULT_GAME_VIEW_FACTORY_H_
+
+
+29 
+	#__DEFAULT_GAME_VIEW_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIIÅutReûiv”Driv”FaùÜy.h
+"
+
+33 
+	~"œrA¼ay.h
+"
+
+36 
+Çme¥aû
+ 
+	gqv
+
+
+38 
+şass
+ 
+	gIEngšeMªag”
+;
+
+40 
+Çme¥aû
+ 
+	gšput
+
+
+42 şas 
+	cDeçuÉIÅutReûiv”Driv”FaùÜy
+ : 
+public
+ 
+IIÅutReûiv”Driv”FaùÜy
+
+
+44 
+´iv©e
+:
+
+45 
+œr
+::
+cÜe
+::
+¬¿y
+<
+u32
+> 
+mSuµÜ‹dIÅutReûiv”Driv”Ty³s
+;
+
+46 
+IEngšeMªag”
+* 
+	gmEngše
+;
+
+48 
+	gpublic
+:
+
+49 
+DeçuÉIÅutReûiv”Driv”FaùÜy
+(
+IEngšeMªag”
+* 
+’gše
+);
+
+50 
+	gvœtu®
+ ~
+DeçuÉIÅutReûiv”Driv”FaùÜy
+();
+
+52 
+vœtu®
+ 
+IIÅutReûiv”Sh¬edPŒ
+ 
+addIÅutReûiv”
+Ğ
+u32
+ 
+šputReûiv”HashTy³
+) = 0;
+
+54 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËIÅutReûiv”Ty³CouÁ
+() const = 0;
+
+56 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËIÅutReûiv”Ty³
+Ğ
+u32
+ 
+šputReûiv”HashTy³
+) const = 0;
+
+	@..\engine\source\quanticvortex\drivers\irrlicht\qvInputEventHandlerIrrlicht.h
+
+3 #iâdeà
+__INPUT_EVENT_HANDLER_IRRLICHT_H_
+
+
+4 
+	#__INPUT_EVENT_HANDLER_IRRLICHT_H_
+
+
+	)
+
+6 
+	~"qvIIÅutReûiv”.h
+"
+
+7 
+	~"qvIEngšeMªag”.h
+"
+
+9 
+	~"qvSšgËKeyIÅutT¿n¦©Ü.h
+"
+
+10 
+	~"qvAnyKeyIÅutT¿n¦©Ü.h
+"
+
+12 
+Çme¥aû
+ 
+	gqv
+
+
+14 
+Çme¥aû
+ 
+	gev’ts
+
+
+16 
+şass
+ 
+	gIEv’tMªag”
+;
+
+19 
+Çme¥aû
+ 
+	gšput
+
+
+29 cÚ¡ 
+IRD_INPUT_RECEIVER_DRIVER
+ 
+IRD_INPUT_RECEIVER_DRIVER_IRRLICHT
+("IRD_INPUT_RECEIVER_DRIVER_IRRLICHT");
+
+33 şas 
+	cIÅutEv’tHªdËrI¼licht
+ : 
+public
+ 
+IIÅutReûiv”
+
+
+36 
+´iv©e
+:
+
+38 
+œr
+::
+cÜe
+::
+¬¿y
+<
+IIÅutT¿n¦©Ü
+*> 
+mIÅutT¿n¦©Üs
+;
+
+39 
+	gœr
+::
+cÜe
+::
+¬¿y
+<
+IIÅutT¿n¦©ÜFaùÜy
+*> 
+mIÅutT¿n¦©ÜsFaùÜ›s
+;
+
+41 
+EKEY_STATE
+ 
+	gmKeyS‹
+[
+œr
+::
+KEY_KEY_CODES_COUNT
+];
+
+43 
+	gev’ts
+::
+IEv’tMªag”
+* 
+mEv’tMªag”
+;
+
+45 
+	gpublic
+:
+
+48 
+	sSMou£D©a
+
+
+50 
+s32
+ 
+X
+;
+
+51 
+s32
+ 
+	gY
+;
+
+52 
+boŞ
+ 
+	gLBu‰ÚDown
+;
+
+53 
+boŞ
+ 
+	gRBu‰ÚDown
+;
+
+54 
+boŞ
+ 
+	gMBu‰ÚDown
+;
+
+55 
+»®
+ 
+	gWh“l
+;
+
+56 
+»®
+ 
+	gWh“lD–
+;
+
+59 
+SMou£D©a
+ 
+	gmMou£
+;
+
+61 
+s32
+ 
+mou£X
+(è{  
+	gmMou£
+.
+	gX
+; }
+
+62 
+s32
+ 
+mou£Y
+(è{  
+	gmMou£
+.
+	gY
+; }
+
+63 
+»®
+ 
+mou£Wh“l
+(è{  
+	gmMou£
+.
+	gWh“l
+; }
+
+64 
+»®
+ 
+mou£Wh“lD–
+(è{  
+	gmMou£
+.
+	gWh“lD–
+; }
+
+66 
+IÅutEv’tHªdËrI¼licht
+(
+IEngšeMªag”
+* 
+’gšeMªag”
+)
+
+67 :
+mEv’tMªag”
+(
+’gšeMªag”
+->
+g‘Ev’tMªag”
+())
+
+70 #ifdeà
+_DEBUG
+
+
+71 
+£tDebugName
+("IrrEventHandler");
+
+74 
+s32
+ 
+	gi
+ = 0; i < 
+	gœr
+::
+KEY_KEY_CODES_COUNT
+; ++iè
+	gmKeyS‹
+[
+i
+] = 
+EKS_RELEASED
+;
+
+76 
+	gmMou£
+.
+	gX
+ = 0;
+
+77 
+	gmMou£
+.
+	gY
+ = 0;
+
+78 
+	gmMou£
+.
+	gWh“l
+ = 0.0f;
+
+79 
+	gmMou£
+.
+	gWh“lD–
+ = 0.0f;
+
+80 
+	gmMou£
+.
+	gLBu‰ÚDown
+ = 
+çl£
+;
+
+81 
+	gmMou£
+.
+	gRBu‰ÚDown
+ = 
+çl£
+;
+
+82 
+	gmMou£
+.
+	gMBu‰ÚDown
+ = 
+çl£
+;
+
+85 
+	gvœtu®
+ ~
+IÅutEv’tHªdËrI¼licht
+() {}
+
+87 
+vœtu®
+ 
+IIÅutT¿n¦©Ü
+* 
+g‘IÅutT¿n¦©Ü
+Ğ
+u32
+ 
+šputT¿n¦©ÜHashId
+)
+
+89 
+IIÅutT¿n¦©Ü
+* 
+	gšputT¿n¦©Ü
+ = 0;
+
+91 
+u32
+ 
+	gi
+ = 0; i < 
+	gmIÅutT¿n¦©Üs
+.
+size
+(); ++i)
+
+93 if(
+	gmIÅutT¿n¦©Üs
+[
+i
+]->
+g‘HashId
+(è=ğ
+šputT¿n¦©ÜHashId
+)
+
+95 
+šputT¿n¦©Ü
+ = 
+mIÅutT¿n¦©Üs
+[
+i
+];
+
+100  
+	gšputT¿n¦©Ü
+;
+
+129 
+vœtu®
+ 
+»gi¡”IÅutT¿n¦©Ü
+Ğ
+IIÅutT¿n¦©Ü
+* 
+Œª¦©Ü
+)
+
+137 
+vœtu®
+ 
+uÄegi¡”IÅutT¿n¦©Ü
+Ğ
+u32
+ 
+šputT¿n¦©ÜHashId
+)
+
+142 
+vœtu®
+ 
+uÄegi¡”IÅutT¿n¦©Ü
+Ğ
+IIÅutT¿n¦©Ü
+* 
+Œª¦©Ü
+)
+
+147 
+vœtu®
+ 
+»gi¡”IÅutT¿n¦©ÜFaùÜy
+Ğ
+IIÅutT¿n¦©ÜFaùÜy
+* 
+çùÜy
+)
+
+149 
+	gçùÜy
+->
+g¿b
+();
+
+150 
+	gmIÅutT¿n¦©ÜsFaùÜ›s
+.
+push_back
+(
+çùÜy
+);
+
+154 
+vœtu®
+ 
+boŞ
+ 
+keyP»s£d
+(
+œr
+::
+EKEY_CODE
+ 
+keycode
+è{  (
+mKeyS‹
+[keycode] =ğ
+EKS_PRESSED
+); };
+
+155 
+vœtu®
+ 
+boŞ
+ 
+keyDown
+(
+œr
+::
+EKEY_CODE
+ 
+keycode
+è{  (
+mKeyS‹
+[keycode] =ğ
+EKS_DOWN
+ || mKeyS‹[keycode] =ğ
+EKS_PRESSED
+); };
+
+156 
+vœtu®
+ 
+boŞ
+ 
+keyUp
+(
+œr
+::
+EKEY_CODE
+ 
+keycode
+è{  (
+mKeyS‹
+[keycode] =ğ
+EKS_UP
+ || mKeyS‹[keycode] =ğ
+EKS_RELEASED
+); };
+
+157 
+vœtu®
+ 
+boŞ
+ 
+keyR–—£d
+(
+œr
+::
+EKEY_CODE
+ 
+keycode
+è{  (
+mKeyS‹
+[keycode] =ğ
+EKS_RELEASED
+); };
+
+160 
+vœtu®
+ 
+boŞ
+ 
+OnKeyIÅutEv’t
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+)
+
+166 
+u32
+ 
+i
+ = 0; 
+	gi
+ < 
+	gmIÅutT¿n¦©Üs
+.
+size
+(); ++i)
+
+167  
+	gmIÅutT¿n¦©Üs
+[
+i
+]->
+Œª¦©e
+(
+this
+);
+
+168  
+	gçl£
+;
+
+172 
+vœtu®
+ 
+boŞ
+ 
+OnBu‰ÚClicked
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+173 
+vœtu®
+ 
+boŞ
+ 
+OnSüŞlB¬Chªged
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+174 
+vœtu®
+ 
+boŞ
+ 
+OnCheckBoxChªged
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+175 
+vœtu®
+ 
+boŞ
+ 
+OnLi¡BoxChªged
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+176 
+vœtu®
+ 
+boŞ
+ 
+OnLi¡BoxS–eùedAgaš
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+177 
+vœtu®
+ 
+boŞ
+ 
+OnFeS–eùed
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+178 
+vœtu®
+ 
+boŞ
+ 
+OnMes§geBoxYes
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+179 
+vœtu®
+ 
+boŞ
+ 
+OnMes§geBoxNo
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+180 
+vœtu®
+ 
+boŞ
+ 
+OnMes§geBoxOk
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+181 
+vœtu®
+ 
+boŞ
+ 
+OnMes§geBoxCªûl
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+182 
+vœtu®
+ 
+boŞ
+ 
+OnEd™BoxEÁ”
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+183 
+vœtu®
+ 
+boŞ
+ 
+OnTabChªged
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+184 
+vœtu®
+ 
+boŞ
+ 
+OnComboBoxChªged
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+185 
+vœtu®
+ 
+boŞ
+ 
+OnSpšBoxChªged
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+188 
+vœtu®
+ 
+boŞ
+ 
+OnLMou£P»s£dDown
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+189 
+vœtu®
+ 
+boŞ
+ 
+OnRMou£P»s£dDown
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+190 
+vœtu®
+ 
+boŞ
+ 
+OnMMou£P»s£dDown
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+191 
+vœtu®
+ 
+boŞ
+ 
+OnLMou£LeáUp
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+192 
+vœtu®
+ 
+boŞ
+ 
+OnRMou£LeáUp
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+193 
+vœtu®
+ 
+boŞ
+ 
+OnMMou£LeáUp
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+194 
+vœtu®
+ 
+boŞ
+ 
+OnMou£Moved
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+195 
+vœtu®
+ 
+boŞ
+ 
+OnMou£Wh“l
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+198 
+vœtu®
+ 
+boŞ
+ 
+OnU£rEv’t
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+è{  
+çl£
+; }
+
+200 
+vœtu®
+ 
+boŞ
+ 
+OnEv’t
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+e
+)
+
+202 
+e
+.
+Ev’tTy³
+)
+
+204 
+œr
+::
+EET_KEY_INPUT_EVENT
+ :
+
+206 ià(
+e
+.
+KeyIÅut
+.
+P»s£dDown
+ =ğ
+Œue
+)
+
+207 ià(
+e
+.
+KeyIÅut
+.
+P»s£dDown
+)
+
+209 ià(
+mKeyS‹
+[
+e
+.
+KeyIÅut
+.
+Key
+] !ğ
+EKS_DOWN
+)
+
+210 
+mKeyS‹
+[
+e
+.
+KeyIÅut
+.
+Key
+] = 
+EKS_PRESSED
+;
+
+211 
+	gmKeyS‹
+[
+e
+.
+KeyIÅut
+.
+Key
+] = 
+EKS_DOWN
+;
+
+214 ià(
+	gmKeyS‹
+[
+e
+.
+KeyIÅut
+.
+Key
+] !ğ
+EKS_UP
+)
+
+215 
+mKeyS‹
+[
+e
+.
+KeyIÅut
+.
+Key
+] = 
+EKS_RELEASED
+;
+
+218 ià(
+	ge
+.
+	gKeyIÅut
+.
+	gP»s£dDown
+è 
+OnKeyIÅutEv’t
+(
+e
+);
+
+222 
+	gœr
+::
+EET_GUI_EVENT
+ :
+
+224 
+e
+.
+GUIEv’t
+.
+Ev’tTy³
+)
+
+226 
+œr
+::
+gui
+::
+EGET_BUTTON_CLICKED
+ :  
+OnBu‰ÚClicked
+(
+e
+);
+
+227 
+	gœr
+::
+gui
+::
+EGET_SCROLL_BAR_CHANGED
+ :  
+OnSüŞlB¬Chªged
+(
+e
+);
+
+228 
+	gœr
+::
+gui
+::
+EGET_CHECKBOX_CHANGED
+ :  
+OnCheckBoxChªged
+(
+e
+);
+
+229 
+	gœr
+::
+gui
+::
+EGET_LISTBOX_CHANGED
+ :  
+OnLi¡BoxChªged
+(
+e
+);
+
+230 
+	gœr
+::
+gui
+::
+EGET_LISTBOX_SELECTED_AGAIN
+ :  
+OnLi¡BoxS–eùedAgaš
+(
+e
+);
+
+231 
+	gœr
+::
+gui
+::
+EGET_FILE_SELECTED
+ :  
+OnFeS–eùed
+(
+e
+);
+
+232 
+	gœr
+::
+gui
+::
+EGET_MESSAGEBOX_YES
+ :  
+OnMes§geBoxYes
+(
+e
+);
+
+233 
+	gœr
+::
+gui
+::
+EGET_MESSAGEBOX_NO
+ :  
+OnMes§geBoxNo
+(
+e
+);
+
+234 
+	gœr
+::
+gui
+::
+EGET_MESSAGEBOX_OK
+ :  
+OnMes§geBoxOk
+(
+e
+);
+
+235 
+	gœr
+::
+gui
+::
+EGET_MESSAGEBOX_CANCEL
+ :  
+OnMes§geBoxCªûl
+(
+e
+);
+
+236 
+	gœr
+::
+gui
+::
+EGET_EDITBOX_ENTER
+ :  
+OnEd™BoxEÁ”
+(
+e
+);
+
+237 
+	gœr
+::
+gui
+::
+EGET_TAB_CHANGED
+ :  
+OnTabChªged
+(
+e
+);
+
+238 
+	gœr
+::
+gui
+::
+EGET_COMBO_BOX_CHANGED
+ :  
+OnComboBoxChªged
+(
+e
+);
+
+239 
+	gœr
+::
+gui
+::
+EGET_SPINBOX_CHANGED
+ :  
+OnSpšBoxChªged
+(
+e
+);
+
+240  :  
+çl£
+;
+
+245 
+	gœr
+::
+EET_MOUSE_INPUT_EVENT
+ :
+
+247 
+mMou£
+.
+X
+ = 
+e
+.
+Mou£IÅut
+.X;
+
+248 
+	gmMou£
+.
+	gY
+ = 
+e
+.
+Mou£IÅut
+.
+Y
+;
+
+250 
+	ge
+.
+	gMou£IÅut
+.
+	gEv’t
+)
+
+252 
+	gœr
+::
+EMIE_LMOUSE_PRESSED_DOWN
+ : 
+mMou£
+.
+LBu‰ÚDown
+ = 
+Œue
+;  
+OnLMou£P»s£dDown
+(
+e
+);
+
+253 
+	gœr
+::
+EMIE_RMOUSE_PRESSED_DOWN
+ : 
+mMou£
+.
+RBu‰ÚDown
+ = 
+Œue
+;  
+OnRMou£P»s£dDown
+(
+e
+);
+
+254 
+	gœr
+::
+EMIE_MMOUSE_PRESSED_DOWN
+ : 
+mMou£
+.
+MBu‰ÚDown
+ = 
+Œue
+;  
+OnMMou£P»s£dDown
+(
+e
+);
+
+255 
+	gœr
+::
+EMIE_LMOUSE_LEFT_UP
+ : 
+mMou£
+.
+LBu‰ÚDown
+ = 
+çl£
+;  
+OnLMou£LeáUp
+(
+e
+);
+
+256 
+	gœr
+::
+EMIE_RMOUSE_LEFT_UP
+ : 
+mMou£
+.
+RBu‰ÚDown
+ = 
+çl£
+;  
+OnRMou£LeáUp
+(
+e
+);
+
+257 
+	gœr
+::
+EMIE_MMOUSE_LEFT_UP
+ : 
+mMou£
+.
+MBu‰ÚDown
+ = 
+çl£
+;  
+OnMMou£LeáUp
+(
+e
+);
+
+258 
+	gœr
+::
+EMIE_MOUSE_MOVED
+ :  
+OnMou£Moved
+(
+e
+);
+
+259 
+	gœr
+::
+EMIE_MOUSE_WHEEL
+ :
+
+261 
+mMou£
+.
+Wh“lD–
+ = mMou£.
+Wh“l
+ - 
+e
+.
+Mou£IÅut
+.Wheel;
+
+262 
+	gmMou£
+.
+	gWh“l
+ +ğ
+e
+.
+Mou£IÅut
+.
+Wh“l
+;
+
+263  
+OnMou£Wh“l
+(
+e
+);
+
+265  :  
+çl£
+;
+
+270 
+	gœr
+::
+EET_USER_EVENT
+ :
+
+272  
+OnU£rEv’t
+(
+e
+);
+
+273  :  
+çl£
+;
+
+278  
+	gçl£
+;
+
+	@..\engine\source\quanticvortex\drivers\irrlicht\qvSceneViewIrrlicht.cpp
+
+27 
+	~"qvSûÃV›wI¼licht.h
+"
+
+29 
+	~"qvIEngšeMªag”.h
+"
+
+30 
+	~"qvIEv’tMªag”.h
+"
+
+33 
+	~"IFeSy¡em.h
+"
+
+34 
+	~"œrTy³s.h
+"
+
+36 
+Çme¥aû
+ 
+	gqv
+
+
+38 
+Çme¥aû
+ 
+	gv›ws
+
+
+41 
+	gSûÃV›wI¼licht
+::
+SûÃV›wI¼licht
+ĞcÚ¡ 
+c8
+* 
+Çme
+, 
+IEngšeMªag”
+* 
+’gše
+, 
+u32
+ 
+–em’tV›wHashTy³
+)
+
+42 :
+mVisibË
+(
+Œue
+), 
+mDeçuÉCam”a
+(0), 
+mSûÃMªag”
+(0),
+
+43 
+mEv’tMªag”
+(
+’gše
+->
+g‘Ev’tMªag”
+()), 
+mEËm’tV›wHashTy³
+(
+–em’tV›wHashTy³
+), 
+mID
+(0)
+
+49 
+	gmID
+ = 
+Ãw
+ 
+EVI_ELEMENT_VIEW_ID
+(
+Çme
+);
+
+52 
+	gSûÃV›wI¼licht
+::~
+SûÃV›wI¼licht
+()
+
+54 
+mSûÃMªag”
+ = 0;
+
+55 
+	gAùÜSûÃNodeM­
+::
+P¬’tLa¡I‹¿tÜ
+ 
+™rAùÜ
+ = 
+mAùÜSûÃNodeM­
+.
+g‘P¬’tLa¡I‹¿tÜ
+();
+
+57 !
+	g™rAùÜ
+.
+©End
+())
+
+58 
+	gmAùÜSûÃNodeM­
+.
+d–šk
+(
+™rAùÜ
+->
+g‘Key
+());
+
+61 
+	gœr
+::
+sûÃ
+::
+ISûÃNode
+* 
+SûÃV›wI¼licht
+::
+fšdSûÃNode
+Ğ
+u32
+ 
+aùÜHashId
+)
+
+71 
+	gSûÃV›wI¼licht
+::
+addSûÃNode
+(cÚ¡ 
+gamšg
+::
+SAùÜArgs
+& 
+¬gs
+, 
+u32
+ 
+aùÜHashId
+)
+
+76 
+	gSûÃV›wI¼licht
+::
+lßdSûÃ
+(cÚ¡ 
+c8
+ *
+sûÃName
+)
+
+78 
+mSûÃMªag”
+->
+g‘FeSy¡em
+()->
+addZFeArchive
+(
+sûÃName
+);
+
+82 
+	gSûÃV›wI¼licht
+::
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+)
+
+84 
+	gmSûÃMªag”
+->
+d¿wAÎ
+();
+
+87 
+	gSûÃV›wI¼licht
+::
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+)
+
+92 
+SûÃV›wI¼licht
+::
+OnC»©eNode
+(
+œr
+::
+sûÃ
+::
+ISûÃNode
+* 
+node
+)
+
+96 
+SûÃV›wI¼licht
+::
+OnR—dU£rD©a
+(
+œr
+::
+sûÃ
+::
+ISûÃNode
+* 
+fÜSûÃNode
+, i¼::
+io
+::
+IA‰ribu‹s
+* 
+u£rD©a
+)
+
+98 
+œr
+::
+cÜe
+::
+¡ršgc
+ 
+nodeName
+ = 
+fÜSûÃNode
+->
+g‘Name
+();
+
+99 
+	gœr
+::
+cÜe
+::
+¡ršgc
+ 
+expÜ‹rName
+ = 
+u£rD©a
+->
+g‘A‰ribu‹AsSŒšg
+("Exporter");
+
+100 
+boŞ
+ 
+	ghasPhysics
+ = 
+u£rD©a
+->
+g‘A‰ribu‹AsBoŞ
+("Physics.Enabled");
+
+192 
+	gœr
+::
+io
+::
+IA‰ribu‹s
+* 
+SûÃV›wI¼licht
+::
+ü—‹U£rD©a
+(
+œr
+::
+sûÃ
+::
+ISûÃNode
+* 
+fÜSûÃNode
+)
+
+	@..\engine\source\quanticvortex\drivers\irrlicht\qvSceneViewIrrlicht.h
+
+27 #iâdeà
+__SCENE_VIEW_IRRLICHT_H_
+
+
+28 
+	#__SCENE_VIEW_IRRLICHT_H_
+
+
+	)
+
+30 
+	~"qvISûÃV›w.h
+"
+
+32 
+	~"œrM­.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+şass
+ 
+	gIEngšeMªag”
+;
+
+38 
+Çme¥aû
+ 
+	gev’ts
+
+
+40 
+şass
+ 
+	gIEv’tMªag”
+;
+
+43 
+Çme¥aû
+ 
+	gv›ws
+
+
+45 
+	gœr
+::
+	tcÜe
+::
+	tm­
+<
+	ts32
+, 
+	tœr
+::
+	tsûÃ
+::
+	tISûÃNode
+*> 
+	tAùÜSûÃNodeM­
+;
+
+47 şas 
+	cSûÃV›wI¼licht
+: 
+public
+ 
+ISûÃV›w
+
+
+50 
+public
+:
+
+51 
+SûÃV›wI¼licht
+ĞcÚ¡ 
+c8
+* 
+Çme
+, 
+IEngšeMªag”
+* 
+’gše
+, 
+u32
+ 
+–em’tV›wHashTy³
+ = 
+EVT_ELEMENT_VIEW_SCENE
+.
+Hash
+);
+
+52 
+	gvœtu®
+ ~
+SûÃV›wI¼licht
+();
+
+54 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+(ècÚ¡ {  
+	gmID
+->
+	gHash
+; }
+
+56 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+(ècÚ¡ {  
+	gmEËm’tV›wHashTy³
+; }
+
+58 
+vœtu®
+ 
+boŞ
+ 
+g‘VisibË
+(ècÚ¡ {  
+	gmVisibË
+; }
+
+75 
+vœtu®
+ 
+£tVisibË
+(
+boŞ
+ 
+visibË
+)
+
+77 
+	gmVisibË
+ = 
+visibË
+;
+
+80 
+vœtu®
+ 
+£tCam”a
+(
+œr
+::
+sûÃ
+::
+ICam”aSûÃNode
+* 
+ÿm”a
+)
+
+82 
+mDeçuÉCam”a
+ = 
+ÿm”a
+;
+
+85 
+vœtu®
+ 
+	gœr
+::
+sûÃ
+::
+ICam”aSûÃNode
+* 
+g‘Cam”a
+()
+
+87  
+mDeçuÉCam”a
+;
+
+90 
+vœtu®
+ 
+	gœr
+::
+sûÃ
+::
+ISûÃMªag”
+* 
+g‘SûÃMªag”
+()
+
+92  
+mSûÃMªag”
+;
+
+95 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+97 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+);
+
+99 
+vœtu®
+ 
+lßdSûÃ
+(cÚ¡ 
+c8
+* 
+sûÃName
+);
+
+101 
+vœtu®
+ 
+addSûÃNode
+(cÚ¡ 
+gamšg
+::
+SAùÜArgs
+& 
+¬gs
+, 
+u32
+ 
+aùÜHashId
+ = 0);
+
+103 
+vœtu®
+ 
+	gœr
+::
+sûÃ
+::
+ISûÃNode
+* 
+fšdSûÃNode
+Ğ
+u32
+ 
+aùÜHashId
+);
+
+105 
+vœtu®
+ 
+OnC»©eNode
+(
+œr
+::
+sûÃ
+::
+ISûÃNode
+* 
+node
+);
+
+107 
+vœtu®
+ 
+OnR—dU£rD©a
+(
+œr
+::
+sûÃ
+::
+ISûÃNode
+* 
+fÜSûÃNode
+, i¼::
+io
+::
+IA‰ribu‹s
+* 
+u£rD©a
+);
+
+109 
+vœtu®
+ 
+	gœr
+::
+io
+::
+IA‰ribu‹s
+* 
+ü—‹U£rD©a
+(
+œr
+::
+sûÃ
+::
+ISûÃNode
+* 
+fÜSûÃNode
+);
+
+111 
+	g´Ùeùed
+:
+
+113 
+boŞ
+ 
+mVisibË
+;
+
+114 
+	gœr
+::
+sûÃ
+::
+ICam”aSûÃNode
+* 
+mDeçuÉCam”a
+;
+
+115 
+	gœr
+::
+sûÃ
+::
+ISûÃMªag”
+* 
+mSûÃMªag”
+;
+
+116 
+	gev’ts
+::
+IEv’tMªag”
+* 
+mEv’tMªag”
+;
+
+117 
+u32
+ 
+	gmEËm’tV›wHashTy³
+;
+
+118 
+EVI_ELEMENT_VIEW_ID
+* 
+	gmID
+;
+
+119 
+AùÜSûÃNodeM­
+ 
+	gmAùÜSûÃNodeM­
+;
+
+	@..\engine\source\quanticvortex\qvActor.cpp
+
+28 
+	~"qvAùÜ.h
+"
+
+31 
+Çme¥aû
+ 
+	gqv
+
+
+33 
+Çme¥aû
+ 
+	ggamšg
+
+
+36 
+	gAùÜ
+::
+AùÜ
+()
+
+40 
+AùÜ
+::AùÜĞcÚ¡ 
+c8
+* 
+aùÜName
+, 
+u32
+ 
+aùÜHashTy³
+)
+
+41 : 
+mAùÜHashTy³
+(
+aùÜHashTy³
+)
+
+43 
+mId
+ = 
+Ãw
+ 
+AI_ACTOR_ID
+(
+aùÜName
+);
+
+46 
+	gAùÜ
+::~
+AùÜ
+()
+
+51 
+AùÜ
+::
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+)
+
+	@..\engine\source\quanticvortex\qvActor.h
+
+28 #iâdeà
+__ACTOR_H_
+
+
+29 
+	#__ACTOR_H_
+
+
+	)
+
+31 
+	~"qvIAùÜ.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+Çme¥aû
+ 
+	ggamšg
+
+
+38 şas 
+	cAùÜ
+: 
+public
+ 
+IAùÜ
+
+
+41 
+public
+:
+
+43 
+AùÜ
+();
+
+44 
+AùÜ
+(cÚ¡ 
+c8
+* 
+aùÜName
+, 
+u32
+ 
+aùÜHashTy³
+);
+
+46 
+	gvœtu®
+ ~
+AùÜ
+();
+
+48 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+(ècÚ¡ {  
+	gmId
+->
+	gHash
+;}
+
+50 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+(ècÚ¡ {  
+	gmAùÜHashTy³
+;}
+
+54 
+vœtu®
+ 
+boŞ
+ 
+isVisibË
+ (ècÚ¡ {  
+	gmVisibË
+;}
+
+62 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+);
+
+64 
+	g´Ùeùed
+:
+
+65 cÚ¡ 
+AI_ACTOR_ID
+* 
+mId
+;
+
+66 
+u32
+ 
+	gmAùÜHashTy³
+;
+
+68 
+boŞ
+ 
+	gmVisibË
+;
+
+	@..\engine\source\quanticvortex\qvActorManager.cpp
+
+1 
+	~"qvAùÜMªag”.h
+"
+
+3 
+Çme¥aû
+ 
+	gqv
+
+
+5 
+Çme¥aû
+ 
+	ggamšg
+
+
+8 
+	gAùÜMªag”
+::
+AùÜMªag”
+()
+
+13 
+AùÜMªag”
+::~ActorManager()
+
+17 
+IAùÜSh¬edPŒ
+ 
+AùÜMªag”
+::
+addAùÜ
+ĞcÚ¡ 
+c8
+* 
+aùÜName
+, 
+u32
+ 
+aùÜHashTy³
+)
+
+19 
+IAùÜSh¬edPŒ
+ 
+	g±r
+;
+
+20  
+	g±r
+;
+
+23 
+IAùÜSh¬edPŒ
+ 
+	gAùÜMªag”
+::
+addCam”aAùÜ
+Ğ
+u32
+ 
+aùÜHashTy³
+)
+
+25 
+IAùÜSh¬edPŒ
+ 
+±r
+;
+
+26  
+	g±r
+;
+
+29 
+IAùÜSh¬edPŒ
+ 
+	gAùÜMªag”
+::
+addPÏy”AùÜ
+Ğ
+u32
+ 
+aùÜHashTy³
+)
+
+31 
+IAùÜSh¬edPŒ
+ 
+±r
+;
+
+32  
+	g±r
+;
+
+35 
+	gAùÜMªag”
+::
+fšdAùÜsByTy³
+Ğ
+u32
+ 
+aùÜHashTy³
+ , 
+AùÜsSh¬edPŒA¼ay
+& 
+aùÜs
+)
+
+37 
+s32
+ 
+	gi
+ = 0; i < 
+	gmAùÜs
+.
+size
+(); ++i)
+
+38 if(
+	gmAùÜs
+[
+i
+]->
+g‘HashTy³
+(è=ğ
+aùÜHashTy³
+)
+
+39 
+aùÜs
+.
+push_back
+(
+mAùÜs
+[
+i
+]);
+
+42 
+IAùÜSh¬edPŒ
+ 
+	gAùÜMªag”
+::
+fšdAùÜ
+(
+u32
+ 
+aùÜHashId
+)
+
+44 
+IAùÜSh¬edPŒ
+ 
+aùÜPŒ
+;
+
+45 
+s32
+ 
+	gi
+ = 0; i < 
+	gmAùÜs
+.
+size
+(); ++i)
+
+47 if(
+	gmAùÜs
+[
+i
+]->
+g‘HashId
+(è=ğ
+aùÜHashId
+)
+
+49 
+aùÜPŒ
+ = 
+mAùÜs
+[
+i
+];
+
+54  
+	gaùÜPŒ
+;
+
+57 
+	gAùÜMªag”
+::
+»gi¡”AùÜFaùÜy
+(
+IAùÜFaùÜy
+ * 
+çùÜy
+)
+
+59 
+mAùÜsFaùÜ›s
+.
+push_back
+(
+IAùÜFaùÜySh¬edPŒ
+(
+çùÜy
+));
+
+62 
+	gAùÜMªag”
+::
+»gi¡”AùÜFaùÜy
+(
+IAùÜFaùÜySh¬edPŒ
+ 
+çùÜy
+)
+
+64 
+mAùÜsFaùÜ›s
+.
+push_back
+(
+çùÜy
+);
+
+67 
+	gAùÜMªag”
+::
+»moveAùÜ
+Ğ
+u32
+ 
+aùÜHashId
+)
+
+69 
+u32
+ 
+aùÜIdx
+;
+
+72 
+s32
+ 
+	gi
+ = 0; i < 
+	gmAùÜs
+.
+size
+(); ++i)
+
+74 if(
+	gmAùÜs
+[
+i
+]->
+g‘HashId
+(è=ğ
+aùÜHashId
+)
+
+76 
+aùÜIdx
+ = 
+i
+ ;
+
+82 if((
+	gaùÜIdx
+ > 0è&& (‡ùÜIdx < 
+	gmAùÜs
+.
+size
+()))
+
+83 
+	gmAùÜs
+.
+”a£
+(
+aùÜIdx
+);
+
+	@..\engine\source\quanticvortex\qvActorManager.h
+
+2 #iâdeà
+__ACTORMANAGER_H_
+
+
+3 
+	#__ACTORMANAGER_H_
+
+
+	)
+
+5 
+	~"qvIAùÜMªag”.h
+"
+
+7 
+	~"qvAùÜFaùÜy.h
+"
+
+10 
+Çme¥aû
+ 
+	gqv
+
+
+12 
+Çme¥aû
+ 
+	ggamšg
+
+
+14 şas 
+	cAùÜMªag”
+: 
+IAùÜMªag”
+
+
+16 
+public
+:
+
+17 
+AùÜMªag”
+();
+
+19 
+	gvœtu®
+ ~
+AùÜMªag”
+();
+
+21 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+addAùÜ
+ĞcÚ¡ 
+c8
+* 
+aùÜName
+, 
+u32
+ 
+aùÜHashTy³
+);
+
+23 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+addCam”aAùÜ
+Ğ
+u32
+ 
+aùÜHashTy³
+);
+
+25 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+addPÏy”AùÜ
+Ğ
+u32
+ 
+aùÜHashTy³
+);
+
+27 
+vœtu®
+ 
+fšdAùÜsByTy³
+Ğ
+u32
+ 
+aùÜHashTy³
+ , 
+AùÜsSh¬edPŒA¼ay
+& 
+aùÜs
+);
+
+29 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+fšdAùÜ
+(
+u32
+ 
+aùÜHashId
+);
+
+31 
+vœtu®
+ 
+»gi¡”AùÜFaùÜy
+(
+IAùÜFaùÜy
+ * 
+çùÜy
+);
+
+33 
+vœtu®
+ 
+»gi¡”AùÜFaùÜy
+(
+IAùÜFaùÜySh¬edPŒ
+ 
+çùÜy
+);
+
+35 
+vœtu®
+ 
+»moveAùÜ
+Ğ
+u32
+ 
+aùÜHashId
+);
+
+37 
+	g´iv©e
+:
+
+38 
+AùÜsSh¬edPŒA¼ay
+ 
+mAùÜs
+;
+
+39 
+AùÜFaùÜySh¬edPŒA¼ay
+ 
+	gmAùÜsFaùÜ›s
+;
+
+	@..\engine\source\quanticvortex\qvActorMotion.cpp
+
+5 
+Çme¥aû
+ 
+	gqv
+
+
+7 
+Çme¥aû
+ 
+	ggamšg
+
+
+	@..\engine\source\quanticvortex\qvActorMotion.h
+
+2 #iâdeà
+__ACTOR_PHYSICS_MOTION_H_
+
+
+3 
+	#__ACTOR_PHYSICS_MOTION_H_
+
+
+	)
+
+5 
+	~"btDeçuÉMÙiÚS‹.h
+"
+
+8 
+Çme¥aû
+ 
+	gqv
+
+
+10 
+Çme¥aû
+ 
+	gphysics
+
+
+12 
+	gAùÜPhysicsMÙiÚ
+ : 
+btDeçuÉMÙiÚS‹
+
+
+15 
+AùÜMÙiÚ
+();
+
+	@..\engine\source\quanticvortex\qvActorMotionState.h
+
+28 #iâdeà
+__ACTOR_MOTION_STATE_H_
+
+
+29 
+	#__ACTOR_MOTION_STATE_H_
+
+
+	)
+
+31 
+	~"qvP»»quis™es.h
+"
+
+32 
+	~"qvTy³s.h
+"
+
+33 
+	~"qvAùÜTy³s.h
+"
+
+35 
+	~"Lš—rM©h/btQu©”niÚ.h
+"
+
+36 
+	~"Lš—rM©h/btDeçuÉMÙiÚS‹.h
+"
+
+38 
+	~"ISûÃNode.h
+"
+
+40 
+	gÇme¥aû
+
+
+42 
+qu©”niÚToEuËr
+(cÚ¡ 
+btQu©”niÚ
+ &
+TQu©
+, 
+btVeùÜ3
+ &
+TEuËr
+)
+
+44 
+btSÿÏr
+ 
+	gW
+ = 
+TQu©
+.
+g‘W
+();
+
+45 
+btSÿÏr
+ 
+	gX
+ = 
+TQu©
+.
+g‘X
+();
+
+46 
+btSÿÏr
+ 
+	gY
+ = 
+TQu©
+.
+g‘Y
+();
+
+47 
+btSÿÏr
+ 
+	gZ
+ = 
+TQu©
+.
+g‘Z
+();
+
+49 
+	gqv
+::
+»®
+ 
+WSqu¬ed
+ = 
+W
+ * W;
+
+50 
+	gqv
+::
+»®
+ 
+XSqu¬ed
+ = 
+X
+ * X;
+
+51 
+	gqv
+::
+»®
+ 
+YSqu¬ed
+ = 
+Y
+ * Y;
+
+52 
+	gqv
+::
+»®
+ 
+ZSqu¬ed
+ = 
+Z
+ * Z;
+
+54 
+	gTEuËr
+.
+£tX
+(
+©ª2f
+(2.0à* (
+Y
+ * 
+Z
+ + 
+X
+ * 
+W
+), -
+XSqu¬ed
+ - 
+YSqu¬ed
+ + 
+ZSqu¬ed
+ + 
+WSqu¬ed
+));
+
+55 
+	gTEuËr
+.
+£tY
+(
+asšf
+(-2.0à* (
+X
+ * 
+Z
+ - 
+Y
+ * 
+W
+)));
+
+56 
+	gTEuËr
+.
+£tZ
+(
+©ª2f
+(2.0à* (
+X
+ * 
+Y
+ + 
+Z
+ * 
+W
+), 
+XSqu¬ed
+ - 
+YSqu¬ed
+ - 
+ZSqu¬ed
+ + 
+WSqu¬ed
+));
+
+58 
+	gTEuËr
+ *ğ
+œr
+::
+cÜe
+::
+RADTODEG
+;
+
+63 
+Çme¥aû
+ 
+	gqv
+
+
+65 
+Çme¥aû
+ 
+	gphysics
+
+
+67 
+	gAùÜMÙiÚS‹
+: 
+public
+ 
+btDeçuÉMÙiÚS‹
+
+
+69 
+´iv©e
+:
+
+70 
+œr
+::
+sûÃ
+::
+ISûÃNode
+* 
+mSûÃNode
+;
+
+71 cÚ¡ 
+	ggamšg
+::
+AI_ACTOR_ID
+* 
+mAùÜId
+;
+
+73 
+	gpublic
+:
+
+75 
+AùÜMÙiÚS‹
+(cÚ¡ 
+gamšg
+::
+AI_ACTOR_ID
+* 
+aùÜId
+, 
+œr
+::
+sûÃ
+::
+ISûÃNode
+* 
+sûÃNode
+)
+
+76 :
+mSûÃNode
+(
+sûÃNode
+), 
+mAùÜId
+(
+aùÜId
+)
+
+81 
+vœtu®
+ 
+g‘WÜldT¿nsfÜm
+(
+btT¿nsfÜm
+& 
+ûÁ”OfMassWÜldT¿ns
+ ) const
+
+83 
+	gûÁ”OfMassWÜldT¿ns
+ = 
+m_g¿phicsWÜldT¿ns
+;
+
+88 
+vœtu®
+ 
+£tWÜldT¿nsfÜm
+(cÚ¡ 
+btT¿nsfÜm
+& 
+ûÁ”OfMassWÜldT¿ns
+)
+
+91 
+	gm_¡¬tWÜldT¿ns
+ = 
+ûÁ”OfMassWÜldT¿ns
+;
+
+92 
+	gm_g¿phicsWÜldT¿ns
+ = 
+ûÁ”OfMassWÜldT¿ns
+;
+
+94 cÚ¡ 
+	gbtVeùÜ3
+& 
+	gPošt
+ = 
+ûÁ”OfMassWÜldT¿ns
+.
+g‘Origš
+();
+
+95 
+	gmSûÃNode
+->
+£tPos™iÚ
+(
+œr
+::
+cÜe
+::
+veùÜ3df
+(
+Pošt
+[0], Point[1], Point[2]));
+
+98 
+btVeùÜ3
+ 
+	gEuËrRÙ©iÚ
+;
+
+99 
+qu©”niÚToEuËr
+(
+ûÁ”OfMassWÜldT¿ns
+.
+g‘RÙ©iÚ
+(), 
+EuËrRÙ©iÚ
+);
+
+100 
+	gmSûÃNode
+->
+£tRÙ©iÚ
+(
+œr
+::
+cÜe
+::
+veùÜ3df
+(
+EuËrRÙ©iÚ
+[0], EulerRotation[1], EulerRotation[2]));
+
+104 
+u32
+ 
+g‘AùÜId
+() const
+
+106  
+	gmAùÜId
+->
+	gHash
+;
+
+	@..\engine\source\quanticvortex\qvAnyKeyInputTranslator.cpp
+
+27 
+	~"qvAnyKeyIÅutT¿n¦©Ü.h
+"
+
+29 
+	~"qvIEv’tMªag”.h
+"
+
+30 
+	~"qvIIÅutReûiv”.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+Çme¥aû
+ 
+	gšput
+
+
+38 
+	gAnyKeyIÅutT¿n¦©Ü
+::
+AnyKeyIÅutT¿n¦©Ü
+(
+ev’ts
+::
+IEv’tMªag”
+* 
+ev’tMªag”
+,
+
+39 
+boŞ
+ 
+»®Time
+, 
+ev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+,
+
+40 cÚ¡ 
+c8
+* 
+šputT¿n¦©ÜName
+,
+
+41 
+u32
+ 
+šputT¿n¦©ÜHashTy³
+)
+
+42 :
+mEv’tMªag”
+(
+ev’tMªag”
+), 
+mR—lTime
+(
+»®Time
+),
+
+43 
+mArgs
+(
+¬gs
+),
+
+44 
+mIÅutT¿n¦©ÜHashTy³
+(
+šputT¿n¦©ÜHashTy³
+)
+
+47 
+	gmID
+ = 
+Ãw
+ 
+ITI_INPUT_TRANSLATOR_ID
+(
+šputT¿n¦©ÜName
+);
+
+50 
+	gAnyKeyIÅutT¿n¦©Ü
+::~
+AnyKeyIÅutT¿n¦©Ü
+()
+
+54 
+boŞ
+ 
+AnyKeyIÅutT¿n¦©Ü
+::
+Œª¦©e
+(
+qv
+::
+šput
+::
+IIÅutReûiv”
+ *
+cÚ‹xt
+)
+
+56 
+boŞ
+ 
+Œª¦©ed
+ = 
+çl£
+;
+
+58 if(
+	gmR—lTime
+)
+
+59 
+	gmEv’tMªag”
+->
+Œigg”
+(
+mArgs
+);
+
+61 
+	gmEv’tMªag”
+->
+’queueEv’t
+(
+mArgs
+);
+
+63 
+	gŒª¦©ed
+ = 
+Œue
+;
+
+65  
+	gŒª¦©ed
+;
+
+	@..\engine\source\quanticvortex\qvAnyKeyInputTranslator.h
+
+28 #iâdeà
+_ANY_KEY_INPUT_TRANSLATOR_H_
+
+
+29 
+	#_ANY_KEY_INPUT_TRANSLATOR_H_
+
+
+	)
+
+31 
+	~"qvIAnyKeyIÅutT¿n¦©Ü.h
+"
+
+32 
+	~"qvIEv’tArgs.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+43 
+Çme¥aû
+ 
+	gšput
+
+
+45 
+şass
+ 
+	gIIÅutReûiv”
+;
+
+47 şas 
+	cAnyKeyIÅutT¿n¦©Ü
+ : 
+public
+ 
+IAnyKeyIÅutT¿n¦©Ü
+
+
+50 
+public
+:
+
+52 
+AnyKeyIÅutT¿n¦©Ü
+(
+ev’ts
+::
+IEv’tMªag”
+* 
+ev’tMªag”
+,
+
+53 
+boŞ
+ 
+»®Time
+,
+
+54 
+ev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+,
+
+55 cÚ¡ 
+c8
+* 
+šputT¿n¦©ÜName
+,
+
+56 
+u32
+ 
+šputT¿n¦©ÜHashTy³
+ = 
+ITT_ANY_KEY
+.
+Hash
+);
+
+58 
+	gvœtu®
+ ~
+AnyKeyIÅutT¿n¦©Ü
+();
+
+60 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+(ècÚ¡ {  
+	gmID
+->
+	gHash
+; }
+
+62 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+(ècÚ¡ {  
+	gmIÅutT¿n¦©ÜHashTy³
+; }
+
+64 
+vœtu®
+ 
+boŞ
+ 
+Œª¦©e
+(
+IIÅutReûiv”
+ *
+cÚ‹xt
+);
+
+66 
+	g´iv©e
+:
+
+67 
+ev’ts
+::
+IEv’tMªag”
+* 
+mEv’tMªag”
+;
+
+68 
+boŞ
+ 
+	gmR—lTime
+;
+
+69 
+	gev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+mArgs
+;
+
+70 cÚ¡ 
+ITI_INPUT_TRANSLATOR_ID
+* 
+	gmID
+;
+
+71 
+u32
+ 
+	gmIÅutT¿n¦©ÜHashTy³
+;
+
+	@..\engine\source\quanticvortex\qvDefaultElementViewFactory.cpp
+
+28 
+	~"qvDeçuÉEËm’tV›wFaùÜy.h
+"
+
+29 
+	~"driv”s/œ¾icht/qvSûÃV›wI¼licht.h
+"
+
+30 
+	~"qvGuiV›w.h
+"
+
+32 
+Çme¥aû
+ 
+	gqv
+
+
+34 
+Çme¥aû
+ 
+	gv›ws
+
+
+37 
+	gDeçuÉEËm’tV›wFaùÜy
+::
+DeçuÉEËm’tV›wFaùÜy
+(
+IEngšeMªag”
+* 
+’gše
+)
+
+38 :
+mEngše
+(
+’gše
+)
+
+40 
+mSuµÜ‹dEËm’tV›wTy³s
+.
+push_back
+(
+EVT_ELEMENT_VIEW_SCENE
+.
+Hash
+);
+
+41 
+	gmSuµÜ‹dEËm’tV›wTy³s
+.
+push_back
+(
+EVT_ELEMENT_VIEW_GUI
+.
+Hash
+);
+
+44 
+	gDeçuÉEËm’tV›wFaùÜy
+::~
+DeçuÉEËm’tV›wFaùÜy
+()
+
+48 
+IEËm’tV›wSh¬edPŒ
+ 
+DeçuÉEËm’tV›wFaùÜy
+::
+addEËm’tV›w
+ĞcÚ¡ 
+c8
+* 
+Çme
+, 
+u32
+ 
+–em’tV›wHashTy³
+)
+
+50 
+IEËm’tV›wSh¬edPŒ
+ 
+	g–em’tV›w
+;
+
+52 if(
+	g–em’tV›wHashTy³
+ =ğ
+EVT_ELEMENT_VIEW_SCENE
+.
+Hash
+)
+
+53 
+–em’tV›w
+.
+assign
+(
+Ãw
+ 
+SûÃV›wI¼licht
+(
+Çme
+, 
+mEngše
+));
+
+58  
+	g–em’tV›w
+;
+
+61 
+u32
+ 
+	gDeçuÉEËm’tV›wFaùÜy
+::
+g‘C»©abËEËm’tV›wTy³CouÁ
+() const
+
+63  
+mSuµÜ‹dEËm’tV›wTy³s
+.
+size
+();
+
+66 
+boŞ
+ 
+	gDeçuÉEËm’tV›wFaùÜy
+::
+g‘C»©—bËEËm’tV›wTy³
+Ğ
+u32
+ 
+–em’tV›wHashTy³
+) const
+
+68 
+u32
+ 
+i
+=0; 
+	gi
+<
+	gmSuµÜ‹dEËm’tV›wTy³s
+.
+size
+(); ++i)
+
+69 ià(
+	gmSuµÜ‹dEËm’tV›wTy³s
+[
+i
+] =ğ
+–em’tV›wHashTy³
+)
+
+70  
+Œue
+;
+
+72  
+	gçl£
+;
+
+	@..\engine\source\quanticvortex\qvDefaultElementViewFactory.h
+
+28 #iâdeà
+__DEFAULT_ELEMENT_VIEW_FACTORY_H_
+
+
+29 
+	#__DEFAULT_ELEMENT_VIEW_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIEËm’tV›wFaùÜy.h
+"
+
+33 
+	~"œrA¼ay.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+şass
+ 
+	gIEngšeMªag”
+;
+
+39 
+Çme¥aû
+ 
+	gv›ws
+
+
+42 şas 
+	cDeçuÉEËm’tV›wFaùÜy
+ : 
+public
+ 
+IEËm’tV›wFaùÜy
+
+
+44 
+´iv©e
+:
+
+45 
+œr
+::
+cÜe
+::
+¬¿y
+<
+u32
+> 
+mSuµÜ‹dEËm’tV›wTy³s
+;
+
+46 
+IEngšeMªag”
+* 
+	gmEngše
+;
+
+48 
+	gpublic
+:
+
+49 
+DeçuÉEËm’tV›wFaùÜy
+(
+IEngšeMªag”
+* 
+’gše
+);
+
+50 
+	gvœtu®
+ ~
+DeçuÉEËm’tV›wFaùÜy
+();
+
+52 
+vœtu®
+ 
+IEËm’tV›wSh¬edPŒ
+ 
+addEËm’tV›w
+ĞcÚ¡ 
+c8
+* 
+Çme
+, 
+u32
+ 
+–em’tV›wHashTy³
+);
+
+54 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËEËm’tV›wTy³CouÁ
+() const;
+
+56 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËEËm’tV›wTy³
+Ğ
+u32
+ 
+–em’tV›wHashTy³
+) const;
+
+	@..\engine\source\quanticvortex\qvDefaultEventArgsFactory.cpp
+
+28 
+	~"qvDeçuÉEv’tArgsFaùÜy.h
+"
+
+30 
+	~"qvEv’tArgs.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+Çme¥aû
+ 
+	gev’ts
+
+
+38 
+	gDeçuÉEv’tArgsFaùÜy
+::
+DeçuÉEv’tArgsFaùÜy
+()
+
+41 
+mSuµÜ‹dEv’tArgsTy³s
+.
+push_back
+(
+ET_GAME_QUIT
+.
+Hash
+);
+
+42 
+	gmSuµÜ‹dEv’tArgsTy³s
+.
+push_back
+(
+ET_GAME_NEW
+.
+Hash
+);
+
+43 
+	gmSuµÜ‹dEv’tArgsTy³s
+.
+push_back
+(
+ET_GAME_STATE_CHANGE
+.
+Hash
+);
+
+46 
+	gDeçuÉEv’tArgsFaùÜy
+::~
+DeçuÉEv’tArgsFaùÜy
+()
+
+50 
+IEv’tArgsSh¬edPŒ
+ 
+DeçuÉEv’tArgsFaùÜy
+::
+ü—‹Ev’tArgs
+Ğ
+u32
+ 
+ev’tArgsHashTy³
+)
+
+52 
+IEv’tArgsSh¬edPŒ
+ 
+ev’tArgs
+;
+
+54 if(
+g‘C»©—bËEv’tArgsTy³
+(
+ev’tArgsHashTy³
+))
+
+55 
+	gev’tArgs
+ = 
+IEv’tArgsSh¬edPŒ
+(
+Ãw
+ 
+Ev’tArgs
+Ğ
+ev’tArgsHashTy³
+));
+
+57  
+	gev’tArgs
+;
+
+60 
+u32
+ 
+	gDeçuÉEv’tArgsFaùÜy
+::
+g‘C»©abËEv’tArgsTy³CouÁ
+() const
+
+62  
+mSuµÜ‹dEv’tArgsTy³s
+.
+size
+();
+
+65 
+boŞ
+ 
+	gDeçuÉEv’tArgsFaùÜy
+::
+g‘C»©—bËEv’tArgsTy³
+Ğ
+u32
+ 
+ev’tArgsHashTy³
+) const
+
+67 
+u32
+ 
+i
+=0; 
+	gi
+<
+	gmSuµÜ‹dEv’tArgsTy³s
+.
+size
+(); ++i)
+
+68 ià(
+	gmSuµÜ‹dEv’tArgsTy³s
+[
+i
+] =ğ
+ev’tArgsHashTy³
+)
+
+69  
+Œue
+;
+
+71  
+	gçl£
+;
+
+	@..\engine\source\quanticvortex\qvDefaultEventArgsFactory.h
+
+28 #iâdeà
+__DEFAULT_EVENT_ARGS_FACTORY_H_
+
+
+29 
+	#__DEFAULT_EVENT_ARGS_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIEv’tArgsFaùÜy.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+Çme¥aû
+ 
+	gev’ts
+
+
+37 şas 
+	cDeçuÉEv’tArgsFaùÜy
+ : 
+public
+ 
+IEv’tArgsFaùÜy
+
+
+39 
+´iv©e
+:
+
+40 
+Ev’tHashTy³sVeùÜ
+ 
+mSuµÜ‹dEv’tArgsTy³s
+;
+
+42 
+	gpublic
+:
+
+43 
+DeçuÉEv’tArgsFaùÜy
+();
+
+45 
+	gvœtu®
+ ~
+DeçuÉEv’tArgsFaùÜy
+();
+
+47 
+vœtu®
+ 
+IEv’tArgsSh¬edPŒ
+ 
+ü—‹Ev’tArgs
+Ğ
+u32
+ 
+ev’tArgsHashTy³
+);
+
+49 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËEv’tArgsTy³CouÁ
+() const;
+
+51 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËEv’tArgsTy³
+Ğ
+u32
+ 
+ev’tArgsHashTy³
+) const;
+
+	@..\engine\source\quanticvortex\qvDefaultGameViewFactory.cpp
+
+28 
+	~"qvDeçuÉGameV›wFaùÜy.h
+"
+
+29 
+	~"qvHumªV›w.h
+"
+
+31 
+Çme¥aû
+ 
+	gqv
+
+
+33 
+Çme¥aû
+ 
+	gv›ws
+
+
+36 
+	gDeçuÉGameV›wFaùÜy
+::
+DeçuÉGameV›wFaùÜy
+(
+IEngšeMªag”
+* 
+’gše
+)
+
+37 :
+mEngše
+(
+’gše
+)
+
+39 
+mSuµÜ‹dGameV›wTy³s
+.
+push_back
+(
+GVT_GAME_VIEW_HUMAN
+.
+Hash
+);
+
+40 
+	gmSuµÜ‹dGameV›wTy³s
+.
+push_back
+(
+GVT_GAME_VIEW_AI
+.
+Hash
+);
+
+41 
+	gmSuµÜ‹dGameV›wTy³s
+.
+push_back
+(
+GVT_GAME_VIEW_RECORDER
+.
+Hash
+);
+
+42 
+	gmSuµÜ‹dGameV›wTy³s
+.
+push_back
+(
+GVT_GAME_VIEW_NETWORK
+.
+Hash
+);
+
+43 
+	gmSuµÜ‹dGameV›wTy³s
+.
+push_back
+(
+GVT_GAME_VIEW_PHYSICS
+.
+Hash
+);
+
+46 
+	gDeçuÉGameV›wFaùÜy
+::~
+DeçuÉGameV›wFaùÜy
+()
+
+50 
+IGameV›wSh¬edPŒ
+ 
+DeçuÉGameV›wFaùÜy
+::
+addGameV›w
+Ğ
+u32
+ 
+gameV›wHashTy³
+)
+
+52 
+IGameV›wSh¬edPŒ
+ 
+gameV›w
+;
+
+72  
+	ggameV›w
+;
+
+75 
+u32
+ 
+	gDeçuÉGameV›wFaùÜy
+::
+g‘C»©abËGameV›wTy³CouÁ
+() const
+
+77  
+mSuµÜ‹dGameV›wTy³s
+.
+size
+();
+
+80 
+boŞ
+ 
+	gDeçuÉGameV›wFaùÜy
+::
+g‘C»©—bËGameV›wTy³
+Ğ
+u32
+ 
+gameV›wHashTy³
+) const
+
+82 
+u32
+ 
+i
+=0; 
+	gi
+<
+	gmSuµÜ‹dGameV›wTy³s
+.
+size
+(); ++i)
+
+83 ià(
+	gmSuµÜ‹dGameV›wTy³s
+[
+i
+] =ğ
+gameV›wHashTy³
+)
+
+84  
+Œue
+;
+
+86  
+	gçl£
+;
+
+	@..\engine\source\quanticvortex\qvDefaultGameViewFactory.h
+
+28 #iâdeà
+__DEFAULT_GAME_VIEW_FACTORY_H_
+
+
+29 
+	#__DEFAULT_GAME_VIEW_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIGameV›wFaùÜy.h
+"
+
+33 
+	~"œrA¼ay.h
+"
+
+36 
+Çme¥aû
+ 
+	gqv
+
+
+38 
+şass
+ 
+	gIEngšeMªag”
+;
+
+41 
+Çme¥aû
+ 
+	gv›ws
+
+
+43 şas 
+	cDeçuÉGameV›wFaùÜy
+ : 
+public
+ 
+IGameV›wFaùÜy
+
+
+45 
+´iv©e
+:
+
+46 
+œr
+::
+cÜe
+::
+¬¿y
+<
+u32
+> 
+mSuµÜ‹dGameV›wTy³s
+;
+
+47 
+IEngšeMªag”
+* 
+	gmEngše
+;
+
+49 
+	gpublic
+:
+
+50 
+DeçuÉGameV›wFaùÜy
+(
+IEngšeMªag”
+* 
+’gše
+);
+
+51 
+	gvœtu®
+ ~
+DeçuÉGameV›wFaùÜy
+();
+
+53 
+vœtu®
+ 
+IGameV›wSh¬edPŒ
+ 
+addGameV›w
+Ğ
+u32
+ 
+gameV›wHashTy³
+);
+
+55 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËGameV›wTy³CouÁ
+() const;
+
+57 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËGameV›wTy³
+Ğ
+u32
+ 
+gameV›wHashTy³
+) const;
+
+	@..\engine\source\quanticvortex\qvEngineInputTranslatorFactory.cpp
+
+28 
+	~"qvEngšeIÅutT¿n¦©ÜFaùÜy.h
+"
+
+31 
+	~"qvAnyKeyIÅutT¿n¦©Ü.h
+"
+
+32 
+	~"qvSšgËKeyIÅutT¿n¦©Ü.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+Çme¥aû
+ 
+	gšput
+
+
+40 
+	gEngšeIÅutT¿n¦©ÜFaùÜy
+::
+EngšeIÅutT¿n¦©ÜFaùÜy
+Ğ
+IEv’tMªag”
+* 
+ev’tMªag”
+,
+
+41 
+IIÅutReûiv”
+* 
+šputReûiv”
+)
+
+42 :
+mEv’tMªag”
+(
+ev’tMªag”
+),
+
+43 
+mIÅutReûiv”
+(
+šputReûiv”
+)
+
+45 
+	gmSuµÜ‹dEngšeIÅutT¿n¦©ÜTy³s
+.
+push_back
+(
+ITT_ANY_KEY
+.
+Hash
+);
+
+46 
+	gmSuµÜ‹dEngšeIÅutT¿n¦©ÜTy³s
+.
+push_back
+(
+ITT_SINGLE_KEY
+.
+Hash
+);
+
+54 
+	gEngšeIÅutT¿n¦©ÜFaùÜy
+::~
+EngšeIÅutT¿n¦©ÜFaùÜy
+()
+
+58 
+IIÅutT¿n¦©ÜSh¬edPŒ
+ 
+EngšeIÅutT¿n¦©ÜFaùÜy
+::
+addIÅutT¿n¦©Ü
+ (cÚ¡ 
+c8
+* 
+šputT¿n¦©ÜName
+, 
+u32
+ 
+šputT¿n¦©ÜHashTy³
+, 
+ev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+, 
+boŞ
+ 
+»®Time
+)
+
+60 
+IIÅutT¿n¦©ÜSh¬edPŒ
+ 
+	gŒª¦©Ü
+;
+
+67  
+	gŒª¦©Ü
+;
+
+70 
+u32
+ 
+	gEngšeIÅutT¿n¦©ÜFaùÜy
+::
+g‘C»©abËIÅutT¿n¦©ÜCouÁ
+() const
+
+72  
+mSuµÜ‹dEngšeIÅutT¿n¦©ÜTy³s
+.
+size
+();
+
+75 
+boŞ
+ 
+	gEngšeIÅutT¿n¦©ÜFaùÜy
+::
+g‘C»©—bËIÅutT¿n¦©Ü
+Ğ
+u32
+ 
+šputT¿n¦©ÜHashTy³
+) const
+
+77 
+u32
+ 
+i
+=0; 
+	gi
+<
+	gmSuµÜ‹dEngšeIÅutT¿n¦©ÜTy³s
+.
+size
+(); ++i)
+
+78 ià(
+	gmSuµÜ‹dEngšeIÅutT¿n¦©ÜTy³s
+[
+i
+] =ğ
+šputT¿n¦©ÜHashTy³
+)
+
+79  
+Œue
+;
+
+81  
+	gçl£
+;
+
+	@..\engine\source\quanticvortex\qvEngineInputTranslatorFactory.h
+
+28 #iâdeà
+_ENGINE_INPUT_TRANSLATOR_FACTORY_H_
+
+
+29 
+	#_kENGINE_INPUT_TRANSLATOR_FACTORY_H_
+
+
+	)
+
+31 
+	~"qvIIÅutT¿n¦©ÜFaùÜy.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+şass
+ 
+	gIEv’tMªag”
+;
+
+37 
+Çme¥aû
+ 
+	gšput
+
+
+39 
+şass
+ 
+	gIIÅutReûiv”
+;
+
+42 
+Çme¥aû
+ 
+	gšput
+
+
+44 şas 
+	cEngšeIÅutT¿n¦©ÜFaùÜy
+ : 
+public
+ 
+IIÅutT¿n¦©ÜFaùÜy
+
+
+46 
+´Ùeùed
+:
+
+47 
+IÅutT¿n¦©ÜHashTy³sA¼ay
+ 
+mSuµÜ‹dEngšeIÅutT¿n¦©ÜTy³s
+;
+
+48 
+IEv’tMªag”
+* 
+	gmEv’tMªag”
+;
+
+49 
+IIÅutReûiv”
+* 
+	gmIÅutReûiv”
+;
+
+51 
+	gpublic
+:
+
+52 
+EngšeIÅutT¿n¦©ÜFaùÜy
+Ğ
+IEv’tMªag”
+* 
+ev’tMªag”
+, 
+IIÅutReûiv”
+* 
+šputReûiv”
+);
+
+54 
+	gvœtu®
+ ~
+EngšeIÅutT¿n¦©ÜFaùÜy
+();
+
+56 
+vœtu®
+ 
+IIÅutT¿n¦©ÜSh¬edPŒ
+ 
+addIÅutT¿n¦©Ü
+ (cÚ¡ 
+c8
+* 
+šputT¿n¦©ÜName
+, 
+u32
+ 
+šputT¿n¦©ÜHashTy³
+, 
+ev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+, 
+boŞ
+ 
+»®Time
+ = 
+çl£
+);
+
+58 
+vœtu®
+ 
+u32
+ 
+g‘C»©abËIÅutT¿n¦©ÜCouÁ
+() const;
+
+60 
+vœtu®
+ 
+boŞ
+ 
+g‘C»©—bËIÅutT¿n¦©Ü
+Ğ
+u32
+ 
+šputT¿n¦©ÜHashTy³
+) const;
+
+	@..\engine\source\quanticvortex\qvEngineManager.cpp
+
+28 
+	~"qvEv’tMªag”.h
+"
+
+29 
+	~"qvEngšeMªag”.h
+"
+
+30 
+	~"qvAùÜMªag”.h
+"
+
+32 
+	~"qvGameLogic.h
+"
+
+34 
+	~"œ¾icht.h
+"
+
+36 
+	~"driv”s/œ¾icht/qvIÅutEv’tHªdËrI¼licht.h
+"
+
+38 
+Çme¥aû
+ 
+	gqv
+
+
+41 
+	gEngšeMªag”
+::
+EngšeMªag”
+()
+
+44 #ifdeà
+_DEBUG
+
+
+45 
+£tDebugName
+("EngineManager");
+
+47 
+	gmGameP¬ams
+.
+	gB™s
+ = 16;
+
+48 
+	gmGameP¬ams
+.
+	gFuÎsü“n
+ = 
+çl£
+;
+
+49 
+	gmGameP¬ams
+.
+	gLoÿlPÏy”s
+ = 1;
+
+50 
+	gmGameP¬ams
+.
+	gT™Ë
+ = "Default game Window";
+
+51 
+	gmGameP¬ams
+.
+	gWšdowSize
+ = 
+œr
+::
+cÜe
+::
+dim’siÚ2di
+(1024,768);
+
+54 
+	gEngšeMªag”
+::
+EngšeMªag”
+(cÚ¡ 
+SGameP¬ams
+& 
+·¿ms
+):
+_h–pReque¡ed
+(
+çl£
+),
+
+55 
+mQu™
+(
+çl£
+), 
+mGameLogic
+(0), 
+mEv’tMªag”
+(0), 
+mIÅutReûiv”
+(0),
+
+56 
+mDeviû3d
+(0)
+
+61 #ifdeà
+_DEBUG
+
+
+62 
+£tDebugName
+("EngineManager");
+
+65 
+	gmGameP¬ams
+ = 
+·¿ms
+;
+
+68 
+	gEngšeMªag”
+::~
+EngšeMªag”
+()
+
+70 
+fš®ize
+();
+
+73 
+	gEngšeMªag”
+::
+»gi¡”GameEv’ts
+()
+
+92 
+mEv’tMªag”
+->
+»gi¡”Ev’tTy³
+(
+qv
+::
+ev’ts
+::
+ET_GAME_QUIT
+.
+Hash
+);
+
+93 
+	gmEv’tMªag”
+->
+»gi¡”Ev’tTy³
+(
+qv
+::
+ev’ts
+::
+ET_GAME_SAVE
+.
+Hash
+);
+
+94 
+	gmEv’tMªag”
+->
+»gi¡”Ev’tTy³
+(
+qv
+::
+ev’ts
+::
+ET_GAME_OPTIONS
+.
+Hash
+);
+
+95 
+	gmEv’tMªag”
+->
+»gi¡”Ev’tTy³
+(
+qv
+::
+ev’ts
+::
+ET_GAME_LOAD
+.
+Hash
+);
+
+96 
+	gmEv’tMªag”
+->
+»gi¡”Ev’tTy³
+(
+qv
+::
+ev’ts
+::
+ET_GAME_NEW
+.
+Hash
+);
+
+115 
+	gEngšeMªag”
+::
+»gi¡”IÅutReûiv”Driv”FaùÜy
+(
+šput
+::
+IIÅutReûiv”Driv”FaùÜy
+ *
+çùÜy
+)
+
+137 
+EngšeMªag”
+::
+lßdCÚfigu¿tiÚ
+()
+
+145 
+boŞ
+ 
+EngšeMªag”
+::
+š™Ÿlize
+()
+
+148 
+lßdCÚfigu¿tiÚ
+();
+
+150 
+	gœr
+::
+SI¼lichtC»©iÚP¬am‘”s
+ 
+·¿m‘”s
+;
+
+152 
+	g·¿m‘”s
+.
+	gB™s
+ = 
+mGameP¬ams
+.
+B™s
+;
+
+153 
+	g·¿m‘”s
+.
+	gDriv”Ty³
+ = 
+œr
+::
+video
+::
+EDT_OPENGL
+;
+
+154 
+	g·¿m‘”s
+.
+	gS‹ncbufãr
+ = 
+Œue
+;
+
+155 
+	g·¿m‘”s
+.
+	gWšdowSize
+ = 
+mGameP¬ams
+.
+WšdowSize
+;
+
+156 
+	g·¿m‘”s
+.
+	gFuÎsü“n
+ = 
+mGameP¬ams
+.
+FuÎsü“n
+;
+
+158 
+	gmDeviû3d
+ = 
+œr
+::
+ü—‹DeviûEx
+(
+·¿m‘”s
+);
+
+164 
+	gmEv’tMªag”
+ = 
+Ãw
+ 
+ev’ts
+::
+Ev’tMªag”
+();
+
+166 
+»gi¡”GameEv’ts
+();
+
+168  
+	gŒue
+;
+
+171 
+	gEngšeMªag”
+::
+fš®ize
+()
+
+173 
+u32
+ 
+i
+ = 0; 
+	gi
+ < 
+	gmIÅutReûiv”Driv”FaùÜ›s
+.
+size
+(); ++i)
+
+174 
+	gmIÅutReûiv”Driv”FaùÜ›s
+[
+i
+]->
+drİ
+();
+
+176 
+	gmDeviû3d
+->
+drİ
+();
+
+179 
+	gEngšeMªag”
+::
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+)
+
+181 ià(
+	gmGameLogic
+)
+
+183 
+	gmEv’tMªag”
+->
+´oûss
+(
+GC_GAME_FRAMERATE
+);
+
+185 
+	gmGameLogic
+->
+upd©e
+(
+cu¼’tTimeMs
+, 
+–­£dTimeMs
+);
+
+189 
+	gEngšeMªag”
+::
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+)
+
+196 
+	gEngšeMªag”
+::
+begšR’d”
+(
+boŞ
+ 
+backBufãr
+, boŞ 
+zBufãr
+)
+
+198 
+	gmDeviû3d
+->
+g‘VideoDriv”
+()->
+begšSûÃ
+(
+backBufãr
+, 
+zBufãr
+);
+
+201 
+	gEngšeMªag”
+::
+’dR’d”
+()
+
+203 
+mDeviû3d
+->
+g‘VideoDriv”
+()->
+’dSûÃ
+();
+
+206 
+s32
+ 
+	gEngšeMªag”
+::
+run
+()
+
+208 ià(!
+_h–pReque¡ed
+)
+
+210 
+mDeviû3d
+->
+g‘Tim”
+()->
+g‘Time
+();
+
+212 
+s32
+ 
+	gÏ¡FPS
+ = -1;
+
+216 
+u32
+ 
+	gÏ¡TimeMs
+ = 
+mDeviû3d
+->
+g‘Tim”
+()->
+g‘Time
+();
+
+218 
+	gmDeviû3d
+->
+run
+(è&& !
+	gmQu™
+)
+
+221 cÚ¡ 
+u32
+ 
+	gcu»ÁTimeMs
+ = 
+mDeviû3d
+->
+g‘Tim”
+()->
+g‘Time
+();
+
+222 
+u32
+ 
+	g–­£dTimeMs
+ = (
+cu»ÁTimeMs
+ - 
+Ï¡TimeMs
+);
+
+224 
+	gÏ¡TimeMs
+ = 
+cu»ÁTimeMs
+;
+
+226 if(
+	g–­£dTimeMs
+ > 16)
+
+227 
+	g–­£dTimeMs
+ = 16;
+
+232 
+upd©e
+Ğ
+cu»ÁTimeMs
+, 
+–­£dTimeMs
+);
+
+235 
+»nd”
+Ğ
+cu»ÁTimeMs
+, 
+–­£dTimeMs
+);
+
+237 
+	gÏ¡TimeMs
+ = 
+cu»ÁTimeMs
+;
+
+239 
+s32
+ 
+	gås
+ = 
+mDeviû3d
+->
+g‘VideoDriv”
+()->
+g‘FPS
+();
+
+241 ià(
+	gÏ¡FPS
+ !ğ
+ås
+)
+
+252 
+Ï¡FPS
+ = 
+ås
+;
+
+	@..\engine\source\quanticvortex\qvEngineManager.h
+
+28 #iâdeà
+__ENGINE_MANAGER_H_
+
+
+29 
+	#__ENGINE_MANAGER_H_
+
+
+	)
+
+31 
+	~"qvIEngšeMªag”.h
+"
+
+37 
+	~"œrA¼ay.h
+"
+
+39 
+	~"I¼lichtDeviû.h
+"
+
+42 
+Çme¥aû
+ 
+	gqv
+
+
+45 şas 
+	cEngšeMªag”
+ : 
+public
+ 
+IEngšeMªag”
+
+
+47 
+public
+:
+
+49 
+EngšeMªag”
+();
+
+51 
+EngšeMªag”
+(cÚ¡ 
+SGameP¬ams
+& 
+·¿ms
+ );
+
+53 
+	gvœtu®
+ ~
+EngšeMªag”
+();
+
+55 
+vœtu®
+ 
+boŞ
+ 
+š™Ÿlize
+();
+
+57 
+vœtu®
+ 
+fš®ize
+();
+
+59 
+vœtu®
+ 
+s32
+ 
+run
+();
+
+61 
+vœtu®
+ 
+begšR’d”
+(
+boŞ
+ 
+backBufãr
+, boŞ 
+zBufãr
+);
+
+63 
+vœtu®
+ 
+’dR’d”
+();
+
+68 
+vœtu®
+ 
+»gi¡”IÅutReûiv”Driv”FaùÜy
+(
+šput
+::
+IIÅutReûiv”Driv”FaùÜy
+* 
+çùÜy
+);
+
+70 
+vœtu®
+ 
+	ggamšg
+::
+IGameLogic
+* 
+g‘GameLogic
+()
+
+72  
+mGameLogic
+;
+
+75 
+vœtu®
+ 
+	gev’ts
+::
+IEv’tMªag”
+* 
+g‘Ev’tMªag”
+()
+
+77  
+mEv’tMªag”
+;
+
+80 
+vœtu®
+ 
+	gšput
+::
+IIÅutReûiv”
+* 
+g‘IÅutReûiv”
+()
+
+82  
+mIÅutReûiv”
+;
+
+85 
+vœtu®
+ 
+	gSGameP¬ams
+& 
+g‘GameP¬am‘”s
+()
+
+87  
+	gmGameP¬ams
+;
+
+120 
+vœtu®
+ 
+£tQu™
+(
+boŞ
+ 
+qu™
+)
+
+122 
+	gmQu™
+ = 
+qu™
+;
+
+125 
+	g´iv©e
+:
+
+126 
+boŞ
+ 
+_h–pReque¡ed
+;
+
+127 
+boŞ
+ 
+	gmHasPİup
+;
+
+128 
+boŞ
+ 
+	gmQu™
+;
+
+129 
+btClock
+ 
+	gmClock
+;
+
+131 
+	g´Ùeùed
+:
+
+132 
+SGameP¬ams
+ 
+mGameP¬ams
+;
+
+135 
+	gœr
+::
+cÜe
+::
+¬¿y
+<
+šput
+::
+IIÅutReûiv”Driv”FaùÜy
+*> 
+mIÅutReûiv”Driv”FaùÜ›s
+;
+
+137 
+	ggamšg
+::
+IGameLogic
+* 
+mGameLogic
+;
+
+138 
+	gev’ts
+::
+IEv’tMªag”
+* 
+mEv’tMªag”
+;
+
+140 
+	gšput
+::
+IIÅutReûiv”Sh¬edPŒ
+ 
+mIÅutReûiv”
+;
+
+142 
+	gœr
+::
+I¼lichtDeviû
+* 
+mDeviû3d
+;
+
+148 
+vœtu®
+ 
+lßdCÚfigu¿tiÚ
+();
+
+150 
+vœtu®
+ 
+»gi¡”GameEv’ts
+();
+
+152 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+154 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+	@..\engine\source\quanticvortex\qvEventArgs.cpp
+
+27 
+	~"qvEv’tArgs.h
+"
+
+29 
+Çme¥aû
+ 
+	gqv
+
+
+31 
+Çme¥aû
+ 
+	gev’ts
+
+
+34 
+	gEv’tArgs
+::
+Ev’tArgs
+Ğ
+u32
+ 
+ev’tArgsHashTy³
+)
+
+35 :
+mEv’tArgsHashTy³
+(
+ev’tArgsHashTy³
+)
+
+39 
+Ev’tArgs
+::~EventArgs()
+
+	@..\engine\source\quanticvortex\qvEventArgs.h
+
+28 #iâdeà
+__EVENT_ARGS_H_
+
+
+29 
+	#__EVENT_ARGS_H_
+
+
+	)
+
+31 
+	~"qvIEv’tArgs.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+Çme¥aû
+ 
+	gev’ts
+
+
+37 şas 
+	cEv’tArgs
+: 
+public
+ 
+IEv’tArgs
+
+
+39 
+public
+:
+
+41 
+Ev’tArgs
+Ğ
+u32
+ 
+ev’tArgsHashTy³
+);
+
+43 
+	gvœtu®
+ ~
+Ev’tArgs
+();
+
+45 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+( ) const;
+
+47 
+	g´iv©e
+:
+
+48 
+u32
+ 
+mEv’tArgsHashTy³
+;
+
+51 
+šlše
+ 
+u32
+ 
+	gEv’tArgs
+::
+g‘HashTy³
+(ècÚ¡ {  
+mEv’tArgsHashTy³
+; }
+
+	@..\engine\source\quanticvortex\qvEventManager.cpp
+
+28 
+	~"qvEv’tMªag”.h
+"
+
+34 
+	~"qvDeçuÉEv’tArgsFaùÜy.h
+"
+
+37 
+Çme¥aû
+ 
+	gqv
+
+
+39 
+Çme¥aû
+ 
+	gev’ts
+
+
+42 
+	gEv’tMªag”
+::
+Ev’tMªag”
+()
+
+43 :
+mAùiveR—dyEv’tLi¡
+(0)
+
+47 
+DeçuÉEv’tArgsFaùÜy
+* 
+çùÜy
+ = 
+Ãw
+ DefaultEventArgsFactory();
+
+48 
+»gi¡”Ev’tArgsFaùÜy
+(
+çùÜy
+);
+
+52 
+	gEv’tMªag”
+::~
+Ev’tMªag”
+()
+
+74 
+mV®idEv’tTy³s
+.
+ş—r
+();
+
+80 
+IEv’tArgsSh¬edPŒ
+ 
+	gEv’tMªag”
+::
+ü—‹Em±yEv’tArgs
+(
+u32
+ 
+ev’tArgsHashTy³
+)
+
+82 
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+;
+
+83  
+	g¬gs
+;
+
+86 
+	gEv’tMªag”
+::
+»gi¡”Ev’tTy³
+Ğ
+u32
+ 
+ev’tHashTy³
+)
+
+88 ifĞ
+ev’tHashTy³
+ <= 0)
+
+91 if(!
+v®id©eTy³
+(
+ev’tHashTy³
+))
+
+92 
+	gmV®idEv’tTy³s
+.
+push_back
+(
+ev’tHashTy³
+);
+
+95 
+	gEv’tMªag”
+::
+uÄegi¡”Ev’tTy³
+Ğ
+u32
+ 
+ev’tHashTy³
+)
+
+100 
+Ev’tMªag”
+::
+»gi¡”Ev’tArgsFaùÜy
+(
+IEv’tArgsFaùÜy
+* 
+çùÜy
+)
+
+103 
+mEv’tArgsFaùÜ›s
+.
+push_back
+(
+çùÜy
+);
+
+106 
+boŞ
+ 
+	gEv’tMªag”
+::
+abÜtEv’t
+Ğ
+u32
+ 
+ev’tHashTy³
+, boŞ 
+®l
+)
+
+108  
+	gŒue
+;
+
+111 
+boŞ
+ 
+	gEv’tMªag”
+::
+»gi¡”CommªdEv’t
+(
+IEv’tCommªdSh¬edPŒ
+ 
+commªd
+)
+
+159  
+Œue
+;
+
+162 
+boŞ
+ 
+	gEv’tMªag”
+::
+uÄegi¡”CommªdEv’t
+(
+IEv’tCommªdSh¬edPŒ
+ 
+commªd
+)
+
+184  
+Œue
+;
+
+187 
+boŞ
+ 
+	gEv’tMªag”
+::
+’queueEv’t
+(
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+)
+
+189 if(!
+v®id©eTy³
+(
+¬gs
+->
+g‘HashTy³
+()))
+
+190  
+çl£
+;
+
+199 
+	gmR—dyEv’ts
+[
+mAùiveR—dyEv’tLi¡
+].
+push_back
+(
+¬gs
+);
+
+201  
+	gŒue
+;
+
+204 
+boŞ
+ 
+	gEv’tMªag”
+::
+´oûss
+(
+»®
+ 
+´oûssšgTime
+)
+
+206 
+boŞ
+ 
+ev’tHªdËd
+ = 
+çl£
+;
+
+207 
+s32
+ 
+	g´oûssR—dyEv’tLi¡
+ = 
+mAùiveR—dyEv’tLi¡
+;
+
+216 if(
+	gmAùiveR—dyEv’tLi¡
+ == 1)
+
+217 --
+mAùiveR—dyEv’tLi¡
+;
+
+219 ++
+	gmAùiveR—dyEv’tLi¡
+;
+
+225 
+u32
+ 
+	gi
+ = 0; i < 
+	gmR—dyEv’ts
+[
+´oûssR—dyEv’tLi¡
+].
+size
+(); ++i)
+
+226 
+Œigg”
+(
+mR—dyEv’ts
+[
+´oûssR—dyEv’tLi¡
+][
+i
+]);
+
+245 
+	gmR—dyEv’ts
+[
+´oûssR—dyEv’tLi¡
+].
+ş—r
+();
+
+247  
+	gev’tHªdËd
+;
+
+250 
+boŞ
+ 
+	gEv’tMªag”
+::
+Œigg”
+(
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+)
+
+252 if(!
+¬gs
+ || !
+v®id©eTy³
+×rgs->
+g‘HashTy³
+()))
+
+253  
+çl£
+;
+
+263 
+boŞ
+ 
+	gev’tHªdËd
+ = 
+çl£
+;
+
+274  
+	gev’tHªdËd
+;
+
+277 
+boŞ
+ 
+	gEv’tMªag”
+::
+v®id©eTy³
+Ğ
+u32
+ 
+ev’tHashTy³
+)
+
+279 if(
+ev’tHashTy³
+ <= 0)
+
+280  
+çl£
+;
+
+287  
+	gçl£
+;
+
+	@..\engine\source\quanticvortex\qvEventManager.h
+
+28 #iâdeà
+__EVENT_MANAGER_H_
+
+
+29 
+	#__EVENT_MANAGER_H_
+
+
+	)
+
+31 
+	~"qvIEv’tMªag”.h
+"
+
+32 
+	~"qvIEv’tCommªd.h
+"
+
+33 
+	~"qvIEv’tArgsFaùÜy.h
+"
+
+37 
+	~"Poco/AtomicCouÁ”.h
+"
+
+39 
+Çme¥aû
+ 
+	gqv
+
+
+41 
+Çme¥aû
+ 
+	gev’ts
+
+
+44 şas 
+	cEv’tMªag”
+: 
+public
+ 
+IEv’tMªag”
+
+
+46 
+´iv©e
+:
+
+48 cÚ¡ 
+s32
+ 
+QueueEv’tsL’ght
+ = 2;
+
+57 
+	gpublic
+:
+
+58 
+Ev’tMªag”
+();
+
+59 
+	gvœtu®
+ ~
+Ev’tMªag”
+();
+
+61 
+vœtu®
+ 
+boŞ
+ 
+»gi¡”CommªdEv’t
+ ( 
+IEv’tCommªdSh¬edPŒ
+ 
+commªd
+);
+
+63 
+vœtu®
+ 
+boŞ
+ 
+uÄegi¡”CommªdEv’t
+ ( 
+IEv’tCommªdSh¬edPŒ
+ 
+commªd
+);
+
+66 
+vœtu®
+ 
+IEv’tArgsSh¬edPŒ
+ 
+ü—‹Em±yEv’tArgs
+Ğ
+u32
+ 
+ev’tArgsHashty³
+);
+
+74 
+vœtu®
+ 
+»gi¡”Ev’tArgsFaùÜy
+(
+IEv’tArgsFaùÜy
+ * 
+çùÜy
+);
+
+76 
+vœtu®
+ 
+»gi¡”Ev’tTy³
+Ğ
+u32
+ 
+ev’tHashTy³
+);
+
+78 
+vœtu®
+ 
+uÄegi¡”Ev’tTy³
+Ğ
+u32
+ 
+ev’tHashTy³
+);
+
+80 
+vœtu®
+ 
+boŞ
+ 
+abÜtEv’t
+ ( 
+u32
+ 
+ev’tHashTy³
+, boŞ 
+®l
+ = 
+çl£
+ );
+
+82 
+vœtu®
+ 
+boŞ
+ 
+’queueEv’t
+ (
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+);
+
+84 
+vœtu®
+ 
+boŞ
+ 
+´oûss
+ ( 
+»®
+ 
+´oûssšgTime
+);
+
+86 
+vœtu®
+ 
+boŞ
+ 
+Œigg”
+ ( 
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+ );
+
+88 
+vœtu®
+ 
+boŞ
+ 
+v®id©eTy³
+(
+u32
+ 
+ev’tHashTy³
+);
+
+90 
+	g´iv©e
+:
+
+91 
+Ev’tHashTy³sVeùÜ
+ 
+mV®idEv’tTy³s
+;
+
+92 
+Ev’tArgsEv’tCommªdVeùÜ
+ 
+	gmRegi¡»dCommªdsM­
+;
+
+93 
+Ev’tArgsVeùÜ
+ 
+	gmR—dyEv’ts
+[
+QueueEv’tsL’ght
+];
+
+95 
+Ev’tArgsFaùÜyVeùÜ
+ 
+	gmEv’tArgsFaùÜ›s
+;
+
+96 
+	gPoco
+::
+AtomicCouÁ”
+ 
+mAùiveR—dyEv’tLi¡
+;
+
+	@..\engine\source\quanticvortex\qvGameLogic.cpp
+
+28 
+	~"qvGameLogic.h
+"
+
+30 
+	~"qvIAùÜ.h
+"
+
+31 
+	~"qvIEngšeMªag”.h
+"
+
+32 
+	~"qvDeçuÉGameV›wFaùÜy.h
+"
+
+33 
+	~"qvSAùÜP¬ams.h
+"
+
+34 
+	~"qvHumªV›w.h
+"
+
+40 
+	~"qvPhysicsMªag”.h
+"
+
+43 
+Çme¥aû
+ 
+	gqv
+
+
+45 
+Çme¥aû
+ 
+	ggamšg
+
+
+48 
+	gGameLogic
+::
+GameLogic
+(
+IEngšeMªag”
+* 
+’gšeMªag”
+)
+
+49 :
+mEngšeMªag”
+(
+’gšeMªag”
+), 
+mPhysicsMªag”
+(0)
+
+51 #ifdeà
+_DEBUG
+
+
+52 
+£tDebugName
+("DefaultGameLogic");
+
+54 
+	gv›ws
+::
+DeçuÉGameV›wFaùÜy
+* 
+çùÜy
+ = 
+Ãw
+ 
+v›ws
+::DeçuÉGameV›wFaùÜy(
+’gšeMªag”
+);
+
+55 
+»gi¡”GameV›wFaùÜy
+(
+çùÜy
+);
+
+56 
+	gçùÜy
+->
+drİ
+();
+
+58 
+	gmPhysicsMªag”
+ = 
+Ãw
+ 
+physics
+::
+PhysicsMªag”
+(
+mEngšeMªag”
+);
+
+61 
+	gGameLogic
+::~
+GameLogic
+()
+
+67 
+mGameV›ws
+.
+ş—r
+();
+
+69 
+	gAùÜsM­
+::
+P¬’tLa¡I‹¿tÜ
+ 
+™rAùÜ
+ = 
+mAùÜs
+.
+g‘P¬’tLa¡I‹¿tÜ
+();
+
+77 
+	gmAùÜs
+.
+ş—r
+();
+
+80 
+boŞ
+ 
+	gGameLogic
+::
+š™Ÿlize
+()
+
+83 
+mPhysicsMªag”
+->
+š™Ÿlize
+();
+
+101  
+	gŒue
+;
+
+104 
+boŞ
+ 
+	gGameLogic
+::
+fš®ize
+()
+
+106  
+Œue
+;
+
+109 
+	gGameLogic
+::
+addAùÜ
+Ğ
+u32
+ 
+aùÜHashId
+)
+
+111 
+IAùÜ
+* 
+aùÜ
+ = 0;
+
+115 if(!
+	gmAùÜs
+.
+fšd
+(
+aùÜHashId
+))
+
+130 
+	gGameLogic
+::
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+)
+
+190 if(
+	gmPhysicsMªag”
+)
+
+192 
+	gmPhysicsMªag”
+->
+upd©e
+(
+–­£dTimeMs
+);
+
+196 
+u32
+ 
+	gi
+ = 0; i < 
+	gmGameV›ws
+.
+size
+(); ++i)
+
+197 
+	gmGameV›ws
+[
+i
+]->
+upd©e
+Ğ
+–­£dTimeMs
+ );
+
+201 
+boŞ
+ 
+	gGameLogic
+::
+lßdGame
+(cÚ¡ 
+œr
+::
+cÜe
+::
+¡ršgc
+& 
+gameName
+)
+
+209  
+Œue
+;
+
+213 
+	gGameLogic
+::
+chªgeS‹
+(cÚ¡ 
+S_STATE
+* 
+ÃwS‹
+)
+
+215 
+mS‹
+ = 
+ÃwS‹
+;
+
+218 
+	gGameLogic
+::
+addV›w
+(
+v›ws
+::
+IGameV›w
+* 
+gameV›w
+, 
+u32
+ 
+aùÜHashId
+)
+
+221 
+	gmGameV›ws
+.
+push_back
+(
+gameV›w
+);
+
+232 
+	gv›ws
+::
+IGameV›w
+* 
+GameLogic
+::
+addV›w
+ĞcÚ¡ 
+c8
+* 
+v›wID
+, 
+u32
+ 
+v›wHashTy³
+, u32 
+aùÜHashId
+)
+
+234 
+	gv›ws
+::
+IGameV›w
+* 
+gameV›w
+(0);
+
+236 
+u32
+ 
+	gi
+ = 0; i < 
+	gmGameV›wFaùÜ›s
+.
+size
+(); ++i)
+
+248  
+	ggameV›w
+;
+
+253 
+	gGameLogic
+::
+»moveV›w
+(
+v›ws
+::
+IGameV›w
+* 
+gameV›w
+)
+
+255 
+s32
+ 
+idx
+ = 
+mGameV›ws
+.
+bš¬y_£¬ch
+(
+gameV›w
+);
+
+260 
+	gGameLogic
+::
+»gi¡”GameV›wFaùÜy
+(
+v›ws
+::
+IGameV›wFaùÜy
+ *
+çùÜyToAdd
+)
+
+262 
+çùÜyToAdd
+->
+g¿b
+();
+
+263 
+	gmGameV›wFaùÜ›s
+.
+push_back
+(
+çùÜyToAdd
+);
+
+	@..\engine\source\quanticvortex\qvGameLogic.h
+
+28 #iâdeà
+__DEFAULT_GAME_LOGIC_H_
+
+
+29 
+	#__DEFAULT_GAME_LOGIC_H_
+
+
+	)
+
+32 
+	~"qvIGameLogic.h
+"
+
+36 
+	~"qvIProûssMªag”.h
+"
+
+38 
+	~"œrA¼ay.h
+"
+
+39 
+	~"œrM­.h
+"
+
+42 
+Çme¥aû
+ 
+	gqv
+
+
+44 
+şass
+ 
+	gIEngšeMªag”
+;
+
+46 
+Çme¥aû
+ 
+	gv›ws
+
+
+48 
+şass
+ 
+	gIGameV›wFaùÜy
+;
+
+51 
+Çme¥aû
+ 
+	ggamšg
+
+
+54 şas 
+	cGameLogic
+ : 
+public
+ 
+IGameLogic
+
+
+56 
+public
+:
+
+57 
+GameLogic
+(
+IEngšeMªag”
+* 
+’gšeMªag”
+);
+
+58 
+	gvœtu®
+ ~
+GameLogic
+();
+
+60 
+vœtu®
+ 
+boŞ
+ 
+š™Ÿlize
+();
+
+62 
+vœtu®
+ 
+boŞ
+ 
+fš®ize
+();
+
+64 
+vœtu®
+ 
+IAùÜSh¬edPŒ
+ 
+g‘AùÜ
+Ğ
+u32
+ 
+aùÜHashId
+)
+
+67 
+IAùÜ
+* 
+	gaùÜFounded
+ = 0;
+
+70  
+	gaùÜFounded
+;
+
+73 
+vœtu®
+ 
+addAùÜ
+Ğ
+u32
+ 
+aùÜHashId
+);
+
+84 
+»moveAùÜ
+Ğ
+u32
+ 
+aùÜHashId
+)
+
+86 
+IAùÜ
+* 
+	gaùÜ
+ = 
+g‘AùÜ
+(
+aùÜHashId
+);
+
+88 if(
+	gaùÜ
+)
+
+96 
+vœtu®
+ cÚ¡ 
+	gv›ws
+::
+GameV›wsA¼ay
+& 
+g‘GameV›ws
+() const
+
+98  
+mGameV›ws
+;
+
+101 
+vœtu®
+ 
+addV›w
+(
+v›ws
+::
+IGameV›w
+* 
+gameV›w
+, 
+u32
+ 
+aùÜHashId
+ = 0);
+
+103 
+vœtu®
+ 
+	gv›ws
+::
+IGameV›w
+* 
+addV›w
+(cÚ¡ 
+c8
+* 
+v›wID
+, 
+u32
+ 
+v›wHashTy³
+, u32 
+aùÜHashId
+ = 0);
+
+105 
+vœtu®
+ 
+»moveV›w
+(
+v›ws
+::
+IGameV›w
+* 
+gameV›w
+);
+
+107 
+vœtu®
+ 
+»gi¡”GameV›wFaùÜy
+(
+v›ws
+::
+IGameV›wFaùÜy
+* 
+çùÜyToAdd
+);
+
+110 
+vœtu®
+ 
+boŞ
+ 
+lßdGame
+(cÚ¡ 
+œr
+::
+cÜe
+::
+¡ršgc
+& 
+gameName
+);
+
+112 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+114 
+vœtu®
+ 
+chªgeS‹
+ĞcÚ¡ 
+S_STATE
+* 
+ÃwS‹
+);
+
+117 
+	gphysics
+::
+IPhysicsMªag”
+* 
+g‘PhysicsMªag”
+(){ 
+mPhysicsMªag”
+;}
+
+129 
+	g´Ùeùed
+:
+
+131 
+œr
+::
+cÜe
+::
+¬¿y
+<
+v›ws
+::
+IGameV›wFaùÜy
+*> 
+mGameV›wFaùÜ›s
+;
+
+133 cÚ¡ 
+S_STATE
+* 
+	gmS‹
+;
+
+135 
+AùÜsM­
+ 
+	gmAùÜs
+;
+
+137 
+	gv›ws
+::
+GameV›wsA¼ay
+ 
+mGameV›ws
+;
+
+139 
+IEngšeMªag”
+* 
+	gmEngšeMªag”
+;
+
+146 
+	gphysics
+::
+IPhysicsMªag”
+* 
+mPhysicsMªag”
+;
+
+	@..\engine\source\quanticvortex\qvGameParameters.cpp
+
+2 
+	~"qvGameP¬am‘”s.h
+"
+
+5 
+Çme¥aû
+ 
+	gqv
+
+
+9 
+	gGameP¬am‘”s
+::
+GameP¬am‘”s
+()
+
+13 
+GameP¬am‘”s
+::~GameParameters()
+
+17 
+GameP¬am‘”s
+::
+£rŸlizeA‰ribu‹s
+(
+œr
+::
+io
+::
+IA‰ribu‹s
+ *
+out
+, i¼::io::
+SA‰ribu‹R—dWr™eO±iÚs
+ *
+İtiÚs
+) const
+
+36 
+GameP¬am‘”s
+::
+de£rŸlizeA‰ribu‹s
+(
+œr
+::
+io
+::
+IA‰ribu‹s
+ *
+š
+, i¼::io::
+SA‰ribu‹R—dWr™eO±iÚs
+ *
+İtiÚs
+)
+
+	@..\engine\source\quanticvortex\qvGameStateMachine.cpp
+
+2 
+	~"qvGameS‹Machše.h
+"
+
+3 
+	~"qvIGameS‹.h
+"
+
+5 
+Çme¥aû
+ 
+	gqv
+
+
+7 
+Çme¥aû
+ 
+	ggamšg
+
+
+10 
+	gGameS‹Machše
+::
+GameS‹Machše
+()
+
+15 
+GameS‹Machše
+::~GameStateMachine()
+
+19 
+GameS‹Machše
+::
+addS‹
+(
+qv
+::
+IS‹
+ *
+¡©e
+, 
+boŞ
+ 
+¡¬tUpS‹
+)
+
+33 if(
+	g¡¬tUpS‹
+)
+
+34 
+	gmCu¼’tS‹
+ = 
+¡©e
+;
+
+38 
+	gGameS‹Machše
+::
+chªgeS‹
+(cÚ¡ 
+qv
+::
+S_STATE
+* 
+ÃwS‹
+)
+
+56 
+GameS‹Machše
+::
+»moveS‹
+(
+qv
+::
+IS‹
+ *
+¡©e
+)
+
+	@..\engine\source\quanticvortex\qvGameStateMachine.h
+
+27 #iâdeà
+__GAME_STATE_MACHINE_H_
+
+
+28 
+	#__GAME_STATE_MACHINE_H_
+
+
+	)
+
+30 
+	~"qvTy³s.h
+"
+
+31 
+	~"qvIS‹Machše.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+Çme¥aû
+ 
+	ggamšg
+
+
+38 
+şass
+ 
+	gIGameS‹
+;
+
+42 şas 
+	cGameS‹Machše
+: 
+public
+ 
+IS‹Machše
+
+
+44 
+´Ùeùed
+:
+
+46 
+IS‹
+* 
+mCu¼’tS‹
+;
+
+48 
+	gpublic
+:
+
+49 
+GameS‹Machše
+();
+
+50 ~
+GameS‹Machše
+();
+
+52 
+vœtu®
+ 
+addS‹
+(
+IS‹
+* 
+¡©e
+, 
+boŞ
+ 
+¡¬tUpS‹
+ = 
+çl£
+);
+
+53 
+vœtu®
+ 
+chªgeS‹
+(cÚ¡ 
+S_STATE
+* 
+ÃwS‹
+);
+
+54 
+vœtu®
+ 
+IS‹
+* 
+g‘Cu¼’tS‹
+(){ 
+	gmCu¼’tS‹
+;}
+
+55 
+vœtu®
+ 
+»moveS‹
+(
+IS‹
+* 
+¡©e
+);
+
+57 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+)
+
+59 
+	gmCu¼’tS‹
+->
+upd©e
+(
+cu¼’tTimeMs
+, 
+–­£dTimeMs
+);
+
+	@..\engine\source\quanticvortex\qvGuiView.cpp
+
+2 
+	~"qvGuiV›w.h
+"
+
+3 
+	~"qvIEngšeMªag”.h
+"
+
+6 
+Çme¥aû
+ 
+	gqv
+
+
+8 
+Çme¥aû
+ 
+	gv›ws
+
+
+11 
+	gGuiV›w
+::
+GuiV›w
+(cÚ¡ 
+c8
+* 
+Çme
+,
+IEngšeMªag”
+* 
+’gše
+, 
+u32
+ 
+–em’tV›wHashTy³
+)
+
+12 : 
+mEËm’t
+(0), 
+mGuiMªag”
+(0), 
+mVisibË
+(
+Œue
+), 
+mHashTy³
+(
+–em’tV›wHashTy³
+)
+
+18 
+	gmID
+ = 
+Ãw
+ 
+EVI_ELEMENT_VIEW_ID
+(
+Çme
+);
+
+24 
+	gGuiV›w
+::~
+GuiV›w
+()
+
+28 
+GuiV›w
+::
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+)
+
+33 
+	gGuiV›w
+::
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+)
+
+	@..\engine\source\quanticvortex\qvGuiView.h
+
+2 #iâdeà
+__GUIVIEW_H_
+
+
+3 
+	#__GUIVIEW_H_
+
+
+	)
+
+5 
+	~"qvIGuiV›w.h
+"
+
+7 
+	~"IGUIEËm’t.h
+"
+
+8 
+	~"IGUIEnvœÚm’t.h
+"
+
+10 
+Çme¥aû
+ 
+	gqv
+
+
+12 
+şass
+ 
+	gIEngšeMªag”
+;
+
+14 
+Çme¥aû
+ 
+	gv›ws
+
+
+17 şas 
+	cGuiV›w
+: 
+public
+ 
+IGuiV›w
+
+
+19 
+´Ùeùed
+:
+
+20 
+œr
+::
+gui
+::
+IGUIEËm’t
+* 
+mEËm’t
+;
+
+21 
+	gœr
+::
+gui
+::
+IGUIEnvœÚm’t
+* 
+mGuiMªag”
+;
+
+22 
+boŞ
+ 
+	gmVisibË
+;
+
+23 
+u32
+ 
+	gmHashTy³
+;
+
+24 cÚ¡ 
+EVI_ELEMENT_VIEW_ID
+* 
+	gmID
+;
+
+26 
+	gpublic
+:
+
+27 
+GuiV›w
+(cÚ¡ 
+c8
+* 
+Çme
+, 
+IEngšeMªag”
+* 
+’gše
+, 
+u32
+ 
+–em’tV›wHashTy³
+);
+
+28 
+	gvœtu®
+ ~
+GuiV›w
+();
+
+30 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+(ècÚ¡ {  
+	gmID
+->
+	gHash
+; }
+
+32 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+(ècÚ¡ {  
+	gmHashTy³
+; }
+
+34 
+vœtu®
+ 
+boŞ
+ 
+g‘VisibË
+(ècÚ¡ {  
+	gmVisibË
+; }
+
+37 
+vœtu®
+ 
+£tVisibË
+Ğ
+boŞ
+ 
+visibË
+)
+
+39 
+	gmVisibË
+ = 
+visibË
+;
+
+42 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+43 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+);
+
+	@..\engine\source\quanticvortex\qvHashFunctions.cpp
+
+28 
+	~"qvHashFunùiÚs.h
+"
+
+31 
+Çme¥aû
+ 
+	gqv
+
+
+33 
+_QUANTICVORTEX_API_
+ 
+u32
+ 
+QUANTICVORTEX_CALLCONV
+ 
+ü—‹MurmurHash2
+ ( cÚ¡ * 
+key
+, u32 
+Ën
+, u32 
+£ed
+)
+
+38 cÚ¡ 
+u32
+ 
+	gm
+ = 0x5bd1e995;
+
+39 cÚ¡ 
+s32
+ 
+	gr
+ = 24;
+
+43 
+u32
+ 
+	gh
+ = 
+£ed
+ ^ 
+Ën
+;
+
+47 cÚ¡ 
+u8
+ * 
+	gd©a
+ = (cÚ¡ u8 *)
+key
+;
+
+49 
+	gËn
+ >= 4)
+
+51 
+u32
+ 
+k
+ = *(u32 *)
+d©a
+;
+
+53 
+	gk
+ *ğ
+m
+;
+
+54 
+	gk
+ ^ğ
+k
+ >> 
+r
+;
+
+55 
+	gk
+ *ğ
+m
+;
+
+57 
+	gh
+ *ğ
+m
+;
+
+58 
+	gh
+ ^ğ
+k
+;
+
+60 
+	gd©a
+ += 4;
+
+61 
+	gËn
+ -= 4;
+
+66 
+	gËn
+)
+
+68 3: 
+h
+ ^ğ
+d©a
+[2] << 16;
+
+69 2: 
+h
+ ^ğ
+d©a
+[1] << 8;
+
+70 1: 
+h
+ ^ğ
+d©a
+[0];
+
+71 
+	gh
+ *ğ
+m
+;
+
+77 
+	gh
+ ^ğ
+h
+ >> 13;
+
+78 
+	gh
+ *ğ
+m
+;
+
+79 
+	gh
+ ^ğ
+h
+ >> 15;
+
+81  
+	gh
+;
+
+	@..\engine\source\quanticvortex\qvHumanView.cpp
+
+28 
+	~"qvHumªV›w.h
+"
+
+30 
+	~"qvDeçuÉEËm’tV›wFaùÜy.h
+"
+
+31 
+	~"qvIEv’tMªag”.h
+"
+
+32 
+	~"qvIEngšeMªag”.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+Çme¥aû
+ 
+	gv›ws
+
+
+40 
+	gHumªV›w
+::
+HumªV›w
+Ğ
+IEngšeMªag”
+* 
+’gše
+, 
+u32
+ 
+v›wHashTy³
+)
+
+41 : 
+mV›wHashTy³
+(
+v›wHashTy³
+), 
+mLa¡Upd©eTime
+(0.0f), 
+mEngše
+(
+’gše
+),
+
+42 
+mCu¼’tTime
+(0.0f), 
+mAccumuÏtÜTime
+(0)
+
+50 
+DeçuÉEËm’tV›wFaùÜy
+* 
+	gçùÜy
+ = 
+Ãw
+ DeçuÉEËm’tV›wFaùÜy(
+mEngše
+);
+
+51 
+»gi¡”EËm’tV›wFaùÜy
+(
+çùÜy
+);
+
+52 
+	gçùÜy
+->
+drİ
+();
+
+67 
+	gHumªV›w
+::~
+HumªV›w
+()
+
+74 
+mEËm’tV›ws
+.
+ş—r
+();
+
+84 
+	gHumªV›w
+::
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+)
+
+95 
+	gmCu¼’tTime
+ = 
+cu¼’tTimeMs
+;
+
+97 ià(
+	gmCu¼’tTime
+ =ğ
+mLa¡Upd©eTime
+)
+
+100 
+	gmAccumuÏtÜTime
+ +ğ
+–­£dTimeMs
+;
+
+102 if(
+	gmAccumuÏtÜTime
+ >= 16 )
+
+104 
+mEngše
+->
+begšR’d”
+(
+Œue
+,rue);
+
+114 
+	gmEngše
+->
+’dR’d”
+();
+
+117 
+	gmLa¡Upd©eTime
+ = 
+mCu¼’tTime
+;
+
+118 
+	gmAccumuÏtÜTime
+ = 0;
+
+128 
+	gHumªV›w
+::
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+)
+
+143 
+IEËm’tV›wSh¬edPŒ
+ 
+HumªV›w
+::
+addEËm’tV›w
+(cÚ¡ 
+c8
+* 
+Çme
+, 
+u32
+ 
+–em’tV›wHashTy³
+)
+
+145 
+IEËm’tV›wSh¬edPŒ
+ 
+	g–em’tV›w
+;
+
+160  
+	g–em’tV›w
+;
+
+182 
+	gHumªV›w
+::
+»gi¡”EËm’tV›wFaùÜy
+(
+IEËm’tV›wFaùÜy
+ *
+çùÜyToAdd
+)
+
+	@..\engine\source\quanticvortex\qvHumanView.h
+
+28 #iâdeà
+__HUMAN_VIEW_H_
+
+
+29 
+	#__HUMAN_VIEW_H_
+
+
+	)
+
+31 
+	~"qvIHumªV›w.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+şass
+ 
+	gIEngšeMªag”
+;
+
+39 
+Çme¥aû
+ 
+	gv›ws
+
+
+41 
+şass
+ 
+	gIEËm’tV›wFaùÜy
+;
+
+43 şas 
+	cHumªV›w
+: 
+public
+ 
+IHumªV›w
+
+
+45 
+public
+:
+
+46 
+HumªV›w
+(
+IEngšeMªag”
+* 
+’gše
+, 
+u32
+ 
+v›wHashTy³
+ = 
+GVT_GAME_VIEW_HUMAN
+.
+Hash
+);
+
+48 
+	gvœtu®
+ ~
+HumªV›w
+();
+
+50 
+vœtu®
+ 
+©ch
+(
+u32
+ 
+v›wHashId
+, u32 
+aùÜHashId
+ = 0)
+
+52 
+mV›wHashId
+ = 
+v›wHashId
+;
+
+53 
+	gmAùÜHashId
+ = 
+aùÜHashId
+;
+
+56 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+(ècÚ¡ {  
+	gmV›wHashId
+; }
+
+58 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+(ècÚ¡ {  
+	gmV›wHashTy³
+; }
+
+62 
+vœtu®
+ 
+upd©e
+(
+u32
+ 
+–­£dTimeMs
+);
+
+64 
+vœtu®
+ 
+»nd”
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+67 
+vœtu®
+ 
+IEËm’tV›wSh¬edPŒ
+ 
+addEËm’tV›w
+(cÚ¡ 
+c8
+* 
+Çme
+, 
+u32
+ 
+–em’tV›wHashTy³
+);
+
+73 
+vœtu®
+ 
+»gi¡”EËm’tV›wFaùÜy
+(
+IEËm’tV›wFaùÜy
+* 
+çùÜyToAdd
+);
+
+83 
+	g´Ùeùed
+:
+
+84 
+IEngšeMªag”
+* 
+mEngše
+;
+
+85 
+u32
+ 
+	gmV›wHashTy³
+;
+
+86 
+u32
+ 
+	gmV›wHashId
+;
+
+87 
+u32
+ 
+	gmAùÜHashId
+;
+
+88 
+EËm’tV›wLi¡
+ 
+	gmEËm’tV›ws
+;
+
+99 
+»®
+ 
+	gmCu¼’tTime
+;
+
+100 
+»®
+ 
+	gmLa¡Upd©eTime
+;
+
+101 
+u32
+ 
+	gmAccumuÏtÜTime
+;
+
+103 
+	gcAudio
+::
+IAudioMªag”
+* 
+mAudioMªag”
+;
+
+	@..\engine\source\quanticvortex\qvInitializatingGameState.cpp
+
+2 
+	~"qvIn™Ÿliz©šgGameS‹.h
+"
+
+5 
+Çme¥aû
+ 
+	gqv
+
+
+7 
+Çme¥aû
+ 
+	ggamšg
+
+
+10 
+	gIn™Ÿliz©šgGameS‹
+::
+In™Ÿliz©šgGameS‹
+()
+
+11 :
+mS‹
+(
+S_GAME_STATE_INITIALIZATING
+)
+
+15 
+In™Ÿliz©šgGameS‹
+::~InitializatingGameState()
+
+20 
+In™Ÿliz©šgGameS‹
+::
+cÚfigu»
+()
+
+25 
+In™Ÿliz©šgGameS‹
+::
+’‹r
+()
+
+30 
+In™Ÿliz©šgGameS‹
+::
+Ëave
+()
+
+35 
+In™Ÿliz©šgGameS‹
+::
+upd©e
+(
+œr
+::
+u32
+ 
+cu¼’tTimeMs
+, i¼::u32 
+–­£dTimeMs
+)
+
+	@..\engine\source\quanticvortex\qvInitializatingGameState.h
+
+2 #iâdeà
+__INITIALIZATING_GAME_STATE_H_
+
+
+3 
+	#__INITIALIZATING_GAME_STATE_H_
+
+
+	)
+
+5 
+	~"qvIGameS‹.h
+"
+
+8 
+Çme¥aû
+ 
+	gqv
+
+
+10 
+Çme¥aû
+ 
+	gv›ws
+
+
+12 
+şass
+ 
+	gISûÃV›w
+;
+
+15 
+Çme¥aû
+ 
+	ggamšg
+
+
+18 şas 
+	cIn™Ÿliz©šgGameS‹
+: 
+public
+ 
+IS‹
+
+
+20 
+public
+:
+
+21 
+In™Ÿliz©šgGameS‹
+();
+
+22 ~
+In™Ÿliz©šgGameS‹
+();
+
+24 
+vœtu®
+ cÚ¡ 
+S_STATE
+* 
+g‘S‹
+()
+
+26  
+	gmS‹
+;
+
+29 
+vœtu®
+ 
+cÚfigu»
+();
+
+31 
+vœtu®
+ 
+’‹r
+();
+
+33 
+vœtu®
+ 
+Ëave
+();
+
+35 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+37 
+	g´iv©e
+:
+
+38 cÚ¡ 
+S_STATE
+* 
+mS‹
+;
+
+	@..\engine\source\quanticvortex\qvInputReceiver.cpp
+
+27 
+	~"qvIÅutReûiv”.h
+"
+
+29 
+	~"qvIEngšeMªag”.h
+"
+
+32 
+Çme¥aû
+ 
+	gqv
+
+
+34 
+Çme¥aû
+ 
+	gšput
+
+
+37 
+	gIÅutReûiv”
+::
+IÅutReûiv”
+(
+IEngšeMªag”
+* 
+’gšeMªag”
+)
+
+38 :
+mCu¼’tG’”©iÚ
+(0), 
+mEngšeMªag”
+(
+’gšeMªag”
+)
+
+40 
+u8
+ 
+	gi
+ = 0; i < 
+	gC_KEY_GENERATIONS_COUNT
+; ++i)
+
+41 
+u8
+ 
+	gj
+ = 0; j < 
+	gœr
+::
+KEY_KEY_CODES_COUNT
+; ++j)
+
+42 
+	gmKeyP»s£d
+[
+i
+][
+j
+] = 0;
+
+45 
+	gIÅutReûiv”
+::~
+IÅutReûiv”
+()
+
+49 
+boŞ
+ 
+IÅutReûiv”
+::
+OnEv’t
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+ev’t
+)
+
+53 
+ev’t
+.
+Ev’tTy³
+)
+
+55 
+œr
+::
+EET_GUI_EVENT
+:
+
+58 
+	gœr
+::
+EET_KEY_INPUT_EVENT
+:
+
+60 
+mKeyP»s£d
+[
+mCu¼’tG’”©iÚ
+][
+ev’t
+.
+KeyIÅut
+.
+Key
+] =ƒv’t.KeyIÅut.
+P»s£dDown
+;
+
+68 ++
+	gmCu¼’tG’”©iÚ
+;
+
+69 if(
+	gmCu¼’tG’”©iÚ
+ =ğ
+C_KEY_GENERATIONS_COUNT
+)
+
+70 
+mCu¼’tG’”©iÚ
+ = 0;
+
+73 
+	gœr
+::
+EET_JOYSTICK_INPUT_EVENT
+:
+
+76 
+	gœr
+::
+EET_MOUSE_INPUT_EVENT
+:
+
+88  
+	gŒue
+;
+
+91 
+	gIÅutReûiv”
+::
+»gi¡”IÅutT¿n¦©Ü
+(
+IIÅutT¿n¦©Ü
+* 
+Œª¦©Ü
+)
+
+96 
+IÅutReûiv”
+::
+uÄegi¡”IÅutT¿n¦©Ü
+(
+IIÅutT¿n¦©Ü
+* 
+Œª¦©Ü
+)
+
+100 
+IÅutReûiv”
+::
+uÄegi¡”IÅutT¿n¦©Ü
+Ğ
+u32
+ 
+šputT¿n¦©ÜHashId
+)
+
+	@..\engine\source\quanticvortex\qvInputReceiver.h
+
+28 #iâdeà
+_INPUTRECEIVER_H_
+
+
+29 
+	#_INPUTRECEIVER_H_
+
+
+	)
+
+31 
+	~"qvIIÅutReûiv”.h
+"
+
+34 
+Çme¥aû
+ 
+	gqv
+
+
+36 
+şass
+ 
+	gIEngšeMªag”
+;
+
+38 
+Çme¥aû
+ 
+	gšput
+
+
+40 şas 
+	cIÅutReûiv”
+ : 
+public
+ 
+IIÅutReûiv”
+
+
+42 
+´iv©e
+:
+
+43 cÚ¡ 
+c8
+ 
+C_KEY_GENERATIONS_COUNT
+ = 4;
+
+45 
+u8
+ 
+	gmCu¼’tG’”©iÚ
+;
+
+46 
+boŞ
+ 
+	gmKeyP»s£d
+[
+C_KEY_GENERATIONS_COUNT
+][
+œr
+::
+KEY_KEY_CODES_COUNT
+];
+
+48 
+IEngšeMªag”
+* 
+	gmEngšeMªag”
+;
+
+50 
+	gpublic
+:
+
+52 
+IÅutReûiv”
+(
+IEngšeMªag”
+* 
+’gšeMªag”
+);
+
+53 
+	gvœtu®
+ ~
+IÅutReûiv”
+();
+
+55 
+vœtu®
+ 
+boŞ
+ 
+OnEv’t
+(cÚ¡ 
+œr
+::
+SEv’t
+& 
+ev’t
+);
+
+56 
+vœtu®
+ 
+»gi¡”IÅutT¿n¦©Ü
+Ğ
+IIÅutT¿n¦©Ü
+* 
+Œª¦©Ü
+);
+
+57 
+vœtu®
+ 
+uÄegi¡”IÅutT¿n¦©Ü
+Ğ
+u32
+ 
+šputT¿n¦©ÜHashId
+);
+
+58 
+vœtu®
+ 
+uÄegi¡”IÅutT¿n¦©Ü
+Ğ
+IIÅutT¿n¦©Ü
+* 
+Œª¦©Ü
+);
+
+	@..\engine\source\quanticvortex\qvLoadingGameState.cpp
+
+2 
+	~"qvLßdšgGameS‹.h
+"
+
+5 
+Çme¥aû
+ 
+	gqv
+
+
+7 
+Çme¥aû
+ 
+	ggamšg
+
+
+10 
+	gLßdšgGameS‹
+::
+LßdšgGameS‹
+()
+
+11 :
+mS‹
+(
+S_GAME_STATE_LOADING
+)
+
+15 
+LßdšgGameS‹
+::~LoadingGameState()
+
+20 
+LßdšgGameS‹
+::
+cÚfigu»
+()
+
+25 
+LßdšgGameS‹
+::
+’‹r
+()
+
+30 
+LßdšgGameS‹
+::
+Ëave
+()
+
+35 
+LßdšgGameS‹
+::
+upd©e
+(
+œr
+::
+u32
+ 
+cu¼’tTimeMs
+, i¼::u32 
+–­£dTimeMs
+)
+
+	@..\engine\source\quanticvortex\qvLoadingGameState.h
+
+2 #iâdeà
+__LOADING_GAME_STATE_H_
+
+
+3 
+	#__LOADING_GAME_STATE_H_
+
+
+	)
+
+5 
+	~"qvIGameS‹.h
+"
+
+8 
+Çme¥aû
+ 
+	gqv
+
+
+10 
+Çme¥aû
+ 
+	gv›ws
+
+
+12 
+şass
+ 
+	gISûÃV›w
+;
+
+15 
+Çme¥aû
+ 
+	ggamšg
+
+
+18 şas 
+	cLßdšgGameS‹
+: 
+public
+ 
+IS‹
+
+
+20 
+public
+:
+
+21 
+LßdšgGameS‹
+();
+
+22 ~
+LßdšgGameS‹
+();
+
+24 
+vœtu®
+ cÚ¡ 
+S_STATE
+* 
+g‘S‹
+()
+
+26  
+	gmS‹
+;
+
+29 
+vœtu®
+ 
+cÚfigu»
+();
+
+31 
+vœtu®
+ 
+’‹r
+();
+
+33 
+vœtu®
+ 
+Ëave
+();
+
+35 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+37 
+	g´iv©e
+:
+
+38 cÚ¡ 
+S_STATE
+* 
+mS‹
+;
+
+	@..\engine\source\quanticvortex\qvMenuGameState.cpp
+
+2 
+	~"qvM’uGameS‹.h
+"
+
+5 
+Çme¥aû
+ 
+	gqv
+
+
+7 
+Çme¥aû
+ 
+	ggamšg
+
+
+10 
+	gM’uGameS‹
+::
+M’uGameS‹
+()
+
+11 :
+mS‹
+(
+S_GAME_STATE_MENU
+)
+
+15 
+M’uGameS‹
+::~MenuGameState()
+
+20 
+M’uGameS‹
+::
+cÚfigu»
+()
+
+25 
+M’uGameS‹
+::
+’‹r
+()
+
+30 
+M’uGameS‹
+::
+Ëave
+()
+
+35 
+M’uGameS‹
+::
+upd©e
+(
+œr
+::
+u32
+ 
+cu¼’tTimeMs
+, i¼::u32 
+–­£dTimeMs
+)
+
+	@..\engine\source\quanticvortex\qvMenuGameState.h
+
+2 #iâdeà
+__MENU_GAME_STATE_H_
+
+
+3 
+	#__MENU_GAME_STATE_H_
+
+
+	)
+
+5 
+	~"qvIGameS‹.h
+"
+
+8 
+Çme¥aû
+ 
+	gqv
+
+
+10 
+Çme¥aû
+ 
+	gv›ws
+
+
+12 
+şass
+ 
+	gISûÃV›w
+;
+
+15 
+Çme¥aû
+ 
+	ggamšg
+
+
+18 şas 
+	cM’uGameS‹
+: 
+public
+ 
+IS‹
+
+
+20 
+public
+:
+
+21 
+M’uGameS‹
+();
+
+22 ~
+M’uGameS‹
+();
+
+24 
+vœtu®
+ cÚ¡ 
+S_STATE
+* 
+g‘S‹
+()
+
+26  
+	gmS‹
+;
+
+29 
+vœtu®
+ 
+cÚfigu»
+();
+
+31 
+vœtu®
+ 
+’‹r
+();
+
+33 
+vœtu®
+ 
+Ëave
+();
+
+35 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+37 
+	g´iv©e
+:
+
+38 cÚ¡ 
+S_STATE
+* 
+mS‹
+;
+
+	@..\engine\source\quanticvortex\qvPhysicsManager.cpp
+
+2 
+	~"qvPhysicsMªag”.h
+"
+
+4 
+	~"qvIEngšeMªag”.h
+"
+
+6 
+	~"btBuÎ‘CŞlisiÚCommÚ.h
+"
+
+7 
+	~"btBuÎ‘DyÇmicsCommÚ.h
+"
+
+8 
+	~"BuÎ‘CŞlisiÚ/CŞlisiÚDi¥©ch/btGho¡Objeù.h
+"
+
+9 
+	~"BuÎ‘CŞlisiÚ/Brßdpha£CŞlisiÚ/btOv”ÏµšgPaœC®lback.h
+"
+
+12 
+Çme¥aû
+ 
+	gqv
+
+
+14 
+Çme¥aû
+ 
+	gphysics
+
+
+17 
+	gPhysicsMªag”
+::
+PhysicsMªag”
+(
+IEngšeMªag”
+* 
+’gšeMªag”
+)
+
+18 :
+mEngšeMªag”
+(
+’gšeMªag”
+), 
+mBuÎ‘DyÇmicsWÜld
+(0), 
+mBuÎ‘Brßdpha£IÁ”çû
+(0),
+
+19 
+mBuÎ‘CŞlisiÚDi¥©ch”
+(0), 
+mBuÎ‘CÚ¡¿štSŞv”
+(0),
+
+20 
+mBuÎ‘DeçuÉCŞlisiÚCÚfigu¿tiÚ
+(0)
+
+25 
+	gPhysicsMªag”
+::~
+PhysicsMªag”
+()
+
+27 
+d–‘e
+ 
+mBuÎ‘DyÇmicsWÜld
+;
+
+30 
+boŞ
+ 
+	gPhysicsMªag”
+::
+š™Ÿlize
+()
+
+32 
+mBuÎ‘DeçuÉCŞlisiÚCÚfigu¿tiÚ
+ = 
+Ãw
+ 
+btDeçuÉCŞlisiÚCÚfigu¿tiÚ
+();
+
+33 
+	gmBuÎ‘CŞlisiÚDi¥©ch”
+ = 
+Ãw
+ 
+btCŞlisiÚDi¥©ch”
+(
+mBuÎ‘DeçuÉCŞlisiÚCÚfigu¿tiÚ
+);
+
+35 
+	gmBuÎ‘Brßdpha£IÁ”çû
+ = 
+Ãw
+ 
+btDbvtBrßdpha£
+();
+
+37 
+	gmBuÎ‘CÚ¡¿štSŞv”
+ = 
+Ãw
+ 
+btSequ’tŸlImpul£CÚ¡¿štSŞv”
+();
+
+39 
+	gmBuÎ‘DyÇmicsWÜld
+ = 
+Ãw
+ 
+btDisü‘eDyÇmicsWÜld
+(
+mBuÎ‘CŞlisiÚDi¥©ch”
+,
+
+40 
+mBuÎ‘Brßdpha£IÁ”çû
+,
+
+41 
+mBuÎ‘CÚ¡¿štSŞv”
+,
+
+42 
+mBuÎ‘DeçuÉCŞlisiÚCÚfigu¿tiÚ
+);
+
+44 
+	gmBuÎ‘DyÇmicsWÜld
+->
+£tG¿v™y
+(
+btVeùÜ3
+(0,-0.98,0));
+
+47 
+btOv”ÏµšgPaœC®lback
+* 
+	ggho¡PaœC®lback
+ = 
+Ãw
+ 
+btGho¡PaœC®lback
+();
+
+48 
+	gmBuÎ‘DyÇmicsWÜld
+->
+g‘Brßdpha£
+()->
+g‘Ov”ÏµšgPaœCache
+()->
+£tIÁ”ÇlGho¡PaœC®lback
+(
+gho¡PaœC®lback
+);
+
+51  
+	gŒue
+;
+
+54 
+boŞ
+ 
+	gPhysicsMªag”
+::
+fš®ize
+()
+
+56 
+d–‘e
+ 
+mBuÎ‘DyÇmicsWÜld
+;
+
+57 
+d–‘e
+ 
+	gmBuÎ‘CÚ¡¿štSŞv”
+;
+
+58 
+d–‘e
+ 
+	gmBuÎ‘Brßdpha£IÁ”çû
+;
+
+59 
+d–‘e
+ 
+	gmBuÎ‘CŞlisiÚDi¥©ch”
+;
+
+60 
+d–‘e
+ 
+	gmBuÎ‘DeçuÉCŞlisiÚCÚfigu¿tiÚ
+;
+
+62  
+	gŒue
+;
+
+153 
+	gPhysicsMªag”
+::
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+)
+
+155 
+mBuÎ‘DyÇmicsWÜld
+->
+¡•SimuÏtiÚ
+(
+btSÿÏr
+(
+–­£dTimeMs
+/1000.0f), 2);
+
+158 
+	gPhysicsMªag”
+::
+addSh­e
+(
+»®
+ 
+¿dius
+, 
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+,„—È
+¥ecificG¿v™y
+)
+
+164 
+	gPhysicsMªag”
+::
+addBox
+(cÚ¡ 
+œr
+::
+cÜe
+::
+veùÜ3df
+ &
+dim’siÚs
+, 
+qv
+::
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+, 
+»®
+ 
+¥ecificG¿v™y
+)
+
+169 
+	gPhysicsMªag”
+::
+addCÚvexHuÎ
+(
+œr
+::
+cÜe
+::
+veùÜ3df
+ *
+v”ts
+, i¼::
+s32
+ 
+numPošts
+, 
+qv
+::
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+, 
+»®
+ 
+¥ecificG¿v™y
+)
+
+173 
+	gPhysicsMªag”
+::
+addSph”e
+Ğ
+»®
+ 
+¿dius
+, 
+qv
+::
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+,„—È
+¥ecificG¿v™y
+)
+
+175 
+btSph”eSh­e
+* 
+	g¥h”eSh­e
+ = 
+Ãw
+ btSph”eSh­e(
+btSÿÏr
+(
+¿dius
+));
+
+	@..\engine\source\quanticvortex\qvPhysicsManager.h
+
+2 #iâdeà
+__PHYSICS_MANAGER_H_
+
+
+3 
+	#__PHYSICS_MANAGER_H_
+
+
+	)
+
+5 
+	~"qvTy³s.h
+"
+
+6 
+	~"qvAùÜTy³s.h
+"
+
+7 
+	~"qvIPhysicsMªag”.h
+"
+
+10 
+	~"btBuÎ‘CŞlisiÚCommÚ.h
+"
+
+11 
+	~"btBuÎ‘DyÇmicsCommÚ.h
+"
+
+12 
+	~"BuÎ‘CŞlisiÚ/CŞlisiÚDi¥©ch/btGho¡Objeù.h
+"
+
+13 
+	~"BuÎ‘CŞlisiÚ/Brßdpha£CŞlisiÚ/btOv”ÏµšgPaœC®lback.h
+"
+
+16 
+	gÇme¥aû
+
+
+18 
+qu©”niÚToEuËr
+(cÚ¡ 
+btQu©”niÚ
+ &
+TQu©
+, 
+btVeùÜ3
+ &
+TEuËr
+)
+
+20 
+btSÿÏr
+ 
+	gW
+ = 
+TQu©
+.
+g‘W
+();
+
+21 
+btSÿÏr
+ 
+	gX
+ = 
+TQu©
+.
+g‘X
+();
+
+22 
+btSÿÏr
+ 
+	gY
+ = 
+TQu©
+.
+g‘Y
+();
+
+23 
+btSÿÏr
+ 
+	gZ
+ = 
+TQu©
+.
+g‘Z
+();
+
+25 
+	gWSqu¬ed
+ = 
+W
+ * W;
+
+26 
+	gXSqu¬ed
+ = 
+X
+ * X;
+
+27 
+	gYSqu¬ed
+ = 
+Y
+ * Y;
+
+28 
+	gZSqu¬ed
+ = 
+Z
+ * Z;
+
+30 
+	gTEuËr
+.
+£tX
+(
+©ª2f
+(2.0à* (
+Y
+ * 
+Z
+ + 
+X
+ * 
+W
+), -
+XSqu¬ed
+ - 
+YSqu¬ed
+ + 
+ZSqu¬ed
+ + 
+WSqu¬ed
+));
+
+31 
+	gTEuËr
+.
+£tY
+(
+asšf
+(-2.0à* (
+X
+ * 
+Z
+ - 
+Y
+ * 
+W
+)));
+
+32 
+	gTEuËr
+.
+£tZ
+(
+©ª2f
+(2.0à* (
+X
+ * 
+Y
+ + 
+Z
+ * 
+W
+), 
+XSqu¬ed
+ - 
+YSqu¬ed
+ - 
+ZSqu¬ed
+ + 
+WSqu¬ed
+));
+
+34 
+	gTEuËr
+ *ğ
+œr
+::
+cÜe
+::
+RADTODEG
+;
+
+38 
+Çme¥aû
+ 
+	gqv
+
+
+40 
+şass
+ 
+	gIEngšeMªag”
+;
+
+42 
+Çme¥aû
+ 
+	ggamšg
+
+
+44 
+şass
+ 
+	gIAùÜ
+;
+
+47 
+Çme¥aû
+ 
+	gphysics
+
+
+49 şas 
+	cPhysicsMªag”
+: 
+public
+ 
+IPhysicsMªag”
+
+
+51 
+public
+:
+
+53 
+PhysicsMªag”
+(
+IEngšeMªag”
+* 
+’gšeMªag”
+);
+
+54 ~
+PhysicsMªag”
+();
+
+56 
+vœtu®
+ 
+boŞ
+ 
+š™Ÿlize
+();
+
+58 
+vœtu®
+ 
+boŞ
+ 
+fš®ize
+();
+
+60 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+–­£dTimeMs
+);
+
+64 
+vœtu®
+ 
+addSh­e
+(
+»®
+ 
+¿dius
+, 
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+,„—È
+¥ecificG¿v™y
+);
+
+67 
+vœtu®
+ 
+addSph”e
+(
+»®
+ 
+¿dius
+, 
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+,„—È
+¥ecificG¿v™y
+);
+
+70 
+vœtu®
+ 
+addBox
+(cÚ¡ 
+œr
+::
+cÜe
+::
+veùÜ3df
+& 
+dim’siÚs
+, 
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+, 
+»®
+ 
+¥ecificG¿v™y
+);
+
+73 
+vœtu®
+ 
+addCÚvexHuÎ
+Ğ
+œr
+::
+cÜe
+::
+veùÜ3df
+ *
+v”ts
+, 
+s32
+ 
+numPošts
+, 
+gamšg
+::
+IAùÜ
+ *
+aùÜ
+, 
+»®
+ 
+¥ecificG¿v™y
+);
+
+93 
+	g´iv©e
+:
+
+97 
+btAligÃdObjeùA¼ay
+<
+	tbtCŞlisiÚSh­e
+*> 
+	tCŞlisiÚSh­es
+;
+
+99 
+IEngšeMªag”
+* 
+	gmEngšeMªag”
+;
+
+100 
+btDyÇmicsWÜld
+* 
+	gmBuÎ‘DyÇmicsWÜld
+;
+
+101 
+btBrßdpha£IÁ”çû
+* 
+	gmBuÎ‘Brßdpha£IÁ”çû
+;
+
+102 
+btCŞlisiÚDi¥©ch”
+* 
+	gmBuÎ‘CŞlisiÚDi¥©ch”
+;
+
+103 
+btDeçuÉCŞlisiÚCÚfigu¿tiÚ
+* 
+	gmBuÎ‘DeçuÉCŞlisiÚCÚfigu¿tiÚ
+;
+
+104 
+btCÚ¡¿štSŞv”
+* 
+	gmBuÎ‘CÚ¡¿štSŞv”
+;
+
+105 
+CŞlisiÚSh­es
+ 
+	gmCŞlisiÚObjeùsLi¡
+;
+
+107 
+»®
+ 
+	gmTimeUpd©e
+;
+
+	@..\engine\source\quanticvortex\qvQuanticVortex.cpp
+
+27 
+	~"qvQuªticVÜ‹x.h
+"
+
+29 
+	~"qvEngšeMªag”.h
+"
+
+31 
+Çme¥aû
+ 
+	gqv
+
+
+33 
+_QUANTICVORTEX_API_
+ 
+IEngšeMªag”
+* 
+QUANTICVORTEX_CALLCONV
+ 
+ü—‹EngšeMªag”
+Ğ
+boŞ
+ 
+fuÎsü“n
+,
+
+34 
+boŞ
+ 
+vsync
+,
+
+35 
+u8
+ 
+b™s
+,
+
+36 
+œr
+::
+cÜe
+::
+dim’siÚ2du
+ 
+wšdowSize
+,
+
+37 
+œr
+::
+cÜe
+::
+¡ršgc
+ 
+t™Ë
+,
+
+38 
+boŞ
+ 
+ho¡Game
+,
+
+39 
+u8
+ 
+loÿlPÏy”s
+,
+
+40 
+u8
+ 
+aIPÏy”s
+,
+
+41 
+u8
+ 
+»mÙePÏy”s
+)
+
+43 
+SGameP¬ams
+ 
+	g·¿ms
+;
+
+44 
+	g·¿ms
+.
+	gFuÎsü“n
+ = 
+fuÎsü“n
+;
+
+45 
+	g·¿ms
+.
+	gVsync
+ = 
+vsync
+;
+
+46 
+	g·¿ms
+.
+	gB™s
+ = 
+b™s
+;
+
+47 
+	g·¿ms
+.
+	gWšdowSize
+ = 
+wšdowSize
+;
+
+48 
+	g·¿ms
+.
+	gT™Ë
+ = 
+t™Ë
+;
+
+49 
+	g·¿ms
+.
+	gHo¡Game
+ = 
+ho¡Game
+;
+
+50 
+	g·¿ms
+.
+	gLoÿlPÏy”s
+ = 
+loÿlPÏy”s
+;
+
+51 
+	g·¿ms
+.
+	gAIPÏy”s
+ = 
+aIPÏy”s
+;
+
+52 
+	g·¿ms
+.
+	gRemÙePÏy”s
+ = 
+»mÙePÏy”s
+;
+
+54  
+ü—‹EngšeMªag”Ex
+(
+·¿ms
+);
+
+58 
+_QUANTICVORTEX_API_
+ 
+IEngšeMªag”
+* 
+QUANTICVORTEX_CALLCONV
+ 
+ü—‹EngšeMªag”Ex
+(cÚ¡ 
+SGameP¬ams
+& 
+·¿ms
+)
+
+60 
+IEngšeMªag”
+* 
+	g’gšeMªag”
+ = 
+Ãw
+ 
+EngšeMªag”
+(
+·¿ms
+);
+
+61  
+	g’gšeMªag”
+;
+
+	@..\engine\source\quanticvortex\qvRunningGameState.cpp
+
+2 
+	~"qvRuÂšgGameS‹.h
+"
+
+5 
+Çme¥aû
+ 
+	gqv
+
+
+7 
+Çme¥aû
+ 
+	ggamšg
+
+
+10 
+	gRuÂšgGameS‹
+::
+RuÂšgGameS‹
+()
+
+11 :
+mS‹
+(
+S_GAME_STATE_RUNNING
+)
+
+15 
+RuÂšgGameS‹
+::~RunningGameState()
+
+20 
+RuÂšgGameS‹
+::
+cÚfigu»
+()
+
+25 
+RuÂšgGameS‹
+::
+’‹r
+()
+
+30 
+RuÂšgGameS‹
+::
+Ëave
+()
+
+35 
+RuÂšgGameS‹
+::
+upd©e
+(
+œr
+::
+u32
+ 
+cu¼’tTimeMs
+, i¼::u32 
+–­£dTimeMs
+)
+
+	@..\engine\source\quanticvortex\qvRunningGameState.h
+
+2 #iâdeà
+__RUNNING_GAME_STATE_H_
+
+
+3 
+	#__RUNNING_GAME_STATE_H_
+
+
+	)
+
+5 
+	~"qvIGameS‹.h
+"
+
+8 
+Çme¥aû
+ 
+	gqv
+
+
+10 
+Çme¥aû
+ 
+	gv›ws
+
+
+12 
+şass
+ 
+	gISûÃV›w
+;
+
+15 
+Çme¥aû
+ 
+	ggamšg
+
+
+18 şas 
+	cRuÂšgGameS‹
+: 
+public
+ 
+IGameS‹
+
+
+20 
+public
+:
+
+21 
+RuÂšgGameS‹
+();
+
+22 ~
+RuÂšgGameS‹
+();
+
+24 
+vœtu®
+ cÚ¡ 
+S_STATE
+* 
+g‘S‹
+()
+
+26  
+	gmS‹
+;
+
+29 
+vœtu®
+ 
+cÚfigu»
+();
+
+31 
+vœtu®
+ 
+’‹r
+();
+
+33 
+vœtu®
+ 
+Ëave
+();
+
+35 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+37 
+	g´iv©e
+:
+
+38 cÚ¡ 
+S_STATE
+* 
+mS‹
+;
+
+	@..\engine\source\quanticvortex\qvSingleKeyInputTranslator.cpp
+
+27 
+	~"qvSšgËKeyIÅutT¿n¦©Ü.h
+"
+
+29 
+	~"qvIEv’tMªag”.h
+"
+
+30 
+	~"qvIIÅutReûiv”.h
+"
+
+33 
+Çme¥aû
+ 
+	gqv
+
+
+35 
+Çme¥aû
+ 
+	gšput
+
+
+38 
+	gSšgËKeyIÅutT¿n¦©Ü
+::
+SšgËKeyIÅutT¿n¦©Ü
+(
+ev’ts
+::
+IEv’tMªag”
+* 
+ev’tMªag”
+,
+
+39 
+œr
+::
+EKEY_CODE
+ 
+keyCode
+,
+
+40 
+EKEY_STATE
+ 
+checkKeyS‹
+,
+
+41 
+boŞ
+ 
+»®Time
+,
+
+42 
+ev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+,
+
+43 
+u32
+ 
+šputT¿n¦©ÜHashTy³
+,
+
+44 cÚ¡ 
+c8
+* 
+šputT¿n¦©ÜName
+)
+
+45 :
+mEv’tMªag”
+(
+ev’tMªag”
+),
+
+46 
+mKeyCode
+(
+keyCode
+),
+
+47 
+mCheckKeyS‹
+(
+checkKeyS‹
+),
+
+48 
+mR—lTime
+(
+»®Time
+), 
+mArgs
+(
+¬gs
+),
+
+49 
+mIÅutT¿n¦©ÜHashTy³
+(
+šputT¿n¦©ÜHashTy³
+)
+
+65 
+	gSšgËKeyIÅutT¿n¦©Ü
+::~
+SšgËKeyIÅutT¿n¦©Ü
+()
+
+70 
+boŞ
+ 
+SšgËKeyIÅutT¿n¦©Ü
+::
+Œª¦©e
+(
+qv
+::
+šput
+::
+IIÅutReûiv”
+ *
+cÚ‹xt
+)
+
+72 
+boŞ
+ 
+Œª¦©ed
+ = 
+çl£
+;
+
+74 
+	gmCheckKeyS‹
+)
+
+76 
+	gEKS_PRESSED_OR_DOWN
+:
+
+78 if(
+cÚ‹xt
+->
+keyP»s£d
+(
+mKeyCode
+è|| cÚ‹xt->
+keyDown
+(mKeyCode))
+
+80 if(
+mR—lTime
+)
+
+81 
+mEv’tMªag”
+->
+Œigg”
+(
+mArgs
+);
+
+83 
+	gmEv’tMªag”
+->
+’queueEv’t
+(
+mArgs
+);
+
+85 
+	gŒª¦©ed
+ = 
+Œue
+;
+
+90 
+	gEKS_UP_OR_RELEASED
+:
+
+92 if(
+cÚ‹xt
+->
+keyUp
+(
+mKeyCode
+è|| cÚ‹xt->
+keyR–—£d
+(mKeyCode))
+
+94 if(
+mR—lTime
+)
+
+95 
+mEv’tMªag”
+->
+Œigg”
+(
+mArgs
+);
+
+97 
+	gmEv’tMªag”
+->
+’queueEv’t
+(
+mArgs
+);
+
+99 
+	gŒª¦©ed
+ = 
+Œue
+;
+
+104 
+	gEKS_PRESSED
+:
+
+106 if(
+cÚ‹xt
+->
+keyP»s£d
+(
+mKeyCode
+))
+
+108 if(
+mR—lTime
+)
+
+109 
+mEv’tMªag”
+->
+Œigg”
+(
+mArgs
+);
+
+111 
+	gmEv’tMªag”
+->
+’queueEv’t
+(
+mArgs
+);
+
+113 
+	gŒª¦©ed
+ = 
+Œue
+;
+
+118 
+	gEKS_RELEASED
+:
+
+120 if(
+cÚ‹xt
+->
+keyR–—£d
+(
+mKeyCode
+))
+
+122 if(
+mR—lTime
+)
+
+123 
+mEv’tMªag”
+->
+Œigg”
+(
+mArgs
+);
+
+125 
+	gmEv’tMªag”
+->
+’queueEv’t
+(
+mArgs
+);
+
+127 
+	gŒª¦©ed
+ = 
+Œue
+;
+
+132 
+	gEKS_DOWN
+:
+
+134 if(
+cÚ‹xt
+->
+keyDown
+(
+mKeyCode
+))
+
+136 if(
+mR—lTime
+)
+
+137 
+mEv’tMªag”
+->
+Œigg”
+(
+mArgs
+);
+
+139 
+	gmEv’tMªag”
+->
+’queueEv’t
+(
+mArgs
+);
+
+141 
+	gŒª¦©ed
+ = 
+Œue
+;
+
+146 
+	gEKS_UP
+:
+
+148 if(
+cÚ‹xt
+->
+keyUp
+(
+mKeyCode
+))
+
+150 if(
+mR—lTime
+)
+
+151 
+mEv’tMªag”
+->
+Œigg”
+(
+mArgs
+);
+
+153 
+	gmEv’tMªag”
+->
+’queueEv’t
+(
+mArgs
+);
+
+155 
+	gŒª¦©ed
+ = 
+Œue
+;
+
+161 
+Œª¦©ed
+ = 
+çl£
+;
+
+164  
+	gŒª¦©ed
+;
+
+	@..\engine\source\quanticvortex\qvSingleKeyInputTranslator.h
+
+28 #iâdeà
+_SINGLE_KEY_INPUT_TRANSLATOR_H_
+
+
+29 
+	#_SINGLE_KEY_INPUT_TRANSLATOR_H_
+
+
+	)
+
+31 
+	~"qvISšgËKeyIÅutT¿n¦©Ü.h
+"
+
+32 
+	~"qvIEv’tArgs.h
+"
+
+35 
+Çme¥aû
+ 
+	gqv
+
+
+37 
+Çme¥aû
+ 
+	gev’ts
+
+
+39 
+şass
+ 
+	gIEv’tMªag”
+;
+
+43 
+Çme¥aû
+ 
+	gšput
+
+
+45 
+şass
+ 
+	gIIÅutReûiv”
+;
+
+47 şas 
+	cSšgËKeyIÅutT¿n¦©Ü
+ : 
+public
+ 
+ISšgËKeyIÅutT¿n¦©Ü
+
+
+60 
+public
+:
+
+69 
+SšgËKeyIÅutT¿n¦©Ü
+(
+ev’ts
+::
+IEv’tMªag”
+* 
+ev’tMªag”
+,
+
+70 
+œr
+::
+EKEY_CODE
+ 
+keyCode
+,
+
+71 
+EKEY_STATE
+ 
+checkKeyS‹
+,
+
+72 
+boŞ
+ 
+»®Time
+,
+
+73 
+ev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+¬gs
+,
+
+74 
+u32
+ 
+šputT¿n¦©ÜHashty³
+,
+
+75 cÚ¡ 
+c8
+* 
+šputT¿n¦©ÜName
+);
+
+77 
+	gvœtu®
+ ~
+SšgËKeyIÅutT¿n¦©Ü
+();
+
+79 
+vœtu®
+ 
+u32
+ 
+g‘HashId
+(ècÚ¡ {  
+	gmId
+->
+	gHash
+; }
+
+81 
+vœtu®
+ 
+u32
+ 
+g‘HashTy³
+(ècÚ¡ {  
+	gmIÅutT¿n¦©ÜHashTy³
+; }
+
+83 
+vœtu®
+ 
+boŞ
+ 
+Œª¦©e
+(
+IIÅutReûiv”
+ *
+cÚ‹xt
+);
+
+85 
+	g´iv©e
+:
+
+86 
+ev’ts
+::
+IEv’tMªag”
+* 
+mEv’tMªag”
+;
+
+87 
+	gœr
+::
+EKEY_CODE
+ 
+mKeyCode
+;
+
+88 
+EKEY_STATE
+ 
+	gmCheckKeyS‹
+;
+
+89 
+boŞ
+ 
+	gmR—lTime
+;
+
+90 
+	gev’ts
+::
+IEv’tArgsSh¬edPŒ
+ 
+mArgs
+;
+
+91 
+u32
+ 
+	gmIÅutT¿n¦©ÜHashTy³
+;
+
+92 cÚ¡ 
+ITI_INPUT_TRANSLATOR_ID
+* 
+	gmId
+;
+
+	@..\engine\source\quanticvortex\qvWaintingPlayerGameState.cpp
+
+2 
+	~"qvWaštšgPÏy”GameS‹.h
+"
+
+5 
+Çme¥aû
+ 
+	gqv
+
+
+7 
+Çme¥aû
+ 
+	ggamšg
+
+
+10 
+	gWaštšgPÏy”GameS‹
+::
+WaštšgPÏy”GameS‹
+()
+
+11 :
+mS‹
+(
+S_GAME_STATE_WAITING_PLAYER
+)
+
+15 
+WaštšgPÏy”GameS‹
+::~WaintingPlayerGameState()
+
+20 
+WaštšgPÏy”GameS‹
+::
+cÚfigu»
+()
+
+25 
+WaštšgPÏy”GameS‹
+::
+’‹r
+()
+
+30 
+WaštšgPÏy”GameS‹
+::
+Ëave
+()
+
+35 
+WaštšgPÏy”GameS‹
+::
+upd©e
+(
+œr
+::
+u32
+ 
+cu¼’tTimeMs
+, i¼::u32 
+–­£dTimeMs
+)
+
+	@..\engine\source\quanticvortex\qvWaintingPlayerGameState.h
+
+2 #iâdeà
+__WAINTING_PLAYER_GAME_STATE_H_
+
+
+3 
+	#__WAINTING_PLAYER_GAME_STATE_H_
+
+
+	)
+
+5 
+	~"qvIGameS‹.h
+"
+
+8 
+Çme¥aû
+ 
+	gqv
+
+
+10 
+Çme¥aû
+ 
+	gv›ws
+
+
+12 
+şass
+ 
+	gISûÃV›w
+;
+
+15 
+Çme¥aû
+ 
+	ggamšg
+
+
+18 şas 
+	cWaštšgPÏy”GameS‹
+: 
+public
+ 
+IS‹
+
+
+20 
+public
+:
+
+21 
+WaštšgPÏy”GameS‹
+();
+
+22 ~
+WaštšgPÏy”GameS‹
+();
+
+24 
+vœtu®
+ cÚ¡ 
+S_STATE
+* 
+g‘S‹
+()
+
+26  
+	gmS‹
+;
+
+29 
+vœtu®
+ 
+cÚfigu»
+();
+
+31 
+vœtu®
+ 
+’‹r
+();
+
+33 
+vœtu®
+ 
+Ëave
+();
+
+35 
+vœtu®
+ 
+upd©e
+Ğ
+u32
+ 
+cu¼’tTimeMs
+, u32 
+–­£dTimeMs
+);
+
+37 
+	g´iv©e
+:
+
+38 cÚ¡ 
+S_STATE
+* 
+mS‹
+;
+
+	@01_Sample\source\main.cpp
+
+2 
+	~"qvTy³s.h
+"
+
+3 
+	~"sdcSylfurDCGame.h
+"
+
+6 
+	gqv
+::
+s32
+ 
+maš
+(s32 
+¬gc
+, 
+qv
+::
+c8
+ *
+¬gv
+[])
+
+8 
+sdc
+::
+SylfurDCGame
+ 
+game
+;
+
+10 if(
+	ggame
+.
+š™Ÿlize
+())
+
+11  
+	ggame
+.
+run
+Ğ
+¬gc
+, 
+¬gv
+);
+
+	@01_Sample\source\sdcQuitCommand.cpp
+
+2 
+	~"sdcQu™Commªd.h
+"
+
+4 
+	~"qvIEngšeMªag”.h
+"
+
+7 
+Çme¥aû
+ 
+	gsdc
+
+
+9 
+Çme¥aû
+ 
+	gcÚŒŞËr
+
+
+11 
+	gQu™Commªd
+::
+Qu™Commªd
+(
+qv
+::
+IEngšeMªag”
+ *
+’gše
+)
+
+12 :
+ICommªdEv’t
+(
+qv
+::
+CI_COMMAND_GAME_QUIT
+), 
+mEngše
+(
+’gše
+)
+
+14 
+	gmEv’tTy³s
+.
+push_back
+(
+qv
+::
+ev’ts
+::
+ET_GAME_QUIT
+);
+
+17 
+	gQu™Commªd
+::~
+Qu™Commªd
+()
+
+19 
+mEv’tTy³s
+.
+£t_ä“_wh’_de¡royed
+(
+çl£
+);
+
+20 
+	gmEv’tTy³s
+.
+ş—r
+();
+
+23 
+	gQu™Commªd
+::
+execu‹Commªd
+(cÚ¡ 
+qv
+::
+ev’ts
+::
+IEv’tArgs
+ *
+¬gs
+)
+
+25 
+mEngše
+->
+£tQu™
+(
+Œue
+);
+
+26 
+	gmEngše
+->
+g‘Deviû
+()->
+g‘Logg”
+()->
+log
+("quitƒvent generated");
+
+	@01_Sample\source\sdcQuitCommand.h
+
+2 #iâdeà
+__SDC_CONTROLLER_QUIT_COMMAND_H_
+
+
+3 
+	#__SDC_CONTROLLER_QUIT_COMMAND_H_
+
+
+	)
+
+5 
+	~"qvIEv’tCommªd.h
+"
+
+7 
+Çme¥aû
+ 
+	gqv
+
+
+9 
+şass
+ 
+	gIEngšeMªag”
+;
+
+11 
+Çme¥aû
+ 
+	gev’ts
+
+
+13 
+şass
+ 
+	gIEv’tArgs
+;
+
+17 
+Çme¥aû
+ 
+	gsdc
+
+
+19 
+Çme¥aû
+ 
+	gcÚŒŞËr
+
+
+28 şas 
+	cQu™Commªd
+: 
+public
+ 
+qv
+::
+ev’ts
+::
+IEv’tCommªd
+
+
+30 
+´iv©e
+:
+
+31 
+qv
+::
+IEngšeMªag”
+* 
+mEngše
+;
+
+32 
+	g¬¿y
+<cÚ¡ 
+	gqv
+::
+ev’ts
+::
+ET_EVENT_TYPE
+*> 
+mEv’tTy³s
+;
+
+34 
+	gpublic
+:
+
+35 
+Qu™Commªd
+(
+qv
+::
+IEngšeMªag”
+* 
+’gše
+);
+
+36 
+	gvœtu®
+ ~
+Qu™Commªd
+();
+
+38 
+vœtu®
+ cÚ¡ 
+	g¬¿y
+<cÚ¡ 
+	gqv
+::
+ev’ts
+::
+ET_EVENT_TYPE
+*>& 
+li¡’Ev’tTy³s
+() const
+
+40  
+mEv’tTy³s
+;
+
+43 
+vœtu®
+ 
+execu‹Commªd
+(cÚ¡ 
+qv
+::
+ev’ts
+::
+IEv’tArgs
+* 
+¬gs
+);
+
+	@01_Sample\source\sdcSylfurDCGame.cpp
+
+2 
+	~"sdcSylfurDCGame.h
+"
+
+4 
+	~"qvSGameP¬ams.h
+"
+
+5 
+	~"qvIHumªV›w.h
+"
+
+7 
+	~"sdcQu™Commªd.h
+"
+
+9 
+Çme¥aû
+ 
+	gsdc
+
+
+11 
+Çme¥aû
+ 
+	gšput
+
+
+13 
+	gqv
+::
+šput
+::
+IT_INPUT_TRANSLATOR_ID
+ 
+IT_QUIT
+("IT_QUIT");
+
+17 
+Çme¥aû
+ 
+	gsdc
+
+
+20 
+	gSylfurDCGame
+::
+SylfurDCGame
+()
+
+23 
+qv
+::
+SGameP¬ams
+ 
+·¿ms
+;
+
+25 
+	g·¿ms
+.
+	gB™s
+ = 32;
+
+26 
+	g·¿ms
+.
+	gFuÎsü“n
+ = 
+çl£
+;
+
+27 
+	g·¿ms
+.
+	gT™Ë
+ = "Sylfur D.C. - Dimencional Chronical";
+
+28 
+	g·¿ms
+.
+	gVsync
+ = 
+çl£
+;
+
+29 
+	g·¿ms
+.
+	gWšdowSize
+.
+	gWidth
+ = 800;
+
+30 
+	g·¿ms
+.
+	gWšdowSize
+.
+	gHeight
+ = 600;
+
+32 
+	gmEngše
+ = 
+qv
+::
+ü—‹EngšeMªag”Ex
+(
+·¿ms
+);
+
+35 
+	gSylfurDCGame
+::~
+SylfurDCGame
+()
+
+37 
+mEngše
+->
+drİ
+();
+
+40 
+boŞ
+ 
+	gSylfurDCGame
+::
+š™Ÿlize
+()
+
+42 
+boŞ
+ 
+š™Ÿlized
+ = 
+mEngše
+->
+š™Ÿlize
+();
+
+44 if(!
+	gš™Ÿlized
+)
+
+45  
+	gçl£
+;
+
+47 
+	gqv
+::
+gamšg
+::
+IGameLogic
+* 
+gameLogic
+ = 
+mEngše
+->
+addGameLogic
+();
+
+48 
+	gqv
+::
+gamšg
+::
+AI_ACTOR_ID
+* 
+¶ay”ID
+ = 
+Ãw
+ 
+qv
+::gaming::AI_ACTOR_ID("PlayerID");
+
+49 
+	gqv
+::
+v›ws
+::
+IHumªV›w
+* 
+v›w
+ = 
+gameLogic
+->
+addHumªV›w
+("SylfurDCV›w", 
+¶ay”ID
+);
+
+55 
+	gqv
+::
+šput
+::
+ISšgËKeyIÅutT¿n¦©Ü
+* 
+qu™
+ =
+
+56 
+mEngše
+->
+g‘IÅutReûiv”
+()->
+addSšgËKeyT¿n¦©Ü
+(
+šput
+::
+IT_QUIT_TRANSLATOR
+, 
+œr
+::
+KEY_ESCAPE
+,
+
+57 
+qv
+::
+šput
+::
+EKS_PRESSED_OR_DOWN
+, qv::
+ev’ts
+::
+ET_GAME_QUIT
+, 
+Œue
+);
+
+62 
+	gqv
+::
+ev’ts
+::
+ICommªdEv’t
+* 
+commªd
+ = 
+Ãw
+ 
+cÚŒŞËr
+::
+Qu™Commªd
+(
+mEngše
+);
+
+63 
+	gmEngše
+->
+g‘Ev’tMªag”
+()->
+»gi¡”CommªdEv’t
+(
+commªd
+);
+
+69 
+	gqv
+::
+v›ws
+::
+IEËm’tV›w
+* 
+sûÃV›w
+ = 
+v›w
+->
+addEËm’tV›w
+("DeçuÉSûÃ",
+qv
+::v›ws::
+EVT_ELEMENT_VIEW_SCENE
+);
+
+70 
+	gqv
+::
+v›ws
+::
+ISûÃV›w
+* 
+sûÃ
+ = 
+¡©ic_ÿ¡
+<
+qv
+::v›ws::ISûÃV›w*>(
+sûÃV›w
+);
+
+72 
+	gsûÃ
+->
+lßdSûÃ
+("../../../media/irrb-0.4.zip");
+
+80  
+	gš™Ÿlized
+;
+
+83 
+s32
+ 
+	gSylfurDCGame
+::
+run
+(s32 
+¬gc
+, 
+c8
+* 
+¬gv
+[])
+
+85  
+	gmEngše
+->
+run
+();
+
+	@01_Sample\source\sdcSylfurDCGame.h
+
+2 #iâdeà
+__SYLFUR_DC_GAME_H_
+
+
+3 
+	#__SYLFUR_DC_GAME_H_
+
+
+	)
+
+5 
+	~"qvQuªticVÜ‹x.h
+"
+
+8 
+Çme¥aû
+ 
+	gsdc
+
+
+10 şas 
+	cSylfurDCGame
+
+
+12 
+	g´iv©e
+:
+
+13 
+qv
+::
+IEngšeMªag”
+* 
+mEngše
+;
+
+15 
+	gpublic
+:
+
+16 
+SylfurDCGame
+();
+
+17 
+	gvœtu®
+ ~
+SylfurDCGame
+();
+
+19 
+boŞ
+ 
+š™Ÿlize
+();
+
+21 
+s32
+ 
+run
+(s32 
+¬gc
+, 
+c8
+* 
+¬gv
+[]);
+
+	@
+1
+.
+0
+130
+5704
+..\engine\include\qvActorTypes.h
+..\engine\include\qvCommandTypes.h
+..\engine\include\qvCompileConfig.h
+..\engine\include\qvConcurrentArray.h
+..\engine\include\qvConfig.h
+..\engine\include\qvConfigProfile.h
+..\engine\include\qvEventTypes.h
+..\engine\include\qvGameParameters.h
+..\engine\include\qvGameStateTypes.h
+..\engine\include\qvGameViewTypes.h
+..\engine\include\qvHashFunctions.h
+..\engine\include\qvIAIView.h
+..\engine\include\qvIActor.h
+..\engine\include\qvIActorAddedEventArgs.h
+..\engine\include\qvIActorFactory.h
+..\engine\include\qvIActorManager.h
+..\engine\include\qvIAnyKeyInputTranslator.h
+..\engine\include\qvICommand.h
+..\engine\include\qvIElementView.h
+..\engine\include\qvIElementViewFactory.h
+..\engine\include\qvIEngineManager.h
+..\engine\include\qvIEventArgs.h
+..\engine\include\qvIEventArgsFactory.h
+..\engine\include\qvIEventCommand.h
+..\engine\include\qvIEventManager.h
+..\engine\include\qvIGame.h
+..\engine\include\qvIGameLogic.h
+..\engine\include\qvIGameLogicFactory.h
+..\engine\include\qvIGameState.h
+..\engine\include\qvIGameStateMachine.h
+..\engine\include\qvIGameView.h
+..\engine\include\qvIGameViewFactory.h
+..\engine\include\qvIGameViewManager.h
+..\engine\include\qvIGuiView.h
+..\engine\include\qvIHumanView.h
+..\engine\include\qvIInputCommand.h
+..\engine\include\qvIInputReceiver.h
+..\engine\include\qvIInputReceiverDriverFactory.h
+..\engine\include\qvIInputReceiverFactory.h
+..\engine\include\qvIInputTranslator.h
+..\engine\include\qvIInputTranslatorFactory.h
+..\engine\include\qvIMemoryManager.h
+..\engine\include\qvINetworkView.h
+..\engine\include\qvIPhysicsActor.h
+..\engine\include\qvIPhysicsManager.h
+..\engine\include\qvIPhysicsView.h
+..\engine\include\qvIProcess.h
+..\engine\include\qvIProcessManager.h
+..\engine\include\qvIRecorderView.h
+..\engine\include\qvIReferenceCount.h
+..\engine\include\qvISceneView.h
+..\engine\include\qvISingleKeyInputTranslator.h
+..\engine\include\qvIState.h
+..\engine\include\qvIStateMachine.h
+..\engine\include\qvITimer.h
+..\engine\include\qvKeyTypes.h
+..\engine\include\qvPrerequisites.h
+..\engine\include\qvProtothread.h
+..\engine\include\qvQuanticVortex.h
+..\engine\include\qvSActorParams.h
+..\engine\include\qvSEventArgs.h
+..\engine\include\qvSGameArgs.h
+..\engine\include\qvSGameData.h
+..\engine\include\qvSGameLogicParams.h
+..\engine\include\qvSGameParams.h
+..\engine\include\qvSHashedString.h
+..\engine\include\qvSPlayerScore.h
+..\engine\include\qvSingletonHolder.h
+..\engine\include\qvStateTypes.h
+..\engine\include\qvTypes.h
+..\engine\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.cpp
+..\engine\source\quanticvortex\drivers\irrlicht\qvDefaultInputReceiverDriverFactory.h
+..\engine\source\quanticvortex\drivers\irrlicht\qvInputEventHandlerIrrlicht.h
+..\engine\source\quanticvortex\drivers\irrlicht\qvSceneViewIrrlicht.cpp
+..\engine\source\quanticvortex\drivers\irrlicht\qvSceneViewIrrlicht.h
+..\engine\source\quanticvortex\qvActor.cpp
+..\engine\source\quanticvortex\qvActor.h
+..\engine\source\quanticvortex\qvActorManager.cpp
+..\engine\source\quanticvortex\qvActorManager.h
+..\engine\source\quanticvortex\qvActorMotion.cpp
+..\engine\source\quanticvortex\qvActorMotion.h
+..\engine\source\quanticvortex\qvActorMotionState.h
+..\engine\source\quanticvortex\qvAnyKeyInputTranslator.cpp
+..\engine\source\quanticvortex\qvAnyKeyInputTranslator.h
+..\engine\source\quanticvortex\qvDefaultElementViewFactory.cpp
+..\engine\source\quanticvortex\qvDefaultElementViewFactory.h
+..\engine\source\quanticvortex\qvDefaultEventArgsFactory.cpp
+..\engine\source\quanticvortex\qvDefaultEventArgsFactory.h
+..\engine\source\quanticvortex\qvDefaultGameViewFactory.cpp
+..\engine\source\quanticvortex\qvDefaultGameViewFactory.h
+..\engine\source\quanticvortex\qvEngineInputTranslatorFactory.cpp
+..\engine\source\quanticvortex\qvEngineInputTranslatorFactory.h
+..\engine\source\quanticvortex\qvEngineManager.cpp
+..\engine\source\quanticvortex\qvEngineManager.h
+..\engine\source\quanticvortex\qvEventArgs.cpp
+..\engine\source\quanticvortex\qvEventArgs.h
+..\engine\source\quanticvortex\qvEventManager.cpp
+..\engine\source\quanticvortex\qvEventManager.h
+..\engine\source\quanticvortex\qvGameLogic.cpp
+..\engine\source\quanticvortex\qvGameLogic.h
+..\engine\source\quanticvortex\qvGameParameters.cpp
+..\engine\source\quanticvortex\qvGameStateMachine.cpp
+..\engine\source\quanticvortex\qvGameStateMachine.h
+..\engine\source\quanticvortex\qvGuiView.cpp
+..\engine\source\quanticvortex\qvGuiView.h
+..\engine\source\quanticvortex\qvHashFunctions.cpp
+..\engine\source\quanticvortex\qvHumanView.cpp
+..\engine\source\quanticvortex\qvHumanView.h
+..\engine\source\quanticvortex\qvInitializatingGameState.cpp
+..\engine\source\quanticvortex\qvInitializatingGameState.h
+..\engine\source\quanticvortex\qvInputReceiver.cpp
+..\engine\source\quanticvortex\qvInputReceiver.h
+..\engine\source\quanticvortex\qvLoadingGameState.cpp
+..\engine\source\quanticvortex\qvLoadingGameState.h
+..\engine\source\quanticvortex\qvMenuGameState.cpp
+..\engine\source\quanticvortex\qvMenuGameState.h
+..\engine\source\quanticvortex\qvPhysicsManager.cpp
+..\engine\source\quanticvortex\qvPhysicsManager.h
+..\engine\source\quanticvortex\qvQuanticVortex.cpp
+..\engine\source\quanticvortex\qvRunningGameState.cpp
+..\engine\source\quanticvortex\qvRunningGameState.h
+..\engine\source\quanticvortex\qvSingleKeyInputTranslator.cpp
+..\engine\source\quanticvortex\qvSingleKeyInputTranslator.h
+..\engine\source\quanticvortex\qvWaintingPlayerGameState.cpp
+..\engine\source\quanticvortex\qvWaintingPlayerGameState.h
+01_Sample\source\main.cpp
+01_Sample\source\sdcQuitCommand.cpp
+01_Sample\source\sdcQuitCommand.h
+01_Sample\source\sdcSylfurDCGame.cpp
+01_Sample\source\sdcSylfurDCGame.h

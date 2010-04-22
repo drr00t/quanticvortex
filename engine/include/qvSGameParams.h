@@ -28,9 +28,11 @@
 #ifndef __SGAMEPARAMS_H_
 #define __SGAMEPARAMS_H_
 
-#include "qvPrerequisites.h"
+#include "qvTypes.h"
 
+#include "irrString.h"
 #include "irrMath.h"
+#include "dimension2d.h"
 
 namespace qv
 {

@@ -28,24 +28,39 @@
 #include "qvHumanView.h"
 
 #include "qvDefaultElementViewFactory.h"
-#include "qvIEventManager.h"
 #include "qvIEngineManager.h"
+#include "qvIEventManager.h"
+
+//#if QV_RENDER == QV_RENDER_IRRLICHT
+//#include "qvHumanView_Irrlicht.cpp"
+//#endif
+#include "irrlicht.h"
+
+//Irrlicht input receiver implementation
+#include "drivers/irrlicht/qvInputEventHandlerIrrlicht.h"
+
 
 namespace qv
 {
     namespace views
     {
         //-----------------------------------------------------------------------------------------
-        HumanView::HumanView( IEngineManager* engine, u32 viewHashType)
-			: mViewHashType(viewHashType), mLastUpdateTime(0.0f), mEngine(engine),
-			mCurrentTime(0.0f), mAccumulatorTime(0)
-			/*mProcessManager(0),mInputController(0),*/
+        HumanView::HumanView(qv::IEngineManager* engineManager)
+			: AbstractGameView(qv::views::GVT_GAME_VIEW_HUMAN.Hash), mLastUpdateTime(0.0f),
+			mCurrentEngineTime(0.0f), mAccumulatorTime(0), mInputReceiver(0),
+			mEventManager(engineManager->getEventManager()), mDevice3d(0) /*mProcessManager(0)*/
         {
+            irr::SIrrlichtCreationParameters parameters;
 
-            
-            DefaultElementViewFactory* factory = new DefaultElementViewFactory(mEngine);
-            registerElementViewFactory(factory);
-            factory->drop();
+            parameters.Bits = engineManager->getGameParameters().Bits;
+            parameters.DriverType = irr::video::EDT_DIRECT3D9;
+            parameters.Stencilbuffer = true;
+            parameters.WindowSize = engineManager->getGameParameters().WindowSize;
+            parameters.Fullscreen = engineManager->getGameParameters().Fullscreen;
+
+            mDevice3d = irr::createDeviceEx(parameters);
+
+            mInputReceiver = new qv::input::InputEventHandlerIrrlicht(engineManager);
 
             //mFont = mEngineManager->getGuiManager()->getBuiltInFont();
 	        //IGUISkin* skin = mEngineManager->getGuiManager()->getSkin();
@@ -58,6 +73,14 @@ namespace qv
 
 	        //m_pFont = NULL;         // Font for drawing text
 	        //m_pTextSprite = NULL;   // Sprite for batching draw text calls
+
+	        ///human view will liten:
+	        /// - LoadContentEventArgs: load game content (types: scene, gui, player, npc, etc) fired by gamelogic,
+	        /// each content could say to human what input will should listen
+	        ///
+	        /// - ChangeGameStateEventArgs: listen change of game state, to reconfigure input translator of each
+	        /// translator for game state
+
         }
         //-----------------------------------------------------------------------------------------
         HumanView::~HumanView()
@@ -67,12 +90,9 @@ namespace qv
 //			for(u32 i = 0; i < mElementViews.size(); ++i)
 //				mElementViews[i]->drop();
 
-            mElementViews.clear();
+//            mElementViews.clear();
 
-         //   SAFE_RELEASE( m_pTextSprite );
-	        //SAFE_RELEASE( m_pFont );
-
-	        //SAFE_DELETE(m_pProcessManager);
+            mDevice3d->drop();
         }
         //-----------------------------------------------------------------------------------------
         //virtual HRESULT onRestore()=0;
@@ -87,33 +107,35 @@ namespace qv
 			//////}
 			//////timePreviousFrame = timeThisFrame;
 
-            //get new system time, but FIXME: should be game time from GameLogic maybe
-            mCurrentTime = currentTimeMs;
-
-            if (mCurrentTime == mLastUpdateTime)
-		        return;
-
-			mAccumulatorTime += elapsedTimeMs;
-
-            if(mAccumulatorTime >= 16 ) //qv::GF_GAME_RENDER_FRAMERATE)
+            if( mDevice3d->run())
             {
-				mEngine->beginRender(true, true); //call some beginRender from engine
+                //get new system time, but FIXME: should be game time from GameLogic maybe
+                mCurrentEngineTime = currentTimeMs;
 
-                for(u32 i = 0; i < mElementViews.size(); ++i)
-                    if(mElementViews[i]->getVisible())
-                        mElementViews[i]->render( mCurrentTime, elapsedTimeMs);
+                if (currentTimeMs == mLastUpdateTime)
+                    return;
 
-				//mEngineManager->getSceneManager()->drawAll();
+                mAccumulatorTime += elapsedTimeMs;
 
-				//mEngineManager->getGuiManager()->drawAll();
+                if(mAccumulatorTime > 16) //qv::GF_GAME_RENDER_FRAMERATE)
+                {
+                    mDevice3d->getVideoDriver()->beginScene(true, true); //call some beginRender from engine
 
-                mEngine->endRender(); //call some endRender from engine
+//                    for(u32 i = 0; i < mElementViews.size(); ++i)
+//                        if(mElementViews[i]->getVisible())
+//                            mElementViews[i]->render( mCurrentTime, elapsedTimeMs);
 
-                //register last render call time
-                mLastUpdateTime = mCurrentTime;
-				mAccumulatorTime = 0;
+                    mDevice3d->getSceneManager()->drawAll();
+
+                    mDevice3d->getGUIEnvironment()->drawAll();
+
+                    mDevice3d->getVideoDriver()->endScene(); //call some endRender from engine
+
+                    //register last render call time
+                    mLastUpdateTime = mCurrentEngineTime;
+                    mAccumulatorTime = 0;
+                }
             }
-
         }
         //-----------------------------------------------------------------------------------------
 //        void HumanView::lostDevice()
@@ -131,30 +153,28 @@ namespace qv
 //            for(u32 i = 0; i < mElementViews.size(); ++i)
 //                mElementViews[i]->update( elapsedTimeMs);
 
-            //fire game tick
-   //         UpdateTickEventArgs tickEvent(elapsedTimeMs);
-			//mEngineManager->getEventManager()->trigger(&tickEvent);
+
         }
         //-----------------------------------------------------------------------------------------
-        IElementViewSharedPtr HumanView::addElementView(const c8* name, u32 elementViewHashType)
-        {
-            IElementViewSharedPtr elementView;
-//            for(u32 i = 0; i < mElementViewFactories.size(); ++i)
-//			{
-////                if(mElementViewFactories[i]->getCreateableElementViewType(type))
-////				{
-////                    elementView.reset(mElementViewFactories[i]->addElementView(name,type));
-////						mElementViews.push_back(elementView);
-////					break;
-////				}
-//			}
-
-			////sort element views array, to put 3D scene, behind gui view, etc...
-			//if(mElementViews.size() > 1)
-			//	mElementViews.sort();
-
-            return elementView;
-        }
+//        IElementView* HumanView::addElementView(const c8* name, u32 elementViewHashType)
+//        {
+//            IElementView* elementView(0);
+////            for(u32 i = 0; i < mElementViewFactories.size(); ++i)
+////			{
+//////                if(mElementViewFactories[i]->getCreateableElementViewType(type))
+//////				{
+//////                    elementView.reset(mElementViewFactories[i]->addElementView(name,type));
+//////						mElementViews.push_back(elementView);
+//////					break;
+//////				}
+////			}
+//
+//			////sort element views array, to put 3D scene, behind gui view, etc...
+//			//if(mElementViews.size() > 1)
+//			//	mElementViews.sort();
+//
+//            return elementView;
+//        }
   //      //-----------------------------------------------------------------------------------------
 		//void HumanView::pushElement(IElementView* element)
   //      {
@@ -175,11 +195,11 @@ namespace qv
 		//	}
   //      }
         //-----------------------------------------------------------------------------------------
-        void HumanView::registerElementViewFactory(IElementViewFactory *factoryToAdd)
-        {
-//            factoryToAdd->grab();
-//            mElementViewFactories.push_back(factoryToAdd);
-        }
+//        void HumanView::registerElementViewFactory(IElementViewFactory *factoryToAdd)
+//        {
+////            factoryToAdd->grab();
+////            mElementViewFactories.push_back(factoryToAdd);
+//        }
         //-----------------------------------------------------------------------------------------
     }
 }

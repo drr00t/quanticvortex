@@ -28,23 +28,34 @@
 #define _QUANTICVORTEX_CONFIG_PROFILE_H_
 
 //avaible operation systems plataforms
-#define PLATAFORM_WINDOWS	1
-#define PLATAFORM_LINUX		2 //not implemented yet
-#define PLATAFORM_MACOS		3 //not implemented yet
-#define PLATAFORM_PS3		4 //not implemented yet
-#define PLATAFORM_XBOX		5 //not implemented yet
+#define QV_PLATAFORM_WINDOWS	1 //windows plataform
+
+#define QV_PLATAFORM_LINUX		2 //not implemented yet
+#define QV_PLATAFORM_MACOS		3 //not implemented yet
+#define QV_PLATAFORM_PS3		4 //not implemented yet
+#define QV_PLATAFORM_XBOX		5 //not implemented yet
 
 //Physics engines avaible to use, just only one physics can be enable at time.
-#define PHYSICS_BULLET 1
-#define PHYSICS_NEWTON 2 //not implemented yet
-#define PHYSICS_PHYSX  3 //not implemented yet
-#define PHYSICS_HAVOK  4 //not implemented yet
+#define QV_PHYSICS_BULLET 1 // Physics library
+
+#define QV_PHYSICS_NEWTON 2 //not implemented yet
+#define QV_PHYSICS_PHYSX  3 //not implemented yet
+#define QV_PHYSICS_HAVOK  4 //not implemented yet
 
 //Redering engines avaible to use, just only one render system can be enable at time.
-#define RENDER_IRRLICHT 1
-#define RENDER_OGRE3D 2 //not implemented yet
+#define QV_RENDER_IRRLICHT 1
 
-#define RENDER RENDER_IRRLICHT
+#define QV_RENDER_OGRE3D 2 //not implemented yet
+
+//Input engine to get event from mouse, keyboard, gamepad,etc
+#define QV_INPUT_IRRLICHT 1 // Irrlicht builtin input receiver
+#define QV_INPUT_OIS      2 //not implemented yet
+
+
+//current profile selected
+#define QV_RENDER  QV_RENDER_IRRLICHT
+#define QV_PHYSICS QV_PHYSICS_BULLET
+#define QV_INPUT   QV_INPUT_IRRLICHT
 
 
 

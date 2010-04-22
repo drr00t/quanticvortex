@@ -48,7 +48,7 @@ namespace qv
 
 	namespace gaming
 	{
-		class IGameLogic;
+		class GameLogic;
 	}
 
 	class IEngineManager
@@ -62,7 +62,7 @@ namespace qv
 
 		virtual void endRender()=0;
 
-		virtual gaming::IGameLogic* getGameLogic()=0;
+		virtual gaming::GameLogic* getGameLogic()=0;
 
 		virtual events::IEventManager* getEventManager()=0;
 

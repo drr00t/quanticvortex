@@ -30,7 +30,6 @@
 
 #include "qvIElementView.h"
 
-#include "IReferenceCounted.h"
 
 namespace qv
 {
@@ -39,11 +38,11 @@ namespace qv
     namespace views
     {
 
-		class IElementViewFactory : public irr::IReferenceCounted
+		class IElementViewFactory
 		{
 		public:
 
-            virtual IElementViewSharedPtr addElementView( const c8* name, u32 elementViewHashType) = 0;
+            virtual IElementView* addElementView( const c8* name, u32 elementViewHashType) = 0;
 
 			virtual u32 getCreatableElementViewTypeCount() const = 0;
 

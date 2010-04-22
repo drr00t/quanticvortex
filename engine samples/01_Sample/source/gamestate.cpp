@@ -3,11 +3,11 @@
 namespace sdc
 {
 
-    GameState::GameState()
-    {
-    }
-    
-    GameState::~GameState()
-    {
-    }
+//    GameState::GameState()
+//    {
+//    }
+//    
+//    GameState::~GameState()
+//    {
+//    }
 }

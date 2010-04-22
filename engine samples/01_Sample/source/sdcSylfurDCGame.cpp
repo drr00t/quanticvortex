@@ -27,17 +27,17 @@ namespace sdc
     //-----------------------------------------------------------------------------
     SylfurDCGame::~SylfurDCGame()
     {
-		mEngine->drop();
+        delete mEngine;
     }
     //-----------------------------------------------------------------------------
 	bool SylfurDCGame::initialize()
     {
-		bool initialized = mEngine->initialize();
+//		bool initialized = mEngine->initialize();
+//
+//		if(!initialized)
+//			return false;
 
-		if(!initialized)
-			return false;
-
-		qv::gaming::IGameLogic* gameLogic = mEngine->addGameLogic();
+//		qv::gaming::IGameLogic* gameLogic = mEngine->addGameLogic();
         
         // game state are reference counted and shoud owned by GameLogic
         // IInitializatingGameState initialize = gameLogic->addGameState(InitializatingGameState);
@@ -52,24 +52,24 @@ namespace sdc
 		//i really don´t need create event args my self, i just need pass event type that i want to my translator
 		//internally the translator will create the event args using there onw eventManager pointer and feed the 
 		//even args with the correct arguments, like this:
-		qv::input::ISingleKeyInputTranslator* quit = 
-			mEngine->getInputReceiver()->addSingleKeyTranslator(input::IT_QUIT_TRANSLATOR, irr::KEY_ESCAPE, 
-													qv::input::EKS_PRESSED_OR_DOWN, qv::events::ET_GAME_QUIT, true);
+//		qv::input::ISingleKeyInputTranslator* quit = 
+//			mEngine->getInputReceiver()->addSingleKeyTranslator(input::IT_QUIT_TRANSLATOR, irr::KEY_ESCAPE, 
+//													qv::input::EKS_PRESSED_OR_DOWN, qv::events::ET_GAME_QUIT, true);
 		// end my sample
 
 
 		// now i need create the command get this event when fired
-		qv::events::ICommandEvent* command = new controller::QuitCommand(mEngine);
-		mEngine->getEventManager()->registerCommandEvent(command);
+//		qv::events::ICommandEvent* command = new controller::QuitCommand(mEngine);
+//		mEngine->getEventManager()->registerCommandEvent(command);
 		
 		//state 
 
 		//registrar o translator no receiver
 		//registrar o command para o event QUIT
-		qv::views::IElementView* sceneView = view->addElementView("DefaultScene",qv::views::EVT_ELEMENT_VIEW_SCENE);
-		qv::views::ISceneView* scene = static_cast<qv::views::ISceneView*>(sceneView);
+//		qv::views::IElementView* sceneView = view->addElementView("DefaultScene",qv::views::EVT_ELEMENT_VIEW_SCENE);
+//		qv::views::ISceneView* scene = static_cast<qv::views::ISceneView*>(sceneView);
 		//scene->loadScene("../../../media/syenval-v2.zip");
-		scene->loadScene("../../../media/irrb-0.4.zip");
+//		scene->loadScene("../../../media/irrb-0.4.zip");
 
         //MygameStatesFactory factory = new MygameStatesFactory(gameLogic);
         //gameLogic->registerGameStateFactory(factory);
@@ -77,7 +77,7 @@ namespace sdc
 
         //IGameState* state = gameLogic->addGameState(type);
 
-		return initialized;
+		return false; //initialized;
     }
     //-----------------------------------------------------------------------------
 	qv::s32 SylfurDCGame::run(qv::s32 argc, qv::c8* argv[])

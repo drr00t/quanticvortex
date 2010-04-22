@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
-	<ActiveTarget name="Windows x86" />
+	<ActiveTarget name="" />
+	<File name="..\..\include\qvCompileConfig.h" open="0" top="0" tabpos="0">
+		<Cursor position="1521" topLine="21" />
+	</File>
+	<File name="..\..\include\qvConfigProfile.h" open="0" top="0" tabpos="0">
+		<Cursor position="2259" topLine="27" />
+	</File>
+	<File name="..\..\include\qvHumanView.h" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="..\..\include\qvHumanView_Irrlicht.h" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="..\..\include\qvIElementView.h" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="..\..\include\qvIGuiView.h" open="1" top="1" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvHumanView.cpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="..\..\source\quanticvortex\qvHumanView_Irrlicht.cpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
 </BrowseTracker_layout_file>

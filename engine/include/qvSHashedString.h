@@ -33,6 +33,8 @@
 
 #include "irrString.h"
 
+#include "qvHashFunctions.h"
+
 //to convert text to hashed string
 #define HASH_STRING(text) qv::createHashedString( text)
 
@@ -41,15 +43,13 @@ namespace qv
 
 	struct SHashedString
     {
-        
+		u32 Hash;
 #ifdef _DEBUG
         irr::core::stringc Text;
 #endif
-
-		u32 Hash;
     };
-    
-    _QUANTICVORTEX_API_ const SHashedString& QUANTICVORTEX_CALLCONV createHashedString( const irr::c8* text);
+
+    extern "C" _QUANTICVORTEX_API_ const SHashedString& QUANTICVORTEX_CALLCONV createHashedString( const irr::c8* text);
 }
 #endif
 

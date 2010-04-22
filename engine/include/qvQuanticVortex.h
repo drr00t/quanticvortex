@@ -33,11 +33,6 @@
 //gaming
 #include "qvActorTypes.h"
 #include "qvSActorParams.h"
-#include "qvIActor.h"
-#include "qvIActorFactory.h"
-#include "qvIActorManager.h"
-#include "qvIGameLogic.h"
-#include "qvIGameLogicFactory.h"
 #include "qvStateTypes.h"
 #include "qvIState.h"
 
@@ -49,20 +44,13 @@
 #include "qvISingleKeyInputTranslator.h"
 #include "qvIInputTranslatorFactory.h"
 
-//physics
-//#include "qvIPhysicsActor.h"
-#include "qvIPhysicsManager.h"
-
 //runtime
 #include "qvIProcess.h"
 #include "qvIProcessManager.h"
 
 //views
 #include "qvIElementView.h"
-#include "qvIGameView.h"
-#include "qvIGameViewFactory.h"
 #include "qvIGuiView.h"
-#include "qvIHumanView.h"
 #include "qvISceneView.h"
 
 //utils

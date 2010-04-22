@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=adriano.ribeiro
-Date                   :=04/08/10
+Date                   :=04/20/10
 CodeLitePath           :="C:\Arquivos de programas\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -49,7 +49,7 @@ LibPath                := "$(LibraryPathSwitch)." "$(LibraryPathSwitch)../../../
 ##
 UNIT_TEST_PP_SRC_DIR:=C:\Arquivos de programas\UnitTest++-1.3
 CodeLiteDir:=C:\Arquivos de programas\CodeLite
-Objects=$(IntermediateDirectory)/source_main$(ObjectSuffix) $(IntermediateDirectory)/source_sdcSylfurDCGame$(ObjectSuffix) $(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/source_main$(ObjectSuffix) $(IntermediateDirectory)/source_sdcSylfurDCGame$(ObjectSuffix) $(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix) $(IntermediateDirectory)/source_gamestate$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -93,6 +93,14 @@ $(IntermediateDirectory)/source_sdcQuitCommand$(DependSuffix): ../../source/sdcQ
 $(IntermediateDirectory)/source_sdcQuitCommand$(PreprocessSuffix): ../../source/sdcQuitCommand.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcQuitCommand$(PreprocessSuffix) "E:/QuanticVortex/engine samples/01_Sample/source/sdcQuitCommand.cpp"
 
+$(IntermediateDirectory)/source_gamestate$(ObjectSuffix): ../../source/gamestate.cpp $(IntermediateDirectory)/source_gamestate$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine samples/01_Sample/source/gamestate.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_gamestate$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/source_gamestate$(DependSuffix): ../../source/gamestate.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_gamestate$(ObjectSuffix) -MF$(IntermediateDirectory)/source_gamestate$(DependSuffix) -MM "E:/QuanticVortex/engine samples/01_Sample/source/gamestate.cpp"
+
+$(IntermediateDirectory)/source_gamestate$(PreprocessSuffix): ../../source/gamestate.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_gamestate$(PreprocessSuffix) "E:/QuanticVortex/engine samples/01_Sample/source/gamestate.cpp"
+
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
 ##
@@ -108,6 +116,9 @@ clean:
 	$(RM) $(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/source_sdcQuitCommand$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/source_sdcQuitCommand$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/source_gamestate$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/source_gamestate$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/source_gamestate$(PreprocessSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile).exe
 

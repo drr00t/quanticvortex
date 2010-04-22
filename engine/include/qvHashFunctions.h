@@ -32,7 +32,7 @@
 #include "qvTypes.h"
 
 namespace qv
-{    
+{
     //-----------------------------------------------------------------------------
     // MurmurHash2, by Austin Appleby  from http://sites.google.com/site/murmurhash/
 
@@ -49,7 +49,7 @@ namespace qv
 
     // All code is released to the public domain. For business purposes, Murmurhash is
     // under the MIT license.
-    _QUANTICVORTEX_API_ u32 QUANTICVORTEX_CALLCONV createMurmurHash2 ( const void * key, u32 len, u32 seed = 0);
+    extern "C" _QUANTICVORTEX_API_ u32 QUANTICVORTEX_CALLCONV createMurmurHash2 ( const void * key, u32 len, u32 seed = 0);
 }
 
 #endif

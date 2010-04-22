@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
-	<ActiveTarget name="Windows x86" />
+	<ActiveTarget name="Win32 - Debug - DLL" />
+	<File name="..\..\source\main.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="383" topLine="7" />
+		<BrowseMarks positions="552,576" />
+		<Book_Marks positions="" />
+	</File>
 </BrowseTracker_layout_file>

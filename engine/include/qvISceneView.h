@@ -28,7 +28,7 @@
 #define __I_SCENE_VIEW_H_
 
 #include "qvIElementView.h"
-#include "qvIActor.h"
+#include "qvActor.h"
 
 #include "ICameraSceneNode.h"
 #include "ISceneManager.h"

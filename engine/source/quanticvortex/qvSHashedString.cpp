@@ -33,16 +33,16 @@
 
 namespace qv
 {
-    _QUANTICVORTEX_API_ const SHashedString& QUANTICVORTEX_CALLCONV createHashedString( const c8* text)
+    extern "C" _QUANTICVORTEX_API_ const SHashedString& QUANTICVORTEX_CALLCONV createHashedString( const c8* text)
     {
         SHashedString* hashedString = new SHashedString();
-        
+
 #ifdef _DEBUG
         hashedString->Text = text;
 #endif
 
         hashedString->Hash = createMurmurHash2(text, irr::core::stringc(text).size());
-        
+
         return *hashedString;
     }
 }

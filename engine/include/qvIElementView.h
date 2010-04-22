@@ -27,57 +27,49 @@
 #ifndef __I_ELEMENT_VIEW_H_
 #define __I_ELEMENT_VIEW_H_
 
-#include <vector>
 
 #include "qvSHashedString.h"
 
-#include "Poco/SharedPtr.h"
-#include "irrList.h"
-#include "IReferenceCounted.h"
+#include <list>
+#include <vector>
 
 namespace qv
 {
-    namespace views
-    {
-		typedef SHashedString EVI_ELEMENT_VIEW_ID;
-        typedef SHashedString EVT_ELEMENT_VIEW_TYPE;
 
-		class IElementView: public irr::IReferenceCounted
-        {
-		//protected:
-		//	u16 mOrder;
+namespace views
+{
 
-        public:
+typedef SHashedString EVI_ELEMENT_VIEW_ID;
+typedef SHashedString EVT_ELEMENT_VIEW_TYPE;
+typedef std::vector<u32> ElementViewHashTypesArray;
 
-			//virtual const u16 getOrder(){ return mOrder;}
+class IElementView
+{
 
-            virtual u32 getHashId() const = 0;
+public:
 
-            virtual u32 getHashType() const = 0;
+    virtual u16 getOrder() const = 0;
 
-	        virtual bool getVisible() const = 0;
+    virtual u32 getHashId() const = 0;
 
-			virtual void setVisible(bool visible) = 0;
+    virtual u32 getHashType() const = 0;
 
-	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs) = 0;
+    virtual bool visible() const = 0;
 
-	        virtual void update(u32 elapsedTimeMs) = 0;
+    virtual void updateVisible(bool visible) = 0;
 
-			////operators
-			//bool operator < (const IElementView& other) const
-			//{
-			//	return (mOrder < other.getOrder());
-			//}
+    virtual void render( u32 currentTimeMs, u32 elapsedTimeMs) = 0;
 
-			//bool operator > (const IElementView& other) const
-			//{
-			//	return (mOrder > other.getOrder());
-			//}
-        };
+    virtual void update(u32 elapsedTimeMs) = 0;
 
-        typedef Poco::SharedPtr<IElementView> IElementViewSharedPtr;
-		typedef std::vector<IElementViewSharedPtr> ElementViewArray;
-    }
+};
+
+typedef std::list<IElementView*> ElementViewsList;
+
+
+}
+
+
 }
 #endif
 
