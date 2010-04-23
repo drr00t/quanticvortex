@@ -34,11 +34,32 @@
 
 #include "IrrlichtDevice.h"
 
+namespace qv
+{
+
+    struct SGameParams;
+
+namespace events
+{
+    class EventManager;
+}
+
+namespace input
+{
+    class InputReceiver;
+}
+
+namespace gaming
+{
+    class GameLogic;
+}
+
+}
 
 namespace qv
 {
 
-class EngineManager : public IEngineManager
+class EngineManager
 {
 public:
 
@@ -48,19 +69,11 @@ public:
 
     virtual s32 run();
 
-    virtual void beginRender(bool backBuffer, bool zBuffer);
+    virtual gaming::GameLogic* getGameLogic();
 
-    virtual void endRender();
+    virtual events::EventManager* getEventManager();
 
-    virtual gaming::GameLogic* getGameLogic(){return mGameLogic;}
-
-    virtual events::IEventManager* getEventManager(){return mEventManager;}
-
-    virtual input::IInputReceiver* getInputReceiver() { return mInputReceiver;}
-
-    virtual SGameParams& getGameParameters() { return mGameParams;}
-
-    virtual void setQuit(bool quit) { mQuit = quit;}
+    virtual SGameParams& getGameParameters();
 
 protected:
 
@@ -93,6 +106,26 @@ private:
     btClock mClock;
 };
 
+//inlines
+gaming::GameLogic* EngineManager::getGameLogic()
+{
+    return mGameLogic;
+}
+
+events::EventManager* EngineManager::getEventManager()
+{
+    return mEventManager;
+}
+
+SGameParams& EngineManager::getGameParameters() 
+{
+    return mGameParams;
+}
+
+void EngineManager::setQuit(bool quit) 
+{ 
+    mQuit = quit;
+}
 
 }
 

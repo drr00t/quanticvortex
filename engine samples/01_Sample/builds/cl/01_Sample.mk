@@ -2,18 +2,18 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Debug
+## Windows_x86_-_DLL_-_Debug
 ProjectName            :=01_Sample
-ConfigurationName      :=Debug
+ConfigurationName      :=Windows_x86_-_DLL_-_Debug
 IntermediateDirectory  :=../../obj/debug
 OutDir                 := $(IntermediateDirectory)
-WorkspacePath          := "E:\QuanticVortex\engine samples"
-ProjectPath            := "E:\QuanticVortex\engine samples\01_Sample\builds\cl"
+WorkspacePath          := "D:\Documentacao\QuanticMinds\quanticvortex\engine samples"
+ProjectPath            := "D:\Documentacao\QuanticMinds\quanticvortex\engine samples\01_Sample\builds\cl"
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=adriano.ribeiro
-Date                   :=04/22/10
+Date                   :=04/23/10
 CodeLitePath           :="C:\Arquivos de programas\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -30,8 +30,8 @@ PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
 CompilerName           :=g++
 C_CompilerName         :=gcc
-OutputFile             :=../../../bin/debug/01_Sample_d.exe
-Preprocessors          :=
+OutputFile             :=../../../bin/win32-gcc/01_Sample_d.exe
+Preprocessors          :=$(PreprocessorSwitch)WIN32 $(PreprocessorSwitch)_DEBUG 
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E 
@@ -59,6 +59,14 @@ all: $(OutputFile)
 $(OutputFile): makeDirStep $(Objects)
 	@$(MakeDirCommand) $(@D)
 	$(LinkerName) $(OutputSwitch)$(OutputFile) $(Objects) $(LibPath) $(Libs) $(LinkOptions)
+	@echo Executing Post Build commands ...
+	copy ..\..\..\..\engine\bin\win32-gcc\QuanticVortex_d.dll ..\..\..\bin\win32-gcc\QuanticVortex_d.dll
+	copy ..\..\..\..\dependencies\bin\win32-gcc\cAudio_d.dll ..\..\..\bin\win32-gcc\cAudio_d.dll
+	copy ..\..\..\..\dependencies\bin\win32-gcc\Irrlicht_d.dll ..\..\..\bin\win32-gcc\Irrlicht_d.dll
+	copy ..\..\..\..\dependencies\bin\win32-gcc\OpenAL32.dll ..\..\..\bin\win32-gcc\OpenAL32.dll
+	copy ..\..\..\..\dependencies\bin\win32-gcc\wrap_oal.dll ..\..\..\bin\win32-gcc\wrap_oal.dll
+	copy ..\..\..\..\dependencies\bin\win32-gcc\cAp_EAXLegacyPreset.dll ..\..\..\bin\win32-gcc\cAp_EAXLegacyPreset.dll
+	@echo Done
 
 makeDirStep:
 	@$(MakeDirCommand) "../../obj/debug"
@@ -70,36 +78,36 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/source_main$(ObjectSuffix): ../../source/main.cpp $(IntermediateDirectory)/source_main$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine samples/01_Sample/source/main.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_main$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/main.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_main$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/source_main$(DependSuffix): ../../source/main.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_main$(ObjectSuffix) -MF$(IntermediateDirectory)/source_main$(DependSuffix) -MM "E:/QuanticVortex/engine samples/01_Sample/source/main.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_main$(ObjectSuffix) -MF$(IntermediateDirectory)/source_main$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/main.cpp"
 
 $(IntermediateDirectory)/source_main$(PreprocessSuffix): ../../source/main.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_main$(PreprocessSuffix) "E:/QuanticVortex/engine samples/01_Sample/source/main.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_main$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/main.cpp"
 
 $(IntermediateDirectory)/source_sdcSylfurDCGame$(ObjectSuffix): ../../source/sdcSylfurDCGame.cpp $(IntermediateDirectory)/source_sdcSylfurDCGame$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine samples/01_Sample/source/sdcSylfurDCGame.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_sdcSylfurDCGame$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcSylfurDCGame.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_sdcSylfurDCGame$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/source_sdcSylfurDCGame$(DependSuffix): ../../source/sdcSylfurDCGame.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_sdcSylfurDCGame$(ObjectSuffix) -MF$(IntermediateDirectory)/source_sdcSylfurDCGame$(DependSuffix) -MM "E:/QuanticVortex/engine samples/01_Sample/source/sdcSylfurDCGame.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_sdcSylfurDCGame$(ObjectSuffix) -MF$(IntermediateDirectory)/source_sdcSylfurDCGame$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcSylfurDCGame.cpp"
 
 $(IntermediateDirectory)/source_sdcSylfurDCGame$(PreprocessSuffix): ../../source/sdcSylfurDCGame.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcSylfurDCGame$(PreprocessSuffix) "E:/QuanticVortex/engine samples/01_Sample/source/sdcSylfurDCGame.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcSylfurDCGame$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcSylfurDCGame.cpp"
 
 $(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix): ../../source/sdcQuitCommand.cpp $(IntermediateDirectory)/source_sdcQuitCommand$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine samples/01_Sample/source/sdcQuitCommand.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcQuitCommand.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/source_sdcQuitCommand$(DependSuffix): ../../source/sdcQuitCommand.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix) -MF$(IntermediateDirectory)/source_sdcQuitCommand$(DependSuffix) -MM "E:/QuanticVortex/engine samples/01_Sample/source/sdcQuitCommand.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix) -MF$(IntermediateDirectory)/source_sdcQuitCommand$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcQuitCommand.cpp"
 
 $(IntermediateDirectory)/source_sdcQuitCommand$(PreprocessSuffix): ../../source/sdcQuitCommand.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcQuitCommand$(PreprocessSuffix) "E:/QuanticVortex/engine samples/01_Sample/source/sdcQuitCommand.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcQuitCommand$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcQuitCommand.cpp"
 
 $(IntermediateDirectory)/source_gamestate$(ObjectSuffix): ../../source/gamestate.cpp $(IntermediateDirectory)/source_gamestate$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine samples/01_Sample/source/gamestate.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_gamestate$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/gamestate.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_gamestate$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/source_gamestate$(DependSuffix): ../../source/gamestate.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_gamestate$(ObjectSuffix) -MF$(IntermediateDirectory)/source_gamestate$(DependSuffix) -MM "E:/QuanticVortex/engine samples/01_Sample/source/gamestate.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_gamestate$(ObjectSuffix) -MF$(IntermediateDirectory)/source_gamestate$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/gamestate.cpp"
 
 $(IntermediateDirectory)/source_gamestate$(PreprocessSuffix): ../../source/gamestate.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_gamestate$(PreprocessSuffix) "E:/QuanticVortex/engine samples/01_Sample/source/gamestate.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_gamestate$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/gamestate.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

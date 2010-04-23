@@ -28,11 +28,8 @@
 #ifndef __EVENT_MANAGER_H_
 #define __EVENT_MANAGER_H_
 
-#include "qvIEventManager.h"
 #include "qvIEventCommand.h"
 #include "qvIEventArgsFactory.h"
-
-//#include "tbb/concurrent_queue.h"
 
 #include "Poco/AtomicCounter.h"
 
@@ -41,7 +38,7 @@ namespace qv
     namespace events
     {
 
-		class EventManager: public IEventManager
+		class EventManager
 		{
 		public:
     		EventManager();

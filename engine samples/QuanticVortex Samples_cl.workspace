@@ -3,13 +3,21 @@
   <Project Name="QuanticVortex_Core" Path="../engine/builds/codelite/QuanticVortex_Core.project" Active="No"/>
   <Project Name="01_Sample" Path="01_Sample/builds/cl/01_Sample.project" Active="Yes"/>
   <BuildMatrix>
-    <WorkspaceConfiguration Name="Debug" Selected="yes">
-      <Project Name="QuanticVortex_Core" ConfigName="Debug"/>
-      <Project Name="01_Sample" ConfigName="Debug"/>
+    <WorkspaceConfiguration Name="Windows x86 - DLL - Release" Selected="no">
+      <Project Name="QuanticVortex_Core" ConfigName="Windows x86 - DLL - Debug"/>
+      <Project Name="01_Sample" ConfigName="Windows x86 - DLL - Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="QuanticVortex_Core" ConfigName="Release"/>
-      <Project Name="01_Sample" ConfigName="Release"/>
+    <WorkspaceConfiguration Name="Windows x86 - DLL - Debug" Selected="yes">
+      <Project Name="QuanticVortex_Core" ConfigName="Windows x86 - DLL - Debug"/>
+      <Project Name="01_Sample" ConfigName="Windows x86 - DLL - Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Windows x86 - Static - Debug" Selected="no">
+      <Project Name="QuanticVortex_Core" ConfigName="Windows x86 - DLL - Debug"/>
+      <Project Name="01_Sample" ConfigName="Windows x86 - DLL - Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Windows x86 - Static - Release" Selected="no">
+      <Project Name="QuanticVortex_Core" ConfigName="Windows x86 - DLL - Debug"/>
+      <Project Name="01_Sample" ConfigName="Windows x86 - DLL - Debug"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

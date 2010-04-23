@@ -27,10 +27,15 @@
 
 #include "qvGame.h"
 
+#include "qvEngineManager.h"
 
 #include "Poco/Util/Option.h"
 #include "Poco/Util/OptionSet.h"
 #include "Poco/Util/OptionProcessor.h"
+
+
+
+
 
 
 namespace qv

@@ -117,6 +117,11 @@ namespace qv
 
         //registring engine events
 		registerGameEvents();
+        
+        // registry my command here, like: 
+//        - QuitCommand
+//        - ConfigurationLoaded
+//        - ConfigurationChanged
 
         //raised engine initialized event
         // mEventManager->trigger(EngineInitializedEventArgs);

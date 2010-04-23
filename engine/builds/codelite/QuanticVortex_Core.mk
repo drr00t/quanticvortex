@@ -7,13 +7,13 @@ ProjectName            :=QuanticVortex_Core
 ConfigurationName      :=Debug
 IntermediateDirectory  :=../../obj/debug
 OutDir                 := $(IntermediateDirectory)
-WorkspacePath          := "E:\QuanticVortex\engine samples"
-ProjectPath            := "E:\QuanticVortex\engine\builds\codelite"
+WorkspacePath          := "D:\Documentacao\QuanticMinds\quanticvortex\engine samples"
+ProjectPath            := "D:\Documentacao\QuanticMinds\quanticvortex\engine\builds\codelite"
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=adriano.ribeiro
-Date                   :=04/22/10
+Date                   :=04/23/10
 CodeLitePath           :="C:\Arquivos de programas\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -72,220 +72,220 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/quanticvortex_qvActorMotion$(ObjectSuffix): ../../source/quanticvortex/qvActorMotion.cpp $(IntermediateDirectory)/quanticvortex_qvActorMotion$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvActorMotion.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvActorMotion$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvActorMotion.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvActorMotion$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvActorMotion$(DependSuffix): ../../source/quanticvortex/qvActorMotion.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvActorMotion$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvActorMotion$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvActorMotion.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvActorMotion$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvActorMotion$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvActorMotion.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvActorMotion$(PreprocessSuffix): ../../source/quanticvortex/qvActorMotion.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvActorMotion$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvActorMotion.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvActorMotion$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvActorMotion.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix): ../../source/quanticvortex/qvAnyKeyInputTranslator.cpp $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvAnyKeyInputTranslator.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvAnyKeyInputTranslator.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(DependSuffix): ../../source/quanticvortex/qvAnyKeyInputTranslator.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvAnyKeyInputTranslator.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvAnyKeyInputTranslator.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(PreprocessSuffix): ../../source/quanticvortex/qvAnyKeyInputTranslator.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvAnyKeyInputTranslator.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvAnyKeyInputTranslator.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(ObjectSuffix): ../../source/quanticvortex/qvDefaultElementViewFactory.cpp $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvDefaultElementViewFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvDefaultElementViewFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(DependSuffix): ../../source/quanticvortex/qvDefaultElementViewFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvDefaultElementViewFactory.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvDefaultElementViewFactory.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(PreprocessSuffix): ../../source/quanticvortex/qvDefaultElementViewFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvDefaultElementViewFactory.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvDefaultElementViewFactory.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix): ../../source/quanticvortex/qvDefaultEventArgsFactory.cpp $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvDefaultEventArgsFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvDefaultEventArgsFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(DependSuffix): ../../source/quanticvortex/qvDefaultEventArgsFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvDefaultEventArgsFactory.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvDefaultEventArgsFactory.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(PreprocessSuffix): ../../source/quanticvortex/qvDefaultEventArgsFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvDefaultEventArgsFactory.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvDefaultEventArgsFactory.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix): ../../source/quanticvortex/qvEngineInputTranslatorFactory.cpp $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvEngineInputTranslatorFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEngineInputTranslatorFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(DependSuffix): ../../source/quanticvortex/qvEngineInputTranslatorFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvEngineInputTranslatorFactory.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEngineInputTranslatorFactory.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(PreprocessSuffix): ../../source/quanticvortex/qvEngineInputTranslatorFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvEngineInputTranslatorFactory.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEngineInputTranslatorFactory.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix): ../../source/quanticvortex/qvEngineManager.cpp $(IntermediateDirectory)/quanticvortex_qvEngineManager$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvEngineManager.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEngineManager.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvEngineManager$(DependSuffix): ../../source/quanticvortex/qvEngineManager.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEngineManager$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvEngineManager.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEngineManager$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEngineManager.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvEngineManager$(PreprocessSuffix): ../../source/quanticvortex/qvEngineManager.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEngineManager$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvEngineManager.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEngineManager$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEngineManager.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix): ../../source/quanticvortex/qvEventArgs.cpp $(IntermediateDirectory)/quanticvortex_qvEventArgs$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvEventArgs.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEventArgs.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvEventArgs$(DependSuffix): ../../source/quanticvortex/qvEventArgs.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEventArgs$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvEventArgs.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEventArgs$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEventArgs.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvEventArgs$(PreprocessSuffix): ../../source/quanticvortex/qvEventArgs.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEventArgs$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvEventArgs.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEventArgs$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEventArgs.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvEventManager$(ObjectSuffix): ../../source/quanticvortex/qvEventManager.cpp $(IntermediateDirectory)/quanticvortex_qvEventManager$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvEventManager.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEventManager$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEventManager.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEventManager$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvEventManager$(DependSuffix): ../../source/quanticvortex/qvEventManager.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEventManager$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEventManager$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvEventManager.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEventManager$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEventManager$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEventManager.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvEventManager$(PreprocessSuffix): ../../source/quanticvortex/qvEventManager.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEventManager$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvEventManager.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEventManager$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvEventManager.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix): ../../source/quanticvortex/qvGameLogic.cpp $(IntermediateDirectory)/quanticvortex_qvGameLogic$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvGameLogic.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameLogic.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvGameLogic$(DependSuffix): ../../source/quanticvortex/qvGameLogic.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGameLogic$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvGameLogic.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGameLogic$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameLogic.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGameLogic$(PreprocessSuffix): ../../source/quanticvortex/qvGameLogic.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvGameLogic.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameLogic.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGameParameters$(ObjectSuffix): ../../source/quanticvortex/qvGameParameters.cpp $(IntermediateDirectory)/quanticvortex_qvGameParameters$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvGameParameters.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGameParameters$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameParameters.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGameParameters$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvGameParameters$(DependSuffix): ../../source/quanticvortex/qvGameParameters.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGameParameters$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGameParameters$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvGameParameters.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGameParameters$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGameParameters$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameParameters.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGameParameters$(PreprocessSuffix): ../../source/quanticvortex/qvGameParameters.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameParameters$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvGameParameters.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameParameters$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameParameters.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(ObjectSuffix): ../../source/quanticvortex/qvGameStateMachine.cpp $(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvGameStateMachine.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameStateMachine.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(DependSuffix): ../../source/quanticvortex/qvGameStateMachine.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvGameStateMachine.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameStateMachine.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(PreprocessSuffix): ../../source/quanticvortex/qvGameStateMachine.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvGameStateMachine.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameStateMachine.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGuiView$(ObjectSuffix): ../../source/quanticvortex/qvGuiView.cpp $(IntermediateDirectory)/quanticvortex_qvGuiView$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvGuiView.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGuiView$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGuiView.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGuiView$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvGuiView$(DependSuffix): ../../source/quanticvortex/qvGuiView.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGuiView$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGuiView$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvGuiView.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGuiView$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGuiView$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGuiView.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGuiView$(PreprocessSuffix): ../../source/quanticvortex/qvGuiView.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGuiView$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvGuiView.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGuiView$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGuiView.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix): ../../source/quanticvortex/qvHashFunctions.cpp $(IntermediateDirectory)/quanticvortex_qvHashFunctions$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvHashFunctions.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvHashFunctions.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvHashFunctions$(DependSuffix): ../../source/quanticvortex/qvHashFunctions.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvHashFunctions$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvHashFunctions.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvHashFunctions$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvHashFunctions.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvHashFunctions$(PreprocessSuffix): ../../source/quanticvortex/qvHashFunctions.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvHashFunctions$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvHashFunctions.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvHashFunctions$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvHashFunctions.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix): ../../source/quanticvortex/qvHumanView.cpp $(IntermediateDirectory)/quanticvortex_qvHumanView$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvHumanView.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvHumanView.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvHumanView$(DependSuffix): ../../source/quanticvortex/qvHumanView.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvHumanView$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvHumanView.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvHumanView$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvHumanView.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvHumanView$(PreprocessSuffix): ../../source/quanticvortex/qvHumanView.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvHumanView$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvHumanView.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvHumanView$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvHumanView.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(ObjectSuffix): ../../source/quanticvortex/qvInitializatingGameState.cpp $(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvInitializatingGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvInitializatingGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(DependSuffix): ../../source/quanticvortex/qvInitializatingGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvInitializatingGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvInitializatingGameState.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(PreprocessSuffix): ../../source/quanticvortex/qvInitializatingGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvInitializatingGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvInitializatingGameState$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvInitializatingGameState.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvInputReceiver$(ObjectSuffix): ../../source/quanticvortex/qvInputReceiver.cpp $(IntermediateDirectory)/quanticvortex_qvInputReceiver$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvInputReceiver.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvInputReceiver$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvInputReceiver.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvInputReceiver$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvInputReceiver$(DependSuffix): ../../source/quanticvortex/qvInputReceiver.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvInputReceiver$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvInputReceiver$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvInputReceiver.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvInputReceiver$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvInputReceiver$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvInputReceiver.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvInputReceiver$(PreprocessSuffix): ../../source/quanticvortex/qvInputReceiver.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvInputReceiver$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvInputReceiver.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvInputReceiver$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvInputReceiver.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(ObjectSuffix): ../../source/quanticvortex/qvLoadingGameState.cpp $(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvLoadingGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvLoadingGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(DependSuffix): ../../source/quanticvortex/qvLoadingGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvLoadingGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvLoadingGameState.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(PreprocessSuffix): ../../source/quanticvortex/qvLoadingGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvLoadingGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvLoadingGameState$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvLoadingGameState.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvMenuGameState$(ObjectSuffix): ../../source/quanticvortex/qvMenuGameState.cpp $(IntermediateDirectory)/quanticvortex_qvMenuGameState$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvMenuGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvMenuGameState$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvMenuGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvMenuGameState$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvMenuGameState$(DependSuffix): ../../source/quanticvortex/qvMenuGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvMenuGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvMenuGameState$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvMenuGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvMenuGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvMenuGameState$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvMenuGameState.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvMenuGameState$(PreprocessSuffix): ../../source/quanticvortex/qvMenuGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvMenuGameState$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvMenuGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvMenuGameState$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvMenuGameState.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix): ../../source/quanticvortex/qvPhysicsManager.cpp $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvPhysicsManager.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvPhysicsManager.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(DependSuffix): ../../source/quanticvortex/qvPhysicsManager.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvPhysicsManager.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvPhysicsManager.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(PreprocessSuffix): ../../source/quanticvortex/qvPhysicsManager.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvPhysicsManager.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvPhysicsManager.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(ObjectSuffix): ../../source/quanticvortex/qvQuanticVortex.cpp $(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvQuanticVortex.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvQuanticVortex.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(DependSuffix): ../../source/quanticvortex/qvQuanticVortex.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvQuanticVortex.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvQuanticVortex.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(PreprocessSuffix): ../../source/quanticvortex/qvQuanticVortex.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvQuanticVortex.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvQuanticVortex.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvRunningGameState$(ObjectSuffix): ../../source/quanticvortex/qvRunningGameState.cpp $(IntermediateDirectory)/quanticvortex_qvRunningGameState$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvRunningGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvRunningGameState$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvRunningGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvRunningGameState$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvRunningGameState$(DependSuffix): ../../source/quanticvortex/qvRunningGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvRunningGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvRunningGameState$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvRunningGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvRunningGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvRunningGameState$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvRunningGameState.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvRunningGameState$(PreprocessSuffix): ../../source/quanticvortex/qvRunningGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvRunningGameState$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvRunningGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvRunningGameState$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvRunningGameState.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix): ../../source/quanticvortex/qvSingleKeyInputTranslator.cpp $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvSingleKeyInputTranslator.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvSingleKeyInputTranslator.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(DependSuffix): ../../source/quanticvortex/qvSingleKeyInputTranslator.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvSingleKeyInputTranslator.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvSingleKeyInputTranslator.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(PreprocessSuffix): ../../source/quanticvortex/qvSingleKeyInputTranslator.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvSingleKeyInputTranslator.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvSingleKeyInputTranslator.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(ObjectSuffix): ../../source/quanticvortex/qvWaintingPlayerGameState.cpp $(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvWaintingPlayerGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvWaintingPlayerGameState.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(DependSuffix): ../../source/quanticvortex/qvWaintingPlayerGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvWaintingPlayerGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvWaintingPlayerGameState.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(PreprocessSuffix): ../../source/quanticvortex/qvWaintingPlayerGameState.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvWaintingPlayerGameState.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvWaintingPlayerGameState$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvWaintingPlayerGameState.cpp"
 
 $(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(ObjectSuffix): ../../source/quanticvortex/drivers/irrlicht/qvSceneViewIrrlicht.cpp $(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/drivers/irrlicht/qvSceneViewIrrlicht.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/drivers/irrlicht/qvSceneViewIrrlicht.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(DependSuffix): ../../source/quanticvortex/drivers/irrlicht/qvSceneViewIrrlicht.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(ObjectSuffix) -MF$(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/drivers/irrlicht/qvSceneViewIrrlicht.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(ObjectSuffix) -MF$(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/drivers/irrlicht/qvSceneViewIrrlicht.cpp"
 
 $(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(PreprocessSuffix): ../../source/quanticvortex/drivers/irrlicht/qvSceneViewIrrlicht.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/drivers/irrlicht/qvSceneViewIrrlicht.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/irrlicht_qvSceneViewIrrlicht$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/drivers/irrlicht/qvSceneViewIrrlicht.cpp"
 
 $(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(ObjectSuffix): ../../source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.cpp $(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(DependSuffix): ../../source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.cpp"
 
 $(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(PreprocessSuffix): ../../source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/irrlicht_qvDefaultInputReceiverDriverFactory$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/drivers/irrlicht/qvDefaultInputReceiverDriverFactory.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix): ../../source/quanticvortex/qvSHashedString.cpp $(IntermediateDirectory)/quanticvortex_qvSHashedString$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvSHashedString.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvSHashedString.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvSHashedString$(DependSuffix): ../../source/quanticvortex/qvSHashedString.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvSHashedString$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvSHashedString.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvSHashedString$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvSHashedString.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvSHashedString$(PreprocessSuffix): ../../source/quanticvortex/qvSHashedString.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvSHashedString$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvSHashedString.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvSHashedString$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvSHashedString.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix): ../../source/quanticvortex/qvGame.cpp $(IntermediateDirectory)/quanticvortex_qvGame$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/QuanticVortex/engine/source/quanticvortex/qvGame.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGame.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvGame$(DependSuffix): ../../source/quanticvortex/qvGame.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGame$(DependSuffix) -MM "E:/QuanticVortex/engine/source/quanticvortex/qvGame.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGame$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGame.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGame$(PreprocessSuffix): ../../source/quanticvortex/qvGame.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGame$(PreprocessSuffix) "E:/QuanticVortex/engine/source/quanticvortex/qvGame.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGame$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGame.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
