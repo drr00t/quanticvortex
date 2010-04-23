@@ -19,10 +19,7 @@
     <File Name="../../include/qvGameStateTypes.h"/>
     <File Name="../../include/qvGameViewTypes.h"/>
     <File Name="../../include/qvHashFunctions.h"/>
-    <File Name="../../include/qvIActor.h"/>
     <File Name="../../include/qvIActorAddedEventArgs.h"/>
-    <File Name="../../include/qvIActorFactory.h"/>
-    <File Name="../../include/qvIActorManager.h"/>
     <File Name="../../include/qvIAIView.h"/>
     <File Name="../../include/qvIAnyKeyInputTranslator.h"/>
     <File Name="../../include/qvICommand.h"/>
@@ -34,13 +31,8 @@
     <File Name="../../include/qvIEventCommand.h"/>
     <File Name="../../include/qvIEventManager.h"/>
     <File Name="../../include/qvIGame.h"/>
-    <File Name="../../include/qvIGameLogic.h"/>
-    <File Name="../../include/qvIGameLogicFactory.h"/>
     <File Name="../../include/qvIGameState.h"/>
     <File Name="../../include/qvIGameStateMachine.h"/>
-    <File Name="../../include/qvIGameView.h"/>
-    <File Name="../../include/qvIGameViewFactory.h"/>
-    <File Name="../../include/qvIGameViewManager.h"/>
     <File Name="../../include/qvIGuiView.h"/>
     <File Name="../../include/qvIHumanView.h"/>
     <File Name="../../include/qvIInputCommand.h"/>
@@ -79,10 +71,16 @@
     <File Name="../../include/qvStateTypes.h"/>
     <File Name="../../include/qvTypes.h"/>
     <File Name="../../include/qvEventCommandTypes.h"/>
+    <File Name="../../include/qvNonCopyable.h"/>
+    <File Name="../../include/qvRAIIFactoryImp.h"/>
+    <File Name="../../include/qvActor.h"/>
+    <File Name="../../include/qvGameLogic.h"/>
+    <File Name="../../include/qvGFactory.h"/>
+    <File Name="../../include/qvHumanView.h"/>
+    <File Name="../../include/qvHumanView_Irrlicht.h"/>
+    <File Name="../../include/qvGame.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="quanticvortex">
-    <File Name="../../source/quanticvortex/qvActorManager.cpp"/>
-    <File Name="../../source/quanticvortex/qvActorManager.h"/>
     <File Name="../../source/quanticvortex/qvActorMotion.cpp"/>
     <File Name="../../source/quanticvortex/qvActorMotion.h"/>
     <File Name="../../source/quanticvortex/qvActorMotionState.h"/>
@@ -92,8 +90,6 @@
     <File Name="../../source/quanticvortex/qvDefaultElementViewFactory.h"/>
     <File Name="../../source/quanticvortex/qvDefaultEventArgsFactory.cpp"/>
     <File Name="../../source/quanticvortex/qvDefaultEventArgsFactory.h"/>
-    <File Name="../../source/quanticvortex/qvDefaultGameViewFactory.cpp"/>
-    <File Name="../../source/quanticvortex/qvDefaultGameViewFactory.h"/>
     <File Name="../../source/quanticvortex/qvEngineInputTranslatorFactory.cpp"/>
     <File Name="../../source/quanticvortex/qvEngineInputTranslatorFactory.h"/>
     <File Name="../../source/quanticvortex/qvEngineManager.cpp"/>
@@ -103,7 +99,6 @@
     <File Name="../../source/quanticvortex/qvEventManager.cpp"/>
     <File Name="../../source/quanticvortex/qvEventManager.h"/>
     <File Name="../../source/quanticvortex/qvGameLogic.cpp"/>
-    <File Name="../../source/quanticvortex/qvGameLogic.h"/>
     <File Name="../../source/quanticvortex/qvGameParameters.cpp"/>
     <File Name="../../source/quanticvortex/qvGameStateMachine.cpp"/>
     <File Name="../../source/quanticvortex/qvGameStateMachine.h"/>
@@ -111,7 +106,6 @@
     <File Name="../../source/quanticvortex/qvGuiView.h"/>
     <File Name="../../source/quanticvortex/qvHashFunctions.cpp"/>
     <File Name="../../source/quanticvortex/qvHumanView.cpp"/>
-    <File Name="../../source/quanticvortex/qvHumanView.h"/>
     <File Name="../../source/quanticvortex/qvInitializatingGameState.cpp"/>
     <File Name="../../source/quanticvortex/qvInitializatingGameState.h"/>
     <File Name="../../source/quanticvortex/qvInputReceiver.cpp"/>
@@ -139,6 +133,7 @@
       </VirtualDirectory>
     </VirtualDirectory>
     <File Name="../../source/quanticvortex/qvSHashedString.cpp"/>
+    <File Name="../../source/quanticvortex/qvGame.cpp"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

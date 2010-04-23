@@ -8,7 +8,7 @@
 
 qv::s32 main(qv::s32 argc, qv::c8 *argv[])
 {
-//    sdc::SylfurDCGame game;
+    //sdc::SylfurDCGame game;
 
     std::list<int*> ints;
 
@@ -28,7 +28,7 @@ qv::s32 main(qv::s32 argc, qv::c8 *argv[])
         std::cout << *um << std::endl;
     }
 
-    system("pause");
+//    system("pause");
 
     return 0;//game.run( argc, argv);
 }

@@ -2,7 +2,7 @@
 #include "sdcSylfurDCGame.h"
 
 #include "qvSGameParams.h"
-#include "qvIHumanView.h"
+//#include "qvIHumanView.h"
 
 #include "sdcQuitCommand.h"
 

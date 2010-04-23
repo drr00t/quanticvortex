@@ -1,0 +1,4 @@
+qv	E:\QuanticVortex\engine\source\quanticvortex\qvGame.cpp	/^namespace qv$/;"	namespace	line:36
+Game	E:\QuanticVortex\engine\source\quanticvortex\qvGame.cpp	/^Game::Game()$/;"	function	line:39	class:qv::Game	signature:()	returns:Game::Game()
+~Game	E:\QuanticVortex\engine\source\quanticvortex\qvGame.cpp	/^Game::~Game()$/;"	function	line:74	class:qv::Game	signature:()	returns:Game::
+run	E:\QuanticVortex\engine\source\quanticvortex\qvGame.cpp	/^s32 Game::run(s32 argc, c8* argv[])$/;"	function	line:79	class:qv::Game	signature:(s32 argc, c8* argv[])	returns:s32 Game::
