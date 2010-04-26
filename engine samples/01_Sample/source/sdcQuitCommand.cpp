@@ -1,7 +1,7 @@
 
 #include "sdcQuitCommand.h"
 
-#include "qvIEngineManager.h"
+
 
 
 namespace sdc

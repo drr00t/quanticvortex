@@ -6,12 +6,12 @@
 
 namespace qv
 {
-	class IEngineManager;
+class Game;
 
-	namespace events
-	{
-		class IEventArgs;
-	}
+namespace events
+{
+    class EventArgs;
+}
 }
 
 namespace sdc

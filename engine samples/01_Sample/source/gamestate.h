@@ -1,5 +1,5 @@
 
-#include "qvIGameState.h"
+#include "qvAbstractGameState.h"
 
 namespace sdc
 {
@@ -11,31 +11,31 @@ namespace sdc
  * \file gamestate.h
  * \brief
  */
-//class GameState //: public qv::gaming::IGameState
-//{
-//public:
-//
-//    GameState();
-//
-//    virtual ~GameState();
-//
-//    /**
-//     * \brief
-//     * \return
-//     */
-////    const qv::input::InputTranslatorList& getInputTranslators() const;
-//
-//    /**
-//     * \brief
-//     * \return
-//     */
-////    const qv::events::EventCommandHashTypesVector& getEventCommandHashTypes() const;
-//    
-//private:
-//    qv::input::InputTranslatorList mInputTranslators;
-////    qv::events::EventCommandHashTypesVector mEventCommandHashTypes;
-//
-//};
+class GameState : public qv::gaming::AbstractGameState
+{
+public:
+
+    GameState();
+
+    virtual ~GameState();
+
+    /**
+     * \brief
+     * \return
+     */
+//    const qv::input::InputTranslatorList& getInputTranslators() const;
+
+    /**
+     * \brief
+     * \return
+     */
+//    const qv::events::EventCommandHashTypesVector& getEventCommandHashTypes() const;
+    
+private:
+    qv::input::InputTranslatorList mInputTranslators;
+0//    qv::events::EventCommandHashTypesVector mEventCommandHashTypes;
+
+};
 
 //    const qv::events::EventCommandHashTypesVector& GameState::getEventCommandHashTypes() const
 //    {

@@ -29,15 +29,13 @@
 
 #include "qvStateTypes.h"
 
-#include "Poco/SharedPtr.h"
-
 namespace qv
 {
 	class IState
     {
     public:
 
-        virtual u32 getStateHashId() = 0;
+        virtual u32 getStateHashId() const = 0;
 
         virtual void configure() = 0;
 
@@ -47,8 +45,6 @@ namespace qv
 
 		virtual void update( u32 currentTimeMs, u32 elapsedTimeMs) = 0;
     };
-    
-    typedef Poco::SharedPtr<IState> IStateSharedPtr;
 }
 
 #endif

@@ -50,7 +50,7 @@ namespace qv
 		{
 		}
 		//-----------------------------------------------------------------------------------------
-		const bool AnyKeyInputTranslator::translate(qv::input::InputReceiver *context) const
+		bool AnyKeyInputTranslator::translate(qv::input::InputReceiver *context) const
 		{
 			bool translated = false;
 

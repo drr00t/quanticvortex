@@ -32,7 +32,23 @@
 #include "qvSGameParams.h"
 #include "qvTypes.h"
 
+// external classes
+#include "LinearMath/btQuickprof.h"  // bullet timer
 
+namespace qv
+{
+namespace events
+{
+    class EventManager;
+}
+namespace gaming
+{
+    class GameLogic;
+}
+
+}
+
+// external classes declarations
 namespace Poco
 {
 namespace Util
@@ -45,26 +61,89 @@ namespace qv
 {
 
 class _QUANTICVORTEX_API_ Game
+    /// engine core object, this work on lowest level and provide a 
+    /// generic loop for global service like: EventManager, GameLogic
 {
 
 public:
     Game();
     virtual ~Game();
 
-    s32 run(s32 argc, c8* argv[]);
+    s32 run( s32 argc, c8* argv[]);
+    /// called by user to start main loop of the game.
+
+    qv::gaming::GameLogic* getGameLogic();
+    /// all game data, views, physics, actor storage here.
+
+    qv::events::EventManager* getEventManager();
+    /// all global events are processed here
+
+    qv::SGameParams& getGameParameters();
+    /// game global configuration options, menu interface can 
+    /// change this values
+    
+    void setQuit(bool quit);
+    /// quit from engine main loop if true
+    
 
 protected:
-    qv::SGameParams mParams;
-    Poco::Util::OptionProcessor* mOptions;
 
-    void loadConfiguration(){}
+    void loadConfiguration();
+    /// load configuration from file, include saved game
+
+    void registerGameEvents();
+    /// register event that will be used in all over the engine
+
+    qv::SGameParams mParams; // parameters for game
+    Poco::Util::OptionProcessor* mOptions; // options from command
     
 private:
     Game (const Game&);
     Game& operator = (const Game&);
     
+    bool initialize();
+    /// real method taht will start the engine, this it will 
+    /// called inside constructor
+
+    void finalize();
+    /// this method is analog to the initialize, and will be called 
+    /// in destructor to make a shutdown and cleanup before quit
+
+    void update( u32 currentTimeMs, u32 elapsedTimeMs);
+    /// will called every global engine tick and pass current 
+    /// system time to GameLogic, EventManager
+
+    void render( u32 currentTimeMs, u32 elapsedTimeMs);
+    /// render content of views registred in GameLogic
+    
+    bool mQuit; /// quit of engine loop if is true
+    btClock mClock; /// current system time provider
+    qv::SGameParams mGameParams; /// engine, render paramaters
+    qv::gaming::GameLogic* mGameLogic; /// game core object updated on engine loop
+    qv::events::EventManager* mEventManager; /// global event manager
+    
 };
 
+//inlines
+inline qv::gaming::GameLogic* Game::getGameLogic()
+{
+    return mGameLogic;
+}
+
+inline qv::events::EventManager* Game::getEventManager()
+{
+    return mEventManager;
+}
+
+inline qv::SGameParams& Game::getGameParameters() 
+{
+    return mGameParams;
+}
+
+inline void Game::setQuit(bool quit) 
+{ 
+    mQuit = quit;
+}
 
 }
 

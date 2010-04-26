@@ -33,6 +33,7 @@
 #include "qvIInputTranslator.h"
 #include "qvIState.h"
 
+
 namespace qv
 {
 namespace gaming
@@ -49,7 +50,7 @@ class _QUANTICVORTEX_API_ GameState: public qv::IState
 {
 
     public:
-        GameState( u32 gameStateHashType);
+        GameState( u32 gameStateHashId);
         /// create a game state class is base to interact with
         /// game views, input translator, element and scene views
         /// this will have a state type cheked by game logic,
@@ -60,8 +61,21 @@ class _QUANTICVORTEX_API_ GameState: public qv::IState
         virtual ~GameState();
         /// destroy a game state and all content associated
         
+        virtual u32 getStateHashId() const
+        {
+            return mGameStateHashId;
+        }
+
+        virtual void configure(){}
+
+		virtual void enter(){}
+
+		virtual void leave(){}
+
+		virtual void update( u32 currentTimeMs, u32 elapsedTimeMs){}
+        
     private:
-        u32 mGameStateHashType; // hash type id
+        u32 mGameStateHashId; // hash id
 
 };
 

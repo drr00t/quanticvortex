@@ -2,7 +2,7 @@
 <CodeLite_Project Name="QuanticVortex_Core" InternalType="Library">
   <Plugins>
     <Plugin Name="qmake">
-      <![CDATA[00030001N0005Debug0000000000000001N0007Release0000000000000001N0025Windows x86 - DLL - Debug000000000000]]>
+      <![CDATA[00050001N0005Debug0000000000000001N0007Release0000000000000001N0025Windows x86 - DLL - Debug0000000000000001N0028Windows x86 - Static - Debug0000000000000001N0030Windows x86 - Static - Release000000000000]]>
     </Plugin>
   </Plugins>
   <Description/>
@@ -103,6 +103,7 @@
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
+  <Dependencies Name="Windows x86 - DLL - Debug"/>
   <Settings Type="Dynamic Library">
     <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g;-fno-rtti" Required="yes" PreCompiledHeader="">
@@ -310,5 +311,4 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
   </Settings>
-  <Dependencies Name="Windows x86 - DLL - Debug"/>
 </CodeLite_Project>

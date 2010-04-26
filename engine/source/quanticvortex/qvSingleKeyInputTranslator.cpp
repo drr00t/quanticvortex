@@ -45,7 +45,7 @@ namespace qv
 															mKeyCode(keyCode),
 															mCheckKeyState(checkKeyState),
 															mRealTime(realTime), mArgs(args),
-															mInputTranslatorHashType(qv::input::ITT_SINGLE_KEY),
+															mInputTranslatorHashType(qv::input::ITT_SINGLE_KEY.Hash),
                                                             mInputTranslatorHashId(inputTranslatorHashId)
 
 		{
@@ -56,7 +56,7 @@ namespace qv
 		{
 		}
 		//-----------------------------------------------------------------------------------------
-		bool SingleKeyInputTranslator::translate(qv::input::InputReceiver *context)
+		bool SingleKeyInputTranslator::translate(qv::input::InputReceiver *context) const
 		{
 			bool translated = false;
 

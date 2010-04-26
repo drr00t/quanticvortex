@@ -40,12 +40,12 @@ namespace qv
 {
 namespace events
 {
-    class IEventManager;
+    class EventManager;
 }
 
 namespace input
 {
-    class IInputReceiver;
+    class InputReceiver;
 }
 }
 
@@ -68,7 +68,7 @@ class IInputTranslator
     
     virtual u32 getHashType() const = 0;
 
-    virtual bool translate(IInputReceiver *context) = 0;
+    virtual bool translate(qv::input::InputReceiver *context) const = 0;
 };
 
 typedef irr::core::array<IInputTranslator*> InputTranslatorsArray;

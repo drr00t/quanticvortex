@@ -73,7 +73,7 @@ public:
         return mInputTranslatorHashType; 
     }
 
-    virtual const bool translate(qv::input::InputReceiver *context) const;
+    virtual bool translate(qv::input::InputReceiver *context) const;
 
 private:
     bool mRealTime;

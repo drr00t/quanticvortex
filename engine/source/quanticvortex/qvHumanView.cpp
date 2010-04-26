@@ -28,6 +28,7 @@
 #include "qvHumanView.h"
 
 #include "qvDefaultElementViewFactory.h"
+#include "qvEngineManager.h"
 #include "qvEventManager.h"
 #include "qvInputReceiver.h"
 #include "qvSGameParams.h"

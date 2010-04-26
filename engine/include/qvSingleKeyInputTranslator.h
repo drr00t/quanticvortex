@@ -62,7 +62,6 @@ public:
                             qv::input::EKEY_STATE checkKeyState,
                             bool realTime,
                             qv::events::EventArgs* args,
-                            u32 inputTranslatorHashtype,
                             u32 inputTranslatorHashId);
 
     virtual ~SingleKeyInputTranslator();
@@ -71,7 +70,7 @@ public:
 
     virtual u32 getHashType() const { return mInputTranslatorHashType; }
 
-    virtual bool translate(IInputReceiver *context);
+    virtual bool translate(qv::input::InputReceiver *context) const;
 
 private:
     bool mRealTime;

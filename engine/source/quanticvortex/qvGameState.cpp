@@ -33,8 +33,8 @@ namespace qv
 namespace gaming
 {
     //---------------------------------------------------------------------
-    GameState::GameState( u32 gameStateHashType)
-        : mGameStateHashType(gameStateHashType)
+    GameState::GameState( u32 gameStateHashId)
+        : mGameStateHashId(gameStateHashId)
     {
 
 

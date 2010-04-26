@@ -25,9 +25,9 @@
 **************************************************************************************************/
 
 //engine headers
+#include "qvAbstractGameView.h"
 #include "qvEngineManager.h"
 #include "qvEventManager.h"
-#include "qvAbstractGameView.h"
 #include "qvGameLogic.h"
 
 
