@@ -9,15 +9,14 @@
 
 namespace qv
 {
-    class IEngineManager;
-
+ 
     namespace views
     {
 
         class GuiView: public IGuiView
         {
         public:
-            GuiView(const c8* name, IEngineManager* engine, u32 elementViewHashType);
+            GuiView(const c8* name, u32 elementViewHashType);
             virtual ~GuiView();
 
             virtual u32 getHashId() const { return mID.Hash; }

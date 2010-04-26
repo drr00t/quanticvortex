@@ -47,12 +47,12 @@ namespace qv
         {
         }
 		//-----------------------------------------------------------------------------------------------
-		IEventArgsSharedPtr DefaultEventArgsFactory::createEventArgs( u32 eventArgsHashType)
+		qv::events::EventArgs* DefaultEventArgsFactory::createEventArgs( u32 eventArgsHashType)
 		{
-			IEventArgsSharedPtr eventArgs;
+			qv::events::EventArgs* eventArgs;
 
 			if(getCreateableEventArgsType(eventArgsHashType))
-                eventArgs = IEventArgsSharedPtr(new EventArgs( eventArgsHashType));
+                eventArgs = new EventArgs( eventArgsHashType);
 
 			return eventArgs;
 		}

@@ -184,7 +184,7 @@ namespace qv
 			return true;
 		}
 		//-----------------------------------------------------------------------------------------
-		bool EventManager::enqueueEvent(IEventArgsSharedPtr args)
+		bool EventManager::enqueueEvent(qv::events::EventArgs* args)
 		{
 			if(!validateType(args->getHashType()))
 				return false;
@@ -247,7 +247,7 @@ namespace qv
 			return eventHandled;
 		}
 		//-----------------------------------------------------------------------------------------
-		bool EventManager::trigger(IEventArgsSharedPtr args)
+		bool EventManager::trigger(qv::events::EventArgs* args)
 		{
 			if(!args || !validateType(args->getHashType()))
 				return false;

@@ -1,8 +1,6 @@
 
 #include "qvPhysicsManager.h"
 
-#include "qvIEngineManager.h"
-
 #include "btBulletCollisionCommon.h"
 #include "btBulletDynamicsCommon.h"
 #include "BulletCollision/CollisionDispatch/btGhostObject.h"
@@ -14,17 +12,17 @@ namespace qv
     namespace physics
     {
         //-----------------------------------------------------------------------------------------
-		PhysicsManager::PhysicsManager(IEngineManager* engineManager)
-            :mEngineManager(engineManager), mBulletDynamicsWorld(0), mBulletBroadphaseInterface(0),
+		PhysicsManager::PhysicsManager()
+            :mBulletDynamicsWorld(0), mBulletBroadphaseInterface(0),
             mBulletCollisionDispatcher(0), mBulletConstraintSolver(0),
 			mBulletDefaultCollisionConfiguration(0)
         {
-
+            initialize();
         }
         //-----------------------------------------------------------------------------------------
 		PhysicsManager::~PhysicsManager()
         {
-            delete mBulletDynamicsWorld;
+            finalize();
         }
         //-----------------------------------------------------------------------------------------
         bool PhysicsManager::initialize()
@@ -155,22 +153,22 @@ namespace qv
             mBulletDynamicsWorld->stepSimulation(btScalar(elapsedTimeMs/1000.0f), 2); //just twos sub steps, is enough???);
         }
         //-----------------------------------------------------------------------------------------
-		void PhysicsManager::addShape(real radius, gaming::IActor *actor, real specificGravity)
+		void PhysicsManager::addShape(qv::real radius, qv::gaming::Actor *actor, qv::real specificGravity)
 		{
 
 		}
 		//-----------------------------------------------------------------------------------------
 		//void Phys
-		void PhysicsManager::addBox(const irr::core::vector3df &dimensions, qv::gaming::IActor *actor, real specificGravity)
+		void PhysicsManager::addBox(const btVector3 &dimensions, qv::gaming::Actor *actor, qv::real specificGravity)
 		{
 
 		}
         //-----------------------------------------------------------------------------------------
-		void PhysicsManager::addConvexHull(irr::core::vector3df *verts, irr::s32 numPoints, qv::gaming::IActor *actor, real specificGravity)
+		void PhysicsManager::addConvexHull( btVector3 *verts, qv::s32 numPoints, qv::gaming::Actor *actor, qv::real specificGravity)
 		{
 		}
         //-----------------------------------------------------------------------------------------
-		void PhysicsManager::addSphere( real radius, qv::gaming::IActor *actor, real specificGravity)
+		void PhysicsManager::addSphere( qv::real radius, qv::gaming::Actor *actor, qv::real specificGravity)
 		{
 //			btSphereShape* sphereShape = new btSphereShape(btScalar(radius));
 		}

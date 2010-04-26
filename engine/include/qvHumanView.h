@@ -44,16 +44,16 @@ namespace irr
 
 namespace qv
 {
-    class IEngineManager;
+    class EngineManager;
 
 namespace events
 {
-    class IEventManager;
+    class EventManager;
 }
 
 namespace input
 {
-    class IInputReceiver;
+    class InputReceiver;
 }
 
 namespace views
@@ -75,7 +75,7 @@ class _QUANTICVORTEX_API_ HumanView : public AbstractGameView
     /// rendering data on screen
 {
 public:
-    HumanView(qv::IEngineManager* engineManager);
+    HumanView(qv::EngineManager* engineManager);
     ///create the HumanView
 
     ~HumanView();
@@ -108,8 +108,8 @@ public:
 
         irr::IrrlichtDevice* mDevice3d;
 
-        qv::input::IInputReceiver* mInputReceiver;
-        events::IEventManager* mEventManager;
+        qv::input::InputReceiver* mInputReceiver;
+        qv::events::EventManager* mEventManager;
 
         //ProcessManager *mProcessManager;				    // just for gui elements.
 //        cAudio::IAudioManager* mAudioManager;

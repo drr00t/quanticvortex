@@ -30,36 +30,36 @@
 
 namespace qv
 {
-	_QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManager( bool fullscreen,
-	                                                                                bool vsync,
-	                                                                                u8 bits,
-	                                                                                irr::core::dimension2du windowSize,
-                                                                                    irr::core::stringc title,
-                                                                                    bool hostGame,
-                                                                                    u8 localPlayers,
-                                                                                    u8 aIPlayers,
-                                                                                    u8 remotePlayers)
-	{
-        SGameParams params;
-        params.Fullscreen = fullscreen;
-        params.Vsync = vsync;
-        params.Bits = bits;
-        params.WindowSize = windowSize;
-        params.Title = title;
-        params.HostGame = hostGame;
-        params.LocalPlayers = localPlayers;
-        params.AIPlayers = aIPlayers;
-        params.RemotePlayers = remotePlayers;
-
-		return createEngineManagerEx(params);
-	};
+//	_QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManager( bool fullscreen,
+//	                                                                                bool vsync,
+//	                                                                                u8 bits,
+//	                                                                                irr::core::dimension2du windowSize,
+//                                                                                    irr::core::stringc title,
+//                                                                                    bool hostGame,
+//                                                                                    u8 localPlayers,
+//                                                                                    u8 aIPlayers,
+//                                                                                    u8 remotePlayers)
+//	{
+//        SGameParams params;
+//        params.Fullscreen = fullscreen;
+//        params.Vsync = vsync;
+//        params.Bits = bits;
+//        params.WindowSize = windowSize;
+//        params.Title = title;
+//        params.HostGame = hostGame;
+//        params.LocalPlayers = localPlayers;
+//        params.AIPlayers = aIPlayers;
+//        params.RemotePlayers = remotePlayers;
+//
+//		return createEngineManagerEx(params);
+//	};
 
     //grab must be called after get the engine instance, and drop must be called be before finish game
-    _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManagerEx(const SGameParams& params)
-	{
-        IEngineManager* engineManager = new EngineManager();
-        return engineManager;
-	};
+//    _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManagerEx(const SGameParams& params)
+//	{
+//        IEngineManager* engineManager = new EngineManager();
+//        return engineManager;
+//	};
 }
 
 

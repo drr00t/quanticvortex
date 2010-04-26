@@ -28,25 +28,22 @@
 #ifndef __ENGINE_MANAGER_H_
 #define __ENGINE_MANAGER_H_
 
-#include "qvIEngineManager.h"
+#include "qvCompileConfig.h"
 
-#include "irrArray.h"
+#include "qvTypes.h"
+#include "qvSGameParams.h"
 
-#include "IrrlichtDevice.h"
+#include "LinearMath/btQuickprof.h"  // bullet timer
 
+
+/// forward declarations
 namespace qv
 {
-
     struct SGameParams;
 
 namespace events
 {
     class EventManager;
-}
-
-namespace input
-{
-    class InputReceiver;
 }
 
 namespace gaming
@@ -56,73 +53,89 @@ namespace gaming
 
 }
 
+
 namespace qv
 {
 
-class EngineManager
+class _QUANTICVORTEX_API_ EngineManager
+    /// engine core object, this work on lowest level and provide a 
+    /// generic loop for global service like: EventManager, GameLogic
 {
 public:
 
     EngineManager();
+    /// engine initialization.
 
-    virtual ~EngineManager();
+    ~EngineManager();
+    /// engine destuction.
 
-    virtual s32 run();
+    s32 run( s32 argc, c8* argv[]);
+    /// called by user to start main loop of the game.
 
-    virtual gaming::GameLogic* getGameLogic();
+    qv::gaming::GameLogic* getGameLogic();
+    /// all game data, views, physics, actor storage here.
 
-    virtual events::EventManager* getEventManager();
+    qv::events::EventManager* getEventManager();
+    /// all global events are processed here
 
-    virtual SGameParams& getGameParameters();
-
-protected:
-
-    bool initialize();
-
-    void finalize();
-
-    void loadConfiguration();
-
-    void registerGameEvents();
-
-    void update( u32 currentTimeMs, u32 elapsedTimeMs);
-
-    void render( u32 currentTimeMs, u32 elapsedTimeMs);
-
-    SGameParams mGameParams;
-
-    gaming::GameLogic* mGameLogic;
-
-    events::IEventManager* mEventManager;
-
-    input::IInputReceiverSharedPtr mInputReceiver;
-
-    irr::IrrlichtDevice* mDevice3d;
+    qv::SGameParams& getGameParameters();
+    /// game global configuration options, menu interface can 
+    /// change this values
+    
+    void setQuit(bool quit);
+    /// quit from engine main loop if true
 
 private:
-    bool _helpRequested;
-    bool mHasPopup;
-    bool mQuit;
-    btClock mClock;
+    EngineManager(const EngineManager&);
+    /// this can´t be copyed
+    EngineManager& operator = (const EngineManager&);
+    /// this class can´t be assigned to another
+
+    bool initialize();
+    /// real method taht will start the engine, this it will 
+    /// called inside constructor
+
+    void finalize();
+    /// this method is analog to the initialize, and will be called 
+    /// in destructor to make a shutdown and cleanup before quit
+
+    void loadConfiguration();
+    /// load configuration from file, include saved game
+
+    void registerGameEvents();
+    /// register event that will be used in all over the engine
+
+    void update( u32 currentTimeMs, u32 elapsedTimeMs);
+    /// will called every global engine tick and pass current 
+    /// system time to GameLogic, EventManager
+
+    void render( u32 currentTimeMs, u32 elapsedTimeMs);
+    /// render content of views registred in GameLogic
+    
+    bool mQuit; /// quit of engine loop if is true
+    btClock mClock; /// current system time provider
+    qv::SGameParams mGameParams; /// engine, render paramaters
+    qv::gaming::GameLogic* mGameLogic; /// game core object updated on engine loop
+    qv::events::EventManager* mEventManager; /// global event manager
 };
 
 //inlines
-gaming::GameLogic* EngineManager::getGameLogic()
+inline qv::gaming::GameLogic* EngineManager::getGameLogic()
 {
     return mGameLogic;
 }
 
-events::EventManager* EngineManager::getEventManager()
+inline qv::events::EventManager* EngineManager::getEventManager()
 {
     return mEventManager;
 }
 
-SGameParams& EngineManager::getGameParameters() 
+inline qv::SGameParams& EngineManager::getGameParameters() 
 {
     return mGameParams;
 }
 
-void EngineManager::setQuit(bool quit) 
+inline void EngineManager::setQuit(bool quit) 
 { 
     mQuit = quit;
 }

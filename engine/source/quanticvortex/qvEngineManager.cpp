@@ -25,20 +25,17 @@
 **************************************************************************************************/
 
 //engine headers
-#include "qvEventManager.h"
 #include "qvEngineManager.h"
+#include "qvEventManager.h"
+#include "qvAbstractGameView.h"
 #include "qvGameLogic.h"
-
-#include "irrlicht.h"
-//Irrlicht input receiver implementation
-#include "drivers/irrlicht/qvInputEventHandlerIrrlicht.h"
 
 
 namespace qv
 {
     //-----------------------------------------------------------------------------
     EngineManager::EngineManager()
-    :mQuit(false),mHasPopup(false),_helpRequested(false)
+    :mQuit(false)
     {
         if(!initialize())
             mQuit = true;
@@ -144,9 +141,6 @@ namespace qv
 
         if(mEventManager)
             delete mEventManager;
-
-        //render system
-        mDevice3d->drop();
 	}
 	//-----------------------------------------------------------------------------
     void EngineManager::update( u32 currentTimeMs, u32 elapsedTimeMs)
@@ -161,74 +155,45 @@ namespace qv
     //-----------------------------------------------------------------------------
     void EngineManager::render( u32 currentTimeMs, u32 elapsedTimeMs)
     {
-//        const views::GameViewArray gameViews = mGameLogic->getGameViews();
-//        for(u32 i = 0; i < gameViews.size(); ++i)
-//            gameViews[i]->render(currentTimeMs, elapsedTimeMs);
-    }
-	//-----------------------------------------------------------------------------
-    void EngineManager::beginRender(bool backBuffer, bool zBuffer)
-    {
-		mDevice3d->getVideoDriver()->beginScene(backBuffer, zBuffer);
-    }
-	//-----------------------------------------------------------------------------
-    void EngineManager::endRender()
-    {
-		mDevice3d->getVideoDriver()->endScene();
+        const qv::views::GameViewsArray gameViews = mGameLogic->getGameViews();
+        for(u32 i = 0; i < gameViews.size(); ++i)
+            gameViews[i]->render(currentTimeMs, elapsedTimeMs);
     }
     //-----------------------------------------------------------------------------
-    s32 EngineManager::run()
+    s32 EngineManager::run(s32 argc, c8* argv[])
     {
-        if (!_helpRequested)
+        s32 lastFPS = -1;
+
+        // In order to do framerate independent movement, we have to know
+        // how long it was since the last frame
+        u32 lastTimeMs =  mClock.getTimeMilliseconds();
+        u32 curentTimeMs = lastTimeMs;
+        
+        while(!mQuit)
         {
-	        s32 lastFPS = -1;
+            // Work out a frame delta time.
+            u32 curentTimeMs = mClock.getTimeMilliseconds();
+            u32 elapsedTimeMs = (curentTimeMs - lastTimeMs); // Time in miliseconds
 
-			// In order to do framerate independent movement, we have to know
-            // how long it was since the last frame
-            u32 lastTimeMs =  mClock.getTimeMilliseconds();
-            u32 curentTimeMs = lastTimeMs;
-	        while(!mQuit)
-            {
-                // Work out a frame delta time.
-                u32 curentTimeMs = mClock.getTimeMilliseconds();
-                u32 elapsedTimeMs = (curentTimeMs - lastTimeMs); // Time in miliseconds
+            lastTimeMs = curentTimeMs;
 
-				lastTimeMs = curentTimeMs;
+//				if(elapsedTimeMs > 16)
+//					elapsedTimeMs = 16;
 
-				if(elapsedTimeMs > 16)
-					elapsedTimeMs = 16;
+            //game application update
+            update( curentTimeMs, elapsedTimeMs);
 
-	            //if (mDevice3d->isWindowActive())
-	            //{
-					//game application update
-					update( curentTimeMs, elapsedTimeMs);
+            //game application render
+            render( curentTimeMs, elapsedTimeMs);
 
-                    //game application render
-                    render( curentTimeMs, elapsedTimeMs);
-
-					lastTimeMs = curentTimeMs;
-
-					s32 fps = mDevice3d->getVideoDriver()->getFPS();
-
-		            if (lastFPS != fps)
-		            {
-                        irr::core::stringw str = mGameParams.Title;
-                        str.append(L" - QuanticVortex Engine [");
-			            str.append(mDevice3d->getVideoDriver()->getName());
-			            str.append("] FPS:");
-			            str.append(fps);
-			            str.append(" Triangles:");
-						str.append(mDevice3d->getVideoDriver()->getPrimitiveCountDrawn());
-
-                        mDevice3d->setWindowCaption(str.c_str());
-
-			            lastFPS = fps;
-		            }
-                //}
-                //else
-                //{
-                    //mDevice3d->yield();
-                //}
-            }
+            lastTimeMs = curentTimeMs;
+            
+            //}
+            //else
+            //{
+                //mDevice3d->yield();
+            //}
+        }
 
 //change resolution in runtime
 
@@ -300,8 +265,7 @@ namespace qv
 //         device->run(); // Very important to do this here!
 //         device->drop();
 //      }
-//   }
-        }
+//    }
 
         return 0;
     }

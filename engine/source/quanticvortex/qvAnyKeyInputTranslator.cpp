@@ -26,8 +26,8 @@
 
 #include "qvAnyKeyInputTranslator.h"
 
-#include "qvIEventManager.h"
-#include "qvIInputReceiver.h"
+#include "qvEventManager.h"
+//#include "qvInputReceiver.h"
 
 
 namespace qv
@@ -35,23 +35,22 @@ namespace qv
 	namespace input
 	{
 		//-----------------------------------------------------------------------------------------
-		AnyKeyInputTranslator::AnyKeyInputTranslator(events::IEventManager* eventManager,
-													bool realTime, events::IEventArgsSharedPtr args,
-													const c8* inputTranslatorName,
-													u32 inputTranslatorHashType)
-													:mEventManager(eventManager), mRealTime(realTime),
-													mArgs(args),
-													mInputTranslatorHashType(inputTranslatorHashType)
-
+		AnyKeyInputTranslator::AnyKeyInputTranslator(qv::events::EventManager* eventManager,
+													bool realTime, events::EventArgs* args,
+													u32 inputTranslatorHashId)
+													:mEventManager(eventManager), 
+                                                    mRealTime(realTime),
+                                                    mInputTranslatorHashId(inputTranslatorHashId),
+													mArgs(args), 
+                                                    mInputTranslatorHashType(qv::input::ITT_ANY_KEY.Hash)
 		{
-		    mID = HASH_STRING(inputTranslatorName);
 		}
 		//-----------------------------------------------------------------------------------------
 		AnyKeyInputTranslator::~AnyKeyInputTranslator()
 		{
 		}
 		//-----------------------------------------------------------------------------------------
-		bool AnyKeyInputTranslator::translate(qv::input::IInputReceiver *context)
+		const bool AnyKeyInputTranslator::translate(qv::input::InputReceiver *context) const
 		{
 			bool translated = false;
 

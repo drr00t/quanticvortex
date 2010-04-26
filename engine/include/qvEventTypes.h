@@ -28,10 +28,10 @@
 #ifndef __EVENT_TYPES_H_
 #define __EVENT_TYPES_H_
 
-#include "qvPrerequisites.h"
-#include "qvSHashedString.h"
-
 #include <vector>
+
+#include "qvTypes.h"
+#include "qvSHashedString.h"
 
 
 namespace qv
@@ -40,7 +40,7 @@ namespace qv
     {
 		typedef SHashedString ET_EVENT_TYPE;
 
-		typedef std::vector<u32> EventHashTypesVector;
+		typedef std::vector<u32> EventHashTypesArray;
 		typedef std::vector<ET_EVENT_TYPE*> EventTypesVector;
 
         //engine sertvices events

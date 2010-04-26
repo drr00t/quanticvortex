@@ -48,12 +48,15 @@ namespace qv
 
 
     typedef char		c8;
+    
+    typedef float       real; //single ou double precision
 
 //    typedef std::char_traits<u8> uchar_traits;
 //    typedef std::basic_string<u8, uchar_traits> ustring;
 //
 //    typedef std::char_traits<c8> char_traits;
 //    typedef std::basic_string<c8, char_traits> string;
+
 }
 
 #endif

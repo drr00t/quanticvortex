@@ -29,7 +29,7 @@
 #define __I_EVENT_ARGS_FACTORY_H_
 
 #include <vector>
-#include "qvIEventArgs.h"
+#include "qvEventArgs.h"
 
 namespace qv
 {
@@ -41,15 +41,14 @@ namespace qv
 		{
 		public:
 
-			virtual IEventArgsSharedPtr createEventArgs( u32 eventArgsHashtype) = 0;
+			virtual qv::events::EventArgs* createEventArgs( u32 eventArgsHashtype) = 0;
 
 			virtual u32 getCreatableEventArgsTypeCount() const = 0;
 
 			virtual bool getCreateableEventArgsType( u32 eventArgsHashtype) const = 0;
 		};
 
-		typedef Poco::SharedPtr<IEventArgsFactory> IEventArgsFactorySharedPtr;
-		typedef std::vector<IEventArgsFactorySharedPtr> EventArgsFactoryVector;
+		typedef std::vector<IEventArgsFactory*> EventArgsFactoryVector;
     }
 }
 #endif

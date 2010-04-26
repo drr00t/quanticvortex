@@ -38,10 +38,7 @@
 
 //input
 #include "qvKeyTypes.h"
-#include "qvIInputReceiver.h"
 #include "qvIInputTranslator.h"
-#include "qvIAnyKeyInputTranslator.h"
-#include "qvISingleKeyInputTranslator.h"
 #include "qvIInputTranslatorFactory.h"
 
 //runtime
@@ -59,32 +56,29 @@
 //qv
 #include "qvCommandTypes.h"
 #include "qvICommand.h"
-#include "qvIEngineManager.h"
 #include "qvSGameParams.h"
 #include "qvSHashedString.h"
 
 //events
 #include "qvEventTypes.h"
 #include "qvIEventCommand.h"
-#include "qvIEventArgs.h"
 #include "qvIEventArgsFactory.h"
-#include "qvIEventManager.h"
 
 
 namespace qv
 {
-    extern "C" _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManager(
-                                                                                        bool fullscreen = false,
-		                                                                                bool vsync = false,
-		                                                                                u8 bits = 16,
-		                                                                                irr::core::dimension2du windowSize = irr::core::dimension2du(1024,768),
-                                                                                        irr::core::stringc title = "Quantic Vortex Game",
-                                                                                        bool hostGame = true,
-                                                                                        u8 localPlayers = 1,
-                                                                                        u8 aIPlayers = 0,
-                                                                                        u8 remotePlayers = 0);
-
-	extern "C" _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManagerEx(const SGameParams& params);
+//    extern "C" _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManager(
+//                                                                                        bool fullscreen = false,
+//		                                                                                bool vsync = false,
+//		                                                                                u8 bits = 16,
+//		                                                                                irr::core::dimension2du windowSize = irr::core::dimension2du(1024,768),
+//                                                                                        irr::core::stringc title = "Quantic Vortex Game",
+//                                                                                        bool hostGame = true,
+//                                                                                        u8 localPlayers = 1,
+//                                                                                        u8 aIPlayers = 0,
+//                                                                                        u8 remotePlayers = 0);
+//
+//	extern "C" _QUANTICVORTEX_API_ IEngineManager* QUANTICVORTEX_CALLCONV createEngineManagerEx(const SGameParams& params);
 }
 
 

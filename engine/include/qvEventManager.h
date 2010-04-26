@@ -28,6 +28,7 @@
 #ifndef __EVENT_MANAGER_H_
 #define __EVENT_MANAGER_H_
 
+#include "qvCompileConfig.h"
 #include "qvIEventCommand.h"
 #include "qvIEventArgsFactory.h"
 
@@ -38,7 +39,7 @@ namespace qv
     namespace events
     {
 
-		class EventManager
+		class _QUANTICVORTEX_API_ EventManager
 		{
 		public:
     		EventManager();
@@ -65,19 +66,19 @@ namespace qv
 
 			virtual bool abortEvent ( u32 eventHashType, bool all = false );
 
-			virtual bool enqueueEvent (IEventArgsSharedPtr args);
+			virtual bool enqueueEvent (qv::events::EventArgs* args);
 
 			virtual bool process ( real processingTime);
 
-			virtual bool trigger ( IEventArgsSharedPtr args );
+			virtual bool trigger ( qv::events::EventArgs* args );
 
 			virtual bool validateType(u32 eventHashType);
 
 		private:
 			static const s32 QueueEventsLenght = 2;
-			EventHashTypesVector mValidEventTypes;
+			EventHashTypesArray mValidEventTypes;
 			EventArgsEventCommandVector mRegistredCommandsMap;
-			EventArgsVector mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
+			EventArgsArray mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
 //			ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
 			EventArgsFactoryVector mEventArgsFactories;
 			Poco::AtomicCounter mActiveReadyEventList;

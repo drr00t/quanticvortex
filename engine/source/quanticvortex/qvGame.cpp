@@ -27,8 +27,11 @@
 
 #include "qvGame.h"
 
+// engine headers
 #include "qvEngineManager.h"
 
+
+//external headers
 #include "Poco/Util/Option.h"
 #include "Poco/Util/OptionSet.h"
 #include "Poco/Util/OptionProcessor.h"
@@ -44,6 +47,7 @@ namespace qv
 Game::Game()
 :mOptions(0)
 {
+
     Poco::Util::OptionSet set;
 	set.addOption(
 		Poco::Util::Option("bits", "bpp")
@@ -74,6 +78,7 @@ Game::Game()
         .argument("value"));
         
 	mOptions = new Poco::Util::OptionProcessor(set);
+    
 }
 
 Game::~Game(){
@@ -82,7 +87,11 @@ Game::~Game(){
 
 s32 Game::run(s32 argc, c8* argv[])
 {
-//        mOptionsProcessor->
+//        mOptions->process(argv)
+
+    qv::EngineManager engine;
+    
+    return engine.run(argc, argv);
 }
 
 

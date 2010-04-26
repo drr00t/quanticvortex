@@ -32,34 +32,40 @@
 
 namespace qv
 {
-	class IEventManager;
-
-	namespace input
-	{
-		class IInputReceiver;
-	}
-
-    namespace input
-    {
-		class EngineInputTranslatorFactory : public IInputTranslatorFactory
-		{
-		protected:
-			InputTranslatorHashTypesArray mSupportedEngineInputTranslatorTypes;
-			IEventManager* mEventManager;
-			IInputReceiver* mInputReceiver;
-
-		public:
-			EngineInputTranslatorFactory( IEventManager* eventManager, IInputReceiver* inputReceiver);
-
-			virtual ~EngineInputTranslatorFactory();
-
-			virtual IInputTranslatorSharedPtr addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, events::IEventArgsSharedPtr args, bool realTime = false);
-
-			virtual u32 getCreatableInputTranslatorCount() const;
-
-			virtual bool getCreateableInputTranslator( u32 inputTranslatorHashType) const;
-		};
-    }
+namespace events
+{
+	class EventManager;
 }
+namespace input
+{
+    class InputReceiver;
+}
+
+namespace input
+{
+
+class EngineInputTranslatorFactory : public qv::input::IInputTranslatorFactory
+{
+protected:
+    InputTranslatorHashTypesArray mSupportedEngineInputTranslatorTypes;
+    qv::events::EventManager* mEventManager;
+    qv::input::InputReceiver* mInputReceiver;
+
+public:
+    EngineInputTranslatorFactory( qv::events::EventManager* eventManager, qv::input::InputReceiver* inputReceiver);
+
+    virtual ~EngineInputTranslatorFactory();
+
+    virtual qv::input::IInputTranslator* addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, qv::events::EventArgs* args, bool realTime = false);
+
+    virtual u32 getCreatableInputTranslatorCount() const;
+
+    virtual bool getCreateableInputTranslator( u32 inputTranslatorHashType) const;
+};
+
+}
+
+}
+
 #endif
 

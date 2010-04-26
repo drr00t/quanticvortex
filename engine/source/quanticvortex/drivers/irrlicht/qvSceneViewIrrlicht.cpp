@@ -26,8 +26,8 @@
 
 #include "qvSceneViewIrrlicht.h"
 
-#include "qvIEngineManager.h"
-#include "qvIEventManager.h"
+#include "qvEngineManager.h"
+#include "qvEventManager.h"
 //#include "qvICameraActorAddedEventArgs.h"
 
 #include "IFileSystem.h"
@@ -39,7 +39,7 @@ namespace qv
     namespace views
     {
         //-----------------------------------------------------------------------------------------
-        SceneViewIrrlicht::SceneViewIrrlicht( const c8* name, IEngineManager* engine, u32 elementViewHashType)
+        SceneViewIrrlicht::SceneViewIrrlicht( const c8* name, EngineManager* engine, u32 elementViewHashType)
 			:mVisible(true), mDefaultCamera(0), mSceneManager(0),
 			mEventManager(engine->getEventManager()), mElementViewHashType(elementViewHashType)//, mOrder(1) //first element view to render
         {

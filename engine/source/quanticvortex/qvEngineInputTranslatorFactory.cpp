@@ -37,8 +37,8 @@ namespace qv
     namespace input
     {
         //-----------------------------------------------------------------------------------------
-		EngineInputTranslatorFactory::EngineInputTranslatorFactory( IEventManager* eventManager,
-																	IInputReceiver* inputReceiver)
+		EngineInputTranslatorFactory::EngineInputTranslatorFactory( qv::events::EventManager* eventManager,
+																	qv::input::InputReceiver* inputReceiver)
 																	:mEventManager(eventManager),
 																	mInputReceiver(inputReceiver)
         {
@@ -55,9 +55,9 @@ namespace qv
         {
         }
 		//-----------------------------------------------------------------------------------------------
-		IInputTranslatorSharedPtr EngineInputTranslatorFactory::addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, events::IEventArgsSharedPtr args, bool realTime)
+		qv::input::IInputTranslator* EngineInputTranslatorFactory::addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, qv::events::EventArgs* args, bool realTime)
 		{
-			IInputTranslatorSharedPtr translator;
+			qv::input::IInputTranslator* translator(0);
 //			if(getCreateableInputTranslator(inputTranslatorHashType))
 //			{
 				//key and key state will be set after by user

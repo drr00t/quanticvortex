@@ -192,4 +192,7 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
   </Settings>
+  <Dependencies Name="Windows x86 - DLL - Debug">
+    <Project Name="QuanticVortex_Core"/>
+  </Dependencies>
 </CodeLite_Project>

@@ -25,17 +25,14 @@
 **************************************************************************************************/
 
 
-#ifndef __I_GAME_VIEW_H_
-#define __I_GAME_VIEW_H_
+#ifndef __ABSTRACT_GAME_VIEW_H_
+#define __ABSTRACT_GAME_VIEW_H_
 
 // system headers
 #include <vector>
 
 // QuanticVortex headers
 #include "qvGameViewTypes.h"
-
-// external headers
-//#include "Poco/SharedPtr.h"
 
 
 namespace qv

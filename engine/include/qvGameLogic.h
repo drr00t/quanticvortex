@@ -25,37 +25,30 @@
 **************************************************************************************************/
 
 
-#ifndef __DEFAULT_GAME_LOGIC_H_
-#define __DEFAULT_GAME_LOGIC_H_
-
-//system headers
-#include <vector>
+#ifndef __GAME_LOGIC_H_
+#define __GAME_LOGIC_H_
 
 //engine headers
-#include "qvAbstractGameView.h"
 #include "qvActor.h"
-#include "qvIGameState.h"
-#include "qvIProcess.h"
 
-//#include "qvIGameView.h"
-//#include "qvIGameViewFactory.h"
+#include "qvAbstractGameView.h"
+
+#include "qvGameState.h"
 #include "qvIProcessManager.h"
 
-//external headers
-#include "irrMap.h"
 
 namespace qv
 {
-    class IEngineManager;
+    struct SGameParams;
 
-namespace views
+namespace events
 {
-    class IGameViewFactory;
+    class EventManager;
 }
 
 namespace physics
 {
-    class IPhysicsManager;
+    class PhysicsManager;
 }
 
 }
@@ -68,30 +61,32 @@ namespace gaming
 class _QUANTICVORTEX_API_ GameLogic
 {
 public:
-    GameLogic(IEngineManager* engineManager);
-    /// create GameLogic core object to manage the game
+    GameLogic(qv::SGameParams& gameParams, qv::events::EventManager* eventManager);
+    /// create GameLogic core object to manage the game and set event manager
+    /// and game parameters
 
     ~GameLogic();
 
-    bool initialize();
-    /// initialize game logic data, like: physics susbsystem,
-    /// raise initial game state event telling all other subsystem
-    /// that game is ready to go
-
-    bool finalize();
-    /// finish game logic and all subsystems
-
     void addActor( u32 actorHashId);
     /// add new actor to the game
+//    {
+//        Actor* actor = getActor(actorHashId);
+//        
+//        if(!actor)
+//        {
+////            mActors.
+//        }
+//    }
+    
 
     Actor* getActor( u32 actorHashId)
     /// query a registred actor from game
     {
-//				ActorsMap::Node* actor = mActors.find(actorHashId);
-        Actor* actorFounded(0);
-//				if(actor)
-//					actorFounded = actor->getValue();
-        return actorFounded;
+        ActorsMap::Node* actorNode = mActors.find(actorHashId);
+        Actor* actor(0);
+        if(actorNode)
+            actor = actorNode->getValue();
+        return actor;
     }
 
     void removeActor( u32 actorHashId)
@@ -100,10 +95,7 @@ public:
         Actor* actor = getActor(actorHashId);
 
         if(actor)
-        {
-//					actor->drop();
-//					mActors.delink(actorID.Hash);
-        }
+            mActors.delink(actorHashId);
     }
 
     bool loadGame(const irr::core::stringc& gameName);
@@ -115,7 +107,7 @@ public:
     void changeState( const S_STATE* newState);
     /// change the state of game, like: from menu to running
 
-    const views::GameViewsArray& getGameViews() const;
+    const qv::views::GameViewsArray& getGameViews() const;
     /// game views collections, all views must be registred on game
     /// logic to be used on game, ex: HumanView, NetworkView.
 
@@ -125,11 +117,8 @@ public:
     void removeView(views::AbstractGameView* gameView);
     /// remove view from game logic views collection
 
-    physics::IPhysicsManager* getPhysicsManager();
+    physics::PhysicsManager* getPhysicsManager();
     /// get physics subsystem access
-
-    events::IEventManager* getEventManager();
-    /// get event manager access
 
     //IEventListener* getEventListener(){return mEventListener;}
 
@@ -143,18 +132,26 @@ public:
 
 private:
 
-    GameLogic(const GameLogic&);
-    GameLogic& operator = (const GameLogic&);
+    GameLogic(const GameLogic&); // to avoid copy of game logic
+    
+    GameLogic& operator = (const GameLogic&); // to avoid copy of game logic
 
+    bool initialize();
+    /// initialize game logic data, like: physics susbsystem,
+    /// raise initial game state event telling all other subsystem
+    /// that game is ready to go
 
+    bool finalize();
+    /// finish game logic and all subsystems
+    
     u32 mCurrentGameStateHashId;
     u32 mHumanPlayerAttached;
 
     ActorsMap mActors;
-    views::GameViewsArray   mGameViews;
+    qv::views::GameViewsArray   mGameViews;
 
-    physics::IPhysicsManager* mPhysicsManager;
-    events::IEventManager* mEventManager;
+    physics::PhysicsManager* mPhysicsManager; // game physics
+    events::EventManager* mEventManager; // event manager
     // IProcessManager* mProcessManager;  //game logic AI
 
     //SPlayerScore mPlayerScore;
@@ -164,17 +161,12 @@ private:
 
 
 // inlines
-inline physics::IPhysicsManager* GameLogic::getPhysicsManager()
+inline qv::physics::PhysicsManager* GameLogic::getPhysicsManager()
 {
     return mPhysicsManager;
 }
 
-inline events::IEventManager* GameLogic::getEventManager()
-{
-    return mEventManager;
-}
-
-inline const views::GameViewsArray& GameLogic::getGameViews() const
+inline const qv::views::GameViewsArray& GameLogic::getGameViews() const
 {
     return mGameViews;
 }

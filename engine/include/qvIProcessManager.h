@@ -22,9 +22,9 @@ namespace qv
 			virtual void attach( IProcess* process )=0;
 			virtual void detach( IProcess* process )=0;
 
-			virtual bool hasProcesses()=0;
-
-			virtual E_PROCESS_STATUS update( u32 elapsedTime)=0;
+//			virtual bool hasProcesses()=0;
+//
+//			virtual E_PROCESS_STATUS update( u32 elapsedTime)=0;
         };
     }
 }

@@ -33,40 +33,47 @@
 #include "qvEventTypes.h"
 #include "qvKeyTypes.h"
 
-#include "Poco/SharedPtr.h"
 #include "irrArray.h"
 #include "irrList.h"
 
 namespace qv
 {
-	namespace events
-	{
-		class IEventManager;
-	}
+namespace events
+{
+    class IEventManager;
+}
 
-	namespace input
-	{
-		class IInputReceiver;
+namespace input
+{
+    class IInputReceiver;
+}
+}
 
-        typedef SHashedString ITI_INPUT_TRANSLATOR_ID;
-		typedef SHashedString ITT_INPUT_TRANSLATOR_TYPE;
 
-		typedef irr::core::array<u32> InputTranslatorHashTypesArray;
+namespace qv
+{
+namespace input
+{
 
-		class IInputTranslator
-		{
-            public:
-        
-            virtual u32 getHashId() const = 0;
-            
-            virtual u32 getHashType() const = 0;
+typedef SHashedString ITI_INPUT_TRANSLATOR_ID;
+typedef SHashedString ITT_INPUT_TRANSLATOR_TYPE;
 
-			virtual bool translate(IInputReceiver *context) = 0;
-		};
+typedef irr::core::array<u32> InputTranslatorHashTypesArray;
 
-		typedef Poco::SharedPtr<IInputTranslator> IInputTranslatorSharedPtr;
-		typedef irr::core::list<IInputTranslatorSharedPtr> InputTranslatorList;
-	}
+class IInputTranslator
+{
+    public:
+
+    virtual u32 getHashId() const = 0;
+    
+    virtual u32 getHashType() const = 0;
+
+    virtual bool translate(IInputReceiver *context) = 0;
+};
+
+typedef irr::core::array<IInputTranslator*> InputTranslatorsArray;
+
+}
 }
 
 #endif

@@ -29,9 +29,8 @@
 #define __GAME_H_
 
 #include "qvCompileConfig.h"
+#include "qvSGameParams.h"
 #include "qvTypes.h"
-
-#include "qvIEngineManager.h"
 
 
 namespace Poco

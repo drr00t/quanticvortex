@@ -28,16 +28,14 @@
 #include "qvHumanView.h"
 
 #include "qvDefaultElementViewFactory.h"
-#include "qvIEngineManager.h"
-#include "qvIEventManager.h"
+#include "qvEventManager.h"
+#include "qvInputReceiver.h"
+#include "qvSGameParams.h"
 
 //#if QV_RENDER == QV_RENDER_IRRLICHT
 //#include "qvHumanView_Irrlicht.cpp"
 //#endif
 #include "irrlicht.h"
-
-//Irrlicht input receiver implementation
-#include "drivers/irrlicht/qvInputEventHandlerIrrlicht.h"
 
 
 namespace qv
@@ -45,7 +43,7 @@ namespace qv
     namespace views
     {
         //-----------------------------------------------------------------------------------------
-        HumanView::HumanView(qv::IEngineManager* engineManager)
+        HumanView::HumanView(qv::EngineManager* engineManager)
 			: AbstractGameView(qv::views::GVT_GAME_VIEW_HUMAN.Hash), mLastUpdateTime(0.0f),
 			mCurrentEngineTime(0.0f), mAccumulatorTime(0), mInputReceiver(0),
 			mEventManager(engineManager->getEventManager()), mDevice3d(0) /*mProcessManager(0)*/
@@ -60,7 +58,7 @@ namespace qv
 
             mDevice3d = irr::createDeviceEx(parameters);
 
-            mInputReceiver = new qv::input::InputEventHandlerIrrlicht(engineManager);
+            mInputReceiver = new qv::input::InputReceiver();
 
             //mFont = mEngineManager->getGuiManager()->getBuiltInFont();
 	        //IGUISkin* skin = mEngineManager->getGuiManager()->getSkin();

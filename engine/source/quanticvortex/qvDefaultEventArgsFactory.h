@@ -37,14 +37,14 @@ namespace qv
 		class DefaultEventArgsFactory : public IEventArgsFactory
 		{
         private:
-            EventHashTypesVector mSupportedEventArgsTypes;
+            qv::events::EventHashTypesArray mSupportedEventArgsTypes;
 
 		public:
 			DefaultEventArgsFactory();
 
             virtual ~DefaultEventArgsFactory();
 
-			virtual IEventArgsSharedPtr createEventArgs( u32 eventArgsHashType);
+			virtual qv::events::EventArgs* createEventArgs( u32 eventArgsHashType);
 
 			virtual u32 getCreatableEventArgsTypeCount() const;
 

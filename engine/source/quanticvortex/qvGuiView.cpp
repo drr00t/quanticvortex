@@ -1,6 +1,6 @@
 
 #include "qvGuiView.h"
-#include "qvIEngineManager.h"
+//#include "qvIEngineManager.h"
 
 
 namespace qv
@@ -8,7 +8,7 @@ namespace qv
     namespace views
     {
         //---------------------------------------------------------------------
-        GuiView::GuiView(const c8* name,IEngineManager* engine, u32 elementViewHashType)
+        GuiView::GuiView(const c8* name, u32 elementViewHashType)
 			: mElement(0), mGuiManager(0), mVisible(true), mHashType(elementViewHashType)//, mOrder(5)
         {
 

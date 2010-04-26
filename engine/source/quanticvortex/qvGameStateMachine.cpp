@@ -1,6 +1,6 @@
 
 #include "qvGameStateMachine.h"
-#include "qvIGameState.h"
+#include "qvGameState.h"
 
 namespace qv
 {

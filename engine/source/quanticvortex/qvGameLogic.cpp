@@ -27,15 +27,15 @@
 
 #include "qvGameLogic.h"
 
-#include "qvActor.h"
-#include "qvIEngineManager.h"
+// parameters
 #include "qvSActorParams.h"
+#include "qvSGameParams.h"
+
+// views
 #include "qvHumanView.h"
 
-//#include "qvNetworkView.h"
-//#include "qvAIView.h"
-//#include "qvRecorderView.h"
-
+// managers
+#include "qvEventManager.h"
 #include "qvPhysicsManager.h"
 
 
@@ -44,21 +44,21 @@ namespace qv
     namespace gaming
     {
         //-----------------------------------------------------------------------------------------
-        GameLogic::GameLogic(IEngineManager* engineManager)
-            :mPhysicsManager(0)
+        GameLogic::GameLogic(qv::SGameParams& gameParams, qv::events::EventManager* eventManager)
+            :mPhysicsManager(0), mEventManager(eventManager)
         {
-			mPhysicsManager = new physics::PhysicsManager(engineManager);
+			mPhysicsManager = new physics::PhysicsManager();
         }
         //-----------------------------------------------------------------------------------------
         GameLogic::~GameLogic()
         {
 			//remove all views
-//            for(u32 i = 0; i < mGameViews.size(); ++i)
-//                mGameViews[i]->drop();
+            for(u32 i = 0; i < mGameViews.size(); ++i)
+                delete mGameViews[i];
 
 			mGameViews.clear();
 
-			ActorsMap::ParentLastIterator itrActor = mActors.getParentLastIterator();
+			qv::gaming::ActorsMap::ParentLastIterator itrActor = mActors.getParentLastIterator();
 
 //			while(!itrActor.atEnd())
 //			{
@@ -100,7 +100,7 @@ namespace qv
         //-----------------------------------------------------------------------------------------
 		void GameLogic::addActor( u32 actorHashId)
         {
-			Actor* actor = 0;
+			Actor* actor(0);
 
 			//ask to an actor factory if it possible create an actor with this args
 			//if there is no other actor with this ID
