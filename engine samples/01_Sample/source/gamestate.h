@@ -1,9 +1,11 @@
 
-#include "qvAbstractGameState.h"
+#include "qvGameState.h"
+
 
 namespace sdc
 {
 
+    static const qv::S_STATE S_TEST = HASH_STRING("TEST");
 /**
  * \class GameState
  * \author adriano.ribeiro
@@ -11,38 +13,19 @@ namespace sdc
  * \file gamestate.h
  * \brief
  */
-class GameState : public qv::gaming::AbstractGameState
+class TestGameState: public qv::gaming::GameState
 {
 public:
 
-    GameState();
+    TestGameState();
 
-    virtual ~GameState();
-
-    /**
-     * \brief
-     * \return
-     */
-//    const qv::input::InputTranslatorList& getInputTranslators() const;
-
-    /**
-     * \brief
-     * \return
-     */
-//    const qv::events::EventCommandHashTypesVector& getEventCommandHashTypes() const;
+    virtual ~TestGameState();
     
 private:
-    qv::input::InputTranslatorList mInputTranslators;
-0//    qv::events::EventCommandHashTypesVector mEventCommandHashTypes;
+//    qv::input::InputTranslatorList mInputTranslators;
+//    qv::events::EventCommandHashTypesVector mEventCommandHashTypes;
 
 };
 
-//    const qv::events::EventCommandHashTypesVector& GameState::getEventCommandHashTypes() const
-//    {
-//    }
-//
-//    const qv::input::InputTranslatorList& GameState::getInputTranslators() const
-//    {
-//    }
     
 }

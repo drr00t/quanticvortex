@@ -49,6 +49,7 @@ Game::Game()
 :mOptions(0), mQuit(false)
 {
 
+    /*
 //    Poco::Util::OptionSet set;
 //	set.addOption(
 //		Poco::Util::Option("bits", "bpp")
@@ -79,10 +80,10 @@ Game::Game()
 //        .argument("value"));
 //        
 //	mOptions = new Poco::Util::OptionProcessor(set);
+*/
 
     if(!initialize())
-        mQuit = true;
-    
+        mQuit = true;    
 }
 
 Game::~Game(){

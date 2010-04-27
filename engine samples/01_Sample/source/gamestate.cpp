@@ -2,12 +2,12 @@
 
 namespace sdc
 {
-
-//    GameState::GameState()
-//    {
-//    }
-//    
-//    GameState::~GameState()
-//    {
-//    }
+    TestGameState::TestGameState()
+    :qv::gaming::GameState(sdc::S_TEST.Hash)
+    {
+    }
+    
+    TestGameState::~TestGameState()
+    {
+    }
 }

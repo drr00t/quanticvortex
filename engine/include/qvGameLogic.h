@@ -69,14 +69,6 @@ public:
 
     void addActor( u32 actorHashId);
     /// add new actor to the game
-//    {
-//        Actor* actor = getActor(actorHashId);
-//        
-//        if(!actor)
-//        {
-////            mActors.
-//        }
-//    }
     
 
     Actor* getActor( u32 actorHashId)
@@ -147,8 +139,8 @@ private:
     u32 mCurrentGameStateHashId;
     u32 mHumanPlayerAttached;
 
-    ActorsMap mActors;
-    qv::views::GameViewsArray   mGameViews;
+    qv::gaming::ActorsMap mActors;
+    qv::views::GameViewsArray  mGameViews;
 
     physics::PhysicsManager* mPhysicsManager; // game physics
     events::EventManager* mEventManager; // event manager
