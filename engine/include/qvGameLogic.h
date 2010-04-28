@@ -30,11 +30,9 @@
 
 //engine headers
 #include "qvActor.h"
-
 #include "qvAbstractGameView.h"
-
-#include "qvGameState.h"
 #include "qvIProcessManager.h"
+#include "qvGameStateTypes.h"
 
 
 namespace qv
@@ -44,7 +42,6 @@ namespace qv
 namespace events
 {
     class EventManager;
-    class GameTickEventArgs;
 }
 
 namespace physics
@@ -97,7 +94,7 @@ public:
     void update( u32 currentTimeMs, u32 elapsedTimeMs);
     /// update game data, and game tick
 
-    void changeState( const S_STATE* newState);
+    void changeState( const qv::S_STATE& newState);
     /// change the state of game, like: from menu to running
 
     const qv::views::GameViewsArray& getGameViews() const;
@@ -148,7 +145,7 @@ private:
     // IProcessManager* mProcessManager;  //game logic AI
 
     //event args
-    qv::events::GameTickEventArgs* mGameTickEventArgs;
+    //qv::events::GameTickEventArgs* mGameTickEventArgs;
     //SPlayerScore mPlayerScore;
     //list<ActorID*> mAIPlayersAttached;
 

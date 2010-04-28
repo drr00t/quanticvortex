@@ -38,10 +38,6 @@
 #include "Poco/Util/OptionProcessor.h"
 
 
-
-
-
-
 namespace qv
 {
     
@@ -126,12 +122,15 @@ void Game::registerGameEvents()
 
     //game application events...
     //
+    // game logic events
     mEventManager->registerEventType(qv::events::EET_GAME_QUIT.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_SAVE.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_OPTIONS.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_LOAD.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_NEW.Hash);
-    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_TICK_UPDATE.Hash);
+    
+    // human view events, raised on each human view update call by game logic
+    mEventManager->registerEventType(qv::events::EET_GAME_TICK_UPDATE.Hash);
     //
     //mEventManager->registerEventType(&ET_ACTOR_CREATED);
     //mEventManager->registerEventType(&ET_ACTOR_DESTROYED);

@@ -29,18 +29,15 @@
 
 #include "qvIState.h"
 
-#include "IReferenceCounted.h"
-
-
 namespace qv
 {
-	class IStateMachine: public irr::IReferenceCounted
+	class IStateMachine
     {
     public:
-        virtual void addState(IState* state, bool startUpState = false)=0;
-		virtual void changeState(const S_STATE* newState)=0;
-        virtual IState* getCurrentState()=0;
-        virtual void removeState(IState* state)=0;
+        virtual void addState(qv::IState* state)=0;
+		virtual void changeState(const qv::S_STATE& newState)=0;
+        virtual qv::IState* getCurrentState() const = 0;
+        virtual void removeState(qv::IState* state)=0;
 
     };
 }

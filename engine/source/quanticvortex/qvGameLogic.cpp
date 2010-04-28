@@ -62,11 +62,8 @@ namespace qv
 
 			qv::gaming::ActorsMap::ParentLastIterator itrActor = mActors.getParentLastIterator();
 
-//			while(!itrActor.atEnd())
-//			{
-//				(*itrActor.getNode()).getValue()->drop();
-//				mActors.delink( (*itrActor.getNode()).getKey());
-//			}
+			while(!itrActor.atEnd())
+                mActors.remove((*itrActor.getNode()).getKey());
 
             mActors.clear();
         }
@@ -203,7 +200,7 @@ namespace qv
         }
 
         //-----------------------------------------------------------------------------------------
-		void GameLogic::changeState(const S_STATE* newState)
+		void GameLogic::changeState(const qv::S_STATE& newState)
         {
 //            mState = newState;
         }
