@@ -25,59 +25,58 @@
 **************************************************************************************************/
 
 
-#include "qvDefaultElementViewFactory.h"
-#include "qvGuiView.h"
+#include "qvEventArgsFactory.h"
+
+#include "qvEventArgs.h"
+//#include "qvChangeStateEventArgs.h"
 
 namespace qv
 {
-namespace views
+namespace events
 {
 //-----------------------------------------------------------------------------------------
-DefaultElementViewFactory::DefaultElementViewFactory(IEngineManager* engine)
-//    :mEngine(engine)
+EventArgsFactory::EventArgsFactory()
 {
-//    mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_SCENE.Hash);
-//    mSupportedElementViewTypes.push_back(EVT_ELEMENT_VIEW_GUI.Hash);
-
-//    engine->getGameLogic()->getHumanView()->getSceneView();
-//    engine->getGameLogic()->getHumanView()->getGuiView();
-
+    // event args that get any arguments
+    mSupportedEventArgsTypes.push_back(EET_GAME_QUIT.Hash);
+    mSupportedEventArgsTypes.push_back(EET_GAME_NEW.Hash);
+    mSupportedEventArgsTypes.push_back(EET_GAME_STATE_CHANGE.Hash);
 }
 //-----------------------------------------------------------------------------------------
-DefaultElementViewFactory::~DefaultElementViewFactory()
+EventArgsFactory::~EventArgsFactory()
 {
 }
 //-----------------------------------------------------------------------------------------------
-IElementView* DefaultElementViewFactory::addElementView( const c8* name, u32 elementViewHashType)
+template<class T> T* EventArgsFactory::createEventArgs( u32 eventArgsHashType)
 {
-    IElementView* elementView(0);
+    qv::events::EventArgs* eventArgs;
 
-//    if(elementViewHashType == EVT_ELEMENT_VIEW_SCENE.Hash)
-//        elementView.assign(new SceneViewIrrlicht(name, mEngine));
+    if(getCreateableEventArgsType(eventArgsHashType))
+        eventArgs = mEventArgs.keep(new T( eventArgsHashType));
 
-//			else if(elementViewHashType == EVT_ELEMENT_VIEW_GUI.Hash)
-//                elementView.assign(new GuiView(name, mEngine));
-
-    return elementView;
+    return static_cast<T*>(eventArgs);
+}
+//-----------------------------------------------------------------------------------------------
+void EventArgsFactory::registerEventArgsType( u32 eventArgsHashType)
+{
+    if(!getCreateableEventArgsType(eventArgsHashType))
+        mSupportedEventArgsTypes.push_back(eventArgsHashType);
 }
 //-----------------------------------------------------------------------------------------
-u32 DefaultElementViewFactory::getCreatableElementViewTypeCount() const
+u32 EventArgsFactory::getCreatableEventArgsTypeCount() const
 {
-    return mSupportedElementViewTypes.size();
+    return mSupportedEventArgsTypes.size();
 }
 //-----------------------------------------------------------------------------------------
-bool DefaultElementViewFactory::getCreateableElementViewType( u32 elementViewHashType) const
+bool EventArgsFactory::getCreateableEventArgsType( u32 eventArgsHashType) const
 {
-    for (u32 i=0; i<mSupportedElementViewTypes.size(); ++i)
-        if (mSupportedElementViewTypes[i] == elementViewHashType)
+    for (u32 i=0; i<mSupportedEventArgsTypes.size(); ++i)
+        if (mSupportedEventArgsTypes[i] == eventArgsHashType)
             return true;
 
     return false;
 
 }
 //-----------------------------------------------------------------------------------------
-
 }
-
-
 }

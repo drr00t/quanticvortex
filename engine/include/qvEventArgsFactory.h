@@ -25,47 +25,50 @@
 **************************************************************************************************/
 
 
-#ifndef __EVENT_ARGS_H_
-#define __EVENT_ARGS_H_
-
-#include <vector>
+#ifndef __EVENT_ARGS_FACTORY_H_
+#define __EVENT_ARGS_FACTORY_H_
 
 #include "qvCompileConfig.h"
-#include "qvTypes.h"
+#include "qvEventTypes.h"
+#include "qvIEventArgsFactory.h"
+
+#include "qvRAIIFactoryImp.h"
 
 namespace qv
 {
 namespace events
 {
-class _QUANTICVORTEX_API_ EventArgs
+
+class _QUANTICVORTEX_API_ EventArgsFactory : public IEventArgsFactory
+    /// default factory to create all event args to all events.
 {
+
 public:
+    EventArgsFactory();
 
-    EventArgs( u32 eventArgsHashType);
-    /// create a event argument with type
+    virtual ~EventArgsFactory();
 
-    virtual ~EventArgs();
-
-    u32 getHashType() const;
-    /// event argument type
+    template <class T>
+    T* createEventArgs( u32 eventArgsHashType);
+    /// create an EventArgs instance of an registred event type.
     
+    virtual void registerEventArgsType( u32 eventArgsHashType);
+    /// register a new type of event args to allow be managed 
+    /// and createable by this factory.
+
+    virtual u32 getCreatableEventArgsTypeCount() const;
+    /// total event args createable type.
+    
+    virtual bool getCreateableEventArgsType( u32 eventArgsHashType) const;
+    /// check if the desired type is createable by this factory.
+
 private:
-    EventArgs(const EventArgs&); // to avoid copy of even args
-    
-    EventArgs& operator = (const EventArgs&); // to avoid copy of event args
-
-    u32 mEventArgsHashType; // event arguments type
+    qv::events::EventHashTypesArray mSupportedEventArgsTypes;  // event hash type id
+    RaiiFactoryImp<qv::events::EventArgs> mEventArgs; // created event args
 };
 
-typedef std::vector<qv::events::EventArgs*> EventArgsArray;
-
-//inlines 
-inline u32 EventArgs::getHashType() const 
-{ 
-    return mEventArgsHashType; 
 }
 
-}
 }
 
 #endif

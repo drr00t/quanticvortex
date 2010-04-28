@@ -28,25 +28,35 @@
 #ifndef __I_EVENT_COMMAND_H_
 #define __I_EVENT_COMMAND_H_
 
+#include <vector>
+
 #include "qvICommand.h"
-#include "qvEventTypes.h"
+
+#include "irrMap.h"
 
 
 namespace qv
 {
-    namespace events
-    {
-		class IEventCommand: public ICommand
-		{
-		public:
-			virtual u32 getEventArgsHashType() const =0;
-		};
+namespace events
+{
 
-		typedef Poco::SharedPtr<IEventCommand> IEventCommandSharedPtr;
-		typedef std::vector<IEventCommandSharedPtr> EventCommandVector;
-		typedef std::pair<u32, IEventCommandSharedPtr> EventArgsEventCommandPair;
-		typedef std::vector<EventArgsEventCommandPair*> EventArgsEventCommandVector;
-	}
+class IEventCommand: public ICommand
+    /// all command that want response to a even should implement this interface
+{
+public:
+    virtual u32 getEventHashType() const = 0;
+    /// event type which this command will response on even manager
+};
+
+typedef std::vector<qv::events::IEventCommand*> EventCommandArray;
+/// events command array
+
+typedef irr::core::map< u32, qv::events::EventCommandArray> EventCommandMap;
+/// event command map, with event hash type as key, and event command array as value
+
 }
+
+}
+
 #endif
 

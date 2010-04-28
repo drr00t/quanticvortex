@@ -38,6 +38,8 @@
 #include "qvEventManager.h"
 #include "qvPhysicsManager.h"
 
+//event args
+#include "qvGameTickEventArgs.h"
 
 namespace qv
 {
@@ -187,7 +189,6 @@ namespace qv
 
             for(u32 i = 0; i < mGameViews.size(); ++i)
                 mGameViews[i]->update( elapsedTimeMs );
-
         }
         //-----------------------------------------------------------------------------------------
         bool GameLogic::loadGame(const irr::core::stringc& gameName)

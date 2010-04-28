@@ -60,7 +60,6 @@
     <File Name="../../include/qvHumanView.h"/>
     <File Name="../../include/qvHumanView_Irrlicht.h"/>
     <File Name="../../include/qvGame.h"/>
-    <File Name="../../include/qvEngineManager.h"/>
     <File Name="../../include/qvEventManager.h"/>
     <File Name="../../include/qvAbstractGameView.h"/>
     <File Name="../../include/qvPhysicsManager.h"/>
@@ -69,6 +68,10 @@
     <File Name="../../include/qvSingleKeyInputTranslator.h"/>
     <File Name="../../include/qvInputReceiver.h"/>
     <File Name="../../include/qvEventArgs.h"/>
+    <File Name="../../include/qvEventArgsFactory.h"/>
+    <VirtualDirectory Name="Event Commands Arguments">
+      <File Name="../../include/qvGameTickEventArgs.h"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="quanticvortex">
     <File Name="../../source/quanticvortex/qvActorMotion.cpp"/>
@@ -78,11 +81,8 @@
     <File Name="../../source/quanticvortex/qvAnyKeyInputTranslator.h"/>
     <File Name="../../source/quanticvortex/qvDefaultElementViewFactory.cpp"/>
     <File Name="../../source/quanticvortex/qvDefaultElementViewFactory.h"/>
-    <File Name="../../source/quanticvortex/qvDefaultEventArgsFactory.cpp"/>
-    <File Name="../../source/quanticvortex/qvDefaultEventArgsFactory.h"/>
     <File Name="../../source/quanticvortex/qvEngineInputTranslatorFactory.cpp"/>
     <File Name="../../source/quanticvortex/qvEngineInputTranslatorFactory.h"/>
-    <File Name="../../source/quanticvortex/qvEngineManager.cpp"/>
     <File Name="../../source/quanticvortex/qvEventArgs.cpp"/>
     <File Name="../../source/quanticvortex/qvEventManager.cpp"/>
     <File Name="../../source/quanticvortex/qvGameLogic.cpp"/>
@@ -100,6 +100,10 @@
     <File Name="../../source/quanticvortex/qvSHashedString.cpp"/>
     <File Name="../../source/quanticvortex/qvGame.cpp"/>
     <File Name="../../source/quanticvortex/qvGameState.cpp"/>
+    <File Name="../../source/quanticvortex/qvEventArgsFactory.cpp"/>
+    <VirtualDirectory Name="event command arguments ">
+      <File Name="../../source/quanticvortex/qvGameTickEventArgs.cpp"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

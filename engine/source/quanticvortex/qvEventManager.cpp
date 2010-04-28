@@ -27,92 +27,95 @@
 
 #include "qvEventManager.h"
 
-//#include "qvIEventArgs.h"
-//#include "qvICommandEvent.h"
+//#include "qvEventArgs.h"
+#include "qvIEventCommand.h"
 
 //default event args factories
-#include "qvDefaultEventArgsFactory.h"
+#include "qvEventArgsFactory.h"
 //#include "qvChangeStateEventArgs.h"
 
 namespace qv
 {
-    namespace events
-    {
-		//-----------------------------------------------------------------------------------------
-		EventManager::EventManager()
-			:mActiveReadyEventList(0)
-		{
-//			setDebugName("EventManager");
+namespace events
+{
+//-----------------------------------------------------------------------------------------
+EventManager::EventManager()
+    :mActiveReadyEventList(0)
+{
 
-			 DefaultEventArgsFactory* factory = new DefaultEventArgsFactory();
-			registerEventArgsFactory(factory);
-//			factory->drop();
-		}
-		//-----------------------------------------------------------------------------------------
-		EventManager::~EventManager()
-		{
+}
+//-----------------------------------------------------------------------------------------
+EventManager::~EventManager()
+{
 //			mRegistredCommandsMap.clear();
-			//EventToCommandEventMap::ParentLastIterator itrCommandsMap =
-			//	mRegistredCommandsMap.getParentLastIterator();
+    //EventToCommandEventMap::ParentLastIterator itrCommandsMap =
+    //	mRegistredCommandsMap.getParentLastIterator();
 
-			//while(!itrCommandsMap.atEnd())
-			//{
-			//	CommandEventList::Iterator itrCommands =
-			//		(*itrCommandsMap.getNode()).getValue().begin();
+    //while(!itrCommandsMap.atEnd())
+    //{
+    //	CommandEventList::Iterator itrCommands =
+    //		(*itrCommandsMap.getNode()).getValue().begin();
 
-			//	for(;itrCommands != (*itrCommandsMap.getNode()).getValue().end();++itrCommands)
-			//		(*itrCommands)->drop();
+    //	for(;itrCommands != (*itrCommandsMap.getNode()).getValue().end();++itrCommands)
+    //		(*itrCommands)->drop();
 
-			//	(*itrCommandsMap.getNode()).getValue().clear();
-			//	mRegistredCommandsMap.remove((*itrCommandsMap.getNode()).getKey());
-			//}
+    //	(*itrCommandsMap.getNode()).getValue().clear();
+    //	mRegistredCommandsMap.remove((*itrCommandsMap.getNode()).getKey());
+    //}
 
 //			EventArgsFactoryVector::Iterator itrFactories = mEventArgsFactories.begin();
 //			for(;itrFactories != mEventArgsFactories.end(); ++itrFactories)
 //				(*itrFactories)->drop();
 
-            mValidEventTypes.clear();
+    mValidEventTypes.clear();
 //			EventTypesList::Iterator itrEvents = mValidEventTypes.begin();
 //			for(;itrEvents != mValidEventTypes.end(); ++itrEvents)
 //				(*itrEvents)->drop();
-		}
-		//-----------------------------------------------------------------------------------------
-		IEventArgsSharedPtr EventManager::createEmptyEventArgs(u32 eventArgsHashType)
-		{
-		    IEventArgsSharedPtr args;
-		    return args;
-		}
-		//-----------------------------------------------------------------------------------------
-		void EventManager::registerEventType( u32 eventHashType)
-		{
-			if( eventHashType <= 0)
-				return;
+}
+//-----------------------------------------------------------------------------------------
+template<class T> T* EventManager::createEventArgs( u32 eventArgsHashType)
+{
+    qv::events::EventArgs* eventArgs(0);
 
-			if(!validateType(eventHashType))
-				mValidEventTypes.push_back(eventHashType);
-		}
-		//-----------------------------------------------------------------------------------------
-		void EventManager::unregisterEventType( u32 eventHashType)
-		{
+    if(validateType(eventArgsHashType))
+        eventArgs = mEventArgs.keep(new T( eventArgsHashType));
 
-		}
-		//-----------------------------------------------------------------------------------------
-		void EventManager::registerEventArgsFactory(IEventArgsFactory* factory)
-		{
+    return static_cast<T*>(eventArgs);
+}
+//-----------------------------------------------------------------------------------------
+void EventManager::registerEventType( u32 eventHashType)
+{
+    if( eventHashType <= 0)
+        return;
+
+    if(!validateType(eventHashType))
+        mValidEventTypes.push_back(eventHashType);
+}
+//-----------------------------------------------------------------------------------------
+void EventManager::unregisterEventType( u32 eventHashType)
+{
+//    if(validateType(eventHashType))
+//        mValidEventTypes.erase(eventHashType);
+}
+////-----------------------------------------------------------------------------------------
+//void EventManager::registerEventArgsFactory(IEventArgsFactory* factory)
+//{
 //			factory->grab();
-			mEventArgsFactories.push_back(factory);
-		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::abortEvent( u32 eventHashType, bool all)
-		{
-			return true;
-		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::registerCommandEvent(IEventCommandSharedPtr command)
-		{
+//    mEventArgsFactories.push_back(factory);
+//}
+//-----------------------------------------------------------------------------------------
+bool EventManager::abortEvent( u32 eventHashType)
+{
+//    for(u32 i = 0; i < mReadyEvents[mActiveReadyEventList].size(); ++i)
+//        if(mReadyEvents[mActiveReadyEventList][i].getEvenHashType() == eventHashType)
+    return true;
+}
+//-----------------------------------------------------------------------------------------
+bool EventManager::registerCommandEvent(qv::events::IEventCommand* command)
+{
 //			const EventHashTypesVector& commandEvents = command->listenEventTypes();
 
-			//add listner in all event that it desire listen
+    //add listner in all event that it desire listen
 //			for(u32 i = 0; i < commandEvents.size(); ++i)
 //            EventTypesList::ConstIterator itr = commandEvents.begin();
 //            for(;itr != commandEvents.end(); ++itr)
@@ -132,7 +135,7 @@ namespace qv
 //					EventToCommandEventMap::Node* nodeListeners =
 //						mRegistredCommandsMap.find((*itr));
 
-					//if event already existe, check if listener already exist
+            //if event already existe, check if listener already exist
 //					if(nodeListeners)
 //					{
 //						const EventCommandArray& arrEventCommands = nodeListeners->getValue();
@@ -156,11 +159,11 @@ namespace qv
 //				}
 //			}
 
-			return true;
-		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::unregisterCommandEvent(IEventCommandSharedPtr command)
-		{
+    return true;
+}
+//-----------------------------------------------------------------------------------------
+bool EventManager::unregisterCommandEvent(qv::events::IEventCommand* command)
+{
 //			const EventTypesList& events = command->listenEventTypes();
 //			EventTypesList::ConstIterator itrEvents = events.begin();
 //
@@ -181,112 +184,93 @@ namespace qv
 //				}
 //			}
 
-			return true;
-		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::enqueueEvent(qv::events::EventArgs* args)
-		{
-			if(!validateType(args->getHashType()))
-				return false;
+    return true;
+}
+//-----------------------------------------------------------------------------------------
+bool EventManager::enqueueEvent(qv::events::EventArgs* args)
+{
+    if(!validateType(args->getHashType()))
+        return false;
 
-            //check for a command listening this event
+    //check for a command listening this event
 //			EventToCommandEventMap::Node* nodeCommandsMap =
 //				mRegistredCommandsMap.find(args->getHashType());
 //
 //			if(!nodeCommandsMap)
 //				return false;
 
-			mReadyEvents[mActiveReadyEventList].push_back(args);
+    mReadyEvents[mActiveReadyEventList].push_back(args);
 
-			return true;
-		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::process(real processingTime)
-		{
-			bool eventHandled = false;
-			s32 processReadyEventList = mActiveReadyEventList;
+    return true;
+}
+//-----------------------------------------------------------------------------------------
+bool EventManager::processReadyEvents()
+{
+    bool eventHandled = false;
+    s32 processReadyEventList = mActiveReadyEventList;
 
-			//------------------------------------------------------------
-			//put all realtime generated events to our central event queue
-//			IEventArgs* realtimeEvent(0);
-//			while (!mRealtimeReadyEvents.empty() && mRealtimeReadyEvents.try_pop(realtimeEvent))
-//				enqueueEvent(realtimeEvent);
-			//------------------------------------------------------------
+    //------------------------------------------------------------
+    //put all realtime generated events to our central event queue
+    //IEventArgs* realtimeEvent(0);
+    //while (!mRealtimeReadyEvents.empty() && mRealtimeReadyEvents.try_pop(realtimeEvent))
+    //      enqueueEvent(realtimeEvent);
+    //------------------------------------------------------------
 
-			if(mActiveReadyEventList == 1)
-				--mActiveReadyEventList;
+    if(mActiveReadyEventList == 1)
+        --mActiveReadyEventList;
 
-			++mActiveReadyEventList; //back to first one
+    ++mActiveReadyEventList; //back to first one
 
-//			EventList::Iterator itrEventArgs = mReadyEvents[processReadyEventList].begin();
+    for(u32 i = 0; i < mReadyEvents[processReadyEventList].size(); ++i)
+        eventHandled = trigger(mReadyEvents[processReadyEventList][i]);
 
-//			for(;itrEventArgs != mReadyEvents[processReadyEventList].end(); ++itrEventArgs)
-//			{
-            for(u32 i = 0; i < mReadyEvents[processReadyEventList].size(); ++i)
-			    trigger(mReadyEvents[processReadyEventList][i]);
-//				EventToCommandEventMap::Node* nodeCommandsMap =
-//					mRegistredCommandsMap.find((*itrEventArgs)->getTypeID());
-//
-//				if(!nodeCommandsMap)
-//					continue;
-//
-//				CommandEventList::Iterator itrCommands = nodeCommandsMap->getValue().begin();
-//
-//				for(;itrCommands != nodeCommandsMap->getValue().end();++itrCommands)
-//				{
-//					const IEventArgs* args = const_cast<IEventArgs*>(*itrEventArgs);
-//					(*itrCommands)->executeCommand(args);
-//				}
-//
-//				//delete fired event args from queue
-//				(*itrEventArgs)->drop();
-//			}
+    mReadyEvents[processReadyEventList].clear();
 
-			mReadyEvents[processReadyEventList].clear();
+    return eventHandled;
+}
+//-----------------------------------------------------------------------------------------
+bool EventManager::trigger(qv::events::EventArgs* args)
+{
+    if(!args || !validateType(args->getHashType()))
+        return false;
 
-			return eventHandled;
-		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::trigger(qv::events::EventArgs* args)
-		{
-			if(!args || !validateType(args->getHashType()))
-				return false;
+    //iterate throw generic event listener, like a monitor to all events registred
 
-			//iterate throw generic event listener, like a monitor to all events registred
+    qv::events::EventCommandMap::Node* eventCommandNode =
+        mRegistredCommandsMap.find(args->getHashType());
 
-//			EventToCommandEventMap::Node* nodeListenerMap =
-//				mRegistredCommandsMap.find(args->getHashType());
-//
-//			if(!nodeListenerMap)
-//				return false;
+    if(!eventCommandNode)
+        return false;
 
-			bool eventHandled = false;
+    bool eventHandled = false;
 
-//			const EventCommandArray& commands = nodeListenerMap->getValue();
-//
-//			for(u32 i = 0; i < commands.size(); ++i)
-//			{
-//			    ICommandSharedPtr com = commands[i];
-//				com->executeCommand(args);
-//				eventHandled = true;
-//			}
+    const EventCommandArray& commands = eventCommandNode->getValue();
 
-			return eventHandled;
-		}
-		//-----------------------------------------------------------------------------------------
-		bool EventManager::validateType( u32 eventHashType)
-		{
-			if(eventHashType <= 0)
-				return false;
+    for(u32 i = 0; i < commands.size(); ++i)
+    {
+        ICommand* com = static_cast<qv::ICommand*>(commands[i]);
+        com->executeCommand(args);
+        eventHandled = true;
+    }
 
-//			EventTypesList::Iterator itr;
-//			for(itr = mValidEventTypes.begin(); itr != mValidEventTypes.end(); ++itr)
-//				if((*itr) == eventHashType)
-//					return true;
+    return eventHandled;
+}
+//-----------------------------------------------------------------------------------------
+bool EventManager::validateType( u32 eventHashType)
+{
+    if(eventHashType <= 0)
+        return false;
 
-			return false;
-		}
-		//-----------------------------------------------------------------------------------------
-	}
+    qv::events::EventHashTypesArray::iterator itr;
+    for(itr = mValidEventTypes.begin(); itr != mValidEventTypes.end(); ++itr)
+        if((*itr) == eventHashType)
+            return true;
+
+    return false;
+}
+//-----------------------------------------------------------------------------------------
+
+}
+
 }
 

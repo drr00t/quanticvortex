@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=adriano
-Date                   :=04/26/10
+Date                   :=04/27/10
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -48,8 +48,8 @@ LibPath                := "$(LibraryPathSwitch)." "$(LibraryPathSwitch)../../../
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects=$(IntermediateDirectory)/quanticvortex_qvActorMotion$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEventManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameParameters$(ObjectSuffix) \
-	$(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGuiView$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameState$(ObjectSuffix) \
+Objects=$(IntermediateDirectory)/quanticvortex_qvActorMotion$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEventManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameParameters$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGuiView$(ObjectSuffix) \
+	$(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameState$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(ObjectSuffix) \
 	
 
 ##
@@ -94,14 +94,6 @@ $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(DependSuffix
 $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(PreprocessSuffix): ../../source/quanticvortex/qvDefaultElementViewFactory.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(PreprocessSuffix) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvDefaultElementViewFactory.cpp"
 
-$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix): ../../source/quanticvortex/qvDefaultEventArgsFactory.cpp $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvDefaultEventArgsFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(DependSuffix): ../../source/quanticvortex/qvDefaultEventArgsFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(DependSuffix) -MM "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvDefaultEventArgsFactory.cpp"
-
-$(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(PreprocessSuffix): ../../source/quanticvortex/qvDefaultEventArgsFactory.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(PreprocessSuffix) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvDefaultEventArgsFactory.cpp"
-
 $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix): ../../source/quanticvortex/qvEngineInputTranslatorFactory.cpp $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(DependSuffix)
 	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvEngineInputTranslatorFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(DependSuffix): ../../source/quanticvortex/qvEngineInputTranslatorFactory.cpp
@@ -109,14 +101,6 @@ $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(DependSuf
 
 $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(PreprocessSuffix): ../../source/quanticvortex/qvEngineInputTranslatorFactory.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(PreprocessSuffix) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvEngineInputTranslatorFactory.cpp"
-
-$(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix): ../../source/quanticvortex/qvEngineManager.cpp $(IntermediateDirectory)/quanticvortex_qvEngineManager$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvEngineManager.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/quanticvortex_qvEngineManager$(DependSuffix): ../../source/quanticvortex/qvEngineManager.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEngineManager$(DependSuffix) -MM "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvEngineManager.cpp"
-
-$(IntermediateDirectory)/quanticvortex_qvEngineManager$(PreprocessSuffix): ../../source/quanticvortex/qvEngineManager.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEngineManager$(PreprocessSuffix) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvEngineManager.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix): ../../source/quanticvortex/qvEventArgs.cpp $(IntermediateDirectory)/quanticvortex_qvEventArgs$(DependSuffix)
 	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvEventArgs.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix) $(IncludePath)
@@ -230,6 +214,22 @@ $(IntermediateDirectory)/quanticvortex_qvGameState$(DependSuffix): ../../source/
 $(IntermediateDirectory)/quanticvortex_qvGameState$(PreprocessSuffix): ../../source/quanticvortex/qvGameState.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameState$(PreprocessSuffix) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvGameState.cpp"
 
+$(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(ObjectSuffix): ../../source/quanticvortex/qvEventArgsFactory.cpp $(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvEventArgsFactory.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(DependSuffix): ../../source/quanticvortex/qvEventArgsFactory.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(DependSuffix) -MM "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvEventArgsFactory.cpp"
+
+$(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(PreprocessSuffix): ../../source/quanticvortex/qvEventArgsFactory.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(PreprocessSuffix) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvEventArgsFactory.cpp"
+
+$(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(ObjectSuffix): ../../source/quanticvortex/qvGameTickEventArgs.cpp $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvGameTickEventArgs.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(DependSuffix): ../../source/quanticvortex/qvGameTickEventArgs.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(DependSuffix) -MM "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvGameTickEventArgs.cpp"
+
+$(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(PreprocessSuffix): ../../source/quanticvortex/qvGameTickEventArgs.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(PreprocessSuffix) "E:/Projetos/QuanticMinds/Sylfur-D.C/QuanticVortex/engine/source/quanticvortex/qvGameTickEventArgs.cpp"
+
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
 ##
@@ -245,15 +245,9 @@ clean:
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(PreprocessSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvDefaultEventArgsFactory$(PreprocessSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(PreprocessSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvEngineManager$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvEngineManager$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvEngineManager$(PreprocessSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvEventArgs$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvEventArgs$(PreprocessSuffix)
@@ -296,6 +290,12 @@ clean:
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameState$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameState$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameState$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(PreprocessSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile)
 

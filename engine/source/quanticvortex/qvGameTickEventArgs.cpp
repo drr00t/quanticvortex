@@ -24,49 +24,24 @@
 
 **************************************************************************************************/
 
-
-#ifndef __EVENT_ARGS_H_
-#define __EVENT_ARGS_H_
-
-#include <vector>
-
-#include "qvCompileConfig.h"
-#include "qvTypes.h"
+#include "qvGameTickEventArgs.h"
 
 namespace qv
 {
 namespace events
 {
-class _QUANTICVORTEX_API_ EventArgs
+
+//-----------------------------------------------------------------------------------------
+GameTickEventArgs::GameTickEventArgs( u32 eventArgsHashType)
+    :qv::events::EventArgs(eventArgsHashType), mElapsedTimeMs(0)
 {
-public:
+}
+//-----------------------------------------------------------------------------------------
+GameTickEventArgs::~GameTickEventArgs()
+{
+}
+//-----------------------------------------------------------------------------------------
 
-    EventArgs( u32 eventArgsHashType);
-    /// create a event argument with type
-
-    virtual ~EventArgs();
-
-    u32 getHashType() const;
-    /// event argument type
-    
-private:
-    EventArgs(const EventArgs&); // to avoid copy of even args
-    
-    EventArgs& operator = (const EventArgs&); // to avoid copy of event args
-
-    u32 mEventArgsHashType; // event arguments type
-};
-
-typedef std::vector<qv::events::EventArgs*> EventArgsArray;
-
-//inlines 
-inline u32 EventArgs::getHashType() const 
-{ 
-    return mEventArgsHashType; 
 }
 
 }
-}
-
-#endif
-

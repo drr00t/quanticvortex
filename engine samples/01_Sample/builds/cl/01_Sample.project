@@ -11,10 +11,12 @@
     <File Name="../../source/main.cpp"/>
     <File Name="../../source/sdcSylfurDCGame.cpp"/>
     <File Name="../../source/sdcSylfurDCGame.h"/>
-    <File Name="../../source/sdcQuitCommand.h"/>
-    <File Name="../../source/sdcQuitCommand.cpp"/>
     <File Name="../../source/gamestate.h"/>
     <File Name="../../source/gamestate.cpp"/>
+    <VirtualDirectory Name="commands">
+      <File Name="../../source/sdcQuitCommand.cpp"/>
+      <File Name="../../source/sdcQuitCommand.h"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <Settings Type="Executable">
     <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">

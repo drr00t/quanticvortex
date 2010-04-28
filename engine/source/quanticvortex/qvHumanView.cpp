@@ -152,7 +152,10 @@ namespace qv
 //            for(u32 i = 0; i < mElementViews.size(); ++i)
 //                mElementViews[i]->update( elapsedTimeMs);
 
-
+            //will did not need recreate this object every time
+//            if(!mGameTickEventArgs)
+//                mGameTickEventArgs = mEventManager->createEventArgs<qv::events::GameTickEventArgs>(qv::events::EET_GAME_LOGIC_TICK_UPDATE);
+//            mEventManager->
         }
         //-----------------------------------------------------------------------------------------
 //        IElementView* HumanView::addElementView(const c8* name, u32 elementViewHashType)

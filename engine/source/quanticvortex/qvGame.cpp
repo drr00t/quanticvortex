@@ -126,11 +126,12 @@ void Game::registerGameEvents()
 
     //game application events...
     //
-    mEventManager->registerEventType(qv::events::ET_GAME_QUIT.Hash);
-    mEventManager->registerEventType(qv::events::ET_GAME_SAVE.Hash);
-    mEventManager->registerEventType(qv::events::ET_GAME_OPTIONS.Hash);
-    mEventManager->registerEventType(qv::events::ET_GAME_LOAD.Hash);
-    mEventManager->registerEventType(qv::events::ET_GAME_NEW.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_QUIT.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_SAVE.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_OPTIONS.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_LOAD.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_NEW.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_TICK_UPDATE.Hash);
     //
     //mEventManager->registerEventType(&ET_ACTOR_CREATED);
     //mEventManager->registerEventType(&ET_ACTOR_DESTROYED);
@@ -166,12 +167,10 @@ void Game::finalize()
 //-----------------------------------------------------------------------------
 void Game::update( u32 currentTimeMs, u32 elapsedTimeMs)
 {
-    if (mGameLogic)
-    {
-        mEventManager->process(GC_GAME_FRAMERATE);
+    mEventManager->processReadyEvents();
 
+    if (mGameLogic)
         mGameLogic->update(currentTimeMs, elapsedTimeMs);
-    }
 }
 //-----------------------------------------------------------------------------
 void Game::render( u32 currentTimeMs, u32 elapsedTimeMs)

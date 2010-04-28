@@ -25,32 +25,52 @@
 **************************************************************************************************/
 
 
-#ifndef __DEFAULT_EVENT_ARGS_FACTORY_H_
-#define __DEFAULT_EVENT_ARGS_FACTORY_H_
+#ifndef __GAME_TICK_EVENT_ARGS_H_
+#define __GAME_TICK_EVENT_ARGS_H_
 
-#include "qvIEventArgsFactory.h"
+#include <vector>
+
+#include "qvEventArgs.h"
+#include "qvTypes.h"
 
 namespace qv
 {
-    namespace events
-    {
-		class DefaultEventArgsFactory : public IEventArgsFactory
-		{
-        private:
-            qv::events::EventHashTypesArray mSupportedEventArgsTypes;
+namespace events
+{
+class _QUANTICVORTEX_API_ GameTickEventArgs: public qv::events::EventArgs
+{
+public:
 
-		public:
-			DefaultEventArgsFactory();
+    GameTickEventArgs( u32 eventArgsHashType);
+    /// create a event argument with type
 
-            virtual ~DefaultEventArgsFactory();
+    virtual ~GameTickEventArgs();
+    /// destroy game view tick
 
-			virtual qv::events::EventArgs* createEventArgs( u32 eventArgsHashType);
+    u32 getElapsedTimeMs() const;
+    /// elapsed time since last game logic tick in miliseconds
+    
+    void setElapsedTimeMs( u32 elapsedTimeMs);
+    /// setup new elapsed time since last game logic tick in miliseconds    
+private:
 
-			virtual u32 getCreatableEventArgsTypeCount() const;
+    u32 mEventArgsHashType; // event arguments type
+    u32 mElapsedTimeMs; // event arguments type
+};
 
-			virtual bool getCreateableEventArgsType( u32 eventArgsHashType) const;
-		};
-    }
+
+//inlines 
+inline u32 GameTickEventArgs::getElapsedTimeMs() const 
+{ 
+    return mElapsedTimeMs; 
 }
+
+inline void GameTickEventArgs::setElapsedTimeMs( u32 elapsedTimeMs)
+{
+    mElapsedTimeMs = elapsedTimeMs;
+}
+}
+}
+
 #endif
 

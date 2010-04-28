@@ -29,61 +29,74 @@
 #define __EVENT_MANAGER_H_
 
 #include "qvCompileConfig.h"
+#include "qvEventTypes.h"
 #include "qvIEventCommand.h"
-#include "qvIEventArgsFactory.h"
 
+//#include "qvIEventArgsFactory.h"
+
+#include "qvRAIIFactoryImp.h"
 #include "Poco/AtomicCounter.h"
 
 namespace qv
 {
-    namespace events
-    {
+namespace events
+{
+class _QUANTICVORTEX_API_ EventManager
+    /// event manager class class to raised event and execute all 
+    /// command associated to each one. EventCommand are listeners
+{
+public:
+    EventManager();
+    virtual ~EventManager();
 
-		class _QUANTICVORTEX_API_ EventManager
-		{
-		public:
-    		EventManager();
-			virtual ~EventManager();
+    bool registerCommandEvent ( qv::events::IEventCommand* command);
+    /// register an event command on command collection
 
-			virtual bool registerCommandEvent ( IEventCommandSharedPtr command);
+    bool unregisterCommandEvent ( qv::events::IEventCommand* command);
+    /// remove desired command from command collection
 
-			virtual bool unregisterCommandEvent ( IEventCommandSharedPtr command);
-			//virtual bool unregisterCommandEvent ( const CT_COMMAND_TYPE& commandType);
+    template <class T> T* createEventArgs( u32 eventArgsHashType);
+    /// create an EventArgs of specific type if this type 
+    /// is registred on event args factory.
 
-			virtual IEventArgsSharedPtr createEmptyEventArgs( u32 eventArgsHashtype);
+//    void registerEventArgsFactory(IEventArgsFactory * factory);
+    /// register a new event args to the factory collection
 
-//			virtual IEventArgsSharedPtr createEmptyEventArgs( u32 eventHashType);
-//			virtual IChangeStateEventArgs* createChangeStateEventArgs(const S_STATE* state);
+    void registerEventType( u32 eventHashType);
+    /// register a new event type to valid event types list
 
-//			virtual IStaticActorAddedEventArgs* createStaticActorAddedEventArgs(const c8* name){return 0;}
-//			virtual IDynamicActorAddedEventArgs* createDynamicActorAddedEventArgs(const c8* name){return 0;}
+    void unregisterEventType( u32 eventHashType);
+    /// remove an event type from event type list
 
-			virtual void registerEventArgsFactory(IEventArgsFactory * factory);
+    bool abortEvent ( u32 eventHashType);
+    /// cancel the execution of an next event or all event from this type
 
-			virtual void registerEventType( u32 eventHashType);
+    bool enqueueEvent (qv::events::EventArgs* args);
+    /// post the event args to the raise queue
 
-			virtual void unregisterEventType( u32 eventHashType);
+    bool processReadyEvents();
+    /// raise all event enqueue on this game tick
 
-			virtual bool abortEvent ( u32 eventHashType, bool all = false );
+    bool trigger ( qv::events::EventArgs* args );
+    /// raise this event right now
 
-			virtual bool enqueueEvent (qv::events::EventArgs* args);
+    bool validateType(u32 eventHashType);
+    /// check this event if it is valid
 
-			virtual bool process ( real processingTime);
-
-			virtual bool trigger ( qv::events::EventArgs* args );
-
-			virtual bool validateType(u32 eventHashType);
-
-		private:
-			static const s32 QueueEventsLenght = 2;
-			EventHashTypesArray mValidEventTypes;
-			EventArgsEventCommandVector mRegistredCommandsMap;
-			EventArgsArray mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
-//			ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
-			EventArgsFactoryVector mEventArgsFactories;
-			Poco::AtomicCounter mActiveReadyEventList;
-		};
-	}
+private:
+    EventManager( const EventManager&);
+    EventManager operator = ( const EventManager&);
+    
+    static const s32 QueueEventsLenght = 2; // double buffer event queue
+    qv::events::EventHashTypesArray mValidEventTypes; // registred valid event types
+    qv::events::EventCommandMap mRegistredCommandsMap; //
+    qv::events::EventArgsArray mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
+    //	ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
+    //  qv::events::EventArgsFactoryVector mEventArgsFactories;
+    RaiiFactoryImp<qv::events::EventArgs> mEventArgs; // created event args
+    Poco::AtomicCounter mActiveReadyEventList;
+};
+}
 }
 #endif
 

@@ -44,6 +44,7 @@ namespace qv
 namespace events
 {
     class EventManager;
+    class GameTickEventArgs;
 }
 
 namespace physics
@@ -146,6 +147,8 @@ private:
     events::EventManager* mEventManager; // event manager
     // IProcessManager* mProcessManager;  //game logic AI
 
+    //event args
+    qv::events::GameTickEventArgs* mGameTickEventArgs;
     //SPlayerScore mPlayerScore;
     //list<ActorID*> mAIPlayersAttached;
 

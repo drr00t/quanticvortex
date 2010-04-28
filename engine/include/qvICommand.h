@@ -28,35 +28,30 @@
 #ifndef __I_COMMAND_H_
 #define __I_COMMAND_H_
 
-//#include "qvPrerequisites.h"
-#include "qvIEventArgs.h"
+#include "qvEventArgs.h"
 #include "qvCommandTypes.h"
 
-#include "Poco/SharedPtr.h"
 #include "irrArray.h"
-#include "irrList.h"
 
 
 namespace qv
 {
-//	namespace events
-//	{
-//		class IEventArgsSharedPtr;
-//	}
-
 	class ICommand
+    /// basic interface to execute a command inside the engine
     {
     public:
         virtual u32 getHashId() const = 0;
+        /// unique command id
 
         virtual u32 getHashType() const = 0;
+        /// command type family
 
-        virtual void executeCommand(events::IEventArgsSharedPtr args) =0;
+        virtual void executeCommand(qv::events::EventArgs* args) = 0;
+        /// body of command
     };
 
-    typedef Poco::SharedPtr<ICommand> ICommandSharedPtr;
-    typedef irr::core::list<ICommandSharedPtr> CommandList;
-    typedef irr::core::array<ICommandSharedPtr> CommandArray;
+    typedef irr::core::array<qv::ICommand*> CommandArray;
 }
+
 #endif
 
