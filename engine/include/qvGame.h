@@ -88,12 +88,15 @@ public:
 
 protected:
 
-    void loadConfiguration();
+    virtual void loadConfiguration();
     /// load configuration from file, include saved game
 
-    void registerGameEvents();
+    virtual void registerGameEvents();
     /// register event that will be used in all over the engine
-
+    
+    virtual void registerEventCommands(qv::events::IEventCommand* command);
+    /// register event commands
+    
     qv::SGameParams mParams; // parameters for game
     Poco::Util::OptionProcessor* mOptions; // options from command
     

@@ -32,6 +32,7 @@
 #include "qvCommandTypes.h"
 
 #include "irrArray.h"
+#include "irrMap.h"
 
 
 namespace qv

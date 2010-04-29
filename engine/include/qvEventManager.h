@@ -32,8 +32,6 @@
 #include "qvEventTypes.h"
 #include "qvIEventCommand.h"
 
-//#include "qvIEventArgsFactory.h"
-
 #include "qvRAIIFactoryImp.h"
 #include "Poco/AtomicCounter.h"
 
@@ -49,10 +47,10 @@ public:
     EventManager();
     virtual ~EventManager();
 
-    bool registerCommandEvent ( qv::events::IEventCommand* command);
+    bool addEventCommand ( qv::events::IEventCommand* command);
     /// register an event command on command collection
 
-    bool unregisterCommandEvent ( qv::events::IEventCommand* command);
+    bool removeEventCommand ( qv::events::IEventCommand* command);
     /// remove desired command from command collection
 
     template <class T> T* createEventArgs( u32 eventArgsHashType);

@@ -111,10 +111,36 @@ bool EventManager::abortEvent( u32 eventHashType)
     return true;
 }
 //-----------------------------------------------------------------------------------------
-bool EventManager::registerCommandEvent(qv::events::IEventCommand* command)
+bool EventManager::addEventCommand(qv::events::IEventCommand* command)
 {
-//			const EventHashTypesVector& commandEvents = command->listenEventTypes();
-
+    if(validateType(command->getEventHashType()))
+        return false;
+        
+    qv::events::EventCommandMap::Node* eventsCommandsNode = 
+            mRegistredCommandsMap.find(command->getEventHashType());
+            
+    if(eventsCommandsNode)
+    {
+        qv::events::EventCommandArray* eventCommands = eventsCommandsNode->getValue();
+        qv::ICommand* comm = static_cast<qv::ICommand*>(command);
+        
+        for(u32 i = 0; i < eventCommands.size(); ++i)
+        {
+            qv::ICommand* commTest = static_cast<qv::ICommand*>(eventCommands[i]);
+            if(commTest->getHashId() == comm->getHashId())
+            {                
+                return true;
+            }
+        }
+        
+        eventCommands.push_back(command);
+    }
+    else
+    {
+        qv::events::EventCommandArray commandsArray;
+        commandsArray.push_back(command);
+        mRegistredCommandsMap.insert(command->getEventHashType(), commandsArray);
+    }
     //add listner in all event that it desire listen
 //			for(u32 i = 0; i < commandEvents.size(); ++i)
 //            EventTypesList::ConstIterator itr = commandEvents.begin();
@@ -162,7 +188,7 @@ bool EventManager::registerCommandEvent(qv::events::IEventCommand* command)
     return true;
 }
 //-----------------------------------------------------------------------------------------
-bool EventManager::unregisterCommandEvent(qv::events::IEventCommand* command)
+bool EventManager::removeEventCommand(qv::events::IEventCommand* command)
 {
 //			const EventTypesList& events = command->listenEventTypes();
 //			EventTypesList::ConstIterator itrEvents = events.begin();

@@ -12,16 +12,6 @@ namespace sdc
 SylfurDCGame::SylfurDCGame()
 {
 
-//    qv::SGameParams params;
-//
-//    params.Bits = 32;
-//    params.Fullscreen = false;
-//    params.Title = "Sylfur D.C. - Dimencional Chronical";
-//    params.Vsync = false;
-//    params.WindowSize.Width = 1280;
-//    params.WindowSize.Height = 800;
-
-//        mEngine = qv::createEngineManagerEx(params);
 }
 //-----------------------------------------------------------------------------
 SylfurDCGame::~SylfurDCGame()

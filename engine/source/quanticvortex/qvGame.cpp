@@ -117,11 +117,6 @@ bool Game::initialize()
 //-----------------------------------------------------------------------------
 void Game::registerGameEvents()
 {
-    //if (!mEventManager )
-    //	return;
-
-    //game application events...
-    //
     // game logic events
     mEventManager->registerEventType(qv::events::EET_GAME_QUIT.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_SAVE.Hash);
@@ -131,12 +126,11 @@ void Game::registerGameEvents()
     
     // human view events, raised on each human view update call by game logic
     mEventManager->registerEventType(qv::events::EET_GAME_TICK_UPDATE.Hash);
-    //
-    //mEventManager->registerEventType(&ET_ACTOR_CREATED);
-    //mEventManager->registerEventType(&ET_ACTOR_DESTROYED);
-    //mEventManager->registerEventType(&ET_ACTOR_MOVE); 
-    //mEventManager->registerEventType(&ET_ACTOR_COLLIDE);
-
+}
+//-----------------------------------------------------------------------------
+void Game::registerEventCommands(qv::events::IEventCommand* command)
+{
+    mEventManager->regi
 }
 //-----------------------------------------------------------------------------
 void Game::loadConfiguration()
