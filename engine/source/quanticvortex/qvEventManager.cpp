@@ -28,7 +28,6 @@
 #include "qvEventManager.h"
 
 //#include "qvEventArgs.h"
-#include "qvIEventCommand.h"
 
 //default event args factories
 #include "qvEventArgsFactory.h"
@@ -111,23 +110,24 @@ bool EventManager::abortEvent( u32 eventHashType)
     return true;
 }
 //-----------------------------------------------------------------------------------------
-bool EventManager::addEventCommand(qv::events::IEventCommand* command)
+bool EventManager::addCommand(qv::ICommand* command)
 {
-    if(validateType(command->getEventHashType()))
+    if(validateType(command->getHashType()))
         return false;
         
-    qv::events::EventCommandMap::Node* eventsCommandsNode = 
-            mRegistredCommandsMap.find(command->getEventHashType());
+    qv::CommandMap::Node* eventsCommandsNode = 
+            mRegistredCommandsMap.find(command->getHashType());
             
     if(eventsCommandsNode)
     {
-        qv::events::EventCommandArray* eventCommands = eventsCommandsNode->getValue();
+        qv::CommandArray eventCommands = eventsCommandsNode->getValue();
         qv::ICommand* comm = static_cast<qv::ICommand*>(command);
         
         for(u32 i = 0; i < eventCommands.size(); ++i)
         {
             qv::ICommand* commTest = static_cast<qv::ICommand*>(eventCommands[i]);
-            if(commTest->getHashId() == comm->getHashId())
+            if((commTest->getHashId() == comm->getHashId()) &&
+            (commTest->getHashType() == comm->getHashType()))
             {                
                 return true;
             }
@@ -137,80 +137,38 @@ bool EventManager::addEventCommand(qv::events::IEventCommand* command)
     }
     else
     {
-        qv::events::EventCommandArray commandsArray;
+        qv::CommandArray commandsArray;
         commandsArray.push_back(command);
-        mRegistredCommandsMap.insert(command->getEventHashType(), commandsArray);
+        mRegistredCommandsMap.insert(command->getHashType(), commandsArray);
     }
-    //add listner in all event that it desire listen
-//			for(u32 i = 0; i < commandEvents.size(); ++i)
-//            EventTypesList::ConstIterator itr = commandEvents.begin();
-//            for(;itr != commandEvents.end(); ++itr)
-//			{
-//				if(validateType((*itr)))
-//                if(validateType((command->getEventArgsHashType())))
-//				{
-//				    for( u32 i = 0; i < mRegistredCommandsMap.size(); ++i)
-//				    {
-//                        if(mRegistredCommandsMap[i]-> getEventArgsHashType() ==
-//                            command->getEventArgsHashType())
-//                            {
-//
-//                            }
-//				    }
-
-//					EventToCommandEventMap::Node* nodeListeners =
-//						mRegistredCommandsMap.find((*itr));
-
-            //if event already existe, check if listener already exist
-//					if(nodeListeners)
-//					{
-//						const EventCommandArray& arrEventCommands = nodeListeners->getValue();
-//
-//						for( u32 j = 0; j < arrEventCommands.size(); ++j)
-//							if(arrEventCommands[j]->getHashId() ==  command->getHashId())
-//								return false;
-//
-//						nodeListeners->getValue().push_back(command);
-//
-//						break;
-//					}
-//					else
-//					{
-//						EventCommandArray commands;
-//						commands.push_back(command);
-//						mRegistredCommandsMap[(*itr)] = commands;
-//
-//						break;
-//					}
-//				}
-//			}
 
     return true;
 }
 //-----------------------------------------------------------------------------------------
-bool EventManager::removeEventCommand(qv::events::IEventCommand* command)
+bool EventManager::removeCommand(qv::ICommand* command)
 {
-//			const EventTypesList& events = command->listenEventTypes();
-//			EventTypesList::ConstIterator itrEvents = events.begin();
-//
-//			for(; itrEvents != events.end(); ++itrEvents)
-//			{
-//				EventToCommandEventMap::Node* nodeListenerMap =
-//					mRegistredCommandsMap.find((*itrEvents));
-//
-//				EventCommandArray eventCommands = nodeListenerMap->getValue();
-//
-//				for( u32 j = 0 ; j < eventCommands.size(); ++j)
-//				{
-//					if(eventCommands[j]->getHashId() == command->getHashId())
-//                    {
-//    				    eventCommands.erase(j);
-//						break;
-//					}
-//				}
-//			}
+        if(validateType(command->getHashType()))
+        return false;
+        
+    qv::CommandMap::Node* eventsCommandsNode = 
+            mRegistredCommandsMap.find(command->getHashType());
+            
+        if(eventsCommandsNode)
+    {
+        qv::CommandArray commandsArray = eventsCommandsNode->getValue();
+        
+        for(u32 i = 0; i < commandsArray.size(); ++i)
+        {
+            qv::ICommand* c = static_cast<qv::ICommand*>(commandsArray[i]);
+            if((c->getHashId() == command->getHashId()) && (c->getHashType() == command->getHashType()))
+            {   
+                commandsArray.erase(i);
+                return true;
+            }
+        }
+    }
 
-    return true;
+    return false;
 }
 //-----------------------------------------------------------------------------------------
 bool EventManager::enqueueEvent(qv::events::EventArgs* args)
@@ -219,11 +177,11 @@ bool EventManager::enqueueEvent(qv::events::EventArgs* args)
         return false;
 
     //check for a command listening this event
-//			EventToCommandEventMap::Node* nodeCommandsMap =
-//				mRegistredCommandsMap.find(args->getHashType());
-//
-//			if(!nodeCommandsMap)
-//				return false;
+    qv::CommandMap::Node* nodeCommandsMap =
+        mRegistredCommandsMap.find(args->getHashType());
+
+    if(!nodeCommandsMap)
+        return false;
 
     mReadyEvents[mActiveReadyEventList].push_back(args);
 
@@ -250,8 +208,11 @@ bool EventManager::processReadyEvents()
     for(u32 i = 0; i < mReadyEvents[processReadyEventList].size(); ++i)
         eventHandled = trigger(mReadyEvents[processReadyEventList][i]);
 
+    for(u32 i = 0; i < mReadyEvents[processReadyEventList].size(); ++i)
+        mReadyEvents[processReadyEventList].pop_back();
+    
     mReadyEvents[processReadyEventList].clear();
-
+    
     return eventHandled;
 }
 //-----------------------------------------------------------------------------------------
@@ -262,7 +223,7 @@ bool EventManager::trigger(qv::events::EventArgs* args)
 
     //iterate throw generic event listener, like a monitor to all events registred
 
-    qv::events::EventCommandMap::Node* eventCommandNode =
+    qv::CommandMap::Node* eventCommandNode =
         mRegistredCommandsMap.find(args->getHashType());
 
     if(!eventCommandNode)
@@ -270,7 +231,7 @@ bool EventManager::trigger(qv::events::EventArgs* args)
 
     bool eventHandled = false;
 
-    const EventCommandArray& commands = eventCommandNode->getValue();
+    const qv::CommandArray& commands = eventCommandNode->getValue();
 
     for(u32 i = 0; i < commands.size(); ++i)
     {

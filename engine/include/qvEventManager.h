@@ -30,7 +30,7 @@
 
 #include "qvCompileConfig.h"
 #include "qvEventTypes.h"
-#include "qvIEventCommand.h"
+#include "qvICommand.h"
 
 #include "qvRAIIFactoryImp.h"
 #include "Poco/AtomicCounter.h"
@@ -47,18 +47,15 @@ public:
     EventManager();
     virtual ~EventManager();
 
-    bool addEventCommand ( qv::events::IEventCommand* command);
-    /// register an event command on command collection
-
-    bool removeEventCommand ( qv::events::IEventCommand* command);
+    bool addCommand ( qv::ICommand* command);
+    /// register an command on command collection
+   
+    bool removeCommand ( qv::ICommand* command);
     /// remove desired command from command collection
 
     template <class T> T* createEventArgs( u32 eventArgsHashType);
     /// create an EventArgs of specific type if this type 
     /// is registred on event args factory.
-
-//    void registerEventArgsFactory(IEventArgsFactory * factory);
-    /// register a new event args to the factory collection
 
     void registerEventType( u32 eventHashType);
     /// register a new event type to valid event types list
@@ -82,12 +79,13 @@ public:
     /// check this event if it is valid
 
 private:
+
     EventManager( const EventManager&);
     EventManager operator = ( const EventManager&);
     
     static const s32 QueueEventsLenght = 2; // double buffer event queue
     qv::events::EventHashTypesArray mValidEventTypes; // registred valid event types
-    qv::events::EventCommandMap mRegistredCommandsMap; //
+    qv::CommandMap mRegistredCommandsMap; //
     qv::events::EventArgsArray mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
     //	ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
     //  qv::events::EventArgsFactoryVector mEventArgsFactories;

@@ -52,6 +52,7 @@ namespace qv
     };
 
     typedef irr::core::array<qv::ICommand*> CommandArray;
+    typedef irr::core::map<u32, qv::CommandArray> CommandMap;
 }
 
 #endif
