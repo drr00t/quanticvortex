@@ -144,7 +144,7 @@ void Game::loadConfiguration()
     mGameParams.Fullscreen = false;
     mGameParams.LocalPlayers = 1;
     mGameParams.HostGame = true;
-    mGameParams.Title = "Default game Window";
+    mGameParams.Title = "Default Game Window";
     mGameParams.WindowSize = irr::core::dimension2di(1024,768);
 
 }
@@ -177,6 +177,13 @@ s32 Game::run(s32 argc, c8* argv[])
 {
     // - process commandline params, this shoud override file config value
     // just in SGameParams not in real config file
+
+    // put game logic in initialization state, there several state pre-difined, how:
+    //    - qv::events::EET_GAME_LOGIC_INITIALIZATING
+    //    - qv::events::EET_GAME_LOGIC_MENU
+    //    - qv::events::EET_GAME_LOGIC_LOADING
+    //    - qv::events::EET_GAME_LOGIC_WAITING_PLAYER
+    //    - qv::events::EET_GAME_LOGIC_RUNNING
         
     // In order to do framerate independent movement, we have to know
     // how long it was since the last frame

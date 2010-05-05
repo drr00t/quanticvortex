@@ -69,8 +69,9 @@
     <File Name="../../include/qvInputReceiver.h"/>
     <File Name="../../include/qvEventArgs.h"/>
     <File Name="../../include/qvEventArgsFactory.h"/>
-    <VirtualDirectory Name="Event Commands Arguments">
+    <VirtualDirectory Name="event args">
       <File Name="../../include/qvGameTickEventArgs.h"/>
+      <File Name="../../include/qvGameStateChangeEventArgs.h"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="quanticvortex">
@@ -101,8 +102,9 @@
     <File Name="../../source/quanticvortex/qvGame.cpp"/>
     <File Name="../../source/quanticvortex/qvGameState.cpp"/>
     <File Name="../../source/quanticvortex/qvEventArgsFactory.cpp"/>
-    <VirtualDirectory Name="event command arguments ">
+    <VirtualDirectory Name="event args ">
       <File Name="../../source/quanticvortex/qvGameTickEventArgs.cpp"/>
+      <File Name="../../source/quanticvortex/qvGameStateChangeEventArgs.cpp"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
