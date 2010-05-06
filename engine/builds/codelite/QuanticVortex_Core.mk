@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=adriano.ribeiro
-Date                   :=05/05/10
+Date                   :=05/06/10
 CodeLitePath           :="C:\Arquivos de programas\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -51,7 +51,7 @@ UNIT_TEST_PP_SRC_DIR:=C:\Arquivos de programas\UnitTest++-1.3
 CodeLiteDir:=C:\Arquivos de programas\CodeLite
 Objects=$(IntermediateDirectory)/quanticvortex_qvActorMotion$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvDefaultElementViewFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEventArgs$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEventManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameParameters$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameStateMachine$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGuiView$(ObjectSuffix) \
 	$(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvQuanticVortex$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameState$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvEventArgsFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(ObjectSuffix) \
-	
+	$(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -231,6 +231,14 @@ $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(DependSuffix): ../..
 $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(PreprocessSuffix): ../../source/quanticvortex/qvGameTickEventArgs.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameTickEventArgs.cpp"
 
+$(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(ObjectSuffix): ../../source/quanticvortex/qvGameStateChangeEventArgs.cpp $(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameStateChangeEventArgs.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(DependSuffix): ../../source/quanticvortex/qvGameStateChangeEventArgs.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameStateChangeEventArgs.cpp"
+
+$(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(PreprocessSuffix): ../../source/quanticvortex/qvGameStateChangeEventArgs.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine/source/quanticvortex/qvGameStateChangeEventArgs.cpp"
+
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
 ##
@@ -297,6 +305,9 @@ clean:
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameTickEventArgs$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameStateChangeEventArgs$(PreprocessSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile)
 

@@ -128,7 +128,7 @@ void Game::registerGameEvents()
     mEventManager->registerEventType(qv::events::EET_GAME_TICK_UPDATE.Hash);
 }
 //-----------------------------------------------------------------------------
-void Game::registerEventCommands(qv::ICommand* command)
+void Game::addCommand(qv::ICommand* command)
 {
     mEventManager->addCommand(command);
 }

@@ -25,6 +25,7 @@
 **************************************************************************************************/
 
 #include "qvGameStateChangeEventArgs.h"
+#include "qvEventTypes.h"
 
 namespace qv
 {
@@ -32,8 +33,8 @@ namespace events
 {
 
 //-----------------------------------------------------------------------------------------
-GameStateChangeEventArgs::GameStateChangeEventArgs( const qv::S_STATE& newGame)
-    :qv::events::EventArgs(qv::events::EET_GAME_LOGIC_STATE_CHANGE.Hash)
+GameStateChangeEventArgs::GameStateChangeEventArgs()
+:qv::events::EventArgs(qv::events::EET_GAME_LOGIC_STATE_CHANGE.Hash)
 {
 }
 //-----------------------------------------------------------------------------------------

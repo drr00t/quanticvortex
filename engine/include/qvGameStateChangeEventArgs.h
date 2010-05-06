@@ -31,7 +31,7 @@
 #include <vector>
 
 #include "qvEventArgs.h"
-#include "qvTypes.h"
+#include "qvStateTypes.h"
 
 namespace qv
 {
@@ -41,34 +41,34 @@ class _QUANTICVORTEX_API_ GameStateChangeEventArgs: public qv::events::EventArgs
 {
 public:
 
-    GameStateChangeEventArgs( const qv::S_STATE& newGame );
+    GameStateChangeEventArgs();
     /// create a event argument with type
 
     virtual ~GameStateChangeEventArgs();
     /// destroy game view tick
 
-//    u32 getElapsedTimeMs() const;
-    /// elapsed time since last game logic tick in miliseconds
+    u32 getNewGameState() const;
+    /// new game state of game logic
     
-//    void setElapsedTimeMs( u32 elapsedTimeMs);
-    /// setup new elapsed time since last game logic tick in miliseconds    
-//private:
+    void setNewGameState( u32 newGameState);
+    /// setup new game state of game logic
+private:
 
-//    u32 mEventArgsHashType; // event arguments type
-//    u32 mElapsedTimeMs; // event arguments type
+    u32 mNewGameState; // new game state of game logic
 };
 
 
 //inlines 
-//inline u32 GameTickEventArgs::getElapsedTimeMs() const 
-//{ 
-//    return mElapsedTimeMs; 
-//}
-//
-//inline void GameTickEventArgs::setElapsedTimeMs( u32 elapsedTimeMs)
-//{
-//    mElapsedTimeMs = elapsedTimeMs;
-//}
+// 
+inline u32 GameStateChangeEventArgs::getNewGameState() const 
+{ 
+    return mNewGameState; 
+}
+
+inline void GameStateChangeEventArgs::setNewGameState( u32 newGameState)
+{
+    mNewGameState = newGameState;
+}
 }
 }
 

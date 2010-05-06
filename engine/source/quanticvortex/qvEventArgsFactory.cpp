@@ -38,9 +38,9 @@ namespace events
 EventArgsFactory::EventArgsFactory()
 {
     // event args that get any arguments
-    mSupportedEventArgsTypes.push_back(EET_GAME_QUIT.Hash);
-    mSupportedEventArgsTypes.push_back(EET_GAME_NEW.Hash);
-    mSupportedEventArgsTypes.push_back(EET_GAME_STATE_CHANGE.Hash);
+    mSupportedEventArgsTypes.push_back(qv::events::EET_GAME_QUIT.Hash);
+    mSupportedEventArgsTypes.push_back(qv::events::EET_GAME_NEW.Hash);
+    mSupportedEventArgsTypes.push_back(qv::events::EET_GAME_LOGIC_STATE_CHANGE.Hash);
 }
 //-----------------------------------------------------------------------------------------
 EventArgsFactory::~EventArgsFactory()

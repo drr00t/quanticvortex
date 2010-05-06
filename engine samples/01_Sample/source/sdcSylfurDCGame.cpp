@@ -11,6 +11,7 @@ namespace sdc
 //------------------------------------------------------------------------------------------------
 SylfurDCGame::SylfurDCGame()
 {
+    
 //    each game screen can be a HumanView if it get user input
 //    MainMenu - HumanView 
 //        Scene
