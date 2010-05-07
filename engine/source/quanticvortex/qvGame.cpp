@@ -118,6 +118,12 @@ bool Game::initialize()
 void Game::registerGameEvents()
 {
     // game logic events
+    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_INITIALIZATING.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_LOADING.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_MENU.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_RUNNING.Hash);
+    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_WAITING_PLAYER.Hash);
+    
     mEventManager->registerEventType(qv::events::EET_GAME_QUIT.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_SAVE.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_OPTIONS.Hash);

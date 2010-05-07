@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=adriano.ribeiro
-Date                   :=05/06/10
+Date                   :=05/07/10
 CodeLitePath           :="C:\Arquivos de programas\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -49,7 +49,7 @@ LibPath                := "$(LibraryPathSwitch)." "$(LibraryPathSwitch)../../../
 ##
 UNIT_TEST_PP_SRC_DIR:=C:\Arquivos de programas\UnitTest++-1.3
 CodeLiteDir:=C:\Arquivos de programas\CodeLite
-Objects=$(IntermediateDirectory)/source_main$(ObjectSuffix) $(IntermediateDirectory)/source_sdcSylfurDCGame$(ObjectSuffix) $(IntermediateDirectory)/source_gamestate$(ObjectSuffix) $(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/source_main$(ObjectSuffix) $(IntermediateDirectory)/source_sdcSylfurDCGame$(ObjectSuffix) $(IntermediateDirectory)/source_gamestate$(ObjectSuffix) $(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix) $(IntermediateDirectory)/source_sdcInitializatingCommand$(ObjectSuffix) $(IntermediateDirectory)/source_sdcMenuCommand$(ObjectSuffix) $(IntermediateDirectory)/source_sdcLoadingCommand$(ObjectSuffix) $(IntermediateDirectory)/source_sdcRunningCommand$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -109,6 +109,38 @@ $(IntermediateDirectory)/source_sdcQuitCommand$(DependSuffix): ../../source/sdcQ
 $(IntermediateDirectory)/source_sdcQuitCommand$(PreprocessSuffix): ../../source/sdcQuitCommand.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcQuitCommand$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcQuitCommand.cpp"
 
+$(IntermediateDirectory)/source_sdcInitializatingCommand$(ObjectSuffix): ../../source/sdcInitializatingCommand.cpp $(IntermediateDirectory)/source_sdcInitializatingCommand$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcInitializatingCommand.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_sdcInitializatingCommand$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/source_sdcInitializatingCommand$(DependSuffix): ../../source/sdcInitializatingCommand.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_sdcInitializatingCommand$(ObjectSuffix) -MF$(IntermediateDirectory)/source_sdcInitializatingCommand$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcInitializatingCommand.cpp"
+
+$(IntermediateDirectory)/source_sdcInitializatingCommand$(PreprocessSuffix): ../../source/sdcInitializatingCommand.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcInitializatingCommand$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcInitializatingCommand.cpp"
+
+$(IntermediateDirectory)/source_sdcMenuCommand$(ObjectSuffix): ../../source/sdcMenuCommand.cpp $(IntermediateDirectory)/source_sdcMenuCommand$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcMenuCommand.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_sdcMenuCommand$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/source_sdcMenuCommand$(DependSuffix): ../../source/sdcMenuCommand.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_sdcMenuCommand$(ObjectSuffix) -MF$(IntermediateDirectory)/source_sdcMenuCommand$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcMenuCommand.cpp"
+
+$(IntermediateDirectory)/source_sdcMenuCommand$(PreprocessSuffix): ../../source/sdcMenuCommand.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcMenuCommand$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcMenuCommand.cpp"
+
+$(IntermediateDirectory)/source_sdcLoadingCommand$(ObjectSuffix): ../../source/sdcLoadingCommand.cpp $(IntermediateDirectory)/source_sdcLoadingCommand$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcLoadingCommand.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_sdcLoadingCommand$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/source_sdcLoadingCommand$(DependSuffix): ../../source/sdcLoadingCommand.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_sdcLoadingCommand$(ObjectSuffix) -MF$(IntermediateDirectory)/source_sdcLoadingCommand$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcLoadingCommand.cpp"
+
+$(IntermediateDirectory)/source_sdcLoadingCommand$(PreprocessSuffix): ../../source/sdcLoadingCommand.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcLoadingCommand$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcLoadingCommand.cpp"
+
+$(IntermediateDirectory)/source_sdcRunningCommand$(ObjectSuffix): ../../source/sdcRunningCommand.cpp $(IntermediateDirectory)/source_sdcRunningCommand$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcRunningCommand.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_sdcRunningCommand$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/source_sdcRunningCommand$(DependSuffix): ../../source/sdcRunningCommand.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_sdcRunningCommand$(ObjectSuffix) -MF$(IntermediateDirectory)/source_sdcRunningCommand$(DependSuffix) -MM "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcRunningCommand.cpp"
+
+$(IntermediateDirectory)/source_sdcRunningCommand$(PreprocessSuffix): ../../source/sdcRunningCommand.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_sdcRunningCommand$(PreprocessSuffix) "D:/Documentacao/QuanticMinds/quanticvortex/engine samples/01_Sample/source/sdcRunningCommand.cpp"
+
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
 ##
@@ -127,6 +159,18 @@ clean:
 	$(RM) $(IntermediateDirectory)/source_sdcQuitCommand$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/source_sdcQuitCommand$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/source_sdcQuitCommand$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcInitializatingCommand$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcInitializatingCommand$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcInitializatingCommand$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcMenuCommand$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcMenuCommand$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcMenuCommand$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcLoadingCommand$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcLoadingCommand$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcLoadingCommand$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcRunningCommand$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcRunningCommand$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/source_sdcRunningCommand$(PreprocessSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile).exe
 

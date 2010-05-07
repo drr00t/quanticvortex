@@ -98,7 +98,7 @@ protected:
     
     virtual void addCommand(qv::ICommand* command);
     /// register event commands
-    
+
     qv::SGameParams mParams; // parameters for game
     Poco::Util::OptionProcessor* mOptions; // options from command
     

@@ -16,6 +16,14 @@
     <VirtualDirectory Name="commands">
       <File Name="../../source/sdcQuitCommand.cpp"/>
       <File Name="../../source/sdcQuitCommand.h"/>
+      <File Name="../../source/sdcInitializatingCommand.h"/>
+      <File Name="../../source/sdcInitializatingCommand.cpp"/>
+      <File Name="../../source/sdcMenuCommand.cpp"/>
+      <File Name="../../source/sdcMenuCommand.h"/>
+      <File Name="../../source/sdcLoadingCommand.cpp"/>
+      <File Name="../../source/sdcLoadingCommand.h"/>
+      <File Name="../../source/sdcRunningCommand.cpp"/>
+      <File Name="../../source/sdcRunningCommand.h"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <Settings Type="Executable">

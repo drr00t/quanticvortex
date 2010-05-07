@@ -37,7 +37,7 @@ SylfurDCGame::SylfurDCGame()
 // gameLogic->addHumanView()->getGuiView()->addWindow()
 // gameLogic->addHumanView()->getGuiView()->addWindow()-addButton()
 // gameLogic->addHumanView()->getGuiView()->addWindow()-addText()
-
+    
 }
 //-----------------------------------------------------------------------------
 SylfurDCGame::~SylfurDCGame()
