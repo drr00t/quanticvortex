@@ -11,8 +11,6 @@
     <File Name="../../source/main.cpp"/>
     <File Name="../../source/sdcSylfurDCGame.cpp"/>
     <File Name="../../source/sdcSylfurDCGame.h"/>
-    <File Name="../../source/gamestate.h"/>
-    <File Name="../../source/gamestate.cpp"/>
     <VirtualDirectory Name="commands">
       <File Name="../../source/sdcQuitCommand.cpp"/>
       <File Name="../../source/sdcQuitCommand.h"/>

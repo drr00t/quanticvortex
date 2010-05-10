@@ -12,10 +12,10 @@ namespace qv
     namespace physics
     {
         //-----------------------------------------------------------------------------------------
-		PhysicsManager::PhysicsManager()
+		PhysicsManager::PhysicsManager(qv::events::EventManager* eventManager)
             :mBulletDynamicsWorld(0), mBulletBroadphaseInterface(0),
             mBulletCollisionDispatcher(0), mBulletConstraintSolver(0),
-			mBulletDefaultCollisionConfiguration(0)
+			mBulletDefaultCollisionConfiguration(0),mEventManager(0)
         {
             initialize();
         }
@@ -25,7 +25,7 @@ namespace qv
             finalize();
         }
         //-----------------------------------------------------------------------------------------
-        bool PhysicsManager::initialize()
+        void PhysicsManager::initialize()
         {
             mBulletDefaultCollisionConfiguration = new btDefaultCollisionConfiguration();
             mBulletCollisionDispatcher = new btCollisionDispatcher(mBulletDefaultCollisionConfiguration);
@@ -44,20 +44,15 @@ namespace qv
 			///register an additional callback for characters/ghost objects
             btOverlappingPairCallback* ghostPairCallback = new btGhostPairCallback();
 			mBulletDynamicsWorld->getBroadphase()->getOverlappingPairCache()->setInternalGhostPairCallback(ghostPairCallback);
-            //mBulletDynamicsWorld->setInternalTickCallback( internalTickCallback, this);
-
-            return true;
         }
 		//-----------------------------------------------------------------------------------------
-		bool PhysicsManager::finalize()
+		void PhysicsManager::finalize()
 		{
 			delete mBulletDynamicsWorld;
 			delete mBulletConstraintSolver;
 			delete mBulletBroadphaseInterface;
 			delete mBulletCollisionDispatcher;
 			delete mBulletDefaultCollisionConfiguration;
-
-			return true;
 		}
 		//-----------------------------------------------------------------------------------------
         //void PhysicsManager::internalTickCallback(btDynamicsWorld* const world, btScalar const timeStep)
@@ -148,7 +143,7 @@ namespace qv
         //}
 
         //-----------------------------------------------------------------------------------------
-		void PhysicsManager::update( u32 elapsedTimeMs)
+		void PhysicsManager::update( qv::u32 elapsedTimeMs)
         {
             mBulletDynamicsWorld->stepSimulation(btScalar(elapsedTimeMs/1000.0f), 2); //just twos sub steps, is enough???);
         }

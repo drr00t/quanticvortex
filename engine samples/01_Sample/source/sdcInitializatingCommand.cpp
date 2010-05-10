@@ -1,6 +1,7 @@
 
 #include "sdcInitializatingCommand.h"
 #include "qvEventArgs.h"
+#include "qvEventTypes.h"
 
 
 
@@ -10,6 +11,8 @@ namespace controller
 {
     
 InitializatingCommand::InitializatingCommand()
+:mCommandHashId(sdc::controller::CI_INITIALIZATING.Hash),
+mCommandHashType(qv::events::EET_GAME_LOGIC_INITIALIZATING.Hash)
 {
     
 }

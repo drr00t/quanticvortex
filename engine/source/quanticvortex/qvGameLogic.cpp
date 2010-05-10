@@ -49,7 +49,7 @@ namespace qv
         GameLogic::GameLogic(qv::SGameParams& gameParams, qv::events::EventManager* eventManager)
             :mPhysicsManager(0), mEventManager(eventManager)
         {
-			mPhysicsManager = new physics::PhysicsManager();
+			mPhysicsManager = new physics::PhysicsManager(eventManager);
         }
         //-----------------------------------------------------------------------------------------
         GameLogic::~GameLogic()

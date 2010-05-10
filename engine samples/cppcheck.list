@@ -1,23 +1,29 @@
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine samples\01_Sample\source\main.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine samples\01_Sample\source\sdcSylfurDCGame.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine samples\01_Sample\source\sdcQuitCommand.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine samples\01_Sample\source\gamestate.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvActorMotion.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvAnyKeyInputTranslator.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvDefaultElementViewFactory.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvDefaultEventArgsFactory.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvEngineInputTranslatorFactory.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvEventArgs.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvEventManager.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvGameLogic.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvGameParameters.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvGameStateMachine.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvGuiView.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvHashFunctions.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvHumanView.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvPhysicsManager.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvQuanticVortex.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvSingleKeyInputTranslator.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvSHashedString.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvGame.cpp
-E:\Projetos\QuanticMinds\Sylfur-D.C\QuanticVortex\engine\source\quanticvortex\qvGameState.cpp
+E:\Projetos\QuanticVortex\engine samples\01_Sample\source\main.cpp
+E:\Projetos\QuanticVortex\engine samples\01_Sample\source\sdcSylfurDCGame.cpp
+E:\Projetos\QuanticVortex\engine samples\01_Sample\source\gamestate.cpp
+E:\Projetos\QuanticVortex\engine samples\01_Sample\source\sdcQuitCommand.cpp
+E:\Projetos\QuanticVortex\engine samples\01_Sample\source\sdcInitializatingCommand.cpp
+E:\Projetos\QuanticVortex\engine samples\01_Sample\source\sdcMenuCommand.cpp
+E:\Projetos\QuanticVortex\engine samples\01_Sample\source\sdcLoadingCommand.cpp
+E:\Projetos\QuanticVortex\engine samples\01_Sample\source\sdcRunningCommand.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvActorMotion.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvAnyKeyInputTranslator.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvDefaultElementViewFactory.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvEngineInputTranslatorFactory.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvEventArgs.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvEventManager.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvGameLogic.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvGameParameters.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvGameStateMachine.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvGuiView.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvHashFunctions.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvHumanView.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvPhysicsManager.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvQuanticVortex.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvSingleKeyInputTranslator.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvSHashedString.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvGame.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvGameState.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvEventArgsFactory.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvGameTickEventArgs.cpp
+E:\Projetos\QuanticVortex\engine\source\quanticvortex\qvGameStateChangeEventArgs.cpp

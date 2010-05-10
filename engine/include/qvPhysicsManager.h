@@ -4,8 +4,11 @@
 
 // engine headers
 #include "qvCompileConfig.h"
-#include "qvTypes.h"
+#include "qvActor.h"
 #include "qvActorTypes.h"
+#include "qvTypes.h"
+
+
 
 
 //#include "LinearMath/btQuaternion.h"
@@ -14,13 +17,16 @@
 #include "BulletCollision/CollisionDispatch/btGhostObject.h"
 #include "BulletCollision/BroadphaseCollision/btOverlappingPairCallback.h"
 
+#include "qvActorTransformationChangedEventArgs.h"
+
 
 namespace qv
 {
-namespace gaming
+namespace events
 {
-    class Actor;
+    class EventManager;
 }
+
 }
 
 namespace qv
@@ -28,38 +34,83 @@ namespace qv
 namespace physics
 {
 
+typedef btAlignedObjectArray<btCollisionObject*> CollisionObjectsList;
+/// aligned container for collision objects
+
+typedef btAlignedObjectArray<btCollisionShape*> CollisionShapes;
+/// aligned container to collision shape added to physics manager
+  
+
 class _QUANTICVORTEX_API_ PhysicsManager
+    /// physics manager object, it will be responsable by all game physics
+{
+    public:
+
+class ActorMotionState: public btMotionState
+    /// actor motion state, is object make transition of render view
+    /// game objects and physics simulation
 {
 public:
+    ActorMotionState(qv::events::EventManager* eventManager, qv::gaming::Actor* gameActor)
+    :mGameActor(gameActor), mEventManager(eventManager)
+    {
+    }
 
-    PhysicsManager();
+    virtual void getWorldTransform(btTransform& centerOfMassWorldTrans) const 
+    {
+//        centerOfMassWorldTrans = mGameActor->getTransform();
+    }
+
+    virtual void setWorldTransform(const btTransform& centerOfMassWorldTrans) 
+    {
+        if(!mGameActor) 
+            return;
+            
+        mGameActor->updateTransform(centerOfMassWorldTrans);
+
+//        mEventManager->
+        
+//		const btVector3& position = centerOfMassWorldTrans.getOrigin();
+//		mGameActor->setPosition(irr::core::vector3df((irr::f32)position[0], (irr::f32)position[1], (irr::f32)position[2]));
+//
+//		// Set rotation
+//		btVector3 eulerRotation;
+//		quaternionToEuler(centerOfMassWorldTrans.getRotation(), eulerRotation);
+//		mGameActor->setRotation(core::vector3df(eulerRotation[0], eulerRotation[1], eulerRotation[2]));
+    }
+
+    protected:
+        qv::gaming::Actor* mGameActor;
+        qv::events::EventManager* mEventManager;
+
+};
+
+    PhysicsManager(qv::events::EventManager* eventManager);
     ~PhysicsManager();
 
-    virtual bool initialize();
+    void initialize();
+    /// physics manager initialization
 
-    virtual bool finalize();
+    void finalize();
+    /// physics manager cleanup
 
-    virtual void update( qv::u32 elapsedTimeMs);
+    void update( qv::u32 elapsedTimeMs);
+    /// physics tick update with game time
 
-    //// Initialization of Physics Objects
-    //virtual void addShape(f32 radius, gaming::AI_ACTOR_ID *actorId, scene::ISceneNode* sceneNode, f32 specificGravity);
-    virtual void addShape(qv::real radius, qv::gaming::Actor *actor, qv::real specificGravity);
-    //virtual void VAddSphere(float radius, IActor *actor, float specificGravity, enum PhysicsMaterial mat)=0;
-    //virtual void addSphere(f32 radius, gaming::AI_ACTOR_ID *actorId, f32 specificGravity);
-    virtual void addSphere(qv::real radius, qv::gaming::Actor *actor, qv::real specificGravity);
+    void addSphere(qv::real radius, qv::gaming::Actor *actor, qv::real specificGravity);
+    /// add a sphere as physics body of an actor
 
-    //virtual void VAddBox(const Vec3& dimensions, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat) = 0;
-    virtual void addBox(const btVector3& dimensions, qv::gaming::Actor *actor, qv::real specificGravity);
+    void addBox(const btVector3& dimensions, qv::gaming::Actor *actor, qv::real specificGravity);
+    /// add box as physics body of an actor
 
-    //virtual void VAddPointCloud(Vec3 *verts, int numPoints, IActor *gameActor, float specificGravity, enum PhysicsMaterial mat)=0;
-    virtual void addConvexHull( btVector3 *verts, qv::s32 numPoints, qv::gaming::Actor *actor, qv::real specificGravity);
+    void addConvexHull( btVector3 *verts, qv::s32 numPoints, qv::gaming::Actor *actor, qv::real specificGravity);
+    /// add triangle mesh physics body of an actor
+
+    void removeActorBody( qv::u32 actorHashId);
+    /// remove a physics body of the actor
 
 
-    //virtual void VRemoveActor(ActorId id)=0;
-
-    //// Debugging
-    //virtual void VRenderDiagnostics() = 0;
-
+    // FIXME: this all will be commands registred by physics manager
     //// Physics world modifiers
     //virtual void VCreateTrigger(const Vec3 &pos, const float dim, int triggerID)=0;
     //virtual void VApplyForce(const Vec3 &dir, float newtons, ActorId aid)=0;
@@ -72,11 +123,12 @@ public:
     //virtual void VStopActor(ActorId actorId) = 0;
     //virtual void VSetVelocity(ActorId actorId, const Vec3& vel) = 0;
     //virtual void VTranslate(ActorId actorId, const Vec3& vec) = 0;
-private:
+            private:
 
-    //TODO: verify bullet collection
-//            typedef list<btCollisionObject*> CollisionObjectsList;
-    typedef btAlignedObjectArray<btCollisionShape*> CollisionShapes;
+    void addShape(qv::real radius, qv::gaming::Actor *actor, qv::real specificGravity);
+    /// generic shape configuration, to be used all add shape methods.
+    
+
 
     btDynamicsWorld* mBulletDynamicsWorld;
     btBroadphaseInterface* mBulletBroadphaseInterface;
@@ -84,7 +136,7 @@ private:
     btDefaultCollisionConfiguration* mBulletDefaultCollisionConfiguration;
     btConstraintSolver* mBulletConstraintSolver;
     CollisionShapes mCollisionObjectsList;
-
+    qv::events::EventManager* mEventManager;
     real mTimeUpdate;
 };
 

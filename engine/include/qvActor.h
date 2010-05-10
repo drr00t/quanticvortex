@@ -99,10 +99,10 @@ public:
     /// update defence of the actor addin or reducing
     /// defence of the actor with value passed by user
 
-    btVector3 getSpeed() const;
+    const btVector3& getSpeed() const;
     /// speed of the actor
 
-    void updateSpeed( btVector3 newSpeed);
+    void updateSpeed( const btVector3& newSpeed);
     /// update speed of the actor
 
     bool visible () const;
@@ -110,6 +110,12 @@ public:
 
     void updateVisibility ( bool visible);
     /// update visibility of the actor
+
+    btTransform& getTransform();
+    /// get position and orientation of the actor
+    
+    void updateTransform( const btTransform& transform);
+    /// set new position ans orientation of the actor    
 
 private:
 
@@ -124,6 +130,7 @@ private:
     u32 mActorHashId;
     bool mVisible;
     btVector3 mSpeed;
+    btTransform mTransform;
 
 };
 
@@ -182,12 +189,12 @@ inline void Actor::updateDefence( s32 value)
     mDefence += value;
 }
 
-inline btVector3 Actor::getSpeed() const
+inline const btVector3& Actor::getSpeed() const
 {
     return mSpeed;
 }
 
-inline void Actor::updateSpeed(btVector3 newSpeed)
+inline void Actor::updateSpeed(const btVector3& newSpeed)
 {
     mSpeed = newSpeed;
 }
@@ -202,6 +209,15 @@ inline void Actor::updateVisibility(bool visible)
     mVisible = visible;
 }
 
+inline btTransform& Actor::getTransform()
+{
+    return mTransform;
+}
+
+inline void Actor::updateTransform( const btTransform& transform)
+{
+    mTransform = transform;
+}
 
 }
 
