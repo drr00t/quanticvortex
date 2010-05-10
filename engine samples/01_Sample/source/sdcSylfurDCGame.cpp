@@ -16,17 +16,21 @@ SylfurDCGame::SylfurDCGame()
 //    MainMenu - HumanView 
 //        Scene
 //        Gui
-//    Running - is it a Human view too
+//    Running - is it a HumanView too
 //        Scenes
-//   the engine user can´t need access HumanView, he just need feed HUman view with 
+//   the engine user can´t need access HumanView, he just need feed HumanView with 
 // componente that it need like:
 // - input mtranslators
-// - element views (scene, gui, etc)
-// - commands to respond to the game events
+// - ElementViews (scene, gui, etc)
+// - Commands to respond to the game events
+//
+// gameLogic->addGameState()
+// gameLogic->validateGameState()
+// gameLogic->startUpGameState()
 // gameLogic->addCommand()
-// gameLogic->initPhysics()
+// gameLogic->initPhysics() - this should be done inside of game logic
 // gameLogic->addHumanView()
-// gameLogic->addHumanView()->iniAudio()
+// gameLogic->addHumanView()->iniAudio() - this should be done inside of human view
 // gameLogic->addHumanView()->addCommand()
 // gameLogic->addHumanView()->attachPlayer()
 // gameLogic->addHumanView()->getPlayer()->addInputTranslator()

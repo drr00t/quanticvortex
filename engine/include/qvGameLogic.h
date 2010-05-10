@@ -65,6 +65,11 @@ public:
 
     ~GameLogic();
 
+    void addGameStateType();
+    void validateGameStateType();
+    void startUpGameStateType();
+    u32 getStartUpGameStateType() const;
+    
     void addActor( u32 actorHashId);
     /// add new actor to the game
     

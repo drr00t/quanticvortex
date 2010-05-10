@@ -12,6 +12,7 @@ class Game;
 namespace events
 {
 class EventArgs;
+class EventManager;
 }
 }
 
@@ -24,9 +25,11 @@ static const qv::CI_COMMAND_ID CI_INITIALIZATING = HASH_STRING("CI_INITIALIZATIN
 
 
 class InitializatingCommand: public qv::ICommand
+    /// initialization command to startup game application
 {
 public:
-    InitializatingCommand();
+    InitializatingCommand( qv::events::EventManager* eventManager);
+    /// constructor
     
     virtual ~InitializatingCommand();
     
@@ -45,6 +48,7 @@ public:
 private:
     qv::u32 mCommandHashId;
     qv::u32 mCommandHashType;
+    qv::events::EventManager* mEventManager;
 };
 }
 }

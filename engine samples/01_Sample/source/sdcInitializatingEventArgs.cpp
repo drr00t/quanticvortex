@@ -24,24 +24,25 @@
 
 **************************************************************************************************/
 
-#ifndef __GAME_STATE_TYPES_H_
-#define __GAME_STATE_TYPES_H_
-
-#include "qvStateTypes.h"
-
-#include "irrMap.h"
+#include "sdcInitializatingEventArgs.h"
+#include "qvEventTypes.h"
 
 namespace qv
 {
-	namespace gaming
-	{
-		static const qv::S_STATE S_GAME_STATE_INITIALIZATING    = HASH_STRING("S_STATE_INITIALIZATING");
-		static const qv::S_STATE S_GAME_STATE_MENU              = HASH_STRING("S_STATE_MENU");
-		static const qv::S_STATE S_GAME_STATE_LOADING           = HASH_STRING("S_STATE_LOADING");
-		static const qv::S_STATE S_GAME_STATE_WAITING_PLAYER    = HASH_STRING("S_STATE_WAITING_PLAYER");
-		static const qv::S_STATE S_GAME_STATE_RUNNING           = HASH_STRING("S_STATE_RUNNING");
-	}
+namespace events
+{
+
+//-----------------------------------------------------------------------------------------
+InitializatingEventArgs::InitializatingEventArgs()
+:qv::events::EventArgs(qv::events::EET_GAME_LOGIC_INITIALIZATING.Hash)
+{
+}
+//-----------------------------------------------------------------------------------------
+InitializatingEventArgs::~InitializatingEventArgs()
+{
+}
+//-----------------------------------------------------------------------------------------
+
 }
 
-#endif
-
+}

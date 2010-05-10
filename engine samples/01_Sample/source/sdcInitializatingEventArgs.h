@@ -24,23 +24,35 @@
 
 **************************************************************************************************/
 
-#ifndef __GAME_STATE_TYPES_H_
-#define __GAME_STATE_TYPES_H_
 
-#include "qvStateTypes.h"
+#ifndef __INITIALIZATING_EVENT_ARGS_H_
+#define __INITIALIZATING_EVENT_ARGS_H_
 
-#include "irrMap.h"
+#include "qvEventArgs.h"
 
 namespace qv
 {
-	namespace gaming
-	{
-		static const qv::S_STATE S_GAME_STATE_INITIALIZATING    = HASH_STRING("S_STATE_INITIALIZATING");
-		static const qv::S_STATE S_GAME_STATE_MENU              = HASH_STRING("S_STATE_MENU");
-		static const qv::S_STATE S_GAME_STATE_LOADING           = HASH_STRING("S_STATE_LOADING");
-		static const qv::S_STATE S_GAME_STATE_WAITING_PLAYER    = HASH_STRING("S_STATE_WAITING_PLAYER");
-		static const qv::S_STATE S_GAME_STATE_RUNNING           = HASH_STRING("S_STATE_RUNNING");
-	}
+namespace events
+{
+class _QUANTICVORTEX_API_ InitializatingEventArgs: public qv::events::EventArgs
+{
+public:
+
+    InitializatingEventArgs();
+    /// create a event argument with type
+
+    virtual ~InitializatingEventArgs();
+    /// destroy game view tick
+
+private:
+
+};
+
+
+//inlines 
+// 
+
+}
 }
 
 #endif
