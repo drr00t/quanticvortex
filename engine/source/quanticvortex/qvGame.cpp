@@ -155,6 +155,11 @@ void Game::loadConfiguration()
 
 }
 //-----------------------------------------------------------------------------
+void Game::configFromCommandLine( s32 argc, c8* argv[])
+{
+    
+}
+//-----------------------------------------------------------------------------
 void Game::finalize()
 {
     if(mGameLogic)
@@ -183,7 +188,8 @@ s32 Game::run(s32 argc, c8* argv[])
 {
     // - process commandline params, this shoud override file config value
     // just in SGameParams not in real config file
-
+    configFromCommandLine( argc, argv);
+    
     // put game logic in initialization state, there several state pre-difined, how:
     //    - qv::events::EET_GAME_LOGIC_INITIALIZATING
     //    - qv::events::EET_GAME_LOGIC_MENU

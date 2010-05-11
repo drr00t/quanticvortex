@@ -52,7 +52,7 @@ class ActorMotionState: public btMotionState
 {
 public:
     ActorMotionState(qv::events::EventManager* eventManager, u32 actorHashId)
-    :mGameActor(gameActor), mEventManager(eventManager)
+    :mEventManager( eventManager), mActorHashId( actorHashId)
     {
     }
 
@@ -77,6 +77,7 @@ public:
     }
 
     protected:
+        u32 mActorHashId;
         btTransform mActorTransform;
         qv::events::EventManager* mEventManager;
 

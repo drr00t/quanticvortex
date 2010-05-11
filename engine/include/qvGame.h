@@ -71,7 +71,7 @@ public:
     Game();
     virtual ~Game();
 
-    s32 run( s32 argc, c8* argv[]);
+    s32 run(s32 argc, c8* argv[]);
     /// called by user to start main loop of the game.
 
     qv::gaming::GameLogic* getGameLogic();
@@ -93,6 +93,11 @@ protected:
     virtual void loadConfiguration();
     /// load configuration from file, include saved game
 
+    void configFromCommandLine( s32 argc, c8* argv[]);
+    /// override config file options with commandline options
+    /// options passed by command line, will not be persisted
+    /// to config file
+    
     virtual void registerGameEvents();
     /// register event that will be used in all over the engine
     

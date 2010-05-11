@@ -30,8 +30,7 @@
 
 #include "qvEventArgs.h"
 
-namespace qv
-{
+namespace sdc{
 namespace events
 {
 class _QUANTICVORTEX_API_ InitializatingEventArgs: public qv::events::EventArgs
@@ -43,8 +42,6 @@ public:
 
     virtual ~InitializatingEventArgs();
     /// destroy game view tick
-
-private:
 
 };
 

@@ -5,7 +5,7 @@ int main(int argc, char* argv[])
 {
     sdc::SylfurDCGame game;
 
-    return game.run( argc, argv);
+    return game.run(argc, argv);
 }
 
 

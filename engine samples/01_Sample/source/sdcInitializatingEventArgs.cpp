@@ -27,8 +27,7 @@
 #include "sdcInitializatingEventArgs.h"
 #include "qvEventTypes.h"
 
-namespace qv
-{
+namespace sdc{
 namespace events
 {
 

@@ -27,7 +27,7 @@ InitializatingCommand::~InitializatingCommand()
 void InitializatingCommand::executeCommand(const qv::events::EventArgs *args)
 {
     
-    mEventManager->trigger()
+    // mEventManager->trigger()
 }
     //-----------------------------------------------------------------------------
 }
