@@ -51,24 +51,21 @@ class ActorMotionState: public btMotionState
     /// game objects and physics simulation
 {
 public:
-    ActorMotionState(qv::events::EventManager* eventManager, qv::gaming::Actor* gameActor)
+    ActorMotionState(qv::events::EventManager* eventManager, u32 actorHashId)
     :mGameActor(gameActor), mEventManager(eventManager)
     {
     }
 
     virtual void getWorldTransform(btTransform& centerOfMassWorldTrans) const 
     {
-//        centerOfMassWorldTrans = mGameActor->getTransform();
+        centerOfMassWorldTrans = mActorTransform;
     }
 
     virtual void setWorldTransform(const btTransform& centerOfMassWorldTrans) 
     {
-        if(!mGameActor) 
-            return;
-            
-        mGameActor->updateTransform(centerOfMassWorldTrans);
+        mActorTransform = centerOfMassWorldTrans;
 
-//        mEventManager->
+//        mEventManager->enqueue(new ActorTransformationChangedEventArgs(actorHashId, centerOfMassWorldTrans))
         
 //		const btVector3& position = centerOfMassWorldTrans.getOrigin();
 //		mGameActor->setPosition(irr::core::vector3df((irr::f32)position[0], (irr::f32)position[1], (irr::f32)position[2]));
@@ -80,7 +77,7 @@ public:
     }
 
     protected:
-        qv::gaming::Actor* mGameActor;
+        btTransform mActorTransform;
         qv::events::EventManager* mEventManager;
 
 };

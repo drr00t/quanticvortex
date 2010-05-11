@@ -24,9 +24,18 @@ SylfurDCGame::SylfurDCGame()
 // - ElementViews (scene, gui, etc)
 // - Commands to respond to the game events
 //
-// gameLogic->addGameState()
+// gameLogic->addGameState(qv::gaming::S_GAME_STATE_INITIALIZATING)
+// gameLogic->addGameState(qv::gaming::S_GAME_STATE_MENU)
+// gameLogic->addGameState(qv::gaming::S_GAME_STATE_LOADING)
+// gameLogic->addGameState(qv::gaming::S_GAME_STATE_WAITING_PLAYER)
+// gameLogic->addGameState(qv::gaming::S_GAME_STATE_RUNNING)
 // gameLogic->validateGameState()
-// gameLogic->startUpGameState()
+// gameLogic->addCommand(InitializatingCommand())
+// gameLogic->addCommand(InitializatingCommand())->executeCommand(InitializatingEventArgs)
+// gameLogic->changeGameState(qv::gaming::S_GAME_STATE_INITIALIZATING)
+// gameLogic->changeGameState(qv::gaming::S_GAME_STATE_INITIALIZATING)->trigger(InitializatingEventArgs)
+// 
+
 // gameLogic->addCommand()
 // gameLogic->initPhysics() - this should be done inside of game logic
 // gameLogic->addHumanView()
