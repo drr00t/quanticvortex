@@ -7,12 +7,13 @@
 
 namespace qv
 {
-class Game;
+    class Game;
+    class EngineManager;
 
 namespace events
 {
-class EventArgs;
-class EventManager;
+    class EventArgs;
+    class EventManager;
 }
 }
 
@@ -28,7 +29,7 @@ class InitializatingCommand: public qv::ICommand
     /// initialization command to startup game application
 {
 public:
-    InitializatingCommand( qv::events::EventManager* eventManager);
+    InitializatingCommand( qv::EngineManager* engineManager);
     /// constructor
     
     virtual ~InitializatingCommand();
@@ -48,7 +49,7 @@ public:
 private:
     qv::u32 mCommandHashId;
     qv::u32 mCommandHashType;
-    qv::events::EventManager* mEventManager;
+    qv::EngineManager* mEngineManager;
 };
 }
 }

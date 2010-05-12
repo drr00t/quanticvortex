@@ -30,7 +30,8 @@
 
 #include "qvEventArgs.h"
 
-namespace sdc{
+namespace sdc
+{
 namespace events
 {
 class _QUANTICVORTEX_API_ InitializatingEventArgs: public qv::events::EventArgs

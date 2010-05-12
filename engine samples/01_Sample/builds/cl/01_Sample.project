@@ -22,10 +22,7 @@
       <File Name="../../source/sdcLoadingCommand.h"/>
       <File Name="../../source/sdcRunningCommand.cpp"/>
       <File Name="../../source/sdcRunningCommand.h"/>
-      <VirtualDirectory Name="event args">
-        <File Name="../../source/sdcInitializatingEventArgs.h"/>
-        <File Name="../../source/sdcInitializatingEventArgs.cpp"/>
-      </VirtualDirectory>
+      <VirtualDirectory Name="event args"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <Settings Type="Executable">
