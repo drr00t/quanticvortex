@@ -46,8 +46,6 @@ using namespace qv::gaming;
 
 namespace qv
 {
-	class EngineManager;
-	
     namespace views
     {
         class HumanView: public IGameView

@@ -8,7 +8,6 @@
 namespace qv
 {
     class Game;
-    class EngineManager;
 
 namespace events
 {
@@ -29,7 +28,7 @@ class InitializatingCommand: public qv::ICommand
     /// initialization command to startup game application
 {
 public:
-    InitializatingCommand( qv::EngineManager* engineManager);
+    InitializatingCommand( qv::Game* gameApp);
     /// constructor
     
     virtual ~InitializatingCommand();
@@ -49,7 +48,7 @@ public:
 private:
     qv::u32 mCommandHashId;
     qv::u32 mCommandHashType;
-    qv::EngineManager* mEngineManager;
+    qv::Game* mGameApp;
 };
 }
 }
