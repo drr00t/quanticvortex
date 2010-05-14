@@ -1,0 +1,29 @@
+Issues
+
+The issues service scans commit messages for commands which will automatically change the state of the relevant issue on the tracker.
+
+To link your commit to an issue, include somewhere in your commit message the following fragment:
+
+    <command> <issue id>
+
+where the <command> can be any of the following:
+
+   close/closed/closes//closing/fix/fixed/fixes    # resolves the issue
+   reopen/reopens/reopening                        # reopens the issue   
+   addresses/re/references/ref/refs/see            # adds a link to the changeset as a comment for the issue
+
+For an example issue 4711, the <issue id> can be of the following form:
+
+    #4711
+    issue 4711
+    bug 4711
+    ticket 4711
+
+Examples:
+
+   "... fixes #4711 ..."                  # marks issue as resolved
+   "... reopening bug 4711..."            # marks issue as open
+   "... refs ticket 4711..."              # links changeset to issue as comment
+   "... refs bug #4711 and #4712..."      # links to multiple issues
+
+Note: When displayed in the changeset view, #4711 will link back to the issue, while issue 4711 will not.
