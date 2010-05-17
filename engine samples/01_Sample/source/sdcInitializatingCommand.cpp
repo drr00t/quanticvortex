@@ -28,13 +28,9 @@ InitializatingCommand::~InitializatingCommand()
 void InitializatingCommand::executeCommand(const qv::events::EventArgs *args)
 {
     
-//    mEventManager->
-     qv::views::AbstractGameView* view = 
-        mGameApp->getGameLogic()->addView("MainView", qv::views::GVT_GAME_VIEW_HUMAN.Hash,0);
-        
-    static_cast<qv::views::HumanView*>(view)->
 
 }
     //-----------------------------------------------------------------------------
 }
+
 }

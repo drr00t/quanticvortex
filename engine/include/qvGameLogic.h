@@ -31,7 +31,6 @@
 //engine headers
 #include "qvActor.h"
 #include "qvAbstractGameView.h"
-#include "qvIProcessManager.h"
 #include "qvGameStateTypes.h"
 
 
@@ -64,11 +63,6 @@ public:
     /// and game parameters
 
     ~GameLogic();
-
-    void addGameStateType();
-    void validateGameStateType();
-    void startUpGameStateType();
-    u32 getStartUpGameStateType() const;
     
     void addActor( u32 actorHashId);
     /// add new actor to the game

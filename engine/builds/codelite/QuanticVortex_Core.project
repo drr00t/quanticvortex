@@ -73,12 +73,16 @@
       <File Name="../../include/qvGameTickEventArgs.h"/>
       <File Name="../../include/qvGameStateChangeEventArgs.h"/>
       <File Name="../../include/qvActorTransformationChangedEventArgs.h"/>
+      <File Name="../../include/qvCreateGameViewEventArgs.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="commands">
+      <File Name="../../include/qvLoadGameCommand.h"/>
+      <File Name="../../source/quanticvortex/qvLoadGameCommand.cpp"/>
+      <File Name="../../include/qvCreateGameViewCommand.h"/>
+      <File Name="../../source/quanticvortex/qvCreateGameViewCommand.cpp"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="quanticvortex">
-    <File Name="../../source/quanticvortex/qvActorMotion.cpp"/>
-    <File Name="../../source/quanticvortex/qvActorMotion.h"/>
-    <File Name="../../source/quanticvortex/qvActorMotionState.h"/>
     <File Name="../../source/quanticvortex/qvAnyKeyInputTranslator.cpp"/>
     <File Name="../../source/quanticvortex/qvAnyKeyInputTranslator.h"/>
     <File Name="../../source/quanticvortex/qvDefaultElementViewFactory.cpp"/>

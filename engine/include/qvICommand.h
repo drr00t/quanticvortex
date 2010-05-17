@@ -44,7 +44,7 @@ namespace qv
         virtual u32 getHashId() const = 0;
         /// unique command id
 
-        virtual u32 getHashType() const = 0;
+        virtual u32 getEventHashType() const = 0;
         /// command type family
 
         virtual void executeCommand(qv::events::EventArgs* args) = 0;

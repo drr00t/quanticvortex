@@ -35,7 +35,7 @@ SylfurDCGame::SylfurDCGame()
 // gameLogic->changeGameState(qv::gaming::S_GAME_STATE_INITIALIZATING)
 // gameLogic->changeGameState(qv::gaming::S_GAME_STATE_INITIALIZATING)->trigger(InitializatingEventArgs)
 // 
-
+//    mGameLogic->
 // gameLogic->addCommand()
 // gameLogic->initPhysics() - this should be done inside of game logic
 // gameLogic->addHumanView()

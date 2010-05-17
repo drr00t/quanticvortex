@@ -41,6 +41,9 @@
 //event args
 #include "qvGameTickEventArgs.h"
 
+//game logic commands
+#include "qvCreateGameViewCommand.h"
+
 namespace qv
 {
     namespace gaming
@@ -50,6 +53,10 @@ namespace qv
             :mPhysicsManager(0), mEventManager(eventManager)
         {
 			mPhysicsManager = new physics::PhysicsManager(eventManager);
+            
+            //TODO: GameLogic should be own of command that will do job of game logic data.
+            // i have to think about this.
+            mEventManager->addCommand(new qv::gaming::CreateGameViewCommand(this));
         }
         //-----------------------------------------------------------------------------------------
         GameLogic::~GameLogic()
@@ -205,10 +212,18 @@ namespace qv
 //            mState = newState;
         }
         //-----------------------------------------------------------------------------------------
-        views::AbstractGameView* GameLogic::addView(const c8* viewName, u32 viewHashType, u32 actorHashId)
+        views::AbstractGameView* GameLogic::addView(const qv::c8* viewName, u32 viewHashType, u32 actorHashId)
         {
             views::AbstractGameView* gameView(0);
-
+            
+            if(viewHashType == qv::views::GVT_GAME_VIEW_HUMAN.Hash)
+            {
+                // may be this should be created by event PlayerAddedEvent
+                // and then feed by add view elements event like: AddElementViewEvent
+                // this way we will have just only one instance of each game view that user is really using
+                gameView = new qv::views::HumanView( mEventManager);
+            }
+                        
             return gameView;
             //i need restart view here, on book it use restore method
             //view->restore();

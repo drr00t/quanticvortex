@@ -112,11 +112,11 @@ bool EventManager::abortEvent( u32 eventHashType)
 //-----------------------------------------------------------------------------------------
 bool EventManager::addCommand(qv::ICommand* command)
 {
-    if(validateType(command->getHashType()))
+    if(validateType(command->getEventHashType()))
         return false;
         
     qv::CommandMap::Node* eventsCommandsNode = 
-            mRegistredCommandsMap.find(command->getHashType());
+            mRegistredCommandsMap.find(command->getEventHashType());
             
     if(eventsCommandsNode)
     {
@@ -126,11 +126,8 @@ bool EventManager::addCommand(qv::ICommand* command)
         for(u32 i = 0; i < eventCommands.size(); ++i)
         {
             qv::ICommand* commTest = static_cast<qv::ICommand*>(eventCommands[i]);
-            if((commTest->getHashId() == comm->getHashId()) &&
-            (commTest->getHashType() == comm->getHashType()))
-            {                
-                return true;
-            }
+            if(commTest->getHashId() == comm->getHashId())
+                return false;
         }
         
         eventCommands.push_back(command);
@@ -139,7 +136,7 @@ bool EventManager::addCommand(qv::ICommand* command)
     {
         qv::CommandArray commandsArray;
         commandsArray.push_back(command);
-        mRegistredCommandsMap.insert(command->getHashType(), commandsArray);
+        mRegistredCommandsMap.insert(command->getEventHashType(), commandsArray);
     }
 
     return true;
@@ -147,11 +144,11 @@ bool EventManager::addCommand(qv::ICommand* command)
 //-----------------------------------------------------------------------------------------
 bool EventManager::removeCommand(qv::ICommand* command)
 {
-        if(validateType(command->getHashType()))
-        return false;
+        if(validateType(command->getEventHashType()))
+            return false;
         
     qv::CommandMap::Node* eventsCommandsNode = 
-            mRegistredCommandsMap.find(command->getHashType());
+            mRegistredCommandsMap.find(command->getEventHashType());
             
         if(eventsCommandsNode)
     {
@@ -160,7 +157,7 @@ bool EventManager::removeCommand(qv::ICommand* command)
         for(u32 i = 0; i < commandsArray.size(); ++i)
         {
             qv::ICommand* c = static_cast<qv::ICommand*>(commandsArray[i]);
-            if((c->getHashId() == command->getHashId()) && (c->getHashType() == command->getHashType()))
+            if(c->getHashId() == command->getHashId())
             {   
                 commandsArray.erase(i);
                 return true;

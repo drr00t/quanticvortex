@@ -8,7 +8,7 @@
  * at CodeProject: http://www.codeproject.com/
  */
 
-#include "raiifactoryimp.h"
+#include "qvRAIIFactoryImp.h"
 
 /**
  * Generic RAII-Factory for 0 to 8 arguments;

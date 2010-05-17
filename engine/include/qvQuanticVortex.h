@@ -31,7 +31,6 @@
 #include "qvCompileConfig.h"
 
 //gaming
-#include "qvActorTypes.h"
 #include "qvSActorParams.h"
 #include "qvStateTypes.h"
 #include "qvIState.h"
@@ -41,14 +40,9 @@
 #include "qvIInputTranslator.h"
 #include "qvIInputTranslatorFactory.h"
 
-//runtime
-#include "qvIProcess.h"
-#include "qvIProcessManager.h"
-
 //views
 #include "qvIElementView.h"
 #include "qvIGuiView.h"
-#include "qvISceneView.h"
 
 //utils
 #include "qvSHashedString.h"

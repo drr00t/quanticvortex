@@ -25,8 +25,8 @@
 **************************************************************************************************/
 
 
-#ifndef __HUMANVIEW_H_
-#define __HUMANVIEW_H_
+#ifndef __NETWORK_VIEW_H_
+#define __NETWORK_VIEW_H_
 
 //#include "qvEngineManager.h"
 #include "qvIGameView.h"

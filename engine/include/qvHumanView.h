@@ -75,7 +75,7 @@ class _QUANTICVORTEX_API_ HumanView : public AbstractGameView
     /// rendering data on screen
 {
 public:
-    HumanView(qv::EngineManager* engineManager);
+    HumanView(qv::events::EventManager* eventManager);
     ///create the HumanView
 
     ~HumanView();
@@ -100,7 +100,6 @@ public:
     //void attachProcess(Process* process){mProcessManager->attach(process);}
 
     private:
-
         u32 mActorHashId;
         u32 mCurrentEngineTime;    // current view time
         u32 mLastUpdateTime; // last tick time update

@@ -28,7 +28,6 @@
 #include "qvHumanView.h"
 
 #include "qvDefaultElementViewFactory.h"
-#include "qvEngineManager.h"
 #include "qvEventManager.h"
 #include "qvInputReceiver.h"
 #include "qvSGameParams.h"
@@ -44,18 +43,18 @@ namespace qv
     namespace views
     {
         //-----------------------------------------------------------------------------------------
-        HumanView::HumanView(qv::EngineManager* engineManager)
+        HumanView::HumanView(qv::events::EventManager* eventManager)
 			: AbstractGameView(qv::views::GVT_GAME_VIEW_HUMAN.Hash), mLastUpdateTime(0.0f),
 			mCurrentEngineTime(0.0f), mAccumulatorTime(0), mInputReceiver(0),
-			mEventManager(engineManager->getEventManager()), mDevice3d(0) /*mProcessManager(0)*/
+			mEventManager(eventManager), mDevice3d(0) /*mProcessManager(0)*/
         {
             irr::SIrrlichtCreationParameters parameters;
 
-            parameters.Bits = engineManager->getGameParameters().Bits;
+            parameters.Bits = 16; //engineManager->getGameParameters().Bits;
             parameters.DriverType = irr::video::EDT_DIRECT3D9;
             parameters.Stencilbuffer = true;
-            parameters.WindowSize = engineManager->getGameParameters().WindowSize;
-            parameters.Fullscreen = engineManager->getGameParameters().Fullscreen;
+            parameters.WindowSize = irr::core::dimension2di(1024,768);//engineManager->getGameParameters().WindowSize;
+            parameters.Fullscreen = false;//engineManager->getGameParameters().Fullscreen;
 
             mDevice3d = irr::createDeviceEx(parameters);
 

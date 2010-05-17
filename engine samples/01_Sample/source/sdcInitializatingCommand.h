@@ -50,7 +50,9 @@ private:
     qv::u32 mCommandHashType;
     qv::Game* mGameApp;
 };
+
 }
+
 }
 
 #endif

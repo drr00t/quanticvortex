@@ -59,14 +59,14 @@ class AbstractGameView
 public:
 
     AbstractGameView(u32 viewHashType)
-    :mViewHashId(0),mViewHashType(viewHashType), mViewOrder(0)
+    :mViewOrder(0), mViewHashType(viewHashType), mViewHashId(0)
     {
 
     }
 
     virtual ~AbstractGameView()
     {
-
+        
     }
 
     u32 getHashId() const
