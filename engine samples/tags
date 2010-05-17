@@ -1,3 +1,0 @@
-sdc	D:\Documentacao\QuanticMinds\quanticvortex\engine samples\01_Sample\source\sdcSylfurDCGame.cpp	/^namespace sdc$/;"	namespace	line:9
-SylfurDCGame	D:\Documentacao\QuanticMinds\quanticvortex\engine samples\01_Sample\source\sdcSylfurDCGame.cpp	/^SylfurDCGame::SylfurDCGame()$/;"	function	line:12	class:sdc::SylfurDCGame	signature:()	returns:SylfurDCGame::SylfurDCGame()
-~SylfurDCGame	D:\Documentacao\QuanticMinds\quanticvortex\engine samples\01_Sample\source\sdcSylfurDCGame.cpp	/^SylfurDCGame::~SylfurDCGame()$/;"	function	line:42	class:sdc::SylfurDCGame	signature:()	returns:SylfurDCGame::
