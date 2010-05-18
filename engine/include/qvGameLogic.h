@@ -100,7 +100,7 @@ public:
     /// game views collections, all views must be registred on game
     /// logic to be used on game, ex: HumanView, NetworkView.
 
-    views::AbstractGameView* addView(const c8* viewName, u32 viewHashType, u32 actorHashId = 0);
+    views::AbstractGameView* addGameView(const c8* viewName, u32 viewHashType);
     /// create and add game view to game logic.
 
     void removeView(views::AbstractGameView* gameView);

@@ -55,9 +55,9 @@ void CreateGameViewCommand::executeCommand(qv::events::EventArgs* args)
             static_cast<qv::events::CreateGameViewEventArgs*>(args);
     
     qv::views::AbstractGameView* abstractView = 
-                mGameLogic->addView(gargs->getGameViewName(), gargs->getGameViewType(),0 );
+                mGameLogic->addGameView(gargs->getGameViewName(), gargs->getGameViewType());
                 
-    qv::views::HumanView* humanView = static_cast<qv::views::HumanView*>(abstractView);
+//    qv::views::HumanView* humanView = static_cast<qv::views::HumanView*>(abstractView);
         
 }
 

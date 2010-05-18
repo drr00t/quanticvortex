@@ -52,6 +52,8 @@ namespace qv
         GameLogic::GameLogic(qv::SGameParams& gameParams, qv::events::EventManager* eventManager)
             :mPhysicsManager(0), mEventManager(eventManager)
         {
+            mGameViews.reserve(5);
+            
 			mPhysicsManager = new physics::PhysicsManager(eventManager);
             
             //TODO: GameLogic should be own of command that will do job of game logic data.
@@ -212,9 +214,9 @@ namespace qv
 //            mState = newState;
         }
         //-----------------------------------------------------------------------------------------
-        views::AbstractGameView* GameLogic::addView(const qv::c8* viewName, u32 viewHashType, u32 actorHashId)
+        qv::views::AbstractGameView* GameLogic::addGameView(const qv::c8* viewName, u32 viewHashType)
         {
-            views::AbstractGameView* gameView(0);
+            qv::views::AbstractGameView* gameView(0);
             
             if(viewHashType == qv::views::GVT_GAME_VIEW_HUMAN.Hash)
             {
@@ -223,10 +225,27 @@ namespace qv
                 // this way we will have just only one instance of each game view that user is really using
                 gameView = new qv::views::HumanView( mEventManager);
             }
-                        
+
+            if(mGameViews.size() > 0)
+            {
+                for(u32 i = 0; i < mGameViews.size(); i++)
+                {
+                    if(mGameViews[i]->getOrder() < gameView->getOrder())
+                    {
+                        mGameViews.push_back(gameView);
+                    }
+                    else
+                    {
+                        mGameViews.push_front(gameView);
+                    }
+                }
+            }
+            else
+            {
+                //first game view
+                mGameViews.push_back(gameView);
+            }
             return gameView;
-            //i need restart view here, on book it use restore method
-            //view->restore();
         }
         //-----------------------------------------------------------------------------------------
         void GameLogic::removeView(views::AbstractGameView* gameView)
