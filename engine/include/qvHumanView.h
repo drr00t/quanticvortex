@@ -68,7 +68,7 @@ namespace qv
 namespace views
 {
 
-class _QUANTICVORTEX_API_ HumanView : public AbstractGameView
+class _QUANTICVORTEX_API_ HumanView : public qv::views::AbstractGameView
     /// This class allow a local player to be atached
     /// on game, it is responsable by receive inputs
     /// from player (controller, keyboard, mouse, etc...)

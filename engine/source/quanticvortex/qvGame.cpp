@@ -30,19 +30,22 @@
 // engine headers
 #include "qvEventManager.h"
 #include "qvGameLogic.h"
-
+#include "qvHumanView.h"
 
 //external headers
 #include "Poco/Util/Option.h"
 #include "Poco/Util/OptionSet.h"
 #include "Poco/Util/OptionProcessor.h"
 
+// external classes
+#include "LinearMath/btQuickprof.h"  // bullet timer
+
 
 namespace qv
 {
     
 Game::Game()
-:mOptions(0), mQuit(false)
+:mQuit(false)
 {
 
     /*
@@ -88,6 +91,9 @@ Game::~Game(){
 //-----------------------------------------------------------------------------
 bool Game::initialize()
 {
+    //pre allocate 5 slots for views
+    mGameViews.reserve(5);
+    
     loadConfiguration(); // load default configuration files, if present
 
     mEventManager = new qv::events::EventManager();
@@ -134,10 +140,10 @@ void Game::registerGameEvents()
     mEventManager->registerEventType(qv::events::EET_GAME_TICK_UPDATE.Hash);
 }
 //-----------------------------------------------------------------------------
-void Game::addCommand(qv::ICommand* command)
-{
-    mEventManager->addCommand(command);
-}
+//void Game::addCommand(qv::ICommand* command)
+//{
+//    mEventManager->addCommand(command);
+//}
 //-----------------------------------------------------------------------------
 void Game::loadConfiguration()
 {
@@ -162,6 +168,12 @@ void Game::configFromCommandLine( s32 argc, c8* argv[])
 //-----------------------------------------------------------------------------
 void Game::finalize()
 {
+    //remove all views
+    for(u32 i = 0; i < mGameViews.size(); ++i)
+        delete mGameViews[i];
+
+    mGameViews.clear();
+
     if(mGameLogic)
         delete mGameLogic;
 
@@ -175,13 +187,16 @@ void Game::update( u32 currentTimeMs, u32 elapsedTimeMs)
 
     if (mGameLogic)
         mGameLogic->update(currentTimeMs, elapsedTimeMs);
+        
+    //update views after game logic update
+    for(u32 i = 0; i < mGameViews.size(); i++)
+        mGameViews[i]->update( elapsedTimeMs);
 }
 //-----------------------------------------------------------------------------
 void Game::render( u32 currentTimeMs, u32 elapsedTimeMs)
 {
-    const qv::views::GameViewsArray gameViews = mGameLogic->getGameViews();
-    for(u32 i = 0; i < gameViews.size(); ++i)
-        gameViews[i]->render(currentTimeMs, elapsedTimeMs);
+    for(u32 i = 0; i < mGameViews.size(); i++)
+        mGameViews[i]->render(currentTimeMs, elapsedTimeMs);
 }
 //-----------------------------------------------------------------------------
 s32 Game::run(s32 argc, c8* argv[])
@@ -199,13 +214,16 @@ s32 Game::run(s32 argc, c8* argv[])
         
     // In order to do framerate independent movement, we have to know
     // how long it was since the last frame
-    u32 lastTimeMs =  mClock.getTimeMilliseconds();
+     btClock clock;
+    clock.reset();
+    u32 lastTimeMs =  clock.getTimeMilliseconds();
     u32 curentTimeMs = lastTimeMs;
     
     while(!mQuit)
     {
+       
         // Work out a frame delta time.
-        curentTimeMs = mClock.getTimeMilliseconds();
+        curentTimeMs = clock.getTimeMilliseconds();
         u32 elapsedTimeMs = curentTimeMs - lastTimeMs;
 
         //game application update with current and 

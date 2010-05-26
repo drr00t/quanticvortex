@@ -46,63 +46,63 @@ using namespace qv::gaming;
 
 namespace qv
 {
-	class EngineManager;
+	class EventManager;
 	
     namespace views
     {
-        class HumanView: public IGameView
-        {
-
-        protected:
-            GameViewID mViewID;
-			E_GAME_VIEW_TYPE mType;
-			ElementViewList mElementViews;
-            
-            ActorID* mActorID;
-
-            IGUIFont* mFont;
-
-            //IGUIEnvironment* mGuiEnvironment;
-
-
-            f32 mCurrentTime;    // current time
-            f32 mLastUpdateTime; // last tick time update
-			f32 mAccumulatorTime;
-            // is it good can control GUI urender speed? what i can do with this? may be deal with consoles and TV
-            //bool m_runFullSpeed;	// set to true if you want to run full speed
-
-	        //// Interface sensitive objects
-	        //shared_ptr<IMouseHandler> mMouseHandler;
-	        //shared_ptr<IKeyboardHandler> mKeyboardHandler;
-			//InputController* mInputController;
-	        //ProcessManager *mProcessManager;				    // just for gui elements.
-
-
-        public:
-			HumanView( const c8* viewID);
-            virtual ~HumanView();
-
-	        virtual E_GAME_VIEW_TYPE getType()
-			{
-				return mType;
-			}
-
-	        virtual const GameViewID& getID() const
-			{
-				return mViewID;
-			}
-
-			virtual void lostDevice();
-	        virtual void attach(const GameViewID& viewID, ActorID* actorID=0);
-	        virtual void update(u32 elapsedTimeMs);
-	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs); //time in miliseconds
-
-	        //// Virtual methods to control the layering of interface elements
-            virtual void pushElement(IElementView* element);
-			virtual void popElement(IElementView* element);
-
-			//void attachProcess(Process* process){mProcessManager->attach(process);}
-        };
+//        class HumanView: public IGameView
+//        {
+//
+//        protected:
+//            GameViewID mViewID;
+//			E_GAME_VIEW_TYPE mType;
+//			ElementViewList mElementViews;
+//            
+//            ActorID* mActorID;
+//
+//            IGUIFont* mFont;
+//
+//            //IGUIEnvironment* mGuiEnvironment;
+//
+//
+//            f32 mCurrentTime;    // current time
+//            f32 mLastUpdateTime; // last tick time update
+//			f32 mAccumulatorTime;
+//            // is it good can control GUI urender speed? what i can do with this? may be deal with consoles and TV
+//            //bool m_runFullSpeed;	// set to true if you want to run full speed
+//
+//	        //// Interface sensitive objects
+//	        //shared_ptr<IMouseHandler> mMouseHandler;
+//	        //shared_ptr<IKeyboardHandler> mKeyboardHandler;
+//			//InputController* mInputController;
+//	        //ProcessManager *mProcessManager;				    // just for gui elements.
+//
+//
+//        public:
+//			HumanView( const c8* viewID);
+//            virtual ~HumanView();
+//
+//	        virtual E_GAME_VIEW_TYPE getType()
+//			{
+//				return mType;
+//			}
+//
+//	        virtual const GameViewID& getID() const
+//			{
+//				return mViewID;
+//			}
+//
+//			virtual void lostDevice();
+//	        virtual void attach(const GameViewID& viewID, ActorID* actorID=0);
+//	        virtual void update(u32 elapsedTimeMs);
+//	        virtual void render( u32 currentTimeMs, u32 elapsedTimeMs); //time in miliseconds
+//
+//	        //// Virtual methods to control the layering of interface elements
+//            virtual void pushElement(IElementView* element);
+//			virtual void popElement(IElementView* element);
+//
+//			//void attachProcess(Process* process){mProcessManager->attach(process);}
+//        };
     }
 }
 #endif

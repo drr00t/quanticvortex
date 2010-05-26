@@ -32,9 +32,9 @@
 #include "qvInputReceiver.h"
 #include "qvSGameParams.h"
 
-//#if QV_RENDER == QV_RENDER_IRRLICHT
-//#include "qvHumanView_Irrlicht.cpp"
-//#endif
+//#include "qvSceneView.h"
+
+
 #include "irrlicht.h"
 
 

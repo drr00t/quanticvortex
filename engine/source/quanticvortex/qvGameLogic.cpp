@@ -31,9 +31,6 @@
 #include "qvSActorParams.h"
 #include "qvSGameParams.h"
 
-// views
-#include "qvHumanView.h"
-
 // managers
 #include "qvEventManager.h"
 #include "qvPhysicsManager.h"
@@ -50,10 +47,8 @@ namespace qv
     {
         //-----------------------------------------------------------------------------------------
         GameLogic::GameLogic(qv::SGameParams& gameParams, qv::events::EventManager* eventManager)
-            :mPhysicsManager(0), mEventManager(eventManager)
+            :mPhysicsManager(0), mEventManager(eventManager), mPaused(false)
         {
-            mGameViews.reserve(5);
-            
 			mPhysicsManager = new physics::PhysicsManager(eventManager);
             
             //TODO: GameLogic should be own of command that will do job of game logic data.
@@ -63,12 +58,6 @@ namespace qv
         //-----------------------------------------------------------------------------------------
         GameLogic::~GameLogic()
         {
-			//remove all views
-            for(u32 i = 0; i < mGameViews.size(); ++i)
-                delete mGameViews[i];
-
-			mGameViews.clear();
-
 			qv::gaming::ActorsMap::ParentLastIterator itrActor = mActors.getParentLastIterator();
 
 			while(!itrActor.atEnd())
@@ -186,15 +175,14 @@ namespace qv
 			  //      // Not a bad idea to throw an exception here to
 			  //      // catch this in a release build...
 	    //    }
-
-			if(mPhysicsManager)
-			{
-				mPhysicsManager->update(elapsedTimeMs);
-				//m_pPhysics->VSyncVisibleScene();
-			}
-
-            for(u32 i = 0; i < mGameViews.size(); ++i)
-                mGameViews[i]->update( elapsedTimeMs );
+        // 
+            if(!mPaused)
+            {
+                if(mPhysicsManager)
+                {
+                    mPhysicsManager->update(elapsedTimeMs);
+                }
+            }
         }
         //-----------------------------------------------------------------------------------------
         bool GameLogic::loadGame(const irr::core::stringc& gameName)
@@ -212,47 +200,6 @@ namespace qv
 		void GameLogic::changeState(const qv::S_STATE& newState)
         {
 //            mState = newState;
-        }
-        //-----------------------------------------------------------------------------------------
-        qv::views::AbstractGameView* GameLogic::addGameView(const qv::c8* viewName, u32 viewHashType)
-        {
-            qv::views::AbstractGameView* gameView(0);
-            
-            if(viewHashType == qv::views::GVT_GAME_VIEW_HUMAN.Hash)
-            {
-                // may be this should be created by event PlayerAddedEvent
-                // and then feed by add view elements event like: AddElementViewEvent
-                // this way we will have just only one instance of each game view that user is really using
-                gameView = new qv::views::HumanView( mEventManager);
-            }
-
-            if(mGameViews.size() > 0)
-            {
-                for(u32 i = 0; i < mGameViews.size(); i++)
-                {
-                    if(mGameViews[i]->getOrder() < gameView->getOrder())
-                    {
-                        mGameViews.push_back(gameView);
-                    }
-                    else
-                    {
-                        mGameViews.push_front(gameView);
-                    }
-                }
-            }
-            else
-            {
-                //first game view
-                mGameViews.push_back(gameView);
-            }
-            return gameView;
-        }
-        //-----------------------------------------------------------------------------------------
-        void GameLogic::removeView(views::AbstractGameView* gameView)
-        {
-//            s32 idx = mGameViews.binary_search(gameView);
-//            mGameViews[idx]->drop();
-//            mGameViews.erase(idx);
         }
         //-----------------------------------------------------------------------------------------
     }

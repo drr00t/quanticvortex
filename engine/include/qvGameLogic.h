@@ -30,7 +30,6 @@
 
 //engine headers
 #include "qvActor.h"
-#include "qvAbstractGameView.h"
 #include "qvGameStateTypes.h"
 
 
@@ -96,16 +95,9 @@ public:
     void changeState( const qv::S_STATE& newState);
     /// change the state of game, like: from menu to running
 
-    const qv::views::GameViewsArray& getGameViews() const;
-    /// game views collections, all views must be registred on game
-    /// logic to be used on game, ex: HumanView, NetworkView.
-
-    views::AbstractGameView* addGameView(const c8* viewName, u32 viewHashType);
-    /// create and add game view to game logic.
-
-    void removeView(views::AbstractGameView* gameView);
-    /// remove view from game logic views collection
-
+    void setPause(bool pause);
+    /// pause game logic update
+    
     physics::PhysicsManager* getPhysicsManager();
     /// get physics subsystem access
 
@@ -135,9 +127,9 @@ private:
     
     u32 mCurrentGameStateHashId;
     u32 mHumanPlayerAttached;
+    bool mPaused;
 
     qv::gaming::ActorsMap mActors;
-    qv::views::GameViewsArray  mGameViews;
 
     physics::PhysicsManager* mPhysicsManager; // game physics
     events::EventManager* mEventManager; // event manager
@@ -157,11 +149,10 @@ inline qv::physics::PhysicsManager* GameLogic::getPhysicsManager()
     return mPhysicsManager;
 }
 
-inline const qv::views::GameViewsArray& GameLogic::getGameViews() const
+inline void qv::gaming::GameLogic::setPause(bool pause)
 {
-    return mGameViews;
+    mPaused = pause;
 }
-
 
 }
 
