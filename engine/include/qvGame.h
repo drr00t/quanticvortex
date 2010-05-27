@@ -36,15 +36,15 @@
 
 namespace qv
 {
-    class ICommand;
-    
+class ICommand;
+
 namespace events
 {
-    class EventManager;
+class EventManager;
 }
 namespace gaming
 {
-    class GameLogic;
+class GameLogic;
 }
 
 }
@@ -54,7 +54,7 @@ namespace Poco
 {
 namespace Util
 {
-    class OptionProcessor;
+class OptionProcessor;
 }
 }
 
@@ -62,8 +62,8 @@ namespace qv
 {
 
 class _QUANTICVORTEX_API_ Game
-    /// engine core object, this work on lowest level and provide a 
-    /// generic loop for global service like: EventManager, GameLogic
+            /// engine core object, this work on lowest level and provide a
+            /// generic loop for global service like: EventManager, GameLogic
 {
 
 public:
@@ -80,25 +80,25 @@ public:
     /// all global events are processed here
 
     qv::SGameParams& getGameParameters();
-    /// game global configuration options, menu interface can 
+    /// game global configuration options, menu interface can
     /// change this values
-    
+
     void setQuit(bool quit);
     /// quit from engine main loop if true
-    
+
     const qv::views::GameViewsArray& getGameViews() const;
     /// game views collections, all views must be registred on game
     /// logic to be used on game, ex: HumanView, NetworkView.
 
 //    qv::views::AbstractGameView* addGameView(const c8* viewName, u32 viewHashType);
     /// create and add game view to game logic.
-    
+
 //    qv::views::HumanView* addHumanView(const c8* viewName);
     /// a human to representa a local player
 
     void removeView(views::AbstractGameView* gameView);
     /// remove view from game logic views collection
-    
+
 protected:
 
     virtual void loadConfiguration();
@@ -108,41 +108,41 @@ protected:
     /// override config file options with commandline options
     /// options passed by command line, will not be persisted
     /// to config file
-    
+
     virtual void registerGameEvents();
     /// register event that will be used in all over the engine
-    
+
 //    virtual void addCommand(qv::ICommand* command);
     /// register event commands
 
     qv::SGameParams mParams; // parameters for game
 //    Poco::Util::OptionProcessor* mOptions; // options from command
-    
+
 private:
     Game (const Game&);
     Game& operator = (const Game&);
-    
+
     bool initialize();
-    /// real method taht will start the engine, this it will 
+    /// real method taht will start the engine, this it will
     /// called inside constructor
 
     void finalize();
-    /// this method is analog to the initialize, and will be called 
+    /// this method is analog to the initialize, and will be called
     /// in destructor to make a shutdown and cleanup before quit
 
     void update( u32 currentTimeMs, u32 elapsedTimeMs);
-    /// will called every global engine tick and pass current 
+    /// will called every global engine tick and pass current
     /// system time to GameLogic, EventManager
 
     void render( u32 currentTimeMs, u32 elapsedTimeMs);
     /// render content of views registred in GameLogic
-    
+
     bool mQuit; /// quit of engine loop if is true
     qv::SGameParams mGameParams; /// engine, render paramaters
     qv::gaming::GameLogic* mGameLogic; /// game core object updated on engine loop
     qv::events::EventManager* mEventManager; /// global event manager
     qv::views::GameViewsArray  mGameViews;
-    
+
 };
 
 //inlines
@@ -156,17 +156,16 @@ inline qv::events::EventManager* Game::getEventManager()
     return mEventManager;
 }
 
-inline qv::SGameParams& Game::getGameParameters() 
+inline qv::SGameParams& Game::getGameParameters()
 {
     return mGameParams;
 }
 
-inline void Game::setQuit(bool quit) 
-{ 
+inline void Game::setQuit(bool quit)
+{
     mQuit = quit;
 }
 
 }
 
 #endif
-

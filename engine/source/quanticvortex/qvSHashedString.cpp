@@ -26,21 +26,19 @@
 
 #include "qvSHashedString.h"
 
-#include "qvHashFunctions.h"
-
 
 namespace qv
 {
-    extern "C" _QUANTICVORTEX_API_ SHashedString QUANTICVORTEX_CALLCONV createHashedString( const qv::c8* text)
-    {
-        SHashedString hashedString;
-
-#ifdef _DEBUG
-        hashedString.Text = text;
-#endif
-
-        hashedString.Hash = createMurmurHash2(text, irr::core::stringc(text).size());
-
-        return hashedString;
-    }
+//    extern "C" _QUANTICVORTEX_API_ SHashedString QUANTICVORTEX_CALLCONV createHashedString( const qv::c8* text)
+//    {
+////        SHashedString hashedString;
+////
+////#ifdef _DEBUG
+////        hashedString.Text = text;
+////#endif
+////
+////        hashedString.Hash = createMurmurHash2(text, irr::core::stringc(text).size());
+////
+//        return hashedString;
+//    }
 }

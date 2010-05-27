@@ -33,24 +33,24 @@
 
 namespace qv
 {
-    //-----------------------------------------------------------------------------
-    // MurmurHash2, by Austin Appleby  from http://sites.google.com/site/murmurhash/
+//-----------------------------------------------------------------------------
+/*// MurmurHash2, by Austin Appleby  from http://sites.google.com/site/murmurhash/
 
-    // Note - This code makes a few assumptions about how your machine behaves -
+// Note - This code makes a few assumptions about how your machine behaves -
 
-    // 1. We can read a 4-byte value from any address without crashing
-    // 2. sizeof(int) == 4
+// 1. We can read a 4-byte value from any address without crashing
+// 2. sizeof(int) == 4
 
-    // And it has a few limitations -
+// And it has a few limitations -
 
-    // 1. It will not work incrementally.
-    // 2. It will not produce the same results on little-endian and big-endian
-    //    machines.
+// 1. It will not work incrementally.
+// 2. It will not produce the same results on little-endian and big-endian
+//    machines.
 
-    // All code is released to the public domain. For business purposes, Murmurhash is
-    // under the MIT license.
-    extern "C" _QUANTICVORTEX_API_ u32 QUANTICVORTEX_CALLCONV createMurmurHash2 ( const void * key, u32 len, u32 seed = 0);
+// All code is released to the public domain. For business purposes, Murmurhash is
+// under the MIT license.
+*/
+extern "C" _QUANTICVORTEX_API_ u32 QUANTICVORTEX_CALLCONV createMurmurHash2 ( const void * key, u32 len, u32 seed = 0);
 }
 
 #endif
-

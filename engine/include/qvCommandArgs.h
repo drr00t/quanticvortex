@@ -25,29 +25,48 @@
 **************************************************************************************************/
 
 
-#ifndef __GAME_VIEW_TYPES_H_
-#define __GAME_VIEW_TYPES_H_
+#ifndef __COMMAND_ARGS_H_
+#define __COMMAND_ARGS_H_
 
-#include "qvSHashedString.h"
+#include <vector>
 
+#include "qvCommandTypes.h"
 
 namespace qv
 {
-    namespace views
-    {
-        typedef SHashedString GVI_GAME_VIEW_ID;
-		typedef SHashedString GVT_GAME_VIEW_TYPE;
+class CommandArgs
+{
+public:
 
-        //engine sertvices events
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_AI("GVT_GAME_VIEW_AI");               //decision makeing events, sensor system
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_HUMAN("GVT_GAME_VIEW_HUMAN");         //local human player view
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_NETWORK("GVT_GAME_VIEW_NETWORK");     //network player (proxy)
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_PHYSICS("GVT_GAME_VIEW_PHYSICS");     //i will try use this for physics debuging
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_RECORDER("GVT_GAME_VIEW_RECORDER");   //listen all events fired
+    CommandArgs( const qv::CT_COMMAND_TYPE& commandType)
+            : mCommandType(commandType)
+            /// create a event argument with type
+    {}
 
 
-    }
+    virtual ~CommandArgs()
+    {}
+
+    const qv::CT_COMMAND_TYPE& getType() const;
+    /// event argument type
+
+private:
+    CommandArgs(const CommandArgs&); // to avoid copy of even args
+
+    CommandArgs& operator = (const CommandArgs&); // to avoid copy of event args
+
+    const qv::CT_COMMAND_TYPE& mCommandType; // event arguments type
+};
+
+typedef std::vector<qv::CommandArgs*> CommandArgsArray;
+/// array of CommandArgs
+
+//inlines
+inline const qv::CT_COMMAND_TYPE& qv::CommandArgs::getType() const
+{
+    return mCommandType;
+}
+
 }
 
 #endif
-

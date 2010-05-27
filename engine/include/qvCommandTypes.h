@@ -33,12 +33,9 @@
 
 namespace qv
 {
-    typedef SHashedString CI_COMMAND_ID;
-    typedef SHashedString CT_COMMAND_TYPE;
+typedef SHashedString CI_COMMAND_ID;
+typedef SHashedString CT_COMMAND_TYPE;
 
-    //engine command types by subsystem
-    static const CT_COMMAND_TYPE CT_COMMAND_EVENT = HASH_STRING("EVENT");
-    static const CT_COMMAND_TYPE CT_COMMAND_INPUT = HASH_STRING("INPUT");
 //	static const CI_COMMAND_ID CI_COMMAND_GAME_QUIT = new CI_COMMAND_ID("CI_COMMAND_GAME_QUIT");
 //	static const CI_COMMAND_ID *CI_COMMAND_GAME_NEW = new CI_COMMAND_ID("CI_COMMAND_GAME_NEW");
 //	static const CI_COMMAND_ID *CI_COMMAND_GAME_OPTIONS = new CI_COMMAND_ID("CI_COMMAND_GAME_OPTIONS");
@@ -49,5 +46,3 @@ namespace qv
 }
 
 #endif
-
-

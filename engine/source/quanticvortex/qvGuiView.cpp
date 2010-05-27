@@ -9,13 +9,14 @@ namespace qv
     {
         //---------------------------------------------------------------------
         GuiView::GuiView(const c8* name, u32 elementViewHashType)
-			: mElement(0), mGuiManager(0), mVisible(true), mHashType(elementViewHashType)//, mOrder(5)
+			: mElement(0), mGuiManager(0), mVisible(true), mID(name),
+            mHashType(elementViewHashType)//, mOrder(5)
         {
 
 //#ifdef _DEBUG
 //			setDebugName("GuiView");
 //#endif
-			mID  = HASH_STRING(name);
+//			mID  = ;
 			//recti window(0,0,mGuiManager->getVideoDriver()->getScreenSize().Width,
 			//				mGuiManager->getVideoDriver()->getScreenSize().Height);
 			//mElement = mGuiManager->addWindow(window);

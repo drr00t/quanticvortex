@@ -9,8 +9,9 @@ dependencies/
 dependencies-sources/
 *.ncb
 *.suo
-.tags
-.list
-.adriano
-.session
+*.tags
+*.list
+*.adriano
+*.session
 tags
+.zargo~

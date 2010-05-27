@@ -39,7 +39,7 @@ namespace qv
 {
 namespace events
 {
-    static const qv::events::ET_EVENT_TYPE ET_CREATE_GAME_VIEW = HASH_STRING("ET_CREATE_GAME_VIEW");
+    static const qv::events::ET_EVENT_TYPE ET_CREATE_GAME_VIEW("ET_CREATE_GAME_VIEW");
     
 class _QUANTICVORTEX_API_ CreateGameViewEventArgs: public qv::events::EventArgs
 {

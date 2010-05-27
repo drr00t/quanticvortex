@@ -30,24 +30,69 @@
 
 #include "qvCompileConfig.h"
 #include "qvTypes.h"
+#include "qvHashFunctions.h"
 
 #include "irrString.h"
-
-//to convert text to hashed string
-#define HASH_STRING(text) qv::createHashedString( text)
 
 namespace qv
 {
 
-	struct SHashedString
-    {
-		u32 Hash;
-#ifdef _DEBUG
-        irr::core::stringc Text;
-#endif
-    };
+struct SHashedString
+/// hashed string a converter from string to __int32 value
+/// to be used for fast comparations.
 
-    extern "C" _QUANTICVORTEX_API_ SHashedString QUANTICVORTEX_CALLCONV createHashedString( const qv::c8* text);
+{
+    SHashedString(const c8* text)
+    /// generate hash for text parameter
+    {
+#ifdef _DEBUG
+        Text = irr::core::stringc(text);
+        Hash = qv::createMurmurHash2(Text.c_str(), Text.size(), 0);
+#else
+        Hash = qv::createMurmurHash2(text, irr::core::stringc(text).size(), 0);
+#endif
+    }
+
+    // operators
+    bool operator==( const SHashedString& other) const
+    {
+#ifdef _DEBUG
+        return ((this->Hash == other.Hash) && (this->Text == other.Text));
+#else
+        return (this->Hash == other.Hash);
+#endif
+    }
+//    bool operator!=( const SHashedString& other) const;
+
+    qv::u32 Hash;
+    /// hash of text passed by user
+
+#ifdef _DEBUG
+    irr::core::stringc Text;
+    /// text used to generate hash, use just for debug
+    /// this attribute will not be avaible in release build
+#endif
+
+};
+
+//    bool SHashedString::operator==( const SHashedString& other) const
+//    {
+//#ifdef _DEBUG
+//        return ((this->Hash == other.Hash) && (this->Text == other.Text));
+//#else
+//        return (this->Hash == other.Hash);
+//#endif
+//    }
+//    
+//    bool SHashedString::operator!=( const SHashedString& other) const
+//    {
+//#ifdef _DEBUG
+//        return ((this->Text != other.Text) && (this->Hash != other.Hash));
+//#else
+//        return (this->Hash != other.Hash);
+//#endif
+//    }
+    
+//extern "C" _QUANTICVORTEX_API_ SHashedString QUANTICVORTEX_CALLCONV createHashedString( const qv::c8* text);
 }
 #endif
-

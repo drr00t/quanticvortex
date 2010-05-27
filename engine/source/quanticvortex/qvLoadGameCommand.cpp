@@ -24,30 +24,23 @@
 
 **************************************************************************************************/
 
-
-#ifndef __GAME_VIEW_TYPES_H_
-#define __GAME_VIEW_TYPES_H_
-
-#include "qvSHashedString.h"
-
+#include "qvLoadGameCommand.h"
 
 namespace qv
 {
-    namespace views
-    {
-        typedef SHashedString GVI_GAME_VIEW_ID;
-		typedef SHashedString GVT_GAME_VIEW_TYPE;
+namespace gaming
+{
 
-        //engine sertvices events
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_AI("GVT_GAME_VIEW_AI");               //decision makeing events, sensor system
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_HUMAN("GVT_GAME_VIEW_HUMAN");         //local human player view
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_NETWORK("GVT_GAME_VIEW_NETWORK");     //network player (proxy)
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_PHYSICS("GVT_GAME_VIEW_PHYSICS");     //i will try use this for physics debuging
-        static const GVT_GAME_VIEW_TYPE GVT_GAME_VIEW_RECORDER("GVT_GAME_VIEW_RECORDER");   //listen all events fired
+//-----------------------------------------------------------------------------------------
+LoadGameCommand::LoadGameCommand()
+{
+}
+//-----------------------------------------------------------------------------------------
+LoadGameCommand::~LoadGameCommand()
+{
+}
+//-----------------------------------------------------------------------------------------
 
-
-    }
 }
 
-#endif
-
+}

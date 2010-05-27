@@ -48,7 +48,7 @@ namespace qv
 namespace input
 {
     
-static const ITT_INPUT_TRANSLATOR_TYPE ITT_ANY_KEY = HASH_STRING("ANY_KEY");
+static const ITT_INPUT_TRANSLATOR_TYPE ITT_ANY_KEY("ANY_KEY");
 
 class AnyKeyInputTranslator : public qv::input::IInputTranslator
     /// get keyboard change key state

@@ -50,7 +50,7 @@ namespace qv
 namespace input
 {
 
-static const qv::input::ITT_INPUT_TRANSLATOR_TYPE ITT_SINGLE_KEY = HASH_STRING("SINGLE_KEY");
+static const qv::input::ITT_INPUT_TRANSLATOR_TYPE ITT_SINGLE_KEY("SINGLE_KEY");
 
 class _QUANTICVORTEX_API_ SingleKeyInputTranslator: public qv::input::IInputTranslator
 {

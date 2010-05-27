@@ -201,6 +201,9 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
   </Settings>
+  <Dependencies Name="Windows x86 - DLL - Release"/>
+  <Dependencies Name="Windows x86 - Static - Debug"/>
+  <Dependencies Name="Windows x86 - Static - Release"/>
   <Dependencies Name="Windows x86 - DLL - Debug">
     <Project Name="QuanticVortex_Core"/>
   </Dependencies>

@@ -35,16 +35,16 @@
 
 namespace qv
 {
-    struct SGameParams;
+struct SGameParams;
 
 namespace events
 {
-    class EventManager;
+class EventManager;
 }
 
 namespace physics
 {
-    class PhysicsManager;
+class PhysicsManager;
 }
 
 }
@@ -62,17 +62,17 @@ public:
     /// and game parameters
 
     ~GameLogic();
-    
+
     void addActor( u32 actorHashId);
     /// add new actor to the game
-    
+
 
     Actor* getActor( u32 actorHashId)
     /// query a registred actor from game
     {
         ActorsMap::Node* actorNode = mActors.find(actorHashId);
         Actor* actor(0);
-        if(actorNode)
+        if (actorNode)
             actor = actorNode->getValue();
         return actor;
     }
@@ -82,7 +82,7 @@ public:
     {
         Actor* actor = getActor(actorHashId);
 
-        if(actor)
+        if (actor)
             mActors.delink(actorHashId);
     }
 
@@ -97,11 +97,9 @@ public:
 
     void setPause(bool pause);
     /// pause game logic update
-    
+
     physics::PhysicsManager* getPhysicsManager();
     /// get physics subsystem access
-
-    //IEventListener* getEventListener(){return mEventListener;}
 
     //void attachProcess(IProcess* process)
     //{
@@ -110,11 +108,10 @@ public:
 
     //void detachProcess(IProcess* process){}
 
-
 private:
 
     GameLogic(const GameLogic&); // to avoid copy of game logic
-    
+
     GameLogic& operator = (const GameLogic&); // to avoid copy of game logic
 
     bool initialize();
@@ -124,7 +121,7 @@ private:
 
     bool finalize();
     /// finish game logic and all subsystems
-    
+
     u32 mCurrentGameStateHashId;
     u32 mHumanPlayerAttached;
     bool mPaused;
@@ -159,4 +156,3 @@ inline void qv::gaming::GameLogic::setPause(bool pause)
 
 }
 #endif
-

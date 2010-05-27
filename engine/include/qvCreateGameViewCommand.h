@@ -43,7 +43,7 @@ namespace qv
 namespace gaming
 {
 
-static const qv::CI_COMMAND_ID CI_CREATE_GAME_VIEW = HASH_STRING("CI_CREATE_GAME_VIEW");
+static const qv::CI_COMMAND_ID CI_CREATE_GAME_VIEW("CI_CREATE_GAME_VIEW");
     
 class _QUANTICVORTEX_API_ CreateGameViewCommand: public qv::ICommand
     /// basic interface to execute a command inside the engine

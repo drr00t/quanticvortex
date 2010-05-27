@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CodeLite_Workspace Name="QuanticVortex Samples_cl" Database="./QuanticVortex Samples_cl.tags">
   <Project Name="QuanticVortex_Core" Path="../engine/builds/codelite/QuanticVortex_Core.project" Active="No"/>
-  <Project Name="01_Sample" Path="01_Sample/builds/cl/01_Sample.project" Active="Yes"/>
+  <Project Name="01_Sample" Path="01_Sample/builds/cl/01_Sample.project" Active="No"/>
+  <Project Name="QuanticVortex_Tests" Path="../engine tests/builds/codelite/QuanticVortex_Tests.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Windows x86 - DLL - Release" Selected="no">
       <Project Name="QuanticVortex_Core" ConfigName="Windows x86 - DLL - Debug"/>
       <Project Name="01_Sample" ConfigName="Windows x86 - DLL - Debug"/>
+      <Project Name="QuanticVortex_Tests" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Windows x86 - DLL - Debug" Selected="yes">
       <Project Name="QuanticVortex_Core" ConfigName="Windows x86 - DLL - Debug"/>
       <Project Name="01_Sample" ConfigName="Windows x86 - DLL - Debug"/>
+      <Project Name="QuanticVortex_Tests" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Windows x86 - Static - Debug" Selected="no">
+    <WorkspaceConfiguration Name="Windows x86 - Static - Debug" Selected="yes">
       <Project Name="QuanticVortex_Core" ConfigName="Windows x86 - DLL - Debug"/>
       <Project Name="01_Sample" ConfigName="Windows x86 - DLL - Debug"/>
+      <Project Name="QuanticVortex_Tests" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Windows x86 - Static - Release" Selected="no">
+    <WorkspaceConfiguration Name="Windows x86 - Static - Release" Selected="yes">
       <Project Name="QuanticVortex_Core" ConfigName="Windows x86 - DLL - Debug"/>
       <Project Name="01_Sample" ConfigName="Windows x86 - DLL - Debug"/>
+      <Project Name="QuanticVortex_Tests" ConfigName="Debug"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

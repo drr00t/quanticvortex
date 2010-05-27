@@ -43,49 +43,50 @@
 
 namespace qv
 {
-    
+
 Game::Game()
-:mQuit(false)
+        : mQuit(false)
 {
 
     /*
-//    Poco::Util::OptionSet set;
-//	set.addOption(
-//		Poco::Util::Option("bits", "bpp")
-//		.description("bits per pixel of the color buffer. default: 16")
-//		.required(false)
-//		.repeatable(false)
-//        .argument("value"));
-//			
-//	set.addOption(
-//		Poco::Util::Option("windowsize", "ws")
-//		.description("window size. default: 1024x768")
-//		.required(false)
-//		.repeatable(false)
-//        .argument("value"));
-//	
-//    set.addOption(
-//		Poco::Util::Option("vsync", "sync")
-//		.description("vertical sync. default: false")
-//		.required(false)
-//		.repeatable(false)
-//        .argument("value"));
-//        
-//	set.addOption(
-//		Poco::Util::Option("scene", "s")
-//		.description("can load a scene file directly.")
-//		.required(false)
-//		.repeatable(false)
-//        .argument("value"));
-//        
-//	mOptions = new Poco::Util::OptionProcessor(set);
-*/
+    //    Poco::Util::OptionSet set;
+    //    set.addOption(
+    //    	Poco::Util::Option("bits", "bpp")
+    //    	.description("bits per pixel of the color buffer. default: 16")
+    //    	.required(false)
+    //    	.repeatable(false)
+    //        .argument("value"));
+    //
+    //    set.addOption(
+    //    	Poco::Util::Option("windowsize", "ws")
+    //    	.description("window size. default: 1024x768")
+    //    	.required(false)
+    //    	.repeatable(false)
+    //        .argument("value"));
+    //
+    //    set.addOption(
+    //    	Poco::Util::Option("vsync", "sync")
+    //    	.description("vertical sync. default: false")
+    //    	.required(false)
+    //    	.repeatable(false)
+    //        .argument("value"));
+    //
+    //    set.addOption(
+    //    	Poco::Util::Option("scene", "s")
+    //    	.description("can load a scene file directly.")
+    //    	.required(false)
+    //    	.repeatable(false)
+    //        .argument("value"));
+    //
+    //    mOptions = new Poco::Util::OptionProcessor(set);
+    */
 
-    if(!initialize())
-        mQuit = true;    
+    if (!initialize())
+        mQuit = true;
 }
 
-Game::~Game(){
+Game::~Game()
+{
     finalize();
 }
 //-----------------------------------------------------------------------------
@@ -93,7 +94,7 @@ bool Game::initialize()
 {
     //pre allocate 5 slots for views
     mGameViews.reserve(5);
-    
+
     loadConfiguration(); // load default configuration files, if present
 
     mEventManager = new qv::events::EventManager();
@@ -101,8 +102,8 @@ bool Game::initialize()
 
     //registring engine events
     registerGameEvents();
-    
-    // registry my command here, like: 
+
+    // registry my command here, like:
 //        - QuitCommand
 //        - ConfigurationLoaded
 //        - ConfigurationChanged
@@ -129,13 +130,13 @@ void Game::registerGameEvents()
     mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_MENU.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_RUNNING.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_WAITING_PLAYER.Hash);
-    
+
     mEventManager->registerEventType(qv::events::EET_GAME_QUIT.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_SAVE.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_OPTIONS.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_LOAD.Hash);
     mEventManager->registerEventType(qv::events::EET_GAME_NEW.Hash);
-    
+
     // human view events, raised on each human view update call by game logic
     mEventManager->registerEventType(qv::events::EET_GAME_TICK_UPDATE.Hash);
 }
@@ -157,27 +158,27 @@ void Game::loadConfiguration()
     mGameParams.LocalPlayers = 1;
     mGameParams.HostGame = true;
     mGameParams.Title = "Default Game Window";
-    mGameParams.WindowSize = irr::core::dimension2di(1024,768);
+    mGameParams.WindowSize = irr::core::dimension2di(1024, 768);
 
 }
 //-----------------------------------------------------------------------------
 void Game::configFromCommandLine( s32 argc, c8* argv[])
 {
-    
+
 }
 //-----------------------------------------------------------------------------
 void Game::finalize()
 {
     //remove all views
-    for(u32 i = 0; i < mGameViews.size(); ++i)
+    for (u32 i = 0; i < mGameViews.size(); ++i)
         delete mGameViews[i];
 
     mGameViews.clear();
 
-    if(mGameLogic)
+    if (mGameLogic)
         delete mGameLogic;
 
-    if(mEventManager)
+    if (mEventManager)
         delete mEventManager;
 }
 //-----------------------------------------------------------------------------
@@ -187,15 +188,15 @@ void Game::update( u32 currentTimeMs, u32 elapsedTimeMs)
 
     if (mGameLogic)
         mGameLogic->update(currentTimeMs, elapsedTimeMs);
-        
+
     //update views after game logic update
-    for(u32 i = 0; i < mGameViews.size(); i++)
+    for (u32 i = 0; i < mGameViews.size(); i++)
         mGameViews[i]->update( elapsedTimeMs);
 }
 //-----------------------------------------------------------------------------
 void Game::render( u32 currentTimeMs, u32 elapsedTimeMs)
 {
-    for(u32 i = 0; i < mGameViews.size(); i++)
+    for (u32 i = 0; i < mGameViews.size(); i++)
         mGameViews[i]->render(currentTimeMs, elapsedTimeMs);
 }
 //-----------------------------------------------------------------------------
@@ -204,36 +205,36 @@ s32 Game::run(s32 argc, c8* argv[])
     // - process commandline params, this shoud override file config value
     // just in SGameParams not in real config file
     configFromCommandLine( argc, argv);
-    
+
     // put game logic in initialization state, there several state pre-difined, how:
     //    - qv::events::EET_GAME_LOGIC_INITIALIZATING
     //    - qv::events::EET_GAME_LOGIC_MENU
     //    - qv::events::EET_GAME_LOGIC_LOADING
     //    - qv::events::EET_GAME_LOGIC_WAITING_PLAYER
     //    - qv::events::EET_GAME_LOGIC_RUNNING
-        
+
     // In order to do framerate independent movement, we have to know
     // how long it was since the last frame
-     btClock clock;
+    btClock clock;
     clock.reset();
     u32 lastTimeMs =  clock.getTimeMilliseconds();
     u32 curentTimeMs = lastTimeMs;
-    
-    while(!mQuit)
+
+    while (!mQuit)
     {
-       
+
         // Work out a frame delta time.
         curentTimeMs = clock.getTimeMilliseconds();
         u32 elapsedTimeMs = curentTimeMs - lastTimeMs;
 
-        //game application update with current and 
+        //game application update with current and
         //elapsed time from last application update
         update( curentTimeMs, elapsedTimeMs);
 
-        //game views rendering update with current and 
+        //game views rendering update with current and
         //elapsed time from last application tick
         render( curentTimeMs, elapsedTimeMs);
-        
+
         //update last time
         lastTimeMs = curentTimeMs;
     }
