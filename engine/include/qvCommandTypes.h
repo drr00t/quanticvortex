@@ -28,21 +28,37 @@
 #ifndef __COMMAND_TYPES_H_
 #define __COMMAND_TYPES_H_
 
+#include <vector>
+
 #include "qvSHashedString.h"
 
 
 namespace qv
 {
-typedef SHashedString CI_COMMAND_ID;
-typedef SHashedString CT_COMMAND_TYPE;
 
-//	static const CI_COMMAND_ID CI_COMMAND_GAME_QUIT = new CI_COMMAND_ID("CI_COMMAND_GAME_QUIT");
-//	static const CI_COMMAND_ID *CI_COMMAND_GAME_NEW = new CI_COMMAND_ID("CI_COMMAND_GAME_NEW");
-//	static const CI_COMMAND_ID *CI_COMMAND_GAME_OPTIONS = new CI_COMMAND_ID("CI_COMMAND_GAME_OPTIONS");
-//	static const CI_COMMAND_ID *CI_COMMAND_GAME_STATE_CHANGE = new CI_COMMAND_ID("CI_COMMAND_GAME_STATE_CHANGE");
-//	static const CI_COMMAND_ID *CI_COMMAND_GAME_SAVE = new CI_COMMAND_ID("CI_COMMAND_GAME_SAVE");
-//	static const CI_COMMAND_ID *CI_COMMAND_GAME_LOAD = new CI_COMMAND_ID("CI_COMMAND_GAME_LOAD");
-//	static const CI_COMMAND_ID *CI_COMMAND_GAME_PAUSED = new CI_COMMAND_ID("CI_COMMAND_GAME_PAUSED");
+typedef SHashedString CI_COMMAND_ID;
+/// this should be set by user when a command is created,
+/// this value shoud be unique in command space
+
+typedef SHashedString CT_COMMAND_TYPE;
+/// define command family for this command
+
+typedef std::vector<qv::CT_COMMAND_TYPE> CommandTypesArray;
+
+static const qv::CT_COMMAND_TYPE CT_GAME_PARAMS_CHANGED("CT_GAME_PARAMS_CHANGED");
+/// used to identify game configuration loaded or changed
+
+namespace gaming
+{
+
+static const qv::CT_COMMAND_TYPE CT_GAME_LOAD("CT_GAME_LOAD");
+/// command type: game load
+
+static const qv::CT_COMMAND_TYPE CT_GAME_VIEW_CREATE("CT_GAME_VIEW_CREATE");
+/// create a game view and attach
+
+}
+
 }
 
 #endif

@@ -12,7 +12,6 @@
     <File Name="../../include/qvCommandTypes.h"/>
     <File Name="../../include/qvCompileConfig.h"/>
     <File Name="../../include/qvConcurrentArray.h"/>
-    <File Name="../../include/qvConfig.h"/>
     <File Name="../../include/qvConfigProfile.h"/>
     <File Name="../../include/qvEventTypes.h"/>
     <File Name="../../include/qvGameParameters.h"/>
@@ -21,14 +20,11 @@
     <File Name="../../include/qvHashFunctions.h"/>
     <File Name="../../include/qvIActorAddedEventArgs.h"/>
     <File Name="../../include/qvIAIView.h"/>
-    <File Name="../../include/qvICommand.h"/>
     <File Name="../../include/qvIElementView.h"/>
     <File Name="../../include/qvIElementViewFactory.h"/>
     <File Name="../../include/qvIEventArgsFactory.h"/>
-    <File Name="../../include/qvIEventCommand.h"/>
     <File Name="../../include/qvIGameStateMachine.h"/>
     <File Name="../../include/qvIGuiView.h"/>
-    <File Name="../../include/qvIInputCommand.h"/>
     <File Name="../../include/qvIInputTranslator.h"/>
     <File Name="../../include/qvIInputTranslatorFactory.h"/>
     <File Name="../../include/qvIMemoryManager.h"/>
@@ -83,6 +79,7 @@
     </VirtualDirectory>
     <File Name="../../include/qvCommandManager.h"/>
     <File Name="../../include/qvCommandArgs.h"/>
+    <File Name="../../include/qvAbstractCommand.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="quanticvortex">
     <File Name="../../source/quanticvortex/qvAnyKeyInputTranslator.cpp"/>

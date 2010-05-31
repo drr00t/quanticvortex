@@ -29,17 +29,14 @@
 #define __COMMAND_MANAGER_H_
 
 #include "qvCompileConfig.h"
-#include "qvCommandTypes.h"
-#include "qvEventTypes.h"
-#include "qvICommand.h"
+#include "qvAbstractCommand.h"
 
 #include "qvRAIIFactoryImp.h"
 #include "Poco/AtomicCounter.h"
 
 namespace qv
 {
-namespace events
-{
+
 class _QUANTICVORTEX_API_ CommandManager
             /// event manager class class to raised event and execute all
             /// command associated to each one. EventCommand are listeners
@@ -48,51 +45,84 @@ public:
     CommandManager();
     virtual ~CommandManager();
 
-    bool addCommand ( qv::ICommand* command);
-    /// register an command on command collection
+//    bool addCommand ( qv::AbstractCommand* command);
+//    /// register an command to listen a specific command type
 
-    bool removeCommand ( qv::ICommand* command);
-    /// remove desired command from command collection
+    bool removeCommand ( qv::AbstractCommand* command);
+    /// remove a command from listeners command type map
+    
+    template <class T> qv::AbstractCommand* createCommand( const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType)
+        /// create command for a command args type.
+    {
+         qv::AbstractCommand* command(0);
 
-    template <class T> T* createCommandArgs( const qv::CT_COMMAND_TYPE& commandType);
+        if(validateCommandType(commandType))
+        {
+            command = mCommandsFactory.keep(new T(commandName, commandType));
+
+            qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(command->getType().Hash);
+
+            for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; itr++)
+                if( itr->second->getId().Hash == command->getId().Hash)
+                    return false;
+            
+            mRegistredCommandsMap.insert(CommandsMap::value_type( command->getType().Hash, command));
+        
+        }
+        
+        return command;
+    }
+    
+    template <class T> qv::CommandArgs* createCommandArgs( const qv::CT_COMMAND_TYPE& commandType)
+        /// create command args for all registred command types.
+    {
+         qv::CommandArgs* args(0);
+
+        if(validateCommandType(commandType))
+            args = mCommandArgsFactory.keep(new T(commandType));
+
+        return args;
+    }
+    
     /// create an EventArgs of specific type if this type
     /// is registred on event args factory.
 
-//    void registerEventType( u32 eventHashType);
+    void registerCommandType( const qv::CT_COMMAND_TYPE& commandType);
     /// register a new event type to valid event types list
+    
+   
+    bool validateCommandType(const qv::CT_COMMAND_TYPE& commandType);
+    /// check this event if it is valid
 
-//    void unregisterEventType( u32 eventHashType);
+//    void unregisterCommandType( const qv::CT_COMMAND_TYPE& commandType);
     /// remove an event type from event type list
 
-//    bool abortEvent ( u32 eventHashType);
-    /// cancel the execution of an next event or all event from this type
-
-//    bool enqueueEvent (qv::events::EventArgs* args);
+    bool enqueueCommandArgs (qv::CommandArgs* args);
     /// post the event args to the raise queue
 
-//    bool processReadyEvents();
-    /// raise all event enqueue on this game tick
+    bool executeCommands();
+    /// raise all queued command args are executed
 
-//    bool trigger ( qv::events::EventArgs* args );
-    /// raise this event right now
+    bool executeCommand ( const qv::CommandArgs* args );
+    /// execute all command listen this command args
 
-//    bool validateType(u32 eventHashType);
-    /// check this event if it is valid
+
 
 private:
 
     CommandManager( const CommandManager&);
     CommandManager operator = ( const CommandManager&);
 
-    static const s32 QueueEventsLenght = 2; // double buffer event queue
-    qv::events::EventHashTypesArray mValidEventTypes; // registred valid event types
-    qv::CommandMap mRegistredCommandsMap; //
-    qv::events::EventArgsArray mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
-    //	ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
-    //  qv::events::EventArgsFactoryVector mEventArgsFactories;
-    RaiiFactoryImp<qv::events::EventArgs> mEventArgs; // created event args
-    Poco::AtomicCounter mActiveReadyEventList;
+    static const s32 QueueCommandArgsLenght = 2; // double buffer queue
+    qv::CommandTypesArray mValidCommandTypes; // registred valid event types
+    qv::CommandsMap mRegistredCommandsMap; //
+    qv::CommandArgsArray mReadyCommandArgs[QueueCommandArgsLenght]; //to event lists to double buffering
+//    //	ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
+    RaiiFactoryImp<qv::AbstractCommand> mCommandsFactory;
+    RaiiFactoryImp<qv::CommandArgs> mCommandArgsFactory; // create and control life cicle of command args
+    Poco::AtomicCounter mActiveReadyCommandArgsQueue;
 };
+
 }
-}
+
 #endif

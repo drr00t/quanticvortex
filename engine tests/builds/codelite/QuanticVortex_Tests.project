@@ -11,6 +11,8 @@
     <File Name="../../source/main.cpp"/>
     <File Name="../../source/0001_qvSHashedString_Test.h"/>
     <File Name="../../source/0002_qvCommandArgs_Test.h"/>
+    <File Name="../../source/0003_qvAbstractCommand_Test.h"/>
+    <File Name="../../source/0004_qvCommandManager_Test.h"/>
   </VirtualDirectory>
   <Dependencies Name="Debug">
     <Project Name="QuanticVortex_Core"/>

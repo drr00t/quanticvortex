@@ -32,7 +32,7 @@
 #include "qvSGameParams.h"
 
 // managers
-#include "qvEventManager.h"
+#include "qvCommandManager.h"
 #include "qvPhysicsManager.h"
 
 //event args
@@ -46,14 +46,14 @@ namespace qv
 namespace gaming
 {
 //-----------------------------------------------------------------------------------------
-GameLogic::GameLogic(qv::SGameParams& gameParams, qv::events::EventManager* eventManager)
-        : mPhysicsManager(0), mEventManager(eventManager), mPaused(false)
+GameLogic::GameLogic(qv::SGameParams& gameParams, qv::CommandManager* commandManager)
+        : mPhysicsManager(0), mCommandManager(commandManager), mPaused(false)
 {
-    mPhysicsManager = new physics::PhysicsManager(eventManager);
+    mPhysicsManager = new qv::physics::PhysicsManager(mCommandManager);
 
     //TODO: GameLogic should be own of command that will do job of game logic data.
     // i have to think about this.
-    mEventManager->addCommand(new qv::gaming::CreateGameViewCommand(this));
+//    mEventManager->addCommand(new qv::gaming::CreateGameViewCommand(this));
 }
 //-----------------------------------------------------------------------------------------
 GameLogic::~GameLogic()

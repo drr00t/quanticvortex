@@ -66,10 +66,10 @@ namespace qv
 
 				if(context->keyPressed(mKeyCode) || context->keyDown(mKeyCode))
 				{
-					if(mRealTime)
-						mEventManager->trigger(mArgs);
-					else
-						mEventManager->enqueueEvent(mArgs);
+//					if(mRealTime)
+//						mEventManager->trigger(mArgs);
+//					else
+//						mEventManager->enqueueEvent(mArgs);
 
 					translated = true;
 				}
@@ -80,10 +80,10 @@ namespace qv
 
 				if(context->keyUp(mKeyCode) || context->keyReleased(mKeyCode))
 				{
-					if(mRealTime)
-						mEventManager->trigger(mArgs);
-					else
-						mEventManager->enqueueEvent(mArgs);
+//					if(mRealTime)
+//						mEventManager->trigger(mArgs);
+//					else
+//						mEventManager->enqueueEvent(mArgs);
 
 					translated = true;
 				}
@@ -94,10 +94,10 @@ namespace qv
 
 				if(context->keyPressed(mKeyCode))
 				{
-					if(mRealTime)
-						mEventManager->trigger(mArgs);
-					else
-						mEventManager->enqueueEvent(mArgs);
+//					if(mRealTime)
+//						mEventManager->trigger(mArgs);
+//					else
+//						mEventManager->enqueueEvent(mArgs);
 
 					translated = true;
 				}
@@ -108,10 +108,10 @@ namespace qv
 
 				if(context->keyReleased(mKeyCode))
 				{
-					if(mRealTime)
-						mEventManager->trigger(mArgs);
-					else
-						mEventManager->enqueueEvent(mArgs);
+//					if(mRealTime)
+//						mEventManager->trigger(mArgs);
+//					else
+//						mEventManager->enqueueEvent(mArgs);
 
 					translated = true;
 				}
@@ -122,10 +122,10 @@ namespace qv
 
 				if(context->keyDown(mKeyCode))
 				{
-					if(mRealTime)
-						mEventManager->trigger(mArgs);
-					else
-						mEventManager->enqueueEvent(mArgs);
+//					if(mRealTime)
+//						mEventManager->trigger(mArgs);
+//					else
+//						mEventManager->enqueueEvent(mArgs);
 
 					translated = true;
 				}
@@ -136,10 +136,10 @@ namespace qv
 
 				if(context->keyUp(mKeyCode))
 				{
-					if(mRealTime)
-						mEventManager->trigger(mArgs);
-					else
-						mEventManager->enqueueEvent(mArgs);
+//					if(mRealTime)
+//						mEventManager->trigger(mArgs);
+//					else
+//						mEventManager->enqueueEvent(mArgs);
 
 					translated = true;
 				}

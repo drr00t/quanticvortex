@@ -28,37 +28,30 @@
 #ifndef __LOAD_GAME_COMMAND_H_
 #define __LOAD_GAME_COMMAND_H_
 
-#include "qvICommand.h"
+#include "qvAbstractCommand.h"
 
-  
+
 namespace qv
 {
 namespace gaming
 {
-	class LoadGameCommand: public qv::ICommand
-    /// basic interface to execute a command inside the engine
-    {
-        public:
-        LoadGameCommand();
-        
-        ~LoadGameCommand();
-        
-        virtual u32 getHashId() const = 0;
-        /// unique command id
 
-        virtual u32 getHashType() const = 0;
-        /// command type family
+  
+class LoadGameCommand: public qv::AbstractCommand
+            /// basic interface to execute a command inside the engine
+{
+public:
+    LoadGameCommand(const qv::c8* commandName);
 
-        virtual void executeCommand(qv::events::EventArgs* args) = 0;
-        /// body of command
-    };
+    virtual ~LoadGameCommand();
 
-    typedef irr::core::array<qv::ICommand*> CommandArray;
-    typedef irr::core::map<u32, qv::CommandArray> CommandMap;
+    virtual void executeCommand(qv::CommandArgs* args);
+    /// body of command
+};
+
 
 }
 
 }
 
 #endif
-

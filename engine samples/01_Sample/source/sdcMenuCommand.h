@@ -2,7 +2,7 @@
 #ifndef __SDC_CONTROLLER_MENU_COMMAND_H_
 #define __SDC_CONTROLLER_MENU_COMMAND_H_
 
-#include "qvICommand.h"
+//#include "qvICommand.h"
 #include "qvTypes.h"
 
 namespace qv
@@ -20,7 +20,7 @@ namespace sdc
 namespace controller
 {
 
-class MenuCommand: public qv::ICommand
+class MenuCommand //: public qv::ICommand
 {
 public:
     MenuCommand();

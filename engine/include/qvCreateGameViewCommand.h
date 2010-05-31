@@ -28,7 +28,7 @@
 #ifndef __CREATE_GAME_VIEW_COMMAND_H_
 #define __CREATE_GAME_VIEW_COMMAND_H_
 
-#include "qvICommand.h"
+#include "qvAbstractCommand.h"
 
 namespace qv
 {
@@ -43,41 +43,20 @@ namespace qv
 namespace gaming
 {
 
-static const qv::CI_COMMAND_ID CI_CREATE_GAME_VIEW("CI_CREATE_GAME_VIEW");
-    
-class _QUANTICVORTEX_API_ CreateGameViewCommand: public qv::ICommand
+class _QUANTICVORTEX_API_ CreateGameViewCommand: public qv::AbstractCommand
     /// basic interface to execute a command inside the engine
 {
 public:
-    CreateGameViewCommand( qv::gaming::GameLogic* gameLogic);
+    CreateGameViewCommand(const qv::c8* commandName, qv::gaming::GameLogic* gameLogic);
     
-    ~CreateGameViewCommand();
-    
-    virtual u32 getHashId() const;
-    /// unique command id
+    virtual ~CreateGameViewCommand();
 
-    virtual u32 getEventHashType() const;
-    /// command type family
-
-    virtual void executeCommand(qv::events::EventArgs* args);
+    virtual void executeCommand(qv::CommandArgs* args);
     /// body of command
 
 private:
     qv::gaming::GameLogic* mGameLogic;
-    u32 mEventHashType;
-    u32 mCommandHashId;
 };
-
-//inlines
-inline u32 CreateGameViewCommand::getEventHashType() const
-{
-    return mEventHashType;
-}
-
-inline u32 CreateGameViewCommand::getHashId() const
-{
-    return mCommandHashId;
-}
 
 }
 

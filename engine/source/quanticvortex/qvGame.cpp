@@ -28,7 +28,7 @@
 #include "qvGame.h"
 
 // engine headers
-#include "qvEventManager.h"
+#include "qvCommandManager.h"
 #include "qvGameLogic.h"
 #include "qvHumanView.h"
 
@@ -97,8 +97,8 @@ bool Game::initialize()
 
     loadConfiguration(); // load default configuration files, if present
 
-    mEventManager = new qv::events::EventManager();
-    mGameLogic = new qv::gaming::GameLogic(mGameParams, mEventManager);
+    mCommandManager = new qv::CommandManager();
+    mGameLogic = new qv::gaming::GameLogic(mGameParams, mCommandManager);
 
     //registring engine events
     registerGameEvents();
@@ -124,21 +124,7 @@ bool Game::initialize()
 //-----------------------------------------------------------------------------
 void Game::registerGameEvents()
 {
-    // game logic events
-    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_INITIALIZATING.Hash);
-    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_LOADING.Hash);
-    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_MENU.Hash);
-    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_RUNNING.Hash);
-    mEventManager->registerEventType(qv::events::EET_GAME_LOGIC_WAITING_PLAYER.Hash);
 
-    mEventManager->registerEventType(qv::events::EET_GAME_QUIT.Hash);
-    mEventManager->registerEventType(qv::events::EET_GAME_SAVE.Hash);
-    mEventManager->registerEventType(qv::events::EET_GAME_OPTIONS.Hash);
-    mEventManager->registerEventType(qv::events::EET_GAME_LOAD.Hash);
-    mEventManager->registerEventType(qv::events::EET_GAME_NEW.Hash);
-
-    // human view events, raised on each human view update call by game logic
-    mEventManager->registerEventType(qv::events::EET_GAME_TICK_UPDATE.Hash);
 }
 //-----------------------------------------------------------------------------
 //void Game::addCommand(qv::ICommand* command)
@@ -178,13 +164,13 @@ void Game::finalize()
     if (mGameLogic)
         delete mGameLogic;
 
-    if (mEventManager)
-        delete mEventManager;
+    if (mCommandManager)
+        delete mCommandManager;
 }
 //-----------------------------------------------------------------------------
 void Game::update( u32 currentTimeMs, u32 elapsedTimeMs)
 {
-    mEventManager->processReadyEvents();
+    mCommandManager->executeCommands();
 
     if (mGameLogic)
         mGameLogic->update(currentTimeMs, elapsedTimeMs);

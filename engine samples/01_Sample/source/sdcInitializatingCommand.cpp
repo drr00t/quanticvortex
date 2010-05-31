@@ -13,7 +13,7 @@ namespace controller
 {
     
 InitializatingCommand::InitializatingCommand(qv::Game* gameApp)
-:mCommandHashId(sdc::controller::CI_INITIALIZATING.Hash),
+: //mCommandHashId(sdc::controller::CI_INITIALIZATING.Hash),
 mCommandHashType(qv::events::EET_GAME_LOGIC_INITIALIZATING.Hash),
 mGameApp(gameApp)
 {

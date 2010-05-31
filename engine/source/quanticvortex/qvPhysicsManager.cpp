@@ -12,10 +12,10 @@ namespace qv
     namespace physics
     {
         //-----------------------------------------------------------------------------------------
-		PhysicsManager::PhysicsManager(qv::events::EventManager* eventManager)
+		PhysicsManager::PhysicsManager(qv::CommandManager* commandManager)
             :mBulletDynamicsWorld(0), mBulletBroadphaseInterface(0),
             mBulletCollisionDispatcher(0), mBulletConstraintSolver(0),
-			mBulletDefaultCollisionConfiguration(0),mEventManager(0)
+			mBulletDefaultCollisionConfiguration(0),mCommandManager(commandManager)
         {
             initialize();
         }

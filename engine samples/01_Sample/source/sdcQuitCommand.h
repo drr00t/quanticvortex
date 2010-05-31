@@ -2,7 +2,7 @@
 #ifndef __SDC_CONTROLLER_QUIT_COMMAND_H_
 #define __SDC_CONTROLLER_QUIT_COMMAND_H_
 
-#include "qvIEventCommand.h"
+//#include "qvIEventCommand.h"
 
 namespace qv
 {

@@ -22,10 +22,8 @@
 
 namespace qv
 {
-namespace events
-{
-    class EventManager;
-}
+class CommandManager;
+
 
 }
 
@@ -39,34 +37,34 @@ typedef btAlignedObjectArray<btCollisionObject*> CollisionObjectsList;
 
 typedef btAlignedObjectArray<btCollisionShape*> CollisionShapes;
 /// aligned container to collision shape added to physics manager
-  
+
 
 class _QUANTICVORTEX_API_ PhysicsManager
-    /// physics manager object, it will be responsable by all game physics
-{
-    public:
-
-class ActorMotionState: public btMotionState
-    /// actor motion state, is object make transition of render view
-    /// game objects and physics simulation
+            /// physics manager object, it will be responsable by all game physics
 {
 public:
-    ActorMotionState(qv::events::EventManager* eventManager, u32 actorHashId)
-    :mEventManager( eventManager), mActorHashId( actorHashId)
-    {
-    }
 
-    virtual void getWorldTransform(btTransform& centerOfMassWorldTrans) const 
+class ActorMotionState: public btMotionState
+                /// actor motion state, is object make transition of render view
+                /// game objects and physics simulation
     {
-        centerOfMassWorldTrans = mActorTransform;
-    }
+    public:
+        ActorMotionState(qv::CommandManager* commandManager, u32 actorHashId)
+                : mCommandManager( commandManager), mActorHashId( actorHashId)
+        {
+        }
 
-    virtual void setWorldTransform(const btTransform& centerOfMassWorldTrans) 
-    {
-        mActorTransform = centerOfMassWorldTrans;
+        virtual void getWorldTransform(btTransform& centerOfMassWorldTrans) const
+        {
+            centerOfMassWorldTrans = mActorTransform;
+        }
+
+        virtual void setWorldTransform(const btTransform& centerOfMassWorldTrans)
+        {
+            mActorTransform = centerOfMassWorldTrans;
 
 //        mEventManager->enqueue(new ActorTransformationChangedEventArgs(actorHashId, centerOfMassWorldTrans))
-        
+
 //		const btVector3& position = centerOfMassWorldTrans.getOrigin();
 //		mGameActor->setPosition(irr::core::vector3df((irr::f32)position[0], (irr::f32)position[1], (irr::f32)position[2]));
 //
@@ -74,16 +72,16 @@ public:
 //		btVector3 eulerRotation;
 //		quaternionToEuler(centerOfMassWorldTrans.getRotation(), eulerRotation);
 //		mGameActor->setRotation(core::vector3df(eulerRotation[0], eulerRotation[1], eulerRotation[2]));
-    }
+        }
 
     protected:
         u32 mActorHashId;
         btTransform mActorTransform;
-        qv::events::EventManager* mEventManager;
+        qv::CommandManager* mCommandManager;
 
-};
+    };
 
-    PhysicsManager(qv::events::EventManager* eventManager);
+    PhysicsManager(qv::CommandManager* commandManager);
     ~PhysicsManager();
 
     void initialize();
@@ -121,11 +119,11 @@ public:
     //virtual void VStopActor(ActorId actorId) = 0;
     //virtual void VSetVelocity(ActorId actorId, const Vec3& vel) = 0;
     //virtual void VTranslate(ActorId actorId, const Vec3& vec) = 0;
-            private:
+private:
 
     void addShape(qv::real radius, qv::gaming::Actor *actor, qv::real specificGravity);
     /// generic shape configuration, to be used all add shape methods.
-    
+
 
 
     btDynamicsWorld* mBulletDynamicsWorld;
@@ -134,7 +132,7 @@ public:
     btDefaultCollisionConfiguration* mBulletDefaultCollisionConfiguration;
     btConstraintSolver* mBulletConstraintSolver;
     CollisionShapes mCollisionObjectsList;
-    qv::events::EventManager* mEventManager;
+    qv::CommandManager* mCommandManager;
     real mTimeUpdate;
 };
 
@@ -162,6 +160,5 @@ inline void quaternionToEuler(const btQuaternion &TQuat, btVector3 &TEuler)
 
     TEuler *= irr::core::RADTODEG;
 }
-    
-#endif
 
+#endif

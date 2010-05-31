@@ -37,10 +37,8 @@ namespace qv
 {
 struct SGameParams;
 
-namespace events
-{
-class EventManager;
-}
+class CommandManager;
+
 
 namespace physics
 {
@@ -57,7 +55,7 @@ namespace gaming
 class _QUANTICVORTEX_API_ GameLogic
 {
 public:
-    GameLogic(qv::SGameParams& gameParams, qv::events::EventManager* eventManager);
+    GameLogic(qv::SGameParams& gameParams, qv::CommandManager* commandManager);
     /// create GameLogic core object to manage the game and set event manager
     /// and game parameters
 
@@ -129,7 +127,7 @@ private:
     qv::gaming::ActorsMap mActors;
 
     physics::PhysicsManager* mPhysicsManager; // game physics
-    events::EventManager* mEventManager; // event manager
+    qv::CommandManager* mCommandManager; // command manager
     // IProcessManager* mProcessManager;  //game logic AI
 
     //event args

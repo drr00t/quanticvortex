@@ -2,7 +2,7 @@
 #ifndef __SDC_CONTROLLER_INITIALIZATING_COMMAND_H_
 #define __SDC_CONTROLLER_INITIALIZATING_COMMAND_H_
 
-#include "qvICommand.h"
+//#include "qvICommand.h"
 #include "qvTypes.h"
 
 namespace qv
@@ -21,10 +21,10 @@ namespace sdc
 namespace controller
 {
 
-static const qv::CI_COMMAND_ID CI_INITIALIZATING = HASH_STRING("CI_INITIALIZATING");
+//static const qv::CI_COMMAND_ID CI_INITIALIZATING = HASH_STRING("CI_INITIALIZATING");
 
 
-class InitializatingCommand: public qv::ICommand
+class InitializatingCommand //: public qv::ICommand
     /// initialization command to startup game application
 {
 public:

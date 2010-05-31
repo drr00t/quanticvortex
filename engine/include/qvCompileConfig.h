@@ -42,20 +42,15 @@
 
 //! WIN32 for Windows32
 //! WIN64 for Windows64
-// The windows platform and API support SDL and WINDOW device
+// The windows platform 
 #if defined(_WIN32) || defined(_WIN64) || defined(WIN32) || defined(WIN64)
 #	define _QUANTICVORTEX_PLATAFORM_ PLATAFORM_WINDOWS
 //#	define _QUANTICVORTEX_API_
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER < 1300)
-#  error "Only Microsoft Visual Studio 7.0 and later are supported."
-#endif
-
 //#ifdef _QUANTICVORTEX_API_
 
-// To build Irrlicht as a static library, you must define _IRR_STATIC_LIB_ in both the
-// Irrlicht build, *and* in the user application, before #including <irrlicht.h>
+// To build as a static library, you must define _QUANTICVORTEX_STATIC_LIB_
 
 #	ifndef _QUANTICVORTEX_STATIC_LIB_
 #		ifdef _QUANTICVORTEX_EXPORTS

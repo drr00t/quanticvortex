@@ -36,9 +36,8 @@ namespace gaming
 {
 
 //-----------------------------------------------------------------------------------------
-CreateGameViewCommand::CreateGameViewCommand(qv::gaming::GameLogic* gameLogic)
-:mGameLogic(gameLogic), mEventHashType(qv::events::ET_CREATE_GAME_VIEW.Hash),
-mCommandHashId(qv::gaming::CI_CREATE_GAME_VIEW.Hash)
+CreateGameViewCommand::CreateGameViewCommand(const qv::c8* commandName, qv::gaming::GameLogic* gameLogic)
+:qv::AbstractCommand(commandName, qv::gaming::CT_GAME_LOAD), mGameLogic(gameLogic)
 {
 }
 //-----------------------------------------------------------------------------------------
@@ -46,13 +45,13 @@ CreateGameViewCommand::~CreateGameViewCommand()
 {
     // TODO: may be i should use reference counted to GameLogic and decrease 
     // to each command that was deleted
-    mGameLogic = NULL;
+//    mGameLogic = NULL;
 }
 //-----------------------------------------------------------------------------------------
-void CreateGameViewCommand::executeCommand(qv::events::EventArgs* args)
+void CreateGameViewCommand::executeCommand(qv::CommandArgs* args)
 {
-    qv::events::CreateGameViewEventArgs* gargs = 
-            static_cast<qv::events::CreateGameViewEventArgs*>(args);
+//    qv::events::CreateGameViewEventArgs* gargs = 
+//            static_cast<qv::events::CreateGameViewEventArgs*>(args);
     
 //    qv::views::AbstractGameView* abstractView = 
 //                mGameLogic->addGameView(gargs->getGameViewName(), gargs->getGameViewType());

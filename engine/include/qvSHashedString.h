@@ -54,6 +54,17 @@ struct SHashedString
     }
 
     // operators
+//    SHashedString& operator=( const SHashedString& other)
+//    {
+//#ifdef _DEBUG
+//        this->Text = other.Text;
+//#endif
+//
+//        this->Hash = other.Hash;
+//
+//        return *this;
+//    }
+
     bool operator==( const SHashedString& other) const
     {
 #ifdef _DEBUG
@@ -83,7 +94,7 @@ struct SHashedString
 //        return (this->Hash == other.Hash);
 //#endif
 //    }
-//    
+//
 //    bool SHashedString::operator!=( const SHashedString& other) const
 //    {
 //#ifdef _DEBUG
@@ -92,7 +103,7 @@ struct SHashedString
 //        return (this->Hash != other.Hash);
 //#endif
 //    }
-    
+
 //extern "C" _QUANTICVORTEX_API_ SHashedString QUANTICVORTEX_CALLCONV createHashedString( const qv::c8* text);
 }
 #endif

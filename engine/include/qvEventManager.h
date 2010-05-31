@@ -30,7 +30,6 @@
 
 #include "qvCompileConfig.h"
 #include "qvEventTypes.h"
-#include "qvICommand.h"
 
 #include "qvRAIIFactoryImp.h"
 #include "Poco/AtomicCounter.h"
@@ -47,50 +46,50 @@ public:
     EventManager();
     virtual ~EventManager();
 
-    bool addCommand ( qv::ICommand* command);
+//    bool addCommand ( qv::ICommand* command);
     /// register an command on command collection
    
-    bool removeCommand ( qv::ICommand* command);
+//    bool removeCommand ( qv::ICommand* command);
     /// remove desired command from command collection
 
-    template <class T> T* createEventArgs( u32 eventArgsHashType);
-    /// create an EventArgs of specific type if this type 
-    /// is registred on event args factory.
+//    template <class T> T* createEventArgs( u32 eventArgsHashType);
+//    /// create an EventArgs of specific type if this type 
+//    /// is registred on event args factory.
+//
+//    void registerEventType( u32 eventHashType);
+//    /// register a new event type to valid event types list
+//
+//    void unregisterEventType( u32 eventHashType);
+//    /// remove an event type from event type list
+//
+//    bool abortEvent ( u32 eventHashType);
+//    /// cancel the execution of an next event or all event from this type
+//
+//    bool enqueueEvent (qv::events::EventArgs* args);
+//    /// post the event args to the raise queue
+//
+//    bool processReadyEvents();
+//    /// raise all event enqueue on this game tick
+//
+//    bool trigger ( qv::events::EventArgs* args );
+//    /// raise this event right now
+//
+//    bool validateType(u32 eventHashType);
+//    /// check this event if it is valid
 
-    void registerEventType( u32 eventHashType);
-    /// register a new event type to valid event types list
-
-    void unregisterEventType( u32 eventHashType);
-    /// remove an event type from event type list
-
-    bool abortEvent ( u32 eventHashType);
-    /// cancel the execution of an next event or all event from this type
-
-    bool enqueueEvent (qv::events::EventArgs* args);
-    /// post the event args to the raise queue
-
-    bool processReadyEvents();
-    /// raise all event enqueue on this game tick
-
-    bool trigger ( qv::events::EventArgs* args );
-    /// raise this event right now
-
-    bool validateType(u32 eventHashType);
-    /// check this event if it is valid
-
-private:
-
-    EventManager( const EventManager&);
-    EventManager operator = ( const EventManager&);
-    
-    static const s32 QueueEventsLenght = 2; // double buffer event queue
-    qv::events::EventHashTypesArray mValidEventTypes; // registred valid event types
-    qv::CommandMap mRegistredCommandsMap; //
-    qv::events::EventArgsArray mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
-    //	ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
-    //  qv::events::EventArgsFactoryVector mEventArgsFactories;
-    RaiiFactoryImp<qv::events::EventArgs> mEventArgs; // created event args
-    Poco::AtomicCounter mActiveReadyEventList;
+//private:
+//
+//    EventManager( const EventManager&);
+//    EventManager operator = ( const EventManager&);
+//    
+//    static const s32 QueueEventsLenght = 2; // double buffer event queue
+//    qv::events::EventHashTypesArray mValidEventTypes; // registred valid event types
+//    qv::CommandsMap mRegistredCommandsMap; //
+//    qv::events::EventArgsArray mReadyEvents[QueueEventsLenght]; //to event lists to double buffering
+//    //	ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
+//    //  qv::events::EventArgsFactoryVector mEventArgsFactories;
+//    RaiiFactoryImp<qv::events::EventArgs> mEventArgs; // created event args
+//    Poco::AtomicCounter mActiveReadyEventList;
 };
 }
 }

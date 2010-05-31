@@ -32,7 +32,8 @@ namespace gaming
 {
 
 //-----------------------------------------------------------------------------------------
-LoadGameCommand::LoadGameCommand()
+LoadGameCommand::LoadGameCommand(const qv::c8* commandName)
+:qv::AbstractCommand(commandName, qv::gaming::CT_GAME_LOAD)
 {
 }
 //-----------------------------------------------------------------------------------------
@@ -40,6 +41,10 @@ LoadGameCommand::~LoadGameCommand()
 {
 }
 //-----------------------------------------------------------------------------------------
+void LoadGameCommand::executeCommand(qv::CommandArgs* args)
+{
+
+}
 
 }
 

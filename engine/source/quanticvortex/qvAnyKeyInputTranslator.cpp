@@ -54,10 +54,10 @@ namespace qv
 		{
 			bool translated = false;
 
-			if(mRealTime)
-				mEventManager->trigger(mArgs);
-			else
-				mEventManager->enqueueEvent(mArgs);
+//			if(mRealTime)
+//				mEventManager->trigger(mArgs);
+//			else
+//				mEventManager->enqueueEvent(mArgs);
 
 			translated = true;
 

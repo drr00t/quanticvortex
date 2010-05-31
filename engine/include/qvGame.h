@@ -36,12 +36,9 @@
 
 namespace qv
 {
-class ICommand;
 
-namespace events
-{
-class EventManager;
-}
+class CommandManager;
+
 namespace gaming
 {
 class GameLogic;
@@ -76,7 +73,7 @@ public:
     qv::gaming::GameLogic* getGameLogic();
     /// all game data, views, physics, actor storage here.
 
-    qv::events::EventManager* getEventManager();
+    qv::CommandManager* getCommandManager();
     /// all global events are processed here
 
     qv::SGameParams& getGameParameters();
@@ -140,7 +137,7 @@ private:
     bool mQuit; /// quit of engine loop if is true
     qv::SGameParams mGameParams; /// engine, render paramaters
     qv::gaming::GameLogic* mGameLogic; /// game core object updated on engine loop
-    qv::events::EventManager* mEventManager; /// global event manager
+    qv::CommandManager* mCommandManager; /// global event manager
     qv::views::GameViewsArray  mGameViews;
 
 };
@@ -151,9 +148,9 @@ inline qv::gaming::GameLogic* Game::getGameLogic()
     return mGameLogic;
 }
 
-inline qv::events::EventManager* Game::getEventManager()
+inline qv::CommandManager* Game::getCommandManager()
 {
-    return mEventManager;
+    return mCommandManager;
 }
 
 inline qv::SGameParams& Game::getGameParameters()

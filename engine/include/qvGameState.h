@@ -29,7 +29,6 @@
 
 #include "qvCompileConfig.h"
 #include "qvGameStateTypes.h"
-#include "qvIEventCommand.h"
 #include "qvIInputTranslator.h"
 #include "qvIState.h"
 

@@ -49,13 +49,11 @@
 
 //qv
 #include "qvCommandTypes.h"
-#include "qvICommand.h"
 #include "qvSGameParams.h"
 #include "qvSHashedString.h"
 
 //events
 #include "qvEventTypes.h"
-#include "qvIEventCommand.h"
 #include "qvIEventArgsFactory.h"
 
 

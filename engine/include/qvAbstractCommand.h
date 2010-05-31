@@ -25,33 +25,66 @@
 **************************************************************************************************/
 
 
-#ifndef __I_INPUT_COMMAND_H_
-#define __I_INPUT_COMMAND_H_
+#ifndef __ABSTRACT_COMMAND_H_
+#define __ABSTRACT_COMMAND_H_
 
-#include "qvICommand.h"
-#include "qvEventTypes.h"
+#include <algorithm>
+#include <tr1/unordered_map>
+
+#include "qvCommandArgs.h"
 
 
 namespace qv
 {
-    namespace gaming
-    {
-//		struct SEventArgs;
-//        class IEventArgs;
-//
-//        typedef SHashedString CT_COMMAND_TYPE;
-//        typedef SHashedString CI_COMMAND_ID;
 
-		class IInputCommand: public ICommand
-        {
-//        public:
-//            virtual const array<u32>& listenEventTypes() const =0;
-//            //virtual void execute(const IEventArgs* args) =0;
-//			virtual void executeCommand(const SEventArgs& args) =0;
+class AbstractCommand
+    /// basic interface to execute a command inside the engine
+{
+public:
+    AbstractCommand(const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType)
+    /// command constructor getting name and type of command args
+    : mCommandId(qv::CI_COMMAND_ID(commandName)),
+    mCommandType(commandType)
+    {}
 
+    virtual ~AbstractCommand(){}
+    /// destructor
 
-        };
-    }
+    const qv::CI_COMMAND_ID& getId() const;
+    /// unique command id
+
+    const qv::CT_COMMAND_TYPE& getType() const;
+    /// command type family
+
+    virtual void executeCommand(const qv::CommandArgs* args) = 0;
+    /// body of command
+    
+private:
+    qv::CI_COMMAND_ID mCommandId;
+    const qv::CT_COMMAND_TYPE& mCommandType;
+
+};
+
+//inlines
+inline const qv::CI_COMMAND_ID& qv::AbstractCommand::getId() const
+{
+    return mCommandId;
 }
-#endif
 
+inline const qv::CT_COMMAND_TYPE& qv::AbstractCommand::getType() const
+{
+    return mCommandType;
+}
+
+typedef std::vector<qv::AbstractCommand*> CommandArray;
+/// commands vector for fast iteration.
+
+typedef std::tr1::unordered_multimap<u32, qv::AbstractCommand*> CommandsMap;
+/// hashmap of command args to command using types.
+
+typedef std::pair<CommandsMap::iterator, CommandsMap::iterator> CommandsMapRangeResult;
+
+
+}
+
+#endif
