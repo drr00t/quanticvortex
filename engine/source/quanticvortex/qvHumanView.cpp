@@ -43,10 +43,10 @@ namespace qv
     namespace views
     {
         //-----------------------------------------------------------------------------------------
-        HumanView::HumanView(qv::events::EventManager* eventManager)
-			: AbstractGameView(qv::views::GVT_GAME_VIEW_HUMAN.Hash), mLastUpdateTime(0.0f),
+        HumanView::HumanView(const qv::c8* gameViewName, qv::CommandManager* commandManager)
+			: qv::views::AbstractGameView( gameViewName, 1, qv::views::GVT_HUMAN_VIEW), mLastUpdateTime(0.0f),
 			mCurrentEngineTime(0.0f), mAccumulatorTime(0), mInputReceiver(0),
-			mEventManager(eventManager), mDevice3d(0) /*mProcessManager(0)*/
+			mCommandManager(commandManager), mDevice3d(0) /*mProcessManager(0)*/
         {
             irr::SIrrlichtCreationParameters parameters;
 

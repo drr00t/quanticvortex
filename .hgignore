@@ -14,4 +14,4 @@ dependencies-sources/
 *.adriano
 *.session
 tags
-.zargo~
+*.zargo~

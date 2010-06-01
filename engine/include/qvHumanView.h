@@ -33,32 +33,24 @@
 #include "qvSGameParams.h"
 #include "qvAbstractGameView.h"
 
-//#if QV_RENDER == QV_RENDER_IRRLICHT
-//#include "qvHumanView_Irrlicht.h"
-//#endif
-
 namespace irr
 {
-    class IrrlichtDevice;
+class IrrlichtDevice;
 }
 
 namespace qv
 {
-    class EngineManager;
 
-namespace events
-{
-    class EventManager;
-}
+class CommandManager;
 
 namespace input
 {
-    class InputReceiver;
+class InputReceiver;
 }
 
 namespace views
 {
-    class IElementViewFactory;
+class IElementViewFactory;
 }
 
 }
@@ -68,14 +60,16 @@ namespace qv
 namespace views
 {
 
+static const qv::views::GVT_GAME_VIEW_TYPE GVT_HUMAN_VIEW("GVT_HUMAN_VIEW");
+
 class _QUANTICVORTEX_API_ HumanView : public qv::views::AbstractGameView
-    /// This class allow a local player to be atached
-    /// on game, it is responsable by receive inputs
-    /// from player (controller, keyboard, mouse, etc...)
-    /// rendering data on screen
+            /// This class allow a local player to be atached
+            /// on game, it is responsable by receive inputs
+            /// from player (controller, keyboard, mouse, etc...)
+            /// rendering data on screen
 {
 public:
-    HumanView(qv::events::EventManager* eventManager);
+    HumanView(const qv::c8* gameViewName, qv::CommandManager* commandManager);
     ///create the HumanView
 
     ~HumanView();
@@ -99,18 +93,18 @@ public:
 
     //void attachProcess(Process* process){mProcessManager->attach(process);}
 
-    private:
-        u32 mActorHashId;
-        u32 mCurrentEngineTime;    // current view time
-        u32 mLastUpdateTime; // last tick time update
-        u32 mAccumulatorTime;
+private:
+    u32 mActorHashId;
+    u32 mCurrentEngineTime;    // current view time
+    u32 mLastUpdateTime; // last tick time update
+    u32 mAccumulatorTime;
 
-        irr::IrrlichtDevice* mDevice3d;
+    irr::IrrlichtDevice* mDevice3d;
 
-        qv::input::InputReceiver* mInputReceiver;
-        qv::events::EventManager* mEventManager;
+    qv::input::InputReceiver* mInputReceiver;
+    qv::CommandManager* mCommandManager;
 
-        //ProcessManager *mProcessManager;				    // just for gui elements.
+    //ProcessManager *mProcessManager;				    // just for gui elements.
 //        cAudio::IAudioManager* mAudioManager;
 
 //        ElementViewArray mElementViews;
@@ -137,4 +131,3 @@ inline void HumanView::attach( u32 actorHashId = 0)
 
 } // namespace qv
 #endif
-

@@ -28,11 +28,14 @@
 #ifndef __GAME_H_
 #define __GAME_H_
 
+#include <algorithm>
+
 #include "qvCompileConfig.h"
 #include "qvAbstractGameView.h"
 #include "qvSGameParams.h"
-#include "qvTypes.h"
 
+
+#include "qvRAIIFactoryImp.h"
 
 namespace qv
 {
@@ -57,6 +60,14 @@ class OptionProcessor;
 
 namespace qv
 {
+
+struct SortGameViewsLess
+{
+    bool operator()(qv::views::AbstractGameView* a, qv::views::AbstractGameView* b) const
+    {
+        return (a->getOrder() < b->getOrder());
+    }
+};
 
 class _QUANTICVORTEX_API_ Game
             /// engine core object, this work on lowest level and provide a
@@ -87,14 +98,46 @@ public:
     /// game views collections, all views must be registred on game
     /// logic to be used on game, ex: HumanView, NetworkView.
 
-//    qv::views::AbstractGameView* addGameView(const c8* viewName, u32 viewHashType);
-    /// create and add game view to game logic.
+    template <class T> qv::views::AbstractGameView* addGameView( const qv::c8* gameViewName, qv::u8 viewOrder, const qv::views::GVT_GAME_VIEW_TYPE& gameViewType)
+        /// create command for a command args type.
+    {
+        qv::views::AbstractGameView* gameView = mGameViewsFactory.keep(new T(gameViewName, viewOrder, gameViewType));
 
-//    qv::views::HumanView* addHumanView(const c8* viewName);
-    /// a human to representa a local player
-
-    void removeView(views::AbstractGameView* gameView);
-    /// remove view from game logic views collection
+//        if(mGameViews.empty())
+//        {
+            mGameViews.push_back(gameView);
+            std::sort(mGameViews.begin(), mGameViews.end(), SortGameViewsLess());
+//        }
+//        else
+//        {
+//            qv::views::GameViewsList itrViews = mGameViews.begin();
+//            
+//            for(;itrViews != mgameViews.end(); itrViews++)
+//            {
+//                if( (*itrViews)->getOrder() > gameView->getOrder())
+//                {
+//                    mGameViews.push_front(gameView);
+//                    break;
+//                }
+//            }
+//        }
+        
+        return gameView;
+    }
+    
+    void removeGameView(qv::views::AbstractGameView* gameView)
+    /// remvoe a game view from game views collection and delete from memory
+    {
+        for( qv::views::GameViewsArray::iterator itr = mGameViews.begin(); itr != mGameViews.end(); itr++)
+        {
+            if((*itr)->getId().Hash == gameView->getId().Hash)
+            {
+                mGameViews.erase(itr);
+                mGameViewsFactory.dispose(gameView);
+                break;
+            }
+        }
+    }
 
 protected:
 
@@ -139,8 +182,10 @@ private:
     qv::gaming::GameLogic* mGameLogic; /// game core object updated on engine loop
     qv::CommandManager* mCommandManager; /// global event manager
     qv::views::GameViewsArray  mGameViews;
+    RaiiFactoryImp<qv::views::AbstractGameView> mGameViewsFactory;
 
 };
+
 
 //inlines
 inline qv::gaming::GameLogic* Game::getGameLogic()
@@ -156,6 +201,11 @@ inline qv::CommandManager* Game::getCommandManager()
 inline qv::SGameParams& Game::getGameParameters()
 {
     return mGameParams;
+}
+
+inline const qv::views::GameViewsArray& Game::getGameViews() const
+{
+    return mGameViews;
 }
 
 inline void Game::setQuit(bool quit)

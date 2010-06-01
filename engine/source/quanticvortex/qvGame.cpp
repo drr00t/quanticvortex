@@ -93,7 +93,7 @@ Game::~Game()
 bool Game::initialize()
 {
     //pre allocate 5 slots for views
-    mGameViews.reserve(5);
+//    mGameViews.reserve(5);
 
     loadConfiguration(); // load default configuration files, if present
 
@@ -156,8 +156,8 @@ void Game::configFromCommandLine( s32 argc, c8* argv[])
 void Game::finalize()
 {
     //remove all views
-    for (u32 i = 0; i < mGameViews.size(); ++i)
-        delete mGameViews[i];
+//    for (u32 i = 0; i < mGameViews.size(); ++i)
+//        delete mGameViews[i];
 
     mGameViews.clear();
 
