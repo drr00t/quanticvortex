@@ -38,13 +38,13 @@ namespace qv
 {
 
 class AbstractCommand
-    /// basic interface to execute a command inside the engine
+            /// basic interface to execute a command inside the engine
 {
 public:
     AbstractCommand(const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType)
     /// command constructor getting name and type of command args
-    : mCommandId(qv::CI_COMMAND_ID(commandName)),
-    mCommandType(commandType)
+            : mCommandId(qv::CI_COMMAND_ID(commandName)),
+            mCommandType(commandType)
     {}
 
     virtual ~AbstractCommand(){}
@@ -58,7 +58,7 @@ public:
 
     virtual void executeCommand(const qv::CommandArgs* args) = 0;
     /// body of command
-    
+
 private:
     qv::CI_COMMAND_ID mCommandId;
     const qv::CT_COMMAND_TYPE& mCommandType;

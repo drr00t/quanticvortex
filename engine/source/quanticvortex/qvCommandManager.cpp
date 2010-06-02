@@ -128,14 +128,14 @@ bool CommandManager::executeCommands()
 
     ++mActiveReadyCommandArgsQueue; //back to first one
     
-    for (qv::u32 i = 0; i < mReadyCommandArgs[QueueCommandArgsLenght].size(); i++)
+    for (qv::u32 i = 0; i < mReadyCommandArgs[processReadyCommandArgsQueue].size(); i++)
     {
         qv::CommandsMapRangeResult itrResult = 
-            mRegistredCommandsMap.equal_range(mReadyCommandArgs[QueueCommandArgsLenght][i]->getType().Hash);
+            mRegistredCommandsMap.equal_range(mReadyCommandArgs[processReadyCommandArgsQueue][i]->getType().Hash);
 
         for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; itr++)
         {
-            itr->second->executeCommand(mReadyCommandArgs[QueueCommandArgsLenght][i]);
+            itr->second->executeCommand(mReadyCommandArgs[processReadyCommandArgsQueue][i]);
             eventHandled = true;
         }
     }
