@@ -27,14 +27,6 @@
 #ifndef _QUANTICVORTEX_CONFIG_PROFILE_H_
 #define _QUANTICVORTEX_CONFIG_PROFILE_H_
 
-//avaible operation systems plataforms
-#define QV_PLATAFORM_WINDOWS	1 //windows plataform
-
-#define QV_PLATAFORM_LINUX		2 //not implemented yet
-#define QV_PLATAFORM_MACOS		3 //not implemented yet
-#define QV_PLATAFORM_PS3		4 //not implemented yet
-#define QV_PLATAFORM_XBOX		5 //not implemented yet
-
 //Physics engines avaible to use, just only one physics can be enable at time.
 #define QV_PHYSICS_BULLET 1 // Physics library
 
@@ -53,9 +45,9 @@
 
 
 //current profile selected
-#define QV_RENDER  QV_RENDER_IRRLICHT
-#define QV_PHYSICS QV_PHYSICS_BULLET
-#define QV_INPUT   QV_INPUT_IRRLICHT
+#define QV_RENDER       QV_RENDER_IRRLICHT
+#define QV_PHYSICS      QV_PHYSICS_BULLET
+#define QV_INPUT        QV_INPUT_IRRLICHT
 
 
 

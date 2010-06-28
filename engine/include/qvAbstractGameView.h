@@ -84,10 +84,10 @@ public:
     /// update content this view, used when
     /// content dependent on time
     
-    bool operator < (const qv::views::AbstractGameView& other) const
-    {
-            return mViewOrder < other.getOrder();
-    }
+//    bool operator < (const qv::views::AbstractGameView& other) const
+//    {
+//            return mViewOrder < other.getOrder();
+//    }
     
 private:
 

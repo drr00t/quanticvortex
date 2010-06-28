@@ -32,29 +32,32 @@
 
 #include "qvCompileConfig.h"
 #include "qvAbstractGameView.h"
+#include "qvCommandTypes.h"
 #include "qvSGameParams.h"
 
 
 #include "qvRAIIFactoryImp.h"
 
+namespace irr
+{
+    class IrrlichtDevice;
+}
+
 namespace qv
 {
-
 class CommandManager;
 
 namespace gaming
 {
 class GameLogic;
 }
-
+namespace input
+{
+    class InputReceiver;
 }
-
-// external classes declarations
-namespace Poco
+namespace views
 {
-namespace Util
-{
-class OptionProcessor;
+class HumanView;
 }
 }
 
@@ -78,7 +81,7 @@ public:
     Game();
     virtual ~Game();
 
-    s32 run(s32 argc, c8* argv[]);
+    s32 run(int argc, const char** argv);
     /// called by user to start main loop of the game.
 
     qv::gaming::GameLogic* getGameLogic();
@@ -91,46 +94,34 @@ public:
     /// game global configuration options, menu interface can
     /// change this values
 
-    void setQuit(bool quit);
-    /// quit from engine main loop if true
-
     const qv::views::GameViewsArray& getGameViews() const;
     /// game views collections, all views must be registred on game
     /// logic to be used on game, ex: HumanView, NetworkView.
 
+    void setQuit(bool quit);
+    /// quit from engine main loop if true
+
     template <class T> qv::views::AbstractGameView* addGameView( const qv::c8* gameViewName, qv::u8 viewOrder, const qv::views::GVT_GAME_VIEW_TYPE& gameViewType)
-        /// create command for a command args type.
+    /// create command for a command args type.
     {
         qv::views::AbstractGameView* gameView = mGameViewsFactory.keep(new T(gameViewName, viewOrder, gameViewType));
 
-//        if(mGameViews.empty())
-//        {
-            mGameViews.push_back(gameView);
+        mGameViews.push_back(gameView);
+
+        if (mGameViews.size() > 1)
             std::sort(mGameViews.begin(), mGameViews.end(), SortGameViewsLess());
-//        }
-//        else
-//        {
-//            qv::views::GameViewsList itrViews = mGameViews.begin();
-//            
-//            for(;itrViews != mgameViews.end(); itrViews++)
-//            {
-//                if( (*itrViews)->getOrder() > gameView->getOrder())
-//                {
-//                    mGameViews.push_front(gameView);
-//                    break;
-//                }
-//            }
-//        }
-        
+
         return gameView;
     }
-    
+    qv::views::HumanView* addHumanView( const qv::c8* gameViewName);
+    /// add a human view to game, this allow user see, listen and interact with the game.
+
     void removeGameView(qv::views::AbstractGameView* gameView)
     /// remvoe a game view from game views collection and delete from memory
     {
-        for( qv::views::GameViewsArray::iterator itr = mGameViews.begin(); itr != mGameViews.end(); itr++)
+        for ( qv::views::GameViewsArray::iterator itr = mGameViews.begin(); itr != mGameViews.end(); itr++)
         {
-            if((*itr)->getId().Hash == gameView->getId().Hash)
+            if ((*itr)->getId().Hash == gameView->getId().Hash)
             {
                 mGameViews.erase(itr);
                 mGameViewsFactory.dispose(gameView);
@@ -139,24 +130,18 @@ public:
         }
     }
 
-protected:
-
-    virtual void loadConfiguration();
-    /// load configuration from file, include saved game
-
-    void configFromCommandLine( s32 argc, c8* argv[]);
+    void parseCommandLine( int argc, const char** argv);
     /// override config file options with commandline options
     /// options passed by command line, will not be persisted
     /// to config file
 
-    virtual void registerGameEvents();
-    /// register event that will be used in all over the engine
+    void loadConfiguration();
+    /// load configuration from file, include saved game
 
-//    virtual void addCommand(qv::ICommand* command);
-    /// register event commands
+    void addCommandType(const qv::CT_COMMAND_TYPE& commandType);
+    /// register command type to used in game
 
-    qv::SGameParams mParams; // parameters for game
-//    Poco::Util::OptionProcessor* mOptions; // options from command
+    void load( const qv::c8* gamePath, const qv::c8* gameFile);
 
 private:
     Game (const Game&);
@@ -177,13 +162,16 @@ private:
     void render( u32 currentTimeMs, u32 elapsedTimeMs);
     /// render content of views registred in GameLogic
 
+
     bool mQuit; /// quit of engine loop if is true
     qv::SGameParams mGameParams; /// engine, render paramaters
     qv::gaming::GameLogic* mGameLogic; /// game core object updated on engine loop
     qv::CommandManager* mCommandManager; /// global event manager
+    qv::CT_COMMAND_TYPE mStartupComandargsType;
     qv::views::GameViewsArray  mGameViews;
     RaiiFactoryImp<qv::views::AbstractGameView> mGameViewsFactory;
-
+    irr::IrrlichtDevice* mDevice3d;
+    qv::input::InputReceiver* mInputReceiver;
 };
 
 
@@ -198,21 +186,30 @@ inline qv::CommandManager* Game::getCommandManager()
     return mCommandManager;
 }
 
-inline qv::SGameParams& Game::getGameParameters()
+inline qv::SGameParams& qv::Game::getGameParameters()
 {
     return mGameParams;
 }
 
-inline const qv::views::GameViewsArray& Game::getGameViews() const
+inline const qv::views::GameViewsArray& qv::Game::getGameViews() const
 {
     return mGameViews;
 }
 
-inline void Game::setQuit(bool quit)
+inline void qv::Game::setQuit(bool quit)
 {
     mQuit = quit;
 }
 
+//inline void qv::Game::startupGameState(const qv::GS_GAME_STATE& gameState)
+//{
+//    mStartupComandargsType = commandType;
+//}
+
+//inline void qv::Game::addGameState(const qv::GS_GAME_STATE& gameState)
+//{
+//    mGameStates.push_back();
+//}
 }
 
 #endif

@@ -25,52 +25,33 @@
 **************************************************************************************************/
 
 
-#ifndef __GAME_TICK_EVENT_ARGS_H_
-#define __GAME_TICK_EVENT_ARGS_H_
+#ifndef __IRR_SCENE_LOADER_H_
+#define __IRR_SCENE_LOADER_H_
 
-#include <vector>
-
-#include "qvEventArgs.h"
-#include "qvTypes.h"
+#include "ISceneUserDataSerializer.h"
+#include "IAttributes.h"
+#include "ISceneNode.h"
 
 namespace qv
 {
-namespace events
+
+namespace views
 {
-class _QUANTICVORTEX_API_ GameTickEventArgs: public qv::events::EventArgs
+
+//-----------------------------------------------------------------------------
+//                       U s e r D a t a S e r i a l i z e r
+//-----------------------------------------------------------------------------
+class IrrSceceLoader : public irr::scene::ISceneUserDataSerializer
 {
 public:
+    void OnCreateNode(irr::scene::ISceneNode* node);
+    void OnReadUserData(irr::scene::ISceneNode* forSceneNode, irr::io::IAttributes* userData);
 
-    GameTickEventArgs( u32 eventArgsHashType);
-    /// create a event argument with type
+    irr::io::IAttributes* createUserData(irr::scene::ISceneNode* forSceneNode);
+//    void _setPhysicsAttributes(irr::io::IAttributes* userData, struct PhysicsAttributes& attr);
 
-    virtual ~GameTickEventArgs();
-    /// destroy game view tick
-
-    u32 getElapsedTimeMs() const;
-    /// elapsed time since last game logic tick in miliseconds
-    
-    void setElapsedTimeMs( u32 elapsedTimeMs);
-    /// setup new elapsed time since last game logic tick in miliseconds    
-private:
-
-    u32 mEventArgsHashType; // event arguments type
-    u32 mElapsedTimeMs; // event arguments type
 };
 
-
-//inlines 
-inline u32 GameTickEventArgs::getElapsedTimeMs() const 
-{ 
-    return mElapsedTimeMs; 
-}
-
-inline void GameTickEventArgs::setElapsedTimeMs( u32 elapsedTimeMs)
-{
-    mElapsedTimeMs = elapsedTimeMs;
 }
 }
-}
-
 #endif
-

@@ -26,7 +26,7 @@
 
 #include "qvSingleKeyInputTranslator.h"
 
-#include "qvEventManager.h"
+#include "qvCommandManager.h"
 #include "qvInputReceiver.h"
 
 
@@ -35,13 +35,13 @@ namespace qv
 	namespace input
 	{
 		//-----------------------------------------------------------------------------------------
-		SingleKeyInputTranslator::SingleKeyInputTranslator(qv::events::EventManager* eventManager,
+		SingleKeyInputTranslator::SingleKeyInputTranslator(qv::CommandManager* commandManager,
 															irr::EKEY_CODE keyCode,
 															qv::input::EKEY_STATE checkKeyState,
 															bool realTime,
-															qv::events::EventArgs* args,
+															qv::CommandArgs* args,
 															u32 inputTranslatorHashId)
-															:mEventManager(eventManager),
+															:mCommandManager(commandManager),
 															mKeyCode(keyCode),
 															mCheckKeyState(checkKeyState),
 															mRealTime(realTime), mArgs(args),

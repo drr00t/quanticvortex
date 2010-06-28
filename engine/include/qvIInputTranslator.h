@@ -30,7 +30,6 @@
 #define _I_INPUT_TRANSLATOR_H_
 
 #include "qvSHashedString.h"
-#include "qvEventTypes.h"
 #include "qvKeyTypes.h"
 
 #include "irrArray.h"
@@ -38,14 +37,11 @@
 
 namespace qv
 {
-namespace events
-{
-    class EventManager;
-}
+class CommandManager;
 
 namespace input
 {
-    class InputReceiver;
+class InputReceiver;
 }
 }
 
@@ -62,10 +58,10 @@ typedef irr::core::array<u32> InputTranslatorHashTypesArray;
 
 class IInputTranslator
 {
-    public:
+public:
 
     virtual u32 getHashId() const = 0;
-    
+
     virtual u32 getHashType() const = 0;
 
     virtual bool translate(qv::input::InputReceiver *context) const = 0;

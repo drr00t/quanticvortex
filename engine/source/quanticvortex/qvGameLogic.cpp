@@ -35,11 +35,6 @@
 #include "qvCommandManager.h"
 #include "qvPhysicsManager.h"
 
-//event args
-#include "qvGameTickEventArgs.h"
-
-//game logic commands
-#include "qvCreateGameViewCommand.h"
 
 namespace qv
 {
@@ -197,7 +192,7 @@ bool GameLogic::loadGame(const irr::core::stringc& gameName)
 }
 
 //-----------------------------------------------------------------------------------------
-void GameLogic::changeState(const qv::S_STATE& newState)
+void GameLogic::changeState(const qv::gaming::GS_GAME_STATE& newState)
 {
 //            mState = newState;
 }

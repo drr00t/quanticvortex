@@ -32,10 +32,8 @@
 
 namespace qv
 {
-namespace events
-{
-	class EventManager;
-}
+	class CommandManager;
+
 namespace input
 {
     class InputReceiver;
@@ -48,15 +46,15 @@ class EngineInputTranslatorFactory : public qv::input::IInputTranslatorFactory
 {
 protected:
     InputTranslatorHashTypesArray mSupportedEngineInputTranslatorTypes;
-    qv::events::EventManager* mEventManager;
+    qv::CommandManager* mCommandManager;
     qv::input::InputReceiver* mInputReceiver;
 
 public:
-    EngineInputTranslatorFactory( qv::events::EventManager* eventManager, qv::input::InputReceiver* inputReceiver);
+    EngineInputTranslatorFactory( qv::CommandManager* commandManager, qv::input::InputReceiver* inputReceiver);
 
     virtual ~EngineInputTranslatorFactory();
 
-    virtual qv::input::IInputTranslator* addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, qv::events::EventArgs* args, bool realTime = false);
+    virtual qv::input::IInputTranslator* addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, qv::CommandArgs* args, bool realTime = false);
 
     virtual u32 getCreatableInputTranslatorCount() const;
 

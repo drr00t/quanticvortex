@@ -42,6 +42,24 @@ struct SHashedString
 /// to be used for fast comparations.
 
 {
+    SHashedString()
+    :Hash(0)
+    {
+#ifdef _DEBUG
+        Text = "";
+#endif
+
+    }
+
+    SHashedString(const c8* text, qv::u32 hash)
+    :Hash(hash)
+    {
+#ifdef _DEBUG
+        Text = text;
+#endif
+
+    }
+    
     SHashedString(const c8* text)
     /// generate hash for text parameter
     {
@@ -54,16 +72,20 @@ struct SHashedString
     }
 
     // operators
-//    SHashedString& operator=( const SHashedString& other)
-//    {
-//#ifdef _DEBUG
-//        this->Text = other.Text;
-//#endif
-//
-//        this->Hash = other.Hash;
-//
-//        return *this;
-//    }
+    SHashedString (const SHashedString& other)
+    {
+        *this = other;
+    }
+    
+    SHashedString& operator=( const SHashedString& other)
+    {
+#ifdef _DEBUG
+        Text = other.Text;
+#endif
+        Hash = other.Hash;
+
+        return *this;
+    }
 
     bool operator==( const SHashedString& other) const
     {
@@ -86,24 +108,5 @@ struct SHashedString
 
 };
 
-//    bool SHashedString::operator==( const SHashedString& other) const
-//    {
-//#ifdef _DEBUG
-//        return ((this->Hash == other.Hash) && (this->Text == other.Text));
-//#else
-//        return (this->Hash == other.Hash);
-//#endif
-//    }
-//
-//    bool SHashedString::operator!=( const SHashedString& other) const
-//    {
-//#ifdef _DEBUG
-//        return ((this->Text != other.Text) && (this->Hash != other.Hash));
-//#else
-//        return (this->Hash != other.Hash);
-//#endif
-//    }
-
-//extern "C" _QUANTICVORTEX_API_ SHashedString QUANTICVORTEX_CALLCONV createHashedString( const qv::c8* text);
 }
 #endif

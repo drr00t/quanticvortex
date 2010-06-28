@@ -14,8 +14,8 @@
     <File Name="../../source/0003_qvAbstractCommand_Test.h"/>
     <File Name="../../source/0004_qvCommandManager_Test.h"/>
     <File Name="../../source/0005_qvGameLogic_Test.h"/>
-    <File Name="../../source/0007_qvGame_Test.h"/>
     <File Name="../../source/0006_qvAbstractGameView_Test.h"/>
+    <File Name="../../source/0007_qvGame_Test.h"/>
   </VirtualDirectory>
   <Dependencies Name="Debug">
     <Project Name="QuanticVortex_Core"/>

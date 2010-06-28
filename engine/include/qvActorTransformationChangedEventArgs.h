@@ -26,11 +26,11 @@
 
 
 #ifndef __ACTOR_TRANSFORMATION_CHANGED_EVENT_ARGS_H_
-#define __GAME_TICK_EVENT_ARGS_H_
+#define __ACTOR_TRANSFORMATION_CHANGED_EVENT_ARGS_H_
 
 #include <vector>
 
-#include "qvEventArgs.h"
+#include "qvCommandArgs.h"
 #include "qvTypes.h"
 
 #include "LinearMath/btTransform.h"
@@ -39,11 +39,15 @@ namespace qv
 {
 namespace events
 {
-class _QUANTICVORTEX_API_ ActorTransformationChangedEventArgs: public qv::events::EventArgs
+class _QUANTICVORTEX_API_ ActorTransformationChangedEventArgs: public qv::CommandArgs
 {
 public:
 
-    ActorTransformationChangedEventArgs( qv::u32 eventArgsHashType);
+    ActorTransformationChangedEventArgs( const qv::CT_COMMAND_TYPE& commandType)
+    :qv::CommandArgs(commandType)
+    {
+    
+    }
     /// create a event argument with type
 
     virtual ~ActorTransformationChangedEventArgs();

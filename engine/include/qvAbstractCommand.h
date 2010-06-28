@@ -60,6 +60,10 @@ public:
     /// body of command
 
 private:
+
+    AbstractCommand(const AbstractCommand&); // to avoid copy of command args
+    AbstractCommand& operator = (const AbstractCommand&); // to avoid copy of command args
+
     qv::CI_COMMAND_ID mCommandId;
     const qv::CT_COMMAND_TYPE& mCommandType;
 

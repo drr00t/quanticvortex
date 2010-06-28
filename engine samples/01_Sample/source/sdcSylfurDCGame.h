@@ -7,7 +7,7 @@
 
 namespace sdc
 {
-    
+
 class SylfurDCGame: public qv::Game
 {
 public:
@@ -18,4 +18,3 @@ public:
 }
 
 #endif
-

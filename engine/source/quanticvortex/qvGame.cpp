@@ -27,18 +27,33 @@
 
 #include "qvGame.h"
 
-// engine headers
-#include "qvCommandManager.h"
-#include "qvGameLogic.h"
-#include "qvHumanView.h"
+#include <vector>
+#include <algorithm>
 
-//external headers
-#include "Poco/Util/Option.h"
-#include "Poco/Util/OptionSet.h"
-#include "Poco/Util/OptionProcessor.h"
+#include "irrlicht.h"
 
 // external classes
 #include "LinearMath/btQuickprof.h"  // bullet timer
+
+#include "qvGetopt.h"
+
+
+// engine headers
+#include "qvCommandManager.h"
+#include "qvGameLogic.h"
+#include "qvInputReceiver.h"
+
+#include "qvHumanView.h"
+
+// game command args
+#include "qvLoadGameCommandArgs.h"
+#include "qvConfigureContentCommandArgs.h"
+
+//game command
+#include "qvLoadGameCommand.h"
+
+//game command types
+#include "qvGameCommandTypes.h"
 
 
 namespace qv
@@ -47,40 +62,6 @@ namespace qv
 Game::Game()
         : mQuit(false)
 {
-
-    /*
-    //    Poco::Util::OptionSet set;
-    //    set.addOption(
-    //    	Poco::Util::Option("bits", "bpp")
-    //    	.description("bits per pixel of the color buffer. default: 16")
-    //    	.required(false)
-    //    	.repeatable(false)
-    //        .argument("value"));
-    //
-    //    set.addOption(
-    //    	Poco::Util::Option("windowsize", "ws")
-    //    	.description("window size. default: 1024x768")
-    //    	.required(false)
-    //    	.repeatable(false)
-    //        .argument("value"));
-    //
-    //    set.addOption(
-    //    	Poco::Util::Option("vsync", "sync")
-    //    	.description("vertical sync. default: false")
-    //    	.required(false)
-    //    	.repeatable(false)
-    //        .argument("value"));
-    //
-    //    set.addOption(
-    //    	Poco::Util::Option("scene", "s")
-    //    	.description("can load a scene file directly.")
-    //    	.required(false)
-    //    	.repeatable(false)
-    //        .argument("value"));
-    //
-    //    mOptions = new Poco::Util::OptionProcessor(set);
-    */
-
     if (!initialize())
         mQuit = true;
 }
@@ -93,23 +74,25 @@ Game::~Game()
 bool Game::initialize()
 {
     //pre allocate 5 slots for views
-//    mGameViews.reserve(5);
+    mGameViews.reserve(5);
 
     loadConfiguration(); // load default configuration files, if present
 
     mCommandManager = new qv::CommandManager();
     mGameLogic = new qv::gaming::GameLogic(mGameParams, mCommandManager);
 
-    //registring engine events
-    registerGameEvents();
+    addCommandType(qv::gaming::CT_GAME_LOAD);
+//    mCommandManager->createCommand<qv::gaming::LoadGameCommand>("load_game", qv::gaming::CT_GAME_LOAD);
 
-    // registry my command here, like:
-//        - QuitCommand
-//        - ConfigurationLoaded
-//        - ConfigurationChanged
+    irr::SIrrlichtCreationParameters parameters;
 
-    //raised engine initialized event
-    // mEventManager->trigger(EngineInitializedEventArgs);
+    parameters.Bits = mGameParams.Bits;
+    parameters.DriverType = irr::video::EDT_OPENGL;
+    parameters.Stencilbuffer = true;
+    parameters.WindowSize = mGameParams.WindowSize;
+    parameters.Fullscreen = mGameParams.Fullscreen;
+
+    mDevice3d = irr::createDeviceEx(parameters);
 
     // maybe each one raise next state
     // initialize game logic - here game logic will get parâmeters configure internal things like: physics, sound, actor managment
@@ -122,15 +105,43 @@ bool Game::initialize()
     return true;
 }
 //-----------------------------------------------------------------------------
-void Game::registerGameEvents()
+void Game::finalize()
 {
+    if (mGameLogic)
+        delete mGameLogic;
 
+    mGameViews.clear();
+
+    if (mCommandManager)
+        delete mCommandManager;
 }
 //-----------------------------------------------------------------------------
-//void Game::addCommand(qv::ICommand* command)
-//{
-//    mEventManager->addCommand(command);
-//}
+qv::views::HumanView* Game::addHumanView(const qv::c8* gameViewName)
+{
+    qv::views::AbstractGameView* gameView = mGameViewsFactory.keep(new qv::views::HumanView(gameViewName, mCommandManager, mDevice3d ));
+
+    mGameViews.push_back(gameView);
+
+    if (mGameViews.size() > 1)
+        std::sort(mGameViews.begin(), mGameViews.end(), SortGameViewsLess());
+
+    return static_cast<qv::views::HumanView*>(gameView);
+}
+//-----------------------------------------------------------------------------
+void Game::load( const qv::c8* gamePath, const qv::c8* gameFile)
+{
+    qv::CommandArgs* args = mCommandManager->createCommandArgs<qv::LoadGameCommandArgs>(qv::gaming::CT_GAME_LOAD);
+
+    static_cast<qv::LoadGameCommandArgs*>(args)->setGameFile(gameFile);
+    static_cast<qv::LoadGameCommandArgs*>(args)->setGamePath(gamePath);
+
+    mCommandManager->executeCommand(args);
+}
+//-----------------------------------------------------------------------------
+void Game::addCommandType(const qv::CT_COMMAND_TYPE& commandType)
+{
+    mCommandManager->registerCommandType(commandType);
+}
 //-----------------------------------------------------------------------------
 void Game::loadConfiguration()
 {
@@ -148,24 +159,23 @@ void Game::loadConfiguration()
 
 }
 //-----------------------------------------------------------------------------
-void Game::configFromCommandLine( s32 argc, c8* argv[])
+void Game::parseCommandLine( int argc, const char** argv)
 {
+    int c;
 
-}
-//-----------------------------------------------------------------------------
-void Game::finalize()
-{
-    //remove all views
-//    for (u32 i = 0; i < mGameViews.size(); ++i)
-//        delete mGameViews[i];
-
-    mGameViews.clear();
-
-    if (mGameLogic)
-        delete mGameLogic;
-
-    if (mCommandManager)
-        delete mCommandManager;
+    while ((c = getopt( argc, argv, "s:a:")) != EOF)
+    {
+//        switch (c)
+//        {
+//        case 'i':
+//            m_sceneFileName = optarg;
+//            break;
+//        case 'a':
+//            sceneDirectory = optarg;
+//            folderArchives.push_back(optarg);
+//            break;
+//        }
+    }
 }
 //-----------------------------------------------------------------------------
 void Game::update( u32 currentTimeMs, u32 elapsedTimeMs)
@@ -177,128 +187,53 @@ void Game::update( u32 currentTimeMs, u32 elapsedTimeMs)
 
     //update views after game logic update
     for (u32 i = 0; i < mGameViews.size(); i++)
-        mGameViews[i]->update( elapsedTimeMs);
+        mGameViews.at(i)->update( elapsedTimeMs);
 }
 //-----------------------------------------------------------------------------
 void Game::render( u32 currentTimeMs, u32 elapsedTimeMs)
 {
     for (u32 i = 0; i < mGameViews.size(); i++)
-        mGameViews[i]->render(currentTimeMs, elapsedTimeMs);
+        mGameViews.at(i)->render(currentTimeMs, elapsedTimeMs);
 }
 //-----------------------------------------------------------------------------
-s32 Game::run(s32 argc, c8* argv[])
+s32 Game::run(int argc, const char** argv)
 {
     // - process commandline params, this shoud override file config value
     // just in SGameParams not in real config file
-    configFromCommandLine( argc, argv);
+    parseCommandLine( argc, argv);
 
-    // put game logic in initialization state, there several state pre-difined, how:
-    //    - qv::events::EET_GAME_LOGIC_INITIALIZATING
-    //    - qv::events::EET_GAME_LOGIC_MENU
-    //    - qv::events::EET_GAME_LOGIC_LOADING
-    //    - qv::events::EET_GAME_LOGIC_WAITING_PLAYER
-    //    - qv::events::EET_GAME_LOGIC_RUNNING
+    mInputReceiver = new qv::input::InputReceiver();
 
-    // In order to do framerate independent movement, we have to know
-    // how long it was since the last frame
     btClock clock;
     clock.reset();
+
     u32 lastTimeMs =  clock.getTimeMilliseconds();
     u32 curentTimeMs = lastTimeMs;
 
     while (!mQuit)
     {
+        if ( mDevice3d->run())
+        {
+            curentTimeMs = clock.getTimeMilliseconds();
+            u32 elapsedTimeMs = curentTimeMs - lastTimeMs;
 
-        // Work out a frame delta time.
-        curentTimeMs = clock.getTimeMilliseconds();
-        u32 elapsedTimeMs = curentTimeMs - lastTimeMs;
+            //game application update with current and
+            //elapsed time from last application update
+            update( curentTimeMs, elapsedTimeMs);
 
-        //game application update with current and
-        //elapsed time from last application update
-        update( curentTimeMs, elapsedTimeMs);
+            mDevice3d->getVideoDriver()->beginScene(true, true); //call some beginRender from engine
 
-        //game views rendering update with current and
-        //elapsed time from last application tick
-        render( curentTimeMs, elapsedTimeMs);
+            render( curentTimeMs, elapsedTimeMs);
+            //game views rendering update with current and
+            //elapsed time from last application tick
 
-        //update last time
-        lastTimeMs = curentTimeMs;
+            mDevice3d->getVideoDriver()->endScene(); //call some endRender from engine
+
+            lastTimeMs = curentTimeMs; //update last time
+        }
     }
 
     return 0;
 }
 
-/*
-//change resolution in runtime
-
-//bool resize = false, stop = false;
-//int width = 640, height = 480, bpp = 16;
-//
-//class Receiver : public IEventReceiver
-//{
-//protected:
-//   virtual bool OnEvent (const SEvent& event);
-//};
-//
-//bool Receiver::OnEvent (const SEvent& event)
-//{
-//   if (event.EventType == EET_KEY_INPUT_EVENT)
-//   {
-//      if (event.KeyInput.Key == KEY_ESCAPE && event.KeyInput.PressedDown)
-//      {
-//         stop = true;
-//         return true;
-//      }
-//      else if (event.KeyInput.Key == KEY_SPACE && event.KeyInput.PressedDown)
-//      {
-//         width = 800, height = 600, bpp = 32;
-//         resize = true;
-//         return true;
-//      }
-//   }
-//
-//   return false;
-//}
-//
-//int main (void)
-//{
-//   Receiver* receiver = NULL;
-//
-//   while (!stop)
-//   {
-//      IrrlichtDevice* device = createDevice (EDT_OPENGL, dimension2d<s32>(width, height), bpp, false, false, false, NULL);
-//
-//      if (!device)
-//         return 0;
-//
-//      IVideoDriver* driver = device->getVideoDriver();
-//      ISceneManager* smgr = device->getSceneManager();
-//
-//      receiver = new Receiver;
-//
-//      device->setEventReceiver(receiver);
-//
-//      while (device->run() && !resize)
-//      {
-//         driver->beginScene(true, true, SColor(255,100,101,140));
-//         smgr->drawAll();
-//         driver->endScene();
-//      }
-//
-//      resize = false;
-//
-//      if (receiver)
-//      {
-//         delete receiver;
-//         receiver = NULL;
-//      }
-//
-//      if (device)
-//      {
-//         device->closeDevice();
-//         device->run(); // Very important to do this here!
-//         device->drop();
-//      }
-//    }
-*/
 }

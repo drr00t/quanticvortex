@@ -36,6 +36,11 @@ public:
     TestGame()
     {
     }
+    
+    ~TestGame()
+    {
+        
+    }
 };
 
 SUITE(TestGame)
@@ -48,9 +53,9 @@ SUITE(TestGame)
         
         TestGame game;
         
-        game.addGameView<TestOrderGameView>("view_03", (qv::u8)3, GVT_THIRD);
-        game.addGameView<TestOrderGameView>("view_01", (qv::u8)1, GVT_FIRST);
-        game.addGameView<TestOrderGameView>("view_02", (qv::u8)2, GVT_SECOND);
+        game.addGameView<TestOrderGameView>("view_03", qv::u8(3), GVT_THIRD);
+        game.addGameView<TestOrderGameView>("view_01", qv::u8(1), GVT_FIRST);
+        game.addGameView<TestOrderGameView>("view_02", qv::u8(2), GVT_SECOND);
         
         bool ordered = true;
         

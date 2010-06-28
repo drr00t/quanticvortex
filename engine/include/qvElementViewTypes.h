@@ -24,22 +24,32 @@
 
 **************************************************************************************************/
 
-#ifndef __I_GAME_STATE_MACHINE_H_
-#define __I_GAME_STATE_MACHINE_H_
 
-#include "qvIStateMachine.h"
+#ifndef __ELEMENT_VIEW_TYPES_H_
+#define __ELEMENT_VIEW_TYPES_H_
+
+#include <vector>
+
+#include "qvSHashedString.h"
 
 
 namespace qv
 {
-	namespace gaming
-	{
-		class IGameStateMachine: public IStateMachine
-		{
-		public:
-			virtual void update( u32 currentTimeMs, u32 elapsedTimeMs)=0;
-		};
-	}
-}
-#endif
+namespace views
+{
+typedef qv::SHashedString EVI_ELEMENT_VIEW_ID;
+typedef qv::SHashedString EVT_ELEMENT_VIEW_TYPE;
 
+typedef std::vector<qv::views::EVT_ELEMENT_VIEW_TYPE> ElementViewTypesArray;
+
+static const EVT_ELEMENT_VIEW_TYPE EVT_ELEMENT_VIEW_SCENE("EVT_ELEMENT_VIEW_SCENE");
+/// scene elements manager
+
+static const EVT_ELEMENT_VIEW_TYPE EVT_ELEMENT_VIEW_GUI("EVT_ELEMENT_VIEW_GUI");
+/// scene gui elements managers
+
+}
+
+}
+
+#endif

@@ -29,7 +29,7 @@
 #define __I_INPUT_TRANSLATOR_FACTORY_H_
 
 #include "qvIInputTranslator.h"
-#include "qvEventArgs.h"
+#include "qvCommandArgs.h"
 
 
 namespace qv
@@ -40,7 +40,7 @@ namespace qv
 		{
 		public:
 
-			virtual qv::input::IInputTranslator* addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, qv::events::EventArgs* args, bool realTime = false) = 0;
+			virtual qv::input::IInputTranslator* addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, qv::CommandArgs* args, bool realTime = false) = 0;
 
 			virtual u32 getCreatableInputTranslatorCount() const = 0;
 

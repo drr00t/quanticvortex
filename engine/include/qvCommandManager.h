@@ -45,31 +45,46 @@ public:
     CommandManager();
     virtual ~CommandManager();
 
-//    bool addCommand ( qv::AbstractCommand* command);
-//    /// register an command to listen a specific command type
-
-    bool removeCommand ( qv::AbstractCommand* command);
-    /// remove a command from listeners command type map
+//    bool deleteCommand ( qv::AbstractCommand* command) const
+//    /// remove a command from listeners command type map
+//    {
+//            qv::CommandsMapRangeResult itrDelete = mRegistredCommandsMap.equal_range(command->getType().Hash);
+//
+//            for (CommandsMap::iterator itr = itrDelete.first; itr != itrDelete.second; itr++)
+//            {
+//                if( itr->second->getId().Hash == command->getId().Hash)
+//                {
+//                    return false;
+//                }
+//            }
+//        
+//        return false;
+//    }
     
-    template <class T> qv::AbstractCommand* createCommand( const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType)
+    template <class TCommand, class TArgs> qv::AbstractCommand* createCommand( const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType, TArgs* args)
         /// create command for a command args type.
     {
          qv::AbstractCommand* command(0);
 
         if(validateCommandType(commandType))
         {
-            command = mCommandsFactory.keep(new T(commandName, commandType));
-
-            qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(command->getType().Hash);
+            qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(commandType.Hash);
 
             for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; itr++)
-                if( itr->second->getId().Hash == command->getId().Hash)
-                    return false;
+                if( itr->second->getId().Hash == qv::CI_COMMAND_ID(commandName).Hash)
+                    return command;
             
+            command = mCommandsFactory.keep(new TCommand(commandName, commandType, args));
+           
             mRegistredCommandsMap.insert(CommandsMap::value_type( command->getType().Hash, command));
-        
         }
         
+        return command;
+    }
+    
+    template <class T> qv::AbstractCommand* createGameCommand( const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType)
+    {
+        qv::AbstractCommand* command(0);
         return command;
     }
     
@@ -121,6 +136,7 @@ private:
     RaiiFactoryImp<qv::AbstractCommand> mCommandsFactory;
     RaiiFactoryImp<qv::CommandArgs> mCommandArgsFactory; // create and control life cicle of command args
     Poco::AtomicCounter mActiveReadyCommandArgsQueue;
+    
 };
 
 }

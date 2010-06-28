@@ -6,6 +6,7 @@
 #include "qvCompileConfig.h"
 #include "qvActor.h"
 #include "qvActorTypes.h"
+#include "qvPhysicsTypes.h"
 #include "qvTypes.h"
 
 
@@ -40,17 +41,17 @@ typedef btAlignedObjectArray<btCollisionShape*> CollisionShapes;
 
 
 class _QUANTICVORTEX_API_ PhysicsManager
-            /// physics manager object, it will be responsable by all game physics
+    /// physics manager object, it will be responsable by all game physics
 {
 public:
 
-class ActorMotionState: public btMotionState
-                /// actor motion state, is object make transition of render view
-                /// game objects and physics simulation
+    class ActorMotionState: public btMotionState
+        /// actor motion state, is object make transition of render view
+        /// game objects and physics simulation
     {
     public:
         ActorMotionState(qv::CommandManager* commandManager, u32 actorHashId)
-                : mCommandManager( commandManager), mActorHashId( actorHashId)
+            : mCommandManager( commandManager), mActorHashId( actorHashId)
         {
         }
 

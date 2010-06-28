@@ -37,9 +37,9 @@ namespace qv
     namespace input
     {
         //-----------------------------------------------------------------------------------------
-		EngineInputTranslatorFactory::EngineInputTranslatorFactory( qv::events::EventManager* eventManager,
+		EngineInputTranslatorFactory::EngineInputTranslatorFactory( qv::CommandManager* commandManager,
 																	qv::input::InputReceiver* inputReceiver)
-																	:mEventManager(eventManager),
+																	:mCommandManager(commandManager),
 																	mInputReceiver(inputReceiver)
         {
 			mSupportedEngineInputTranslatorTypes.push_back(ITT_ANY_KEY.Hash);
@@ -55,7 +55,7 @@ namespace qv
         {
         }
 		//-----------------------------------------------------------------------------------------------
-		qv::input::IInputTranslator* EngineInputTranslatorFactory::addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, qv::events::EventArgs* args, bool realTime)
+		qv::input::IInputTranslator* EngineInputTranslatorFactory::addInputTranslator (const c8* inputTranslatorName,  u32 inputTranslatorHashType, qv::CommandArgs* args, bool realTime)
 		{
 			qv::input::IInputTranslator* translator(0);
 //			if(getCreateableInputTranslator(inputTranslatorHashType))

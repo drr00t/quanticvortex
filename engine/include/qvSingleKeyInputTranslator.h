@@ -29,14 +29,12 @@
 #define _SINGLE_KEY_INPUT_TRANSLATOR_H_
 
 #include "qvIInputTranslator.h"
-#include "qvEventArgs.h"
+#include "qvCommandArgs.h"
 
 namespace qv
 {
-namespace events
-{
-    class EventManager;
-}
+    class CommandManager;
+
 
 namespace input
 {
@@ -57,11 +55,11 @@ class _QUANTICVORTEX_API_ SingleKeyInputTranslator: public qv::input::IInputTran
 
 public:
 
-    SingleKeyInputTranslator(qv::events::EventManager* eventManager,
+    SingleKeyInputTranslator(qv::CommandManager* commandManager,
                             irr::EKEY_CODE keyCode,
                             qv::input::EKEY_STATE checkKeyState,
                             bool realTime,
-                            qv::events::EventArgs* args,
+                            qv::CommandArgs* args,
                             u32 inputTranslatorHashId);
 
     virtual ~SingleKeyInputTranslator();
@@ -76,10 +74,10 @@ private:
     bool mRealTime;
     u32 mInputTranslatorHashType;
     u32 mInputTranslatorHashId;
-    qv::events::EventManager* mEventManager;
+    qv::CommandManager* mCommandManager;
     irr::EKEY_CODE mKeyCode;
     qv::input::EKEY_STATE mCheckKeyState;
-    qv::events::EventArgs* mArgs;
+    qv::CommandArgs* mArgs;
 };
 
 }

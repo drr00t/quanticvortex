@@ -35,6 +35,8 @@
 #define QUANTICVORTEX_VERSION_MINOR 2
 #define QUANTICVORTEX_VERSION_REVISION 0
 
+#define QUANTICVORTEX_PLATAFORM_WINDOWS 1
+
 // This flag will be defined only in Mercurial, the official release code will have
 // it undefined
 //#define QUANTICVORTEX_VERSION_MERCURIAL
@@ -44,7 +46,7 @@
 //! WIN64 for Windows64
 // The windows platform 
 #if defined(_WIN32) || defined(_WIN64) || defined(WIN32) || defined(WIN64)
-#	define _QUANTICVORTEX_PLATAFORM_ PLATAFORM_WINDOWS
+#	define QUANTICVORTEX_PLATAFORM QUANTICVORTEX_PLATAFORM_WINDOWS
 //#	define _QUANTICVORTEX_API_
 #endif
 

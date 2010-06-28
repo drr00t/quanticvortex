@@ -25,29 +25,31 @@
 **************************************************************************************************/
 
 
-#ifndef __SGAMEPARAMS_H_
-#define __SGAMEPARAMS_H_
+#ifndef __SGAME_PARAMS_H_
+#define __SGAME_PARAMS_H_
 
 #include "qvTypes.h"
+#include "qvSGameLevel.h"
+#include "qvSGameState.h"
 
-#include "irrString.h"
-#include "irrMath.h"
 #include "dimension2d.h"
+
 
 namespace qv
 {
+   
 	struct SGameParams
     {
-		SGameParams():
-			WindowSize(irr::core::dimension2du(1024, 768)),
-			Fullscreen(false),
-			Vsync(false),
-			Bits(16),
-            HostGame(false),
-            LocalPlayers(1),
-            AIPlayers(0),  //player vs computer games i can use this to test the ai and animation, maybe
-            RemotePlayers(0),
-            Title("Default Game Title")
+		SGameParams()
+        :WindowSize(irr::core::dimension2du(1024, 768)),
+        Fullscreen(false),
+        Vsync(false),
+        Bits(16),
+        HostGame(false),
+        LocalPlayers(1),
+        AIPlayers(0),  //player vs computer games i can use this to test the ai and animation, maybe
+        RemotePlayers(0),
+        Title("Default Game Title")
 		{
 		}
 
@@ -81,18 +83,21 @@ namespace qv
         irr::core::dimension2du WindowSize;
         bool Fullscreen;
 		bool Vsync;
-		u8 Bits;
+		qv::u8 Bits;
 
         bool HostGame;
-        u8 LocalPlayers;
-        u8 AIPlayers;
-        u8 RemotePlayers;
+        qv::u8 LocalPlayers;
+        qv::u8 AIPlayers;
+        qv::u8 RemotePlayers;
 
         bool ShowCursor;
         bool InputBuffered;
         bool InputDebug;
 
         irr::core::stringc Title;
+        
+        qv::GameStatesArray GameStates;
+        
         //texture size
         //detail level
         //shadow maps

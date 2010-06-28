@@ -90,7 +90,7 @@ public:
     void update( u32 currentTimeMs, u32 elapsedTimeMs);
     /// update game data, and game tick
 
-    void changeState( const qv::S_STATE& newState);
+    void changeState( const qv::gaming::GS_GAME_STATE& newState);
     /// change the state of game, like: from menu to running
 
     void setPause(bool pause);

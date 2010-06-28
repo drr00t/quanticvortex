@@ -41,22 +41,6 @@ CommandManager::~CommandManager()
 {
 }
 //-----------------------------------------------------------------------------------------
-//bool CommandManager::addCommand(qv::AbstractCommand* command)
-//{
-//    if(!validateCommandType(command->getType()))
-//        return false;
-//    
-//    qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(command->getType().Hash);
-//
-//    for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; itr++)
-//        if( itr->second->getId().Hash == command->getId().Hash)
-//            return false;
-//    
-//    mRegistredCommandsMap.insert(CommandsMap::value_type( command->getType().Hash, command));
-    
-//    return true;    
-//}
-//-----------------------------------------------------------------------------------------
 void CommandManager::registerCommandType(const qv::CT_COMMAND_TYPE& commandType)
 {
 
@@ -75,23 +59,14 @@ void CommandManager::registerCommandType(const qv::CT_COMMAND_TYPE& commandType)
 bool CommandManager::validateCommandType(const qv::CT_COMMAND_TYPE& commandType)
 {
     for(u32 i = 0;i < mValidCommandTypes.size(); i++)
-        if(commandType == mValidCommandTypes[i])
+        if(commandType == mValidCommandTypes.at(i))
             return true;
     return false;
 }
-//////-----------------------------------------------------------------------------------------
-////void EventManager::registerEventArgsFactory(IEventArgsFactory* factory)
-////{
-////}
-////-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
 //bool EventManager::abortEvent( u32 eventHashType)
 //{
 //    return true;
-//}
-////-----------------------------------------------------------------------------------------
-//bool EventManager::removeCommand(qv::ICommand* command)
-//{
-//    return false;
 //}
 ////-----------------------------------------------------------------------------------------
 bool CommandManager::enqueueCommandArgs(qv::CommandArgs* args)
@@ -133,11 +108,13 @@ bool CommandManager::executeCommands()
         qv::CommandsMapRangeResult itrResult = 
             mRegistredCommandsMap.equal_range(mReadyCommandArgs[processReadyCommandArgsQueue][i]->getType().Hash);
 
-        for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; itr++)
+        for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; ++itr)
         {
             itr->second->executeCommand(mReadyCommandArgs[processReadyCommandArgsQueue][i]);
             eventHandled = true;
         }
+        
+        mCommandArgsFactory.dispose(mReadyCommandArgs[processReadyCommandArgsQueue][i]);
     }
     
     mReadyCommandArgs[QueueCommandArgsLenght].clear();
@@ -150,7 +127,7 @@ bool CommandManager::executeCommand(const qv::CommandArgs* args)
     bool eventHandled = false;
     qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(args->getType().Hash);
 
-    for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; itr++)
+    for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; ++itr)
     {
         itr->second->executeCommand(args);
         eventHandled = true;

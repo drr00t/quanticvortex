@@ -28,10 +28,12 @@
 #ifndef __HUMAN_VIEW_H_
 #define __HUMAN_VIEW_H_
 
-#include "qvCompileConfig.h"
+#include "qvRAIIFactoryImp.h"
 
-#include "qvSGameParams.h"
 #include "qvAbstractGameView.h"
+#include "qvAbstractElementView.h"
+
+
 
 namespace irr
 {
@@ -50,17 +52,14 @@ class InputReceiver;
 
 namespace views
 {
-class IElementViewFactory;
+    class SceneElementView;
 }
-
 }
 
 namespace qv
 {
 namespace views
 {
-
-static const qv::views::GVT_GAME_VIEW_TYPE GVT_HUMAN_VIEW("GVT_HUMAN_VIEW");
 
 class _QUANTICVORTEX_API_ HumanView : public qv::views::AbstractGameView
             /// This class allow a local player to be atached
@@ -69,31 +68,32 @@ class _QUANTICVORTEX_API_ HumanView : public qv::views::AbstractGameView
             /// rendering data on screen
 {
 public:
-    HumanView(const qv::c8* gameViewName, qv::CommandManager* commandManager);
+    HumanView(const qv::c8* gameViewName, qv::CommandManager* commandManager, irr::IrrlichtDevice* device3d);
     ///create the HumanView
 
-    ~HumanView();
+    virtual ~HumanView();
     ///create the HumanView
 
     void attach( u32 actorHashId);
     /// attach given view to a actor infromed by user,
     /// if zero means no actor
 
-    void update(u32 elapsedTimeMs);
+    virtual void update(u32 elapsedTimeMs);
     /// update all view elements, process and all other thing
     /// sibling to render system, animated gui and mesh
 
-    void render( u32 currentTimeMs, u32 elapsedTimeMs);
+    virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
     /// render all element view data (scene, gui, shaders)
 
     //// Virtual methods to control the layering of interface elements
-//    IElementViewSharedPtr addElementView(const c8* name, u32 elementViewHashType);
+    qv::views::SceneElementView* addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType);
 
 //    void registerElementViewFactory(IElementViewFactory* factoryToAdd);
 
-    //void attachProcess(Process* process){mProcessManager->attach(process);}
+//    void attachProcess(Process* process){mProcessManager->attach(process);}
 
 private:
+
     u32 mActorHashId;
     u32 mCurrentEngineTime;    // current view time
     u32 mLastUpdateTime; // last tick time update
@@ -103,14 +103,14 @@ private:
 
     qv::input::InputReceiver* mInputReceiver;
     qv::CommandManager* mCommandManager;
+    
+    qv::views::ElementViewsList mElementViews;
+    
+    RaiiFactoryImp<qv::views::AbstractElementView> mElementViewFactory;
+
 
     //ProcessManager *mProcessManager;				    // just for gui elements.
 //        cAudio::IAudioManager* mAudioManager;
-
-//        ElementViewArray mElementViews;
-//            CommandList mInputCommands;
-//            CommandList mEventCommands;
-    //I need to put aITimer here, to allow private timer to player view
 
     //IGUIFont* mFont;
 

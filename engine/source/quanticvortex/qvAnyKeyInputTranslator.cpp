@@ -26,8 +26,7 @@
 
 #include "qvAnyKeyInputTranslator.h"
 
-#include "qvEventManager.h"
-//#include "qvInputReceiver.h"
+#include "qvCommandManager.h"
 
 
 namespace qv
@@ -35,10 +34,10 @@ namespace qv
 	namespace input
 	{
 		//-----------------------------------------------------------------------------------------
-		AnyKeyInputTranslator::AnyKeyInputTranslator(qv::events::EventManager* eventManager,
-													bool realTime, events::EventArgs* args,
+		AnyKeyInputTranslator::AnyKeyInputTranslator(qv::CommandManager* commandManager,
+													bool realTime, qv::CommandArgs* args,
 													u32 inputTranslatorHashId)
-													:mEventManager(eventManager), 
+													:mCommandManager(commandManager), 
                                                     mRealTime(realTime),
                                                     mInputTranslatorHashId(inputTranslatorHashId),
 													mArgs(args), 

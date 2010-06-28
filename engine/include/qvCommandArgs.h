@@ -51,9 +51,9 @@ public:
     /// event argument type
 
 private:
-    CommandArgs(const CommandArgs&); // to avoid copy of even args
 
-    CommandArgs& operator = (const CommandArgs&); // to avoid copy of event args
+    CommandArgs(const CommandArgs&); // to avoid copy of command args
+    CommandArgs& operator = (const CommandArgs&); // to avoid copy of command args
 
     const qv::CT_COMMAND_TYPE& mCommandType; // event arguments type
 };

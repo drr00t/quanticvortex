@@ -26,14 +26,16 @@
 
 #include "qvLoadGameCommand.h"
 
+#include "qvGameCommandTypes.h"
+
 namespace qv
 {
 namespace gaming
 {
 
 //-----------------------------------------------------------------------------------------
-LoadGameCommand::LoadGameCommand(const qv::c8* commandName)
-:qv::AbstractCommand(commandName, qv::gaming::CT_GAME_LOAD)
+LoadGameCommand::LoadGameCommand(const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType)
+:qv::AbstractCommand(commandName, commandType)
 {
 }
 //-----------------------------------------------------------------------------------------
@@ -41,7 +43,7 @@ LoadGameCommand::~LoadGameCommand()
 {
 }
 //-----------------------------------------------------------------------------------------
-void LoadGameCommand::executeCommand(qv::CommandArgs* args)
+void LoadGameCommand::executeCommand(const qv::CommandArgs* args)
 {
 
 }

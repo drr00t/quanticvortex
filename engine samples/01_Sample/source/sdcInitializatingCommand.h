@@ -1,48 +1,42 @@
 
-#ifndef __SDC_CONTROLLER_INITIALIZATING_COMMAND_H_
-#define __SDC_CONTROLLER_INITIALIZATING_COMMAND_H_
+#ifndef __SDC_INITIALIZATING_COMMAND_H_
+#define __SDC_INITIALIZATING_COMMAND_H_
 
-//#include "qvICommand.h"
-#include "qvTypes.h"
+#include "qvAbstractCommand.h"
 
-namespace qv
+
+namespace sdc
 {
-    class Game;
-
-namespace events
-{
-    class EventArgs;
-    class EventManager;
-}
+class SylfurDCGame;
 }
 
 namespace sdc
 {
-namespace controller
+namespace commands
 {
 
 //static const qv::CI_COMMAND_ID CI_INITIALIZATING = HASH_STRING("CI_INITIALIZATING");
 
 
-class InitializatingCommand //: public qv::ICommand
-    /// initialization command to startup game application
+class InitializatingCommand: public qv::AbstractCommand
+            /// initialization command to startup game application
 {
 public:
-    InitializatingCommand( qv::Game* gameApp);
+    InitializatingCommand( sdc::SylfurDCGame* gameApp);
     /// constructor
-    
+
     virtual ~InitializatingCommand();
-    
+
     virtual qv::u32 getHashId() const
     {
         return mCommandHashId;
     }
-    
+
     virtual qv::u32 getHashType() const
     {
         return mCommandHashType;
     }
-    
+
     virtual void executeCommand(const qv::events::EventArgs* args);
 
 private:

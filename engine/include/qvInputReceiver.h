@@ -43,9 +43,10 @@ namespace qv
 namespace input
 {
 
-//base implementation released by Seven on Irrlicht forums:
-//http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=34052&highlight=irreventhandler
+
 class _QUANTICVORTEX_API_ InputReceiver : public irr::IEventReceiver
+    //base implementation released by Seven on Irrlicht forums:
+    //http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=34052&highlight=irreventhandler
 {
 
 

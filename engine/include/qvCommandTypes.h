@@ -45,18 +45,11 @@ typedef SHashedString CT_COMMAND_TYPE;
 
 typedef std::vector<qv::CT_COMMAND_TYPE> CommandTypesArray;
 
-static const qv::CT_COMMAND_TYPE CT_GAME_PARAMS_CHANGED("CT_GAME_PARAMS_CHANGED");
-/// used to identify game configuration loaded or changed
+static const CT_COMMAND_TYPE CT_CONTENT_CONFIGURE("CT_CONTENT_CONFIGURE");
 
-namespace gaming
+namespace views
 {
-
-static const qv::CT_COMMAND_TYPE CT_GAME_LOAD("CT_GAME_LOAD");
-/// command type: game load
-
-static const qv::CT_COMMAND_TYPE CT_GAME_VIEW_CREATE("CT_GAME_VIEW_CREATE");
-/// create a game view and attach
-
+static const CT_COMMAND_TYPE CT_SCENE_LOAD("CT_SCENE_LOAD");    
 }
 
 }

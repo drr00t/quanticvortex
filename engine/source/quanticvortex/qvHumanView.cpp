@@ -27,181 +27,137 @@
 
 #include "qvHumanView.h"
 
-#include "qvDefaultElementViewFactory.h"
-#include "qvEventManager.h"
+#include "qvSceneElementView.h"
+
+#include "qvCommandManager.h"
 #include "qvInputReceiver.h"
-#include "qvSGameParams.h"
 
-//#include "qvSceneView.h"
+#include "IrrlichtDevice.h"
 
-
-#include "irrlicht.h"
 
 
 namespace qv
 {
-    namespace views
+namespace views
+{
+//-----------------------------------------------------------------------------------------
+HumanView::HumanView(const qv::c8* gameViewName, qv::CommandManager* commandManager, irr::IrrlichtDevice* device3d)
+        : qv::views::AbstractGameView( gameViewName, 1, qv::views::GVT_GAME_VIEW_HUMAN),
+        mLastUpdateTime(0.0f), mCurrentEngineTime(0.0f), mAccumulatorTime(0), mInputReceiver(0),
+        mCommandManager(commandManager), mDevice3d(device3d) /*mProcessManager(0)*/
+{
+
+    addSceneElementView("scene_view", qv::views::EVT_ELEMENT_VIEW_SCENE);
+     
+//     addGuiElementView("gui_view", qv::views::EVT_ELEMENT_VIEW_SCENE);
+    
+    //mFont = mEngineManager->getGuiManager()->getBuiltInFont();
+    //IGUISkin* skin = mEngineManager->getGuiManager()->getSkin();
+    //   skin->setFont(mFont);
+
+    //InitAudio();
+
+    //      mProcessManager = new ProcessManager();
+    //mProcessManager->grab();
+
+    //m_pFont = NULL;         // Font for drawing text
+    //m_pTextSprite = NULL;   // Sprite for batching draw text calls
+
+    ///human view will liten:
+    /// - LoadContentEventArgs: load game content (types: scene, gui, player, npc, etc) fired by gamelogic,
+    /// each content could say to human what input will should listen
+    ///
+    /// - ChangeGameStateEventArgs: listen change of game state, to reconfigure input translator of each
+    /// translator for game state
+
+}
+//-----------------------------------------------------------------------------------------
+HumanView::~HumanView()
+{
+    //mProcessManager->drop();
+
+    mElementViews.clear();
+}
+//-----------------------------------------------------------------------------------------
+void HumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
+{
+    //////// Lock FPS at around 60
+    //////if((timeThisFrame - timePreviousFrame) <= 16)
+    //////{
+    //////  Timer->tick();
+    //////  timeThisFrame = Timer->getTime();
+    //////}
+    //////timePreviousFrame = timeThisFrame;
+
+    //get new system time, but FIXME: should be game time from GameLogic maybe
+    mCurrentEngineTime = currentTimeMs;
+
+    if (currentTimeMs == mLastUpdateTime)
+        return;
+
+    mAccumulatorTime += elapsedTimeMs;
+
+    if (mAccumulatorTime > 16) //qv::GF_GAME_RENDER_FRAMERATE)
     {
-        //-----------------------------------------------------------------------------------------
-        HumanView::HumanView(const qv::c8* gameViewName, qv::CommandManager* commandManager)
-			: qv::views::AbstractGameView( gameViewName, 1, qv::views::GVT_HUMAN_VIEW), mLastUpdateTime(0.0f),
-			mCurrentEngineTime(0.0f), mAccumulatorTime(0), mInputReceiver(0),
-			mCommandManager(commandManager), mDevice3d(0) /*mProcessManager(0)*/
-        {
-            irr::SIrrlichtCreationParameters parameters;
+        qv::views::ElementViewsList::iterator itr;
+        for (itr = mElementViews.begin(); itr != mElementViews.end(); ++itr)
+            if ((*itr)->visible())
+                (*itr)->render( mCurrentEngineTime, elapsedTimeMs);
 
-            parameters.Bits = 16; //engineManager->getGameParameters().Bits;
-            parameters.DriverType = irr::video::EDT_DIRECT3D9;
-            parameters.Stencilbuffer = true;
-            parameters.WindowSize = irr::core::dimension2di(1024,768);//engineManager->getGameParameters().WindowSize;
-            parameters.Fullscreen = false;//engineManager->getGameParameters().Fullscreen;
-
-            mDevice3d = irr::createDeviceEx(parameters);
-
-            mInputReceiver = new qv::input::InputReceiver();
-
-            //mFont = mEngineManager->getGuiManager()->getBuiltInFont();
-	        //IGUISkin* skin = mEngineManager->getGuiManager()->getSkin();
-         //   skin->setFont(mFont);
-
-	        //InitAudio();
-
-	  //      mProcessManager = new ProcessManager();
-			//mProcessManager->grab();
-
-	        //m_pFont = NULL;         // Font for drawing text
-	        //m_pTextSprite = NULL;   // Sprite for batching draw text calls
-
-	        ///human view will liten:
-	        /// - LoadContentEventArgs: load game content (types: scene, gui, player, npc, etc) fired by gamelogic,
-	        /// each content could say to human what input will should listen
-	        ///
-	        /// - ChangeGameStateEventArgs: listen change of game state, to reconfigure input translator of each
-	        /// translator for game state
-
-        }
-        //-----------------------------------------------------------------------------------------
-        HumanView::~HumanView()
-        {
-			//mProcessManager->drop();
-
-//			for(u32 i = 0; i < mElementViews.size(); ++i)
-//				mElementViews[i]->drop();
-
-//            mElementViews.clear();
-
-            mDevice3d->drop();
-        }
-        //-----------------------------------------------------------------------------------------
-        //virtual HRESULT onRestore()=0;
-        //-----------------------------------------------------------------------------------------
-        void HumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
-        {
-			//////// Lock FPS at around 60
-			//////if((timeThisFrame - timePreviousFrame) <= 16)
-			//////{
-			//////  Timer->tick();
-			//////  timeThisFrame = Timer->getTime();
-			//////}
-			//////timePreviousFrame = timeThisFrame;
-
-            if( mDevice3d->run())
-            {
-                //get new system time, but FIXME: should be game time from GameLogic maybe
-                mCurrentEngineTime = currentTimeMs;
-
-                if (currentTimeMs == mLastUpdateTime)
-                    return;
-
-                mAccumulatorTime += elapsedTimeMs;
-
-                if(mAccumulatorTime > 16) //qv::GF_GAME_RENDER_FRAMERATE)
-                {
-                    mDevice3d->getVideoDriver()->beginScene(true, true); //call some beginRender from engine
-
-//                    for(u32 i = 0; i < mElementViews.size(); ++i)
-//                        if(mElementViews[i]->getVisible())
-//                            mElementViews[i]->render( mCurrentTime, elapsedTimeMs);
-
-                    mDevice3d->getSceneManager()->drawAll();
-
-                    mDevice3d->getGUIEnvironment()->drawAll();
-
-                    mDevice3d->getVideoDriver()->endScene(); //call some endRender from engine
-
-                    //register last render call time
-                    mLastUpdateTime = mCurrentEngineTime;
-                    mAccumulatorTime = 0;
-                }
-            }
-        }
-        //-----------------------------------------------------------------------------------------
-//        void HumanView::lostDevice()
-//        {
+//            mDevice3d->getSceneManager()->drawAll();
 //
-//        }
-        //-----------------------------------------------------------------------------------------
-        void HumanView::update( u32 elapsedTimeMs)
-        {
+//            mDevice3d->getGUIEnvironment()->drawAll();
 
-			//mProcessManager->update(elapsedTimeMs);
+        //register last render call time
+        mLastUpdateTime = mCurrentEngineTime;
+        mAccumulatorTime = 0;
 
-	        //m_Console.Update(deltaMilliseconds);
+    }
+}
+//-----------------------------------------------------------------------------------------
+void HumanView::update( u32 elapsedTimeMs)
+{
 
-//            for(u32 i = 0; i < mElementViews.size(); ++i)
-//                mElementViews[i]->update( elapsedTimeMs);
+    //mProcessManager->update(elapsedTimeMs);
 
-            //will did not need recreate this object every time
+    //m_Console.Update(deltaMilliseconds);
+    qv::views::ElementViewsList::iterator itr;
+    for (itr = mElementViews.begin(); itr != mElementViews.end(); ++itr)
+        (*itr)->update( elapsedTimeMs);
+
+    //will did not need recreate this object every time
 //            if(!mGameTickEventArgs)
 //                mGameTickEventArgs = mEventManager->createEventArgs<qv::events::GameTickEventArgs>(qv::events::EET_GAME_LOGIC_TICK_UPDATE);
 //            mEventManager->
-        }
-        //-----------------------------------------------------------------------------------------
-//        IElementView* HumanView::addElementView(const c8* name, u32 elementViewHashType)
-//        {
-//            IElementView* elementView(0);
-////            for(u32 i = 0; i < mElementViewFactories.size(); ++i)
-////			{
-//////                if(mElementViewFactories[i]->getCreateableElementViewType(type))
-//////				{
-//////                    elementView.reset(mElementViewFactories[i]->addElementView(name,type));
-//////						mElementViews.push_back(elementView);
-//////					break;
-//////				}
-////			}
-//
-//			////sort element views array, to put 3D scene, behind gui view, etc...
-//			//if(mElementViews.size() > 1)
-//			//	mElementViews.sort();
-//
-//            return elementView;
-//        }
-  //      //-----------------------------------------------------------------------------------------
-		//void HumanView::pushElement(IElementView* element)
-  //      {
-  //          //mElementViews.push_front(element);
-  //      }
-  //      //-----------------------------------------------------------------------------------------
-		//void HumanView::popElement(IElementView* element)
-  //      {
-		//	list<IElementView*>::Iterator itr = mElementViews.begin();
-		//	while(itr != mElementViews.end())
-		//	{
-		//		if((*itr)->getID() == element->getID())
-		//		{
-		//			mElementViews.erase (itr);
-		//			break;
-		//		}
-		//		++itr;
-		//	}
-  //      }
-        //-----------------------------------------------------------------------------------------
-//        void HumanView::registerElementViewFactory(IElementViewFactory *factoryToAdd)
-//        {
-////            factoryToAdd->grab();
-////            mElementViewFactories.push_back(factoryToAdd);
-//        }
-        //-----------------------------------------------------------------------------------------
-    }
 }
+//-----------------------------------------------------------------------------------------
+qv::views::SceneElementView* HumanView::addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType)
+{
+    qv::views::AbstractElementView* elementView = 
+        mElementViewFactory.keep(new qv::views::SceneElementView(elementViewName, mCommandManager, mDevice3d->getSceneManager() ));
 
+    mElementViews.push_back(elementView);
+
+    if (mElementViews.size() > 1)
+        mElementViews.sort(SortElementViewsLess());
+
+    return static_cast<qv::views::SceneElementView*>(elementView);
+
+}
+//-----------------------------------------------------------------------------------------
+//qv::views::GuiElementView* HumanView::addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType)
+//{
+//    qv::views::AbstractElementView* elementView = 
+//        mElementViewFactory.keep(new qv::views::SceneElementView(elementViewName, mCommandManager, mDevice3d->getSceneManager() ));
+//
+//    mElementViews.push_back(elementView);
+//
+//    if (mElementViews.size() > 1)
+//        mElementViews.sort(SortElementViewsLess());
+//
+//    return static_cast<qv::views::SceneElementView*>(elementView);
+//
+//}
+//-----------------------------------------------------------------------------------------
+}
+}

@@ -25,49 +25,36 @@
 **************************************************************************************************/
 
 
-#ifndef __S_EVENTARGS_H_
-#define __S_EVENTARGS_H_
+#ifndef __PHYSICS_TYPES_H_
+#define __PHYSICS_TYPES_H_
 
-#include "qvPrerequisites.h"
-#include "qvEventTypes.h"
-
+#include "qvSHashedString.h"
 
 
 namespace qv
 {
-      
-	struct SEventArgs: IReferenceCounted
-	{
-		SEventArgs(const ET_EVENT_TYPE& type)
-			:Type(type)
-		{}
+    namespace physics
+    {
 
-		SEventArgs( const SEventArgs& other)
-		{
-			*this = other;
-		}
-	    
-		//operators
-		SEventArgs& operator= (const SEventArgs& other)
-	    {
-			Type = other.Type;
-
-		    return *this;
-	    }
-		
-		bool operator!=(const SEventArgs &other) const
-		{
-			return (Type != other.Type);
-		}
-
-		bool operator==(const SEventArgs &other) const 
-		{
-			return (Type == other.Type);
-		}
-
-		ET_EVENT_TYPE Type;
-	};
+        enum E_PHYSICS_BODY_TYPE 
+        {
+            EPBT_STATIC, 
+            EPBT_DYNAMIC, 
+            EPBT_KINEMATIC, 
+            EPBT_SOFT
+        };
+        
+        enum E_PHYSICS_SHAPE_TYPE
+        {
+            EPST_BOX, 
+            EPST_PLANE, 
+            EPST_SPHERE, 
+            EPST_CONE, 
+            EPST_CYLINDER, 
+            EPST_CONVEXMESH, 
+            EPST_CONCAVEMESH
+        };        
+    }
 }
-
 #endif
 

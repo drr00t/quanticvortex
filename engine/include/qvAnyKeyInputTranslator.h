@@ -29,14 +29,12 @@
 #define _ANY_KEY_INPUT_TRANSLATOR_H_
 
 #include "qvIInputTranslator.h"
-#include "qvEventArgs.h"
+#include "qvCommandArgs.h"
 
 namespace qv
 {
-namespace events
-{
-    class EventManager;
-}
+    class CommandManager;
+
 namespace input
 {
     class InputReceiver;
@@ -56,9 +54,9 @@ class AnyKeyInputTranslator : public qv::input::IInputTranslator
 
 public:
 
-    AnyKeyInputTranslator(qv::events::EventManager* eventManager,
+    AnyKeyInputTranslator(qv::CommandManager* commandManager,
                             bool realTime,
-                            qv::events::EventArgs* args,
+                            qv::CommandArgs* args,
                             u32 inputTranslatorHashId);
 
     virtual ~AnyKeyInputTranslator();
@@ -79,8 +77,8 @@ private:
     bool mRealTime;
     u32 mInputTranslatorHashId;
     u32 mInputTranslatorHashType;
-    qv::events::EventManager* mEventManager;
-    qv::events::EventArgs* mArgs;
+    qv::CommandManager* mCommandManager;
+    qv::CommandArgs* mArgs;
 };
 
 }
