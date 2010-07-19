@@ -24,44 +24,52 @@
 
 **************************************************************************************************/
 
-#include "qvAnyKeyInputTranslator.h"
 
-//#include "qvCommandManager.h"
+#ifndef __SCENE_LOAD_COMMAND_ARGS_H_
+#define __SCENE_LOAD_COMMAND_ARGS_H_
+
+#include "qvCommandArgs.h"
 
 
 namespace qv
 {
-	namespace input
-	{
-		//-----------------------------------------------------------------------------------------
-		AnyKeyInputTranslator::AnyKeyInputTranslator(qv::CommandManager* commandManager,
-													bool realTime, qv::CommandArgs* args,
-													u32 inputTranslatorHashId)
-													:mCommandManager(commandManager), 
-                                                    mRealTime(realTime),
-                                                    mInputTranslatorHashId(inputTranslatorHashId),
-													mArgs(args), 
-                                                    mInputTranslatorHashType(qv::input::ITT_ANY_KEY.Hash)
-		{
-		}
-		//-----------------------------------------------------------------------------------------
-		AnyKeyInputTranslator::~AnyKeyInputTranslator()
-		{
-		}
-		//-----------------------------------------------------------------------------------------
-		bool AnyKeyInputTranslator::translate(qv::input::InputReceiver *context) const
-		{
-			bool translated = false;
 
-//			if(mRealTime)
-//				mEventManager->trigger(mArgs);
-//			else
-//				mEventManager->enqueueEvent(mArgs);
+namespace views
+{
 
-			translated = true;
+class SceneLoadCommandArgs: public qv::CommandArgs
+{
+public:
 
-			return translated;
-		}
-		//-----------------------------------------------------------------------------------------
-	}
+    SceneLoadCommandArgs( const qv::CT_COMMAND_TYPE& commandType)
+    /// create a scene load command args with type
+        : qv::CommandArgs(commandType)
+    {
+
+    }
+
+    virtual ~SceneLoadCommandArgs()
+    /// destroy scene load command
+    {
+
+    }
+
+    const qv::c8* getSceneFile() const;
+    /// scene file to load
+
+private:
+    irr::core::stringc mSceneFile;
+
+
+};
+
+//inlines
+const qv::c8* SceneLoadCommandArgs::getSceneFile() const
+{
+    return mSceneFile.c_str();
 }
+}
+
+}
+
+#endif

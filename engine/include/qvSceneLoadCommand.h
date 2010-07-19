@@ -24,44 +24,48 @@
 
 **************************************************************************************************/
 
-#include "qvAnyKeyInputTranslator.h"
 
-//#include "qvCommandManager.h"
+#ifndef __SCENE_LOAD_COMMAND_H_
+#define __SCENE_LOAD_COMMAND_H_
+
+#include "qvAbstractCommand.h"
+#include "qvSceneLoadCommandArgs.h"
+#include "qvSceneElementView.h"
 
 
 namespace qv
 {
-	namespace input
-	{
-		//-----------------------------------------------------------------------------------------
-		AnyKeyInputTranslator::AnyKeyInputTranslator(qv::CommandManager* commandManager,
-													bool realTime, qv::CommandArgs* args,
-													u32 inputTranslatorHashId)
-													:mCommandManager(commandManager), 
-                                                    mRealTime(realTime),
-                                                    mInputTranslatorHashId(inputTranslatorHashId),
-													mArgs(args), 
-                                                    mInputTranslatorHashType(qv::input::ITT_ANY_KEY.Hash)
-		{
-		}
-		//-----------------------------------------------------------------------------------------
-		AnyKeyInputTranslator::~AnyKeyInputTranslator()
-		{
-		}
-		//-----------------------------------------------------------------------------------------
-		bool AnyKeyInputTranslator::translate(qv::input::InputReceiver *context) const
-		{
-			bool translated = false;
+namespace gaming
+{
 
-//			if(mRealTime)
-//				mEventManager->trigger(mArgs);
-//			else
-//				mEventManager->enqueueEvent(mArgs);
+class SceneLoadCommand: public qv::AbstractCommand
+    /// basic interface to execute a command inside the engine
+{
+public:
+    SceneLoadCommand(const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType, qv::views::SceneElementView* sceneElementView)
+        : qv::AbstractCommand(commandName, commandType),mSceneElementView(sceneElementView)
+    {
 
-			translated = true;
+    }
 
-			return translated;
-		}
-		//-----------------------------------------------------------------------------------------
-	}
+    virtual ~SceneLoadCommand()
+    {
+
+    }
+
+    virtual void executeCommand(const qv::CommandArgs* args)
+    /// body of command
+    {
+        mSceneElementView->loadScene(reinterpret_cast<const qv::views::SceneLoadCommandArgs*>(args)->getSceneFile());
+        //FIXME: this should stay on process manager, because this is a multiple frames command
+    }
+
+private:
+    qv::views::SceneElementView* mSceneElementView;
+};
+
 }
+
+}
+
+#endif

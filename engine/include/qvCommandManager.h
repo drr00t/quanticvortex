@@ -32,7 +32,7 @@
 #include "qvAbstractCommand.h"
 
 #include "qvRAIIFactoryImp.h"
-#include "Poco/AtomicCounter.h"
+
 
 namespace qv
 {
@@ -45,24 +45,22 @@ public:
     CommandManager();
     virtual ~CommandManager();
 
-//    bool deleteCommand ( qv::AbstractCommand* command) const
-//    /// remove a command from listeners command type map
-//    {
-//            qv::CommandsMapRangeResult itrDelete = mRegistredCommandsMap.equal_range(command->getType().Hash);
-//
-//            for (CommandsMap::iterator itr = itrDelete.first; itr != itrDelete.second; itr++)
-//            {
-//                if( itr->second->getId().Hash == command->getId().Hash)
-//                {
-//                    return false;
-//                }
-//            }
-//        
-//        return false;
-//    }
+    bool deleteCommand ( qv::AbstractCommand* command) const
+    /// remove a command from listeners command type map
+    {
+        
+//        mRegistredCommandsMap.erase(command->getType().Hash);
+        {
+//            mCommandsFactory.dispose(command);
+            
+            return true;
+        }
+        
+        return false;
+    }
     
-    template <class TCommand, class TArgs> qv::AbstractCommand* createCommand( const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType, TArgs* args)
-        /// create command for a command args type.
+    template <typename TCommand, typename TArgs> qv::AbstractCommand* createCommand( const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType, TArgs* args)
+        /// create command of TCommand type and get TArgs in your ctor to be used.
     {
          qv::AbstractCommand* command(0);
 
@@ -82,13 +80,7 @@ public:
         return command;
     }
     
-    template <class T> qv::AbstractCommand* createGameCommand( const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType)
-    {
-        qv::AbstractCommand* command(0);
-        return command;
-    }
-    
-    template <class T> qv::CommandArgs* createCommandArgs( const qv::CT_COMMAND_TYPE& commandType)
+    template <typename T> qv::CommandArgs* createCommandArgs( const qv::CT_COMMAND_TYPE& commandType)
         /// create command args for all registred command types.
     {
          qv::CommandArgs* args(0);
@@ -135,7 +127,7 @@ private:
 //    //	ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
     RaiiFactoryImp<qv::AbstractCommand> mCommandsFactory;
     RaiiFactoryImp<qv::CommandArgs> mCommandArgsFactory; // create and control life cicle of command args
-    Poco::AtomicCounter mActiveReadyCommandArgsQueue;
+    qv::u32 mActiveReadyCommandArgsQueue;
     
 };
 
