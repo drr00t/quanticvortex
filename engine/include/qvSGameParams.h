@@ -28,11 +28,10 @@
 #ifndef __SGAME_PARAMS_H_
 #define __SGAME_PARAMS_H_
 
-#include "qvTypes.h"
-#include "qvSGameLevel.h"
-#include "qvSGameState.h"
+#include <string>
 
-#include "dimension2d.h"
+#include "qvTypes.h"
+
 
 
 namespace qv
@@ -41,7 +40,8 @@ namespace qv
 	struct SGameParams
     {
 		SGameParams()
-        :WindowSize(irr::core::dimension2du(1024, 768)),
+        :WindowHeight(768),
+		WindowWidth(1024),
         Fullscreen(false),
         Vsync(false),
         Bits(16),
@@ -61,7 +61,6 @@ namespace qv
 		SGameParams& operator= (const SGameParams& other)
 		{
 			Title = other.Title;
-			WindowSize = other.WindowSize;
 			Bits = other.Bits;
 			Fullscreen = other.Fullscreen;
 			Vsync = other.Vsync;
@@ -75,12 +74,15 @@ namespace qv
             ShowCursor = other.ShowCursor;
             InputBuffered = other.InputBuffered;
             InputDebug = other.InputDebug;
-            WindowSize = other.WindowSize;
-
+			WindowHeight = other.WindowHeight;
+			WindowWidth = other.WindowWidth;
+			
 			return *this;
 		}
 
-        irr::core::dimension2du WindowSize;
+		qv::u32 WindowHeight;
+		qv::u32 WindowWidth;
+		
         bool Fullscreen;
 		bool Vsync;
 		qv::u8 Bits;
@@ -94,9 +96,7 @@ namespace qv
         bool InputBuffered;
         bool InputDebug;
 
-        irr::core::stringc Title;
-        
-        qv::GameStatesArray GameStates;
+        std::string Title;
         
         //texture size
         //detail level

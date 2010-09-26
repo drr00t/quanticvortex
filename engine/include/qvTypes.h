@@ -25,8 +25,8 @@
 **************************************************************************************************/
 
 
-#ifndef __QV_TYPES_H_
-#define __QV_TYPES_H_
+#ifndef __QUANTIC_VORTEX_TYPES_H_
+#define __QUANTIC_VORTEX_TYPES_H_
 
 #include <inttypes.h>
 
@@ -50,6 +50,8 @@ namespace qv
     typedef char		c8;
     
     typedef float       real; //single ou double precision
+	
+//	typedef float       real; //single ou double precision
 
 //    typedef std::char_traits<u8> uchar_traits;
 //    typedef std::basic_string<u8, uchar_traits> ustring;

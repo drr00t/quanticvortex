@@ -84,7 +84,7 @@ public:
             mActors.delink(actorHashId);
     }
 
-    bool loadGame(const irr::core::stringc& gameName);
+    bool loadGame(const std::string& gameName);
     /// load game data, and raise event to inform all subsystems
 
     void update( u32 currentTimeMs, u32 elapsedTimeMs);

@@ -180,7 +180,7 @@ void GameLogic::update( u32 currentTimeMs, u32 elapsedTimeMs)
     }
 }
 //-----------------------------------------------------------------------------------------
-bool GameLogic::loadGame(const irr::core::stringc& gameName)
+bool GameLogic::loadGame(const std::string& gameName)
 {
     //if (gameName=="NewGame")
     //{

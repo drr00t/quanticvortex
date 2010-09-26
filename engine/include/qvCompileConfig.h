@@ -44,44 +44,44 @@
 
 //! WIN32 for Windows32
 //! WIN64 for Windows64
-// The windows platform 
+// The windows platform
 #if defined(_WIN32) || defined(_WIN64) || defined(WIN32) || defined(WIN64)
 #	define QUANTICVORTEX_PLATAFORM QUANTICVORTEX_PLATAFORM_WINDOWS
 //#	define _QUANTICVORTEX_API_
 #endif
 
-//#ifdef _QUANTICVORTEX_API_
-
 // To build as a static library, you must define _QUANTICVORTEX_STATIC_LIB_
 
-#	ifndef _QUANTICVORTEX_STATIC_LIB_
-#		ifdef _QUANTICVORTEX_EXPORTS
-#			define _QUANTICVORTEX_API_ __declspec(dllexport)
-#		else
-#			define _QUANTICVORTEX_API_ __declspec(dllimport)
-#		endif // _QUANTICVORTEX_EXPORTS
+#ifndef _QUANTICVORTEX_STATIC_LIB_
+#	ifdef _QUANTICVORTEX_EXPORTS
+#		define _QUANTICVORTEX_API_ __declspec(dllexport)
 #	else
-#		define _QUANTICVORTEX_API_
+#		define _QUANTICVORTEX_API_ __declspec(dllimport)
+#	endif // _QUANTICVORTEX_EXPORTS
+#else
+#	define _QUANTICVORTEX_API_
 #endif // _QUANTICVORTEX_STATIC_LIB_
 
 // Declare the calling convention.
 #if defined(_STDCALL_SUPPORTED)
-#		define QUANTICVORTEX_CALLCONV __stdcall
-#	else
-#		define QUANTICVORTEX_CALLCONV __cdecl
-#	endif // STDCALL_SUPPORTED
+#	define QUANTICVORTEX_CALLCONV __stdcall
+#else
+#	define QUANTICVORTEX_CALLCONV __cdecl
+#endif // STDCALL_SUPPORTED
 
 //#else // _QUANTICVORTEX_API_
 
-//// Force symbol export in shared libraries built with gcc.
-//#	if (__GNUC__ >= 4) && !defined(_QUANTICVORTEX_STATIC_LIB_) && defined(_QUANTICVORTEX_EXPORTS)
-//#		define _QUANTICVORTEX_API_ __attribute__ ((visibility("default")))
-//#	else
-//#		define _QUANTICVORTEX_API_
-//#	endif
-//#	define QUANTICVORTEX_CALLCONV
+// Force symbol export in shared libraries built with gcc.
+#	if (__GNUC__ >= 4) && !defined(_QUANTICVORTEX_STATIC_LIB_) && defined(_QUANTICVORTEX_EXPORTS)
+#		 undef _QUANTICVORTEX_API_
+#		define _QUANTICVORTEX_API_ __attribute__ ((visibility("default")))
+#	else
+#		 undef _QUANTICVORTEX_API_
+#		define _QUANTICVORTEX_API_
+#	endif
+#	undef QUANTICVORTEX_CALLCONV
+#	define QUANTICVORTEX_CALLCONV
 
 //#endif // _QUANTICVORTEX_API_
 
 #endif
-

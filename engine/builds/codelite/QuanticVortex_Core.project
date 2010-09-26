@@ -2,48 +2,19 @@
 <CodeLite_Project Name="QuanticVortex_Core" InternalType="Library">
   <Plugins>
     <Plugin Name="qmake">
-      <![CDATA[00050001N0005Debug0000000000000001N0007Release0000000000000001N0025Windows x86 - DLL - Debug0000000000000001N0028Windows x86 - Static - Debug0000000000000001N0030Windows x86 - Static - Release000000000000]]>
+      <![CDATA[00060001N0005Debug0000000000000001N0007Release0000000000000001N0025Windows x86 - DLL - Debug0000000000000001N0027Windows x86 - DLL - Release0000000000000001N0028Windows x86 - Static - Debug0000000000000001N0030Windows x86 - Static - Release000000000000]]>
     </Plugin>
   </Plugins>
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="include">
-    <File Name="../../include/qvActorTypes.h"/>
-    <File Name="../../include/qvCommandTypes.h"/>
-    <File Name="../../include/qvCompileConfig.h"/>
-    <File Name="../../include/qvConfigProfile.h"/>
-    <File Name="../../include/qvGameParameters.h"/>
-    <File Name="../../include/qvGameViewTypes.h"/>
     <File Name="../../include/qvHashFunctions.h"/>
-    <File Name="../../include/qvIGuiView.h"/>
-    <File Name="../../include/qvIInputTranslator.h"/>
-    <File Name="../../include/qvIInputTranslatorFactory.h"/>
     <File Name="../../include/qvIMemoryManager.h"/>
-    <File Name="../../include/qvINetworkView.h"/>
-    <File Name="../../include/qvIPhysicsView.h"/>
-    <File Name="../../include/qvIProcess.h"/>
-    <File Name="../../include/qvIProcessManager.h"/>
-    <File Name="../../include/qvIRecorderView.h"/>
-    <File Name="../../include/qvITimer.h"/>
-    <File Name="../../include/qvKeyTypes.h"/>
     <File Name="../../include/qvPrerequisites.h"/>
     <File Name="../../include/qvProtothread.h"/>
-    <File Name="../../include/qvSActorParams.h"/>
-    <File Name="../../include/qvSGameParams.h"/>
     <File Name="../../include/qvSHashedString.h"/>
-    <File Name="../../include/qvStateTypes.h"/>
     <File Name="../../include/qvTypes.h"/>
-    <File Name="../../include/qvRAIIFactoryImp.h"/>
-    <File Name="../../include/qvActor.h"/>
-    <File Name="../../include/qvGameLogic.h"/>
     <File Name="../../include/qvGFactory.h"/>
-    <File Name="../../include/qvHumanView.h"/>
-    <File Name="../../include/qvHumanView_Irrlicht.h"/>
-    <File Name="../../include/qvGame.h"/>
-    <File Name="../../include/qvAbstractGameView.h"/>
-    <File Name="../../include/qvPhysicsManager.h"/>
-    <File Name="../../include/qvSingleKeyInputTranslator.h"/>
-    <File Name="../../include/qvInputReceiver.h"/>
     <VirtualDirectory Name="command args">
       <File Name="../../include/qvGameTickEventArgs.h"/>
       <File Name="../../include/qvGameStateChangeEventArgs.h"/>
@@ -54,14 +25,6 @@
       <File Name="../../include/qvConfigureContentCommandArgs.h"/>
       <File Name="../../include/qvSceneLoadCommandArgs.h"/>
     </VirtualDirectory>
-    <File Name="../../include/qvCommandManager.h"/>
-    <File Name="../../include/qvCommandArgs.h"/>
-    <File Name="../../include/qvAbstractCommand.h"/>
-    <File Name="../../include/qvMemory.h"/>
-    <File Name="../../include/qvSGameState.h"/>
-    <VirtualDirectory Name="input translators">
-      <File Name="../../include/qvAnyKeyInputTranslator.h"/>
-    </VirtualDirectory>
     <File Name="../../include/qvGameCommandTypes.h"/>
     <File Name="../../include/qvGameStateTypes.h"/>
     <VirtualDirectory Name="commands">
@@ -69,47 +32,114 @@
       <File Name="../../include/qvLoadGameCommand.h"/>
       <File Name="../../include/qvSceneLoadCommand.h"/>
     </VirtualDirectory>
-    <File Name="../../include/qvAbstractElementView.h"/>
-    <File Name="../../include/qvElementViewTypes.h"/>
-    <File Name="../../include/qvSceneElementView.h"/>
-    <File Name="../../include/qvPhysicsTypes.h"/>
+    <VirtualDirectory Name="views">
+      <File Name="../../include/qvAbstractElementView.h"/>
+      <File Name="../../include/qvAbstractGameView.h"/>
+      <File Name="../../include/qvElementViewTypes.h"/>
+      <File Name="../../include/qvGameViewTypes.h"/>
+      <File Name="../../include/qvHumanView.h"/>
+      <File Name="../../include/qvHumanView_Irrlicht.h"/>
+      <File Name="../../include/qvIGuiView.h"/>
+      <File Name="../../include/qvINetworkView.h"/>
+      <File Name="../../include/qvIPhysicsView.h"/>
+      <File Name="../../include/qvIRecorderView.h"/>
+      <File Name="../../include/qvSceneElementView.h"/>
+      <File Name="../../include/qvGameViewFactory.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="gaming">
+      <File Name="../../include/qvActor.h"/>
+      <File Name="../../include/qvActorTypes.h"/>
+      <File Name="../../include/qvGameLogic.h"/>
+      <File Name="../../include/qvSActorParams.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="qv">
+      <File Name="../../include/qvAbstractCommand.h"/>
+      <File Name="../../include/qvCommandArgs.h"/>
+      <File Name="../../include/qvCommandManager.h"/>
+      <File Name="../../include/qvCommandTypes.h"/>
+      <File Name="../../include/qvGame.h"/>
+      <File Name="../../include/qvIProcess.h"/>
+      <File Name="../../include/qvIProcessManager.h"/>
+      <File Name="../../include/qvITimer.h"/>
+      <File Name="../../include/qvGame_Irrlicht.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="input">
+      <File Name="../../include/qvIInputTranslatorFactory.h"/>
+      <File Name="../../include/qvKeyTypes.h"/>
+      <VirtualDirectory Name="translators">
+        <File Name="../../include/qvSingleKeyInputTranslator.h"/>
+        <File Name="../../include/qvAnyKeyInputTranslator.h"/>
+      </VirtualDirectory>
+      <File Name="../../include/qvInputReceiver.h"/>
+      <File Name="../../include/qvIInputTranslator.h"/>
+      <File Name="../../include/qvInputReceiver_Irrlicht.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="physics">
+      <File Name="../../include/qvPhysicsManager.h"/>
+      <File Name="../../include/qvPhysicsTypes.h"/>
+    </VirtualDirectory>
+    <File Name="../../include/qvSGameParams.h"/>
+    <File Name="../../include/qvRAIIFactoryImp.h"/>
+    <File Name="../../include/qvConfigProfile.h"/>
+    <File Name="../../include/qvCompileConfig.h"/>
+    <VirtualDirectory Name="fs">
+      <File Name="../../include/qvFileSystem.h"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="quanticvortex">
-    <File Name="../../source/quanticvortex/qvAnyKeyInputTranslator.cpp"/>
     <File Name="../../source/quanticvortex/qvEngineInputTranslatorFactory.cpp"/>
     <File Name="../../source/quanticvortex/qvEngineInputTranslatorFactory.h"/>
-    <File Name="../../source/quanticvortex/qvGameLogic.cpp"/>
     <File Name="../../source/quanticvortex/qvHashFunctions.cpp"/>
-    <File Name="../../source/quanticvortex/qvHumanView.cpp"/>
-    <File Name="../../source/quanticvortex/qvPhysicsManager.cpp"/>
-    <File Name="../../source/quanticvortex/qvSingleKeyInputTranslator.cpp"/>
-    <File Name="../../source/quanticvortex/qvSingleKeyInputTranslator.h"/>
     <File Name="../../source/quanticvortex/qvSHashedString.cpp"/>
-    <File Name="../../source/quanticvortex/qvGame.cpp"/>
     <File Name="../../source/quanticvortex/qvCommandManager.cpp"/>
-    <File Name="../../source/quanticvortex/qvMemory.cpp"/>
     <File Name="../../source/quanticvortex/qvGetopt.cpp"/>
     <File Name="../../source/quanticvortex/qvGetopt.h"/>
     <VirtualDirectory Name="commands">
       <File Name="../../source/quanticvortex/qvLoadGameCommand.cpp"/>
     </VirtualDirectory>
-    <File Name="../../source/quanticvortex/qvSceneElementView.cpp"/>
     <VirtualDirectory Name="scene loaders">
       <File Name="../../source/quanticvortex/qvIrrSceneLoader.cpp"/>
       <File Name="../../source/quanticvortex/qvIrrSceneLoader.h"/>
     </VirtualDirectory>
+    <VirtualDirectory Name="qv">
+      <File Name="../../source/quanticvortex/qvGame.cpp"/>
+      <File Name="../../source/quanticvortex/qvGame_Irrlicht.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="gaming">
+      <File Name="../../source/quanticvortex/qvGameLogic.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="views">
+      <File Name="../../source/quanticvortex/qvHumanView.cpp"/>
+      <File Name="../../source/quanticvortex/qvSceneElementView.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="physics">
+      <File Name="../../source/quanticvortex/qvPhysicsManager.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="input">
+      <File Name="../../source/quanticvortex/qvSingleKeyInputTranslator.cpp"/>
+      <File Name="../../source/quanticvortex/qvSingleKeyInputTranslator.h"/>
+      <File Name="../../source/quanticvortex/qvAnyKeyInputTranslator.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="fs">
+      <File Name="../../source/quanticvortex/qvFileSystem.cpp"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
+  <Dependencies Name="Windows x86 - DLL - Release"/>
+  <Dependencies Name="Windows x86 - Static - Debug"/>
+  <Dependencies Name="Windows x86 - Static - Release"/>
+  <Dependencies Name="Windows x86 - DLL - Debug"/>
   <Settings Type="Dynamic Library">
     <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-fno-rtti" Required="yes" PreCompiledHeader="">
+      <Compiler Options="-g" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
         <IncludePath Value="../../../engine/source/quanticvortex"/>
         <IncludePath Value="../../../dependencies/include/irrlicht/include"/>
         <IncludePath Value="../../../dependencies/include/cAudio/include"/>
         <IncludePath Value="../../../dependencies/include/bullet"/>
         <IncludePath Value="../../../dependencies/include/poco"/>
+        <IncludePath Value="../../../engine/source/quanticvortex/physfs"/>
         <Preprocessor Value="WIN32"/>
         <Preprocessor Value="_DEBUG"/>
         <Preprocessor Value="_QUANTICVORTEX_EXPORTS"/>
@@ -159,6 +189,7 @@
         <IncludePath Value="../../../dependencies/include/cAudio/include"/>
         <IncludePath Value="../../../dependencies/include/bullet"/>
         <IncludePath Value="../../../dependencies/include/poco"/>
+        <IncludePath Value="physfs"/>
         <Preprocessor Value="WIN32"/>
         <Preprocessor Value="NDEBUG"/>
         <Preprocessor Value="_QUANTICVORTEX_EXPORTS"/>
@@ -308,8 +339,4 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
   </Settings>
-  <Dependencies Name="Windows x86 - DLL - Release"/>
-  <Dependencies Name="Windows x86 - Static - Debug"/>
-  <Dependencies Name="Windows x86 - Static - Release"/>
-  <Dependencies Name="Windows x86 - DLL - Debug"/>
 </CodeLite_Project>

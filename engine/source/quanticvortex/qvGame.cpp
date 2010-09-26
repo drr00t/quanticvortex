@@ -30,8 +30,6 @@
 #include <vector>
 #include <algorithm>
 
-#include "irrlicht.h"
-
 // external classes
 #include "LinearMath/btQuickprof.h"  // bullet timer
 
@@ -43,128 +41,131 @@
 #include "qvGameLogic.h"
 #include "qvInputReceiver.h"
 
-#include "qvHumanView.h"
-
-// game command args
-#include "qvLoadGameCommandArgs.h"
-#include "qvConfigureContentCommandArgs.h"
-
-//game command
-#include "qvLoadGameCommand.h"
-
-//game command types
-#include "qvGameCommandTypes.h"
-
 
 namespace qv
 {
 
 Game::Game()
-        : mQuit(false)
+	: mQuit(false)
 {
-    if (!initialize())
-        mQuit = true;
+	if (!initialize())
+		mQuit = true;
 }
 
 Game::~Game()
 {
-    finalize();
+	finalize();
 }
 //-----------------------------------------------------------------------------
 bool Game::initialize()
 {
-    //pre allocate 5 slots for views
-    mGameViews.reserve(5);
+	//pre allocate 5 slots for views
+	mGameViews.reserve(5);
 
-    loadConfiguration(); // load default configuration files, if present
+	loadConfiguration(); // load default configuration files, if present
 
-    mCommandManager = new qv::CommandManager();
-    mGameLogic = new qv::gaming::GameLogic(mGameParams, mCommandManager);
+	mCommandManager = new qv::CommandManager();
+	mGameLogic = new qv::gaming::GameLogic(mGameParams, mCommandManager);
+	mInputReceiver = new qv::input::InputReceiver();
 
-    addCommandType(qv::gaming::CT_GAME_LOAD);
-//    mCommandManager->createCommand<qv::gaming::LoadGameCommand>("load_game", qv::gaming::CT_GAME_LOAD);
+	//initializing real render drive
+	initializeImpl(mGameParams);
 
-    irr::SIrrlichtCreationParameters parameters;
+	// maybe each one raise next state
+	// initialize game logic - here game logic will get parâmeters configure internal things like: physics, sound, actor managment
+	// loading resources - maybe preloading something musics and textures
+	// menu - show menu to user choose options
+	// waiting for players - check Players attached to game logic, if enogh, if not attach local player as humam view
+	// running - start run
 
-    parameters.Bits = mGameParams.Bits;
-    parameters.DriverType = irr::video::EDT_OPENGL;
-    parameters.Stencilbuffer = true;
-    parameters.WindowSize = mGameParams.WindowSize;
-    parameters.Fullscreen = mGameParams.Fullscreen;
-
-    mDevice3d = irr::createDeviceEx(parameters);
-
-    // maybe each one raise next state
-    // initialize game logic - here game logic will get parâmeters configure internal things like: physics, sound, actor managment
-    // loading resources - maybe preloading something musics and textures
-    // menu - show menu to user choose options
-    // waiting for players - check Players attached to game logic, if enogh, if not attach local player as humam view
-    // running - start run
-
-
-    return true;
+	return true;
 }
 //-----------------------------------------------------------------------------
 void Game::finalize()
 {
-    if (mGameLogic)
-        delete mGameLogic;
+	if (mGameLogic)
+		delete mGameLogic;
 
-    mGameViews.clear();
+	mGameViews.clear();
 
-    if (mCommandManager)
-        delete mCommandManager;
+	if (mCommandManager)
+		delete mCommandManager;
+
+	//finalize render driver
+	finalizeImpl();
 }
 //-----------------------------------------------------------------------------
-qv::views::HumanView* Game::addHumanView(const qv::c8* gameViewName)
+qv::views::AbstractGameView* Game::addGameView(const qv::c8* gameViewName, const qv::views::GVT_GAME_VIEW_TYPE& gameViewType)
 {
-    qv::views::AbstractGameView* gameView = mGameViewsFactory.keep(new qv::views::HumanView(gameViewName, mCommandManager, mDevice3d ));
+	qv::views::GameViewFactoryRegistry::iterator itr = mGameViewsFactory.find(gameViewType.Hash);
+	qv::views::AbstractGameView* gameView(0);
+	
+	if(itr != mGameViewsFactory.end())
+	{
+		gameView = itr->second->create(gameViewName);
+		
+		mGameViews.push_back(gameView);
+	}
+	
+	if (mGameViews.size() > 1)
+		std::sort(mGameViews.begin(), mGameViews.end(), SortGameViewsLess());
 
-    mGameViews.push_back(gameView);
-
-    if (mGameViews.size() > 1)
-        std::sort(mGameViews.begin(), mGameViews.end(), SortGameViewsLess());
-
-    return static_cast<qv::views::HumanView*>(gameView);
+	return gameView;
+}
+//-----------------------------------------------------------------------------
+void Game::removeGameView(qv::views::AbstractGameView* gameView)
+{
+	for ( qv::views::GameViewsArray::iterator itr = mGameViews.begin(); itr != mGameViews.end(); itr++)
+	{
+		if ((*itr)->getId().Hash == gameView->getId().Hash)
+		{
+			mGameViews.erase(itr);
+			break;
+		}
+	}
 }
 //-----------------------------------------------------------------------------
 void Game::load( const qv::c8* gamePath, const qv::c8* gameFile)
 {
-    qv::CommandArgs* args = mCommandManager->createCommandArgs<qv::LoadGameCommandArgs>(qv::gaming::CT_GAME_LOAD);
+	//mCommandManager->executeCommand(new LoadGameCommandArgs());
 
-    static_cast<qv::LoadGameCommandArgs*>(args)->setGameFile(gameFile);
-    static_cast<qv::LoadGameCommandArgs*>(args)->setGamePath(gamePath);
+/*	qv::CommandArgs* args = mCommandManager->createCommandArgs<qv::LoadGameCommandArgs>(qv::gaming::CT_GAME_LOAD);*/
 
-    mCommandManager->executeCommand(args);
+/*	static_cast<qv::LoadGameCommandArgs*>(args)->setGameFile(gameFile);
+	static_cast<qv::LoadGameCommandArgs*>(args)->setGamePath(gamePath);
+
+	mCommandManager->executeCommand(args);
+*/
 }
 //-----------------------------------------------------------------------------
-void Game::addCommandType(const qv::CT_COMMAND_TYPE& commandType)
+void Game::addCommand(const qv::CI_COMMAND_ID& commandId, const qv::CT_COMMAND_TYPE& commandType)
 {
-    mCommandManager->registerCommandType(commandType);
+	//mCommandManager->;
 }
 //-----------------------------------------------------------------------------
 void Game::loadConfiguration()
 {
-    //load strings
-    //load language
-    //load key-action mappings
+	//load strings
+	//load language
+	//load key-action mappings
 
-    //configure game application
-    mGameParams.Bits = 32;
-    mGameParams.Fullscreen = false;
-    mGameParams.LocalPlayers = 1;
-    mGameParams.HostGame = true;
-    mGameParams.Title = "Default Game Window";
-    mGameParams.WindowSize = irr::core::dimension2di(1024, 768);
+	//configure game application
+	mGameParams.Bits = 32;
+	mGameParams.Fullscreen = false;
+	mGameParams.LocalPlayers = 1;
+	mGameParams.HostGame = true;
+	mGameParams.Title = "Default Game Window";
+	mGameParams.WindowWidth = 1024;
+	mGameParams.WindowHeight = 768;
 
 }
 //-----------------------------------------------------------------------------
 void Game::parseCommandLine( int argc, const char** argv)
 {
-    int c;
+	int c;
 
-    while ((c = getopt( argc, argv, "s:a:")) != EOF)
-    {
+	while ((c = getopt( argc, argv, "s:a:")) != EOF)
+	{
 //        switch (c)
 //        {
 //        case 'i':
@@ -175,65 +176,63 @@ void Game::parseCommandLine( int argc, const char** argv)
 //            folderArchives.push_back(optarg);
 //            break;
 //        }
-    }
+	}
 }
 //-----------------------------------------------------------------------------
 void Game::update( u32 currentTimeMs, u32 elapsedTimeMs)
 {
-    mCommandManager->executeCommands();
+	mCommandManager->executeCommands();
 
-    if (mGameLogic)
-        mGameLogic->update(currentTimeMs, elapsedTimeMs);
+	if (mGameLogic)
+		mGameLogic->update(currentTimeMs, elapsedTimeMs);
 
-    //update views after game logic update
-    for (u32 i = 0; i < mGameViews.size(); i++)
-        mGameViews.at(i)->update( elapsedTimeMs);
+	//update views after game logic update
+	for (u32 i = 0; i < mGameViews.size(); i++)
+		mGameViews.at(i)->update( elapsedTimeMs);
 }
 //-----------------------------------------------------------------------------
 void Game::render( u32 currentTimeMs, u32 elapsedTimeMs)
 {
-    for (u32 i = 0; i < mGameViews.size(); i++)
-        mGameViews.at(i)->render(currentTimeMs, elapsedTimeMs);
+	for (u32 i = 0; i < mGameViews.size(); i++)
+		mGameViews.at(i)->render(currentTimeMs, elapsedTimeMs);
 }
 //-----------------------------------------------------------------------------
 s32 Game::run(int argc, const char** argv)
 {
-    // - process commandline params, this shoud override file config value
-    // just in SGameParams not in real config file
-    parseCommandLine( argc, argv);
+	// - process commandline params, this shoud override file config value
+	// just in SGameParams not in real config file
+	parseCommandLine( argc, argv);
 
-    mInputReceiver = new qv::input::InputReceiver();
+	//mCommandManager->executeCommand(new StartupGameCommandArgs(argv[0]))
 
-    btClock clock;
-    clock.reset();
+	btClock clock;
+	clock.reset();
 
-    u32 lastTimeMs =  clock.getTimeMilliseconds();
-    u32 curentTimeMs = lastTimeMs;
+	u32 lastTimeMs =  clock.getTimeMilliseconds();
+	u32 curentTimeMs = lastTimeMs;
 
-    while (!mQuit)
-    {
-        if ( mDevice3d->run())
-        {
-            curentTimeMs = clock.getTimeMilliseconds();
-            u32 elapsedTimeMs = curentTimeMs - lastTimeMs;
+	while (!mQuit)
+	{
+		curentTimeMs = clock.getTimeMilliseconds();
+		u32 elapsedTimeMs = curentTimeMs - lastTimeMs;
 
-            //game application update with current and
-            //elapsed time from last application update
-            update( curentTimeMs, elapsedTimeMs);
+		//game application update with current and
+		//elapsed time from last application update
+		update( curentTimeMs, elapsedTimeMs);
 
-            mDevice3d->getVideoDriver()->beginScene(true, true); //call some beginRender from engine
+		if (beginRenderFrameImpl())
+		{
+			render( curentTimeMs, elapsedTimeMs);
+			//game views rendering update with current and
+			//elapsed time from last application tick
 
-            render( curentTimeMs, elapsedTimeMs);
-            //game views rendering update with current and
-            //elapsed time from last application tick
+			endRenderFrameImpl();
 
-            mDevice3d->getVideoDriver()->endScene(); //call some endRender from engine
+			lastTimeMs = curentTimeMs; //update last time
+		}
+	}
 
-            lastTimeMs = curentTimeMs; //update last time
-        }
-    }
-
-    return 0;
+	return 0;
 }
 
 }

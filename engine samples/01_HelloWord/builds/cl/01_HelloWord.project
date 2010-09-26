@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="01_HelloWord" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00060001N0005Debug0000000000000001N0007Release0000000000000001N0025Windows x86 - DLL - Debug0000000000000001N0027Windows x86 - DLL - Release0000000000000001N0028Windows x86 - Static - Debug0000000000000001N0030Windows x86 - Static - Release000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="source">
+    <File Name="../../source/main.cpp"/>
+    <File Name="../../source/HelloWordGame.h"/>
+    <File Name="../../source/HelloWordGame.cpp"/>
+  </VirtualDirectory>
+  <Dependencies Name="Windows x86 - DLL - Release"/>
+  <Dependencies Name="Windows x86 - Static - Debug"/>
+  <Dependencies Name="Windows x86 - Static - Release"/>
+  <Dependencies Name="Windows x86 - DLL - Debug">
+    <Project Name="QuanticVortex_Core"/>
+  </Dependencies>
+  <Settings Type="Executable">
+    <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-Wall;-fno-rtti" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="../../include"/>
+        <IncludePath Value="../../../../engine/include"/>
+        <IncludePath Value="../../../../dependencies/include/bullet"/>
+        <IncludePath Value="../../../../dependencies/include/cAudio/include"/>
+        <Preprocessor Value="WIN32"/>
+        <Preprocessor Value="_DEBUG"/>
+      </Compiler>
+      <Linker Options="" Required="yes">
+        <LibraryPath Value="../../../../engine/bin/win32-gcc"/>
+        <Library Value="QuanticVortex_d.dll"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="../../../bin/01_HelloWord_d.exe" IntermediateDirectory="../../obj/debug" Command="01_HelloWord_d.exe" CommandArguments="" WorkingDirectory="../../../bin/" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">copy ..\..\..\..\engine\bin\win32-gcc\QuanticVortex_d.dll ..\..\..\bin\QuanticVortex_d.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\cAudio_d.dll ..\..\..\bin\cAudio_d.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\Irrlicht_d.dll ..\..\..\bin\Irrlicht_d.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\OpenAL32.dll ..\..\..\bin\OpenAL32.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\wrap_oal.dll ..\..\..\bin\wrap_oal.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\cAp_EAXLegacyPreset.dll ..\..\..\bin\cAp_EAXLegacyPreset.dll</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <Configuration Name="Windows x86 - DLL - Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-Wall;-fno-rtti;" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="../../include"/>
+        <IncludePath Value="../../../../engine/include"/>
+        <IncludePath Value="../../../../dependencies/include/bullet"/>
+        <IncludePath Value="../../../../dependencies/include/cAudio/include"/>
+        <Preprocessor Value="WIN32"/>
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="-O2" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">copy ..\..\..\..\engine\bin\win32-gcc\QuanticVortex.dll ..\..\..\bin\win32-gcc\QuanticVortex.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\cAudio.dll ..\..\..\bin\win32-gcc\cAudio.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\Irrlicht.dll ..\..\..\bin\win32-gcc\Irrlicht.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\OpenAL32.dll ..\..\..\bin\win32-gcc\OpenAL32.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\wrap_oal.dll ..\..\..\bin\win32-gcc\wrap_oal.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\cAp_EAXLegacyPreset.dll ..\..\..\bin\win32-gcc\cAp_EAXLegacyPreset.dll</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <Configuration Name="Windows x86 - Static - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-Wall;-fno-rtti" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="../../include"/>
+        <IncludePath Value="../../../../engine/include"/>
+        <IncludePath Value="../../../../dependencies/include/irrlicht/include"/>
+        <IncludePath Value="../../../../dependencies/include/bullet"/>
+        <IncludePath Value="../../../../dependencies/include/poco"/>
+        <IncludePath Value="../../../../dependencies/include/cAudio/include"/>
+      </Compiler>
+      <Linker Options="" Required="yes">
+        <LibraryPath Value="../../../../engine/bin/win32-gcc"/>
+        <Library Value="QuanticVortex_d.dll"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="../../../bin/win32-gcc/01_Sample_d.exe" IntermediateDirectory="../../obj/debug" Command="01_Sample_d.exe" CommandArguments="" WorkingDirectory="../../../bin/win32-gcc" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">copy ..\..\..\..\engine\bin\win32-gcc\QuanticVortex_d.dll ..\..\..\bin\win32-gcc\QuanticVortex_d.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\cAudio_d.dll ..\..\..\bin\win32-gcc\cAudio_d.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\Irrlicht_d.dll ..\..\..\bin\win32-gcc\Irrlicht_d.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\OpenAL32.dll ..\..\..\bin\win32-gcc\OpenAL32.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\wrap_oal.dll ..\..\..\bin\win32-gcc\wrap_oal.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\cAp_EAXLegacyPreset.dll ..\..\..\bin\win32-gcc\cAp_EAXLegacyPreset.dll</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <Configuration Name="Windows x86 - Static - Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O2" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild>
+        <Command Enabled="yes">copy ..\..\..\..\engine\bin\win32-gcc\QuanticVortex.dll ..\..\..\bin\win32-gcc\QuanticVortex.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\cAudio.dll ..\..\..\bin\win32-gcc\cAudio.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\Irrlicht.dll ..\..\..\bin\win32-gcc\Irrlicht.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\OpenAL32.dll ..\..\..\bin\win32-gcc\OpenAL32.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\wrap_oal.dll ..\..\..\bin\win32-gcc\wrap_oal.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\cAp_EAXLegacyPreset.dll ..\..\..\bin\win32-gcc\cAp_EAXLegacyPreset.dll</Command>
+      </PostBuild>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <GlobalSettings>
+      <Compiler Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+  </Settings>
+</CodeLite_Project>

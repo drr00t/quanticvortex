@@ -27,28 +27,29 @@
 #ifndef _QUANTICVORTEX_CONFIG_PROFILE_H_
 #define _QUANTICVORTEX_CONFIG_PROFILE_H_
 
-//Physics engines avaible to use, just only one physics can be enable at time.
-#define QV_PHYSICS_BULLET 1 // Physics library
+// Physics engines avaible to use, just only one physics can be enable at time.
+#define QUANTICVORTEX_PHYSICS_BULLET 1 // Physics library
 
-#define QV_PHYSICS_NEWTON 2 //not implemented yet
-#define QV_PHYSICS_PHYSX  3 //not implemented yet
-#define QV_PHYSICS_HAVOK  4 //not implemented yet
+#define QUANTICVORTEX_PHYSICS_NEWTON 2 //not implemented yet
+#define QUANTICVORTEX_PHYSICS_PHYSX  3 //not implemented yet
+#define QUANTICVORTEX_PHYSICS_HAVOK  4 //not implemented yet
 
-//Redering engines avaible to use, just only one render system can be enable at time.
-#define QV_RENDER_IRRLICHT 1
+// Rendering engines avaible to use, just only one render system can be enable at time.
+#define QUANTICVORTEX_RENDER_IRRLICHT 1
 
-#define QV_RENDER_OGRE3D 2 //not implemented yet
+#define QUANTICVORTEX_RENDER_OGRE3D 2 //not implemented yet
 
-//Input engine to get event from mouse, keyboard, gamepad,etc
-#define QV_INPUT_IRRLICHT 1 // Irrlicht builtin input receiver
-#define QV_INPUT_OIS      2 //not implemented yet
-
-
-//current profile selected
-#define QV_RENDER       QV_RENDER_IRRLICHT
-#define QV_PHYSICS      QV_PHYSICS_BULLET
-#define QV_INPUT        QV_INPUT_IRRLICHT
+// Input engine to get event from mouse, keyboard, gamepad,etc
+#define QUANTICVORTEX_INPUT_IRRLICHT 1 // Irrlicht builtin input receiver
+#define QUANTICVORTEX_INPUT_OIS      2 //not implemented yet
 
 
+// current profile selected, change here quantic vortex build 
+#define QUANTICVORTEX_RENDER       QUANTICVORTEX_RENDER_IRRLICHT
+
+// you can use irrlicht input receive with irrlicht render
+#define QUANTICVORTEX_INPUT        QUANTICVORTEX_INPUT_IRRLICHT
+
+#define QUANTICVORTEX_PHYSICS      QUANTICVORTEX_PHYSICS_BULLET
 
 #endif

@@ -28,15 +28,13 @@
 #ifndef __INPUT_RECEIVER_H_
 #define __INPUT_RECEIVER_H_
 
+#include <vector>
+
 #include "qvSingleKeyInputTranslator.h"
 #include "qvAnyKeyInputTranslator.h"
 
 #include "qvIInputTranslator.h"
 #include "qvIInputTranslatorFactory.h"
-
-// irrlicht inpu receiver driver
-#include "IEventReceiver.h"
-
 
 namespace qv
 {
@@ -44,50 +42,82 @@ namespace input
 {
 
 
-class _QUANTICVORTEX_API_ InputReceiver : public irr::IEventReceiver
-    //base implementation released by Seven on Irrlicht forums:
-    //http://irrlicht.sourceforge.net/phpBB2/viewtopic.php?t=34052&highlight=irreventhandler
+class _QUANTICVORTEX_API_ InputReceiver
+	//base input receiver shoud be derived to each plataform, like: Irrlicht, OIS, etc
 {
 
+	public:
 
-public:
+		InputReceiver()
+		{
+		}
 
-    InputReceiver()
-    {
+		virtual ~InputReceiver(void)
+		{
+			std::vector<IInputTranslator*>::iterator itr = mInputTranslators.begin();
 
-        for (s32 i = 0; i < irr::KEY_KEY_CODES_COUNT; ++i) mKeyState[i] = EKS_RELEASED;
+			for(; itr != mInputTranslators.end(); itr++)
+				delete (*itr);
 
-        mMouse.X = 0;
-        mMouse.Y = 0;
-        mMouse.Wheel = 0.0f;
-        mMouse.WheelDelta = 0.0f;
-        mMouse.LButtonDown = false;
-        mMouse.RButtonDown = false;
-        mMouse.MButtonDown = false;
-    };
+			mInputTranslators.clear();
+		}
 
-    virtual ~InputReceiver(void)   
-    {
-        
-    }
+/*		class InputReceiverContext
+		{
+			public:
+				InputReceiverContext()
+				{
 
-    virtual IInputTranslator* getInputTranslator( u32 inputTranslatorHashId)
-    {
-        IInputTranslator* inputTranslator = 0;
+				}
 
-        for(u32 i = 0; i < mInputTranslators.size(); ++i)
-        {
-            if(mInputTranslators[i]->getHashId() == inputTranslatorHashId)
-            {
-                inputTranslator = mInputTranslators[i];
-                break;
-            }
-        }
+				InputReceiverContext()
+				{
 
-        return inputTranslator;
-    }
+				}
 
-    //translators
+				//context
+				bool keyPressed(irr::EKEY_CODE keycode)
+				{
+					return (mKeyState[keycode] == EKS_PRESSED);
+				};
+
+				bool keyDown(irr::EKEY_CODE keycode)
+				{
+					return (mKeyState[keycode] == EKS_DOWN || mKeyState[keycode] == EKS_PRESSED);
+				};
+
+				bool keyUp(irr::EKEY_CODE keycode)
+				{
+					return (mKeyState[keycode] == EKS_UP || mKeyState[keycode] == EKS_RELEASED);
+				};
+
+				bool keyReleased(irr::EKEY_CODE keycode)
+				{
+					return (mKeyState[keycode] == EKS_RELEASED);
+				};
+				
+			key
+		};*/
+
+	protected:
+
+		IInputTranslator* getInputTranslator( u32 inputTranslatorHashId)
+		{
+			IInputTranslator* inputTranslator = 0;
+
+			for(u32 i = 0; i < mInputTranslators.size(); ++i)
+			{
+				if(mInputTranslators[i]->getHashId() == inputTranslatorHashId)
+				{
+					inputTranslator = mInputTranslators[i];
+					break;
+				}
+			}
+
+			return inputTranslator;
+		}
+
+		//translators
 //			virtual IInputTranslatorSharedPtr addSingleKeyTranslator (const c8* inputTranslatorName, EKEY_CODE keyCode, EKEY_STATE checkState, events::IEventArgsSharedPtr args, bool realTime = false)
 //			{
 //				IInputTranslatorSharedPtr translator(new SingleKeyInputTranslator( mEventManager, keyCode, checkState, realTime, args, inputTranslatorName));
@@ -113,185 +143,36 @@ public:
 //			}
 //
 
-    virtual void registerInputTranslator( IInputTranslator* translator)
-    {
+		void registerInputTranslator( IInputTranslator* translator)
+		{
 //				IInputTranslatorSharedPtr inputTranslator = getInputTranslator(translator->getHashId());
 //
 //				if(!inputTranslator)
 //					mInputTranslators.push_back(translator);
-    }
+		}
 
-    virtual void unregisterInputTranslator( u32 inputTranslatorHashId)
-    {
+		void unregisterInputTranslator( u32 inputTranslatorHashId)
+		{
 
-    }
+		}
 
-    virtual void unregisterInputTranslator( IInputTranslator* translator)
-    {
+		void unregisterInputTranslator( IInputTranslator* translator)
+		{
 
-    }
+		}
 
-    virtual void registerInputTranslatorFactory( IInputTranslatorFactory* factory)
-    {
+		void registerInputTranslatorFactory( IInputTranslatorFactory* factory)
+		{
 //        factory->grab();
 //        mInputTranslatorsFactories.push_back(factory);
-    }
+		}
 
-    //context
-    virtual bool keyPressed(irr::EKEY_CODE keycode)         {   return (mKeyState[keycode] == EKS_PRESSED);                        };
-    virtual bool keyDown(irr::EKEY_CODE keycode)         {   return (mKeyState[keycode] == EKS_DOWN || mKeyState[keycode] == EKS_PRESSED); };
-    virtual bool keyUp(irr::EKEY_CODE keycode)            {   return (mKeyState[keycode] == EKS_UP || mKeyState[keycode] == EKS_RELEASED);   };
-    virtual bool keyReleased(irr::EKEY_CODE keycode)      {   return (mKeyState[keycode] == EKS_RELEASED);                        };
 
-    // keyboard events
-    virtual bool OnKeyInputEvent(const irr::SEvent& e)
-    {
-        //update input state of keyboard
-        //mContextInput.update(e);
+	private:
 
-       //command for keyboard event registred by InputTranslators can executed here
-        for(u32 i = 0; i < mInputTranslators.size(); ++i)
-            return mInputTranslators[i]->translate(this);
-
-        return false;
-    }
-
-    // guievents
-    virtual bool OnButtonClicked(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnScrollBarChanged(const irr::SEvent& e)      {   return false;   }
-    virtual bool OnCheckBoxChanged(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnListBoxChanged(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnListBoxSelectedAgain(const irr::SEvent& e)   {   return false;   }
-    virtual bool OnFileSelected(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnMessageBoxYes(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnMessageBoxNo(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnMessageBoxOk(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnMessageBoxCancel(const irr::SEvent& e)      {   return false;   }
-    virtual bool OnEditBoxEnter(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnTabChanged(const irr::SEvent& e)            {   return false;   }
-    virtual bool OnComboBoxChanged(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnSpinBoxChanged(const irr::SEvent& e)         {   return false;   }
-
-    // mouse events
-    virtual bool OnLMousePressedDown(const irr::SEvent& e)      {   return false;   }
-    virtual bool OnRMousePressedDown(const irr::SEvent& e)      {   return false;   }
-    virtual bool OnMMousePressedDown(const irr::SEvent& e)      {   return false;   }
-    virtual bool OnLMouseLeftUp(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnRMouseLeftUp(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnMMouseLeftUp(const irr::SEvent& e)         {   return false;   }
-    virtual bool OnMouseMoved(const irr::SEvent& e)            {   return false;   }
-    virtual bool OnMouseWheel(const irr::SEvent& e)            {   return false;   }
-
-    // user events
-    virtual bool OnUserEvent(const irr::SEvent& e)            {   return false;   }
-
-    virtual bool OnEvent(const irr::SEvent& e)
-    {
-        switch (e.EventType)
-        {
-        case irr::EET_KEY_INPUT_EVENT :
-            {
-                if (e.KeyInput.PressedDown == true)
-               if (e.KeyInput.PressedDown)
-               {
-                  if (mKeyState[e.KeyInput.Key] != EKS_DOWN)
-                     mKeyState[e.KeyInput.Key] = EKS_PRESSED;
-                  else mKeyState[e.KeyInput.Key] = EKS_DOWN;
-               }
-               else
-               if (mKeyState[e.KeyInput.Key] != EKS_UP)
-                  mKeyState[e.KeyInput.Key] = EKS_RELEASED;
-
-               //if (e.KeyInput.PressedDown == true) return OnKeyInputEvent(e);
-               if (e.KeyInput.PressedDown) return OnKeyInputEvent(e);
-            }
-            break;
-
-        case irr::EET_GUI_EVENT :
-            {
-               switch (e.GUIEvent.EventType)
-               {
-                  case irr::gui::EGET_BUTTON_CLICKED         : return OnButtonClicked(e);
-                  case irr::gui::EGET_SCROLL_BAR_CHANGED      : return OnScrollBarChanged(e);
-                  case irr::gui::EGET_CHECKBOX_CHANGED         : return OnCheckBoxChanged(e);
-                  case irr::gui::EGET_LISTBOX_CHANGED         : return OnListBoxChanged(e);
-                  case irr::gui::EGET_LISTBOX_SELECTED_AGAIN   : return OnListBoxSelectedAgain(e);
-                  case irr::gui::EGET_FILE_SELECTED            : return OnFileSelected(e);
-                  case irr::gui::EGET_MESSAGEBOX_YES         : return OnMessageBoxYes(e);
-                  case irr::gui::EGET_MESSAGEBOX_NO            : return OnMessageBoxNo(e);
-                  case irr::gui::EGET_MESSAGEBOX_OK            : return OnMessageBoxOk(e);
-                  case irr::gui::EGET_MESSAGEBOX_CANCEL         : return OnMessageBoxCancel(e);
-                  case irr::gui::EGET_EDITBOX_ENTER            : return OnEditBoxEnter(e);
-                  case irr::gui::EGET_TAB_CHANGED            : return OnTabChanged(e);
-                  case irr::gui::EGET_COMBO_BOX_CHANGED         : return OnComboBoxChanged(e);
-                  case irr::gui::EGET_SPINBOX_CHANGED         : return OnSpinBoxChanged(e);
-                  default : return false;
-               }
-            }
-            break;
-
-        case irr::EET_MOUSE_INPUT_EVENT :
-            {
-               mMouse.X = e.MouseInput.X;
-               mMouse.Y = e.MouseInput.Y;
-
-               switch (e.MouseInput.Event)
-               {
-                  case irr::EMIE_LMOUSE_PRESSED_DOWN   :   mMouse.LButtonDown = true; return OnLMousePressedDown(e);
-                  case irr::EMIE_RMOUSE_PRESSED_DOWN   :   mMouse.RButtonDown = true; return OnRMousePressedDown(e);
-                  case irr::EMIE_MMOUSE_PRESSED_DOWN   :   mMouse.MButtonDown = true; return OnMMousePressedDown(e);
-                  case irr::EMIE_LMOUSE_LEFT_UP      :   mMouse.LButtonDown = false; return OnLMouseLeftUp(e);
-                  case irr::EMIE_RMOUSE_LEFT_UP      :   mMouse.RButtonDown = false; return OnRMouseLeftUp(e);
-                  case irr::EMIE_MMOUSE_LEFT_UP      :   mMouse.MButtonDown = false; return OnMMouseLeftUp(e);
-                  case irr::EMIE_MOUSE_MOVED         :   return OnMouseMoved(e);
-                  case irr::EMIE_MOUSE_WHEEL         :
-                     {
-                        mMouse.WheelDelta = mMouse.Wheel - e.MouseInput.Wheel;
-                        mMouse.Wheel += e.MouseInput.Wheel;
-                        return OnMouseWheel(e);
-                     }
-                  default : return false;
-               }
-            }
-            break;
-
-        case irr::EET_USER_EVENT :
-            {
-               return OnUserEvent(e);
-               default : return false;
-            }
-            break;
-        }
-
-        return false;
-    }
-
-private:
-    // Mouse data.
-    struct SMouseData
-    {
-      s32 X;
-      s32 Y;
-      bool LButtonDown;
-      bool RButtonDown;
-      bool MButtonDown;
-      real Wheel;
-      real WheelDelta;
-    };
-
-    struct SMouseData mMouse;
-
-    s32 mouseX()         { return mMouse.X;            }
-    s32 mouseY()         { return mMouse.Y;            }
-    real mouseWheel()      { return mMouse.Wheel;         }
-    real mouseWheelDelta()   { return mMouse.WheelDelta;   }
-
-    //i need see which collection will work bether here
-    irr::core::array<IInputTranslator*> mInputTranslators;
-    irr::core::array<IInputTranslatorFactory*> mInputTranslatorsFactories;
-
-    EKEY_STATE mKeyState[irr::KEY_KEY_CODES_COUNT];
-
+		//i need see which collection will work bether here
+		std::vector<IInputTranslator*> mInputTranslators;
+		std::vector<IInputTranslatorFactory*> mInputTranslatorsFactories;
 };
 
 }

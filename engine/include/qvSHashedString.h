@@ -32,7 +32,7 @@
 #include "qvTypes.h"
 #include "qvHashFunctions.h"
 
-#include "irrString.h"
+#include <string>
 
 namespace qv
 {
@@ -64,10 +64,10 @@ struct SHashedString
     /// generate hash for text parameter
     {
 #ifdef _DEBUG
-        Text = irr::core::stringc(text);
+        Text = std::string(text);
         Hash = qv::createMurmurHash2(Text.c_str(), Text.size(), 0);
 #else
-        Hash = qv::createMurmurHash2(text, irr::core::stringc(text).size(), 0);
+        Hash = qv::createMurmurHash2(text, std::string(text).size(), 0);
 #endif
     }
 
@@ -101,7 +101,7 @@ struct SHashedString
     /// hash of text passed by user
 
 #ifdef _DEBUG
-    irr::core::stringc Text;
+    std::string Text;
     /// text used to generate hash, use just for debug
     /// this attribute will not be avaible in release build
 #endif
