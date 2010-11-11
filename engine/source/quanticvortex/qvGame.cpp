@@ -39,7 +39,7 @@
 // engine headers
 #include "qvCommandManager.h"
 #include "qvGameLogic.h"
-#include "qvInputReceiver.h"
+//#include "qvInputReceiver.h"
 
 
 namespace qv
@@ -66,10 +66,13 @@ bool Game::initialize()
 
 	mCommandManager = new qv::CommandManager();
 	mGameLogic = new qv::gaming::GameLogic(mGameParams, mCommandManager);
-	mInputReceiver = new qv::input::InputReceiver();
+//	mInputReceiver = new qv::input::InputReceiver();
 
+//	mGameViewsFactory.insert(qv::views::GameViewFactoryRegistry::value_type(qv::views::GVT_HUMAN_VIEW.Hash, 
+//												new qv::views::GameViewFactory<qv::views::HumanView>()));
+	
 	//initializing real render drive
-	initializeImpl(mGameParams);
+//	initializeImpl(mGameParams);
 
 	// maybe each one raise next state
 	// initialize game logic - here game logic will get parâmeters configure internal things like: physics, sound, actor managment
@@ -92,25 +95,16 @@ void Game::finalize()
 		delete mCommandManager;
 
 	//finalize render driver
-	finalizeImpl();
+//	finalizeImpl();
 }
 //-----------------------------------------------------------------------------
-qv::views::AbstractGameView* Game::addGameView(const qv::c8* gameViewName, const qv::views::GVT_GAME_VIEW_TYPE& gameViewType)
+void Game::addGameView(qv::views::AbstractGameView* gameView)
 {
-	qv::views::GameViewFactoryRegistry::iterator itr = mGameViewsFactory.find(gameViewType.Hash);
-	qv::views::AbstractGameView* gameView(0);
-	
-	if(itr != mGameViewsFactory.end())
-	{
-		gameView = itr->second->create(gameViewName);
-		
+	if(gameView)
 		mGameViews.push_back(gameView);
-	}
 	
 	if (mGameViews.size() > 1)
 		std::sort(mGameViews.begin(), mGameViews.end(), SortGameViewsLess());
-
-	return gameView;
 }
 //-----------------------------------------------------------------------------
 void Game::removeGameView(qv::views::AbstractGameView* gameView)
@@ -120,27 +114,41 @@ void Game::removeGameView(qv::views::AbstractGameView* gameView)
 		if ((*itr)->getId().Hash == gameView->getId().Hash)
 		{
 			mGameViews.erase(itr);
+			delete gameView; //may be this view should raise some events
+			
 			break;
 		}
 	}
 }
 //-----------------------------------------------------------------------------
-void Game::load( const qv::c8* gamePath, const qv::c8* gameFile)
+qv::views::AbstractGameView* Game::findGameView(const qv::views::GVI_GAME_VIEW_ID& gameViewId)
 {
-	//mCommandManager->executeCommand(new LoadGameCommandArgs());
-
-/*	qv::CommandArgs* args = mCommandManager->createCommandArgs<qv::LoadGameCommandArgs>(qv::gaming::CT_GAME_LOAD);*/
-
-/*	static_cast<qv::LoadGameCommandArgs*>(args)->setGameFile(gameFile);
-	static_cast<qv::LoadGameCommandArgs*>(args)->setGamePath(gamePath);
-
-	mCommandManager->executeCommand(args);
-*/
+	qv::views::AbstractGameView* gameView(0);
+	for ( qv::views::GameViewsArray::iterator itr = mGameViews.begin(); itr != mGameViews.end(); itr++)
+	{
+		if ((*itr)->getId().Hash == gameView->getId().Hash)
+			gameView = (*itr);
+	}
+	
+	return gameView;
 }
 //-----------------------------------------------------------------------------
-void Game::addCommand(const qv::CI_COMMAND_ID& commandId, const qv::CT_COMMAND_TYPE& commandType)
+//void Game::load( const qv::c8* gamePath, const qv::c8* gameFile)
+//{
+//	//mCommandManager->executeCommand(new LoadGameCommandArgs());
+//
+///*	qv::CommandArgs* args = mCommandManager->createCommandArgs<qv::LoadGameCommandArgs>(qv::gaming::CT_GAME_LOAD);*/
+//
+///*	static_cast<qv::LoadGameCommandArgs*>(args)->setGameFile(gameFile);
+//	static_cast<qv::LoadGameCommandArgs*>(args)->setGamePath(gamePath);
+//
+//	mCommandManager->executeCommand(args);
+//*/
+//}
+//-----------------------------------------------------------------------------
+void Game::addCommand( qv::AbstractCommand* command)
 {
-	//mCommandManager->;
+//	mCommandManager->addc;
 }
 //-----------------------------------------------------------------------------
 void Game::loadConfiguration()
@@ -220,16 +228,16 @@ s32 Game::run(int argc, const char** argv)
 		//elapsed time from last application update
 		update( curentTimeMs, elapsedTimeMs);
 
-		if (beginRenderFrameImpl())
-		{
+//		if (beginRenderFrameImpl())
+//		{
 			render( curentTimeMs, elapsedTimeMs);
 			//game views rendering update with current and
 			//elapsed time from last application tick
 
-			endRenderFrameImpl();
+//			endRenderFrameImpl();
 
 			lastTimeMs = curentTimeMs; //update last time
-		}
+//		}
 	}
 
 	return 0;

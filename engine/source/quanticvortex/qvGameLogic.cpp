@@ -192,10 +192,10 @@ bool GameLogic::loadGame(const std::string& gameName)
 }
 
 //-----------------------------------------------------------------------------------------
-void GameLogic::changeState(const qv::gaming::GS_GAME_STATE& newState)
-{
-//            mState = newState;
-}
+//void GameLogic::changeState(const qv::gaming::GS_GAME_STATE& newState)
+//{
+////            mState = newState;
+//}
 //-----------------------------------------------------------------------------------------
 }
 }

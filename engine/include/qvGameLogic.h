@@ -30,7 +30,7 @@
 
 //engine headers
 #include "qvActor.h"
-#include "qvGameStateTypes.h"
+
 
 
 namespace qv
@@ -90,7 +90,7 @@ public:
     void update( u32 currentTimeMs, u32 elapsedTimeMs);
     /// update game data, and game tick
 
-    void changeState( const qv::gaming::GS_GAME_STATE& newState);
+//    void changeState( const qv::gaming::GS_GAME_STATE& newState);
     /// change the state of game, like: from menu to running
 
     void setPause(bool pause);

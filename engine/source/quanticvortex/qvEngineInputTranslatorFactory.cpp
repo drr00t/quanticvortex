@@ -42,8 +42,8 @@ namespace qv
 																	:mCommandManager(commandManager),
 																	mInputReceiver(inputReceiver)
         {
-			mSupportedEngineInputTranslatorTypes.push_back(ITT_ANY_KEY.Hash);
-			mSupportedEngineInputTranslatorTypes.push_back(ITT_SINGLE_KEY.Hash);
+//			mSupportedEngineInputTranslatorTypes.push_back(ITT_ANY_KEY.Hash);
+//			mSupportedEngineInputTranslatorTypes.push_back(ITT_SINGLE_KEY.Hash);
 
 			//quit translator
 			//pause translator
@@ -69,14 +69,14 @@ namespace qv
         //-----------------------------------------------------------------------------------------
 		u32 EngineInputTranslatorFactory::getCreatableInputTranslatorCount() const
         {
-            return mSupportedEngineInputTranslatorTypes.size();
+            return 0; //mSupportedEngineInputTranslatorTypes.size();
         }
         //-----------------------------------------------------------------------------------------
 		bool EngineInputTranslatorFactory::getCreateableInputTranslator( u32 inputTranslatorHashType) const
         {
-	        for (u32 i=0; i<mSupportedEngineInputTranslatorTypes.size(); ++i)
-				if (mSupportedEngineInputTranslatorTypes[i] == inputTranslatorHashType)
-			        return true;
+//	        for (u32 i=0; i<mSupportedEngineInputTranslatorTypes.size(); ++i)
+//				if (mSupportedEngineInputTranslatorTypes[i] == inputTranslatorHashType)
+//			        return true;
 
             return false;
 

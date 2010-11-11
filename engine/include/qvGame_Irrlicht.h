@@ -35,31 +35,30 @@
 #if QUANTICVORTEX_RENDER == QUANTICVORTEX_RENDER_IRRLICHT
 
 
-namespace irr
-{
+namespace irr {
 class IrrlichtDevice;
 }
 
 
-namespace qv
-{
+namespace qv {
 
 
 class _QUANTICVORTEX_API_ GameImpl
 	/// specific implementation for windows used to create game window.
 {
 
-	protected:
 
-		bool initializeImpl( const qv::SGameParams& gameParams);
+protected:
 
-		void finalizeImpl();
+	bool initializeImpl( const qv::SGameParams& gameParams);
 
-		bool beginRenderFrameImpl();
-		
-		void endRenderFrameImpl();
+	void finalizeImpl();
 
-		irr::IrrlichtDevice* mDevice3d;
+	bool beginRenderFrameImpl();
+
+	void endRenderFrameImpl();
+
+	irr::IrrlichtDevice* mDevice3d;
 };
 
 }

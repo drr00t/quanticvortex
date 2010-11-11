@@ -26,8 +26,7 @@
 
 #include "qvSingleKeyInputTranslator.h"
 
-#include "qvCommandManager.h"
-#include "qvInputReceiver.h"
+//#include "qvCommandManager.h"
 
 
 namespace qv
@@ -36,119 +35,34 @@ namespace qv
 	{
 		//-----------------------------------------------------------------------------------------
 		SingleKeyInputTranslator::SingleKeyInputTranslator(qv::CommandManager* commandManager,
-															irr::EKEY_CODE keyCode,
-															qv::input::EKEY_STATE checkKeyState,
-															bool realTime,
-															qv::CommandArgs* args,
-															u32 inputTranslatorHashId)
-															:mCommandManager(commandManager),
-															mKeyCode(keyCode),
-															mCheckKeyState(checkKeyState),
-															mRealTime(realTime), mArgs(args),
-															mInputTranslatorHashType(qv::input::ITT_SINGLE_KEY.Hash),
-                                                            mInputTranslatorHashId(inputTranslatorHashId)
-
+													qv::input::EKEY_CODE keyCode,
+													qv::input::EKEY_STATE checkKeyState,
+													bool realTime, qv::CommandArgs* args,
+													const ITI_INPUT_TRANSLATOR_ID& inputTranslatorId)
+													:mCommandManager(commandManager), 
+													mKeyCode(keyCode),
+													mCheckKeyState(checkKeyState),
+                                                    mRealTime(realTime),
+                                                    mInputTranslatorId(inputTranslatorId),
+													mArgs(args), 
+                                                    mInputTranslatorType(qv::input::ITT_SINGLE_KEY)
 		{
-
 		}
 		//-----------------------------------------------------------------------------------------
 		SingleKeyInputTranslator::~SingleKeyInputTranslator()
 		{
 		}
 		//-----------------------------------------------------------------------------------------
-		bool SingleKeyInputTranslator::translate(qv::input::InputReceiver *context) const
+		bool SingleKeyInputTranslator::translate(const qv::input::InputReceiverContext& context) const
 		{
 			bool translated = false;
 
-			switch(mCheckKeyState)
-			{
-			case EKS_PRESSED_OR_DOWN:
+//			if(mRealTime)
+//				mEventManager->trigger(mArgs);
+//			else
+//				mEventManager->enqueueEvent(mArgs);
 
-				if(context->keyPressed(mKeyCode) || context->keyDown(mKeyCode))
-				{
-//					if(mRealTime)
-//						mEventManager->trigger(mArgs);
-//					else
-//						mEventManager->enqueueEvent(mArgs);
-
-					translated = true;
-				}
-
-				break;
-
-			case EKS_UP_OR_RELEASED:
-
-				if(context->keyUp(mKeyCode) || context->keyReleased(mKeyCode))
-				{
-//					if(mRealTime)
-//						mEventManager->trigger(mArgs);
-//					else
-//						mEventManager->enqueueEvent(mArgs);
-
-					translated = true;
-				}
-
-				break;
-
-			case EKS_PRESSED:
-
-				if(context->keyPressed(mKeyCode))
-				{
-//					if(mRealTime)
-//						mEventManager->trigger(mArgs);
-//					else
-//						mEventManager->enqueueEvent(mArgs);
-
-					translated = true;
-				}
-
-				break;
-
-			case EKS_RELEASED:
-
-				if(context->keyReleased(mKeyCode))
-				{
-//					if(mRealTime)
-//						mEventManager->trigger(mArgs);
-//					else
-//						mEventManager->enqueueEvent(mArgs);
-
-					translated = true;
-				}
-
-				break;
-
-			case EKS_DOWN:
-
-				if(context->keyDown(mKeyCode))
-				{
-//					if(mRealTime)
-//						mEventManager->trigger(mArgs);
-//					else
-//						mEventManager->enqueueEvent(mArgs);
-
-					translated = true;
-				}
-
-				break;
-
-			case EKS_UP:
-
-				if(context->keyUp(mKeyCode))
-				{
-//					if(mRealTime)
-//						mEventManager->trigger(mArgs);
-//					else
-//						mEventManager->enqueueEvent(mArgs);
-
-					translated = true;
-				}
-
-				break;
-
-			default:
-				translated = false;
-			}
+			translated = true;
 
 			return translated;
 		}

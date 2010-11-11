@@ -35,24 +35,14 @@
 
 
 
-namespace irr
-{
-class IrrlichtDevice;
-}
-
 namespace qv
 {
 
 class CommandManager;
 
-namespace input
-{
-class InputReceiver;
-}
-
 namespace views
 {
-    class SceneElementView;
+class SceneElementView;
 }
 }
 
@@ -61,32 +51,35 @@ namespace qv
 namespace views
 {
 
+static const qv::views::GVT_GAME_VIEW_TYPE GVT_HUMAN_VIEW("GVT_HUMAN_VIEW");
+	// define ID to allow query by human view in views collection
+
 class _QUANTICVORTEX_API_ HumanView : public qv::views::AbstractGameView
-            /// This class allow a local player to be atached
-            /// on game, it is responsable by receive inputs
-            /// from player (controller, keyboard, mouse, etc...)
-            /// rendering data on screen
+	/// This class allow a local player to be atached
+	/// on game, it is responsable by receive inputs
+	/// from player (controller, keyboard, mouse, etc...)
+	/// rendering data on screen
 {
 public:
-    HumanView(const qv::c8* gameViewName, qv::CommandManager* commandManager, irr::IrrlichtDevice* device3d);
-    ///create the HumanView
+	HumanView(const qv::views::GVI_GAME_VIEW_ID& gameViewId, qv::CommandManager* commandManager);
+	///create the HumanView
 
-    virtual ~HumanView();
-    ///create the HumanView
+	virtual ~HumanView();
+	///create the HumanView
 
-    void attach( u32 actorHashId);
-    /// attach given view to a actor infromed by user,
-    /// if zero means no actor
+	void attach( u32 actorHashId);
+	/// attach given view to a actor infromed by user,
+	/// if zero means no actor
 
-    virtual void update(u32 elapsedTimeMs);
-    /// update all view elements, process and all other thing
-    /// sibling to render system, animated gui and mesh
+	virtual void update(u32 elapsedTimeMs);
+	/// update all view elements, process and all other thing
+	/// sibling to render system, animated gui and mesh
 
-    virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
-    /// render all element view data (scene, gui, shaders)
+	virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
+	/// render all element view data (scene, gui, shaders)
 
-    //// Virtual methods to control the layering of interface elements
-    qv::views::SceneElementView* addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType);
+	//// Virtual methods to control the layering of interface elements
+	qv::views::SceneElementView* addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType);
 
 //    void registerElementViewFactory(IElementViewFactory* factoryToAdd);
 
@@ -94,27 +87,24 @@ public:
 
 private:
 
-    u32 mActorHashId;
-    u32 mCurrentEngineTime;    // current view time
-    u32 mLastUpdateTime; // last tick time update
-    u32 mAccumulatorTime;
+	u32 mActorHashId;
+	u32 mCurrentEngineTime;    // current view time
+	u32 mLastUpdateTime; // last tick time update
+	u32 mAccumulatorTime;
 
-    irr::IrrlichtDevice* mDevice3d;
+	qv::CommandManager* mCommandManager;
 
-    qv::input::InputReceiver* mInputReceiver;
-    qv::CommandManager* mCommandManager;
-    
-    qv::views::ElementViewsList mElementViews;
-    
-    RaiiFactoryImp<qv::views::AbstractElementView> mElementViewFactory;
+	qv::views::ElementViewsList mElementViews;
+
+	RaiiFactoryImp<qv::views::AbstractElementView> mElementViewFactory;
 
 
-    //ProcessManager *mProcessManager;				    // just for gui elements.
+	//ProcessManager *mProcessManager;				    // just for gui elements.
 //        cAudio::IAudioManager* mAudioManager;
 
-    //IGUIFont* mFont;
+	//IGUIFont* mFont;
 
-    //IGUIEnvironment* mGuiEnvironment;
+	//IGUIEnvironment* mGuiEnvironment;
 };
 
 //
@@ -122,7 +112,7 @@ private:
 //
 inline void HumanView::attach( u32 actorHashId = 0)
 {
-    mActorHashId = actorHashId;
+	mActorHashId = actorHashId;
 }
 
 

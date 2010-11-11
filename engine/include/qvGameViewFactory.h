@@ -39,34 +39,42 @@
 
 namespace qv
 {
+
 namespace views
 {
 
-class _QUANTICVORTEX_API_ GameViewFactory
+class AbstractGameViewFactory
 	/// base class for all game views creation
 
 {
-	public:
-		virtual qv::views::AbstractGameView* create(const qv::c8* gameViewName)=0;
+public:
+	virtual ~AbstractGameViewFactory();
+	virtual qv::views::AbstractGameView* create(const qv::c8* gameViewName)=0;
 
+		protected:
+			AbstractGameViewFactory (const AbstractGameViewFactory&);
+	AbstractGameViewFactory& operator = (const AbstractGameViewFactory&);
 };
 
 
-typedef std::tr1::unordered_map<u32, qv::views::GameViewFactory*> GameViewFactoryRegistry;
+template<class T> class GameViewFactory: public qv::views::AbstractGameViewFactory
+	/// template class for game views creation objects of type T
+
+{
+public:
+	GameViewFactory();
+	virtual qv::views::AbstractGameView* create(const qv::c8* gameViewName)
+	{
+		return new T(gameViewName);
+	}
+};
+
+
+typedef std::tr1::unordered_map<qv::u32, qv::views::AbstractGameViewFactory*> GameViewFactoryRegistry;
 /// hashmap of command args to command using types.
 
 
-template<class T> class _QUANTICVORTEX_API_ GenericGameViewFactory: public GameViewFactory
-	/// T shoud derive from AbstractGameView.
-{
-	public:
-		virtual qv::views::AbstractGameView* create(const qv::c8* gameViewName)
-		{
-			return new T(gameViewName);
-		}
-
-};
-
 }
+
 }
 #endif

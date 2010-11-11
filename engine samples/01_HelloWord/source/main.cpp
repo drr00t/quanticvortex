@@ -1,16 +1,41 @@
 
 #include "HelloWordGame.h"
 
+#include <iostream>
+
+static const qv::views::GVT_GAME_VIEW_TYPE GVT_TEST("GVT_TEST");
+static const qv::views::GVI_GAME_VIEW_ID GVI_TEST("GVI_TEST");
+
+class TestGameView: public qv::views::AbstractGameView
+{
+public:
+	TestGameView()
+		:qv::views::AbstractGameView(GVI_TEST,1,GVT_TEST), mElapsedTimeMs(0)
+	{}
+
+    virtual void render( qv::u32 currentTimeMs, qv::u32 elapsedTimeMs)
+	{
+		std::cout << "Test Game View  - " << mElapsedTimeMs << "Current time" << currentTimeMs << std::endl;
+	}
+
+    virtual void update( qv::u32 elapsedTimeMs)
+	{
+		mElapsedTimeMs = elapsedTimeMs;
+	}
+	
+private:
+	qv::u32 mElapsedTimeMs;
+};
+
 int main(int argc, const char** argv)
 {
 //    MEM_ON();
-    
-    samples::HelloWordGame game;
-    
+
+	samples::HelloWordGame game;
+
+	game.addGameView(new TestGameView());
+	
 //    MEM_OFF();
-    return game.run(argc, argv);
+	return game.run(argc, argv);
 
 }
-
-
-

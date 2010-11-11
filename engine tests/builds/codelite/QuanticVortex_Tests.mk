@@ -12,9 +12,9 @@ ProjectPath            := "E:\Projetos\QuanticVortex\engine tests\builds\codelit
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=adriano
-Date                   :=09/13/10
-CodeLitePath           :="C:\Program Files\CodeLite"
+User                   :=Adriano
+Date                   :=10/24/10
+CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
 SharedObjectLinkerName :=g++ -shared -fPIC
@@ -47,7 +47,7 @@ LibPath                := "$(LibraryPathSwitch)." "$(LibraryPathSwitch)../../../
 ##
 ## User defined environment variables
 ##
-CodeLiteDir:=C:\Program Files\CodeLite
+CodeLiteDir:=C:\Program Files (x86)\CodeLite
 Objects=$(IntermediateDirectory)/source_main$(ObjectSuffix) 
 
 ##

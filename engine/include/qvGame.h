@@ -36,16 +36,17 @@
 #include "qvSGameParams.h"
 
 
-#if QUANTICVORTEX_RENDER == QUANTICVORTEX_RENDER_IRRLICHT
-
-#include "qvGame_Irrlicht.h"
-
-#endif
+//#if QUANTICVORTEX_RENDER == QUANTICVORTEX_RENDER_IRRLICHT
+//
+//#include "qvGame_Irrlicht.h"
+//
+//#endif
 
 
 namespace qv
 {
 class CommandManager;
+class AbstractCommand;
 
 namespace gaming
 {
@@ -57,100 +58,113 @@ class InputReceiver;
 }
 namespace views
 {
-class HumanView;
+class AbstractGameView;
 }
 }
+
+
 
 namespace qv
 {
 
 
-class _QUANTICVORTEX_API_ Game: private GameImpl
+struct SortGameViewsLess
+		/// function object for sort abstract game views
+{
+	bool operator()(qv::views::AbstractGameView* a, qv::views::AbstractGameView* b) const
+	{
+		return (a->getOrder() < b->getOrder());
+	}
+};
+
+class _QUANTICVORTEX_API_ Game //: private GameImpl
 	/// engine core object, this work on lowest level and provide a
 	/// generic loop for global service like: EventManager, GameLogic
 {
 
-	public:
+public:
 
-		struct SortGameViewsLess
-				/// function object for sort abstract game views
-		{
-			bool operator()(qv::views::AbstractGameView* a, qv::views::AbstractGameView* b) const
-			{
-				return (a->getOrder() < b->getOrder());
-			}
-		};
+	Game();
+	virtual ~Game();
 
-		Game();
-		virtual ~Game();
+	void addGameView( qv::views::AbstractGameView* gameView);
+	/// register new game view
 
-		qv::views::AbstractGameView* addGameView( const qv::c8* gameViewName, const qv::views::GVT_GAME_VIEW_TYPE& gameViewType);
-		/// create command for a command args type.
-
-		void removeGameView(qv::views::AbstractGameView* gameView);
-		/// remvoe a game view from game views collection and delete from memory
-
-		void parseCommandLine( int argc, const char** argv);
-		/// override config file options with commandline options
-		/// options passed by command line, will not be persisted
-		/// to config file
-
-		void loadConfiguration();
-		/// load configuration from file, include saved game
-
-		void addCommand(const qv::CI_COMMAND_ID& commandId, const qv::CT_COMMAND_TYPE& commandType);
-		/// register command type to used in game
-
-		void load( const qv::c8* gamePath, const qv::c8* gameFile);
-
-		s32 run(int argc, const char** argv);
-		/// called by user to start main loop of the game.
-
-		qv::gaming::GameLogic* getGameLogic();
-		/// all game data, views, physics, actor storage here.
-
-		qv::CommandManager* getCommandManager();
-		/// all global events are processed here
-
-		qv::SGameParams& getGameParameters();
-		/// game global configuration options, menu interface can
-		/// change this values
-
-		const qv::views::GameViewsArray& getGameViews() const;
-		/// game views collections, all views must be registred on game
-		/// logic to be used on game, ex: HumanView, NetworkView.
-
-		void setQuit(bool quit);
-		/// quit from engine main loop if true
-
-	private:
-		Game (const Game&);
-		Game& operator = (const Game&);
-
-		bool initialize();
-		/// real method taht will start the engine, this it will
-		/// called inside constructor
-
-		void finalize();
-		/// this method is analog to the initialize, and will be called
-		/// in destructor to make a shutdown and cleanup before quit
-
-		void update( u32 currentTimeMs, u32 elapsedTimeMs);
-		/// will called every global engine tick and pass current
-		/// system time to GameLogic, EventManager
-
-		void render( u32 currentTimeMs, u32 elapsedTimeMs);
-		/// render content of views registred in GameLogic
+	void removeGameView(qv::views::AbstractGameView* gameView);
+	/// remvoe a game view from game views collection and delete from memory
 
 
-		bool mQuit; /// quit of engine loop if is true
-		qv::SGameParams mGameParams; /// engine, render paramaters
-		qv::gaming::GameLogic* mGameLogic; /// game core object updated on engine loop
-		qv::CommandManager* mCommandManager; /// global event manager
-		qv::CT_COMMAND_TYPE mStartupComandargsType;
-		qv::views::GameViewsArray  mGameViews;
-		qv::views::GameViewFactoryRegistry mGameViewsFactory;
-		qv::input::InputReceiver* mInputReceiver;
+	qv::views::AbstractGameView* findGameView(const qv::views::GVT_GAME_VIEW_TYPE& gameViewType);
+	/// find a game view on registerd in game views collection.
+
+	void addCommand(qv::AbstractCommand* command);
+	/// add command to listen command args
+
+	void removeCommand(const qv::CT_COMMAND_TYPE& commandType);
+	/// register command type to used in game
+
+	void findCommand(const qv::CT_COMMAND_TYPE& commandType);
+	/// register command type to used in game
+
+
+	void parseCommandLine( int argc, const char** argv);
+	/// override config file options with commandline options
+	/// options passed by command line, will not be persisted
+	/// to config file
+
+	void loadConfiguration();
+	/// load configuration from file, include saved game
+
+
+
+	s32 run(int argc, const char** argv);
+	/// called by user to start main loop of the game.
+
+	qv::gaming::GameLogic* getGameLogic();
+	/// all game data, views, physics, actor storage here.
+
+	qv::CommandManager* getCommandManager();
+	/// all global events are processed here
+
+	qv::SGameParams& getGameParameters();
+	/// game global configuration options, menu interface can
+	/// change this values
+
+//		const qv::views::GameViewsArray& getGameViews() const;
+	/// game views collections, all views must be registred on game
+	/// logic to be used on game, ex: HumanView, NetworkView.
+
+	void setQuit(bool quit);
+	/// quit from engine main loop if true
+
+private:
+	Game (const Game&);
+	Game& operator = (const Game&);
+
+	bool initialize();
+	/// real method taht will start the engine, this it will
+	/// called inside constructor
+
+	void finalize();
+	/// this method is analog to the initialize, and will be called
+	/// in destructor to make a shutdown and cleanup before quit
+
+	void update( u32 currentTimeMs, u32 elapsedTimeMs);
+	/// will called every global engine tick and pass current
+	/// system time to GameLogic, EventManager
+
+	void render( u32 currentTimeMs, u32 elapsedTimeMs);
+	/// render content of views registred in GameLogic
+
+
+	bool mQuit; /// quit of engine loop if is true
+	qv::SGameParams mGameParams; /// engine, render paramaters
+	qv::gaming::GameLogic* mGameLogic; /// game core object updated on engine loop
+	qv::CommandManager* mCommandManager; /// global event manager
+	qv::CT_COMMAND_TYPE mStartupComandargsType;
+	qv::views::GameViewsArray  mGameViews;
+	qv::views::GameViewFactoryRegistry mGameViewsFactory;
+	qv::input::InputReceiver* mInputReceiver;
 };
 
 
@@ -170,10 +184,10 @@ inline qv::SGameParams& qv::Game::getGameParameters()
 	return mGameParams;
 }
 
-inline const qv::views::GameViewsArray& qv::Game::getGameViews() const
-{
-	return mGameViews;
-}
+//inline const qv::views::GameViewsArray& qv::Game::getGameViews() const
+//{
+//	return mGameViews;
+//}
 
 inline void qv::Game::setQuit(bool quit)
 {

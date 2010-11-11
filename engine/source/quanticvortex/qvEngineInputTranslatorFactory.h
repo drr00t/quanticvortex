@@ -45,7 +45,7 @@ namespace input
 class EngineInputTranslatorFactory : public qv::input::IInputTranslatorFactory
 {
 protected:
-    InputTranslatorHashTypesArray mSupportedEngineInputTranslatorTypes;
+ //   InputTranslatorHashTypesArray mSupportedEngineInputTranslatorTypes;
     qv::CommandManager* mCommandManager;
     qv::input::InputReceiver* mInputReceiver;
 

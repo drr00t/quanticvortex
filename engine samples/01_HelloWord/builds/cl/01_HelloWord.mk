@@ -12,12 +12,12 @@ ProjectPath            := "E:\Projetos\QuanticVortex\engine samples\01_HelloWord
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=adriano
-Date                   :=09/23/10
-CodeLitePath           :="C:\Program Files\CodeLite"
+User                   :=Adriano
+Date                   :=11/10/10
+CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
-SharedObjectLinkerName :=g++ -shared -fPIC
+SharedObjectLinkerName :=g++ -shared 
 ObjectSuffix           :=.o
 DependSuffix           :=.o.d
 PreprocessSuffix       :=.o.i
@@ -36,7 +36,7 @@ ObjectSwitch           :=-o
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E 
 MakeDirCommand         :=makedir
-CmpOptions             := -g -Wall -fno-rtti  -DSVN_REVISION=\"\"  $(Preprocessors)
+CmpOptions             := -g -Wall -fno-rtti $(Preprocessors)
 LinkOptions            :=  
 IncludePath            :=  "$(IncludeSwitch)." "$(IncludeSwitch)../../include" "$(IncludeSwitch)../../../../engine/include" "$(IncludeSwitch)../../../../dependencies/include/bullet" "$(IncludeSwitch)../../../../dependencies/include/cAudio/include" 
 RcIncludePath          :=
@@ -47,7 +47,7 @@ LibPath                := "$(LibraryPathSwitch)." "$(LibraryPathSwitch)../../../
 ##
 ## User defined environment variables
 ##
-CodeLiteDir:=C:\Program Files\CodeLite
+CodeLiteDir:=C:\Program Files (x86)\CodeLite
 Objects=$(IntermediateDirectory)/source_main$(ObjectSuffix) $(IntermediateDirectory)/source_HelloWordGame$(ObjectSuffix) 
 
 ##

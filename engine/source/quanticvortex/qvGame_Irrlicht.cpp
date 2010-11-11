@@ -32,6 +32,8 @@
 
 #include "irrlicht.h"
 
+#include "qvInputReceiver_Irrlicht.h"
+
 
 namespace qv
 {
@@ -47,8 +49,10 @@ bool GameImpl::initializeImpl(const qv::SGameParams& gameParams)
 	parameters.Stencilbuffer = true;
 	parameters.WindowSize = irr::core::dimension2du(gameParams.WindowWidth, gameParams.WindowHeight);
 	parameters.Fullscreen = gameParams.Fullscreen;
-
+	
 	mDevice3d = irr::createDeviceEx(parameters);
+	
+//	mDevice3d->setEventReceiver(new qv::input::InputReceiverImpl(mInputReceiver));
 
 	return true;
 }

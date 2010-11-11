@@ -30,9 +30,7 @@
 #include "qvSceneElementView.h"
 
 #include "qvCommandManager.h"
-#include "qvInputReceiver.h"
 
-#include "IrrlichtDevice.h"
 
 
 
@@ -41,10 +39,10 @@ namespace qv
 namespace views
 {
 //-----------------------------------------------------------------------------------------
-HumanView::HumanView(const qv::c8* gameViewName, qv::CommandManager* commandManager, irr::IrrlichtDevice* device3d)
-        : qv::views::AbstractGameView( gameViewName, 1, qv::views::GVT_GAME_VIEW_HUMAN),
-        mLastUpdateTime(0.0f), mCurrentEngineTime(0.0f), mAccumulatorTime(0), mInputReceiver(0),
-        mCommandManager(commandManager), mDevice3d(device3d) /*mProcessManager(0)*/
+HumanView::HumanView(const qv::views::GVI_GAME_VIEW_ID& gameViewId, qv::CommandManager* commandManager)
+        : qv::views::AbstractGameView( gameViewId, 1, qv::views::GVT_HUMAN_VIEW),
+        mLastUpdateTime(0.0f), mCurrentEngineTime(0.0f), mAccumulatorTime(0), 
+        mCommandManager(commandManager) /*mProcessManager(0)*/
 {
 
     addSceneElementView("scene_view", qv::views::EVT_ELEMENT_VIEW_SCENE);
@@ -133,8 +131,8 @@ void HumanView::update( u32 elapsedTimeMs)
 //-----------------------------------------------------------------------------------------
 qv::views::SceneElementView* HumanView::addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType)
 {
-    qv::views::AbstractElementView* elementView = 
-        mElementViewFactory.keep(new qv::views::SceneElementView(elementViewName, mCommandManager, mDevice3d->getSceneManager() ));
+    qv::views::AbstractElementView* elementView(0); // = 
+        //mElementViewFactory.keep(new qv::views::SceneElementView(elementViewName, mCommandManager));
 
     mElementViews.push_back(elementView);
 

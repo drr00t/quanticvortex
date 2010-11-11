@@ -37,7 +37,7 @@ namespace qv
 
 namespace input
 {
-    class InputReceiver;
+    class InputReceiverContext;
 }
 }
 
@@ -71,7 +71,7 @@ public:
         return mInputTranslatorHashType; 
     }
 
-    virtual bool translate(qv::input::InputReceiver *context) const;
+    virtual bool translate(qv::input::InputReceiverContext *context) const;
 
 private:
     bool mRealTime;

@@ -28,6 +28,7 @@
 #ifndef __INPUT_RECEIVER_H_
 #define __INPUT_RECEIVER_H_
 
+
 #include <vector>
 
 #include "qvSingleKeyInputTranslator.h"
@@ -36,88 +37,130 @@
 #include "qvIInputTranslator.h"
 #include "qvIInputTranslatorFactory.h"
 
+
 namespace qv
 {
 namespace input
 {
+
+class InputReceiverContext
+	// used to test user inputs
+{
+public:
+	InputReceiverContext()
+	{
+
+	}
+
+	~InputReceiverContext()
+	{
+	}
+
+	void updateKeyboard(qv::input::EKEY_CODE keycode, bool pressedDown);
+
+	//context
+	bool keyPressed(qv::input::EKEY_CODE keycode) const;
+
+	bool keyDown(qv::input::EKEY_CODE keycode) const;
+
+	bool keyUp(qv::input::EKEY_CODE keycode) const;
+
+	bool keyReleased(qv::input::EKEY_CODE keycode) const;
+
+private:
+	EKEY_STATE mKeyState[qv::input::KEY_KEY_CODES_COUNT];
+};
+
+//context
+
+inline void InputReceiverContext::updateKeyboard(qv::input::EKEY_CODE keycode, bool pressedDown)
+{
+	if (pressedDown)
+	{
+		if (mKeyState[keycode] !=  qv::input::EKS_DOWN)
+			mKeyState[keycode] = qv::input::EKS_PRESSED;
+		else
+			mKeyState[keycode] = qv::input::EKS_DOWN;
+	}
+	else if (mKeyState[keycode] != qv::input::EKS_UP)
+	{
+		mKeyState[keycode] = qv::input::EKS_RELEASED;
+	}
+}
+
+inline bool InputReceiverContext::keyPressed(qv::input::EKEY_CODE keycode) const
+{
+	return (mKeyState[keycode] == EKS_PRESSED);
+};
+
+inline bool InputReceiverContext::keyDown(qv::input::EKEY_CODE keycode) const
+{
+	return (mKeyState[keycode] == EKS_DOWN || mKeyState[keycode] == EKS_PRESSED);
+};
+
+inline bool InputReceiverContext::keyUp(qv::input::EKEY_CODE keycode) const
+{
+	return (mKeyState[keycode] == EKS_UP || mKeyState[keycode] == EKS_RELEASED);
+};
+
+inline bool InputReceiverContext::keyReleased(qv::input::EKEY_CODE keycode) const
+{
+	return (mKeyState[keycode] == EKS_RELEASED);
+};
+
 
 
 class _QUANTICVORTEX_API_ InputReceiver
 	//base input receiver shoud be derived to each plataform, like: Irrlicht, OIS, etc
 {
 
-	public:
+public:
 
-		InputReceiver()
-		{
-		}
+	InputReceiver()
+	{
+	}
 
-		virtual ~InputReceiver(void)
-		{
-			std::vector<IInputTranslator*>::iterator itr = mInputTranslators.begin();
+	virtual ~InputReceiver(void)
+	{
+		std::vector<IInputTranslator*>::iterator itr = mInputTranslators.begin();
 
-			for(; itr != mInputTranslators.end(); itr++)
-				delete (*itr);
+		for(; itr != mInputTranslators.end(); itr++)
+			delete (*itr);
 
-			mInputTranslators.clear();
-		}
+		mInputTranslators.clear();
+	}
 
-/*		class InputReceiverContext
-		{
-			public:
-				InputReceiverContext()
-				{
+	qv::input::InputReceiverContext& getInputContext();
 
-				}
+	bool translateInput() const;
+	//passe input trought all translators, until first return true.
 
-				InputReceiverContext()
-				{
+	void updateTime( u32 currentTimeMs, u32 elapsedTimeMs)
+	{
+		mCurrentTimeMs = currentTimeMs;
+		mElapsedTimeMs = elapsedTimeMs;
+	}
 
-				}
 
-				//context
-				bool keyPressed(irr::EKEY_CODE keycode)
-				{
-					return (mKeyState[keycode] == EKS_PRESSED);
-				};
+protected:
 
-				bool keyDown(irr::EKEY_CODE keycode)
-				{
-					return (mKeyState[keycode] == EKS_DOWN || mKeyState[keycode] == EKS_PRESSED);
-				};
+	IInputTranslator* getInputTranslator( u32 inputTranslatorHashId)
+	{
+		IInputTranslator* inputTranslator = 0;
 
-				bool keyUp(irr::EKEY_CODE keycode)
-				{
-					return (mKeyState[keycode] == EKS_UP || mKeyState[keycode] == EKS_RELEASED);
-				};
+//			for(u32 i = 0; i < mInputTranslators.size(); ++i)
+//			{
+//				if(mInputTranslators[i]->getHashId() == inputTranslatorHashId)
+//				{
+//					inputTranslator = mInputTranslators[i];
+//					break;
+//				}
+//			}
 
-				bool keyReleased(irr::EKEY_CODE keycode)
-				{
-					return (mKeyState[keycode] == EKS_RELEASED);
-				};
-				
-			key
-		};*/
+		return inputTranslator;
+	}
 
-	protected:
-
-		IInputTranslator* getInputTranslator( u32 inputTranslatorHashId)
-		{
-			IInputTranslator* inputTranslator = 0;
-
-			for(u32 i = 0; i < mInputTranslators.size(); ++i)
-			{
-				if(mInputTranslators[i]->getHashId() == inputTranslatorHashId)
-				{
-					inputTranslator = mInputTranslators[i];
-					break;
-				}
-			}
-
-			return inputTranslator;
-		}
-
-		//translators
+	//translators
 //			virtual IInputTranslatorSharedPtr addSingleKeyTranslator (const c8* inputTranslatorName, EKEY_CODE keyCode, EKEY_STATE checkState, events::IEventArgsSharedPtr args, bool realTime = false)
 //			{
 //				IInputTranslatorSharedPtr translator(new SingleKeyInputTranslator( mEventManager, keyCode, checkState, realTime, args, inputTranslatorName));
@@ -143,36 +186,58 @@ class _QUANTICVORTEX_API_ InputReceiver
 //			}
 //
 
-		void registerInputTranslator( IInputTranslator* translator)
-		{
+	void registerInputTranslator( IInputTranslator* translator)
+	{
 //				IInputTranslatorSharedPtr inputTranslator = getInputTranslator(translator->getHashId());
 //
 //				if(!inputTranslator)
 //					mInputTranslators.push_back(translator);
-		}
+	}
 
-		void unregisterInputTranslator( u32 inputTranslatorHashId)
-		{
+	void unregisterInputTranslator( u32 inputTranslatorHashId)
+	{
 
-		}
+	}
 
-		void unregisterInputTranslator( IInputTranslator* translator)
-		{
+	void unregisterInputTranslator( IInputTranslator* translator)
+	{
 
-		}
+	}
 
-		void registerInputTranslatorFactory( IInputTranslatorFactory* factory)
-		{
+	void registerInputTranslatorFactory( IInputTranslatorFactory* factory)
+	{
 //        factory->grab();
 //        mInputTranslatorsFactories.push_back(factory);
-		}
+	}
 
 
-	private:
+private:
 
-		//i need see which collection will work bether here
-		std::vector<IInputTranslator*> mInputTranslators;
-		std::vector<IInputTranslatorFactory*> mInputTranslatorsFactories;
+	u32 mCurrentTimeMs;
+	u32 mElapsedTimeMs;
+
+	InputReceiverContext mInputContext;
+	// crrent of input receiver context
+
+	//i need see which collection will work bether here
+	std::vector<IInputTranslator*> mInputTranslators;
+	std::vector<IInputTranslatorFactory*> mInputTranslatorsFactories;
+};
+
+//inlines
+inline qv::input::InputReceiverContext& InputReceiver::getInputContext()
+{
+	return mInputContext;
+};
+
+inline bool InputReceiver::translateInput() const
+{
+	//command for keyboard event registred by InputTranslators can executed here
+	for(u32 i = 0; i < mInputTranslators.size(); ++i)
+		if(mInputTranslators[i]->translate(mInputContext))
+			return true;
+
+	return false;
 };
 
 }

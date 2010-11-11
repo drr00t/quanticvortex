@@ -25,10 +25,7 @@
       <File Name="../../include/qvConfigureContentCommandArgs.h"/>
       <File Name="../../include/qvSceneLoadCommandArgs.h"/>
     </VirtualDirectory>
-    <File Name="../../include/qvGameCommandTypes.h"/>
-    <File Name="../../include/qvGameStateTypes.h"/>
     <VirtualDirectory Name="commands">
-      <File Name="../../include/qvConfigureGameStateCommand.h"/>
       <File Name="../../include/qvLoadGameCommand.h"/>
       <File Name="../../include/qvSceneLoadCommand.h"/>
     </VirtualDirectory>
@@ -38,7 +35,6 @@
       <File Name="../../include/qvElementViewTypes.h"/>
       <File Name="../../include/qvGameViewTypes.h"/>
       <File Name="../../include/qvHumanView.h"/>
-      <File Name="../../include/qvHumanView_Irrlicht.h"/>
       <File Name="../../include/qvIGuiView.h"/>
       <File Name="../../include/qvINetworkView.h"/>
       <File Name="../../include/qvIPhysicsView.h"/>
@@ -62,17 +58,14 @@
       <File Name="../../include/qvIProcessManager.h"/>
       <File Name="../../include/qvITimer.h"/>
       <File Name="../../include/qvGame_Irrlicht.h"/>
+      <File Name="../../include/qvAbstractFactory.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="input">
       <File Name="../../include/qvIInputTranslatorFactory.h"/>
       <File Name="../../include/qvKeyTypes.h"/>
-      <VirtualDirectory Name="translators">
-        <File Name="../../include/qvSingleKeyInputTranslator.h"/>
-        <File Name="../../include/qvAnyKeyInputTranslator.h"/>
-      </VirtualDirectory>
       <File Name="../../include/qvInputReceiver.h"/>
       <File Name="../../include/qvIInputTranslator.h"/>
-      <File Name="../../include/qvInputReceiver_Irrlicht.h"/>
+      <File Name="../../include/qvKeyCodes.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="physics">
       <File Name="../../include/qvPhysicsManager.h"/>
@@ -116,9 +109,11 @@
       <File Name="../../source/quanticvortex/qvPhysicsManager.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="input">
-      <File Name="../../source/quanticvortex/qvSingleKeyInputTranslator.cpp"/>
-      <File Name="../../source/quanticvortex/qvSingleKeyInputTranslator.h"/>
       <File Name="../../source/quanticvortex/qvAnyKeyInputTranslator.cpp"/>
+      <File Name="../../source/quanticvortex/qvInputReceiver_Irrlicht.cpp"/>
+      <File Name="../../source/quanticvortex/qvInputReceiver_Irrlicht.h"/>
+      <File Name="../../include/qvSingleKeyInputTranslator.h"/>
+      <File Name="../../source/quanticvortex/qvSingleKeyInputTranslator.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="fs">
       <File Name="../../source/quanticvortex/qvFileSystem.cpp"/>
@@ -132,21 +127,22 @@
   <Dependencies Name="Windows x86 - DLL - Debug"/>
   <Settings Type="Dynamic Library">
     <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g" Required="yes" PreCompiledHeader="">
+      <Compiler Options="-g;-fno-rtti;-flto" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
         <IncludePath Value="../../../engine/source/quanticvortex"/>
+        <IncludePath Value="../../../engine/source/quanticvortex/physfs"/>
         <IncludePath Value="../../../dependencies/include/irrlicht/include"/>
         <IncludePath Value="../../../dependencies/include/cAudio/include"/>
         <IncludePath Value="../../../dependencies/include/bullet"/>
         <IncludePath Value="../../../dependencies/include/poco"/>
-        <IncludePath Value="../../../engine/source/quanticvortex/physfs"/>
+        <IncludePath Value="../../../dependencies/include/tbb"/>
         <Preprocessor Value="WIN32"/>
         <Preprocessor Value="_DEBUG"/>
         <Preprocessor Value="_QUANTICVORTEX_EXPORTS"/>
         <Preprocessor Value="_CRT_SECURE_NO_WARNINGS"/>
         <Preprocessor Value="__GNUWIN32__"/>
       </Compiler>
-      <Linker Options="" Required="yes">
+      <Linker Options="-flto" Required="yes">
         <LibraryPath Value="../../../dependencies/libs/win32-gcc"/>
         <LibraryPath Value="../../../dependencies/bin/win32-gcc"/>
         <Library Value="Irrlicht_d.dll"/>
@@ -182,21 +178,22 @@
       </AdditionalRules>
     </Configuration>
     <Configuration Name="Windows x86 - DLL - Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-ffast-math;-fno-rtti" Required="yes" PreCompiledHeader="">
+      <Compiler Options="-ffast-math;-fno-rtti;-flto" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
         <IncludePath Value="../../../engine/source/quanticvortex"/>
+        <IncludePath Value="../../../engine/source/quanticvortex/physfs"/>
         <IncludePath Value="../../../dependencies/include/irrlicht/include"/>
         <IncludePath Value="../../../dependencies/include/cAudio/include"/>
         <IncludePath Value="../../../dependencies/include/bullet"/>
         <IncludePath Value="../../../dependencies/include/poco"/>
-        <IncludePath Value="physfs"/>
+        <IncludePath Value="../../../dependencies/include/tbb"/>
         <Preprocessor Value="WIN32"/>
         <Preprocessor Value="NDEBUG"/>
         <Preprocessor Value="_QUANTICVORTEX_EXPORTS"/>
         <Preprocessor Value="_CRT_SECURE_NO_WARNINGS"/>
         <Preprocessor Value="__GNUWIN32__"/>
       </Compiler>
-      <Linker Options="-s;-O2;" Required="yes">
+      <Linker Options="-s;-O2;-flto" Required="yes">
         <LibraryPath Value="../../../dependencies/libs/win32-gcc"/>
         <LibraryPath Value="../../../dependencies/bin/win32-gcc"/>
         <Library Value="libIrrlicht.dll"/>
@@ -235,13 +232,14 @@
       <Compiler Options="-ffast-math;-fno-rtti" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
         <IncludePath Value="../../../engine/source/quanticvortex"/>
+        <IncludePath Value="../../../engine/source/quanticvortex/physfs"/>
         <IncludePath Value="../../../dependencies/include/irrlicht/include"/>
         <IncludePath Value="../../../dependencies/include/cAudio/include"/>
         <IncludePath Value="../../../dependencies/include/bullet"/>
         <IncludePath Value="../../../dependencies/include/poco"/>
+        <IncludePath Value="../../../dependencies/include/tbb"/>
         <Preprocessor Value="WIN32"/>
         <Preprocessor Value="NDEBUG"/>
-        <Preprocessor Value="_QUANTICVORTEX_EXPORTS"/>
         <Preprocessor Value="_CRT_SECURE_NO_WARNINGS"/>
         <Preprocessor Value="__GNUWIN32__"/>
       </Compiler>
@@ -284,13 +282,14 @@
       <Compiler Options="-ffast-math;-fno-rtti" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
         <IncludePath Value="../../../engine/source/quanticvortex"/>
+        <IncludePath Value="../../../engine/source/quanticvortex/physfs"/>
         <IncludePath Value="../../../dependencies/include/irrlicht/include"/>
         <IncludePath Value="../../../dependencies/include/cAudio/include"/>
         <IncludePath Value="../../../dependencies/include/bullet"/>
         <IncludePath Value="../../../dependencies/include/poco"/>
+        <IncludePath Value="../../../dependencies/include/tbb"/>
         <Preprocessor Value="WIN32"/>
         <Preprocessor Value="NDEBUG"/>
-        <Preprocessor Value="_QUANTICVORTEX_EXPORTS"/>
         <Preprocessor Value="_CRT_SECURE_NO_WARNINGS"/>
         <Preprocessor Value="__GNUWIN32__"/>
       </Compiler>

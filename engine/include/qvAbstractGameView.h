@@ -41,24 +41,24 @@ namespace views
 {
 
 class AbstractGameView
-            /// abstract to views of game, all game views should derive from
-            /// this class allow external events as user input, network events,
-            /// structure allow make very nice things like: listen all events
-            /// raised by game logic or even game we can recorde this events
-            /// and use this to replay game. Engine implements views:
-            ///
-            /// - HumanView:    most important view of our engine, this is
-            ///                 used by local player, getting user events
-            ///                 and translating in game events,
-            /// - PhysicsView:  allow debug physics drawing collisions, body
-            /// - RecorderView: record all events raised by game
-            /// - NetworkView:  represent a remote player attached on game
+		/// abstract to views of game, all game views should derive from
+		/// this class allow external events as user input, network events,
+		/// structure allow make very nice things like: listen all events
+		/// raised by game logic or even game we can recorde this events
+		/// and use this to replay game. Engine implements views:
+		///
+		/// - HumanView:    most important view of our engine, this is
+		///                 used by local player, getting user events
+		///                 and translating in game events,
+		/// - PhysicsView:  allow debug physics drawing collisions, body
+		/// - RecorderView: record all events raised by game
+		/// - NetworkView:  represent a remote player attached on game
 {
 
 public:
 
-    AbstractGameView( const qv::c8* gameViewName, qv::u8 viewOrder, const qv::views::GVT_GAME_VIEW_TYPE& viewType)
-            : mViewOrder(viewOrder), mGameViewType(viewType), mGameViewId(qv::views::GVI_GAME_VIEW_ID(gameViewName))
+    AbstractGameView( const qv::views::GVI_GAME_VIEW_ID& gameViewId, qv::u8 viewOrder, const qv::views::GVT_GAME_VIEW_TYPE& viewType)
+            : mViewOrder(viewOrder), mGameViewType(viewType), mGameViewId(gameViewId)
     {
 
     }

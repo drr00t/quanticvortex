@@ -31,53 +31,54 @@
 #include "qvIInputTranslator.h"
 #include "qvCommandArgs.h"
 
-namespace qv
-{
-    class CommandManager;
+namespace qv {
+class CommandManager;
 
 
-namespace input
-{
-    class InputReceiver;
+namespace input {
+class InputReceiverContext;
 }
 
 }
 
-namespace qv
-{
-namespace input
-{
+namespace qv {
+namespace input {
 
 static const qv::input::ITT_INPUT_TRANSLATOR_TYPE ITT_SINGLE_KEY("SINGLE_KEY");
 
-class _QUANTICVORTEX_API_ SingleKeyInputTranslator: public qv::input::IInputTranslator
-{
+class _QUANTICVORTEX_API_ SingleKeyInputTranslator: public qv::input::IInputTranslator {
 
 public:
 
-    SingleKeyInputTranslator(qv::CommandManager* commandManager,
-                            irr::EKEY_CODE keyCode,
-                            qv::input::EKEY_STATE checkKeyState,
-                            bool realTime,
-                            qv::CommandArgs* args,
-                            u32 inputTranslatorHashId);
+	SingleKeyInputTranslator(qv::CommandManager* commandManager,
+	                         qv::input::EKEY_CODE keyCode,
+	                         qv::input::EKEY_STATE checkKeyState,
+	                         bool realTime,
+	                         qv::CommandArgs* args,
+	                         const ITI_INPUT_TRANSLATOR_ID& inputTranslatorId);
 
-    virtual ~SingleKeyInputTranslator();
+	virtual ~SingleKeyInputTranslator();
 
-    virtual u32 getHashId() const { return mInputTranslatorHashId; }
+	virtual const ITI_INPUT_TRANSLATOR_ID& getId() const {
+		return mInputTranslatorId;
+	}
 
-    virtual u32 getHashType() const { return mInputTranslatorHashType; }
+	virtual const ITT_INPUT_TRANSLATOR_TYPE& getType() const {
+		return mInputTranslatorType;
+	}
 
-    virtual bool translate(qv::input::InputReceiver *context) const;
+	virtual bool translate(const qv::input::InputReceiverContext& context) const;
 
 private:
-    bool mRealTime;
-    u32 mInputTranslatorHashType;
-    u32 mInputTranslatorHashId;
-    qv::CommandManager* mCommandManager;
-    irr::EKEY_CODE mKeyCode;
-    qv::input::EKEY_STATE mCheckKeyState;
-    qv::CommandArgs* mArgs;
+
+	bool mRealTime;
+	qv::CommandManager* mCommandManager;
+	qv::CommandArgs* mArgs;
+	qv::input::ITT_INPUT_TRANSLATOR_TYPE mInputTranslatorType;
+	qv::input::ITI_INPUT_TRANSLATOR_ID mInputTranslatorId;
+	qv::input::EKEY_CODE mKeyCode;
+	qv::input::EKEY_STATE mCheckKeyState;
+
 };
 
 }
