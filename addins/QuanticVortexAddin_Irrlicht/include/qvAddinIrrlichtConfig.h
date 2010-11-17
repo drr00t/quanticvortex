@@ -24,81 +24,51 @@
 
 **************************************************************************************************/
 
+#ifndef _QV_ADDIN_IRRLICHT_CONFIG_H_
+#define _QV_ADDIN_IRRLICHT_CONFIG_H_
 
-#ifndef __COMPILE_CONFIG_H_
-#define __COMPILE_CONFIG_H_
-
-#include "qvConfigProfile.h"
-
-//! QuanticVortex SDK Version
-#define QUANTICVORTEX_VERSION_MAJOR 0
-#define QUANTICVORTEX_VERSION_MINOR 2
-#define QUANTICVORTEX_VERSION_REVISION 0
-
-#define QUANTICVORTEX_PLATAFORM_WINDOWS 1
-
-// This flag will be defined only in Mercurial, the official release code will have
-// it undefined
-//#define QUANTICVORTEX_VERSION_MERCURIAL
-#define QUANTICVORTEX_SDK_VERSION "0.2"
 
 //! WIN32 for Windows32
 //! WIN64 for Windows64
 // The windows platform
 #if defined(_WIN32) || defined(_WIN64) || defined(WIN32) || defined(WIN64)
-#	define QUANTICVORTEX_PLATAFORM QUANTICVORTEX_PLATAFORM_WINDOWS
 
-#include <windows.h>
+#include <windows.h> 
 
-#define LIB_INSTANCE HINSTANCE 
-	// returned by load library
-
-#define LIB_LOAD( libName ) ::LoadLibraryA(libName)
-	// return library HINSTANCE
-	
-#define LIB_SYMBOL( libInstance, dlStartMethod ) GetProcAddress( libInstance, dlStartMethod )
-	// find addin dll addin start method
-	
-#define LIB_UNLOAD( libInstance ) ::FreeLibrary(libInstance)
-	// free load library
-
-
-
-//#	define _QUANTICVORTEX_API_
+//#	define QUANTICVORTEX_ADDIN_PLATAFORM QUANTICVORTEX_PLATAFORM_WINDOWS
+////#	define _QUANTICVORTEX_API_
 #endif
 
 // To build as a static library, you must define _QUANTICVORTEX_STATIC_LIB_
 
 #ifndef _QUANTICVORTEX_STATIC_LIB_
-#	ifdef _QUANTICVORTEX_EXPORTS
-#		define _QUANTICVORTEX_API_ __declspec(dllexport)
+#	ifdef _QUANTICVORTEX_ADDIN_IRRLICHT_EXPORTS
+#		define _QUANTICVORTEX_ADDIN_IRRLICHT_API_ __declspec(dllexport)
 #	else
-#		define _QUANTICVORTEX_API_ __declspec(dllimport)
+#		define _QUANTICVORTEX_ADDIN_IRRLICHT_API_ __declspec(dllimport)
 #	endif // _QUANTICVORTEX_EXPORTS
 #else
-#	define _QUANTICVORTEX_API_
+#	define _QUANTICVORTEX_ADDIN_IRRLICHT_API_
 #endif // _QUANTICVORTEX_STATIC_LIB_
 
 // Declare the calling convention.
 #if defined(_STDCALL_SUPPORTED)
-#	define QUANTICVORTEX_CALLCONV __stdcall
+#	define QUANTICVORTEX_ADDIN_IRRLICHT_CALLCONV __stdcall
 #else
-#	define QUANTICVORTEX_CALLCONV __cdecl
+#	define QUANTICVORTEX_ADDIN_IRRLICHT_CALLCONV __cdecl
 #endif // STDCALL_SUPPORTED
 
 //#else // _QUANTICVORTEX_API_
 
 // Force symbol export in shared libraries built with gcc.
-#	if (__GNUC__ >= 4) && !defined(_QUANTICVORTEX_STATIC_LIB_) && defined(_QUANTICVORTEX_EXPORTS)
-#		 undef _QUANTICVORTEX_API_
-#		define _QUANTICVORTEX_API_ __attribute__ ((visibility("default")))
+#	if (__GNUC__ >= 4) && !defined(_QUANTICVORTEX_STATIC_LIB_) && defined(_QUANTICVORTEX_ADDIN_IRRLICHT_EXPORTS)
+#		 undef _QUANTICVORTEX_ADDIN_IRRLICHT_API_
+#		define _QUANTICVORTEX_ADDIN_IRRLICHT_API_ __attribute__ ((visibility("default")))
 #	else
-#		 undef _QUANTICVORTEX_API_
-#		define _QUANTICVORTEX_API_
+#		 undef _QUANTICVORTEX_ADDIN_IRRLICHT_API_
+#		define _QUANTICVORTEX_ADDIN_IRRLICHT_API_
 #	endif
-#	undef QUANTICVORTEX_CALLCONV
-#	define QUANTICVORTEX_CALLCONV
-
-//#endif // _QUANTICVORTEX_API_
+#	undef QUANTICVORTEX_ADDIN_IRRLICHT_CALLCONV
+#	define QUANTICVORTEX_ADDIN_IRRLICHT_CALLCONV
 
 #endif

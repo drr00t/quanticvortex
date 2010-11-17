@@ -57,8 +57,10 @@
       <File Name="../../include/qvIProcess.h"/>
       <File Name="../../include/qvIProcessManager.h"/>
       <File Name="../../include/qvITimer.h"/>
-      <File Name="../../include/qvGame_Irrlicht.h"/>
       <File Name="../../include/qvAbstractFactory.h"/>
+      <File Name="../../include/qvAddin.h"/>
+      <File Name="../../include/qvAddinManager.h"/>
+      <File Name="../../include/qvLibraryAddin.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="input">
       <File Name="../../include/qvIInputTranslatorFactory.h"/>
@@ -96,7 +98,7 @@
     </VirtualDirectory>
     <VirtualDirectory Name="qv">
       <File Name="../../source/quanticvortex/qvGame.cpp"/>
-      <File Name="../../source/quanticvortex/qvGame_Irrlicht.cpp"/>
+      <File Name="../../source/quanticvortex/qvAddinManager.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="gaming">
       <File Name="../../source/quanticvortex/qvGameLogic.cpp"/>
@@ -110,8 +112,6 @@
     </VirtualDirectory>
     <VirtualDirectory Name="input">
       <File Name="../../source/quanticvortex/qvAnyKeyInputTranslator.cpp"/>
-      <File Name="../../source/quanticvortex/qvInputReceiver_Irrlicht.cpp"/>
-      <File Name="../../source/quanticvortex/qvInputReceiver_Irrlicht.h"/>
       <File Name="../../include/qvSingleKeyInputTranslator.h"/>
       <File Name="../../source/quanticvortex/qvSingleKeyInputTranslator.cpp"/>
     </VirtualDirectory>
@@ -121,10 +121,10 @@
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
+  <Dependencies Name="Windows x86 - DLL - Debug"/>
   <Dependencies Name="Windows x86 - DLL - Release"/>
   <Dependencies Name="Windows x86 - Static - Debug"/>
   <Dependencies Name="Windows x86 - Static - Release"/>
-  <Dependencies Name="Windows x86 - DLL - Debug"/>
   <Settings Type="Dynamic Library">
     <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g;-fno-rtti;-flto" Required="yes" PreCompiledHeader="">
@@ -156,6 +156,7 @@
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../../bin/win32-gcc/QuanticVortex_d.dll" IntermediateDirectory="../../obj/debug" Command="" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
         <StartupCommands/>
@@ -207,6 +208,7 @@
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../../bin/win32-gcc/QuanticVortex_d.dll" IntermediateDirectory="../../obj/Release" Command="" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
         <StartupCommands/>
@@ -257,6 +259,7 @@
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../../bin/win32-gcc/QuanticVortex_d.dll" IntermediateDirectory="../../obj/Release" Command="" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
         <StartupCommands/>
@@ -307,6 +310,7 @@
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../../bin/win32-gcc/QuanticVortex_d.dll" IntermediateDirectory="../../obj/Release" Command="" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
         <StartupCommands/>

@@ -47,6 +47,7 @@ namespace qv
 {
 class CommandManager;
 class AbstractCommand;
+class AddinManager;
 
 namespace gaming
 {
@@ -115,7 +116,7 @@ public:
 	void loadConfiguration();
 	/// load configuration from file, include saved game
 
-
+	void loadAddin(const qv::c8* addinName);
 
 	s32 run(int argc, const char** argv);
 	/// called by user to start main loop of the game.
@@ -165,6 +166,7 @@ private:
 	qv::views::GameViewsArray  mGameViews;
 	qv::views::GameViewFactoryRegistry mGameViewsFactory;
 	qv::input::InputReceiver* mInputReceiver;
+	qv::AddinManager* mAddinManager;
 };
 
 

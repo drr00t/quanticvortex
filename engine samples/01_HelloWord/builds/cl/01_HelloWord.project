@@ -12,12 +12,12 @@
     <File Name="../../source/HelloWordGame.h"/>
     <File Name="../../source/HelloWordGame.cpp"/>
   </VirtualDirectory>
-  <Dependencies Name="Windows x86 - DLL - Release"/>
-  <Dependencies Name="Windows x86 - Static - Debug"/>
-  <Dependencies Name="Windows x86 - Static - Release"/>
   <Dependencies Name="Windows x86 - DLL - Debug">
     <Project Name="QuanticVortex_Core"/>
   </Dependencies>
+  <Dependencies Name="Windows x86 - DLL - Release"/>
+  <Dependencies Name="Windows x86 - Static - Debug"/>
+  <Dependencies Name="Windows x86 - Static - Release"/>
   <Settings Type="Executable">
     <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g;-Wall;-fno-rtti" Required="yes" PreCompiledHeader="">
@@ -34,6 +34,7 @@
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../../../bin/01_HelloWord_d.exe" IntermediateDirectory="../../obj/debug" Command="01_HelloWord_d.exe" CommandArguments="" WorkingDirectory="../../../bin/" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
         <StartupCommands/>
@@ -73,7 +74,8 @@
       </Compiler>
       <Linker Options="-O2" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
-      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="../../../bin" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
         <StartupCommands/>
@@ -117,6 +119,7 @@
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../../../bin/win32-gcc/01_Sample_d.exe" IntermediateDirectory="../../obj/debug" Command="01_Sample_d.exe" CommandArguments="" WorkingDirectory="../../../bin/win32-gcc" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
         <StartupCommands/>
@@ -152,6 +155,7 @@
       <Linker Options="-O2" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
         <StartupCommands/>

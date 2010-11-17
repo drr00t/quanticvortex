@@ -39,7 +39,9 @@
 // engine headers
 #include "qvCommandManager.h"
 #include "qvGameLogic.h"
-//#include "qvInputReceiver.h"
+#include "qvAddinManager.h"
+
+
 
 
 namespace qv
@@ -66,6 +68,8 @@ bool Game::initialize()
 
 	mCommandManager = new qv::CommandManager();
 	mGameLogic = new qv::gaming::GameLogic(mGameParams, mCommandManager);
+	
+	mAddinManager = new qv::AddinManager(this);
 //	mInputReceiver = new qv::input::InputReceiver();
 
 //	mGameViewsFactory.insert(qv::views::GameViewFactoryRegistry::value_type(qv::views::GVT_HUMAN_VIEW.Hash, 
@@ -166,6 +170,10 @@ void Game::loadConfiguration()
 	mGameParams.WindowWidth = 1024;
 	mGameParams.WindowHeight = 768;
 
+}
+//-----------------------------------------------------------------------------
+void Game::loadAddin(const qv::c8* addinName)
+{
 }
 //-----------------------------------------------------------------------------
 void Game::parseCommandLine( int argc, const char** argv)

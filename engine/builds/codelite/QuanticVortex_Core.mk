@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Adriano
-Date                   :=11/10/10
+Date                   :=11/16/10
 CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -48,8 +48,8 @@ LibPath                := "$(LibraryPathSwitch)." "$(LibraryPathSwitch)../../../
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
-Objects=$(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvCommandManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGetopt$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvLoadGameCommand$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvIrrSceneLoader$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) \
-	$(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSceneElementView$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvFileSystem$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/quanticvortex_qvEngineInputTranslatorFactory$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvHashFunctions$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSHashedString$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvCommandManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGetopt$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvLoadGameCommand$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvIrrSceneLoader$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvAddinManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) \
+	$(IntermediateDirectory)/quanticvortex_qvHumanView$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSceneElementView$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvPhysicsManager$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) $(IntermediateDirectory)/quanticvortex_qvFileSystem$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -133,13 +133,13 @@ $(IntermediateDirectory)/quanticvortex_qvGame$(DependSuffix): ../../source/quant
 $(IntermediateDirectory)/quanticvortex_qvGame$(PreprocessSuffix): ../../source/quanticvortex/qvGame.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGame$(PreprocessSuffix) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvGame.cpp"
 
-$(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(ObjectSuffix): ../../source/quanticvortex/qvGame_Irrlicht.cpp $(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvGame_Irrlicht.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(DependSuffix): ../../source/quanticvortex/qvGame_Irrlicht.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(DependSuffix) -MM "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvGame_Irrlicht.cpp"
+$(IntermediateDirectory)/quanticvortex_qvAddinManager$(ObjectSuffix): ../../source/quanticvortex/qvAddinManager.cpp $(IntermediateDirectory)/quanticvortex_qvAddinManager$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvAddinManager.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvAddinManager$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/quanticvortex_qvAddinManager$(DependSuffix): ../../source/quanticvortex/qvAddinManager.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvAddinManager$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvAddinManager$(DependSuffix) -MM "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvAddinManager.cpp"
 
-$(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(PreprocessSuffix): ../../source/quanticvortex/qvGame_Irrlicht.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(PreprocessSuffix) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvGame_Irrlicht.cpp"
+$(IntermediateDirectory)/quanticvortex_qvAddinManager$(PreprocessSuffix): ../../source/quanticvortex/qvAddinManager.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvAddinManager$(PreprocessSuffix) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvAddinManager.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix): ../../source/quanticvortex/qvGameLogic.cpp $(IntermediateDirectory)/quanticvortex_qvGameLogic$(DependSuffix)
 	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvGameLogic.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix) $(IncludePath)
@@ -180,14 +180,6 @@ $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(DependSuffix): .
 
 $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(PreprocessSuffix): ../../source/quanticvortex/qvAnyKeyInputTranslator.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(PreprocessSuffix) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvAnyKeyInputTranslator.cpp"
-
-$(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(ObjectSuffix): ../../source/quanticvortex/qvInputReceiver_Irrlicht.cpp $(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvInputReceiver_Irrlicht.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(DependSuffix): ../../source/quanticvortex/qvInputReceiver_Irrlicht.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(ObjectSuffix) -MF$(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(DependSuffix) -MM "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvInputReceiver_Irrlicht.cpp"
-
-$(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(PreprocessSuffix): ../../source/quanticvortex/qvInputReceiver_Irrlicht.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(PreprocessSuffix) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvInputReceiver_Irrlicht.cpp"
 
 $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix): ../../source/quanticvortex/qvSingleKeyInputTranslator.cpp $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(DependSuffix)
 	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/engine/source/quanticvortex/qvSingleKeyInputTranslator.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix) $(IncludePath)
@@ -235,9 +227,9 @@ clean:
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGame$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGame$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGame$(PreprocessSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvGame_Irrlicht$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvAddinManager$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvAddinManager$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/quanticvortex_qvAddinManager$(PreprocessSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvGameLogic$(PreprocessSuffix)
@@ -253,9 +245,6 @@ clean:
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvAnyKeyInputTranslator$(PreprocessSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/quanticvortex_qvInputReceiver_Irrlicht$(PreprocessSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/quanticvortex_qvSingleKeyInputTranslator$(PreprocessSuffix)
