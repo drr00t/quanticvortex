@@ -65,9 +65,9 @@ public:
 		return mAddinId;
 	}
 
-	virtual void load(qv::Game& game)=0;
+	virtual void load()=0;
 	
-	virtual void unload(qv::Game& game)=0;
+	virtual void unload()=0;
 
 private:
 	qv::AI_ADDIN_ID mAddinId;

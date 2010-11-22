@@ -174,6 +174,7 @@ void Game::loadConfiguration()
 //-----------------------------------------------------------------------------
 void Game::loadAddin(const qv::c8* addinName)
 {
+	mAddinManager->load(addinName);
 }
 //-----------------------------------------------------------------------------
 void Game::parseCommandLine( int argc, const char** argv)

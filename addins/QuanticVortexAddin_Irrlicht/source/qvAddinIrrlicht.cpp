@@ -24,84 +24,39 @@
 
 **************************************************************************************************/
 
+#include "qvAddinIrrlicht.h"
 
-#ifndef __LIBRARY_ADDIN_H_
-#define __LIBRARY_ADDIN_H_
-
-
-#include "qvCompileConfig.h"
-#include "qvAddin.h"
-
-
-typedef qv::Addin* (*ADDIN_DLL_START)(qv::Game* game);
-typedef void (*ADDIN_DLL_STOP)(qv::Addin* addin);
-
-static const char* METHOD_ADDIN_START = "dllLoadAddin";
-static const char* METHOD_ADDIN_STOP  = "dllUnloadAddin";
-
-namespace qv
-{
-class Game;
-}
+#include "qvGame.h"
+#include "qvGameViewFactory.h"
+#include "qvIrrlichtHumanView.h"
 
 
 namespace qv
 {
 
-
-class LibraryAddin
-	/// Virtual FileSystem wrapper
+namespace addins
 {
 
-public:
-	LibraryAddin(const qv::c8* addinFileName)
-	:mLoaded(false)
-	{
-		//preciso armazenar os addins carregados para poder liberar depois.
-		mAddinDLLInstance = LIB_LOAD(addinFileName);
-		
-		if(mAddinDLLInstance)
-			mLoaded = true;
-
-	}
-
-	virtual ~LibraryAddin()
-	{
-		LIB_UNLOAD(mAddinDLLInstance);
-	}
-
-	bool loaded() const
-	{
-		return mLoaded;
-	}
+IrrlichtAddin::IrrlichtAddin(qv::Game* game)
+:qv::Addin("QUANTICVORTEX_IRRLICHT_ADDIN"), mGame(game)
+{
 	
-	qv::Addin* getAddin()
-	{
-		return mAddin;
-	}
+}
+
+IrrlichtAddin::~IrrlichtAddin()
+{
 	
-	qv::Addin* load(qv::Game* game)
-	{
-		ADDIN_DLL_START dlStartMethod = (ADDIN_DLL_START) LIB_SYMBOL(mAddinDLLInstance, METHOD_ADDIN_START);
-		 mAddin = dlStartMethod(game);
-		 return mAddin;
-	}
+}
 
-	void unload()
-	{
+void IrrlichtAddin::load()
+{
+	mGame->addGameView(new qv::addins::IrrlichtHumanView(mGame));
+}
 
-		ADDIN_DLL_STOP dlStopMethod = (ADDIN_DLL_STOP) LIB_SYMBOL(mAddinDLLInstance, METHOD_ADDIN_STOP);
-		
-		dlStopMethod(mAddin);
-	}
-
-private:
-	qv::Addin* mAddin;
-	LIB_INSTANCE mAddinDLLInstance;
-	bool mLoaded;
-
-};
+void IrrlichtAddin::unload()
+{
 
 }
 
-#endif
+}
+}

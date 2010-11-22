@@ -30,41 +30,54 @@
 #include "qvAddinIrrlichtConfig.h"
 #include "qvAddin.h"
 
-#include "irrlicht.h"
 
+namespace qv
+{
+namespace addins
+{
+	
 class IrrlichtAddin: public qv::Addin
+	/// Irrlicht interafce with Quantic Vortex Core, this plugin will add
+	/// renderable objects and input receiver implementation.
 {
 public:
 	IrrlichtAddin(qv::Game* game);
 	virtual ~IrrlichtAddin();
 	
+	virtual void load();
+	
+	virtual void unload();	
+
 private:
-	irr::IrrlichtDevice* mDevice;
-	
-	
+	qv::Game* mGame;
+
 };
+}
+}
 
 
 // Addin inteface instantiation
-// 
+//
 
 qv::Addin* mIrrlichtAddin;
 
 extern "C"
 {
-	_QUANTICVORTEX_ADDIN_IRRLICHT_API_ void dlLoadAddin( qv::Game* game)
+	_QUANTICVORTEX_ADDIN_IRRLICHT_API_ void dllLoadAddin( qv::Game* game)
 	{
-		mIrrlichtAddin = new IrrlichtAddin(game);
+		mIrrlichtAddin = new qv::addins::IrrlichtAddin(game);
 		
-		return mIrrlichtAddin;
+		mIrrlichtAddin->load();
+
 //		game.installAddin(addin);
-		
+
 	}
 
 
-	_QUANTICVORTEX_ADDIN_IRRLICHT_API_ void dlUnloadAddin ()
+	_QUANTICVORTEX_ADDIN_IRRLICHT_API_ void dllUnloadAddin ()
 	// Addin cleanup function
 	{
+		mIrrlichtAddin->unload();
 		delete mIrrlichtAddin;
 	}
 }

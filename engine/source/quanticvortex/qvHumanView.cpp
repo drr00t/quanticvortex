@@ -28,7 +28,7 @@
 #include "qvHumanView.h"
 
 #include "qvSceneElementView.h"
-
+#include "qvGame.h"
 #include "qvCommandManager.h"
 
 
@@ -39,13 +39,13 @@ namespace qv
 namespace views
 {
 //-----------------------------------------------------------------------------------------
-HumanView::HumanView(const qv::views::GVI_GAME_VIEW_ID& gameViewId, qv::CommandManager* commandManager)
+HumanView::HumanView(const qv::views::GVI_GAME_VIEW_ID& gameViewId, qv::Game* game)
         : qv::views::AbstractGameView( gameViewId, 1, qv::views::GVT_HUMAN_VIEW),
         mLastUpdateTime(0.0f), mCurrentEngineTime(0.0f), mAccumulatorTime(0), 
-        mCommandManager(commandManager) /*mProcessManager(0)*/
+        mCommandManager(game->getCommandManager()) /*mProcessManager(0)*/
 {
 
-    addSceneElementView("scene_view", qv::views::EVT_ELEMENT_VIEW_SCENE);
+//    addSceneElementView("scene_view", qv::views::EVT_ELEMENT_VIEW_SCENE);
      
 //     addGuiElementView("gui_view", qv::views::EVT_ELEMENT_VIEW_SCENE);
     

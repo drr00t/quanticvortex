@@ -49,6 +49,7 @@ namespace qv
         LocalPlayers(1),
         AIPlayers(0),  //player vs computer games i can use this to test the ai and animation, maybe
         RemotePlayers(0),
+		RenderFrequency(16),
         Title("Default Game Title")
 		{
 		}
@@ -77,25 +78,27 @@ namespace qv
 			WindowHeight = other.WindowHeight;
 			WindowWidth = other.WindowWidth;
 			
+			RenderFrequency = other.RenderFrequency;
+			
 			return *this;
 		}
-
-		qv::u32 WindowHeight;
-		qv::u32 WindowWidth;
-		
+	
         bool Fullscreen;
 		bool Vsync;
-		qv::u8 Bits;
-
         bool HostGame;
+        bool ShowCursor;
+        bool InputBuffered;
+        bool InputDebug;
+		
+		qv::u8 Bits;
         qv::u8 LocalPlayers;
         qv::u8 AIPlayers;
         qv::u8 RemotePlayers;
 
-        bool ShowCursor;
-        bool InputBuffered;
-        bool InputDebug;
-
+		qv::u32 WindowHeight;
+		qv::u32 WindowWidth;
+		qv::u32 RenderFrequency;
+		
         std::string Title;
         
         //texture size

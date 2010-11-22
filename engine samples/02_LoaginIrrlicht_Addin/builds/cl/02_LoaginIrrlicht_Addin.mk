@@ -3,12 +3,12 @@
 ## any manual changes will be erased      
 ##
 ## Windows_x86_-_DLL_-_Debug
-ProjectName            :=01_HelloWord
+ProjectName            :=02_LoaginIrrlicht_Addin
 ConfigurationName      :=Windows_x86_-_DLL_-_Debug
 IntermediateDirectory  :=../../obj/debug
 OutDir                 := $(IntermediateDirectory)
 WorkspacePath          := "E:\Projetos\QuanticVortex\engine samples"
-ProjectPath            := "E:\Projetos\QuanticVortex\engine samples\01_HelloWord\builds\cl"
+ProjectPath            := "E:\Projetos\quanticvortex\engine samples\02_LoaginIrrlicht_Addin\builds\cl"
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
@@ -30,13 +30,13 @@ PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
 CompilerName           :=g++
 C_CompilerName         :=gcc
-OutputFile             :=../../../bin/01_HelloWord_d.exe
+OutputFile             :=../../../bin/02_QuanticVortexAddin_Irrlicht.exe
 Preprocessors          :=$(PreprocessorSwitch)WIN32 $(PreprocessorSwitch)_DEBUG 
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E 
 MakeDirCommand         :=makedir
-CmpOptions             := -g -Wall -fno-rtti  -DSVN_REVISION=\"\"  $(Preprocessors)
+CmpOptions             := -g -Wall  $(Preprocessors)
 LinkOptions            :=  
 IncludePath            :=  "$(IncludeSwitch)." "$(IncludeSwitch)../../include" "$(IncludeSwitch)../../../../engine/include" "$(IncludeSwitch)../../../../dependencies/include/bullet" "$(IncludeSwitch)../../../../dependencies/include/cAudio/include" 
 RcIncludePath          :=
@@ -65,6 +65,7 @@ $(OutputFile): makeDirStep $(Objects)
 	copy ..\..\..\..\dependencies\bin\win32-gcc\OpenAL32.dll ..\..\..\bin\OpenAL32.dll
 	copy ..\..\..\..\dependencies\bin\win32-gcc\wrap_oal.dll ..\..\..\bin\wrap_oal.dll
 	copy ..\..\..\..\dependencies\bin\win32-gcc\cAp_EAXLegacyPreset.dll ..\..\..\bin\cAp_EAXLegacyPreset.dll
+	copy ..\..\..\..\addins\bin\QuanticVortexAddin_Irrlicht_d.dll ..\..\..\bin\QuanticVortexAddin_Irrlicht_d.dll
 	@echo Done
 
 makeDirStep:
@@ -77,20 +78,20 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/source_main$(ObjectSuffix): ../../source/main.cpp $(IntermediateDirectory)/source_main$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/engine samples/01_HelloWord/source/main.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_main$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "E:/Projetos/quanticvortex/engine samples/02_LoaginIrrlicht_Addin/source/main.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_main$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/source_main$(DependSuffix): ../../source/main.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_main$(ObjectSuffix) -MF$(IntermediateDirectory)/source_main$(DependSuffix) -MM "E:/Projetos/QuanticVortex/engine samples/01_HelloWord/source/main.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_main$(ObjectSuffix) -MF$(IntermediateDirectory)/source_main$(DependSuffix) -MM "E:/Projetos/quanticvortex/engine samples/02_LoaginIrrlicht_Addin/source/main.cpp"
 
 $(IntermediateDirectory)/source_main$(PreprocessSuffix): ../../source/main.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_main$(PreprocessSuffix) "E:/Projetos/QuanticVortex/engine samples/01_HelloWord/source/main.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_main$(PreprocessSuffix) "E:/Projetos/quanticvortex/engine samples/02_LoaginIrrlicht_Addin/source/main.cpp"
 
 $(IntermediateDirectory)/source_HelloWordGame$(ObjectSuffix): ../../source/HelloWordGame.cpp $(IntermediateDirectory)/source_HelloWordGame$(DependSuffix)
-	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/engine samples/01_HelloWord/source/HelloWordGame.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_HelloWordGame$(ObjectSuffix) $(IncludePath)
+	$(CompilerName) $(SourceSwitch) "E:/Projetos/quanticvortex/engine samples/02_LoaginIrrlicht_Addin/source/HelloWordGame.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_HelloWordGame$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/source_HelloWordGame$(DependSuffix): ../../source/HelloWordGame.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_HelloWordGame$(ObjectSuffix) -MF$(IntermediateDirectory)/source_HelloWordGame$(DependSuffix) -MM "E:/Projetos/QuanticVortex/engine samples/01_HelloWord/source/HelloWordGame.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_HelloWordGame$(ObjectSuffix) -MF$(IntermediateDirectory)/source_HelloWordGame$(DependSuffix) -MM "E:/Projetos/quanticvortex/engine samples/02_LoaginIrrlicht_Addin/source/HelloWordGame.cpp"
 
 $(IntermediateDirectory)/source_HelloWordGame$(PreprocessSuffix): ../../source/HelloWordGame.cpp
-	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_HelloWordGame$(PreprocessSuffix) "E:/Projetos/QuanticVortex/engine samples/01_HelloWord/source/HelloWordGame.cpp"
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_HelloWordGame$(PreprocessSuffix) "E:/Projetos/quanticvortex/engine samples/02_LoaginIrrlicht_Addin/source/HelloWordGame.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

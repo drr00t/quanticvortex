@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CodeLite_Project Name="01_HelloWord" InternalType="Console">
+<CodeLite_Project Name="02_LoaginIrrlicht_Addin" InternalType="Console">
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00060001N0005Debug0000000000000001N0007Release0000000000000001N0025Windows x86 - DLL - Debug0000000000000001N0027Windows x86 - DLL - Release0000000000000001N0028Windows x86 - Static - Debug0000000000000001N0030Windows x86 - Static - Release000000000000]]>
@@ -12,9 +12,12 @@
     <File Name="../../source/HelloWordGame.h"/>
     <File Name="../../source/HelloWordGame.cpp"/>
   </VirtualDirectory>
+  <Dependencies Name="Windows x86 - DLL - Release"/>
+  <Dependencies Name="Windows x86 - Static - Debug"/>
+  <Dependencies Name="Windows x86 - Static - Release"/>
   <Settings Type="Executable">
     <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-Wall;-fno-rtti" Required="yes" PreCompiledHeader="">
+      <Compiler Options="-g;-Wall;" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../include"/>
         <IncludePath Value="../../../../engine/include"/>
         <IncludePath Value="../../../../dependencies/include/bullet"/>
@@ -27,7 +30,7 @@
         <Library Value="QuanticVortex_d.dll"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
-      <General OutputFile="../../../bin/01_HelloWord_d.exe" IntermediateDirectory="../../obj/debug" Command="01_HelloWord_d.exe" CommandArguments="" WorkingDirectory="../../../bin/" PauseExecWhenProcTerminates="yes"/>
+      <General OutputFile="../../../bin/02_QuanticVortexAddin_Irrlicht.exe" IntermediateDirectory="../../obj/debug" Command="02_QuanticVortexAddin_Irrlicht.exe" CommandArguments="" WorkingDirectory="../../../bin/" PauseExecWhenProcTerminates="no"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
@@ -41,6 +44,7 @@
         <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\OpenAL32.dll ..\..\..\bin\OpenAL32.dll</Command>
         <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\wrap_oal.dll ..\..\..\bin\wrap_oal.dll</Command>
         <Command Enabled="yes">copy ..\..\..\..\dependencies\bin\win32-gcc\cAp_EAXLegacyPreset.dll ..\..\..\bin\cAp_EAXLegacyPreset.dll</Command>
+        <Command Enabled="yes">copy ..\..\..\..\addins\bin\QuanticVortexAddin_Irrlicht_d.dll ..\..\..\bin\QuanticVortexAddin_Irrlicht_d.dll</Command>
       </PostBuild>
       <CustomBuild Enabled="no">
         <RebuildCommand/>
@@ -188,10 +192,8 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
   </Settings>
-  <Dependencies Name="Windows x86 - DLL - Release"/>
-  <Dependencies Name="Windows x86 - Static - Debug"/>
-  <Dependencies Name="Windows x86 - Static - Release"/>
   <Dependencies Name="Windows x86 - DLL - Debug">
     <Project Name="QuanticVortex_Core"/>
+    <Project Name="QuanticVortexAddin_Irrlicht"/>
   </Dependencies>
 </CodeLite_Project>

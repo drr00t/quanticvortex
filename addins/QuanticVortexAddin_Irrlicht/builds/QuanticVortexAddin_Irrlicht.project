@@ -7,19 +7,24 @@
   </Plugins>
   <Description/>
   <Dependencies/>
-  <VirtualDirectory Name="src"/>
-  <VirtualDirectory Name="include">
-    <File Name="../include/qvAddinIrrlicht.h"/>
-    <File Name="../include/qvAddinIrrlichtConfig.h"/>
+  <VirtualDirectory Name="src">
+    <File Name="../source/qvAddinIrrlicht.cpp"/>
+    <File Name="../source/qvIrrlichtHumanView.cpp"/>
   </VirtualDirectory>
+  <VirtualDirectory Name="include">
+    <File Name="../include/qvAddinIrrlichtConfig.h"/>
+    <File Name="../include/qvAddinIrrlicht.h"/>
+    <File Name="../include/qvIrrlichtHumanView.h"/>
+  </VirtualDirectory>
+  <Dependencies Name="Windows x86 - DLL - Release"/>
   <Settings Type="Dynamic Library">
     <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g" Required="yes" PreCompiledHeader="">
-        <IncludePath Value="../../include"/>
-        <IncludePath Value="../../../../engine/include"/>
-        <IncludePath Value="../../../../dependencies/include/irrlicht/include"/>
-        <IncludePath Value="../../../../dependencies/include/bullet"/>
-        <IncludePath Value="../../../../dependencies/include/cAudio/include"/>
+        <IncludePath Value="../source"/>
+        <IncludePath Value="../include"/>
+        <IncludePath Value="../../../engine/include"/>
+        <IncludePath Value="../../../dependencies/include/irrlicht/include"/>
+        <IncludePath Value="../../../dependencies/include/bullet"/>
         <Preprocessor Value="WIN32"/>
         <Preprocessor Value="_DEBUG"/>
         <Preprocessor Value="_QUANTICVORTEX_ADDIN_IRRLICHT_EXPORTS"/>
@@ -29,6 +34,8 @@
       <Linker Options="" Required="yes">
         <LibraryPath Value="../../../dependencies/libs/win32-gcc"/>
         <LibraryPath Value="../../../dependencies/bin/win32-gcc"/>
+        <LibraryPath Value="../../../engine/bin/win32-gcc"/>
+        <Library Value="QuanticVortex_d.dll"/>
         <Library Value="Irrlicht_d.dll"/>
         <Library Value="cAudio_d.dll"/>
         <Library Value="libbulletdynamics_d"/>
@@ -37,7 +44,7 @@
         <Library Value="libLinearMath_d"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
-      <General OutputFile="../../../bin/$(ProjectName)_d.dll" IntermediateDirectory="../../obj/Debug" Command="" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <General OutputFile="../../bin/$(ProjectName)_d.dll" IntermediateDirectory="../obj/Debug" Command="" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="no"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
@@ -117,4 +124,7 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
   </Settings>
+  <Dependencies Name="Windows x86 - DLL - Debug">
+    <Project Name="QuanticVortex_Core"/>
+  </Dependencies>
 </CodeLite_Project>

@@ -49,10 +49,10 @@ class AbstractGameViewFactory
 {
 public:
 	virtual ~AbstractGameViewFactory();
-	virtual qv::views::AbstractGameView* create(const qv::c8* gameViewName)=0;
+	virtual qv::views::AbstractGameView* create(const qv::views::GVI_GAME_VIEW_ID& gameViewId)=0;
 
-		protected:
-			AbstractGameViewFactory (const AbstractGameViewFactory&);
+protected:
+	AbstractGameViewFactory (const AbstractGameViewFactory&);
 	AbstractGameViewFactory& operator = (const AbstractGameViewFactory&);
 };
 
@@ -63,9 +63,10 @@ template<class T> class GameViewFactory: public qv::views::AbstractGameViewFacto
 {
 public:
 	GameViewFactory();
-	virtual qv::views::AbstractGameView* create(const qv::c8* gameViewName)
+	
+	virtual qv::views::AbstractGameView* create(const qv::views::GVI_GAME_VIEW_ID& gameViewId)
 	{
-		return new T(gameViewName);
+		return new T(gameViewId);
 	}
 };
 

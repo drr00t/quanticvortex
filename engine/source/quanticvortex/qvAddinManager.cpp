@@ -39,14 +39,22 @@ AddinManager::AddinManager(qv::Game* game)
 //-----------------------------------------------------------------------------
 AddinManager::~AddinManager()
 {
-	
+	for(std::vector<qv::LibraryAddin*>::iterator itr = mLibraryAddins.begin(); 
+	itr != mLibraryAddins.end(); itr++)
+	{
+		(*itr)->unload();
+		delete (*itr);
+	}
 }
 //-----------------------------------------------------------------------------
 	qv::Addin* AddinManager::load(const qv::c8* addinLibraryName)
 	{
 		qv::LibraryAddin* library = new qv::LibraryAddin(addinLibraryName);
 		if(library->loaded())
-			return library->load(mGame);
+		{
+			library->load(mGame);
+			mLibraryAddins.push_back(library);		
+		}
 		return 0;
 	}
 //-----------------------------------------------------------------------------

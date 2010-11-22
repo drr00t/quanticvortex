@@ -30,6 +30,7 @@
 
 #include "qvRAIIFactoryImp.h"
 
+#include "qvSGameParams.h"
 #include "qvAbstractGameView.h"
 #include "qvAbstractElementView.h"
 
@@ -38,6 +39,7 @@
 namespace qv
 {
 
+class Game;
 class CommandManager;
 
 namespace views
@@ -52,7 +54,7 @@ namespace views
 {
 
 static const qv::views::GVT_GAME_VIEW_TYPE GVT_HUMAN_VIEW("GVT_HUMAN_VIEW");
-	// define ID to allow query by human view in views collection
+// define ID to allow query by human view in views collection
 
 class _QUANTICVORTEX_API_ HumanView : public qv::views::AbstractGameView
 	/// This class allow a local player to be atached
@@ -61,7 +63,7 @@ class _QUANTICVORTEX_API_ HumanView : public qv::views::AbstractGameView
 	/// rendering data on screen
 {
 public:
-	HumanView(const qv::views::GVI_GAME_VIEW_ID& gameViewId, qv::CommandManager* commandManager);
+	HumanView(const qv::views::GVI_GAME_VIEW_ID& gameViewId, qv::Game* game);
 	///create the HumanView
 
 	virtual ~HumanView();

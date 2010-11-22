@@ -121,13 +121,12 @@
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
-  <Dependencies Name="Windows x86 - DLL - Debug"/>
   <Dependencies Name="Windows x86 - DLL - Release"/>
   <Dependencies Name="Windows x86 - Static - Debug"/>
   <Dependencies Name="Windows x86 - Static - Release"/>
   <Settings Type="Dynamic Library">
     <Configuration Name="Windows x86 - DLL - Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-fno-rtti;-flto" Required="yes" PreCompiledHeader="">
+      <Compiler Options="-g;-Wall;" Required="yes" PreCompiledHeader="">
         <IncludePath Value="../../../engine/include"/>
         <IncludePath Value="../../../engine/source/quanticvortex"/>
         <IncludePath Value="../../../engine/source/quanticvortex/physfs"/>
@@ -142,7 +141,7 @@
         <Preprocessor Value="_CRT_SECURE_NO_WARNINGS"/>
         <Preprocessor Value="__GNUWIN32__"/>
       </Compiler>
-      <Linker Options="-flto" Required="yes">
+      <Linker Options="" Required="yes">
         <LibraryPath Value="../../../dependencies/libs/win32-gcc"/>
         <LibraryPath Value="../../../dependencies/bin/win32-gcc"/>
         <Library Value="Irrlicht_d.dll"/>
@@ -342,4 +341,5 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
   </Settings>
+  <Dependencies Name="Windows x86 - DLL - Debug"/>
 </CodeLite_Project>
