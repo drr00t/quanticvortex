@@ -24,43 +24,66 @@
 
 **************************************************************************************************/
 
-#ifndef _IRRLICHT_HUMAN_VIEW_H_
-#define _IRRLICHT_HUMAN_VIEW_H_
+#ifndef _IRRLICHT_SCENE_ELEMENT_VIEW_H_
+#define _IRRLICHT_SCENE_ELEMENT_VIEW_H_
 
 #include "qvAddinIrrlichtConfig.h"
-#include "qvHumanView.h"
+#include "qvSceneElementView.h"
+#include "qvSGameParams.h"
 
+#include "ISceneUserDataSerializer.h"
 
 namespace irr
 {
 class IrrlichtDevice;
+
+namespace scene
+{
+class ISceneNode;
 }
 
-namespace qv
+namespace io
 {
-struct SGameParams;
+class IAttributes;
 }
+
+}
+
 
 namespace qv
 {
 namespace addins
 {
 
-static const qv::views::GVI_GAME_VIEW_ID GVI_IRRLICHT_HUMAN_VIEW("GVI_IRRLICHT_HUMAN_VIEW");
+static const qv::views::EVI_ELEMENT_VIEW_ID EVI_IRRLICHT_SCENE_VIEW("EVI_IRRLICHT_SCENE_VIEW");
 
-class _QUANTICVORTEX_ADDIN_IRRLICHT_API_ IrrlichtHumanView: public qv::views::HumanView
+class _QUANTICVORTEX_ADDIN_IRRLICHT_API_ IrrlichtSceneElementView: public qv::views::SceneElementView, public irr::scene::ISceneUserDataSerializer
 	/// human view irrlicht implementation.
 {
 public:
-	IrrlichtHumanView(qv::Game* game);
-	virtual ~IrrlichtHumanView();
+	IrrlichtSceneElementView(qv::Game* game, irr::IrrlichtDevice* device);
+	virtual ~IrrlichtSceneElementView();
 
+	virtual void loadScene(const qv::c8* sceneFile);
+	// scene load for irrlicht file
+	
 //	virtual void update(u32 elapsedTimeMs);
 	/// update all view elements, process and all other thing
 	/// sibling to render system, animated gui and mesh
 
 	virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
 	/// render all element view data (scene, gui, shaders)
+
+	//ISceneeUserDataSerializer implementation
+
+	virtual void OnCreateNode(irr::scene::ISceneNode* node);
+
+	virtual void OnReadUserData(irr::scene::ISceneNode* forSceneNode, irr::io::IAttributes* userData);
+
+	virtual irr::io::IAttributes* createUserData(irr::scene::ISceneNode* forSceneNode);
+
+	//ISceneeUserDataSerializer implementation
+
 
 private:
 	irr::IrrlichtDevice* mDevice;

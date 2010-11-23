@@ -24,50 +24,54 @@
 
 **************************************************************************************************/
 
-#ifndef _IRRLICHT_HUMAN_VIEW_H_
-#define _IRRLICHT_HUMAN_VIEW_H_
 
-#include "qvAddinIrrlichtConfig.h"
-#include "qvHumanView.h"
+#ifndef __LOGING_MANAGER_FRAMEWORK_H_
+#define __LOGING_MANAGER_FRAMEWORK_H_
 
 
-namespace irr
-{
-class IrrlichtDevice;
-}
+#include "qvCompileConfig.h"
+#include "qvSHashedString.h"
+
 
 namespace qv
 {
-struct SGameParams;
-}
 
-namespace qv
-{
-namespace addins
+typedef qv::SHashedString E_LOG_LEVEL;
+/// unique identification for an addin
+
+static const E_LOG_LEVEL ELL_INFO("INFO");
+/// log informational level
+
+static const E_LOG_LEVEL ELL_WARN("WARN");
+/// log warnning level
+
+static const E_LOG_LEVEL ELL_DEBUG("DEBUG");
+/// log debug level
+
+static const E_LOG_LEVEL ELL_ERROR("ERROR");
+/// log for error level
+
+
+class LogManager
+	/// logging manager for user data and engine behaviour
 {
 
-static const qv::views::GVI_GAME_VIEW_ID GVI_IRRLICHT_HUMAN_VIEW("GVI_IRRLICHT_HUMAN_VIEW");
-
-class _QUANTICVORTEX_ADDIN_IRRLICHT_API_ IrrlichtHumanView: public qv::views::HumanView
-	/// human view irrlicht implementation.
-{
 public:
-	IrrlichtHumanView(qv::Game* game);
-	virtual ~IrrlichtHumanView();
+	LogManager()
+	{
 
-//	virtual void update(u32 elapsedTimeMs);
-	/// update all view elements, process and all other thing
-	/// sibling to render system, animated gui and mesh
+	}
 
-	virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
-	/// render all element view data (scene, gui, shaders)
+	virtual ~LogManager()
+	{
+	}
 
 private:
-	irr::IrrlichtDevice* mDevice;
-	qv::SGameParams mGameParams;
+
 
 };
-}
+
+
 }
 
 #endif

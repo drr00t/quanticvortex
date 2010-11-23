@@ -24,7 +24,7 @@
 
 **************************************************************************************************/
 
-#include "qvIrrlichtHumanView.h"
+#include "qvIrrlichtGuiElementView.h"
 
 #include "qvGame.h"
 #include "qvSGameParams.h"
@@ -39,27 +39,18 @@ namespace addins
 {
 	
 //-----------------------------------------------------------------------------------------	
-IrrlichtHumanView::IrrlichtHumanView(qv::Game* game)
-:qv::views::HumanView(qv::addins::GVI_IRRLICHT_HUMAN_VIEW, game),
-mGameParams(game->getGameParameters())
+IrrlichtGuiElementView::IrrlichtGuiElementView(qv::Game* game)
+:mGameParams(game->getGameParameters())
 {
-	irr::SIrrlichtCreationParameters parameters;
 
-	parameters.Bits = mGameParams.Bits;
-	parameters.DriverType = irr::video::EDT_OPENGL;
-	parameters.Stencilbuffer = true;
-	parameters.WindowSize = irr::core::dimension2du(mGameParams.WindowWidth, mGameParams.WindowHeight);
-	parameters.Fullscreen = mGameParams.Fullscreen;
-
-	mDevice = irr::createDeviceEx(parameters);
 }
 //-----------------------------------------------------------------------------------------
-IrrlichtHumanView::~IrrlichtHumanView()
+IrrlichtGuiElementView::~IrrlichtGuiElementView()
 {
 	
 }
 //-----------------------------------------------------------------------------------------
-void IrrlichtHumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
+void IrrlichtGuiElementView::render( u32 currentTimeMs, u32 elapsedTimeMs)
 {
     //////// Lock FPS at around 60
     //////if((timeThisFrame - timePreviousFrame) <= 16)
@@ -69,7 +60,6 @@ void IrrlichtHumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
     //////}
     //////timePreviousFrame = timeThisFrame;
 	
-
     //get new system time, but FIXME: should be game time from GameLogic maybe
 //    mCurrentEngineTime = currentTimeMs;
 //
@@ -85,17 +75,8 @@ void IrrlichtHumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
 //            if ((*itr)->visible())
 //                (*itr)->render( mCurrentEngineTime, elapsedTimeMs);
 
-	if(mDevice->run())
-	{
-		mDevice->getVideoDriver()->beginScene(true, true, irr::video::SColor(0,200,200,200));
-	
-		qv::views::HumanView::render(currentTimeMs, elapsedTimeMs);
-	
-//		mDevice->getSceneManager()->drawAll();
-//		mDevice->getGUIEnvironment()->drawAll();
-		
-		mDevice->getVideoDriver()->endScene();
-	}
+		mDevice->getSceneManager()->drawAll();
+		mDevice->getGUIEnvironment()->drawAll();
 
         //register last render call time
 //        mLastUpdateTime = mCurrentEngineTime;
@@ -104,8 +85,8 @@ void IrrlichtHumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
 //    }
 }
 //-----------------------------------------------------------------------------------------
-//void IrrlichtHumanView::update( u32 elapsedTimeMs)
-//{
+void IrrlichtGuiElementView::update( u32 elapsedTimeMs)
+{
 
     //mProcessManager->update(elapsedTimeMs);
 
@@ -118,7 +99,7 @@ void IrrlichtHumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
 //            if(!mGameTickEventArgs)
 //                mGameTickEventArgs = mEventManager->createEventArgs<qv::events::GameTickEventArgs>(qv::events::EET_GAME_LOGIC_TICK_UPDATE);
 //            mEventManager->
-//}
+}
 //-----------------------------------------------------------------------------------------
 
 }

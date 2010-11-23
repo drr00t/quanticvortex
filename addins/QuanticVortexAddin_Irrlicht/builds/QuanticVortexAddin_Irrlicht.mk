@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Adriano
-Date                   :=11/21/10
+Date                   :=11/23/10
 CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -48,7 +48,7 @@ LibPath                := "$(LibraryPathSwitch)." "$(LibraryPathSwitch)../../../
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
-Objects=$(IntermediateDirectory)/source_qvAddinIrrlicht$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtHumanView$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/source_qvAddinIrrlicht$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtHumanView$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -84,6 +84,22 @@ $(IntermediateDirectory)/source_qvIrrlichtHumanView$(DependSuffix): ../source/qv
 $(IntermediateDirectory)/source_qvIrrlichtHumanView$(PreprocessSuffix): ../source/qvIrrlichtHumanView.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_qvIrrlichtHumanView$(PreprocessSuffix) "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtHumanView.cpp"
 
+$(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(ObjectSuffix): ../source/qvIrrlichtGuiElementView.cpp $(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtGuiElementView.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(DependSuffix): ../source/qvIrrlichtGuiElementView.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(ObjectSuffix) -MF$(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(DependSuffix) -MM "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtGuiElementView.cpp"
+
+$(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(PreprocessSuffix): ../source/qvIrrlichtGuiElementView.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(PreprocessSuffix) "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtGuiElementView.cpp"
+
+$(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(ObjectSuffix): ../source/qvIrrlichtSceneElementView.cpp $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtSceneElementView.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(DependSuffix): ../source/qvIrrlichtSceneElementView.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(ObjectSuffix) -MF$(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(DependSuffix) -MM "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtSceneElementView.cpp"
+
+$(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(PreprocessSuffix): ../source/qvIrrlichtSceneElementView.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(PreprocessSuffix) "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtSceneElementView.cpp"
+
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
 ##
@@ -96,6 +112,12 @@ clean:
 	$(RM) $(IntermediateDirectory)/source_qvIrrlichtHumanView$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/source_qvIrrlichtHumanView$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/source_qvIrrlichtHumanView$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(PreprocessSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile)
 

@@ -24,11 +24,12 @@
 
 **************************************************************************************************/
 
-#ifndef _IRRLICHT_HUMAN_VIEW_H_
-#define _IRRLICHT_HUMAN_VIEW_H_
+#ifndef _IRRLICHT_GUI_ELEMENT_VIEW_H_
+#define _IRRLICHT_GUI_ELEMENT_VIEW_H_
 
 #include "qvAddinIrrlichtConfig.h"
-#include "qvHumanView.h"
+#include "qvAbstractElementView.h"
+#include "qvSGameParams.h"
 
 
 namespace irr
@@ -38,7 +39,8 @@ class IrrlichtDevice;
 
 namespace qv
 {
-struct SGameParams;
+	struct SGameParams;
+	class Game;
 }
 
 namespace qv
@@ -46,16 +48,16 @@ namespace qv
 namespace addins
 {
 
-static const qv::views::GVI_GAME_VIEW_ID GVI_IRRLICHT_HUMAN_VIEW("GVI_IRRLICHT_HUMAN_VIEW");
+static const qv::views::EVI_ELEMENT_VIEW_ID EVI_IRRLICHT_GUI("EVI_IRRLICHT_GUI");
 
-class _QUANTICVORTEX_ADDIN_IRRLICHT_API_ IrrlichtHumanView: public qv::views::HumanView
+class _QUANTICVORTEX_ADDIN_IRRLICHT_API_ IrrlichtGuiElementView //: public qv::views::AbstractElementView
 	/// human view irrlicht implementation.
 {
 public:
-	IrrlichtHumanView(qv::Game* game);
-	virtual ~IrrlichtHumanView();
+	IrrlichtGuiElementView(qv::Game* game);
+	virtual ~IrrlichtGuiElementView();
 
-//	virtual void update(u32 elapsedTimeMs);
+	virtual void update(u32 elapsedTimeMs);
 	/// update all view elements, process and all other thing
 	/// sibling to render system, animated gui and mesh
 

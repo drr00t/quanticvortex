@@ -68,10 +68,10 @@ public:
     Actor* getActor( u32 actorHashId)
     /// query a registred actor from game
     {
-        ActorsMap::Node* actorNode = mActors.find(actorHashId);
+//        ActorsMap::Node* actorNode = mActors.find(actorHashId);
         Actor* actor(0);
-        if (actorNode)
-            actor = actorNode->getValue();
+//        if (actorNode)
+//            actor = actorNode->getValue();
         return actor;
     }
 
@@ -80,8 +80,8 @@ public:
     {
         Actor* actor = getActor(actorHashId);
 
-        if (actor)
-            mActors.delink(actorHashId);
+//        if (actor)
+//            mActors.delink(actorHashId);
     }
 
     bool loadGame(const std::string& gameName);

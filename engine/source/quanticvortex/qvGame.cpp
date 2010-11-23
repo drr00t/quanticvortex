@@ -181,7 +181,7 @@ void Game::parseCommandLine( int argc, const char** argv)
 {
 	int c;
 
-	while ((c = getopt( argc, argv, "s:a:")) != EOF)
+	while ((c = getopt( argc, argv, "s:a:")) != '\0')
 	{
 //        switch (c)
 //        {

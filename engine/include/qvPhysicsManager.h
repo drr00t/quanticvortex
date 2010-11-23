@@ -159,7 +159,8 @@ inline void quaternionToEuler(const btQuaternion &TQuat, btVector3 &TEuler)
     TEuler.setY(asinf(-2.0f * (X * Z - Y * W)));
     TEuler.setZ(atan2f(2.0f * (X * Y + Z * W), XSquared - YSquared - ZSquared + WSquared));
 
-    TEuler *= irr::core::RADTODEG;
+//    TEuler *= irr::core::RADTODEG;
+
 }
 
 #endif

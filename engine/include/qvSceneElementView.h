@@ -27,20 +27,14 @@
 #ifndef __SCENE_ELEMENT_VIEW_H_
 #define __SCENE_ELEMENT_VIEW_H_
 
-#include "qvRAIIFactoryImp.h"
 #include "qvAbstractElementView.h"
 #include "qvActor.h"
 
-//#include "ICameraSceneNode.h"
-#include "ISceneManager.h"
 
 namespace qv
 {
 class CommandManager;
-namespace views
-{
-    class IrrSceceLoader;
-}
+class Game;
 }
 
 namespace qv
@@ -49,41 +43,43 @@ namespace views
 {
 
 
-class _QUANTICVORTEX_API_ SceneElementView: public qv::views::AbstractElementView//, public ISceneUserDataSerializer
-            /// class responsable by element views craetion and managment. Scene file load,
-            /// text, graphic scene elements
+class _QUANTICVORTEX_API_ SceneElementView: public qv::views::AbstractElementView
+	/// class responsable by element views craetion and managment. Scene file load,
+	/// text, graphic scene elements
 {
 public:
-    SceneElementView(const qv::c8* elementViewName, qv::CommandManager* commandManager, irr::scene::ISceneManager* sceneManager);
-    virtual ~SceneElementView();
+	SceneElementView(const qv::views::EVI_ELEMENT_VIEW_ID& elementViewId, qv::Game* game);
+	virtual ~SceneElementView();
+
+	void addElementView(qv::views::AbstractElementView* elementView);
 
 //    virtual irr::scene::ICameraSceneNode* getCamera() = 0;
 //    virtual void setCamera(irr::scene::ICameraSceneNode* camera) = 0;
 //
 //    virtual irr::scene::ISceneManager* getSceneManager() = 0;
 
-    virtual void render( qv::u32 currentTimeMs, qv::u32 elapsedTimeMs);
-    /// render all scene elements.
+//	virtual void render( qv::u32 currentTimeMs, qv::u32 elapsedTimeMs);
+	/// render all scene elements.
 
-    virtual void update( qv::u32 elapsedTimeMs);
-    /// update all time dependent scene element
+//	virtual void update( qv::u32 elapsedTimeMs);
+	/// update all time dependent scene element
 
-    void loadScene(const qv::c8* sceneFile);
+	virtual void loadScene(const qv::c8* sceneFile)=0;
 
 //    virtual void addSceneNode(const gaming::SActorArgs& args, u32 actorHashId = 0) = 0;
 //    virtual irr::scene::ISceneNode* findSceneNode( u32 actorHashId) = 0;
 
-    //virtual void OnCreateNode(ISceneNode* node)=0;
-    //virtual void OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData)=0;
-    //virtual io::IAttributes* createUserData(ISceneNode* forSceneNode)=0;
+	//virtual void OnCreateNode(ISceneNode* node)=0;
+	//virtual void OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData)=0;
+	//virtual io::IAttributes* createUserData(ISceneNode* forSceneNode)=0;
 private:
-    qv::CommandManager* mCommandManager;
-    RaiiFactoryImp<qv::views::AbstractElementView> mElementViewsFactory;
-    qv::views::ElementViewsList mElementViews;
-    irr::scene::ISceneManager* mSceneManager;
-    qv::views::IrrSceceLoader* mIrrSceneLoader;
+
+	qv::CommandManager* mCommandManager;
+	qv::views::ElementViewsList mElementViews;
 
 };
+
+
 
 }
 

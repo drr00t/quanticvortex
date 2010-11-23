@@ -30,12 +30,13 @@
 
 // system headers
 #include <vector>
+#include <algorithm>
+#include <tr1/unordered_map>
+
 
 // engine headers
 #include "qvActorTypes.h"
 
-// external headers
-#include "irrMap.h"
 
 #include "LinearMath/btTransform.h"
 
@@ -57,11 +58,10 @@ class Actor
 public:
 
     Actor()
-    :mActorHashId(0), mActorHashType(0),mDefence(0),
-     mMaxLife(0), mLife(0), mSpeed(0.0f, 0.0f, 0.0f),
-     mExperience(0), mVisible(true)
+    :mMaxLife(0), mLife(0), mExperience(0), 
+	mDefence(0), mActorHashId(0), mActorHashType(0),
+	mVisible(true),mSpeed(0.0f, 0.0f, 0.0f)
     {
-
 
     }
 
@@ -126,15 +126,15 @@ private:
     s32 mLife;
     s32 mExperience;
     s32 mDefence;
-    u32 mActorHashType;
     u32 mActorHashId;
+	u32 mActorHashType;
     bool mVisible;
     btVector3 mSpeed;
     btTransform mTransform;
-
+	 
 };
 
-typedef irr::core::map<u32, Actor*> ActorsMap;
+typedef std::tr1::unordered_map<u32, Actor*> ActorsMap;
 typedef std::vector<Actor*> ActorsArray;
 
 

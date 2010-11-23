@@ -46,8 +46,8 @@ class AbstractElementView
 
 public:
 
-    AbstractElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType, qv::u8 elementViewOrder)
-            : mElementViewId(qv::views::EVI_ELEMENT_VIEW_ID(elementViewName)), mElementViewType(elementViewType), mElementViewOrder(elementViewOrder)
+    AbstractElementView(const qv::views::EVI_ELEMENT_VIEW_ID& elementViewId, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType, qv::u8 elementViewOrder)
+            : mElementViewId(elementViewId), mElementViewType(elementViewType), mElementViewOrder(elementViewOrder)
     {
 
     }

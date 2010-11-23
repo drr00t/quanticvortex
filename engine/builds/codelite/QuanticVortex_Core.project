@@ -61,6 +61,7 @@
       <File Name="../../include/qvAddin.h"/>
       <File Name="../../include/qvAddinManager.h"/>
       <File Name="../../include/qvLibraryAddin.h"/>
+      <File Name="../../include/qvLogManager.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="input">
       <File Name="../../include/qvIInputTranslatorFactory.h"/>

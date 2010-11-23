@@ -197,7 +197,7 @@ namespace qv
 		};
 
 		// Key names for serialization and deserialziation propose.
-		static const c8 *KEY_NAME[ ] =
+		static const c8 *EKEY_NAME[ ] =
 		{
 			"-",
 			"Left Button",

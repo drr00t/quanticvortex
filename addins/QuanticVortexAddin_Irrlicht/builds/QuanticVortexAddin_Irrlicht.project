@@ -10,11 +10,15 @@
   <VirtualDirectory Name="src">
     <File Name="../source/qvAddinIrrlicht.cpp"/>
     <File Name="../source/qvIrrlichtHumanView.cpp"/>
+    <File Name="../source/qvIrrlichtGuiElementView.cpp"/>
+    <File Name="../source/qvIrrlichtSceneElementView.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="../include/qvAddinIrrlichtConfig.h"/>
     <File Name="../include/qvAddinIrrlicht.h"/>
     <File Name="../include/qvIrrlichtHumanView.h"/>
+    <File Name="../include/qvIrrlichtGuiElementView.h"/>
+    <File Name="../include/qvIrrlichtSceneElementView.h"/>
   </VirtualDirectory>
   <Dependencies Name="Windows x86 - DLL - Release"/>
   <Settings Type="Dynamic Library">

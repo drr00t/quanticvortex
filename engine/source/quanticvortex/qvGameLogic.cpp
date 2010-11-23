@@ -53,12 +53,12 @@ GameLogic::GameLogic(qv::SGameParams& gameParams, qv::CommandManager* commandMan
 //-----------------------------------------------------------------------------------------
 GameLogic::~GameLogic()
 {
-    qv::gaming::ActorsMap::ParentLastIterator itrActor = mActors.getParentLastIterator();
-
-    while (!itrActor.atEnd())
-        mActors.remove((*itrActor.getNode()).getKey());
-
-    mActors.clear();
+//    qv::gaming::ActorsMap::ParentLastIterator itrActor = mActors.getParentLastIterator();
+//
+//    while (!itrActor.atEnd())
+//        mActors.remove((*itrActor.getNode()).getKey());
+//
+//    mActors.clear();
 }
 //-----------------------------------------------------------------------------------------------
 bool GameLogic::initialize()
@@ -96,8 +96,8 @@ void GameLogic::addActor( u32 actorHashId)
 
     //ask to an actor factory if it possible create an actor with this args
     //if there is no other actor with this ID
-    if (!mActors.find(actorHashId))
-    {
+//    if (!mActors.find(actorHashId))
+//    {
         //if(args.getNodeType().equals_ignore_case("mesh"))
         //{
         //	actor = new MeshActor(args);
@@ -108,7 +108,7 @@ void GameLogic::addActor( u32 actorHashId)
         //	actor = new LightActor(args);
         //	mActors[actor->getActorID().getHashedName()] = actor;
         //}
-    }
+//    }
 }
 //-----------------------------------------------------------------------------------------
 void GameLogic::update( u32 currentTimeMs, u32 elapsedTimeMs)

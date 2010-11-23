@@ -40,17 +40,20 @@ namespace qv
 	struct SGameParams
     {
 		SGameParams()
-        :WindowHeight(768),
-		WindowWidth(1024),
-        Fullscreen(false),
+        :Fullscreen(false),
         Vsync(false),
-        Bits(16),
-        HostGame(false),
+		HostGame(false),
+		InputBuffered(false),
+		InputDebug(false),
+		Bits(16),
         LocalPlayers(1),
         AIPlayers(0),  //player vs computer games i can use this to test the ai and animation, maybe
         RemotePlayers(0),
+		WindowHeight(768),
+		WindowWidth(1024),
 		RenderFrequency(16),
         Title("Default Game Title")
+
 		{
 		}
 
@@ -100,7 +103,8 @@ namespace qv
 		qv::u32 RenderFrequency;
 		
         std::string Title;
-        
+
+		
         //texture size
         //detail level
         //shadow maps
