@@ -71,4 +71,6 @@
 #	undef QUANTICVORTEX_ADDIN_IRRLICHT_CALLCONV
 #	define QUANTICVORTEX_ADDIN_IRRLICHT_CALLCONV
 
+#include "irrlicht.h"
+
 #endif

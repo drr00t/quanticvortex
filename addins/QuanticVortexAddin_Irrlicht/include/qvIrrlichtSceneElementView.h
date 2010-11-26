@@ -27,11 +27,12 @@
 #ifndef _IRRLICHT_SCENE_ELEMENT_VIEW_H_
 #define _IRRLICHT_SCENE_ELEMENT_VIEW_H_
 
+//#include "ISceneUserDataSerializer.h"
+
 #include "qvAddinIrrlichtConfig.h"
 #include "qvSceneElementView.h"
 #include "qvSGameParams.h"
 
-#include "ISceneUserDataSerializer.h"
 
 namespace irr
 {
@@ -55,6 +56,7 @@ namespace qv
 namespace addins
 {
 
+	
 static const qv::views::EVI_ELEMENT_VIEW_ID EVI_IRRLICHT_SCENE_VIEW("EVI_IRRLICHT_SCENE_VIEW");
 
 class _QUANTICVORTEX_ADDIN_IRRLICHT_API_ IrrlichtSceneElementView: public qv::views::SceneElementView, public irr::scene::ISceneUserDataSerializer
@@ -88,7 +90,7 @@ public:
 private:
 	irr::IrrlichtDevice* mDevice;
 	qv::SGameParams mGameParams;
-
+	
 };
 }
 }

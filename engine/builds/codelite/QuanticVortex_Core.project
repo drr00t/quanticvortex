@@ -93,10 +93,6 @@
     <VirtualDirectory Name="commands">
       <File Name="../../source/quanticvortex/qvLoadGameCommand.cpp"/>
     </VirtualDirectory>
-    <VirtualDirectory Name="scene loaders">
-      <File Name="../../source/quanticvortex/qvIrrSceneLoader.cpp"/>
-      <File Name="../../source/quanticvortex/qvIrrSceneLoader.h"/>
-    </VirtualDirectory>
     <VirtualDirectory Name="qv">
       <File Name="../../source/quanticvortex/qvGame.cpp"/>
       <File Name="../../source/quanticvortex/qvAddinManager.cpp"/>

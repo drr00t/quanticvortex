@@ -28,8 +28,6 @@
 
 #include "qvGame.h"
 
-#include "irrlicht.h"
-
 
 namespace qv
 {

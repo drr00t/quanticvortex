@@ -12,6 +12,7 @@
     <File Name="../source/qvIrrlichtHumanView.cpp"/>
     <File Name="../source/qvIrrlichtGuiElementView.cpp"/>
     <File Name="../source/qvIrrlichtSceneElementView.cpp"/>
+    <File Name="../source/qvIrrlichtSceneLoader.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="../include/qvAddinIrrlichtConfig.h"/>
@@ -19,6 +20,8 @@
     <File Name="../include/qvIrrlichtHumanView.h"/>
     <File Name="../include/qvIrrlichtGuiElementView.h"/>
     <File Name="../include/qvIrrlichtSceneElementView.h"/>
+    <File Name="../include/qvIrrlichtInputReceiver.h"/>
+    <File Name="../include/qvIrrlichtSceneLoader.h"/>
   </VirtualDirectory>
   <Dependencies Name="Windows x86 - DLL - Release"/>
   <Settings Type="Dynamic Library">

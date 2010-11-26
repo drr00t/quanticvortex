@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Adriano
-Date                   :=11/23/10
+Date                   :=11/26/10
 CodeLitePath           :="C:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 ArchiveTool            :=ar rcus
@@ -48,7 +48,7 @@ LibPath                := "$(LibraryPathSwitch)." "$(LibraryPathSwitch)../../../
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
-Objects=$(IntermediateDirectory)/source_qvAddinIrrlicht$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtHumanView$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/source_qvAddinIrrlicht$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtHumanView$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtGuiElementView$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(ObjectSuffix) $(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -100,6 +100,14 @@ $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(DependSuffix): ../so
 $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(PreprocessSuffix): ../source/qvIrrlichtSceneElementView.cpp
 	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(PreprocessSuffix) "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtSceneElementView.cpp"
 
+$(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(ObjectSuffix): ../source/qvIrrlichtSceneLoader.cpp $(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(DependSuffix)
+	$(CompilerName) $(SourceSwitch) "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtSceneLoader.cpp" $(CmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(DependSuffix): ../source/qvIrrlichtSceneLoader.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) -MT$(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(ObjectSuffix) -MF$(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(DependSuffix) -MM "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtSceneLoader.cpp"
+
+$(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(PreprocessSuffix): ../source/qvIrrlichtSceneLoader.cpp
+	@$(CompilerName) $(CmpOptions) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(PreprocessSuffix) "E:/Projetos/QuanticVortex/addins/QuanticVortexAddin_Irrlicht/source/qvIrrlichtSceneLoader.cpp"
+
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
 ##
@@ -118,6 +126,9 @@ clean:
 	$(RM) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/source_qvIrrlichtSceneElementView$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/source_qvIrrlichtSceneLoader$(PreprocessSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile)
 

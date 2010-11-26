@@ -26,10 +26,10 @@
 
 #include "qvIrrlichtGuiElementView.h"
 
+
 #include "qvGame.h"
 #include "qvSGameParams.h"
 
-#include "irrlicht.h"
 
 
 namespace qv
