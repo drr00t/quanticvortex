@@ -28,7 +28,7 @@
 #ifndef __HUMAN_VIEW_H_
 #define __HUMAN_VIEW_H_
 
-#include "qvRAIIFactoryImp.h"
+#include <tr1/unordered_map>
 
 #include "qvSGameParams.h"
 #include "qvAbstractGameView.h"
@@ -69,7 +69,7 @@ public:
 	virtual ~HumanView();
 	///create the HumanView
 
-	void attach( u32 actorHashId);
+	void attach( const qv::gaming::AI_ACTOR_ID& actorId);
 	/// attach given view to a actor infromed by user,
 	/// if zero means no actor
 
@@ -81,7 +81,7 @@ public:
 	/// render all element view data (scene, gui, shaders)
 
 	//// Virtual methods to control the layering of interface elements
-	qv::views::SceneElementView* addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType);
+//	qv::views::SceneElementView* addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType);
 
 //    void registerElementViewFactory(IElementViewFactory* factoryToAdd);
 
@@ -89,16 +89,17 @@ public:
 
 private:
 
-	u32 mActorHashId;
+	qv::gaming::AI_ACTOR_ID mActorId;
 	u32 mCurrentEngineTime;    // current view time
 	u32 mLastUpdateTime; // last tick time update
 	u32 mAccumulatorTime;
+	
+	qv::SGameParams mGameParams;
 
 	qv::CommandManager* mCommandManager;
 
 	qv::views::ElementViewsList mElementViews;
-
-	RaiiFactoryImp<qv::views::AbstractElementView> mElementViewFactory;
+	std::tr1::unordered_map< qv::u32,qv::views::AbstractElementView*> mElementViewFactory;
 
 
 	//ProcessManager *mProcessManager;				    // just for gui elements.
@@ -112,9 +113,9 @@ private:
 //
 // inlines
 //
-inline void HumanView::attach( u32 actorHashId = 0)
+inline void HumanView::attach(const qv::gaming::AI_ACTOR_ID& actorId)
 {
-	mActorHashId = actorHashId;
+	mActorId = actorId;
 }
 
 

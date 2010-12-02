@@ -38,7 +38,7 @@
 namespace qv
 {
 
-namespace views
+namespace addins
 {
 
 //-----------------------------------------------------------------------------
@@ -47,10 +47,10 @@ namespace views
 class IrrSceceLoader : public irr::scene::ISceneUserDataSerializer
 {
 public:
-    void OnCreateNode(irr::scene::ISceneNode* node);
-    void OnReadUserData(irr::scene::ISceneNode* forSceneNode, irr::io::IAttributes* userData);
+	void OnCreateNode(irr::scene::ISceneNode* node);
+	void OnReadUserData(irr::scene::ISceneNode* forSceneNode, irr::io::IAttributes* userData);
 
-    irr::io::IAttributes* createUserData(irr::scene::ISceneNode* forSceneNode);
+	irr::io::IAttributes* createUserData(irr::scene::ISceneNode* forSceneNode);
 //    void _setPhysicsAttributes(irr::io::IAttributes* userData, struct PhysicsAttributes& attr);
 
 };

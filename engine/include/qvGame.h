@@ -36,13 +36,6 @@
 #include "qvSGameParams.h"
 
 
-//#if QUANTICVORTEX_RENDER == QUANTICVORTEX_RENDER_IRRLICHT
-//
-//#include "qvGame_Irrlicht.h"
-//
-//#endif
-
-
 namespace qv
 {
 class CommandManager;
@@ -94,9 +87,14 @@ public:
 	void removeGameView(qv::views::AbstractGameView* gameView);
 	/// remvoe a game view from game views collection and delete from memory
 
-
 	qv::views::AbstractGameView* findGameView(const qv::views::GVT_GAME_VIEW_TYPE& gameViewType);
 	/// find a game view on registerd in game views collection.
+
+	void addGameViewFactory( const qv::views::GVT_GAME_VIEW_TYPE& gameViewType, qv::views::AbstractGameViewFactory* gameViewFactory);
+	/// register new game view factory
+
+	void removeGameViewFactory(qv::views::AbstractGameViewFactory* gameViewFactory);
+	/// remove a game view factory from game views factories collection.
 
 	void addCommand(qv::AbstractCommand* command);
 	/// add command to listen command args
@@ -106,7 +104,6 @@ public:
 
 	void findCommand(const qv::CT_COMMAND_TYPE& commandType);
 	/// register command type to used in game
-
 
 	void parseCommandLine( int argc, const char** argv);
 	/// override config file options with commandline options
@@ -164,7 +161,7 @@ private:
 	qv::CommandManager* mCommandManager; /// global event manager
 	qv::CT_COMMAND_TYPE mStartupComandargsType;
 	qv::views::GameViewsArray  mGameViews;
-	qv::views::GameViewFactoryRegistry mGameViewsFactory;
+	qv::views::GameViewsFactoryMap mGameViewsFactory;
 	qv::input::InputReceiver* mInputReceiver;
 	qv::AddinManager* mAddinManager;
 };

@@ -73,6 +73,12 @@ public:
     virtual void render( qv::u32 currentTimeMs, qv::u32 elapsedTimeMs) = 0;
 
     virtual void update( qv::u32 elapsedTimeMs) = 0;
+	
+//	virtual void addChild(qv::views::AbstractElementView* elementView);
+//	
+//	virtual void removeChild(qv::views::AbstractElementView* elementView);
+//	
+//	virtual void findChild(const qv::views::EVI_ELEMENT_VIEW_ID& elementViewId);
 
 private:
     AbstractElementView(const AbstractElementView&);
@@ -95,6 +101,7 @@ struct SortElementViewsLess
 };
 
 typedef std::list<qv::views::AbstractElementView*> ElementViewsList;
+	/// element views list
 
 
 //inlines

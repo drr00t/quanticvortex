@@ -34,7 +34,7 @@
 
 namespace qv
 {
-namespace views
+namespace addins
 {
 //---------------------------------------------------------------------
 void IrrSceceLoader::OnCreateNode(irr::scene::ISceneNode* node) {}
@@ -195,4 +195,5 @@ irr::io::IAttributes* IrrSceceLoader::createUserData(irr::scene::ISceneNode* for
 //}
 //-----------------------------------------------------------------------------------------------
 }
+
 }

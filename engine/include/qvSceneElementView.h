@@ -61,10 +61,11 @@ public:
 //	virtual void render( qv::u32 currentTimeMs, qv::u32 elapsedTimeMs);
 	/// render all scene elements.
 
-//	virtual void update( qv::u32 elapsedTimeMs);
+	virtual void update( qv::u32 elapsedTimeMs);
 	/// update all time dependent scene element
 
 	virtual void loadScene(const qv::c8* sceneFile)=0;
+		/// each scene loader should implement this 
 
 //    virtual void addSceneNode(const gaming::SActorArgs& args, u32 actorHashId = 0) = 0;
 //    virtual irr::scene::ISceneNode* findSceneNode( u32 actorHashId) = 0;
@@ -72,6 +73,7 @@ public:
 	//virtual void OnCreateNode(ISceneNode* node)=0;
 	//virtual void OnReadUserData(ISceneNode* forSceneNode, io::IAttributes* userData)=0;
 	//virtual io::IAttributes* createUserData(ISceneNode* forSceneNode)=0;
+
 private:
 
 	qv::CommandManager* mCommandManager;

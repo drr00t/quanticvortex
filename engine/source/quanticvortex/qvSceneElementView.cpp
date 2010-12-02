@@ -21,5 +21,14 @@ SceneElementView::~SceneElementView()
     mElementViews.clear();
 }
 //-----------------------------------------------------------------------------------------------
+void SceneElementView::update(qv::u32 elapsedTimeMs)
+{
+	qv::views::ElementViewsList::iterator itr = mElementViews.begin();
+	
+	for(;itr != mElementViews.end(); itr++)
+		(*itr)->update(elapsedTimeMs);
+		
 }
+}
+
 }

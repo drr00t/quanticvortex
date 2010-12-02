@@ -31,6 +31,7 @@
 #include <string>
 
 #include "qvTypes.h"
+#include "qvActorTypes.h"
 
 
 

@@ -62,8 +62,6 @@ template<class T> class GameViewFactory: public qv::views::AbstractGameViewFacto
 
 {
 public:
-	GameViewFactory();
-	
 	virtual qv::views::AbstractGameView* create(const qv::views::GVI_GAME_VIEW_ID& gameViewId)
 	{
 		return new T(gameViewId);
@@ -71,7 +69,7 @@ public:
 };
 
 
-typedef std::tr1::unordered_map<qv::u32, qv::views::AbstractGameViewFactory*> GameViewFactoryRegistry;
+typedef std::tr1::unordered_map<qv::u32, qv::views::AbstractGameViewFactory*> GameViewsFactoryMap;
 /// hashmap of command args to command using types.
 
 

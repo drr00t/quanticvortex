@@ -35,9 +35,9 @@
 
 namespace qv
 {
-struct SGameParams;
-
 class CommandManager;
+class Game;
+struct SGameParams;
 
 
 namespace physics
@@ -55,85 +55,86 @@ namespace gaming
 class _QUANTICVORTEX_API_ GameLogic
 {
 public:
-    GameLogic(qv::SGameParams& gameParams, qv::CommandManager* commandManager);
-    /// create GameLogic core object to manage the game and set event manager
-    /// and game parameters
+	GameLogic(qv::Game* game);
+	/// create GameLogic core object to manage the game and set event manager
+	/// and game parameters
 
-    ~GameLogic();
+	~GameLogic();
 
-    void addActor( u32 actorHashId);
-    /// add new actor to the game
+	void addActor( const qv::AI_ACTOR_ID& actorId);
+	/// add new actor to the game
 
 
-    Actor* getActor( u32 actorHashId)
-    /// query a registred actor from game
-    {
+	Actor* getActor( const qv::AI_ACTOR_ID& actorId)
+	/// query a registred actor from game
+	{
 //        ActorsMap::Node* actorNode = mActors.find(actorHashId);
-        Actor* actor(0);
+		Actor* actor(0);
 //        if (actorNode)
 //            actor = actorNode->getValue();
-        return actor;
-    }
+		return actor;
+	}
 
-    void removeActor( u32 actorHashId)
-    /// remove actor from the game, like when actor die or destroyed
-    {
-        Actor* actor = getActor(actorHashId);
+	void removeActor(const qv::AI_ACTOR_ID& actorId)
+	/// remove actor from the game, like when actor die or destroyed
+	{
+		Actor* actor = getActor(actorId);
 
 //        if (actor)
 //            mActors.delink(actorHashId);
-    }
+	}
 
-    bool loadGame(const std::string& gameName);
-    /// load game data, and raise event to inform all subsystems
+	bool loadGame(const std::string& gameName);
+	/// load game data, and raise event to inform all subsystems
 
-    void update( u32 currentTimeMs, u32 elapsedTimeMs);
-    /// update game data, and game tick
+	void update( u32 currentTimeMs, u32 elapsedTimeMs);
+	/// update game data, and game tick
 
 //    void changeState( const qv::gaming::GS_GAME_STATE& newState);
-    /// change the state of game, like: from menu to running
+	/// change the state of game, like: from menu to running
 
-    void setPause(bool pause);
-    /// pause game logic update
+	void setPause(bool pause);
+	/// pause game logic update
 
-    physics::PhysicsManager* getPhysicsManager();
-    /// get physics subsystem access
 
-    //void attachProcess(IProcess* process)
-    //{
-    //	if(mProcessManager)mProcessManager->attach(process);
-    //}
+	physics::PhysicsManager* getPhysicsManager();
+	/// get physics subsystem access
 
-    //void detachProcess(IProcess* process){}
+	//void attachProcess(IProcess* process)
+	//{
+	//	if(mProcessManager)mProcessManager->attach(process);
+	//}
+
+	//void detachProcess(IProcess* process){}
 
 private:
 
-    GameLogic(const GameLogic&); // to avoid copy of game logic
+	GameLogic(const GameLogic&); // to avoid copy of game logic
 
-    GameLogic& operator = (const GameLogic&); // to avoid copy of game logic
+	GameLogic& operator = (const GameLogic&); // to avoid copy of game logic
 
-    bool initialize();
-    /// initialize game logic data, like: physics susbsystem,
-    /// raise initial game state event telling all other subsystem
-    /// that game is ready to go
+	bool initialize();
+	/// initialize game logic data, like: physics susbsystem,
+	/// raise initial game state event telling all other subsystem
+	/// that game is ready to go
 
-    bool finalize();
-    /// finish game logic and all subsystems
+	bool finalize();
+	/// finish game logic and all subsystems
 
-    u32 mCurrentGameStateHashId;
-    u32 mHumanPlayerAttached;
-    bool mPaused;
+	u32 mCurrentGameStateHashId;
+	u32 mHumanPlayerAttached;
+	bool mPaused;
 
-    qv::gaming::ActorsMap mActors;
+	qv::gaming::ActorsMap mActors;
 
-    physics::PhysicsManager* mPhysicsManager; // game physics
-    qv::CommandManager* mCommandManager; // command manager
-    // IProcessManager* mProcessManager;  //game logic AI
+	physics::PhysicsManager* mPhysicsManager; // game physics
+	qv::CommandManager* mCommandManager; // command manager
+	// IProcessManager* mProcessManager;  //game logic AI
 
-    //event args
-    //qv::events::GameTickEventArgs* mGameTickEventArgs;
-    //SPlayerScore mPlayerScore;
-    //list<ActorID*> mAIPlayersAttached;
+	//event args
+	//qv::events::GameTickEventArgs* mGameTickEventArgs;
+	//SPlayerScore mPlayerScore;
+	//list<ActorID*> mAIPlayersAttached;
 
 };
 
@@ -141,12 +142,12 @@ private:
 // inlines
 inline qv::physics::PhysicsManager* GameLogic::getPhysicsManager()
 {
-    return mPhysicsManager;
+	return mPhysicsManager;
 }
 
 inline void qv::gaming::GameLogic::setPause(bool pause)
 {
-    mPaused = pause;
+	mPaused = pause;
 }
 
 }

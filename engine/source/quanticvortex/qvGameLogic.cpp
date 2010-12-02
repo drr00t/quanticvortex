@@ -41,8 +41,8 @@ namespace qv
 namespace gaming
 {
 //-----------------------------------------------------------------------------------------
-GameLogic::GameLogic(qv::SGameParams& gameParams, qv::CommandManager* commandManager)
-        : mPhysicsManager(0), mCommandManager(commandManager), mPaused(false)
+GameLogic::GameLogic(qv::Game* game)
+        : mPhysicsManager(0), mCommandManager(game->getCommandManager()), mPaused(false)
 {
     mPhysicsManager = new qv::physics::PhysicsManager(mCommandManager);
 

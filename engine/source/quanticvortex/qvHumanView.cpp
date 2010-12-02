@@ -42,7 +42,7 @@ namespace views
 HumanView::HumanView(const qv::views::GVI_GAME_VIEW_ID& gameViewId, qv::Game* game)
         : qv::views::AbstractGameView( gameViewId, 1, qv::views::GVT_HUMAN_VIEW),
         mCurrentEngineTime(0.0f), mLastUpdateTime(0.0f), mAccumulatorTime(0), 
-        mCommandManager(game->getCommandManager()) /*mProcessManager(0)*/
+        mCommandManager(game->getCommandManager()) mGameParams(game->getGameParameters())
 {
 
 //    addSceneElementView("scene_view", qv::views::EVT_ELEMENT_VIEW_SCENE);
@@ -95,21 +95,16 @@ void HumanView::render( u32 currentTimeMs, u32 elapsedTimeMs)
 
     mAccumulatorTime += elapsedTimeMs;
 
-    if (mAccumulatorTime > 16) //qv::GF_GAME_RENDER_FRAMERATE)
+    if (mAccumulatorTime > mGameParams.RenderFrequency)
     {
         qv::views::ElementViewsList::iterator itr;
         for (itr = mElementViews.begin(); itr != mElementViews.end(); ++itr)
             if ((*itr)->visible())
                 (*itr)->render( mCurrentEngineTime, elapsedTimeMs);
 
-//            mDevice3d->getSceneManager()->drawAll();
-//
-//            mDevice3d->getGUIEnvironment()->drawAll();
-
         //register last render call time
         mLastUpdateTime = mCurrentEngineTime;
         mAccumulatorTime = 0;
-
     }
 }
 //-----------------------------------------------------------------------------------------
@@ -129,19 +124,19 @@ void HumanView::update( u32 elapsedTimeMs)
 //            mEventManager->
 }
 //-----------------------------------------------------------------------------------------
-qv::views::SceneElementView* HumanView::addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType)
-{
-    qv::views::AbstractElementView* elementView(0); // = 
-        //mElementViewFactory.keep(new qv::views::SceneElementView(elementViewName, mCommandManager));
-
-    mElementViews.push_back(elementView);
-
-    if (mElementViews.size() > 1)
-        mElementViews.sort(SortElementViewsLess());
-
-    return static_cast<qv::views::SceneElementView*>(elementView);
-
-}
+//qv::views::AbstractElementView* HumanView::addElementView(const qv::views::EVI_ELEMENT_VIEW_ID& elementViewId, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType)
+//{
+//    qv::views::AbstractElementView* elementView(0); // = 
+//        //mElementViewFactory.keep(new qv::views::SceneElementView(elementViewName, mCommandManager));
+//
+//    mElementViews.push_back(elementView);
+//
+//    if (mElementViews.size() > 1)
+//        mElementViews.sort(SortElementViewsLess());
+//
+//    return static_cast<qv::views::SceneElementView*>(elementView);
+//
+//}
 //-----------------------------------------------------------------------------------------
 //qv::views::GuiElementView* HumanView::addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType)
 //{
