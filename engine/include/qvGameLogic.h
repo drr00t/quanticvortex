@@ -61,11 +61,11 @@ public:
 
 	~GameLogic();
 
-	void addActor( const qv::AI_ACTOR_ID& actorId);
+	void addActor( const qv::gaming::AI_ACTOR_ID& actorId);
 	/// add new actor to the game
 
 
-	Actor* getActor( const qv::AI_ACTOR_ID& actorId)
+	Actor* getActor( const qv::gaming::AI_ACTOR_ID& actorId)
 	/// query a registred actor from game
 	{
 //        ActorsMap::Node* actorNode = mActors.find(actorHashId);
@@ -75,7 +75,7 @@ public:
 		return actor;
 	}
 
-	void removeActor(const qv::AI_ACTOR_ID& actorId)
+	void removeActor(const qv::gaming::AI_ACTOR_ID& actorId)
 	/// remove actor from the game, like when actor die or destroyed
 	{
 		Actor* actor = getActor(actorId);

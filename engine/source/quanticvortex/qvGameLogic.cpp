@@ -35,6 +35,8 @@
 #include "qvCommandManager.h"
 #include "qvPhysicsManager.h"
 
+#include "qvGame.h"
+
 
 namespace qv
 {
@@ -90,7 +92,7 @@ bool GameLogic::finalize()
     return true;
 }
 //-----------------------------------------------------------------------------------------
-void GameLogic::addActor( u32 actorHashId)
+void GameLogic::addActor(const qv::gaming::AI_ACTOR_ID& actorId)
 {
     Actor* actor(0);
 

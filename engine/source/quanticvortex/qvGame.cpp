@@ -98,10 +98,12 @@ void Game::finalize()
 //	finalizeImpl();
 }
 //-----------------------------------------------------------------------------
-void Game::addGameView(qv::views::AbstractGameView* gameView)
+void Game::addGameView(const qv::views::GVT_GAME_VIEW_TYPE& gameViewType, const qv::views::GVI_GAME_VIEW_ID& gameViewId)
 {
-	if(gameView)
-		mGameViews.push_back(gameView);
+	qv::views::GameViewsFactoryMap::iterator itr = mGameViewsFactory.find(gameViewType.Hash);
+
+	if (itr != mGameViewsFactory.end())
+		mGameViews.push_back(itr->second->create(gameViewId));
 
 	if (mGameViews.size() > 1)
 		std::sort(mGameViews.begin(), mGameViews.end(), SortGameViewsLess());
@@ -141,18 +143,11 @@ void Game::addGameViewFactory(const qv::views::GVT_GAME_VIEW_TYPE& gameViewType,
 		mGameViewsFactory.insert(qv::views::GameViewsFactoryMap::value_type(gameViewType.Hash, gameViewFactory));
 }
 //-----------------------------------------------------------------------------
-void Game::removeGameViewFactory(qv::views::GameViewFactory* gameViewFactory)
+void Game::removeGameViewFactory(qv::views::GVT_GAME_VIEW_TYPE& gameViewType)
 {
-	for ( qv::views::GameViewsFactoryMap::iterator itr = mGameViewsFactory.find(gameViewFactory);
-	{
-		if ((*itr)->getId().Hash == gameView->getId().Hash)
-		{
-			mGameViews.erase(itr);
-			delete gameView; //may be this view should raise some events
-
-			break;
-		}
-	}
+	qv::views::GameViewsFactoryMap::iterator itr = mGameViewsFactory.find(gameViewType.Hash);
+	if (itr == mGameViewsFactory.end())
+		mGameViewsFactory.erase(itr);
 }
 //-----------------------------------------------------------------------------
 //void Game::load( const qv::c8* gamePath, const qv::c8* gameFile)

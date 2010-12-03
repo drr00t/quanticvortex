@@ -45,13 +45,6 @@ typedef SHashedString CT_COMMAND_TYPE;
 
 typedef std::vector<qv::CT_COMMAND_TYPE> CommandTypesArray;
 
-static const CT_COMMAND_TYPE CT_CONTENT_CONFIGURE("CT_CONTENT_CONFIGURE");
-
-namespace views
-{
-static const CT_COMMAND_TYPE CT_SCENE_LOAD("CT_SCENE_LOAD");    
-}
-
 }
 
 #endif

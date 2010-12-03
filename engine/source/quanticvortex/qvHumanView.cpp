@@ -42,7 +42,7 @@ namespace views
 HumanView::HumanView(const qv::views::GVI_GAME_VIEW_ID& gameViewId, qv::Game* game)
         : qv::views::AbstractGameView( gameViewId, 1, qv::views::GVT_HUMAN_VIEW),
         mCurrentEngineTime(0.0f), mLastUpdateTime(0.0f), mAccumulatorTime(0), 
-        mCommandManager(game->getCommandManager()) mGameParams(game->getGameParameters())
+        mCommandManager(game->getCommandManager()), mGameParams(game->getGameParameters())
 {
 
 //    addSceneElementView("scene_view", qv::views::EVT_ELEMENT_VIEW_SCENE);

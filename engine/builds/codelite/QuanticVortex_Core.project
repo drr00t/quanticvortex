@@ -41,6 +41,10 @@
       <File Name="../../include/qvIRecorderView.h"/>
       <File Name="../../include/qvSceneElementView.h"/>
       <File Name="../../include/qvGameViewFactory.h"/>
+      <File Name="../../include/qvGameViewCreateCommandArgs.h"/>
+      <File Name="../../include/qvGameViewRemoveCommandArgs.h"/>
+      <File Name="../../include/qvViewsCommandTypes.h"/>
+      <File Name="../../include/qvGameViewCreateCommand.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="gaming">
       <File Name="../../include/qvActor.h"/>

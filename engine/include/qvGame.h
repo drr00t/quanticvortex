@@ -71,7 +71,7 @@ struct SortGameViewsLess
 	}
 };
 
-class _QUANTICVORTEX_API_ Game //: private GameImpl
+class _QUANTICVORTEX_API_ Game
 	/// engine core object, this work on lowest level and provide a
 	/// generic loop for global service like: EventManager, GameLogic
 {
@@ -81,9 +81,9 @@ public:
 	Game();
 	virtual ~Game();
 
-	void addGameView( qv::views::AbstractGameView* gameView);
+	void addGameView( const qv::views::GVT_GAME_VIEW_TYPE& gameViewType, const qv::views::GVI_GAME_VIEW_ID& gameViewId);
 	/// register new game view
-
+	
 	void removeGameView(qv::views::AbstractGameView* gameView);
 	/// remvoe a game view from game views collection and delete from memory
 
@@ -93,7 +93,7 @@ public:
 	void addGameViewFactory( const qv::views::GVT_GAME_VIEW_TYPE& gameViewType, qv::views::AbstractGameViewFactory* gameViewFactory);
 	/// register new game view factory
 
-	void removeGameViewFactory(qv::views::AbstractGameViewFactory* gameViewFactory);
+	void removeGameViewFactory(qv::views::GVT_GAME_VIEW_TYPE& gameViewType);
 	/// remove a game view factory from game views factories collection.
 
 	void addCommand(qv::AbstractCommand* command);
