@@ -80,8 +80,11 @@ public:
 	virtual void render( u32 currentTimeMs, u32 elapsedTimeMs);
 	/// render all element view data (scene, gui, shaders)
 
+
+protected:
+
 	//// Virtual methods to control the layering of interface elements
-//	qv::views::SceneElementView* addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType);
+	void addSceneElementView(qv::views::SceneElementView* sceneView);
 
 //    void registerElementViewFactory(IElementViewFactory* factoryToAdd);
 
@@ -93,11 +96,8 @@ private:
 	u32 mCurrentEngineTime;    // current view time
 	u32 mLastUpdateTime; // last tick time update
 	u32 mAccumulatorTime;
-	
+	qv::CommandManager* mCommandManager;	
 	qv::SGameParams mGameParams;
-
-	qv::CommandManager* mCommandManager;
-
 	qv::views::ElementViewsList mElementViews;
 	std::tr1::unordered_map< qv::u32,qv::views::AbstractElementView*> mElementViewFactory;
 

@@ -103,7 +103,7 @@ void Game::addGameView(const qv::views::GVT_GAME_VIEW_TYPE& gameViewType, const 
 	qv::views::GameViewsFactoryMap::iterator itr = mGameViewsFactory.find(gameViewType.Hash);
 
 	if (itr != mGameViewsFactory.end())
-		mGameViews.push_back(itr->second->create(gameViewId));
+		mGameViews.push_back(itr->second->create(this));
 
 	if (mGameViews.size() > 1)
 		std::sort(mGameViews.begin(), mGameViews.end(), SortGameViewsLess());

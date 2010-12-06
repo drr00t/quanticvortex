@@ -39,6 +39,11 @@ class IrrlichtDevice;
 namespace qv
 {
 struct SGameParams;
+
+namespace views
+{
+	class SceneElementView;
+}
 }
 
 namespace qv
@@ -65,6 +70,7 @@ public:
 private:
 	irr::IrrlichtDevice* mDevice;
 	qv::SGameParams mGameParams;
+	qv::views::SceneElementView* mScene;
 
 };
 }

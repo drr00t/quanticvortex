@@ -40,6 +40,8 @@
 namespace qv
 {
 
+class Game;
+
 namespace views
 {
 
@@ -49,7 +51,7 @@ class AbstractGameViewFactory
 {
 public:
 	virtual ~AbstractGameViewFactory();
-	virtual qv::views::AbstractGameView* create(const qv::views::GVI_GAME_VIEW_ID& gameViewId)=0;
+	virtual qv::views::AbstractGameView* create(qv::Game* game)=0;
 
 protected:
 	AbstractGameViewFactory (const AbstractGameViewFactory&);
@@ -62,9 +64,9 @@ template<class T> class GameViewFactory: public qv::views::AbstractGameViewFacto
 
 {
 public:
-	virtual qv::views::AbstractGameView* create(const qv::views::GVI_GAME_VIEW_ID& gameViewId)
+	virtual qv::views::AbstractGameView* create(qv::Game* game)
 	{
-		return new T(gameViewId);
+		return new T(game);
 	}
 };
 

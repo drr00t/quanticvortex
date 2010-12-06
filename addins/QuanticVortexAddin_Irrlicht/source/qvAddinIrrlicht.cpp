@@ -50,12 +50,12 @@ IrrlichtAddin::~IrrlichtAddin()
 
 void IrrlichtAddin::load()
 {
-	mGame->addGameView(new qv::addins::IrrlichtHumanView(mGame));
+	mGame->addGameViewFactory(qv::views::GVT_GAME_VIEW_HUMAN, new qv::views::GameViewFactory<qv::addins::IrrlichtHumanView>()));
 }
 
 void IrrlichtAddin::unload()
 {
-
+	mGame->removeGameViewFactory(qv::views::GVT_GAME_VIEW_HUMAN);
 }
 
 }

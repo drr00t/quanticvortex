@@ -29,6 +29,8 @@
 #include "qvGame.h"
 #include "qvSGameParams.h"
 
+#include "qvIrrlichtSceneElementView.h"
+
 
 namespace qv
 {
@@ -39,7 +41,7 @@ namespace addins
 //-----------------------------------------------------------------------------------------	
 IrrlichtHumanView::IrrlichtHumanView(qv::Game* game)
 :qv::views::HumanView(qv::addins::GVI_IRRLICHT_HUMAN_VIEW, game),
-mGameParams(game->getGameParameters())
+mGameParams(game->getGameParameters()),mScene(0)
 {
 	irr::SIrrlichtCreationParameters parameters;
 
@@ -50,6 +52,10 @@ mGameParams(game->getGameParameters())
 	parameters.Fullscreen = mGameParams.Fullscreen;
 
 	mDevice = irr::createDeviceEx(parameters);
+	
+	mScene = new qv::addins::IrrlichtSceneElementView(mDevice);
+	
+	addSceneElementView(mScene);
 }
 //-----------------------------------------------------------------------------------------
 IrrlichtHumanView::~IrrlichtHumanView()

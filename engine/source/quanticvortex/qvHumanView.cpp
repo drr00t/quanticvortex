@@ -138,19 +138,13 @@ void HumanView::update( u32 elapsedTimeMs)
 //
 //}
 //-----------------------------------------------------------------------------------------
-//qv::views::GuiElementView* HumanView::addSceneElementView(const qv::c8* elementViewName, const qv::views::EVT_ELEMENT_VIEW_TYPE& elementViewType)
-//{
-//    qv::views::AbstractElementView* elementView = 
-//        mElementViewFactory.keep(new qv::views::SceneElementView(elementViewName, mCommandManager, mDevice3d->getSceneManager() ));
-//
-//    mElementViews.push_back(elementView);
-//
-//    if (mElementViews.size() > 1)
-//        mElementViews.sort(SortElementViewsLess());
-//
-//    return static_cast<qv::views::SceneElementView*>(elementView);
-//
-//}
+void HumanView::addSceneElementView(qv::views::SceneElementView* sceneView)
+{
+    mElementViews.push_back(sceneView);
+
+    if (mElementViews.size() > 1)
+        mElementViews.sort(SortElementViewsLess());
+}
 //-----------------------------------------------------------------------------------------
 }
 }
