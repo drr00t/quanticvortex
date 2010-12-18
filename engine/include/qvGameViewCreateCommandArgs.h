@@ -31,7 +31,7 @@
 
 #include "qvCommandArgs.h"
 #include "qvViewsCommandTypes.h"
-#include "qvGameViewsTypes.h"
+#include "qvGameViewTypes.h"
 
 
 
@@ -39,49 +39,63 @@ namespace qv
 {
 namespace views
 {
-    
+
 class GameViewCreateCommandArgs: public qv::CommandArgs
 {
 public:
 
-    GameViewCreateCommandArgs()
-    :qv::CommandArgs(qv::views::CT_GAME_VIEW_CREATE)
-    {
-    
-    }
-    /// create a event argument with type
+	GameViewCreateCommandArgs()
+		:qv::CommandArgs(qv::views::CT_GAME_VIEW_CREATE)
+	{
 
-    virtual ~CreateGameViewEventArgs()
-    {
-        
-    }
+	}
+	/// create a event argument with type
 
-    const qv::views::GVT_GAME_VIEW_TYPE& getGameViewType() const;
-    /// human view name
-    
-    void setGameViewType(const qv::views::GVT_GAME_VIEW_TYPE& gameViewType);
-    /// set human view name
-    
+	virtual ~GameViewCreateCommandArgs()
+	{
+
+	}
+
+	const qv::views::GVT_GAME_VIEW_TYPE& getGameViewType() const;
+	/// game view type
+
+	const qv::views::GVI_GAME_VIEW_ID& getGameViewId() const;
+	/// get game view type
+
+	void setGameViewType(const qv::views::GVT_GAME_VIEW_TYPE& gameViewType);
+	/// set game view name
+
+	void setGameViewId(const qv::views::GVI_GAME_VIEW_ID& gameViewId);
+
 private:
 
-    qv::views::GVT_GAME_VIEW_TYPE mGameViewType; // human view name
+	qv::views::GVT_GAME_VIEW_TYPE mGameViewType; // human view name
+	qv::views::GVI_GAME_VIEW_ID mGameViewId;
 
 };
 
 
-//inlines 
+//inlines
 inline const qv::views::GVT_GAME_VIEW_TYPE& GameViewCreateCommandArgs::getGameViewType() const
-{ 
-    return mGameViewType; 
+{
+	return mGameViewType;
 }
 
-inline void CreateGameViewEventArgs::setGameViewType( const qv::views::GVT_GAME_VIEW_TYPE& gameViewType)
-{ 
-    mGameViewType = gameViewType; 
+inline void GameViewCreateCommandArgs::setGameViewType( const qv::views::GVT_GAME_VIEW_TYPE& gameViewType)
+{
+	mGameViewType = gameViewType;
 }
 
+inline const qv::views::GVI_GAME_VIEW_ID& GameViewCreateCommandArgs::getGameViewId() const
+{
+	return mGameViewId;
+}
+
+inline void GameViewCreateCommandArgs::setGameViewId( const qv::views::GVI_GAME_VIEW_ID& gameViewId)
+{
+	mGameViewId = gameViewId;
+}
 }
 }
 
 #endif
-

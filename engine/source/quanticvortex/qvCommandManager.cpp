@@ -31,14 +31,89 @@
 namespace qv
 {
 //-----------------------------------------------------------------------------------------
-CommandManager::CommandManager()
-    : mActiveReadyCommandArgsQueue(0)
+CommandManager::CommandManager(qv::Game* game)
+    : mActiveReadyCommandArgsQueue(0), mGame(game)
 {
 
 }
 //-----------------------------------------------------------------------------------------
 CommandManager::~CommandManager()
 {
+}
+//-----------------------------------------------------------------------------------------
+void CommandManager::addCommand(const qv::CT_COMMAND_TYPE& commandType)
+{
+	qv::AbstractCommand* command(0);
+	
+	if(validateCommandType(commandType))
+	{
+//		qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(commandType.Hash);
+//
+//		for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; itr++)
+//		{
+//			command = static_cast<qv::AbstractCommand*>(itr->second);
+//			if( command->getType() == commandType)
+//				return;
+//		}
+		
+		command = findCommand(commandType);
+		
+		if(command)
+			return;
+		
+		qv::CommandFactoriesMap::iterator itr = mRegistredCommandsFactoryMap.find(commandType.Hash);
+
+		if (itr != mRegistredCommandsFactoryMap.end())
+			command = itr->second->create(mGame);
+	   
+		mRegistredCommandsMap.insert(qv::CommandsMap::value_type( commandType.Hash, command));
+	}
+}
+//-----------------------------------------------------------------------------------------
+void CommandManager::removeCommand(const qv::CT_COMMAND_TYPE& commandType)
+{
+
+		qv::CommandsMap::iterator itr = mRegistredCommandsMap.find(commandType.Hash);
+
+		if (itr != mRegistredCommandsMap.end())
+		{
+			delete itr->second;
+			mRegistredCommandsMap.erase(itr);
+		}
+}
+//-----------------------------------------------------------------------------------------
+qv::AbstractCommand* CommandManager::findCommand(const qv::CT_COMMAND_TYPE& commandType)
+{
+	qv::CommandsMap::iterator itr = mRegistredCommandsMap.find(commandType.Hash);
+	qv::AbstractCommand* command(0);
+	
+	if(itr != mRegistredCommandsMap.end())
+		command = itr->second;
+		
+	return command;
+}
+//-----------------------------------------------------------------------------------------
+void CommandManager::addCommandFactory(const qv::CT_COMMAND_TYPE& commandType, qv::AbstractCommandFactory* commandFactory)
+{
+	// i should rise an error here, or quietly return without add factory?
+	if(!validateCommandType(commandType))
+		return;
+		
+	qv::CommandFactoriesMap::iterator itr = mRegistredCommandsFactoryMap.find(commandType.Hash);
+	
+	if(itr == mRegistredCommandsFactoryMap.end())
+		mRegistredCommandsFactoryMap.insert(qv::CommandFactoriesMap::value_type(commandType.Hash,commandFactory));
+}
+//-----------------------------------------------------------------------------------------
+void CommandManager::removeCommandFactory(const qv::CT_COMMAND_TYPE& commandType)
+{
+	qv::CommandFactoriesMap::iterator itr = mRegistredCommandsFactoryMap.find(commandType.Hash);
+	
+	if(itr != mRegistredCommandsFactoryMap.end())
+	{
+		delete itr->second;
+		mRegistredCommandsFactoryMap.erase(itr);
+	}
 }
 //-----------------------------------------------------------------------------------------
 void CommandManager::registerCommandType(const qv::CT_COMMAND_TYPE& commandType)
@@ -105,14 +180,22 @@ bool CommandManager::executeCommands()
     
     for (qv::u32 i = 0; i < mReadyCommandArgs[processReadyCommandArgsQueue].size(); i++)
     {
-        qv::CommandsMapRangeResult itrResult = 
-            mRegistredCommandsMap.equal_range(mReadyCommandArgs[processReadyCommandArgsQueue][i]->getType().Hash);
+//        qv::CommandsMapRangeResult itrResult = 
+//            mRegistredCommandsMap.equal_range(mReadyCommandArgs[processReadyCommandArgsQueue][i]->getType().Hash);
 
-        for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; ++itr)
-        {
-            itr->second->executeCommand(mReadyCommandArgs[processReadyCommandArgsQueue][i]);
-            eventHandled = true;
-        }
+//        for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; ++itr)
+//        {
+//            itr->second->executeCommand(mReadyCommandArgs[processReadyCommandArgsQueue][i]);
+//            eventHandled = true;
+//        }
+
+		qv::AbstractCommand* command = findCommand(mReadyCommandArgs[processReadyCommandArgsQueue][i]->getType());
+		
+		if(command)
+		{
+			command->executeCommand(mReadyCommandArgs[processReadyCommandArgsQueue][i]);
+			eventHandled = true;
+		}
         
         mCommandArgsFactory.dispose(mReadyCommandArgs[processReadyCommandArgsQueue][i]);
     }
@@ -125,13 +208,20 @@ bool CommandManager::executeCommands()
 bool CommandManager::executeCommand(const qv::CommandArgs* args)
 {
     bool eventHandled = false;
-    qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(args->getType().Hash);
-
-    for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; ++itr)
-    {
-        itr->second->executeCommand(args);
-        eventHandled = true;
-    }
+//    qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(args->getType().Hash);
+//
+//    for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; ++itr)
+//    {
+//        itr->second->executeCommand(args);
+//        eventHandled = true;
+//    }
+	qv::AbstractCommand* command = findCommand(args->getType());
+	
+	if(command)
+	{
+        command->executeCommand(args);
+        eventHandled = true;		
+	}
 
     mCommandArgsFactory.dispose(args);
    

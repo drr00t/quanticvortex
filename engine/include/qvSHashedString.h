@@ -90,9 +90,9 @@ struct SHashedString
     bool operator==( const SHashedString& other) const
     {
 #ifdef _DEBUG
-        return ((this->Hash == other.Hash) && (this->Text == other.Text));
+        return ((Hash == other.Hash) && (Text == other.Text));
 #else
-        return (this->Hash == other.Hash);
+        return (Hash == other.Hash);
 #endif
     }
 //    bool operator!=( const SHashedString& other) const;

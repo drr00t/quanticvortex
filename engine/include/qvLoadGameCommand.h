@@ -41,7 +41,7 @@ class LoadGameCommand: public qv::AbstractCommand
             /// basic interface to execute a command inside the engine
 {
 public:
-    LoadGameCommand(const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType);
+    LoadGameCommand(const qv::CT_COMMAND_TYPE& commandType);
 
     virtual ~LoadGameCommand();
 

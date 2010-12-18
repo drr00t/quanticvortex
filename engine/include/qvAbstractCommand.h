@@ -38,56 +38,59 @@ namespace qv
 {
 
 class AbstractCommand
-            /// basic interface to execute a command inside the engine
+	/// basic interface to execute a command inside the engine
 {
 public:
-    AbstractCommand(const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType)
-    /// command constructor getting name and type of command args
-            : mCommandId(qv::CI_COMMAND_ID(commandName)),
-            mCommandType(commandType)
-    {}
+//	AbstractCommand(const qv::CI_COMMAND_ID& commandId, const qv::CT_COMMAND_TYPE& commandType)
+	/// command constructor getting name and type of command args
+	AbstractCommand( const qv::CT_COMMAND_TYPE& commandType)
+		: mCommandType(commandType)
+	{}
 
-    virtual ~AbstractCommand(){}
-    /// destructor
+	virtual ~AbstractCommand() {}
+	/// destructor
 
-    const qv::CI_COMMAND_ID& getId() const;
-    /// unique command id
+//	const qv::CI_COMMAND_ID& getId() const;
+//	/// unique command id
 
-    const qv::CT_COMMAND_TYPE& getType() const;
-    /// command type family
+	const qv::CT_COMMAND_TYPE& getType() const;
+	/// command type family
 
-    virtual void executeCommand(const qv::CommandArgs* args) = 0;
-    /// body of command
+	virtual void executeCommand(const qv::CommandArgs* args) = 0;
+	/// body of command
 
 private:
 
-    AbstractCommand(const AbstractCommand&); // to avoid copy of command args
-    AbstractCommand& operator = (const AbstractCommand&); // to avoid copy of command args
+	AbstractCommand(const AbstractCommand&); // to avoid copy of command args
+	AbstractCommand& operator = (const AbstractCommand&); // to avoid copy of command args
 
-    qv::CI_COMMAND_ID mCommandId;
-    const qv::CT_COMMAND_TYPE& mCommandType;
-
+//	qv::CI_COMMAND_ID mCommandId;
+	qv::CT_COMMAND_TYPE mCommandType;
 };
 
+
 //inlines
-inline const qv::CI_COMMAND_ID& qv::AbstractCommand::getId() const
-{
-    return mCommandId;
-}
+//inline const qv::CI_COMMAND_ID& qv::AbstractCommand::getId() const
+//{
+//	return mCommandId;
+//}
 
 inline const qv::CT_COMMAND_TYPE& qv::AbstractCommand::getType() const
 {
-    return mCommandType;
+	return mCommandType;
 }
 
 typedef std::vector<qv::AbstractCommand*> CommandArray;
 /// commands vector for fast iteration.
 
-typedef std::tr1::unordered_multimap<u32, qv::AbstractCommand*> CommandsMap;
-/// hashmap of command args to command using types.
+typedef std::tr1::unordered_map<qv::u32, qv::AbstractCommand*> CommandsMap;
+/// hashmap of command to command using types.
 
-typedef std::pair<CommandsMap::iterator, CommandsMap::iterator> CommandsMapRangeResult;
-
+//typedef std::tr1::unordered_multimap<u32, qv::AbstractCommand*> CommandsMap;
+///// hashmap of command args to command using types.
+//
+//typedef std::pair<CommandsMap::iterator, CommandsMap::iterator> CommandsMapRangeResult;
+///// iterator for navegate throught hash_multmap result
 
 }
 

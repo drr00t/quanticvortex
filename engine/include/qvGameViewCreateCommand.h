@@ -30,37 +30,44 @@
 
 #include "qvAbstractCommand.h"
 #include "qvGameViewCreateCommandArgs.h"
+#include "qvGame.h"
 
 namespace qv
 {
-    class Game;
+class Game;
 }
-  
+
 namespace qv
 {
 namespace views
 {
+	
+static const qv::CI_COMMAND_ID CI_GAME_VIEW_CREATE("CI_GAME_VIEW_CREATE");
 
 class GameViewCreateCommand: public qv::AbstractCommand
-    /// basic interface to execute a command inside the engine
+	/// basic interface to execute a command inside the engine
 {
 public:
-    CreateGameViewCommand(qv::Game* game);
-    
-    virtual ~CreateGameViewCommand();
-
-    virtual void executeCommand(qv::CommandArgs* args)
-		/// body of command
+	GameViewCreateCommand(const qv::CI_COMMAND_ID& commandId, qv::Game* game)
+		:qv::AbstractCommand(commandId,qv::views::CT_GAME_VIEW_CREATE), mGame(game)
 	{
-		qv::views::GameViewCreateCommandArgs* gameViewArgs = 
-			static_cast<qv::views::GameViewCreateCommandArgs*>(args);
-			
-		mGame->addGameView()
-		
+
+	}
+
+	virtual ~GameViewCreateCommand() {}
+
+	virtual void executeCommand(qv::CommandArgs* args)
+	/// body of command
+	{
+		qv::views::GameViewCreateCommandArgs* gameViewArgs =
+		    static_cast<qv::views::GameViewCreateCommandArgs*>(args);
+
+		mGame->addGameView(gameViewArgs->getGameViewType(), gameViewArgs->getGameViewId());
+
 	}
 
 private:
-    qv::Game* mGame;
+	qv::Game* mGame;
 };
 
 }
@@ -68,4 +75,3 @@ private:
 }
 
 #endif
-

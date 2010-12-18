@@ -61,11 +61,11 @@
       <File Name="../../include/qvIProcess.h"/>
       <File Name="../../include/qvIProcessManager.h"/>
       <File Name="../../include/qvITimer.h"/>
-      <File Name="../../include/qvAbstractFactory.h"/>
       <File Name="../../include/qvAddin.h"/>
       <File Name="../../include/qvAddinManager.h"/>
       <File Name="../../include/qvLibraryAddin.h"/>
       <File Name="../../include/qvLogManager.h"/>
+      <File Name="../../include/qvCommandFactory.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="input">
       <File Name="../../include/qvIInputTranslatorFactory.h"/>

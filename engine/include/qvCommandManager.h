@@ -30,8 +30,11 @@
 
 #include "qvCompileConfig.h"
 #include "qvAbstractCommand.h"
+#include "qvCommandFactory.h"
 
-#include "qvRAIIFactoryImp.h"
+//#include "qvRAIIFactoryImp.h"
+
+#include "qvGame.h"
 
 
 namespace qv
@@ -42,41 +45,58 @@ class _QUANTICVORTEX_API_ CommandManager
             /// command associated to each one. EventCommand are listeners
 {
 public:
-    CommandManager();
+    CommandManager(qv::Game* game);
     virtual ~CommandManager();
+	
+	void addCommand( const qv::CT_COMMAND_TYPE& commandType);
+	/// register new command
+	
+	void removeCommand(const qv::CT_COMMAND_TYPE& commandType);
+	/// remove a game view from command collection and delete from memory
+
+	qv::AbstractCommand* findCommand(const qv::CT_COMMAND_TYPE& commandType);
+	/// find a game view on registerd in game views collection.
+
+	void addCommandFactory( const qv::CT_COMMAND_TYPE& commandType, qv::AbstractCommandFactory* commandFactory);
+	/// register new game view factory
+
+	void removeCommandFactory(const qv::CT_COMMAND_TYPE& commandType);
+	/// remove a game view factory from game views factories collection.
 
     bool deleteCommand ( qv::AbstractCommand* command) const
     /// remove a command from listeners command type map
     {
         
 //        mRegistredCommandsMap.erase(command->getType().Hash);
-        {
+//        {
 //            mCommandsFactory.dispose(command);
-            
-            return true;
-        }
+//            
+//            return true;
+//        }
         
         return false;
     }
     
-    template <typename TCommand, typename TArgs> qv::AbstractCommand* createCommand( const qv::c8* commandName, const qv::CT_COMMAND_TYPE& commandType, TArgs* args)
+    template <typename TCommand> qv::AbstractCommand* createCommand( const qv::CI_COMMAND_ID& commandId, const qv::CT_COMMAND_TYPE& commandType)
         /// create command of TCommand type and get TArgs in your ctor to be used.
     {
          qv::AbstractCommand* command(0);
 
-        if(validateCommandType(commandType))
-        {
-            qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(commandType.Hash);
-
-            for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; itr++)
-                if( itr->second->getId().Hash == qv::CI_COMMAND_ID(commandName).Hash)
-                    return command;
-            
-            command = mCommandsFactory.keep(new TCommand(commandName, commandType, args));
-           
-            mRegistredCommandsMap.insert(CommandsMap::value_type( command->getType().Hash, command));
-        }
-        
+//        if(validateCommandType(commandType))
+//        {
+//            qv::CommandsMapRangeResult itrResult = mRegistredCommandsMap.equal_range(commandType.Hash);
+//
+//            for (CommandsMap::iterator itr = itrResult.first; itr != itrResult.second; itr++)
+//			{
+//				command = static_cast<qv::AbstractCommand*>(itr->second);
+//				if( command->getId() == commandId)
+//					return command;
+//			}
+//            command = mCommandsFactory.keep(new TCommand( commandId, mGame));
+//           
+//            mRegistredCommandsMap.insert(CommandsMap::value_type( command->getType().Hash, command));
+//        }
+//        
         return command;
     }
     
@@ -123,11 +143,13 @@ private:
     static const s32 QueueCommandArgsLenght = 2; // double buffer queue
     qv::CommandTypesArray mValidCommandTypes; // registred valid event types
     qv::CommandsMap mRegistredCommandsMap; //
+	qv::CommandFactoriesMap mRegistredCommandsFactoryMap;
     qv::CommandArgsArray mReadyCommandArgs[QueueCommandArgsLenght]; //to event lists to double buffering
 //    //	ConcurrentEventList mRealtimeReadyEvents; //this get high priority than mRadyEvents;
-    RaiiFactoryImp<qv::AbstractCommand> mCommandsFactory;
-    RaiiFactoryImp<qv::CommandArgs> mCommandArgsFactory; // create and control life cicle of command args
+//    RaiiFactoryImp<qv::AbstractCommand> mCommandsFactory;
+//    RaiiFactoryImp<qv::CommandArgs> mCommandArgsFactory; // create and control life cicle of command args
     qv::u32 mActiveReadyCommandArgsQueue;
+	qv::Game* mGame;
     
 };
 

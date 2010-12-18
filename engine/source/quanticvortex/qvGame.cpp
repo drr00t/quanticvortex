@@ -38,6 +38,9 @@
 
 // engine headers
 #include "qvCommandManager.h"
+#include "qvGameViewCreateCommand.h"
+//#include "qvGameViewRemoveCommand.h"
+
 #include "qvGameLogic.h"
 #include "qvAddinManager.h"
 
@@ -66,14 +69,13 @@ bool Game::initialize()
 
 	loadConfiguration(); // load default configuration files, if present
 
-	mCommandManager = new qv::CommandManager();
+	mCommandManager = new qv::CommandManager(this);
 	mGameLogic = new qv::gaming::GameLogic(this);
 	mAddinManager = new qv::AddinManager(this);
 //	mInputReceiver = new qv::input::InputReceiver();
 
-//	mGameViewsFactory.insert(qv::views::GameViewFactoryRegistry::value_type(qv::views::GVT_HUMAN_VIEW.Hash,
-//												new qv::views::GameViewFactory<qv::views::HumanView>()));
-
+	mCommandManager->registerCommandType(qv::views::CT_GAME_VIEW_CREATE);
+	mCommandManager->createCommand<qv::views::GameViewCreateCommand>(qv::views::CI_GAME_VIEW_CREATE, qv::views::CT_GAME_VIEW_CREATE);
 	// maybe each one raise next state
 	// initialize game logic - here game logic will get parâmeters configure internal things like: physics, sound, actor managment
 	// loading resources - maybe preloading something musics and textures

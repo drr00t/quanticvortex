@@ -24,29 +24,53 @@
 
 **************************************************************************************************/
 
-#include "qvLoadGameCommand.h"
+
+#ifndef __COMMAND_FACTORY_H_
+#define __COMMAND_FACTORY_H_
+
+//system headers
+#include <algorithm>
+#include <tr1/unordered_map>
+
+//engine headers
+#include "qvAbstractCommand.h"
+
 
 
 namespace qv
 {
-namespace gaming
-{
 
-//-----------------------------------------------------------------------------------------
-LoadGameCommand::LoadGameCommand(const qv::CT_COMMAND_TYPE& commandType)
-:qv::AbstractCommand(commandType)
+class Game;
+
+class AbstractCommandFactory
+	/// base class for all game views creation
+
 {
-}
-//-----------------------------------------------------------------------------------------
-LoadGameCommand::~LoadGameCommand()
+public:
+	virtual ~AbstractCommandFactory();
+	virtual qv::AbstractCommand* create(qv::Game* game)=0;
+
+protected:
+	AbstractCommandFactory (const AbstractCommandFactory&);
+	AbstractCommandFactory& operator = (const AbstractCommandFactory&);
+};
+
+
+template<class T> class CommandFactory: public qv::AbstractCommandFactory
+	/// template class for command objects creation of type T
+
 {
-}
-//-----------------------------------------------------------------------------------------
-void LoadGameCommand::executeCommand(const qv::CommandArgs* args)
-{
+public:
+	virtual qv::AbstractCommand* create(qv::Game* game)
+	{
+		return new T(game);
+	}
+};
+
+
+typedef std::tr1::unordered_map<qv::u32, qv::AbstractCommandFactory*> CommandFactoriesMap;
+/// hashmap of command args to command using types.
+
 
 }
-
-}
-
-}
+#endif
